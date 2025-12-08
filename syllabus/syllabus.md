@@ -2,44 +2,36 @@
 author:
 - Calvin Deutschbein
 date: Spring 2025
-title: OS
-subtitle: CS-371 Advanced Systems Computing, Operating Systems 
+title: AI 101 
+subtitle: CS-199 Top. Understanding AI
 format: typst 
 ---
 
 |||
   |:--------------------------------------------|---------------------------------------------------------------------------:|
  | [ckdeutschbein@willamette.edu](ckdeutschbein@willamette.edu) | [cd-public.github.io/](https://cd-public.github.io/)|
- | Office Hours: MWF 1200-1300                               |                            Lecture: MWF 1:10-2:40 |
+ | Office Hours: MWF 1200-1300                               |                            Lecture: MWF 10:20-11:50 |
 | Office: Ford 307, Discord |                                                                                       Classroom: Salem TBD |
 
 # Course Description 
 
-## Advanced Systems Computing
+## CS-199 
 
-A semester-long study of computer architecture and organization, information management, networking and communication, operating systems, or parallel and distributed computing that applies or extends the content of CS 271 or more advanced classes.
+A semester-long study of topics in Computer Science. Topics and emphases will vary according to the instructor. This course may be repeated for credit with different topics.
 
-## Operating Systems
+## Understanding AI
 
-This course studies design and implementation of operating systems. Beginning with a bare metal binary, students will iteratively implement a minimal operating system kernel on an emulated embedded system using a systems programming language such as Rust or C. Students will scientifically examine the hardware/software interface through topics such as memory management, processes, context switches, kernels, interrupts, system calls, and signals.
-
-In Spring 2025, the course will be conducted in Rust, though students are welcome to complete the coursework in C or Zig under their own self-direction pending individual approval from the course instructor.
+The promise of artificial intelligence has captured the collective imaginations of millions of people. Can machines think? What does it mean to be intelligent? What's next? Guided by student inquiry, we will learn how to construct thinking - or the appearance thereof - from following basic instructions. Using simple problems from games, image recognition, and text prediction, we will develop simple models that capture the ideas of the most advanced AI models.. With this shared experience, we will be able to reflect more thoughtfully on the implications of artificial intelligence on the self, culture, and society.
 
 # About Me
 
 Calvin Deutschbein is an assistant professor of computer science.
 
-# Required Materials {#required-materials .unnumbered}
+# Required Materials 
 
 Required materials for a given class will be available on the [course
 webpage](https://cd-public.github.io/). All course materials will
 be made available at no cost to the student.
-
-## Supplementary Text 
-
-[Writing an OS in Rust](https://os.phil-opp.com/) will be provided to students in electronic copy.
-
-[Writing a Hypervisor in 1,000 Lines](https://seiya.me/blog/hypervisor-in-1000-lines) is a helpful supplementary text.
 
 # Accessability 
 
@@ -66,28 +58,18 @@ better!
 
 # Course Structure 
 
-The course will be composed of lecture, labs, and hoemwork on systems
-computing.
+The course will be composed of lecture, labs, and homework.
 
 ## Class Structure 
 
-Classes are scheduled for Monday and Wednesday at 13:10 PM. The lecture
-schedule is on the [course webpage](https://cd-rs.github.io/os).
+Classes are scheduled for Monday and Wednesday at 10:20 PM. The lecture
+schedule is on the [course webpage](https://cd-public.github.io/ai101).
 
-### Midterm
+## Feedback and Grading 
 
-There will be an in-class code-based midterm, which will be
-"open-everything\" (except other students).
+### Grading Scale 
 
-### Final
-
-The final is the release of an open-source operating system maintained under version control. 
-
-## Feedback and Grading {#feedback-and-grading .unnumbered}
-
-### Grading Scale {#grading-scale .unnumbered}
-
-We will vote in the first week of class whether to use ungrading or specification grading. Both candidates will be covered in the first class and voted on by students.
+This course will be ungraded.
 
 # Course Policies
 
@@ -98,9 +80,6 @@ is permitted on homeworks and labs, none on the midterm, and partners on
 the final. This will conducted via honor system unless I receive a
 (anonymous) student complaint.
 
-## AI Policy
-
-Use of anything considered AI is allowed but not recommended. I've tried using it and thought it was horrible. There are variety of good tools that actually work I would recommend instead, beginning with the tools installed in the first week of class.
 
 ## College Policies 
 
