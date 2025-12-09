@@ -1,25 +1,25 @@
 ---
-title: OS in Rust
+title: AI 101 
 author: ""
 subtitle: ""
 format: html
 ---
 
-# CS 371 "OS in Rust"
+# CS 199 "Understanding AI"
 
 - Called:
-    - CS 371: Advanced Systems Computing, Adv. Operating Systems
-- The second semester class in a:
-    - Compiled language, with
-    - No garbage collector.
-- In the second semester, one of the $n$ great systems
-    - Operating System (OS)
-    - Compiler
-    - Web Server
-- Taught this year on OS and in Rust.
-    - So to me, "OS in Rust"
+    - CS 199: Topics: Understanding AI
+    - AI 101
+- A non-technical survey semester over:
+    - Some trends in AI use
+    - Some historical conversations around AI
+    - Some technical background in implementing minimal AI
+- Taught this year via Google Colab.
+    - It's fast (it's not)
+    - It's free (to us for now)
+    - It's fun (trust me)
 
-### MW 1310-1440
+### MW 1020-1150
 
 ### [Prof. Calvin](mailto:ckdeutschbein@willamette.edu)
 
@@ -31,24 +31,24 @@ format: html
 
 |Week|Date (M)|Lecture (M)|Lab (W)|HW (F)|
 |:--:|:---|:----|:-------|:-------|
-|0x0|01/12|Derust|`wc`|LISP|
-|0x1|01/19|[`None`](https://www2.hawaii.edu/~freeman/courses/phil100/17.%20MLK%20Beyond%20Vietnam.pdf)|Unsafe|`sub` list|
-|0x2|01/26|OSes|`bash`|`scm.sh`|
-|0x3|02/02|Binary|
-|0x4|02/09|Kernel|
-|0x5|02/16|Text|
-|0x6|02/23|Testing|
-|0x7|03/02|Exceptions|
-|0x8|03/09|Faults|
-|0x9|03/16|Interrupts|
+|0x0|01/12|Turing's Test|ChatBots|Introductions|
+|0x1|01/19|[`None`](https://www2.hawaii.edu/~freeman/courses/phil100/17.%20MLK%20Beyond%20Vietnam.pdf)|Colab|Hello, World!|
+|0x2|01/26|Knowledge Rep.|Decision Trees|Taxonomy|
+|0x3|02/02|Perceptron|Perceptron|Dice| <!-- History, practice, dice -->
+|0x4|02/09|Formalisms|Error|Matplotlib|
+|0x5|02/16|Tensors|Torch|Linear Regression|
+|0x6|02/23|Pixels|Pixel Map|Gradients|
+|0x7|03/02|CNNs|Pyramid|Pets|
+|0x8|03/09|Adversity|Autoencode|
+|0x9|03/16|GANs|Style|
 |0bX|03/23|`None`|`None`|`None`|
-|0xA|03/30|Paging|
-|0xB|03/06|Page Tables|
-|0xC|04/13|The Heap|
-|0xD|04/20|Allocators|[`None`](https://my.willamette.edu/site/ssrd)||
-|0xE|04/29|`async`||`None`|
+|0xA|03/30|Text Rep.|
+|0xB|03/06|Word2Vec|
+|0xC|04/13|RNNs|
+|0xD|04/20|Transformers|[`None`](https://my.willamette.edu/site/ssrd)||
+|0xE|04/29|Perspectives||`None`|
 
-*Final OS due whenever the final exam would finish, TBA*
+*Final course reflection ("Perspectives") due whenever the final exam would finish, TBA*
 
 
 # Lecture Recordings
