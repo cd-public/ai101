@@ -33,16 +33,16 @@ format: html
 
 |Week|Date (M)|Lecture (M)|Lab (W)|HW (F)|
 |:--:|:---|:----|:-------|:-------|
-|0x0|01/12|Turing's Test|ChatBots|Introductions|
+|0x0|01/12|Turing's Test|ChatBots|Introductions| <!-- tech detox? -->
 |0x1|01/19|[`None`](https://www2.hawaii.edu/~freeman/courses/phil100/17.%20MLK%20Beyond%20Vietnam.pdf)|Colab|Hello, World!|
 |0x2|01/26|Supervision|Data Sources|Distributions| <!-- Supervised + Unsupervised + Reinforcement Learning --->
 |0x3|02/02|Classification|Reformulation|Case Studies| <!-- Classification + Regression + Clustering -->
 |0x4|02/09|Decision Trees|JSON|Taxonomy|
 |0x5|02/16|Perceptron|Pixels|Dice|
-|0x6|02/23|Pixels|Pixel Map|Gradients|
-|0x7|03/02|Error|Descent|Plotly| <!-- incl. back propagation -->
-|0x8|03/09|Tensors|Tensorflow|Tensorflow|
-|0x9|03/16|Connectivity|Style| <!-- fully connected networks, https://docs.nvidia.com/deeplearning/performance/dl-performance-fully-connected/index.html -->
+|0x6|02/23|Error|Descent|Plotly| <!-- incl. back propagation -->
+|0x7|03/02|Tensors|Tensorflow|Tensorflow|
+|0x8|03/09|Connectivity|| <!-- fully connected networks, https://docs.nvidia.com/deeplearning/performance/dl-performance-fully-connected/index.html -->
+|0x9|03/16|Latent Space|Models|
 |0bX|03/23|`None`|`None`|`None`|
 |0xA|03/30|Text Rep.|Tokens|
 |0xB|03/06|Transformers| <!-- Weight matrices (K, Q, V), and Multiple Heads-->
