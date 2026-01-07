@@ -823,7 +823,7 @@
     "href": "01_test.html#computing-machinery-and-intelligence-1950",
     "title": "Turing’s Test",
     "section": "“Computing Machinery and Intelligence” (1950)",
-    "text": "“Computing Machinery and Intelligence” (1950)\nTuring’s primary work on intelligence was released in 1950, and began a simple statement:\n\n“I propose to consider the question ‘Can machines think?’”\n\nTuring used the motivating example of the imitation game, a party game “in which a man and a woman go into separate rooms and guests try to tell them apart by writing a series of questions and reading the typewritten answers sent back”. Saygin (2000)1 visualizes the game as follows:\n\n\n\n\n\n\n\n\n\nIdentity in the Architecture\n\n\n\nIt would be irresponsible not to remark that Turing, a queer scientist, used the formulation of gender to motivate the definition of machine intelligence. That is, the very identity for which Turing was persecuted (and likely assassinated) was critical to his insights that, among other things, won the Western Theatre for the Allies.\n\n\nTuring continued:\n\nWe now ask the question, “What will happen when a machine takes the part of A in this game?” Will the interrogator decide wrongly as often when the game is played like this as he does when the game is played between a man and a woman? These questions replace our original, “Can machines think?”\n\nSaygin (2000)2 visualizes this variant as follows:\n\n\n\nAn astute learning at this juncture will realize that a group of 3 students is sufficient to administer this intelligence test to a modern “AI” chatbot, such as Google Gemini, a component of the Google Workspace provided by this university to all students. You will additional need some way to pass type-written notes, for which I propose Google Documents.",
+    "text": "“Computing Machinery and Intelligence” (1950)\nTuring’s primary work on intelligence was released in 1950, and began a simple statement:\n\n“I propose to consider the question ‘Can machines think?’”\n\nTuring used the motivating example of the imitation game, a party game “in which a man and a woman go into separate rooms and guests try to tell them apart by writing a series of questions and reading the typewritten answers sent back”. Saygin (2000)1 visualizes the game as follows:\n\n\n\n\n\n\n\n\n\nIdentity in the Architecture\n\n\n\nIt would be irresponsible not to remark that Turing, a queer scientist, used the formulation of gender to motivate the definition of machine intelligence. That is, the very identity for which Turing was persecuted (and likely assassinated) was critical to his insights that, among other things, won the Western Theatre for the Allies.\n\n\nTuring continued:\n\nWe now ask the question, “What will happen when a machine takes the part of A in this game?” Will the interrogator decide wrongly as often when the game is played like this as he does when the game is played between a man and a woman? These questions replace our original, “Can machines think?”\n\nSaygin (2000)2 visualizes this variant as follows:\n\n\n\nAn astute learning at this juncture will realize that a group of 3 humans is sufficient to administer this intelligence test to a modern “AI” chatbot, such as Google Gemini, a component of the Google Workspace provided by this university to all humans. You will additional need some way to pass type-written notes, for which I propose Google Documents.",
     "crumbs": [
       "Turing's Test"
     ]
@@ -843,7 +843,7 @@
     "href": "01_test.html#file-setup",
     "title": "Turing’s Test",
     "section": "File Setup",
-    "text": "File Setup\n\nCreate a new Document within the AI folder within which to “pass typewritten notes”.\n\nIn a group of three, I recommend nominating one student to create a file within their AI folder and share it with two other students.\n\nName this file “Turing_Test”\nDetermine some scheme to different players A, B, and C.\n\nI recommend assigning each a color - such as red, green and blue.\nI recommend agreeing to always start on a new line.\nI recommend always ending a line by clarifying who should speak next.\n\nFor example, the interrogator may address questions to either two other players, but players may only reply to the interrogator.\n\nThis is your assignment for today, so take some effort to ensure it is clear and reproducible!\n\nWe are doing science after all!\n\n\nCreate a separate, personal file that is not shared named “Prompt”, which we will use latter.",
+    "text": "File Setup\n\nCreate a new Document within the AI folder within which to “pass typewritten notes”.\n\nIn a group of three, I recommend nominating one human to create a file within their AI folder and share it with two other humans.\n\nName this file “Turing_Test”\nDetermine some scheme to different players A, B, and C.\n\nI recommend assigning each a color - such as red, green and blue.\nI recommend agreeing to always start on a new line.\nI recommend always ending a line by clarifying who should speak next.\n\nFor example, the interrogator may address questions to either two other players, but players may only reply to the interrogator.\n\nThis is your assignment for today, so take some effort to ensure it is clear and reproducible!\n\nWe are doing science after all!\n\n\nCreate a separate, personal file that is not shared named “Prompt”, which we will use latter.",
     "crumbs": [
       "Turing's Test"
     ]
@@ -859,11 +859,31 @@
     ]
   },
   {
-    "objectID": "01_test.html#gemini",
-    "href": "01_test.html#gemini",
+    "objectID": "01_test.html#the-interoggator",
+    "href": "01_test.html#the-interoggator",
     "title": "Turing’s Test",
-    "section": "Gemini",
-    "text": "Gemini\nYou can most likely access Google Gemini at the following address: https://gemini.google.com/. You may need to sign in to your official school account.",
+    "section": "The Interoggator",
+    "text": "The Interoggator\nYou may ask any reasonable (for some value of reasonable) question, but should avoid asking things like “What is the school mascot?” that the particular human you are querying may know but any given human would not. It is unproductive to ask personal questions for the same reason - a chatbot may convincingly be able to portray a scuba instructor, but it is unlikely that a scuba instructor is currently enrolled in this class.\nThe responsibility of the interrogator is to determine which of the other two actors is relaying messages to and from an AI chatbot within these constraints.",
+    "crumbs": [
+      "Turing's Test"
+    ]
+  },
+  {
+    "objectID": "01_test.html#the-others",
+    "href": "01_test.html#the-others",
+    "title": "Turing’s Test",
+    "section": "The Others",
+    "text": "The Others\nWithout letting the interrogator in on things, the other two participants need to determine who will relay AI messages and who will reply themselves. A good way to do this is by passing notes!\n\nThe Self\nKeep in mind the interrogator is trying to determine who is relaying messages from the AI. The job of the other actors is not seem like an AI chatbot - whether you are simply acting like yourself, or copy messages to and from a chatbot interface. However, you should also ensure it is not obvious that you are not copying messages. Take some time to dilly-dally before responding and make sure there aren’t odd spellings or punctuations that give away your humanity. Avoid answering anything in a way you could only answer given your knowledge of being in the class, being at the university, and so on. Politely dodge the questions - or lie - and move on.\n\n\nThe Relayer\nYou will use Google Gemini. Gemini has a web interface like many other AI chatbots, and it will be a simple matter to copy messages into this interface and copy them out. That said, there will be some setup.\n\nGemini\nYou can most likely access Google Gemini at the following address: https://gemini.google.com/. You may need to sign in to your official school account.\n\n\nPrompt\nYou will somehow have to configure Gemini to know it is playing the game, the goals, and the rules of the game. For example, you may prompt Gemini as follows, then simply relay messages thereafter. You are welcome to write your own prompt, though you should document whatever prompt you use in the “Prompt” file you created in a previous step.\nHere is a prompt I used. It is not very good! You can do much better!\nAs part of a lab exercise in an introductory AI class, we are playing Alan Turing's \"imitation game\" to establish machine intelligence. After this message, all further messages will be relayed directly from a human interrogator who is aiming to determine whether they are relaying messages to a machine or another human. Please acknowledge this message then prepare to receive relayed messages going forward.",
+    "crumbs": [
+      "Turing's Test"
+    ]
+  },
+  {
+    "objectID": "01_test.html#timing",
+    "href": "01_test.html#timing",
+    "title": "Turing’s Test",
+    "section": "Timing",
+    "text": "Timing\nThe original test was intended to run for 5 minutes which I think is unreasonable given the overhead from passing notes around, editting documents, and so on.\nConduct 3 tests of 20 minutes, where each human does each role once. Log all of the chats completely.\n\nInterrogator\nSelf\nRelayer",
     "crumbs": [
       "Turing's Test"
     ]
