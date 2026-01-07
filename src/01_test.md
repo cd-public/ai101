@@ -94,4 +94,4 @@ An astute learning at this juncture will realize that a group of 3 students is s
 
 You can most likely access Google Gemini at the following address: [https://gemini.google.com/](https://gemini.google.com/). You may need to sign in to your official school account.
 
-[^1]: (Turing Test: 50 Years Later)[https://web.archive.org/web/20110409073501/http://crl.ucsd.edu/~saygin/papers/MMTT.pdf]
+[^1]: [Turing Test: 50 Years Later](https://web.archive.org/web/20110409073501/http://crl.ucsd.edu/~saygin/papers/MMTT.pdf)
