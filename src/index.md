@@ -40,9 +40,9 @@ format: html
 |0x4|02/09|Decision Trees|JSON|Taxonomy|
 |0x5|02/16|Perceptron|Pixels|Dice|
 |0x6|02/23|Error|Descent|Plotly| <!-- incl. back propagation -->
-|0x7|03/02|Tensors|Tensorflow|Tensorflow|
-|0x8|03/09|Connectivity|| <!-- fully connected networks, https://docs.nvidia.com/deeplearning/performance/dl-performance-fully-connected/index.html -->
-|0x9|03/16|Latent Space|Models|
+|0x7|03/02|Connectivity|| <!-- fully connected networks, https://docs.nvidia.com/deeplearning/performance/dl-performance-fully-connected/index.html -->
+|0x8|03/09|Latent Space|Models|
+|0x9|03/16|Tensors|Tensorflow|Tensorflow|
 |0bX|03/23|`None`|`None`|`None`|
 |0xA|03/30|Text Rep.|Tokens|
 |0xB|03/06|Transformers| <!-- Weight matrices (K, Q, V), and Multiple Heads-->

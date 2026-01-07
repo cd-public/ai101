@@ -44,13 +44,17 @@ better!
 
 # Course Objectives {#course-objectives .unnumbered}
 
--   Learn about the architectures of modern artifical intelligence and machine learning technologies.
+-   Implement a computer systems in a compiled, non-garbage collected language.
 
--   Understand the importance of representation of text and image when interfacing with computers.
+-   Design, implement, and apply computing solutions to actual existing problems using linear, hierarchical, and associative data structures without reliance on external libraries.
 
--   Describe some ethical and historical context for modern artifical intelligence services.
+-   Learn modern development practices in a state-of-the-art coding framework specific to systems computing.
 
--   Apply understanding of design decision in AI technologies to efficiently use or articulate the limitations of these technologies.
+-   Utilize the command line and command line tools to create executables that target a variety of architectures with varying degrees of library support.
+
+-   Become familiar with security-relevant design and implementation decisions when developing a computer system.
+
+-   Survey number, set, graph, and automata theory in an applied setting.
 
 # Course Structure 
 
@@ -65,22 +69,7 @@ schedule is on the [course webpage](https://cd-public.github.io/ai101).
 
 ### Grading Scale 
 
-This course will be ungraded.  I am opinion-gifted with respect to AI topics, and do not want a grader/gradee relationship to influence how you engage with the class.
-
-* **Students will begin the course with a grade of an "A"**
-    * Students will be expected to attend class.
-    * Students will be expected to participate in class.
-    * Students will be expected to treat fellow students with respect.
-    * Students will be expected to complete response assignments.
-* **Students will be contacted privately by the course instructor in the unusual event they are not meeting expectations.**
-    * Students will not have an expectation of perfection.
-    * Students will not lose points or a grade without discussion.
-    * Students will have a chance to explain their engagement with the course.
-* **Students collectively within the class as a whole will receive collective feedback on ethics, communication, and teamwork.**
-    * Students will receive limited individual feedback in unique cases.
-    * Students will be expected to provide respectful individual feedback to one another.
-    * Students will be able to request feedback from the instructor at any time.
-    * Students will receive narrative rather than quantitative feedback.
+This course will be ungraded.
 
 # Course Policies
 

@@ -4,6 +4,788 @@
     "href": "index.html",
     "title": "AI 101",
     "section": "",
-    "text": "CS 199 “Understanding AI”\n\nCalled:\n\nCS 199: Topics: Understanding AI\nAI 101\n\nA non-technical survey semester over:\n\nSome trends in AI use\nSome historical conversations around AI\nSome technical background in implementing minimal AI\n\nTaught this year via Google Colab.\n\nIt’s fast (it’s not)\nIt’s free (to us for now)\nIt’s fun (trust me)\n\n\n\nMW 1020-1150\n\n\nProf. Calvin\n\n\nSyllabus\n\nSyllabus link\n\n\n\n\nCalendar\n\n\n\n\nWeek\nDate (M)\nLecture (M)\nLab (W)\nHW (F)\n\n\n\n\n0x0\n01/12\nTuring’s Test\nChatBots\nIntroductions\n\n\n0x1\n01/19\nNone\nColab\nHello, World!\n\n\n0x2\n01/26\nSupervision\nData Sources\nDistributions\n\n\n0x3\n02/02\nClassification\nReformulation\nCase Studies\n\n\n0x4\n02/09\nDecision Trees\nJSON\nTaxonomy\n\n\n0x5\n02/16\nPerceptron\nPixels\nDice\n\n\n0x6\n02/23\nError\nDescent\nPlotly\n\n\n0x7\n03/02\nTensors\nTensorflow\nTensorflow\n\n\n0x8\n03/09\nConnectivity\n\n\n\n\n0x9\n03/16\nLatent Space\nModels\n\n\n\n0bX\n03/23\nNone\nNone\nNone\n\n\n0xA\n03/30\nText Rep.\nTokens\n\n\n\n0xB\n03/06\nTransformers\n\n\n\n\n0xC\n04/13\nGenAI\n\n\n\n\n0xD\n04/20\nPrompts\nNone\n\n\n\n0xE\n04/29\nPerspectives\nPeer Review\nNone\n\n\n\nFinal course reflection (“Perspectives”) due whenever the final exam would finish, TBA\n\n\nLecture Recordings\nForthcoming"
+    "text": "CS 199 “Understanding AI”\n\nCalled:\n\nCS 199: Topics: Understanding AI\nAI 101\n\nA non-technical survey semester over:\n\nSome trends in AI use\nSome historical conversations around AI\nSome technical background in implementing minimal AI\n\nTaught this year via Google Colab.\n\nIt’s fast (it’s not)\nIt’s free (to us for now)\nIt’s fun (trust me)\n\n\n\nMW 1020-1150\n\n\nProf. Calvin\n\n\nSyllabus\n\nSyllabus link\n\n\n\n\nCalendar\n\n\n\n\nWeek\nDate (M)\nLecture (M)\nLab (W)\nHW (F)\n\n\n\n\n0x0\n01/12\nTuring’s Test\nChatBots\nIntroductions\n\n\n0x1\n01/19\nNone\nColab\nHello, World!\n\n\n0x2\n01/26\nSupervision\nData Sources\nDistributions\n\n\n0x3\n02/02\nClassification\nReformulation\nCase Studies\n\n\n0x4\n02/09\nDecision Trees\nJSON\nTaxonomy\n\n\n0x5\n02/16\nPerceptron\nPixels\nDice\n\n\n0x6\n02/23\nError\nDescent\nPlotly\n\n\n0x7\n03/02\nConnectivity\n\n\n\n\n0x8\n03/09\nLatent Space\nModels\n\n\n\n0x9\n03/16\nTensors\nTensorflow\nTensorflow\n\n\n0bX\n03/23\nNone\nNone\nNone\n\n\n0xA\n03/30\nText Rep.\nTokens\n\n\n\n0xB\n03/06\nTransformers\n\n\n\n\n0xC\n04/13\nGenAI\n\n\n\n\n0xD\n04/20\nPrompts\nNone\n\n\n\n0xE\n04/29\nPerspectives\nPeer Review\nNone\n\n\n\nFinal course reflection (“Perspectives”) due whenever the final exam would finish, TBA\n\n\nLecture Recordings\nForthcoming"
+  },
+  {
+    "objectID": "00_turing.rjs.html#what-is-ai",
+    "href": "00_turing.rjs.html#what-is-ai",
+    "title": "Ada & Alan",
+    "section": "What is AI?",
+    "text": "What is AI?\n\n\n\n\n\n\nWorking Definition\n\n\nArtificial Intelligence is a scientific discipline that studies how we can make computers exhibit intelligent behavior, e.g. do those things that human beings are good at doing.\n\n\n\n\nScientific - uses experimentation, publication, and falsification.\nComputers - based on the existing fields of computer science but also linguistics, philosophy, mathematics, and physics (or perhaps electrical engineering)\nHumans - measured against a human baseline"
+  },
+  {
+    "objectID": "00_turing.rjs.html#computers",
+    "href": "00_turing.rjs.html#computers",
+    "title": "Ada & Alan",
+    "section": "Computers",
+    "text": "Computers\n\nOriginally, programming was discovered by Ada Lovelace to operate on numbers following a well-defined procedure - an algorithm - like a recipe or knitting pattern.\nModern computers are theoretical identical (through practically quite distinct)\nThus it is possible to program a computer to do something if we know the exact sequence of steps that we need to do in order to achieve the goal."
+  },
+  {
+    "objectID": "00_turing.rjs.html#how-many-years-old",
+    "href": "00_turing.rjs.html#how-many-years-old",
+    "title": "Ada & Alan",
+    "section": "How many years old?",
+    "text": "How many years old?\n\n\n\nPhoto by Vickie Soshnikova"
+  },
+  {
+    "objectID": "00_turing.rjs.html#intelligence",
+    "href": "00_turing.rjs.html#intelligence",
+    "title": "Ada & Alan",
+    "section": "Intelligence?",
+    "text": "Intelligence?\n\nDefining the age of a person from their photograph is a task that cannot be explicitly programmed\n\nWe do not know how we come up with a number inside our head when we do it!\nOftentimes we wish to avoid estimating age…\n\nHire/fire decisions, most notably!"
+  },
+  {
+    "objectID": "00_turing.rjs.html#which-is-more-beautiful",
+    "href": "00_turing.rjs.html#which-is-more-beautiful",
+    "title": "Ada & Alan",
+    "section": "Which is more beautiful?",
+    "text": "Which is more beautiful?\n\n\nElowah Falls\n\n\nFairy Falls"
+  },
+  {
+    "objectID": "00_turing.rjs.html#intelligence-1",
+    "href": "00_turing.rjs.html#intelligence-1",
+    "title": "Ada & Alan",
+    "section": "Intelligence?",
+    "text": "Intelligence?\n\nThere are some tasks that we do not explicitly know how to solve.\nConsider determining the age of a person from their photograph.\nWe somehow learn to do it, because we have seen many examples of people of different age, but we cannot explicitly explain how we do it, nor can we program the computer to do it.\nThis is exactly the kind of task that are of interest to Artificial Intelligence (AI for short)."
+  },
+  {
+    "objectID": "00_turing.rjs.html#thinkpairshare",
+    "href": "00_turing.rjs.html#thinkpairshare",
+    "title": "Ada & Alan",
+    "section": "Think/Pair/Share",
+    "text": "Think/Pair/Share\n✅ Think of some tasks that one may wish to offload to AI.\n\nConsider the fields like education, politics, medicine, and the arts.\nHow are these fields interacting today with AI?\nWho benefits from the use of AI and who pays the costs?"
+  },
+  {
+    "objectID": "00_turing.rjs.html#weak-ai-vs.-strong-ai",
+    "href": "00_turing.rjs.html#weak-ai-vs.-strong-ai",
+    "title": "Ada & Alan",
+    "section": "Weak AI vs. Strong AI",
+    "text": "Weak AI vs. Strong AI\n\nEarly AI research differentiated two forms of AI\nDicussion of the forms has become a much more popular distinction with the emergence of entreprise grade chatbots beginning with OpenAI ChatGPT"
+  },
+  {
+    "objectID": "00_turing.rjs.html#section",
+    "href": "00_turing.rjs.html#section",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "Weak AI\nStrong AI\n\n\n\n\nWeak AI refers to AI systems that are designed and trained for a specific task or a narrow set of tasks.\nStrong AI, or Artificial General Intelligence (AGI), refers to AI systems with human-level intelligence and understanding."
+  },
+  {
+    "objectID": "00_turing.rjs.html#section-1",
+    "href": "00_turing.rjs.html#section-1",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "Weak AI\nStrong AI\n\n\n\n\nThese AI systems are not generally intelligent; they excel in performing a predefined task but lack true understanding or consciousness.\nThese AI systems have the ability to perform any intellectual task that a human being can do, adapt to different domains, and possess a form of consciousness or self-awareness."
+  },
+  {
+    "objectID": "00_turing.rjs.html#section-2",
+    "href": "00_turing.rjs.html#section-2",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "Weak AI\nStrong AI\n\n\n\n\nExamples of weak AI include virtual assistants like Siri or Alexa, recommendation algorithms used by streaming services, and chatbots that are designed for specific customer service tasks.\nAchieving Strong AI is a long-term goal of AI research and would require the development of AI systems that can reason, learn, understand, and adapt across a wide range of tasks and contexts."
+  },
+  {
+    "objectID": "00_turing.rjs.html#section-3",
+    "href": "00_turing.rjs.html#section-3",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "Weak AI\nStrong AI\n\n\n\n\nWeak AI is highly specialized and does not possess human-like cognitive abilities or general problem-solving capabilities beyond its narrow domain.\nStrong AI is currently a theoretical concept, and no AI system has reached this level of general intelligence."
+  },
+  {
+    "objectID": "00_turing.rjs.html#definitions",
+    "href": "00_turing.rjs.html#definitions",
+    "title": "Ada & Alan",
+    "section": "Definitions",
+    "text": "Definitions\n\nOne of the problems when dealing with the term “Intelligence” is that there is no clear definition of this term.\nOne can argue that intelligence is connected to abstract thinking, or to self-awareness, but we cannot properly define it."
+  },
+  {
+    "objectID": "00_turing.rjs.html#intelligence-2",
+    "href": "00_turing.rjs.html#intelligence-2",
+    "title": "Ada & Alan",
+    "section": "Intelligence?",
+    "text": "Intelligence?\n\n\n\nPhoto by Prof. Calvin\n\nTo see the ambiguity, try answering a question: “Is this cat (Ursula) intelligent?”\n\n(She is)\n(She is VERY smart)"
+  },
+  {
+    "objectID": "00_turing.rjs.html#consider",
+    "href": "00_turing.rjs.html#consider",
+    "title": "Ada & Alan",
+    "section": "Consider…",
+    "text": "Consider…\n\nDifferent people tend to give different answers to this question, as there is no universally accepted test to prove the assertion is true or not.\nAnd if you think there is - try an IQ test… What could go wrong."
+  },
+  {
+    "objectID": "00_turing.rjs.html#by-the-way",
+    "href": "00_turing.rjs.html#by-the-way",
+    "title": "Ada & Alan",
+    "section": "By the way…",
+    "text": "By the way…\n\nIt is common for IQ to enter conversations as a throwaway line in discussion of AI.\n\nConfronting scientific racism in psychology: Lessons from evolutionary biology and genetics.\nHow White nationalists mobilize genetics: From genetic ancestry and human biodiversity to counterscience and metapolitics\nScientific Racism and North American Psychology"
+  },
+  {
+    "objectID": "00_turing.rjs.html#thinkpairshare-1",
+    "href": "00_turing.rjs.html#thinkpairshare-1",
+    "title": "Ada & Alan",
+    "section": "Think/Pair/Share",
+    "text": "Think/Pair/Share\n✅ Think for a minute about how you define intelligence.\n\nIs a crow who can solve a maze and get at some food intelligent?\nIs a traffic light intelligent?\nIs an ecosystem intelligent?\nIs a character in a novel or play?"
+  },
+  {
+    "objectID": "00_turing.rjs.html#the-turing-test",
+    "href": "00_turing.rjs.html#the-turing-test",
+    "title": "Ada & Alan",
+    "section": "The Turing Test",
+    "text": "The Turing Test\n\nWhen speaking about AI we need to have some way to tell if we have created a truly intelligent system.\nAlan Turing proposed a way called a Turing Test, which also acts like a definition of intelligence.\n\nAlan Turing the 🐐\n\nThe test compares a given system to something inherently intelligent - a real human being, and because any automatic comparison can be bypassed by a computer program, we use a human interrogator."
+  },
+  {
+    "objectID": "00_turing.rjs.html#aside-on-turing",
+    "href": "00_turing.rjs.html#aside-on-turing",
+    "title": "Ada & Alan",
+    "section": "Aside on Turing",
+    "text": "Aside on Turing\n\nTuring, by cracking the enigma code used by Nazi war criminals, can be regarded as almost single-handedly winning the Western front for the allies in WWII.\nTuring was prosecuted by the British Empire for his sexuality until his death at 41 in 1953.\nAsk me how I feel about this but not during class."
+  },
+  {
+    "objectID": "00_turing.rjs.html#eugene-goostman",
+    "href": "00_turing.rjs.html#eugene-goostman",
+    "title": "Ada & Alan",
+    "section": "Eugene Goostman",
+    "text": "Eugene Goostman\n\nOne path to intelligence? Cheat!\n\n\nA chat-bot called Eugene Goostman, developed in St. Petersburg, came close to passing the Turing test in 2014 by using a clever personality trick. It announced up front that it was a 13-year old Ukrainian boy, which would explain the lack of knowledge and some discrepancies in the text. The bot convinced 30% of the judges that it was human after a 5 minute dialogue, a metric that Turing believed a machine would be able to pass by 2000. However, one should understand that this does not indicate that we have created an intelligent system, or that a computer system has fooled the human interrogator - the system didn’t fool the humans, but rather the bot creators did!\n\n✅ Have you ever been fooled by a chat bot into thinking that you are speaking to a human? How did it convince you?"
+  },
+  {
+    "objectID": "00_turing.rjs.html#different-approaches-to-ai",
+    "href": "00_turing.rjs.html#different-approaches-to-ai",
+    "title": "Ada & Alan",
+    "section": "Different Approaches to AI",
+    "text": "Different Approaches to AI\nIf we want a computer to behave like a human, we need somehow to model inside a computer our way of thinking. Consequently, we need to try to understand what makes a human being intelligent.\n\nTo be able to program intelligence into a machine, we need to understand how our own processes of making decisions work. If you do a little self-introspection, you will realize that there are some processes that happen subconsciously – eg. we can distinguish a cat from a dog without thinking about it - while some others involve reasoning."
+  },
+  {
+    "objectID": "00_turing.rjs.html#different-approaches-to-ai-1",
+    "href": "00_turing.rjs.html#different-approaches-to-ai-1",
+    "title": "Ada & Alan",
+    "section": "Different Approaches to AI",
+    "text": "Different Approaches to AI\n\n\n\n\n\n\n\nTop-down Approach (Symbolic Reasoning)\nBottom-up Approach (Neural Networks)\n\n\n\n\nA top-down approach models the way a person reasons to solve a problem. It involves extracting knowledge from a human being, and representing it in a computer-readable form. We also need to develop a way to model reasoning inside a computer.\nA bottom-up approach models the structure of a human brain, consisting of a huge number of simple units called neurons. We can train a network of neurons to solve useful problems by providing training data."
+  },
+  {
+    "objectID": "00_turing.rjs.html#different-approaches-to-ai-2",
+    "href": "00_turing.rjs.html#different-approaches-to-ai-2",
+    "title": "Ada & Alan",
+    "section": "Different Approaches to AI",
+    "text": "Different Approaches to AI\nThere are also some other possible approaches to intelligence:\n\nAn Emergent, Synergetic or multi-agent approach are based on the fact that complex intelligent behaviour can be obtained by an interaction of a large number of simple agents. According to evolutionary cybernetics, intelligence can emerge from more simple, reactive behaviour in the process of metasystem transition.\nAn Evolutionary approach, or genetic algorithm is an optimization process based on the principles of evolution."
+  },
+  {
+    "objectID": "00_turing.rjs.html#aside-csail",
+    "href": "00_turing.rjs.html#aside-csail",
+    "title": "Ada & Alan",
+    "section": "Aside: CSAIL",
+    "text": "Aside: CSAIL"
+  },
+  {
+    "objectID": "00_turing.rjs.html#the-top-down-approach",
+    "href": "00_turing.rjs.html#the-top-down-approach",
+    "title": "Ada & Alan",
+    "section": "The Top-Down Approach",
+    "text": "The Top-Down Approach\n\nIn a top-down approach, we try to model our reasoning.\n\nBecause we can follow our thoughts when we reason, we can try to formalize this process and program it inside the computer.\nThis is called symbolic reasoning, one example is grade-school algebra\n\nx = 2\ny = 2 * x"
+  },
+  {
+    "objectID": "00_turing.rjs.html#the-top-down-approach-1",
+    "href": "00_turing.rjs.html#the-top-down-approach-1",
+    "title": "Ada & Alan",
+    "section": "The Top-Down Approach",
+    "text": "The Top-Down Approach\n\nPeople tend to have some rules in their head that guide their decision making processes.\n\nAt least according to them (go observe rush hour drivers for example)\n\nFor example, when a doctor is diagnosing a patient, they may realize that a person has a fever, and thus there might be some inflammation going on inside the body.\nBy applying a large set of rules to a specific problem a doctor may be able to come up with the final diagnosis."
+  },
+  {
+    "objectID": "00_turing.rjs.html#the-top-down-approach-2",
+    "href": "00_turing.rjs.html#the-top-down-approach-2",
+    "title": "Ada & Alan",
+    "section": "The Top-Down Approach",
+    "text": "The Top-Down Approach\n\nThis approach relies heavily on knowledge representation and reasoning.\nExtracting knowledge from a human expert might be the most difficult part, because a doctor in many cases would not know exactly why they are coming up with a particular diagnosis.\nSometimes the solution just comes up in their head without explicit thinking.\nSome tasks, such as determining the age of a person from a photograph, cannot be reduced to manipulating knowledge."
+  },
+  {
+    "objectID": "00_turing.rjs.html#bottom-up-approach",
+    "href": "00_turing.rjs.html#bottom-up-approach",
+    "title": "Ada & Alan",
+    "section": "Bottom-Up Approach",
+    "text": "Bottom-Up Approach\n\nAlternately, we can try to model the simplest atomic elements inside our brain – a neuron.\n\nObviously there are simpler elements (e.g. chemicals) but they take on different meaning in when not considered in isolation.\nTherefore they are not atomic, or indivisible units of “brain”."
+  },
+  {
+    "objectID": "00_turing.rjs.html#bottom-up-approach-1",
+    "href": "00_turing.rjs.html#bottom-up-approach-1",
+    "title": "Ada & Alan",
+    "section": "Bottom-Up Approach",
+    "text": "Bottom-Up Approach\n\nWe can construct a so-called artificial neural network inside a computer, and then try to teach it to solve problems by giving it examples.\n\nAllegedly this process is similar to how a newborn child learns about their surroundings by making observations.\n\nSimply program a computer to pretend to be however we think brains work.\n\nOf note, in some sense it doesn’t matter if we model the brain correctly or not."
+  },
+  {
+    "objectID": "00_turing.rjs.html#a-brief-history-of-ai",
+    "href": "00_turing.rjs.html#a-brief-history-of-ai",
+    "title": "Ada & Alan",
+    "section": "A Brief History of AI",
+    "text": "A Brief History of AI\n\nArtificial Intelligence was started as a field in the middle of the twentieth century.\nInitially, symbolic reasoning was a prevalent approach, and it led to a number of important successes, such as expert systems – computer programs that were able to act as an expert in some limited problem domains.\nHowever, it soon became clear that such approach does not scale well."
+  },
+  {
+    "objectID": "00_turing.rjs.html#problems-arise",
+    "href": "00_turing.rjs.html#problems-arise",
+    "title": "Ada & Alan",
+    "section": "Problems arise",
+    "text": "Problems arise\n\nExtracting the knowledge from an expert, representing it in a computer, and keeping that knowledgebase accurate turns out to be a very complex task, and too expensive to be practical in many cases.\nThis led to so-called AI Winter in the 1970s."
+  },
+  {
+    "objectID": "00_turing.rjs.html#section-4",
+    "href": "00_turing.rjs.html#section-4",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "Image by Dmitry Soshnikov"
+  },
+  {
+    "objectID": "00_turing.rjs.html#computers-emerge",
+    "href": "00_turing.rjs.html#computers-emerge",
+    "title": "Ada & Alan",
+    "section": "Computers Emerge",
+    "text": "Computers Emerge\n\nAs time passed…\n\nComputing resources became cheaper, and\nMore data has become available…\n\nSo neural network approaches started demonstrating great performance in competing with human beings in many areas, such as computer vision or speech understanding.\n\nIn the last decade, the term Artificial Intelligence has been mostly used as a synonym for Neural Networks, because most of the AI successes that we hear about are based on them."
+  },
+  {
+    "objectID": "00_turing.rjs.html#chess",
+    "href": "00_turing.rjs.html#chess",
+    "title": "Ada & Alan",
+    "section": "Chess",
+    "text": "Chess\nWe can observe how the approaches changed, for example, in creating a chess playing computer program:\n\nEarly chess programs were based on search – a program explicitly tried to estimate possible moves of an opponent for a given number of next moves, and selected an optimal move based on the optimal position that can be achieved in a few moves. It led to the development of the so-called alpha-beta pruning search algorithm."
+  },
+  {
+    "objectID": "00_turing.rjs.html#chess-1",
+    "href": "00_turing.rjs.html#chess-1",
+    "title": "Ada & Alan",
+    "section": "Chess",
+    "text": "Chess\nWe can observe how the approaches changed, for example, in creating a chess playing computer program:\n\nSearch strategies work well toward the end of the game, where the search space is limited by a small number of possible moves. However, at the beginning of the game, the search space is huge, and the algorithm can be improved by learning from existing matches between human players.\nSubsequent experiments employed so-called case-based reasoning, where the program looked for cases in the knowledge base very similar to the current position in the game."
+  },
+  {
+    "objectID": "00_turing.rjs.html#chess-2",
+    "href": "00_turing.rjs.html#chess-2",
+    "title": "Ada & Alan",
+    "section": "Chess",
+    "text": "Chess\nWe can observe how the approaches changed, for example, in creating a chess playing computer program:\n\nModern programs that win over human players are based on neural networks and reinforcement learning, where the programs learn to play solely by playing a long time against themselves and learning from their own mistakes – much like human beings do when learning to play chess.\nHowever, a computer program can play many more games in much less time, and thus can learn much faster."
+  },
+  {
+    "objectID": "00_turing.rjs.html#chatbots",
+    "href": "00_turing.rjs.html#chatbots",
+    "title": "Ada & Alan",
+    "section": "Chatbots",
+    "text": "Chatbots\nSimilarly, we can see how the approach towards creating “talking programs” (that might pass the Turing test) changed:\n\nEarly programs of this kind such as Eliza, were based on very simple grammatical rules and the re-formulation of the input sentence into a question."
+  },
+  {
+    "objectID": "00_turing.rjs.html#chatbots-1",
+    "href": "00_turing.rjs.html#chatbots-1",
+    "title": "Ada & Alan",
+    "section": "Chatbots",
+    "text": "Chatbots\nSimilarly, we can see how the approach towards creating “talking programs” (that might pass the Turing test) changed:\n\nModern assistants, such as Cortana, Siri or Google Assistant are all hybrid systems that use Neural networks to convert speech into text and recognize our intent, and then employ some reasoning or explicit algorithms to perform required actions."
+  },
+  {
+    "objectID": "00_turing.rjs.html#chatbots-2",
+    "href": "00_turing.rjs.html#chatbots-2",
+    "title": "Ada & Alan",
+    "section": "Chatbots",
+    "text": "Chatbots\nSimilarly, we can see how the approach towards creating “talking programs” (that might pass the Turing test) changed:\n\nDepending on who you ask, this is where we are now.\n\nIf you ask me, “no”.\n\nMy job is to know how to answer this question.\n\nIf you ask Sam Altman, “yes”.\n\nSam Altman’s job is convincingly say “yes” when asked this question."
+  },
+  {
+    "objectID": "00_turing.rjs.html#section-5",
+    "href": "00_turing.rjs.html#section-5",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "Image by Dmitry Soshnikov, photo by Marina Abrosimova, Unsplash"
+  },
+  {
+    "objectID": "00_turing.rjs.html#recent-ai-research",
+    "href": "00_turing.rjs.html#recent-ai-research",
+    "title": "Ada & Alan",
+    "section": "Recent AI Research",
+    "text": "Recent AI Research\n\nThe huge recent growth in neural network research started around 2010, when two things happened.\n\nMore compute.\nMore data."
+  },
+  {
+    "objectID": "00_turing.rjs.html#more-compute",
+    "href": "00_turing.rjs.html#more-compute",
+    "title": "Ada & Alan",
+    "section": "More compute",
+    "text": "More compute\n\nA graduate students at UToronto affiliated with Prof. Hinton decided to use a GPU (graphics processing unit) instead of CPU (central processing unit) for image classification.\nThis is the first documented usage of a graphics-intended compute device for general purpose - or perhaps general AI - usage - of which I am aware.\n\nThis is not super well-documented and only something I became aware of “through the grapevine”.\nAs an architecture researcher (e.g. I study GPU vs. CPU) I tend to think it’s a big deal.\n\nRead more here perhaps?"
+  },
+  {
+    "objectID": "00_turing.rjs.html#more-data",
+    "href": "00_turing.rjs.html#more-data",
+    "title": "Ada & Alan",
+    "section": "More data",
+    "text": "More data\n\n\n\nGenius 李飞飞 (Fei-Fei Li, my 🐐) said (paraphrasing) “why don’t we just label as many images as possible and see what happens”.\nA huge collection of images called ImageNet, which contains around 14 million annotated images, and led to the ImageNet Large Scale Visual Recognition Challenge."
+  },
+  {
+    "objectID": "00_turing.rjs.html#the-world-changed-quickly",
+    "href": "00_turing.rjs.html#the-world-changed-quickly",
+    "title": "Ada & Alan",
+    "section": "The world changed quickly",
+    "text": "The world changed quickly\n\n\n2012 AlexNet is from the Toronto team and the “quantum leap” on here.\nIn 2015, ResNet architecture from Microsoft Research achieved human-level accuracy.\n\nUniversities solve the problem.\nTrillion dollar companies take the credit.\nAsk me about this outside of class."
+  },
+  {
+    "objectID": "00_turing.rjs.html#going-forward",
+    "href": "00_turing.rjs.html#going-forward",
+    "title": "Ada & Alan",
+    "section": "Going forward",
+    "text": "Going forward\n\nSince then, Neural Networks demonstrated very successful behaviour in many tasks:\n\n\n\n\nYear\nHuman Parity (nominally) achieved\n\n\n\n\n2015\nImage Classification\n\n\n2016\nConversational Speech Recognition\n\n\n2018\nAutomatic Machine Translation (Chinese-to-English)\n\n\n2020\nImage Captioning"
+  },
+  {
+    "objectID": "00_turing.rjs.html#syllabus",
+    "href": "00_turing.rjs.html#syllabus",
+    "title": "Ada & Alan",
+    "section": "Syllabus",
+    "text": "Syllabus\n\nBring a computer with internet access on Wednesday.\nJoin the Discord - I owe you an email.\nCheck out the syllabus"
+  },
+  {
+    "objectID": "00_turing.html",
+    "href": "00_turing.html",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "Sketchnote by Tomomi Imura. Edits by Prof. Calvin\n\n\n\n\n\n\n\n\nWorking Definition\n\n\n\nArtificial Intelligence is a scientific discipline that studies how we can make computers exhibit intelligent behavior, e.g. do those things that human beings are good at doing.\n\n\n\nScientific - uses experimentation, publication, and falsification.\nComputers - based on the existing fields of computer science but also linguistics, philosophy, mathematics, and physics (or perhaps electrical engineering)\nHumans - measured against a human baseline\n\n\n\n\n\nOriginally, programming was discovered by Ada Lovelace to operate on numbers following a well-defined procedure - an algorithm - like a recipe or knitting pattern.\nModern computers are theoretical identical (through practically quite distinct)\nThus it is possible to program a computer to do something if we know the exact sequence of steps that we need to do in order to achieve the goal.\n\n\n\n\n\n\n\nPhoto by Vickie Soshnikova\n\n\n\n\nDefining the age of a person from their photograph is a task that cannot be explicitly programmed\n\nWe do not know how we come up with a number inside our head when we do it!\nOftentimes we wish to avoid estimating age…\n\nHire/fire decisions, most notably!\n\n\n\n\n\n\n\n\nElowah Falls\n\n\nFairy Falls\n\n\n\n\n\n\n\nThere are some tasks that we do not explicitly know how to solve.\nConsider determining the age of a person from their photograph.\nWe somehow learn to do it, because we have seen many examples of people of different age, but we cannot explicitly explain how we do it, nor can we program the computer to do it.\nThis is exactly the kind of task that are of interest to Artificial Intelligence (AI for short).\n\n\n\n\n✅ Think of some tasks that one may wish to offload to AI.\n\nConsider the fields like education, politics, medicine, and the arts.\nHow are these fields interacting today with AI?\nWho benefits from the use of AI and who pays the costs?\n\n\n\n\n\nEarly AI research differentiated two forms of AI\nDicussion of the forms has become a much more popular distinction with the emergence of entreprise grade chatbots beginning with OpenAI ChatGPT\n\n\n\n\n\n\n\n\n\n\n\nWeak AI\nStrong AI\n\n\n\n\nWeak AI refers to AI systems that are designed and trained for a specific task or a narrow set of tasks.\nStrong AI, or Artificial General Intelligence (AGI), refers to AI systems with human-level intelligence and understanding.\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeak AI\nStrong AI\n\n\n\n\nThese AI systems are not generally intelligent; they excel in performing a predefined task but lack true understanding or consciousness.\nThese AI systems have the ability to perform any intellectual task that a human being can do, adapt to different domains, and possess a form of consciousness or self-awareness.\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeak AI\nStrong AI\n\n\n\n\nExamples of weak AI include virtual assistants like Siri or Alexa, recommendation algorithms used by streaming services, and chatbots that are designed for specific customer service tasks.\nAchieving Strong AI is a long-term goal of AI research and would require the development of AI systems that can reason, learn, understand, and adapt across a wide range of tasks and contexts.\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeak AI\nStrong AI\n\n\n\n\nWeak AI is highly specialized and does not possess human-like cognitive abilities or general problem-solving capabilities beyond its narrow domain.\nStrong AI is currently a theoretical concept, and no AI system has reached this level of general intelligence.\n\n\n\n\n\n\n\nOne of the problems when dealing with the term “Intelligence” is that there is no clear definition of this term.\nOne can argue that intelligence is connected to abstract thinking, or to self-awareness, but we cannot properly define it.\n\n\n\n\n\n\n\nPhoto by Prof. Calvin\n\nTo see the ambiguity, try answering a question: “Is this cat (Ursula) intelligent?”\n\n(She is)\n(She is VERY smart)\n\n\n\n\n\n\n\nDifferent people tend to give different answers to this question, as there is no universally accepted test to prove the assertion is true or not.\nAnd if you think there is - try an IQ test… What could go wrong.\n\n\n\n\n\nIt is common for IQ to enter conversations as a throwaway line in discussion of AI.\n\nConfronting scientific racism in psychology: Lessons from evolutionary biology and genetics.\nHow White nationalists mobilize genetics: From genetic ancestry and human biodiversity to counterscience and metapolitics\nScientific Racism and North American Psychology\n\n\n\n\n\n✅ Think for a minute about how you define intelligence.\n\nIs a crow who can solve a maze and get at some food intelligent?\nIs a traffic light intelligent?\nIs an ecosystem intelligent?\nIs a character in a novel or play?\n\n\n\n\n\nWhen speaking about AI we need to have some way to tell if we have created a truly intelligent system.\nAlan Turing proposed a way called a Turing Test, which also acts like a definition of intelligence.\n\nAlan Turing the 🐐\n\nThe test compares a given system to something inherently intelligent - a real human being, and because any automatic comparison can be bypassed by a computer program, we use a human interrogator.\n\n\n\n\n\nTuring, by cracking the enigma code used by Nazi war criminals, can be regarded as almost single-handedly winning the Western front for the allies in WWII.\nTuring was prosecuted by the British Empire for his sexuality until his death at 41 in 1953.\nAsk me how I feel about this but not during class.\n\n\n\n\n\nOne path to intelligence? Cheat!\n\n\nA chat-bot called Eugene Goostman, developed in St. Petersburg, came close to passing the Turing test in 2014 by using a clever personality trick. It announced up front that it was a 13-year old Ukrainian boy, which would explain the lack of knowledge and some discrepancies in the text. The bot convinced 30% of the judges that it was human after a 5 minute dialogue, a metric that Turing believed a machine would be able to pass by 2000. However, one should understand that this does not indicate that we have created an intelligent system, or that a computer system has fooled the human interrogator - the system didn’t fool the humans, but rather the bot creators did!\n\n✅ Have you ever been fooled by a chat bot into thinking that you are speaking to a human? How did it convince you?\n\n\n\nIf we want a computer to behave like a human, we need somehow to model inside a computer our way of thinking. Consequently, we need to try to understand what makes a human being intelligent.\n\nTo be able to program intelligence into a machine, we need to understand how our own processes of making decisions work. If you do a little self-introspection, you will realize that there are some processes that happen subconsciously – eg. we can distinguish a cat from a dog without thinking about it - while some others involve reasoning.\n\n\n\n\n\n\n\n\n\n\n\nTop-down Approach (Symbolic Reasoning)\nBottom-up Approach (Neural Networks)\n\n\n\n\nA top-down approach models the way a person reasons to solve a problem. It involves extracting knowledge from a human being, and representing it in a computer-readable form. We also need to develop a way to model reasoning inside a computer.\nA bottom-up approach models the structure of a human brain, consisting of a huge number of simple units called neurons. We can train a network of neurons to solve useful problems by providing training data.\n\n\n\n\n\n\nThere are also some other possible approaches to intelligence:\n\nAn Emergent, Synergetic or multi-agent approach are based on the fact that complex intelligent behaviour can be obtained by an interaction of a large number of simple agents. According to evolutionary cybernetics, intelligence can emerge from more simple, reactive behaviour in the process of metasystem transition.\nAn Evolutionary approach, or genetic algorithm is an optimization process based on the principles of evolution.\n\n\n\n\n\n\n\n\n\nIn a top-down approach, we try to model our reasoning.\n\nBecause we can follow our thoughts when we reason, we can try to formalize this process and program it inside the computer.\nThis is called symbolic reasoning, one example is grade-school algebra\n\nx = 2\ny = 2 * x\n\n\n\n\nPeople tend to have some rules in their head that guide their decision making processes.\n\nAt least according to them (go observe rush hour drivers for example)\n\nFor example, when a doctor is diagnosing a patient, they may realize that a person has a fever, and thus there might be some inflammation going on inside the body.\nBy applying a large set of rules to a specific problem a doctor may be able to come up with the final diagnosis.\n\n\n\n\n\nThis approach relies heavily on knowledge representation and reasoning.\nExtracting knowledge from a human expert might be the most difficult part, because a doctor in many cases would not know exactly why they are coming up with a particular diagnosis.\nSometimes the solution just comes up in their head without explicit thinking.\nSome tasks, such as determining the age of a person from a photograph, cannot be reduced to manipulating knowledge.\n\n\n\n\n\nAlternately, we can try to model the simplest atomic elements inside our brain – a neuron.\n\nObviously there are simpler elements (e.g. chemicals) but they take on different meaning in when not considered in isolation.\nTherefore they are not atomic, or indivisible units of “brain”.\n\n\n\n\n\n\nWe can construct a so-called artificial neural network inside a computer, and then try to teach it to solve problems by giving it examples.\n\nAllegedly this process is similar to how a newborn child learns about their surroundings by making observations.\n\nSimply program a computer to pretend to be however we think brains work.\n\nOf note, in some sense it doesn’t matter if we model the brain correctly or not.\n\n\n\n\n\n\nArtificial Intelligence was started as a field in the middle of the twentieth century.\nInitially, symbolic reasoning was a prevalent approach, and it led to a number of important successes, such as expert systems – computer programs that were able to act as an expert in some limited problem domains.\nHowever, it soon became clear that such approach does not scale well.\n\n\n\n\n\nExtracting the knowledge from an expert, representing it in a computer, and keeping that knowledgebase accurate turns out to be a very complex task, and too expensive to be practical in many cases.\nThis led to so-called AI Winter in the 1970s.\n\n\n\n\n\nImage by Dmitry Soshnikov\n\n\n\n\nAs time passed…\n\nComputing resources became cheaper, and\nMore data has become available…\n\nSo neural network approaches started demonstrating great performance in competing with human beings in many areas, such as computer vision or speech understanding.\n\nIn the last decade, the term Artificial Intelligence has been mostly used as a synonym for Neural Networks, because most of the AI successes that we hear about are based on them.\n\n\n\nWe can observe how the approaches changed, for example, in creating a chess playing computer program:\n\nEarly chess programs were based on search – a program explicitly tried to estimate possible moves of an opponent for a given number of next moves, and selected an optimal move based on the optimal position that can be achieved in a few moves. It led to the development of the so-called alpha-beta pruning search algorithm.\n\n\n\n\nWe can observe how the approaches changed, for example, in creating a chess playing computer program:\n\nSearch strategies work well toward the end of the game, where the search space is limited by a small number of possible moves. However, at the beginning of the game, the search space is huge, and the algorithm can be improved by learning from existing matches between human players.\nSubsequent experiments employed so-called case-based reasoning, where the program looked for cases in the knowledge base very similar to the current position in the game.\n\n\n\n\nWe can observe how the approaches changed, for example, in creating a chess playing computer program:\n\nModern programs that win over human players are based on neural networks and reinforcement learning, where the programs learn to play solely by playing a long time against themselves and learning from their own mistakes – much like human beings do when learning to play chess.\nHowever, a computer program can play many more games in much less time, and thus can learn much faster.\n\n\n\n\nSimilarly, we can see how the approach towards creating “talking programs” (that might pass the Turing test) changed:\n\nEarly programs of this kind such as Eliza, were based on very simple grammatical rules and the re-formulation of the input sentence into a question.\n\n\n\n\nSimilarly, we can see how the approach towards creating “talking programs” (that might pass the Turing test) changed:\n\nModern assistants, such as Cortana, Siri or Google Assistant are all hybrid systems that use Neural networks to convert speech into text and recognize our intent, and then employ some reasoning or explicit algorithms to perform required actions.\n\n\n\n\nSimilarly, we can see how the approach towards creating “talking programs” (that might pass the Turing test) changed:\n\nDepending on who you ask, this is where we are now.\n\nIf you ask me, “no”.\n\nMy job is to know how to answer this question.\n\nIf you ask Sam Altman, “yes”.\n\nSam Altman’s job is convincingly say “yes” when asked this question.\n\n\n\n\n\n\n\nImage by Dmitry Soshnikov, photo by Marina Abrosimova, Unsplash\n\n\n\n\nThe huge recent growth in neural network research started around 2010, when two things happened.\n\nMore compute.\nMore data.\n\n\n\n\n\n\nA graduate students at UToronto affiliated with Prof. Hinton decided to use a GPU (graphics processing unit) instead of CPU (central processing unit) for image classification.\nThis is the first documented usage of a graphics-intended compute device for general purpose - or perhaps general AI - usage - of which I am aware.\n\nThis is not super well-documented and only something I became aware of “through the grapevine”.\nAs an architecture researcher (e.g. I study GPU vs. CPU) I tend to think it’s a big deal.\n\nRead more here perhaps?\n\n\n\n\n\n\n\nGenius 李飞飞 (Fei-Fei Li, my 🐐) said (paraphrasing) “why don’t we just label as many images as possible and see what happens”.\nA huge collection of images called ImageNet, which contains around 14 million annotated images, and led to the ImageNet Large Scale Visual Recognition Challenge.\n\n\n\n\n\n\n\n\n\n\n2012 AlexNet is from the Toronto team and the “quantum leap” on here.\nIn 2015, ResNet architecture from Microsoft Research achieved human-level accuracy.\n\nUniversities solve the problem.\nTrillion dollar companies take the credit.\nAsk me about this outside of class.\n\n\n\n\n\n\nSince then, Neural Networks demonstrated very successful behaviour in many tasks:\n\n\n\n\nYear\nHuman Parity (nominally) achieved\n\n\n\n\n2015\nImage Classification\n\n\n2016\nConversational Speech Recognition\n\n\n2018\nAutomatic Machine Translation (Chinese-to-English)\n\n\n2020\nImage Captioning\n\n\n\n\n\n\n\nBring a computer with internet access on Wednesday.\nJoin the Discord - I owe you an email.\nCheck out the syllabus",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#what-is-ai",
+    "href": "00_turing.html#what-is-ai",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "Working Definition\n\n\n\nArtificial Intelligence is a scientific discipline that studies how we can make computers exhibit intelligent behavior, e.g. do those things that human beings are good at doing.\n\n\n\nScientific - uses experimentation, publication, and falsification.\nComputers - based on the existing fields of computer science but also linguistics, philosophy, mathematics, and physics (or perhaps electrical engineering)\nHumans - measured against a human baseline",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#computers",
+    "href": "00_turing.html#computers",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "Originally, programming was discovered by Ada Lovelace to operate on numbers following a well-defined procedure - an algorithm - like a recipe or knitting pattern.\nModern computers are theoretical identical (through practically quite distinct)\nThus it is possible to program a computer to do something if we know the exact sequence of steps that we need to do in order to achieve the goal.",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#how-many-years-old",
+    "href": "00_turing.html#how-many-years-old",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "Photo by Vickie Soshnikova",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#intelligence",
+    "href": "00_turing.html#intelligence",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "Defining the age of a person from their photograph is a task that cannot be explicitly programmed\n\nWe do not know how we come up with a number inside our head when we do it!\nOftentimes we wish to avoid estimating age…\n\nHire/fire decisions, most notably!",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#which-is-more-beautiful",
+    "href": "00_turing.html#which-is-more-beautiful",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "Elowah Falls\n\n\nFairy Falls",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#intelligence-1",
+    "href": "00_turing.html#intelligence-1",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "There are some tasks that we do not explicitly know how to solve.\nConsider determining the age of a person from their photograph.\nWe somehow learn to do it, because we have seen many examples of people of different age, but we cannot explicitly explain how we do it, nor can we program the computer to do it.\nThis is exactly the kind of task that are of interest to Artificial Intelligence (AI for short).",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#thinkpairshare",
+    "href": "00_turing.html#thinkpairshare",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "✅ Think of some tasks that one may wish to offload to AI.\n\nConsider the fields like education, politics, medicine, and the arts.\nHow are these fields interacting today with AI?\nWho benefits from the use of AI and who pays the costs?",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#weak-ai-vs.-strong-ai",
+    "href": "00_turing.html#weak-ai-vs.-strong-ai",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "Early AI research differentiated two forms of AI\nDicussion of the forms has become a much more popular distinction with the emergence of entreprise grade chatbots beginning with OpenAI ChatGPT",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#section",
+    "href": "00_turing.html#section",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "Weak AI\nStrong AI\n\n\n\n\nWeak AI refers to AI systems that are designed and trained for a specific task or a narrow set of tasks.\nStrong AI, or Artificial General Intelligence (AGI), refers to AI systems with human-level intelligence and understanding.",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#section-1",
+    "href": "00_turing.html#section-1",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "Weak AI\nStrong AI\n\n\n\n\nThese AI systems are not generally intelligent; they excel in performing a predefined task but lack true understanding or consciousness.\nThese AI systems have the ability to perform any intellectual task that a human being can do, adapt to different domains, and possess a form of consciousness or self-awareness.",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#section-2",
+    "href": "00_turing.html#section-2",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "Weak AI\nStrong AI\n\n\n\n\nExamples of weak AI include virtual assistants like Siri or Alexa, recommendation algorithms used by streaming services, and chatbots that are designed for specific customer service tasks.\nAchieving Strong AI is a long-term goal of AI research and would require the development of AI systems that can reason, learn, understand, and adapt across a wide range of tasks and contexts.",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#section-3",
+    "href": "00_turing.html#section-3",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "Weak AI\nStrong AI\n\n\n\n\nWeak AI is highly specialized and does not possess human-like cognitive abilities or general problem-solving capabilities beyond its narrow domain.\nStrong AI is currently a theoretical concept, and no AI system has reached this level of general intelligence.",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#definitions",
+    "href": "00_turing.html#definitions",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "One of the problems when dealing with the term “Intelligence” is that there is no clear definition of this term.\nOne can argue that intelligence is connected to abstract thinking, or to self-awareness, but we cannot properly define it.",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#intelligence-2",
+    "href": "00_turing.html#intelligence-2",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "Photo by Prof. Calvin\n\nTo see the ambiguity, try answering a question: “Is this cat (Ursula) intelligent?”\n\n(She is)\n(She is VERY smart)",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#consider",
+    "href": "00_turing.html#consider",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "Different people tend to give different answers to this question, as there is no universally accepted test to prove the assertion is true or not.\nAnd if you think there is - try an IQ test… What could go wrong.",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#by-the-way",
+    "href": "00_turing.html#by-the-way",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "It is common for IQ to enter conversations as a throwaway line in discussion of AI.\n\nConfronting scientific racism in psychology: Lessons from evolutionary biology and genetics.\nHow White nationalists mobilize genetics: From genetic ancestry and human biodiversity to counterscience and metapolitics\nScientific Racism and North American Psychology",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#thinkpairshare-1",
+    "href": "00_turing.html#thinkpairshare-1",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "✅ Think for a minute about how you define intelligence.\n\nIs a crow who can solve a maze and get at some food intelligent?\nIs a traffic light intelligent?\nIs an ecosystem intelligent?\nIs a character in a novel or play?",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#the-turing-test",
+    "href": "00_turing.html#the-turing-test",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "When speaking about AI we need to have some way to tell if we have created a truly intelligent system.\nAlan Turing proposed a way called a Turing Test, which also acts like a definition of intelligence.\n\nAlan Turing the 🐐\n\nThe test compares a given system to something inherently intelligent - a real human being, and because any automatic comparison can be bypassed by a computer program, we use a human interrogator.",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#aside-on-turing",
+    "href": "00_turing.html#aside-on-turing",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "Turing, by cracking the enigma code used by Nazi war criminals, can be regarded as almost single-handedly winning the Western front for the allies in WWII.\nTuring was prosecuted by the British Empire for his sexuality until his death at 41 in 1953.\nAsk me how I feel about this but not during class.",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#eugene-goostman",
+    "href": "00_turing.html#eugene-goostman",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "One path to intelligence? Cheat!\n\n\nA chat-bot called Eugene Goostman, developed in St. Petersburg, came close to passing the Turing test in 2014 by using a clever personality trick. It announced up front that it was a 13-year old Ukrainian boy, which would explain the lack of knowledge and some discrepancies in the text. The bot convinced 30% of the judges that it was human after a 5 minute dialogue, a metric that Turing believed a machine would be able to pass by 2000. However, one should understand that this does not indicate that we have created an intelligent system, or that a computer system has fooled the human interrogator - the system didn’t fool the humans, but rather the bot creators did!\n\n✅ Have you ever been fooled by a chat bot into thinking that you are speaking to a human? How did it convince you?",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#different-approaches-to-ai",
+    "href": "00_turing.html#different-approaches-to-ai",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "If we want a computer to behave like a human, we need somehow to model inside a computer our way of thinking. Consequently, we need to try to understand what makes a human being intelligent.\n\nTo be able to program intelligence into a machine, we need to understand how our own processes of making decisions work. If you do a little self-introspection, you will realize that there are some processes that happen subconsciously – eg. we can distinguish a cat from a dog without thinking about it - while some others involve reasoning.",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#different-approaches-to-ai-1",
+    "href": "00_turing.html#different-approaches-to-ai-1",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "Top-down Approach (Symbolic Reasoning)\nBottom-up Approach (Neural Networks)\n\n\n\n\nA top-down approach models the way a person reasons to solve a problem. It involves extracting knowledge from a human being, and representing it in a computer-readable form. We also need to develop a way to model reasoning inside a computer.\nA bottom-up approach models the structure of a human brain, consisting of a huge number of simple units called neurons. We can train a network of neurons to solve useful problems by providing training data.",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#different-approaches-to-ai-2",
+    "href": "00_turing.html#different-approaches-to-ai-2",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "There are also some other possible approaches to intelligence:\n\nAn Emergent, Synergetic or multi-agent approach are based on the fact that complex intelligent behaviour can be obtained by an interaction of a large number of simple agents. According to evolutionary cybernetics, intelligence can emerge from more simple, reactive behaviour in the process of metasystem transition.\nAn Evolutionary approach, or genetic algorithm is an optimization process based on the principles of evolution.",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#the-top-down-approach",
+    "href": "00_turing.html#the-top-down-approach",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "In a top-down approach, we try to model our reasoning.\n\nBecause we can follow our thoughts when we reason, we can try to formalize this process and program it inside the computer.\nThis is called symbolic reasoning, one example is grade-school algebra\n\nx = 2\ny = 2 * x",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#the-top-down-approach-1",
+    "href": "00_turing.html#the-top-down-approach-1",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "People tend to have some rules in their head that guide their decision making processes.\n\nAt least according to them (go observe rush hour drivers for example)\n\nFor example, when a doctor is diagnosing a patient, they may realize that a person has a fever, and thus there might be some inflammation going on inside the body.\nBy applying a large set of rules to a specific problem a doctor may be able to come up with the final diagnosis.",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#the-top-down-approach-2",
+    "href": "00_turing.html#the-top-down-approach-2",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "This approach relies heavily on knowledge representation and reasoning.\nExtracting knowledge from a human expert might be the most difficult part, because a doctor in many cases would not know exactly why they are coming up with a particular diagnosis.\nSometimes the solution just comes up in their head without explicit thinking.\nSome tasks, such as determining the age of a person from a photograph, cannot be reduced to manipulating knowledge.",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#bottom-up-approach",
+    "href": "00_turing.html#bottom-up-approach",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "Alternately, we can try to model the simplest atomic elements inside our brain – a neuron.\n\nObviously there are simpler elements (e.g. chemicals) but they take on different meaning in when not considered in isolation.\nTherefore they are not atomic, or indivisible units of “brain”.",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#bottom-up-approach-1",
+    "href": "00_turing.html#bottom-up-approach-1",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "We can construct a so-called artificial neural network inside a computer, and then try to teach it to solve problems by giving it examples.\n\nAllegedly this process is similar to how a newborn child learns about their surroundings by making observations.\n\nSimply program a computer to pretend to be however we think brains work.\n\nOf note, in some sense it doesn’t matter if we model the brain correctly or not.",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#a-brief-history-of-ai",
+    "href": "00_turing.html#a-brief-history-of-ai",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "Artificial Intelligence was started as a field in the middle of the twentieth century.\nInitially, symbolic reasoning was a prevalent approach, and it led to a number of important successes, such as expert systems – computer programs that were able to act as an expert in some limited problem domains.\nHowever, it soon became clear that such approach does not scale well.",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#problems-arise",
+    "href": "00_turing.html#problems-arise",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "Extracting the knowledge from an expert, representing it in a computer, and keeping that knowledgebase accurate turns out to be a very complex task, and too expensive to be practical in many cases.\nThis led to so-called AI Winter in the 1970s.",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#section-4",
+    "href": "00_turing.html#section-4",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "Image by Dmitry Soshnikov",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#computers-emerge",
+    "href": "00_turing.html#computers-emerge",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "As time passed…\n\nComputing resources became cheaper, and\nMore data has become available…\n\nSo neural network approaches started demonstrating great performance in competing with human beings in many areas, such as computer vision or speech understanding.\n\nIn the last decade, the term Artificial Intelligence has been mostly used as a synonym for Neural Networks, because most of the AI successes that we hear about are based on them.",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#chess",
+    "href": "00_turing.html#chess",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "We can observe how the approaches changed, for example, in creating a chess playing computer program:\n\nEarly chess programs were based on search – a program explicitly tried to estimate possible moves of an opponent for a given number of next moves, and selected an optimal move based on the optimal position that can be achieved in a few moves. It led to the development of the so-called alpha-beta pruning search algorithm.",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#chess-1",
+    "href": "00_turing.html#chess-1",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "We can observe how the approaches changed, for example, in creating a chess playing computer program:\n\nSearch strategies work well toward the end of the game, where the search space is limited by a small number of possible moves. However, at the beginning of the game, the search space is huge, and the algorithm can be improved by learning from existing matches between human players.\nSubsequent experiments employed so-called case-based reasoning, where the program looked for cases in the knowledge base very similar to the current position in the game.",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#chess-2",
+    "href": "00_turing.html#chess-2",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "We can observe how the approaches changed, for example, in creating a chess playing computer program:\n\nModern programs that win over human players are based on neural networks and reinforcement learning, where the programs learn to play solely by playing a long time against themselves and learning from their own mistakes – much like human beings do when learning to play chess.\nHowever, a computer program can play many more games in much less time, and thus can learn much faster.",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#chatbots",
+    "href": "00_turing.html#chatbots",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "Similarly, we can see how the approach towards creating “talking programs” (that might pass the Turing test) changed:\n\nEarly programs of this kind such as Eliza, were based on very simple grammatical rules and the re-formulation of the input sentence into a question.",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#chatbots-1",
+    "href": "00_turing.html#chatbots-1",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "Similarly, we can see how the approach towards creating “talking programs” (that might pass the Turing test) changed:\n\nModern assistants, such as Cortana, Siri or Google Assistant are all hybrid systems that use Neural networks to convert speech into text and recognize our intent, and then employ some reasoning or explicit algorithms to perform required actions.",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#chatbots-2",
+    "href": "00_turing.html#chatbots-2",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "Similarly, we can see how the approach towards creating “talking programs” (that might pass the Turing test) changed:\n\nDepending on who you ask, this is where we are now.\n\nIf you ask me, “no”.\n\nMy job is to know how to answer this question.\n\nIf you ask Sam Altman, “yes”.\n\nSam Altman’s job is convincingly say “yes” when asked this question.",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#section-5",
+    "href": "00_turing.html#section-5",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "Image by Dmitry Soshnikov, photo by Marina Abrosimova, Unsplash",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#recent-ai-research",
+    "href": "00_turing.html#recent-ai-research",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "The huge recent growth in neural network research started around 2010, when two things happened.\n\nMore compute.\nMore data.",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#more-compute",
+    "href": "00_turing.html#more-compute",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "A graduate students at UToronto affiliated with Prof. Hinton decided to use a GPU (graphics processing unit) instead of CPU (central processing unit) for image classification.\nThis is the first documented usage of a graphics-intended compute device for general purpose - or perhaps general AI - usage - of which I am aware.\n\nThis is not super well-documented and only something I became aware of “through the grapevine”.\nAs an architecture researcher (e.g. I study GPU vs. CPU) I tend to think it’s a big deal.\n\nRead more here perhaps?",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#more-data",
+    "href": "00_turing.html#more-data",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "Genius 李飞飞 (Fei-Fei Li, my 🐐) said (paraphrasing) “why don’t we just label as many images as possible and see what happens”.\nA huge collection of images called ImageNet, which contains around 14 million annotated images, and led to the ImageNet Large Scale Visual Recognition Challenge.",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#the-world-changed-quickly",
+    "href": "00_turing.html#the-world-changed-quickly",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "2012 AlexNet is from the Toronto team and the “quantum leap” on here.\nIn 2015, ResNet architecture from Microsoft Research achieved human-level accuracy.\n\nUniversities solve the problem.\nTrillion dollar companies take the credit.\nAsk me about this outside of class.",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#going-forward",
+    "href": "00_turing.html#going-forward",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "Since then, Neural Networks demonstrated very successful behaviour in many tasks:\n\n\n\n\nYear\nHuman Parity (nominally) achieved\n\n\n\n\n2015\nImage Classification\n\n\n2016\nConversational Speech Recognition\n\n\n2018\nAutomatic Machine Translation (Chinese-to-English)\n\n\n2020\nImage Captioning",
+    "crumbs": [
+      "Ada & Alan"
+    ]
+  },
+  {
+    "objectID": "00_turing.html#syllabus",
+    "href": "00_turing.html#syllabus",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "Bring a computer with internet access on Wednesday.\nJoin the Discord - I owe you an email.\nCheck out the syllabus",
+    "crumbs": [
+      "Ada & Alan"
+    ]
   }
 ]
