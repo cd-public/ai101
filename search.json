@@ -817,5 +817,65 @@
     "crumbs": [
       "Turing's Test"
     ]
+  },
+  {
+    "objectID": "01_test.html#computing-machinery-and-intelligence-1950",
+    "href": "01_test.html#computing-machinery-and-intelligence-1950",
+    "title": "Turing’s Test",
+    "section": "“Computing Machinery and Intelligence” (1950)",
+    "text": "“Computing Machinery and Intelligence” (1950)\nTuring’s primary work on intelligence was released in 1950, and began a simple statement:\n\n“I propose to consider the question ‘Can machines think?’”\n\nTuring used the motivating example of the imitation game, a party game “in which a man and a woman go into separate rooms and guests try to tell them apart by writing a series of questions and reading the typewritten answers sent back”. Saygin (2000)1 visualizes the game as follows:\n\n\n\n\n\n\n\n\n\nIdentity in the Architecture\n\n\n\nIt would be irresponsible not to remark that Turing, a queer scientist, used the formulation of gender to motivate the definition of machine intelligence. That is, the very identity for which Turing was persecuted (and likely assassinated) was critical to his insights that, among other things, won the Western Theatre for the Allies.\n\n\nTuring continued:\n\nWe now ask the question, “What will happen when a machine takes the part of A in this game?” Will the interrogator decide wrongly as often when the game is played like this as he does when the game is played between a man and a woman? These questions replace our original, “Can machines think?”\n\nSaygin (2000)2 visualizes this variant as follows:\n\n\n\nAn astute learning at this juncture will realize that a group of 3 students is sufficient to administer this intelligence test to a modern “AI” chatbot, such as Google Gemini, a component of the Google Workspace provided by this university to all students. You will additional need some way to pass type-written notes, for which I propose Google Documents.",
+    "crumbs": [
+      "Turing's Test"
+    ]
+  },
+  {
+    "objectID": "01_test.html#folder-setup",
+    "href": "01_test.html#folder-setup",
+    "title": "Turing’s Test",
+    "section": "Folder Setup",
+    "text": "Folder Setup\n\nCreate a new folder in Google Drive for this class.\n\nYour Google Drive is most likely located at the following address: https://drive.google.com/\n\nYou can read more here: Organize your files in Google Drive\n\nCreate a folder named “AI_”. For example, mine is “AI_ckdeutschbein”\n\nI will refer to this as “your AI folder”\n\nShare this folder with ckdeutschbein@willamette.edu\n\nYou can read more here: Share folders in Google Drive",
+    "crumbs": [
+      "Turing's Test"
+    ]
+  },
+  {
+    "objectID": "01_test.html#file-setup",
+    "href": "01_test.html#file-setup",
+    "title": "Turing’s Test",
+    "section": "File Setup",
+    "text": "File Setup\n\nCreate a new Document within the AI folder within which to “pass typewritten notes”.\n\nIn a group of three, I recommend nominating one student to create a file within their AI folder and share it with two other students.\n\nName this file “Turing_Test”\nDetermine some scheme to different players A, B, and C.\n\nI recommend assigning each a color - such as red, green and blue.\nI recommend agreeing to always start on a new line.\nI recommend always ending a line by clarifying who should speak next.\n\nFor example, the interrogator may address questions to either two other players, but players may only reply to the interrogator.\n\nThis is your assignment for today, so take some effort to ensure it is clear and reproducible!\n\nWe are doing science after all!\n\n\nCreate a separate, personal file that is not shared named “Prompt”, which we will use latter.",
+    "crumbs": [
+      "Turing's Test"
+    ]
+  },
+  {
+    "objectID": "01_test.html#gemini-setup",
+    "href": "01_test.html#gemini-setup",
+    "title": "Turing’s Test",
+    "section": "Gemini Setup",
+    "text": "Gemini Setup\n\nAt some point, each group member will play the part of the AI, so each will need access to some AI instance.\nYou can most likely access Google Gemini at the following address: https://gemini.google.com/.\nYou will need to somehow prepare Gemini to play a specific part in the game.\n\nWe term this prompting.\nIt will be a component of the experimental design.",
+    "crumbs": [
+      "Turing's Test"
+    ]
+  },
+  {
+    "objectID": "01_test.html#gemini",
+    "href": "01_test.html#gemini",
+    "title": "Turing’s Test",
+    "section": "Gemini",
+    "text": "Gemini\nYou can most likely access Google Gemini at the following address: https://gemini.google.com/. You may need to sign in to your official school account.",
+    "crumbs": [
+      "Turing's Test"
+    ]
+  },
+  {
+    "objectID": "01_test.html#footnotes",
+    "href": "01_test.html#footnotes",
+    "title": "Turing’s Test",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\n(Turing Test: 50 Years Later)[https://web.archive.org/web/20110409073501/http://crl.ucsd.edu/~saygin/papers/MMTT.pdf]↩︎\n(Turing Test: 50 Years Later)[https://web.archive.org/web/20110409073501/http://crl.ucsd.edu/~saygin/papers/MMTT.pdf]↩︎",
+    "crumbs": [
+      "Turing's Test"
+    ]
   }
 ]

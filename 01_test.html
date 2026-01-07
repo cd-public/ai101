@@ -163,6 +163,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#announcements" id="toc-announcements" class="nav-link active" data-scroll-target="#announcements">Announcements</a></li>
   <li><a href="#requirements" id="toc-requirements" class="nav-link" data-scroll-target="#requirements">Requirements</a></li>
+  <li><a href="#the-imitation-game" id="toc-the-imitation-game" class="nav-link" data-scroll-target="#the-imitation-game">The Imitation Game</a>
+  <ul class="collapse">
+  <li><a href="#computing-machinery-and-intelligence-1950" id="toc-computing-machinery-and-intelligence-1950" class="nav-link" data-scroll-target="#computing-machinery-and-intelligence-1950">“Computing Machinery and Intelligence” (1950)</a></li>
+  </ul></li>
+  <li><a href="#course-setup" id="toc-course-setup" class="nav-link" data-scroll-target="#course-setup">Course Setup</a>
+  <ul class="collapse">
+  <li><a href="#folder-setup" id="toc-folder-setup" class="nav-link" data-scroll-target="#folder-setup">Folder Setup</a></li>
+  <li><a href="#file-setup" id="toc-file-setup" class="nav-link" data-scroll-target="#file-setup">File Setup</a></li>
+  <li><a href="#gemini-setup" id="toc-gemini-setup" class="nav-link" data-scroll-target="#gemini-setup">Gemini Setup</a></li>
+  </ul></li>
+  <li><a href="#experimental-design" id="toc-experimental-design" class="nav-link" data-scroll-target="#experimental-design">Experimental Design</a>
+  <ul class="collapse">
+  <li><a href="#gemini" id="toc-gemini" class="nav-link" data-scroll-target="#gemini">Gemini</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -205,13 +219,128 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><label><input type="checkbox">Create a Google Drive folder for this course.</label></li>
 <li><label><input type="checkbox">Form a group of 3.</label></li>
 </ul>
+</section>
+<section id="the-imitation-game" class="level1">
+<h1>The Imitation Game</h1>
+<blockquote class="blockquote">
+<p>It is not difficult to devise a paper machine which will play a not very bad game of chess. Now get three men A, B and C as subjects for the experiment. A and C are to be rather poor chess players, B is the operator who works the paper machine. … Two rooms are used with some arrangement for communicating moves, and a game is played between C and either A or the paper machine. C may find it quite difficult to tell which he is playing.</p>
+</blockquote>
+<ul>
+<li>Turing (1948)</li>
+</ul>
+<section id="computing-machinery-and-intelligence-1950" class="level2">
+<h2 class="anchored" data-anchor-id="computing-machinery-and-intelligence-1950">“Computing Machinery and Intelligence” (1950)</h2>
+<p>Turing’s primary work on intelligence was released in 1950, and began a simple statement:</p>
+<blockquote class="blockquote">
+<p>“I propose to consider the question ‘Can machines think?’”</p>
+</blockquote>
+<p>Turing used the motivating example of the <em>imitation game</em>, a party game “in which a man and a woman go into separate rooms and guests try to tell them apart by writing a series of questions and reading the typewritten answers sent back”. Saygin (2000)<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> visualizes the game as follows:</p>
+<center style="filter:invert(.8)">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/The_Imitation_Game.svg/250px-The_Imitation_Game.svg.png" class="img-fluid">
+</center>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Identity in the Architecture
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>It would be irresponsible not to remark that Turing, a queer scientist, used the formulation of gender to motivate the definition of machine intelligence. That is, the very identity for which Turing was persecuted (and likely assassinated) was critical to his insights that, among other things, won the Western Theatre for the Allies.</p>
+</div>
+</div>
+<p>Turing continued:</p>
+<blockquote class="blockquote">
+<p>We now ask the question, “What will happen when a machine takes the part of A in this game?” Will the interrogator decide wrongly as often when the game is played like this as he does when the game is played between a man and a woman? These questions replace our original, “Can machines think?”</p>
+</blockquote>
+<p>Saygin (2000)<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> visualizes this variant as follows:</p>
+<center style="filter:invert(.8)">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Turing_Test_Version_1.svg/250px-Turing_Test_Version_1.svg.png" class="img-fluid">
+</center>
+<p>An astute learning at this juncture will realize that a group of 3 students is sufficient to administer this intelligence test to a modern “AI” chatbot, such as Google Gemini, a component of the Google Workspace provided by this university to all students. You will additional need some way to pass type-written notes, for which I propose Google Documents.</p>
+</section>
+</section>
+<section id="course-setup" class="level1">
+<h1>Course Setup</h1>
+<section id="folder-setup" class="level2">
+<h2 class="anchored" data-anchor-id="folder-setup">Folder Setup</h2>
+<ul>
+<li>Create a new folder in Google Drive for this class.
+<ul>
+<li>Your Google Drive is most likely located at the following address: <a href="https://drive.google.com/">https://drive.google.com/</a>
+<ul>
+<li>You can read more here: <a href="https://support.google.com/drive/answer/2375091">Organize your files in Google Drive</a></li>
+</ul></li>
+<li>Create a folder named “AI_<your school="" email="">”. For example, mine is “AI_ckdeutschbein”
+<ul>
+<li>I will refer to this as “your AI folder”</li>
+</ul></your></li>
+<li>Share this folder with <a href="ckdeutschbein@willamette.edu">ckdeutschbein@willamette.edu</a>
+<ul>
+<li>You can read more here: <a href="https://support.google.com/drive/answer/7166529">Share folders in Google Drive</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="file-setup" class="level2">
+<h2 class="anchored" data-anchor-id="file-setup">File Setup</h2>
+<ul>
+<li>Create a new Document within the AI folder within which to “pass typewritten notes”.
+<ul>
+<li>In a group of three, I recommend nominating one student to create a file within their AI folder and share it with two other students.</li>
+</ul></li>
+<li>Name this file “Turing_Test”</li>
+<li>Determine some scheme to different players A, B, and C.
+<ul>
+<li>I recommend assigning each a color - such as <span style="color:red">red</span>, <span style="color:green">green</span> and <span style="color:blue">blue</span>.</li>
+<li>I recommend agreeing to always start on a new line.</li>
+<li>I recommend always ending a line by clarifying who should speak next.
+<ul>
+<li>For example, the interrogator may address questions to either two other players, but players may only reply to the interrogator.</li>
+</ul></li>
+<li>This is your assignment for today, so take some effort to ensure it is clear and reproducible!
+<ul>
+<li>We are doing science after all!</li>
+</ul></li>
+</ul></li>
+<li>Create a separate, personal file that is not shared named “Prompt”, which we will use latter.</li>
+</ul>
+</section>
+<section id="gemini-setup" class="level2">
+<h2 class="anchored" data-anchor-id="gemini-setup">Gemini Setup</h2>
+<ul>
+<li>At some point, each group member will play the part of the AI, so each will need access to some AI instance.</li>
+<li>You can most likely access Google Gemini at the following address: <a href="https://gemini.google.com/">https://gemini.google.com/</a>.</li>
+<li>You will need to somehow prepare Gemini to play a specific part in the game.
+<ul>
+<li>We term this <em>prompting</em>.</li>
+<li>It will be a component of the experimental design.</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="experimental-design" class="level1">
+<h1>Experimental Design</h1>
+<section id="gemini" class="level2">
+<h2 class="anchored" data-anchor-id="gemini">Gemini</h2>
+<p>You can most likely access Google Gemini at the following address: <a href="https://gemini.google.com/">https://gemini.google.com/</a>. You may need to sign in to your official school account.</p>
 
 
 <!-- -->
 
 </section>
+</section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>(Turing Test: 50 Years Later)[https://web.archive.org/web/20110409073501/http://crl.ucsd.edu/~saygin/papers/MMTT.pdf]<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>(Turing Test: 50 Years Later)[https://web.archive.org/web/20110409073501/http://crl.ucsd.edu/~saygin/papers/MMTT.pdf]<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -706,7 +835,89 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-12"><a href="#cb1-12"></a><span class="fu">## Requirements</span></span>
 <span id="cb1-13"><a href="#cb1-13"></a></span>
 <span id="cb1-14"><a href="#cb1-14"></a><span class="ss">- </span><span class="va">[ ]</span> Create a Google Drive folder for this course.</span>
-<span id="cb1-15"><a href="#cb1-15"></a><span class="ss">- </span><span class="va">[ ]</span> Form a group of 3.    </span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb1-15"><a href="#cb1-15"></a><span class="ss">- </span><span class="va">[ ]</span> Form a group of 3.    </span>
+<span id="cb1-16"><a href="#cb1-16"></a></span>
+<span id="cb1-17"><a href="#cb1-17"></a><span class="fu"># The Imitation Game</span></span>
+<span id="cb1-18"><a href="#cb1-18"></a></span>
+<span id="cb1-19"><a href="#cb1-19"></a><span class="at">&gt; It is not difficult to devise a paper machine which will play a not very bad game of chess. Now get three men A, B and C as subjects for the experiment. A and C are to be rather poor chess players, B is the operator who works the paper machine. ... Two rooms are used with some arrangement for communicating moves, and a game is played between C and either A or the paper machine. C may find it quite difficult to tell which he is playing.</span></span>
+<span id="cb1-20"><a href="#cb1-20"></a></span>
+<span id="cb1-21"><a href="#cb1-21"></a><span class="ss">- </span>Turing (1948)</span>
+<span id="cb1-22"><a href="#cb1-22"></a></span>
+<span id="cb1-23"><a href="#cb1-23"></a><span class="fu">## "Computing Machinery and Intelligence" (1950)</span></span>
+<span id="cb1-24"><a href="#cb1-24"></a></span>
+<span id="cb1-25"><a href="#cb1-25"></a>Turing's primary work on intelligence was released in 1950, and began a simple statement:</span>
+<span id="cb1-26"><a href="#cb1-26"></a></span>
+<span id="cb1-27"><a href="#cb1-27"></a><span class="at">&gt;  "I propose to consider the question 'Can machines think?'"</span></span>
+<span id="cb1-28"><a href="#cb1-28"></a></span>
+<span id="cb1-29"><a href="#cb1-29"></a>Turing used the motivating example of the *imitation game*, a party game "in which a man and a woman go into separate rooms and guests try to tell them apart by writing a series of questions and reading the typewritten answers sent back". Saygin (2000)<span class="ot">[^1]</span> visualizes the game as follows:</span>
+<span id="cb1-30"><a href="#cb1-30"></a></span>
+<span id="cb1-31"><a href="#cb1-31"></a>&lt;center style="filter:invert(.8)"&gt;</span>
+<span id="cb1-32"><a href="#cb1-32"></a><span class="al">![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/The_Imitation_Game.svg/250px-The_Imitation_Game.svg.png)</span></span>
+<span id="cb1-33"><a href="#cb1-33"></a>&lt;/center&gt;</span>
+<span id="cb1-34"><a href="#cb1-34"></a></span>
+<span id="cb1-35"><a href="#cb1-35"></a>::: {.callout-note}</span>
+<span id="cb1-36"><a href="#cb1-36"></a></span>
+<span id="cb1-37"><a href="#cb1-37"></a><span class="fu">## Identity in the Architecture</span></span>
+<span id="cb1-38"><a href="#cb1-38"></a></span>
+<span id="cb1-39"><a href="#cb1-39"></a>It would be irresponsible not to remark that Turing, a queer scientist, used the formulation of gender to motivate the definition of machine intelligence. That is, the very identity for which Turing was persecuted (and likely assassinated) was critical to his insights that, among other things, won the Western Theatre for the Allies.</span>
+<span id="cb1-40"><a href="#cb1-40"></a></span>
+<span id="cb1-41"><a href="#cb1-41"></a>:::</span>
+<span id="cb1-42"><a href="#cb1-42"></a></span>
+<span id="cb1-43"><a href="#cb1-43"></a>Turing continued:</span>
+<span id="cb1-44"><a href="#cb1-44"></a></span>
+<span id="cb1-45"><a href="#cb1-45"></a><span class="at">&gt; We now ask the question, "What will happen when a machine takes the part of A in this game?" Will the interrogator decide wrongly as often when the game is played like this as he does when the game is played between a man and a woman? These questions replace our original, "Can machines think?"</span></span>
+<span id="cb1-46"><a href="#cb1-46"></a></span>
+<span id="cb1-47"><a href="#cb1-47"></a>Saygin (2000)<span class="ot">[^1]</span>  visualizes this variant as follows:</span>
+<span id="cb1-48"><a href="#cb1-48"></a></span>
+<span id="cb1-49"><a href="#cb1-49"></a>&lt;center style="filter:invert(.8)"&gt;</span>
+<span id="cb1-50"><a href="#cb1-50"></a><span class="al">![](https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Turing_Test_Version_1.svg/250px-Turing_Test_Version_1.svg.png)</span></span>
+<span id="cb1-51"><a href="#cb1-51"></a>&lt;/center&gt;</span>
+<span id="cb1-52"><a href="#cb1-52"></a></span>
+<span id="cb1-53"><a href="#cb1-53"></a>An astute learning at this juncture will realize that a group of 3 students is sufficient to administer this intelligence test to a modern "AI" chatbot, such as Google Gemini, a component of the Google Workspace provided by this university to all students. You will additional need some way to pass type-written notes, for which I propose Google Documents.</span>
+<span id="cb1-54"><a href="#cb1-54"></a></span>
+<span id="cb1-55"><a href="#cb1-55"></a><span class="fu"># Course Setup</span></span>
+<span id="cb1-56"><a href="#cb1-56"></a></span>
+<span id="cb1-57"><a href="#cb1-57"></a><span class="fu">## Folder Setup</span></span>
+<span id="cb1-58"><a href="#cb1-58"></a></span>
+<span id="cb1-59"><a href="#cb1-59"></a><span class="ss">- </span>Create a new folder in Google Drive for this class.</span>
+<span id="cb1-60"><a href="#cb1-60"></a><span class="ss">    - </span>Your Google Drive is most likely located at the following address: <span class="co">[</span><span class="ot">https://drive.google.com/</span><span class="co">](https://drive.google.com/)</span></span>
+<span id="cb1-61"><a href="#cb1-61"></a><span class="ss">        - </span>You can read more here:  <span class="co">[</span><span class="ot">Organize your files in Google Drive</span><span class="co">](https://support.google.com/drive/answer/2375091)</span></span>
+<span id="cb1-62"><a href="#cb1-62"></a><span class="ss">    - </span>Create a folder named "AI_&lt;your school email&gt;". For example, mine is "AI_ckdeutschbein"</span>
+<span id="cb1-63"><a href="#cb1-63"></a><span class="ss">        - </span>I will refer to this as "your AI folder" </span>
+<span id="cb1-64"><a href="#cb1-64"></a><span class="ss">    - </span>Share this folder with <span class="co">[</span><span class="ot">ckdeutschbein@willamette.edu</span><span class="co">](ckdeutschbein@willamette.edu)</span></span>
+<span id="cb1-65"><a href="#cb1-65"></a><span class="ss">        - </span>You can read more here:  <span class="co">[</span><span class="ot">Share folders in Google Drive</span><span class="co">](https://support.google.com/drive/answer/7166529)</span></span>
+<span id="cb1-66"><a href="#cb1-66"></a>        </span>
+<span id="cb1-67"><a href="#cb1-67"></a><span class="fu">## File Setup</span></span>
+<span id="cb1-68"><a href="#cb1-68"></a></span>
+<span id="cb1-69"><a href="#cb1-69"></a><span class="ss">- </span>Create a new Document within the AI folder within which to "pass typewritten notes". </span>
+<span id="cb1-70"><a href="#cb1-70"></a><span class="ss">    - </span>In a group of three, I recommend nominating one student to create a file within their AI folder and share it with two other students.</span>
+<span id="cb1-71"><a href="#cb1-71"></a><span class="ss">- </span>Name this file "Turing_Test"</span>
+<span id="cb1-72"><a href="#cb1-72"></a><span class="ss">- </span>Determine some scheme to different players A, B, and C.</span>
+<span id="cb1-73"><a href="#cb1-73"></a><span class="ss">    - </span>I recommend assigning each a color - such as &lt;span style="color:red"&gt;red&lt;/span&gt;, &lt;span style="color:green"&gt;green&lt;/span&gt; and &lt;span style="color:blue"&gt;blue&lt;/span&gt;.</span>
+<span id="cb1-74"><a href="#cb1-74"></a><span class="ss">    - </span>I recommend agreeing to always start on a new line.</span>
+<span id="cb1-75"><a href="#cb1-75"></a><span class="ss">    - </span>I recommend always ending a line by clarifying who should speak next.</span>
+<span id="cb1-76"><a href="#cb1-76"></a><span class="ss">        - </span>For example, the interrogator may address questions to either two other players, but players may only reply to the interrogator.</span>
+<span id="cb1-77"><a href="#cb1-77"></a><span class="ss">    - </span>This is your assignment for today, so take some effort to ensure it is clear and reproducible!</span>
+<span id="cb1-78"><a href="#cb1-78"></a><span class="ss">        - </span>We are doing science after all!</span>
+<span id="cb1-79"><a href="#cb1-79"></a><span class="ss">- </span>Create a separate, personal file that is not shared named "Prompt", which we will use latter.</span>
+<span id="cb1-80"><a href="#cb1-80"></a>        </span>
+<span id="cb1-81"><a href="#cb1-81"></a><span class="fu">## Gemini Setup</span></span>
+<span id="cb1-82"><a href="#cb1-82"></a></span>
+<span id="cb1-83"><a href="#cb1-83"></a><span class="ss">- </span>At some point, each group member will play the part of the AI, so each will need access to some AI instance.</span>
+<span id="cb1-84"><a href="#cb1-84"></a><span class="ss">- </span>You can most likely access Google Gemini at the following address: <span class="co">[</span><span class="ot">https://gemini.google.com/</span><span class="co">](https://gemini.google.com/)</span>. </span>
+<span id="cb1-85"><a href="#cb1-85"></a><span class="ss">- </span>You will need to somehow prepare Gemini to play a specific part in the game.</span>
+<span id="cb1-86"><a href="#cb1-86"></a><span class="ss">    - </span>We term this *prompting*.</span>
+<span id="cb1-87"><a href="#cb1-87"></a><span class="ss">    - </span>It will be a component of the experimental design.</span>
+<span id="cb1-88"><a href="#cb1-88"></a></span>
+<span id="cb1-89"><a href="#cb1-89"></a><span class="fu"># Experimental Design</span></span>
+<span id="cb1-90"><a href="#cb1-90"></a></span>
+<span id="cb1-91"><a href="#cb1-91"></a></span>
+<span id="cb1-92"><a href="#cb1-92"></a></span>
+<span id="cb1-93"><a href="#cb1-93"></a><span class="fu">## Gemini</span></span>
+<span id="cb1-94"><a href="#cb1-94"></a></span>
+<span id="cb1-95"><a href="#cb1-95"></a>You can most likely access Google Gemini at the following address: <span class="co">[</span><span class="ot">https://gemini.google.com/</span><span class="co">](https://gemini.google.com/)</span>. You may need to sign in to your official school account.</span>
+<span id="cb1-96"><a href="#cb1-96"></a></span>
+<span id="cb1-97"><a href="#cb1-97"></a><span class="ot">[^1]: </span>(Turing Test: 50 Years Later)<span class="co">[</span><span class="ot">https://web.archive.org/web/20110409073501/http://crl.ucsd.edu/~saygin/papers/MMTT.pdf</span><span class="co">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
