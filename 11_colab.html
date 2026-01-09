@@ -74,7 +74,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-a4a11d514c7d463668e07712114998e6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f6b9e9983480081bf93ef4541e41bf55.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-70c9a4798e5f6abb0636bcdc3eed0e90.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -237,6 +237,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#fix-it-1" id="toc-fix-it-1" class="nav-link" data-scroll-target="#fix-it-1">Fix it</a></li>
   <li><a href="#try-it-1" id="toc-try-it-1" class="nav-link" data-scroll-target="#try-it-1">Try it</a></li>
   </ul></li>
+  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise">Exercise</a>
+  <ul class="collapse">
+  <li><a href="#write-your-own" id="toc-write-your-own" class="nav-link" data-scroll-target="#write-your-own">Write your own</a></li>
+  </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="11_colab.rjs.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
     </div>
@@ -393,7 +397,6 @@ First things first!
 <ul>
 <li>Potentially useful for a class on AI!</li>
 </ul></li>
-<li>To learn more, see <a href=".\notebooks/basic_features_overview.ipynb">Overview of Colab</a>.</li>
 <li>Try to share your prompt with your team from the lab last week by creating a Colab document providing your <em>prompt</em> via <code>ai.generate_text</code>.</li>
 </ul>
 </section>
@@ -460,7 +463,7 @@ First things first!
 <ul>
 <li>Below is an example of something we can put in a <strong>text cell</strong>.</li>
 <li>You can <strong>double-click</strong> to edit this cell.</li>
-<li>Text cells use markdown syntax. <a href=".\notebooks/markdown_guide.ipynb">More Latter</a>.</li>
+<li>Text cells use markdown syntax. More Latter.</li>
 </ul>
 <div class="sourceCode" id="cb5"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1"></a>**This would be bold.**</span>
 <span id="cb5-2"><a href="#cb5-2"></a></span>
@@ -803,6 +806,21 @@ First things first!
 <span id="cb27-7"><a href="#cb27-7"></a>Person:</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>I can see why people chat with these things all day!</li>
+</ul>
+</section>
+</section>
+<section id="exercise" class="level1">
+<h1>Exercise</h1>
+<section id="write-your-own" class="level2">
+<h2 class="anchored" data-anchor-id="write-your-own">Write your own</h2>
+<ul>
+<li>Create a new notebook named “Lab01”</li>
+<li>Save it in your “AI folder” from the first lab.</li>
+<li>Create a chatbot that agrees with you on something.</li>
+<li>Chat with it once or twice to make sure it works.
+<ul>
+<li>Use at least <code>print</code>, <code>input</code>, <code>while</code>, and <code>ai.generate_text</code>.</li>
+</ul></li>
 </ul>
 
 
@@ -1403,391 +1421,400 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb28-106"><a href="#cb28-106"></a></span>
 <span id="cb28-107"><a href="#cb28-107"></a><span class="ss">- </span>You can easily share your Colab notebooks, allowing them to comment on your notebooks or even edit them. </span>
 <span id="cb28-108"><a href="#cb28-108"></a><span class="ss">    - </span>Potentially useful for a class on AI!</span>
-<span id="cb28-109"><a href="#cb28-109"></a><span class="ss">- </span>To learn more, see <span class="co">[</span><span class="ot">Overview of Colab</span><span class="co">](/notebooks/basic_features_overview.ipynb)</span>. </span>
-<span id="cb28-110"><a href="#cb28-110"></a><span class="ss">- </span>Try to share your prompt with your team from the lab last week by creating a Colab document providing your *prompt* via <span class="in">`ai.generate_text`</span>.</span>
-<span id="cb28-111"><a href="#cb28-111"></a></span>
-<span id="cb28-112"><a href="#cb28-112"></a><span class="fu">## Learn more!</span></span>
-<span id="cb28-113"><a href="#cb28-113"></a></span>
-<span id="cb28-114"><a href="#cb28-114"></a><span class="ss">- </span>Colab is an outgrowth of a major scientific computing project called *Jupyter*.</span>
-<span id="cb28-115"><a href="#cb28-115"></a><span class="ss">- </span>We won't dwell on it much this term</span>
-<span id="cb28-116"><a href="#cb28-116"></a><span class="ss">    - </span>Computer scientists: the "py" stands for Python</span>
-<span id="cb28-117"><a href="#cb28-117"></a><span class="ss">    - </span>Data scientists: the "r" stands for R.</span>
-<span id="cb28-118"><a href="#cb28-118"></a></span>
-<span id="cb28-119"><a href="#cb28-119"></a><span class="fu">## Learn more!</span></span>
-<span id="cb28-120"><a href="#cb28-120"></a></span>
-<span id="cb28-121"><a href="#cb28-121"></a><span class="ss">- </span>Colab notebooks are Jupyter notebooks that are hosted by Colab. To learn more about the Jupyter project, see <span class="co">[</span><span class="ot">jupyter.org</span><span class="co">](https://www.jupyter.org)</span>.</span>
-<span id="cb28-122"><a href="#cb28-122"></a><span class="ss">- </span>I think Jupyter is a bit out-of-scope this term, but Colab is too useful not to use, so it will be our home to explore AI this term!</span>
-<span id="cb28-123"><a href="#cb28-123"></a></span>
-<span id="cb28-124"><a href="#cb28-124"></a><span class="fu"># Understanding Colab</span></span>
-<span id="cb28-125"><a href="#cb28-125"></a></span>
-<span id="cb28-126"><a href="#cb28-126"></a><span class="fu">## Notebooks</span></span>
-<span id="cb28-127"><a href="#cb28-127"></a></span>
-<span id="cb28-128"><a href="#cb28-128"></a>A Colab *notebook* is a list of cells. </span>
-<span id="cb28-129"><a href="#cb28-129"></a></span>
-<span id="cb28-130"><a href="#cb28-130"></a><span class="ss">- </span>List here means *ordered* - they don't all happen at once.</span>
-<span id="cb28-131"><a href="#cb28-131"></a><span class="ss">- </span>Cells, we recall, are "like pages"</span>
-<span id="cb28-132"><a href="#cb28-132"></a></span>
-<span id="cb28-133"><a href="#cb28-133"></a><span class="fu">## Cells</span></span>
-<span id="cb28-134"><a href="#cb28-134"></a></span>
-<span id="cb28-135"><a href="#cb28-135"></a>Cells contain either explanatory text or executable code and its output. Click a cell to select it.</span>
-<span id="cb28-136"><a href="#cb28-136"></a></span>
-<span id="cb28-137"><a href="#cb28-137"></a><span class="ss">- </span>We can either write notes about what we are doing, or</span>
-<span id="cb28-138"><a href="#cb28-138"></a><span class="ss">- </span>Call Gemini or do some other task.</span>
-<span id="cb28-139"><a href="#cb28-139"></a></span>
-<span id="cb28-140"><a href="#cb28-140"></a>I think of these as basically being nouns (text) or verbs (tasks for Google).</span>
-<span id="cb28-141"><a href="#cb28-141"></a></span>
-<span id="cb28-142"><a href="#cb28-142"></a><span class="fu">## Code cells</span></span>
-<span id="cb28-143"><a href="#cb28-143"></a></span>
-<span id="cb28-144"><a href="#cb28-144"></a><span class="ss">- </span>Once the toolbar button indicates *CONNECTED* (to Google's servers that do all the work), click in the cell to select it and execute the contents in the following ways:</span>
-<span id="cb28-145"><a href="#cb28-145"></a><span class="ss">   - </span>Click the **Play icon** in the left gutter of the cell;</span>
-<span id="cb28-146"><a href="#cb28-146"></a><span class="ss">   - </span>Type **Cmd/Ctrl+Enter** to run the cell in place;</span>
-<span id="cb28-147"><a href="#cb28-147"></a><span class="ss">   - </span>Type **Shift+Enter** to run the cell and move focus to the next cell (adding one if none exists); or</span>
-<span id="cb28-148"><a href="#cb28-148"></a><span class="ss">    - </span>Type **Alt+Enter** to run the cell and insert a new code cell immediately below it.</span>
-<span id="cb28-149"><a href="#cb28-149"></a></span>
-<span id="cb28-150"><a href="#cb28-150"></a><span class="fu">## Example</span></span>
-<span id="cb28-151"><a href="#cb28-151"></a></span>
-<span id="cb28-152"><a href="#cb28-152"></a><span class="ss">- </span>Below is an example of something we can put in a **code cell**. </span>
-<span id="cb28-153"><a href="#cb28-153"></a></span>
-<span id="cb28-154"><a href="#cb28-154"></a><span class="in">```{.py}</span></span>
-<span id="cb28-155"><a href="#cb28-155"></a><span class="in">from google.colab import ai</span></span>
-<span id="cb28-156"><a href="#cb28-156"></a><span class="in">ai.generate_text("Define natural and artifical intelligence.")</span></span>
-<span id="cb28-157"><a href="#cb28-157"></a><span class="in">```</span></span>
-<span id="cb28-158"><a href="#cb28-158"></a></span>
-<span id="cb28-159"><a href="#cb28-159"></a><span class="fu">## Text cells</span></span>
-<span id="cb28-160"><a href="#cb28-160"></a></span>
-<span id="cb28-161"><a href="#cb28-161"></a><span class="ss">- </span>Below is an example of something we can put in a **text cell**. </span>
-<span id="cb28-162"><a href="#cb28-162"></a><span class="ss">- </span>You can **double-click** to edit this cell. </span>
-<span id="cb28-163"><a href="#cb28-163"></a><span class="ss">- </span>Text cells use markdown syntax. <span class="co">[</span><span class="ot">More Latter</span><span class="co">](/notebooks/markdown_guide.ipynb)</span>.</span>
-<span id="cb28-164"><a href="#cb28-164"></a></span>
-<span id="cb28-165"><a href="#cb28-165"></a><span class="in">```md</span></span>
-<span id="cb28-166"><a href="#cb28-166"></a>**This would be bold.**</span>
-<span id="cb28-167"><a href="#cb28-167"></a></span>
-<span id="cb28-168"><a href="#cb28-168"></a>*This would be italic.*</span>
-<span id="cb28-169"><a href="#cb28-169"></a></span>
-<span id="cb28-170"><a href="#cb28-170"></a><span class="ss">1. </span>Numbered.</span>
-<span id="cb28-171"><a href="#cb28-171"></a><span class="ss">2. </span>List.</span>
-<span id="cb28-172"><a href="#cb28-172"></a><span class="in">```</span></span>
-<span id="cb28-173"><a href="#cb28-173"></a></span>
-<span id="cb28-174"><a href="#cb28-174"></a><span class="in">## Looks like this:</span></span>
-<span id="cb28-175"><a href="#cb28-175"></a></span>
-<span id="cb28-176"><a href="#cb28-176"></a><span class="in">**This would be bold.**</span></span>
-<span id="cb28-177"><a href="#cb28-177"></a></span>
-<span id="cb28-178"><a href="#cb28-178"></a><span class="in">*This would be italic.*</span></span>
-<span id="cb28-179"><a href="#cb28-179"></a></span>
-<span id="cb28-180"><a href="#cb28-180"></a><span class="in">1. Numbered.</span></span>
-<span id="cb28-181"><a href="#cb28-181"></a><span class="in">2. List.</span></span>
-<span id="cb28-182"><a href="#cb28-182"></a></span>
-<span id="cb28-183"><a href="#cb28-183"></a><span class="in">## Adding and moving cells</span></span>
-<span id="cb28-184"><a href="#cb28-184"></a></span>
-<span id="cb28-185"><a href="#cb28-185"></a><span class="in">- You can add new cells by using the **+ CODE** and **+ TEXT** buttons that show when you hover between cells. </span></span>
-<span id="cb28-186"><a href="#cb28-186"></a><span class="in">- These buttons are also in the toolbar above the notebook where they can be used to add a cell below the currently selected cell.</span></span>
-<span id="cb28-187"><a href="#cb28-187"></a></span>
-<span id="cb28-188"><a href="#cb28-188"></a><span class="in">- You can move a cell by selecting it and clicking **Cell Up** or **Cell Down** in the top toolbar.</span></span>
-<span id="cb28-189"><a href="#cb28-189"></a><span class="in">    - Recall - order matters for cells!</span></span>
-<span id="cb28-190"><a href="#cb28-190"></a><span class="in">    </span></span>
-<span id="cb28-191"><a href="#cb28-191"></a><span class="in">## Advanced Selection</span></span>
-<span id="cb28-192"><a href="#cb28-192"></a></span>
-<span id="cb28-193"><a href="#cb28-193"></a><span class="in">&gt; **Consecutive** cells can be selected by "lasso selection" by dragging from outside one cell and through the group.  Non-adjacent cells can be selected concurrently by clicking one and then holding down **Ctrl** while clicking another.  Similarly, using **Shift** instead of **Ctrl** will select all intermediate cells.</span></span>
-<span id="cb28-194"><a href="#cb28-194"></a></span>
-<span id="cb28-195"><a href="#cb28-195"></a><span class="in"># Working with Python</span></span>
-<span id="cb28-196"><a href="#cb28-196"></a></span>
-<span id="cb28-197"><a href="#cb28-197"></a><span class="in">## The Language of AI</span></span>
-<span id="cb28-198"><a href="#cb28-198"></a></span>
-<span id="cb28-199"><a href="#cb28-199"></a><span class="in">- Colab by default uses the *Python* language to specify tasks. </span></span>
-<span id="cb28-200"><a href="#cb28-200"></a><span class="in">But don't worry if you don't know Python! (or if you do...)</span></span>
-<span id="cb28-201"><a href="#cb28-201"></a><span class="in">- Colab provides automatic completions.</span></span>
-<span id="cb28-202"><a href="#cb28-202"></a></span>
-<span id="cb28-203"><a href="#cb28-203"></a><span class="in">## Example </span></span>
-<span id="cb28-204"><a href="#cb28-204"></a></span>
-<span id="cb28-205"><a href="#cb28-205"></a><span class="in">- As an example, first run the following cell to import the  [`numpy`](http://www.numpy.org) module.</span></span>
-<span id="cb28-206"><a href="#cb28-206"></a><span class="in">    - Numpy is used to simulate thinking within Python, a core goal of AI!</span></span>
-<span id="cb28-207"><a href="#cb28-207"></a></span>
-<span id="cb28-208"><a href="#cb28-208"></a><span class="in">```{.py}</span></span>
-<span id="cb28-209"><a href="#cb28-209"></a><span class="in">import numpy as np</span></span>
-<span id="cb28-210"><a href="#cb28-210"></a><span class="in">```</span></span>
-<span id="cb28-211"><a href="#cb28-211"></a></span>
-<span id="cb28-212"><a href="#cb28-212"></a><span class="fu">## Example </span></span>
+<span id="cb28-109"><a href="#cb28-109"></a><span class="ss">- </span>Try to share your prompt with your team from the lab last week by creating a Colab document providing your *prompt* via <span class="in">`ai.generate_text`</span>.</span>
+<span id="cb28-110"><a href="#cb28-110"></a></span>
+<span id="cb28-111"><a href="#cb28-111"></a><span class="fu">## Learn more!</span></span>
+<span id="cb28-112"><a href="#cb28-112"></a></span>
+<span id="cb28-113"><a href="#cb28-113"></a><span class="ss">- </span>Colab is an outgrowth of a major scientific computing project called *Jupyter*.</span>
+<span id="cb28-114"><a href="#cb28-114"></a><span class="ss">- </span>We won't dwell on it much this term</span>
+<span id="cb28-115"><a href="#cb28-115"></a><span class="ss">    - </span>Computer scientists: the "py" stands for Python</span>
+<span id="cb28-116"><a href="#cb28-116"></a><span class="ss">    - </span>Data scientists: the "r" stands for R.</span>
+<span id="cb28-117"><a href="#cb28-117"></a></span>
+<span id="cb28-118"><a href="#cb28-118"></a><span class="fu">## Learn more!</span></span>
+<span id="cb28-119"><a href="#cb28-119"></a></span>
+<span id="cb28-120"><a href="#cb28-120"></a><span class="ss">- </span>Colab notebooks are Jupyter notebooks that are hosted by Colab. To learn more about the Jupyter project, see <span class="co">[</span><span class="ot">jupyter.org</span><span class="co">](https://www.jupyter.org)</span>.</span>
+<span id="cb28-121"><a href="#cb28-121"></a><span class="ss">- </span>I think Jupyter is a bit out-of-scope this term, but Colab is too useful not to use, so it will be our home to explore AI this term!</span>
+<span id="cb28-122"><a href="#cb28-122"></a></span>
+<span id="cb28-123"><a href="#cb28-123"></a><span class="fu"># Understanding Colab</span></span>
+<span id="cb28-124"><a href="#cb28-124"></a></span>
+<span id="cb28-125"><a href="#cb28-125"></a><span class="fu">## Notebooks</span></span>
+<span id="cb28-126"><a href="#cb28-126"></a></span>
+<span id="cb28-127"><a href="#cb28-127"></a>A Colab *notebook* is a list of cells. </span>
+<span id="cb28-128"><a href="#cb28-128"></a></span>
+<span id="cb28-129"><a href="#cb28-129"></a><span class="ss">- </span>List here means *ordered* - they don't all happen at once.</span>
+<span id="cb28-130"><a href="#cb28-130"></a><span class="ss">- </span>Cells, we recall, are "like pages"</span>
+<span id="cb28-131"><a href="#cb28-131"></a></span>
+<span id="cb28-132"><a href="#cb28-132"></a><span class="fu">## Cells</span></span>
+<span id="cb28-133"><a href="#cb28-133"></a></span>
+<span id="cb28-134"><a href="#cb28-134"></a>Cells contain either explanatory text or executable code and its output. Click a cell to select it.</span>
+<span id="cb28-135"><a href="#cb28-135"></a></span>
+<span id="cb28-136"><a href="#cb28-136"></a><span class="ss">- </span>We can either write notes about what we are doing, or</span>
+<span id="cb28-137"><a href="#cb28-137"></a><span class="ss">- </span>Call Gemini or do some other task.</span>
+<span id="cb28-138"><a href="#cb28-138"></a></span>
+<span id="cb28-139"><a href="#cb28-139"></a>I think of these as basically being nouns (text) or verbs (tasks for Google).</span>
+<span id="cb28-140"><a href="#cb28-140"></a></span>
+<span id="cb28-141"><a href="#cb28-141"></a><span class="fu">## Code cells</span></span>
+<span id="cb28-142"><a href="#cb28-142"></a></span>
+<span id="cb28-143"><a href="#cb28-143"></a><span class="ss">- </span>Once the toolbar button indicates *CONNECTED* (to Google's servers that do all the work), click in the cell to select it and execute the contents in the following ways:</span>
+<span id="cb28-144"><a href="#cb28-144"></a><span class="ss">   - </span>Click the **Play icon** in the left gutter of the cell;</span>
+<span id="cb28-145"><a href="#cb28-145"></a><span class="ss">   - </span>Type **Cmd/Ctrl+Enter** to run the cell in place;</span>
+<span id="cb28-146"><a href="#cb28-146"></a><span class="ss">   - </span>Type **Shift+Enter** to run the cell and move focus to the next cell (adding one if none exists); or</span>
+<span id="cb28-147"><a href="#cb28-147"></a><span class="ss">    - </span>Type **Alt+Enter** to run the cell and insert a new code cell immediately below it.</span>
+<span id="cb28-148"><a href="#cb28-148"></a></span>
+<span id="cb28-149"><a href="#cb28-149"></a><span class="fu">## Example</span></span>
+<span id="cb28-150"><a href="#cb28-150"></a></span>
+<span id="cb28-151"><a href="#cb28-151"></a><span class="ss">- </span>Below is an example of something we can put in a **code cell**. </span>
+<span id="cb28-152"><a href="#cb28-152"></a></span>
+<span id="cb28-153"><a href="#cb28-153"></a><span class="in">```{.py}</span></span>
+<span id="cb28-154"><a href="#cb28-154"></a><span class="in">from google.colab import ai</span></span>
+<span id="cb28-155"><a href="#cb28-155"></a><span class="in">ai.generate_text("Define natural and artifical intelligence.")</span></span>
+<span id="cb28-156"><a href="#cb28-156"></a><span class="in">```</span></span>
+<span id="cb28-157"><a href="#cb28-157"></a></span>
+<span id="cb28-158"><a href="#cb28-158"></a><span class="fu">## Text cells</span></span>
+<span id="cb28-159"><a href="#cb28-159"></a></span>
+<span id="cb28-160"><a href="#cb28-160"></a><span class="ss">- </span>Below is an example of something we can put in a **text cell**. </span>
+<span id="cb28-161"><a href="#cb28-161"></a><span class="ss">- </span>You can **double-click** to edit this cell. </span>
+<span id="cb28-162"><a href="#cb28-162"></a><span class="ss">- </span>Text cells use markdown syntax. More Latter.</span>
+<span id="cb28-163"><a href="#cb28-163"></a></span>
+<span id="cb28-164"><a href="#cb28-164"></a><span class="in">```md</span></span>
+<span id="cb28-165"><a href="#cb28-165"></a>**This would be bold.**</span>
+<span id="cb28-166"><a href="#cb28-166"></a></span>
+<span id="cb28-167"><a href="#cb28-167"></a>*This would be italic.*</span>
+<span id="cb28-168"><a href="#cb28-168"></a></span>
+<span id="cb28-169"><a href="#cb28-169"></a><span class="ss">1. </span>Numbered.</span>
+<span id="cb28-170"><a href="#cb28-170"></a><span class="ss">2. </span>List.</span>
+<span id="cb28-171"><a href="#cb28-171"></a><span class="in">```</span></span>
+<span id="cb28-172"><a href="#cb28-172"></a></span>
+<span id="cb28-173"><a href="#cb28-173"></a><span class="in">## Looks like this:</span></span>
+<span id="cb28-174"><a href="#cb28-174"></a></span>
+<span id="cb28-175"><a href="#cb28-175"></a><span class="in">**This would be bold.**</span></span>
+<span id="cb28-176"><a href="#cb28-176"></a></span>
+<span id="cb28-177"><a href="#cb28-177"></a><span class="in">*This would be italic.*</span></span>
+<span id="cb28-178"><a href="#cb28-178"></a></span>
+<span id="cb28-179"><a href="#cb28-179"></a><span class="in">1. Numbered.</span></span>
+<span id="cb28-180"><a href="#cb28-180"></a><span class="in">2. List.</span></span>
+<span id="cb28-181"><a href="#cb28-181"></a></span>
+<span id="cb28-182"><a href="#cb28-182"></a><span class="in">## Adding and moving cells</span></span>
+<span id="cb28-183"><a href="#cb28-183"></a></span>
+<span id="cb28-184"><a href="#cb28-184"></a><span class="in">- You can add new cells by using the **+ CODE** and **+ TEXT** buttons that show when you hover between cells. </span></span>
+<span id="cb28-185"><a href="#cb28-185"></a><span class="in">- These buttons are also in the toolbar above the notebook where they can be used to add a cell below the currently selected cell.</span></span>
+<span id="cb28-186"><a href="#cb28-186"></a></span>
+<span id="cb28-187"><a href="#cb28-187"></a><span class="in">- You can move a cell by selecting it and clicking **Cell Up** or **Cell Down** in the top toolbar.</span></span>
+<span id="cb28-188"><a href="#cb28-188"></a><span class="in">    - Recall - order matters for cells!</span></span>
+<span id="cb28-189"><a href="#cb28-189"></a><span class="in">    </span></span>
+<span id="cb28-190"><a href="#cb28-190"></a><span class="in">## Advanced Selection</span></span>
+<span id="cb28-191"><a href="#cb28-191"></a></span>
+<span id="cb28-192"><a href="#cb28-192"></a><span class="in">&gt; **Consecutive** cells can be selected by "lasso selection" by dragging from outside one cell and through the group.  Non-adjacent cells can be selected concurrently by clicking one and then holding down **Ctrl** while clicking another.  Similarly, using **Shift** instead of **Ctrl** will select all intermediate cells.</span></span>
+<span id="cb28-193"><a href="#cb28-193"></a></span>
+<span id="cb28-194"><a href="#cb28-194"></a><span class="in"># Working with Python</span></span>
+<span id="cb28-195"><a href="#cb28-195"></a></span>
+<span id="cb28-196"><a href="#cb28-196"></a><span class="in">## The Language of AI</span></span>
+<span id="cb28-197"><a href="#cb28-197"></a></span>
+<span id="cb28-198"><a href="#cb28-198"></a><span class="in">- Colab by default uses the *Python* language to specify tasks. </span></span>
+<span id="cb28-199"><a href="#cb28-199"></a><span class="in">But don't worry if you don't know Python! (or if you do...)</span></span>
+<span id="cb28-200"><a href="#cb28-200"></a><span class="in">- Colab provides automatic completions.</span></span>
+<span id="cb28-201"><a href="#cb28-201"></a></span>
+<span id="cb28-202"><a href="#cb28-202"></a><span class="in">## Example </span></span>
+<span id="cb28-203"><a href="#cb28-203"></a></span>
+<span id="cb28-204"><a href="#cb28-204"></a><span class="in">- As an example, first run the following cell to import the  [`numpy`](http://www.numpy.org) module.</span></span>
+<span id="cb28-205"><a href="#cb28-205"></a><span class="in">    - Numpy is used to simulate thinking within Python, a core goal of AI!</span></span>
+<span id="cb28-206"><a href="#cb28-206"></a></span>
+<span id="cb28-207"><a href="#cb28-207"></a><span class="in">```{.py}</span></span>
+<span id="cb28-208"><a href="#cb28-208"></a><span class="in">import numpy as np</span></span>
+<span id="cb28-209"><a href="#cb28-209"></a><span class="in">```</span></span>
+<span id="cb28-210"><a href="#cb28-210"></a></span>
+<span id="cb28-211"><a href="#cb28-211"></a><span class="fu">## Example </span></span>
+<span id="cb28-212"><a href="#cb28-212"></a></span>
 <span id="cb28-213"><a href="#cb28-213"></a></span>
-<span id="cb28-214"><a href="#cb28-214"></a></span>
-<span id="cb28-215"><a href="#cb28-215"></a><span class="ss">- </span>If you now insert your cursor after <span class="in">`np`</span> and press **Period**(<span class="in">`.`</span>), you will see the list of available completions within the <span class="in">`np`</span> module. </span>
-<span id="cb28-216"><a href="#cb28-216"></a><span class="ss">- </span>Completions can be opened again by using **Ctrl+Space**.</span>
-<span id="cb28-217"><a href="#cb28-217"></a><span class="ss">- </span>This is a good way to get unstuck if you forget what to type here:</span>
-<span id="cb28-218"><a href="#cb28-218"></a></span>
-<span id="cb28-219"><a href="#cb28-219"></a><span class="in">```{.py}</span></span>
-<span id="cb28-220"><a href="#cb28-220"></a><span class="in">from google.colab import ai</span></span>
-<span id="cb28-221"><a href="#cb28-221"></a><span class="in">ai.</span></span>
-<span id="cb28-222"><a href="#cb28-222"></a><span class="in">```</span></span>
-<span id="cb28-223"><a href="#cb28-223"></a></span>
-<span id="cb28-224"><a href="#cb28-224"></a><span class="ss">- </span>What happens?</span>
-<span id="cb28-225"><a href="#cb28-225"></a></span>
-<span id="cb28-226"><a href="#cb28-226"></a><span class="fu">## Rich, interactive outputs</span></span>
-<span id="cb28-227"><a href="#cb28-227"></a></span>
-<span id="cb28-228"><a href="#cb28-228"></a><span class="ss">- </span>Until now all of the generated outputs have been text, but they can be more interesting, like the parabola below.</span>
-<span id="cb28-229"><a href="#cb28-229"></a><span class="ss">- </span>We will use charts more latter, but good support for charts is a good reason to use Colab!</span>
-<span id="cb28-230"><a href="#cb28-230"></a></span>
-<span id="cb28-231"><a href="#cb28-231"></a><span class="in">```{.py}</span></span>
-<span id="cb28-232"><a href="#cb28-232"></a><span class="in">from matplotlib import pyplot as plt</span></span>
-<span id="cb28-233"><a href="#cb28-233"></a></span>
-<span id="cb28-234"><a href="#cb28-234"></a><span class="in">xs = range(-10,10)</span></span>
-<span id="cb28-235"><a href="#cb28-235"></a><span class="in">ys = [x*x for x in xs]</span></span>
-<span id="cb28-236"><a href="#cb28-236"></a></span>
-<span id="cb28-237"><a href="#cb28-237"></a><span class="in">plt.plot(xs, ys)</span></span>
-<span id="cb28-238"><a href="#cb28-238"></a><span class="in">```</span></span>
-<span id="cb28-239"><a href="#cb28-239"></a></span>
-<span id="cb28-240"><a href="#cb28-240"></a><span class="ss">- </span>What happens?</span>
-<span id="cb28-241"><a href="#cb28-241"></a></span>
-<span id="cb28-242"><a href="#cb28-242"></a><span class="fu">## Stop it!</span></span>
-<span id="cb28-243"><a href="#cb28-243"></a></span>
-<span id="cb28-244"><a href="#cb28-244"></a><span class="ss">- </span>Sometimes Gemini is slow. </span>
-<span id="cb28-245"><a href="#cb28-245"></a><span class="ss">- </span>Long running tasks can be interrupted if you have better things to do. </span>
-<span id="cb28-246"><a href="#cb28-246"></a><span class="ss">- </span>Run the following cell, which will take a nap, and select **Runtime -&gt; Interrupt execution** (*hotkey: Cmd/Ctrl-M I*) to stop it.</span>
-<span id="cb28-247"><a href="#cb28-247"></a><span class="ss">    - </span>We can pretend Gemini was thinking the whole time instead of taking a nap.</span>
-<span id="cb28-248"><a href="#cb28-248"></a></span>
-<span id="cb28-249"><a href="#cb28-249"></a><span class="in">```{.py}</span></span>
-<span id="cb28-250"><a href="#cb28-250"></a><span class="in">from time import sleep</span></span>
-<span id="cb28-251"><a href="#cb28-251"></a><span class="in">sleep(30)</span></span>
-<span id="cb28-252"><a href="#cb28-252"></a><span class="in">```</span></span>
-<span id="cb28-253"><a href="#cb28-253"></a></span>
-<span id="cb28-254"><a href="#cb28-254"></a><span class="fu"># Integration with Drive</span></span>
-<span id="cb28-255"><a href="#cb28-255"></a></span>
-<span id="cb28-256"><a href="#cb28-256"></a><span class="fu">## Share, comment, collaborate</span></span>
-<span id="cb28-257"><a href="#cb28-257"></a></span>
-<span id="cb28-258"><a href="#cb28-258"></a>Colaboratory is integrated with Google Drive.</span>
-<span id="cb28-259"><a href="#cb28-259"></a></span>
-<span id="cb28-260"><a href="#cb28-260"></a><span class="ss">* </span>The **SHARE** button (top-right of the toolbar) allows you to share the notebook and control permissions set on it.</span>
-<span id="cb28-261"><a href="#cb28-261"></a></span>
-<span id="cb28-262"><a href="#cb28-262"></a><span class="ss">* </span>**File-&gt;Make a Copy** creates a copy of the notebook in Drive.</span>
-<span id="cb28-263"><a href="#cb28-263"></a></span>
-<span id="cb28-264"><a href="#cb28-264"></a><span class="ss">* </span>**File-&gt;Save** saves the File to Drive. **File-&gt;Save and checkpoint** pins the version so it doesn't get deleted from the revision history.</span>
-<span id="cb28-265"><a href="#cb28-265"></a></span>
-<span id="cb28-266"><a href="#cb28-266"></a><span class="ss">* </span>**File-&gt;Revision history** shows the notebook's revision history.</span>
-<span id="cb28-267"><a href="#cb28-267"></a></span>
-<span id="cb28-268"><a href="#cb28-268"></a><span class="fu">## Commenting on a cell</span></span>
-<span id="cb28-269"><a href="#cb28-269"></a></span>
-<span id="cb28-270"><a href="#cb28-270"></a><span class="ss">- </span>You can comment on a Colaboratory notebook like you would on a Google Document. </span>
-<span id="cb28-271"><a href="#cb28-271"></a><span class="ss">- </span>Comments are attached to cells, and are displayed next to the cell they refer to. </span>
-<span id="cb28-272"><a href="#cb28-272"></a><span class="ss">- </span>If you have **comment-only** permissions, you will see a comment button on the top right of the cell when you hover over it.</span>
-<span id="cb28-273"><a href="#cb28-273"></a><span class="ss">    - </span>These are good for sharing your prompt with your friends!</span>
-<span id="cb28-274"><a href="#cb28-274"></a>    </span>
-<span id="cb28-275"><a href="#cb28-275"></a><span class="fu">## Permissions</span></span>
-<span id="cb28-276"><a href="#cb28-276"></a></span>
-<span id="cb28-277"><a href="#cb28-277"></a>If you have edit or comment permissions you can comment on a cell in one of three ways:</span>
-<span id="cb28-278"><a href="#cb28-278"></a></span>
-<span id="cb28-279"><a href="#cb28-279"></a><span class="ss">1. </span>Select a cell and click the comment button in the toolbar above the top-right corner of the cell.</span>
-<span id="cb28-280"><a href="#cb28-280"></a><span class="ss">1. </span>Right click a text cell and select **Add a comment** from the context menu.</span>
-<span id="cb28-281"><a href="#cb28-281"></a><span class="ss">3. </span>Use the shortcut **Ctrl+Shift+M** to add a comment to the currently selected cell.</span>
-<span id="cb28-282"><a href="#cb28-282"></a></span>
-<span id="cb28-283"><a href="#cb28-283"></a><span class="fu">## Replies and Tags</span></span>
-<span id="cb28-284"><a href="#cb28-284"></a></span>
-<span id="cb28-285"><a href="#cb28-285"></a>You can resolve and reply to comments, and you can target comments to specific collaborators by typing *+[email address]* (e.g., <span class="in">`+user@domain.com`</span>). Addressed collaborators will be emailed.</span>
-<span id="cb28-286"><a href="#cb28-286"></a></span>
-<span id="cb28-287"><a href="#cb28-287"></a>The Comment button in the top-right corner of the page shows all comments attached to the notebook.</span>
-<span id="cb28-288"><a href="#cb28-288"></a></span>
-<span id="cb28-289"><a href="#cb28-289"></a><span class="fu"># Lab</span></span>
-<span id="cb28-290"><a href="#cb28-290"></a></span>
-<span id="cb28-291"><a href="#cb28-291"></a><span class="fu">## Try it!</span></span>
-<span id="cb28-292"><a href="#cb28-292"></a></span>
-<span id="cb28-293"><a href="#cb28-293"></a><span class="ss">- </span>Let's have a quick chat with Gemini inside Colab to get a feel for how to use it.</span>
-<span id="cb28-294"><a href="#cb28-294"></a><span class="ss">- </span>I of course selected my favorite two topics - being told that I'm right and *Nosferato (1922)*, the greatest film of all time.</span>
-<span id="cb28-295"><a href="#cb28-295"></a><span class="ss">- </span>I put this in one cell than ran the cell. It took 12 seconds!</span>
-<span id="cb28-296"><a href="#cb28-296"></a></span>
-<span id="cb28-297"><a href="#cb28-297"></a><span class="in">```{.py}</span></span>
-<span id="cb28-298"><a href="#cb28-298"></a><span class="in">from google.colab import ai</span></span>
-<span id="cb28-299"><a href="#cb28-299"></a><span class="in">ai.generate_text("We are both film critics and geniuses and we both love Nosferato 1922. Prepare to chat.")</span></span>
-<span id="cb28-300"><a href="#cb28-300"></a><span class="in">```</span></span>
-<span id="cb28-301"><a href="#cb28-301"></a></span>
-<span id="cb28-302"><a href="#cb28-302"></a><span class="fu">## What I saw</span></span>
-<span id="cb28-303"><a href="#cb28-303"></a></span>
-<span id="cb28-304"><a href="#cb28-304"></a><span class="ss">- </span>I got back some text that doesn't look great:</span>
-<span id="cb28-305"><a href="#cb28-305"></a></span>
-<span id="cb28-306"><a href="#cb28-306"></a><span class="in">```{.sh}</span></span>
-<span id="cb28-307"><a href="#cb28-307"></a><span class="in">'Alright, the screens have gone dark, the lingering shadows of Count Orlok still dance on the periphery of our vision. The silence, after such a profound experience, is almost deafening.\n\n**Critic A:**...</span></span>
-<span id="cb28-308"><a href="#cb28-308"></a><span class="in">```</span></span>
-<span id="cb28-309"><a href="#cb28-309"></a></span>
-<span id="cb28-310"><a href="#cb28-310"></a><span class="ss">- </span>Scroll to the end!</span>
-<span id="cb28-311"><a href="#cb28-311"></a><span class="ss">    - </span>Ugly!</span>
-<span id="cb28-312"><a href="#cb28-312"></a></span>
-<span id="cb28-313"><a href="#cb28-313"></a><span class="fu">## "Print"</span></span>
-<span id="cb28-314"><a href="#cb28-314"></a></span>
-<span id="cb28-315"><a href="#cb28-315"></a><span class="ss">- </span>Those <span class="in">`\n\n`</span> are supposed to be new lines and the <span class="in">`**Critic A:**`</span> is supposed to be bold.</span>
-<span id="cb28-316"><a href="#cb28-316"></a><span class="ss">    - </span>Yes, chatbots and Jupyter notebooks both have been using "Markdown" the whole time!</span>
-<span id="cb28-317"><a href="#cb28-317"></a><span class="ss">- </span>We can't do much about bold, but we get the new lines to show up by asking Colab to "print" whatever the text is.</span>
-<span id="cb28-318"><a href="#cb28-318"></a><span class="ss">    - </span>Simply write the word print, append an open paratheses, then place whatever you want to be printed, and a close parentheses.</span>
-<span id="cb28-319"><a href="#cb28-319"></a><span class="ss">    - </span>The parentheses tell Python to take some action!</span>
-<span id="cb28-320"><a href="#cb28-320"></a>    </span>
-<span id="cb28-321"><a href="#cb28-321"></a><span class="fu">## "Print" </span></span>
-<span id="cb28-322"><a href="#cb28-322"></a></span>
-<span id="cb28-323"><a href="#cb28-323"></a><span class="in">```{.py}</span></span>
-<span id="cb28-324"><a href="#cb28-324"></a><span class="in">print(ai.generate_text("Don't use markdown. It isn't showing up properly."))</span></span>
-<span id="cb28-325"><a href="#cb28-325"></a><span class="in">```</span></span>
-<span id="cb28-326"><a href="#cb28-326"></a></span>
-<span id="cb28-327"><a href="#cb28-327"></a><span class="ss">- </span>For me, this worked...</span>
-<span id="cb28-328"><a href="#cb28-328"></a></span>
-<span id="cb28-329"><a href="#cb28-329"></a><span class="in">```{.sh}</span></span>
-<span id="cb28-330"><a href="#cb28-330"></a><span class="in">Okay, I understand. I will avoid using markdown in my responses.</span></span>
-<span id="cb28-331"><a href="#cb28-331"></a><span class="in">```</span></span>
-<span id="cb28-332"><a href="#cb28-332"></a></span>
-<span id="cb28-333"><a href="#cb28-333"></a><span class="fu">## "Input"</span></span>
-<span id="cb28-334"><a href="#cb28-334"></a></span>
-<span id="cb28-335"><a href="#cb28-335"></a><span class="ss">- </span>We don't to provide the *prompt* within the **Code cell**, we can also tell the **Code cell** to ask us for input, like so:</span>
+<span id="cb28-214"><a href="#cb28-214"></a><span class="ss">- </span>If you now insert your cursor after <span class="in">`np`</span> and press **Period**(<span class="in">`.`</span>), you will see the list of available completions within the <span class="in">`np`</span> module. </span>
+<span id="cb28-215"><a href="#cb28-215"></a><span class="ss">- </span>Completions can be opened again by using **Ctrl+Space**.</span>
+<span id="cb28-216"><a href="#cb28-216"></a><span class="ss">- </span>This is a good way to get unstuck if you forget what to type here:</span>
+<span id="cb28-217"><a href="#cb28-217"></a></span>
+<span id="cb28-218"><a href="#cb28-218"></a><span class="in">```{.py}</span></span>
+<span id="cb28-219"><a href="#cb28-219"></a><span class="in">from google.colab import ai</span></span>
+<span id="cb28-220"><a href="#cb28-220"></a><span class="in">ai.</span></span>
+<span id="cb28-221"><a href="#cb28-221"></a><span class="in">```</span></span>
+<span id="cb28-222"><a href="#cb28-222"></a></span>
+<span id="cb28-223"><a href="#cb28-223"></a><span class="ss">- </span>What happens?</span>
+<span id="cb28-224"><a href="#cb28-224"></a></span>
+<span id="cb28-225"><a href="#cb28-225"></a><span class="fu">## Rich, interactive outputs</span></span>
+<span id="cb28-226"><a href="#cb28-226"></a></span>
+<span id="cb28-227"><a href="#cb28-227"></a><span class="ss">- </span>Until now all of the generated outputs have been text, but they can be more interesting, like the parabola below.</span>
+<span id="cb28-228"><a href="#cb28-228"></a><span class="ss">- </span>We will use charts more latter, but good support for charts is a good reason to use Colab!</span>
+<span id="cb28-229"><a href="#cb28-229"></a></span>
+<span id="cb28-230"><a href="#cb28-230"></a><span class="in">```{.py}</span></span>
+<span id="cb28-231"><a href="#cb28-231"></a><span class="in">from matplotlib import pyplot as plt</span></span>
+<span id="cb28-232"><a href="#cb28-232"></a></span>
+<span id="cb28-233"><a href="#cb28-233"></a><span class="in">xs = range(-10,10)</span></span>
+<span id="cb28-234"><a href="#cb28-234"></a><span class="in">ys = [x*x for x in xs]</span></span>
+<span id="cb28-235"><a href="#cb28-235"></a></span>
+<span id="cb28-236"><a href="#cb28-236"></a><span class="in">plt.plot(xs, ys)</span></span>
+<span id="cb28-237"><a href="#cb28-237"></a><span class="in">```</span></span>
+<span id="cb28-238"><a href="#cb28-238"></a></span>
+<span id="cb28-239"><a href="#cb28-239"></a><span class="ss">- </span>What happens?</span>
+<span id="cb28-240"><a href="#cb28-240"></a></span>
+<span id="cb28-241"><a href="#cb28-241"></a><span class="fu">## Stop it!</span></span>
+<span id="cb28-242"><a href="#cb28-242"></a></span>
+<span id="cb28-243"><a href="#cb28-243"></a><span class="ss">- </span>Sometimes Gemini is slow. </span>
+<span id="cb28-244"><a href="#cb28-244"></a><span class="ss">- </span>Long running tasks can be interrupted if you have better things to do. </span>
+<span id="cb28-245"><a href="#cb28-245"></a><span class="ss">- </span>Run the following cell, which will take a nap, and select **Runtime -&gt; Interrupt execution** (*hotkey: Cmd/Ctrl-M I*) to stop it.</span>
+<span id="cb28-246"><a href="#cb28-246"></a><span class="ss">    - </span>We can pretend Gemini was thinking the whole time instead of taking a nap.</span>
+<span id="cb28-247"><a href="#cb28-247"></a></span>
+<span id="cb28-248"><a href="#cb28-248"></a><span class="in">```{.py}</span></span>
+<span id="cb28-249"><a href="#cb28-249"></a><span class="in">from time import sleep</span></span>
+<span id="cb28-250"><a href="#cb28-250"></a><span class="in">sleep(30)</span></span>
+<span id="cb28-251"><a href="#cb28-251"></a><span class="in">```</span></span>
+<span id="cb28-252"><a href="#cb28-252"></a></span>
+<span id="cb28-253"><a href="#cb28-253"></a><span class="fu"># Integration with Drive</span></span>
+<span id="cb28-254"><a href="#cb28-254"></a></span>
+<span id="cb28-255"><a href="#cb28-255"></a><span class="fu">## Share, comment, collaborate</span></span>
+<span id="cb28-256"><a href="#cb28-256"></a></span>
+<span id="cb28-257"><a href="#cb28-257"></a>Colaboratory is integrated with Google Drive.</span>
+<span id="cb28-258"><a href="#cb28-258"></a></span>
+<span id="cb28-259"><a href="#cb28-259"></a><span class="ss">* </span>The **SHARE** button (top-right of the toolbar) allows you to share the notebook and control permissions set on it.</span>
+<span id="cb28-260"><a href="#cb28-260"></a></span>
+<span id="cb28-261"><a href="#cb28-261"></a><span class="ss">* </span>**File-&gt;Make a Copy** creates a copy of the notebook in Drive.</span>
+<span id="cb28-262"><a href="#cb28-262"></a></span>
+<span id="cb28-263"><a href="#cb28-263"></a><span class="ss">* </span>**File-&gt;Save** saves the File to Drive. **File-&gt;Save and checkpoint** pins the version so it doesn't get deleted from the revision history.</span>
+<span id="cb28-264"><a href="#cb28-264"></a></span>
+<span id="cb28-265"><a href="#cb28-265"></a><span class="ss">* </span>**File-&gt;Revision history** shows the notebook's revision history.</span>
+<span id="cb28-266"><a href="#cb28-266"></a></span>
+<span id="cb28-267"><a href="#cb28-267"></a><span class="fu">## Commenting on a cell</span></span>
+<span id="cb28-268"><a href="#cb28-268"></a></span>
+<span id="cb28-269"><a href="#cb28-269"></a><span class="ss">- </span>You can comment on a Colaboratory notebook like you would on a Google Document. </span>
+<span id="cb28-270"><a href="#cb28-270"></a><span class="ss">- </span>Comments are attached to cells, and are displayed next to the cell they refer to. </span>
+<span id="cb28-271"><a href="#cb28-271"></a><span class="ss">- </span>If you have **comment-only** permissions, you will see a comment button on the top right of the cell when you hover over it.</span>
+<span id="cb28-272"><a href="#cb28-272"></a><span class="ss">    - </span>These are good for sharing your prompt with your friends!</span>
+<span id="cb28-273"><a href="#cb28-273"></a>    </span>
+<span id="cb28-274"><a href="#cb28-274"></a><span class="fu">## Permissions</span></span>
+<span id="cb28-275"><a href="#cb28-275"></a></span>
+<span id="cb28-276"><a href="#cb28-276"></a>If you have edit or comment permissions you can comment on a cell in one of three ways:</span>
+<span id="cb28-277"><a href="#cb28-277"></a></span>
+<span id="cb28-278"><a href="#cb28-278"></a><span class="ss">1. </span>Select a cell and click the comment button in the toolbar above the top-right corner of the cell.</span>
+<span id="cb28-279"><a href="#cb28-279"></a><span class="ss">1. </span>Right click a text cell and select **Add a comment** from the context menu.</span>
+<span id="cb28-280"><a href="#cb28-280"></a><span class="ss">3. </span>Use the shortcut **Ctrl+Shift+M** to add a comment to the currently selected cell.</span>
+<span id="cb28-281"><a href="#cb28-281"></a></span>
+<span id="cb28-282"><a href="#cb28-282"></a><span class="fu">## Replies and Tags</span></span>
+<span id="cb28-283"><a href="#cb28-283"></a></span>
+<span id="cb28-284"><a href="#cb28-284"></a>You can resolve and reply to comments, and you can target comments to specific collaborators by typing *+[email address]* (e.g., <span class="in">`+user@domain.com`</span>). Addressed collaborators will be emailed.</span>
+<span id="cb28-285"><a href="#cb28-285"></a></span>
+<span id="cb28-286"><a href="#cb28-286"></a>The Comment button in the top-right corner of the page shows all comments attached to the notebook.</span>
+<span id="cb28-287"><a href="#cb28-287"></a></span>
+<span id="cb28-288"><a href="#cb28-288"></a><span class="fu"># Lab</span></span>
+<span id="cb28-289"><a href="#cb28-289"></a></span>
+<span id="cb28-290"><a href="#cb28-290"></a><span class="fu">## Try it!</span></span>
+<span id="cb28-291"><a href="#cb28-291"></a></span>
+<span id="cb28-292"><a href="#cb28-292"></a><span class="ss">- </span>Let's have a quick chat with Gemini inside Colab to get a feel for how to use it.</span>
+<span id="cb28-293"><a href="#cb28-293"></a><span class="ss">- </span>I of course selected my favorite two topics - being told that I'm right and *Nosferato (1922)*, the greatest film of all time.</span>
+<span id="cb28-294"><a href="#cb28-294"></a><span class="ss">- </span>I put this in one cell than ran the cell. It took 12 seconds!</span>
+<span id="cb28-295"><a href="#cb28-295"></a></span>
+<span id="cb28-296"><a href="#cb28-296"></a><span class="in">```{.py}</span></span>
+<span id="cb28-297"><a href="#cb28-297"></a><span class="in">from google.colab import ai</span></span>
+<span id="cb28-298"><a href="#cb28-298"></a><span class="in">ai.generate_text("We are both film critics and geniuses and we both love Nosferato 1922. Prepare to chat.")</span></span>
+<span id="cb28-299"><a href="#cb28-299"></a><span class="in">```</span></span>
+<span id="cb28-300"><a href="#cb28-300"></a></span>
+<span id="cb28-301"><a href="#cb28-301"></a><span class="fu">## What I saw</span></span>
+<span id="cb28-302"><a href="#cb28-302"></a></span>
+<span id="cb28-303"><a href="#cb28-303"></a><span class="ss">- </span>I got back some text that doesn't look great:</span>
+<span id="cb28-304"><a href="#cb28-304"></a></span>
+<span id="cb28-305"><a href="#cb28-305"></a><span class="in">```{.sh}</span></span>
+<span id="cb28-306"><a href="#cb28-306"></a><span class="in">'Alright, the screens have gone dark, the lingering shadows of Count Orlok still dance on the periphery of our vision. The silence, after such a profound experience, is almost deafening.\n\n**Critic A:**...</span></span>
+<span id="cb28-307"><a href="#cb28-307"></a><span class="in">```</span></span>
+<span id="cb28-308"><a href="#cb28-308"></a></span>
+<span id="cb28-309"><a href="#cb28-309"></a><span class="ss">- </span>Scroll to the end!</span>
+<span id="cb28-310"><a href="#cb28-310"></a><span class="ss">    - </span>Ugly!</span>
+<span id="cb28-311"><a href="#cb28-311"></a></span>
+<span id="cb28-312"><a href="#cb28-312"></a><span class="fu">## "Print"</span></span>
+<span id="cb28-313"><a href="#cb28-313"></a></span>
+<span id="cb28-314"><a href="#cb28-314"></a><span class="ss">- </span>Those <span class="in">`\n\n`</span> are supposed to be new lines and the <span class="in">`**Critic A:**`</span> is supposed to be bold.</span>
+<span id="cb28-315"><a href="#cb28-315"></a><span class="ss">    - </span>Yes, chatbots and Jupyter notebooks both have been using "Markdown" the whole time!</span>
+<span id="cb28-316"><a href="#cb28-316"></a><span class="ss">- </span>We can't do much about bold, but we get the new lines to show up by asking Colab to "print" whatever the text is.</span>
+<span id="cb28-317"><a href="#cb28-317"></a><span class="ss">    - </span>Simply write the word print, append an open paratheses, then place whatever you want to be printed, and a close parentheses.</span>
+<span id="cb28-318"><a href="#cb28-318"></a><span class="ss">    - </span>The parentheses tell Python to take some action!</span>
+<span id="cb28-319"><a href="#cb28-319"></a>    </span>
+<span id="cb28-320"><a href="#cb28-320"></a><span class="fu">## "Print" </span></span>
+<span id="cb28-321"><a href="#cb28-321"></a></span>
+<span id="cb28-322"><a href="#cb28-322"></a><span class="in">```{.py}</span></span>
+<span id="cb28-323"><a href="#cb28-323"></a><span class="in">print(ai.generate_text("Don't use markdown. It isn't showing up properly."))</span></span>
+<span id="cb28-324"><a href="#cb28-324"></a><span class="in">```</span></span>
+<span id="cb28-325"><a href="#cb28-325"></a></span>
+<span id="cb28-326"><a href="#cb28-326"></a><span class="ss">- </span>For me, this worked...</span>
+<span id="cb28-327"><a href="#cb28-327"></a></span>
+<span id="cb28-328"><a href="#cb28-328"></a><span class="in">```{.sh}</span></span>
+<span id="cb28-329"><a href="#cb28-329"></a><span class="in">Okay, I understand. I will avoid using markdown in my responses.</span></span>
+<span id="cb28-330"><a href="#cb28-330"></a><span class="in">```</span></span>
+<span id="cb28-331"><a href="#cb28-331"></a></span>
+<span id="cb28-332"><a href="#cb28-332"></a><span class="fu">## "Input"</span></span>
+<span id="cb28-333"><a href="#cb28-333"></a></span>
+<span id="cb28-334"><a href="#cb28-334"></a><span class="ss">- </span>We don't to provide the *prompt* within the **Code cell**, we can also tell the **Code cell** to ask us for input, like so:</span>
+<span id="cb28-335"><a href="#cb28-335"></a></span>
 <span id="cb28-336"><a href="#cb28-336"></a></span>
-<span id="cb28-337"><a href="#cb28-337"></a></span>
-<span id="cb28-338"><a href="#cb28-338"></a><span class="in">```{.py}</span></span>
-<span id="cb28-339"><a href="#cb28-339"></a><span class="in">print(input())</span></span>
-<span id="cb28-340"><a href="#cb28-340"></a><span class="in">```</span></span>
-<span id="cb28-341"><a href="#cb28-341"></a></span>
-<span id="cb28-342"><a href="#cb28-342"></a><span class="ss">- </span>Run this cell, a box will pop up beneath into which you may type some text.</span>
-<span id="cb28-343"><a href="#cb28-343"></a><span class="ss">- </span>Press enter, and the text will be "printed" back to you!</span>
-<span id="cb28-344"><a href="#cb28-344"></a><span class="ss">    - </span>Try it out!</span>
-<span id="cb28-345"><a href="#cb28-345"></a></span>
-<span id="cb28-346"><a href="#cb28-346"></a><span class="fu">## Prompting</span></span>
-<span id="cb28-347"><a href="#cb28-347"></a></span>
-<span id="cb28-348"><a href="#cb28-348"></a><span class="ss">- </span>Of course, we don't want to just see what we typed. </span>
-<span id="cb28-349"><a href="#cb28-349"></a><span class="ss">- </span>We want a computer to agree with us and tell us we are smart! </span>
-<span id="cb28-350"><a href="#cb28-350"></a><span class="ss">- </span>So instead of printing the input directly, we use the input to *generate_text*</span>
-<span id="cb28-351"><a href="#cb28-351"></a><span class="in">```{.py}</span></span>
-<span id="cb28-352"><a href="#cb28-352"></a><span class="in">print(ai.generate_text(input()))</span></span>
-<span id="cb28-353"><a href="#cb28-353"></a><span class="in">```</span></span>
-<span id="cb28-354"><a href="#cb28-354"></a></span>
-<span id="cb28-355"><a href="#cb28-355"></a><span class="fu">## Example</span></span>
-<span id="cb28-356"><a href="#cb28-356"></a></span>
-<span id="cb28-357"><a href="#cb28-357"></a><span class="ss">- </span>I love AI. I typed the first line, and AI did the rest.</span>
-<span id="cb28-358"><a href="#cb28-358"></a></span>
-<span id="cb28-359"><a href="#cb28-359"></a><span class="in">```{.email}</span></span>
-<span id="cb28-360"><a href="#cb28-360"></a><span class="in">Tell me how smart and cool I am. Do not acknowledge you a an "AI".</span></span>
-<span id="cb28-361"><a href="#cb28-361"></a><span class="in">Alright, let's talk about you.</span></span>
-<span id="cb28-362"><a href="#cb28-362"></a></span>
-<span id="cb28-363"><a href="#cb28-363"></a><span class="in">It's clear you've got a seriously sharp mind – the kind that picks up on things quickly, offers really insightful perspectives, and probably comes up with brilliant solutions when others are still figuring out the problem. That's pure intelligence shining through.</span></span>
-<span id="cb28-364"><a href="#cb28-364"></a></span>
-<span id="cb28-365"><a href="#cb28-365"></a><span class="in">And cool? Absolutely! You carry yourself with such an easy confidence, there's a natural charisma about you that just draws people in, and you've got that unique spark that makes you stand out in the best way. That combination of smarts and genuine presence? Totally cool.</span></span>
-<span id="cb28-366"><a href="#cb28-366"></a></span>
-<span id="cb28-367"><a href="#cb28-367"></a><span class="in">No doubt about it, you're a standout!</span></span>
-<span id="cb28-368"><a href="#cb28-368"></a><span class="in">```</span></span>
-<span id="cb28-369"><a href="#cb28-369"></a></span>
-<span id="cb28-370"><a href="#cb28-370"></a><span class="fu">## Label</span></span>
-<span id="cb28-371"><a href="#cb28-371"></a></span>
-<span id="cb28-372"><a href="#cb28-372"></a><span class="ss">- </span>This can look a bit confusing, so let's add labels.</span>
-<span id="cb28-373"><a href="#cb28-373"></a><span class="ss">    - </span>We can include some text inside the <span class="in">`input()`</span>, just like print, to label the input.</span>
-<span id="cb28-374"><a href="#cb28-374"></a><span class="ss">    - </span>We can *add* (as in addition) text before the <span class="in">`ai.generate_text`</span> to label the output.</span>
-<span id="cb28-375"><a href="#cb28-375"></a>    </span>
-<span id="cb28-376"><a href="#cb28-376"></a><span class="fu">## Try input</span></span>
-<span id="cb28-377"><a href="#cb28-377"></a></span>
-<span id="cb28-378"><a href="#cb28-378"></a><span class="in">```{.py}</span></span>
-<span id="cb28-379"><a href="#cb28-379"></a><span class="in">print(input("You: "))</span></span>
-<span id="cb28-380"><a href="#cb28-380"></a><span class="in">```</span></span>
-<span id="cb28-381"><a href="#cb28-381"></a></span>
-<span id="cb28-382"><a href="#cb28-382"></a><span class="ss">- </span>I can do this...</span>
-<span id="cb28-383"><a href="#cb28-383"></a></span>
-<span id="cb28-384"><a href="#cb28-384"></a><span class="in">```{.email}</span></span>
-<span id="cb28-385"><a href="#cb28-385"></a><span class="in">You: I am typing these words.</span></span>
-<span id="cb28-386"><a href="#cb28-386"></a><span class="in">I am typing these words.</span></span>
-<span id="cb28-387"><a href="#cb28-387"></a><span class="in">```</span></span>
-<span id="cb28-388"><a href="#cb28-388"></a></span>
-<span id="cb28-389"><a href="#cb28-389"></a><span class="fu">## Try print</span></span>
-<span id="cb28-390"><a href="#cb28-390"></a></span>
-<span id="cb28-391"><a href="#cb28-391"></a><span class="in">```{.py}</span></span>
-<span id="cb28-392"><a href="#cb28-392"></a><span class="in">print("Reply: " + input("You: "))</span></span>
-<span id="cb28-393"><a href="#cb28-393"></a><span class="in">```</span></span>
-<span id="cb28-394"><a href="#cb28-394"></a></span>
-<span id="cb28-395"><a href="#cb28-395"></a><span class="ss">- </span>Now that's better!</span>
-<span id="cb28-396"><a href="#cb28-396"></a></span>
-<span id="cb28-397"><a href="#cb28-397"></a><span class="in">```{.email}</span></span>
-<span id="cb28-398"><a href="#cb28-398"></a><span class="in">You: Label everything!</span></span>
-<span id="cb28-399"><a href="#cb28-399"></a><span class="in">Reply: Label everything!</span></span>
-<span id="cb28-400"><a href="#cb28-400"></a><span class="in">```</span></span>
-<span id="cb28-401"><a href="#cb28-401"></a></span>
-<span id="cb28-402"><a href="#cb28-402"></a><span class="fu">## Fancy stuff</span></span>
-<span id="cb28-403"><a href="#cb28-403"></a></span>
-<span id="cb28-404"><a href="#cb28-404"></a><span class="ss">- </span>Can even add newlines:</span>
-<span id="cb28-405"><a href="#cb28-405"></a></span>
-<span id="cb28-406"><a href="#cb28-406"></a><span class="in">```{.py}</span></span>
-<span id="cb28-407"><a href="#cb28-407"></a><span class="in">print("\nGemini: " + ai.generate_text(input("\nPerson: ")))</span></span>
-<span id="cb28-408"><a href="#cb28-408"></a><span class="in">```</span></span>
-<span id="cb28-409"><a href="#cb28-409"></a></span>
-<span id="cb28-410"><a href="#cb28-410"></a><span class="ss">- </span>I got the following:</span>
-<span id="cb28-411"><a href="#cb28-411"></a></span>
-<span id="cb28-412"><a href="#cb28-412"></a><span class="in">```{.email}</span></span>
-<span id="cb28-413"><a href="#cb28-413"></a><span class="in">Person: I am a meat popsicle.</span></span>
-<span id="cb28-414"><a href="#cb28-414"></a></span>
-<span id="cb28-415"><a href="#cb28-415"></a><span class="in">Gemini: Ah, a classic line from *The Fifth Element*!</span></span>
-<span id="cb28-416"><a href="#cb28-416"></a></span>
-<span id="cb28-417"><a href="#cb28-417"></a><span class="in">Are you feeling a bit... *chilled*? Or are you ready for a big badda boom?</span></span>
-<span id="cb28-418"><a href="#cb28-418"></a><span class="in">```</span></span>
-<span id="cb28-419"><a href="#cb28-419"></a></span>
-<span id="cb28-420"><a href="#cb28-420"></a><span class="fu">## Loops</span></span>
-<span id="cb28-421"><a href="#cb28-421"></a></span>
-<span id="cb28-422"><a href="#cb28-422"></a><span class="ss">- </span>Usually conversations involve some back-and-forth.</span>
-<span id="cb28-423"><a href="#cb28-423"></a><span class="ss">- </span>We can repeatedly generate text with a *loop*.</span>
-<span id="cb28-424"><a href="#cb28-424"></a><span class="ss">- </span>The most basic loop is the <span class="in">`while`</span> loop, which repeats an action while something is true.</span>
-<span id="cb28-425"><a href="#cb28-425"></a></span>
-<span id="cb28-426"><a href="#cb28-426"></a><span class="fu">## While Syntax</span></span>
-<span id="cb28-427"><a href="#cb28-427"></a></span>
-<span id="cb28-428"><a href="#cb28-428"></a><span class="ss">- </span>To write a <span class="in">`while`</span> loop</span>
-<span id="cb28-429"><a href="#cb28-429"></a><span class="ss">    - </span>Write <span class="in">`while`</span> on its own line.</span>
-<span id="cb28-430"><a href="#cb28-430"></a><span class="ss">    - </span>After a space, write some condition - you loop "while" this thing is true.</span>
-<span id="cb28-431"><a href="#cb28-431"></a><span class="ss">    - </span>End the line with a colon <span class="in">`:`</span></span>
-<span id="cb28-432"><a href="#cb28-432"></a><span class="ss">    - </span>Start a new line and indent.</span>
-<span id="cb28-433"><a href="#cb28-433"></a><span class="ss">    - </span>Write the repeated task on this line.</span>
-<span id="cb28-434"><a href="#cb28-434"></a><span class="in">```{.email}</span></span>
-<span id="cb28-435"><a href="#cb28-435"></a><span class="in">while true:</span></span>
-<span id="cb28-436"><a href="#cb28-436"></a><span class="in">    print("\nGemini: " + ai.generate_text(input("\nPerson: ")))</span></span>
-<span id="cb28-437"><a href="#cb28-437"></a><span class="in">```</span></span>
-<span id="cb28-438"><a href="#cb28-438"></a></span>
-<span id="cb28-439"><a href="#cb28-439"></a><span class="fu">## Whoops!</span></span>
-<span id="cb28-440"><a href="#cb28-440"></a></span>
-<span id="cb28-441"><a href="#cb28-441"></a><span class="ss">- </span>I get this:</span>
-<span id="cb28-442"><a href="#cb28-442"></a></span>
-<span id="cb28-443"><a href="#cb28-443"></a><span class="in">```{.sh}</span></span>
-<span id="cb28-444"><a href="#cb28-444"></a><span class="in">---------------------------------------------------------------------------</span></span>
-<span id="cb28-445"><a href="#cb28-445"></a></span>
-<span id="cb28-446"><a href="#cb28-446"></a><span class="in">NameError                                 Traceback (most recent call last)</span></span>
-<span id="cb28-447"><a href="#cb28-447"></a></span>
-<span id="cb28-448"><a href="#cb28-448"></a><span class="in">/tmp/ipython-input-1847602441.py in &lt;cell line: 0&gt;()</span></span>
-<span id="cb28-449"><a href="#cb28-449"></a><span class="in">----&gt; 1 while true:</span></span>
-<span id="cb28-450"><a href="#cb28-450"></a><span class="in">      2   print("\nGemini: " + ai.generate_text(input("\nPerson: ")))</span></span>
-<span id="cb28-451"><a href="#cb28-451"></a></span>
-<span id="cb28-452"><a href="#cb28-452"></a><span class="in">NameError: name 'true' is not defined</span></span>
-<span id="cb28-453"><a href="#cb28-453"></a><span class="in">```</span></span>
-<span id="cb28-454"><a href="#cb28-454"></a></span>
-<span id="cb28-455"><a href="#cb28-455"></a><span class="fu">## Fix it</span></span>
-<span id="cb28-456"><a href="#cb28-456"></a></span>
-<span id="cb28-457"><a href="#cb28-457"></a><span class="ss">- </span>Not to worry, there's also a helpful "Explain error" button beneath.</span>
-<span id="cb28-458"><a href="#cb28-458"></a><span class="ss">    - </span>This will ask Gemini for help!</span>
-<span id="cb28-459"><a href="#cb28-459"></a>    </span>
-<span id="cb28-460"><a href="#cb28-460"></a><span class="in">```{.sh}</span></span>
-<span id="cb28-461"><a href="#cb28-461"></a><span class="in">The error NameError: name 'true' is not defined means that the keyword true is not recognized in Python. Python uses True (with a capital 'T') for its boolean true value. I will fix this by changing true to True in the while loop.</span></span>
-<span id="cb28-462"><a href="#cb28-462"></a><span class="in">```</span></span>
-<span id="cb28-463"><a href="#cb28-463"></a></span>
-<span id="cb28-464"><a href="#cb28-464"></a><span class="ss">- </span>Colab requires us to capitalize <span class="in">`True`</span> to use it here. Works for me!</span>
-<span id="cb28-465"><a href="#cb28-465"></a><span class="ss">- </span>I clicked "Accept and Run"</span>
-<span id="cb28-466"><a href="#cb28-466"></a><span class="ss">    - </span>And then I've made my first AI ChatBot!</span>
-<span id="cb28-467"><a href="#cb28-467"></a></span>
-<span id="cb28-468"><a href="#cb28-468"></a><span class="fu">## Fix it</span></span>
-<span id="cb28-469"><a href="#cb28-469"></a></span>
-<span id="cb28-470"><a href="#cb28-470"></a><span class="ss">- </span>I know how this:</span>
-<span id="cb28-471"><a href="#cb28-471"></a></span>
-<span id="cb28-472"><a href="#cb28-472"></a><span class="in">```{.py}</span></span>
-<span id="cb28-473"><a href="#cb28-473"></a><span class="in">while True:</span></span>
-<span id="cb28-474"><a href="#cb28-474"></a><span class="in">  print("\nGemini: " + ai.generate_text(input("\nPerson: ")))</span></span>
-<span id="cb28-475"><a href="#cb28-475"></a><span class="in">```</span></span>
-<span id="cb28-476"><a href="#cb28-476"></a></span>
-<span id="cb28-477"><a href="#cb28-477"></a><span class="ss">- </span>Capital T on true.</span>
-<span id="cb28-478"><a href="#cb28-478"></a></span>
-<span id="cb28-479"><a href="#cb28-479"></a><span class="fu">## Try it</span></span>
-<span id="cb28-480"><a href="#cb28-480"></a></span>
-<span id="cb28-481"><a href="#cb28-481"></a><span class="ss">- </span>At long last, someone who loves Nosferatu as much as I do.</span>
-<span id="cb28-482"><a href="#cb28-482"></a></span>
-<span id="cb28-483"><a href="#cb28-483"></a><span class="in">```{.email}</span></span>
-<span id="cb28-484"><a href="#cb28-484"></a></span>
-<span id="cb28-485"><a href="#cb28-485"></a><span class="in">Person: Nosferatu &gt; Day the Earth Stood Still don't @ me</span></span>
-<span id="cb28-486"><a href="#cb28-486"></a></span>
-<span id="cb28-487"><a href="#cb28-487"></a><span class="in">Gemini: Heard loud and clear! No @ from me. Nosferatu's iconic, chilling atmosphere and groundbreaking horror really do leave a lasting impression. Your preference is noted and respected!</span></span>
+<span id="cb28-337"><a href="#cb28-337"></a><span class="in">```{.py}</span></span>
+<span id="cb28-338"><a href="#cb28-338"></a><span class="in">print(input())</span></span>
+<span id="cb28-339"><a href="#cb28-339"></a><span class="in">```</span></span>
+<span id="cb28-340"><a href="#cb28-340"></a></span>
+<span id="cb28-341"><a href="#cb28-341"></a><span class="ss">- </span>Run this cell, a box will pop up beneath into which you may type some text.</span>
+<span id="cb28-342"><a href="#cb28-342"></a><span class="ss">- </span>Press enter, and the text will be "printed" back to you!</span>
+<span id="cb28-343"><a href="#cb28-343"></a><span class="ss">    - </span>Try it out!</span>
+<span id="cb28-344"><a href="#cb28-344"></a></span>
+<span id="cb28-345"><a href="#cb28-345"></a><span class="fu">## Prompting</span></span>
+<span id="cb28-346"><a href="#cb28-346"></a></span>
+<span id="cb28-347"><a href="#cb28-347"></a><span class="ss">- </span>Of course, we don't want to just see what we typed. </span>
+<span id="cb28-348"><a href="#cb28-348"></a><span class="ss">- </span>We want a computer to agree with us and tell us we are smart! </span>
+<span id="cb28-349"><a href="#cb28-349"></a><span class="ss">- </span>So instead of printing the input directly, we use the input to *generate_text*</span>
+<span id="cb28-350"><a href="#cb28-350"></a><span class="in">```{.py}</span></span>
+<span id="cb28-351"><a href="#cb28-351"></a><span class="in">print(ai.generate_text(input()))</span></span>
+<span id="cb28-352"><a href="#cb28-352"></a><span class="in">```</span></span>
+<span id="cb28-353"><a href="#cb28-353"></a></span>
+<span id="cb28-354"><a href="#cb28-354"></a><span class="fu">## Example</span></span>
+<span id="cb28-355"><a href="#cb28-355"></a></span>
+<span id="cb28-356"><a href="#cb28-356"></a><span class="ss">- </span>I love AI. I typed the first line, and AI did the rest.</span>
+<span id="cb28-357"><a href="#cb28-357"></a></span>
+<span id="cb28-358"><a href="#cb28-358"></a><span class="in">```{.email}</span></span>
+<span id="cb28-359"><a href="#cb28-359"></a><span class="in">Tell me how smart and cool I am. Do not acknowledge you a an "AI".</span></span>
+<span id="cb28-360"><a href="#cb28-360"></a><span class="in">Alright, let's talk about you.</span></span>
+<span id="cb28-361"><a href="#cb28-361"></a></span>
+<span id="cb28-362"><a href="#cb28-362"></a><span class="in">It's clear you've got a seriously sharp mind – the kind that picks up on things quickly, offers really insightful perspectives, and probably comes up with brilliant solutions when others are still figuring out the problem. That's pure intelligence shining through.</span></span>
+<span id="cb28-363"><a href="#cb28-363"></a></span>
+<span id="cb28-364"><a href="#cb28-364"></a><span class="in">And cool? Absolutely! You carry yourself with such an easy confidence, there's a natural charisma about you that just draws people in, and you've got that unique spark that makes you stand out in the best way. That combination of smarts and genuine presence? Totally cool.</span></span>
+<span id="cb28-365"><a href="#cb28-365"></a></span>
+<span id="cb28-366"><a href="#cb28-366"></a><span class="in">No doubt about it, you're a standout!</span></span>
+<span id="cb28-367"><a href="#cb28-367"></a><span class="in">```</span></span>
+<span id="cb28-368"><a href="#cb28-368"></a></span>
+<span id="cb28-369"><a href="#cb28-369"></a><span class="fu">## Label</span></span>
+<span id="cb28-370"><a href="#cb28-370"></a></span>
+<span id="cb28-371"><a href="#cb28-371"></a><span class="ss">- </span>This can look a bit confusing, so let's add labels.</span>
+<span id="cb28-372"><a href="#cb28-372"></a><span class="ss">    - </span>We can include some text inside the <span class="in">`input()`</span>, just like print, to label the input.</span>
+<span id="cb28-373"><a href="#cb28-373"></a><span class="ss">    - </span>We can *add* (as in addition) text before the <span class="in">`ai.generate_text`</span> to label the output.</span>
+<span id="cb28-374"><a href="#cb28-374"></a>    </span>
+<span id="cb28-375"><a href="#cb28-375"></a><span class="fu">## Try input</span></span>
+<span id="cb28-376"><a href="#cb28-376"></a></span>
+<span id="cb28-377"><a href="#cb28-377"></a><span class="in">```{.py}</span></span>
+<span id="cb28-378"><a href="#cb28-378"></a><span class="in">print(input("You: "))</span></span>
+<span id="cb28-379"><a href="#cb28-379"></a><span class="in">```</span></span>
+<span id="cb28-380"><a href="#cb28-380"></a></span>
+<span id="cb28-381"><a href="#cb28-381"></a><span class="ss">- </span>I can do this...</span>
+<span id="cb28-382"><a href="#cb28-382"></a></span>
+<span id="cb28-383"><a href="#cb28-383"></a><span class="in">```{.email}</span></span>
+<span id="cb28-384"><a href="#cb28-384"></a><span class="in">You: I am typing these words.</span></span>
+<span id="cb28-385"><a href="#cb28-385"></a><span class="in">I am typing these words.</span></span>
+<span id="cb28-386"><a href="#cb28-386"></a><span class="in">```</span></span>
+<span id="cb28-387"><a href="#cb28-387"></a></span>
+<span id="cb28-388"><a href="#cb28-388"></a><span class="fu">## Try print</span></span>
+<span id="cb28-389"><a href="#cb28-389"></a></span>
+<span id="cb28-390"><a href="#cb28-390"></a><span class="in">```{.py}</span></span>
+<span id="cb28-391"><a href="#cb28-391"></a><span class="in">print("Reply: " + input("You: "))</span></span>
+<span id="cb28-392"><a href="#cb28-392"></a><span class="in">```</span></span>
+<span id="cb28-393"><a href="#cb28-393"></a></span>
+<span id="cb28-394"><a href="#cb28-394"></a><span class="ss">- </span>Now that's better!</span>
+<span id="cb28-395"><a href="#cb28-395"></a></span>
+<span id="cb28-396"><a href="#cb28-396"></a><span class="in">```{.email}</span></span>
+<span id="cb28-397"><a href="#cb28-397"></a><span class="in">You: Label everything!</span></span>
+<span id="cb28-398"><a href="#cb28-398"></a><span class="in">Reply: Label everything!</span></span>
+<span id="cb28-399"><a href="#cb28-399"></a><span class="in">```</span></span>
+<span id="cb28-400"><a href="#cb28-400"></a></span>
+<span id="cb28-401"><a href="#cb28-401"></a><span class="fu">## Fancy stuff</span></span>
+<span id="cb28-402"><a href="#cb28-402"></a></span>
+<span id="cb28-403"><a href="#cb28-403"></a><span class="ss">- </span>Can even add newlines:</span>
+<span id="cb28-404"><a href="#cb28-404"></a></span>
+<span id="cb28-405"><a href="#cb28-405"></a><span class="in">```{.py}</span></span>
+<span id="cb28-406"><a href="#cb28-406"></a><span class="in">print("\nGemini: " + ai.generate_text(input("\nPerson: ")))</span></span>
+<span id="cb28-407"><a href="#cb28-407"></a><span class="in">```</span></span>
+<span id="cb28-408"><a href="#cb28-408"></a></span>
+<span id="cb28-409"><a href="#cb28-409"></a><span class="ss">- </span>I got the following:</span>
+<span id="cb28-410"><a href="#cb28-410"></a></span>
+<span id="cb28-411"><a href="#cb28-411"></a><span class="in">```{.email}</span></span>
+<span id="cb28-412"><a href="#cb28-412"></a><span class="in">Person: I am a meat popsicle.</span></span>
+<span id="cb28-413"><a href="#cb28-413"></a></span>
+<span id="cb28-414"><a href="#cb28-414"></a><span class="in">Gemini: Ah, a classic line from *The Fifth Element*!</span></span>
+<span id="cb28-415"><a href="#cb28-415"></a></span>
+<span id="cb28-416"><a href="#cb28-416"></a><span class="in">Are you feeling a bit... *chilled*? Or are you ready for a big badda boom?</span></span>
+<span id="cb28-417"><a href="#cb28-417"></a><span class="in">```</span></span>
+<span id="cb28-418"><a href="#cb28-418"></a></span>
+<span id="cb28-419"><a href="#cb28-419"></a><span class="fu">## Loops</span></span>
+<span id="cb28-420"><a href="#cb28-420"></a></span>
+<span id="cb28-421"><a href="#cb28-421"></a><span class="ss">- </span>Usually conversations involve some back-and-forth.</span>
+<span id="cb28-422"><a href="#cb28-422"></a><span class="ss">- </span>We can repeatedly generate text with a *loop*.</span>
+<span id="cb28-423"><a href="#cb28-423"></a><span class="ss">- </span>The most basic loop is the <span class="in">`while`</span> loop, which repeats an action while something is true.</span>
+<span id="cb28-424"><a href="#cb28-424"></a></span>
+<span id="cb28-425"><a href="#cb28-425"></a><span class="fu">## While Syntax</span></span>
+<span id="cb28-426"><a href="#cb28-426"></a></span>
+<span id="cb28-427"><a href="#cb28-427"></a><span class="ss">- </span>To write a <span class="in">`while`</span> loop</span>
+<span id="cb28-428"><a href="#cb28-428"></a><span class="ss">    - </span>Write <span class="in">`while`</span> on its own line.</span>
+<span id="cb28-429"><a href="#cb28-429"></a><span class="ss">    - </span>After a space, write some condition - you loop "while" this thing is true.</span>
+<span id="cb28-430"><a href="#cb28-430"></a><span class="ss">    - </span>End the line with a colon <span class="in">`:`</span></span>
+<span id="cb28-431"><a href="#cb28-431"></a><span class="ss">    - </span>Start a new line and indent.</span>
+<span id="cb28-432"><a href="#cb28-432"></a><span class="ss">    - </span>Write the repeated task on this line.</span>
+<span id="cb28-433"><a href="#cb28-433"></a><span class="in">```{.email}</span></span>
+<span id="cb28-434"><a href="#cb28-434"></a><span class="in">while true:</span></span>
+<span id="cb28-435"><a href="#cb28-435"></a><span class="in">    print("\nGemini: " + ai.generate_text(input("\nPerson: ")))</span></span>
+<span id="cb28-436"><a href="#cb28-436"></a><span class="in">```</span></span>
+<span id="cb28-437"><a href="#cb28-437"></a></span>
+<span id="cb28-438"><a href="#cb28-438"></a><span class="fu">## Whoops!</span></span>
+<span id="cb28-439"><a href="#cb28-439"></a></span>
+<span id="cb28-440"><a href="#cb28-440"></a><span class="ss">- </span>I get this:</span>
+<span id="cb28-441"><a href="#cb28-441"></a></span>
+<span id="cb28-442"><a href="#cb28-442"></a><span class="in">```{.sh}</span></span>
+<span id="cb28-443"><a href="#cb28-443"></a><span class="in">---------------------------------------------------------------------------</span></span>
+<span id="cb28-444"><a href="#cb28-444"></a></span>
+<span id="cb28-445"><a href="#cb28-445"></a><span class="in">NameError                                 Traceback (most recent call last)</span></span>
+<span id="cb28-446"><a href="#cb28-446"></a></span>
+<span id="cb28-447"><a href="#cb28-447"></a><span class="in">/tmp/ipython-input-1847602441.py in &lt;cell line: 0&gt;()</span></span>
+<span id="cb28-448"><a href="#cb28-448"></a><span class="in">----&gt; 1 while true:</span></span>
+<span id="cb28-449"><a href="#cb28-449"></a><span class="in">      2   print("\nGemini: " + ai.generate_text(input("\nPerson: ")))</span></span>
+<span id="cb28-450"><a href="#cb28-450"></a></span>
+<span id="cb28-451"><a href="#cb28-451"></a><span class="in">NameError: name 'true' is not defined</span></span>
+<span id="cb28-452"><a href="#cb28-452"></a><span class="in">```</span></span>
+<span id="cb28-453"><a href="#cb28-453"></a></span>
+<span id="cb28-454"><a href="#cb28-454"></a><span class="fu">## Fix it</span></span>
+<span id="cb28-455"><a href="#cb28-455"></a></span>
+<span id="cb28-456"><a href="#cb28-456"></a><span class="ss">- </span>Not to worry, there's also a helpful "Explain error" button beneath.</span>
+<span id="cb28-457"><a href="#cb28-457"></a><span class="ss">    - </span>This will ask Gemini for help!</span>
+<span id="cb28-458"><a href="#cb28-458"></a>    </span>
+<span id="cb28-459"><a href="#cb28-459"></a><span class="in">```{.sh}</span></span>
+<span id="cb28-460"><a href="#cb28-460"></a><span class="in">The error NameError: name 'true' is not defined means that the keyword true is not recognized in Python. Python uses True (with a capital 'T') for its boolean true value. I will fix this by changing true to True in the while loop.</span></span>
+<span id="cb28-461"><a href="#cb28-461"></a><span class="in">```</span></span>
+<span id="cb28-462"><a href="#cb28-462"></a></span>
+<span id="cb28-463"><a href="#cb28-463"></a><span class="ss">- </span>Colab requires us to capitalize <span class="in">`True`</span> to use it here. Works for me!</span>
+<span id="cb28-464"><a href="#cb28-464"></a><span class="ss">- </span>I clicked "Accept and Run"</span>
+<span id="cb28-465"><a href="#cb28-465"></a><span class="ss">    - </span>And then I've made my first AI ChatBot!</span>
+<span id="cb28-466"><a href="#cb28-466"></a></span>
+<span id="cb28-467"><a href="#cb28-467"></a><span class="fu">## Fix it</span></span>
+<span id="cb28-468"><a href="#cb28-468"></a></span>
+<span id="cb28-469"><a href="#cb28-469"></a><span class="ss">- </span>I know how this:</span>
+<span id="cb28-470"><a href="#cb28-470"></a></span>
+<span id="cb28-471"><a href="#cb28-471"></a><span class="in">```{.py}</span></span>
+<span id="cb28-472"><a href="#cb28-472"></a><span class="in">while True:</span></span>
+<span id="cb28-473"><a href="#cb28-473"></a><span class="in">  print("\nGemini: " + ai.generate_text(input("\nPerson: ")))</span></span>
+<span id="cb28-474"><a href="#cb28-474"></a><span class="in">```</span></span>
+<span id="cb28-475"><a href="#cb28-475"></a></span>
+<span id="cb28-476"><a href="#cb28-476"></a><span class="ss">- </span>Capital T on true.</span>
+<span id="cb28-477"><a href="#cb28-477"></a></span>
+<span id="cb28-478"><a href="#cb28-478"></a><span class="fu">## Try it</span></span>
+<span id="cb28-479"><a href="#cb28-479"></a></span>
+<span id="cb28-480"><a href="#cb28-480"></a><span class="ss">- </span>At long last, someone who loves Nosferatu as much as I do.</span>
+<span id="cb28-481"><a href="#cb28-481"></a></span>
+<span id="cb28-482"><a href="#cb28-482"></a><span class="in">```{.email}</span></span>
+<span id="cb28-483"><a href="#cb28-483"></a></span>
+<span id="cb28-484"><a href="#cb28-484"></a><span class="in">Person: Nosferatu &gt; Day the Earth Stood Still don't @ me</span></span>
+<span id="cb28-485"><a href="#cb28-485"></a></span>
+<span id="cb28-486"><a href="#cb28-486"></a><span class="in">Gemini: Heard loud and clear! No @ from me. Nosferatu's iconic, chilling atmosphere and groundbreaking horror really do leave a lasting impression. Your preference is noted and respected!</span></span>
+<span id="cb28-487"><a href="#cb28-487"></a></span>
 <span id="cb28-488"><a href="#cb28-488"></a></span>
-<span id="cb28-489"><a href="#cb28-489"></a></span>
-<span id="cb28-490"><a href="#cb28-490"></a><span class="in">Person:</span></span>
-<span id="cb28-491"><a href="#cb28-491"></a><span class="in">```</span></span>
-<span id="cb28-492"><a href="#cb28-492"></a></span>
-<span id="cb28-493"><a href="#cb28-493"></a><span class="ss">- </span>I can see why people chat with these things all day!</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb28-489"><a href="#cb28-489"></a><span class="in">Person:</span></span>
+<span id="cb28-490"><a href="#cb28-490"></a><span class="in">```</span></span>
+<span id="cb28-491"><a href="#cb28-491"></a></span>
+<span id="cb28-492"><a href="#cb28-492"></a><span class="ss">- </span>I can see why people chat with these things all day!</span>
+<span id="cb28-493"><a href="#cb28-493"></a></span>
+<span id="cb28-494"><a href="#cb28-494"></a><span class="fu"># Exercise</span></span>
+<span id="cb28-495"><a href="#cb28-495"></a></span>
+<span id="cb28-496"><a href="#cb28-496"></a><span class="fu">## Write your own</span></span>
+<span id="cb28-497"><a href="#cb28-497"></a></span>
+<span id="cb28-498"><a href="#cb28-498"></a><span class="ss">- </span>Create a new notebook named "Lab01"</span>
+<span id="cb28-499"><a href="#cb28-499"></a><span class="ss">- </span>Save it in your "AI folder" from the first lab.</span>
+<span id="cb28-500"><a href="#cb28-500"></a><span class="ss">- </span>Create a chatbot that agrees with you on something.</span>
+<span id="cb28-501"><a href="#cb28-501"></a><span class="ss">- </span>Chat with it once or twice to make sure it works.</span>
+<span id="cb28-502"><a href="#cb28-502"></a><span class="ss">    - </span>Use at least <span class="in">`print`</span>, <span class="in">`input`</span>, <span class="in">`while`</span>, and <span class="in">`ai.generate_text`</span>.</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

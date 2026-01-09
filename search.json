@@ -11,7 +11,7 @@
     "href": "11_colab.html",
     "title": "Colab",
     "section": "",
-    "text": "Colab is a hosted Jupyter Notebook service that requires no setup to use and provides free access to computing resources, including GPUs and TPUs. Colab is especially well suited to machine learning, data science, and education.\n\n\n\n\nColab is offered by Google.\n\nThey want you to get used to using Google, so that more people use Google Cloud Platform, which is Google’s 2nd biggest revenue source (after advertising, ahead of Workspace)\nThey run it on their cloud servers, so it doesn’t use resources on your computer (except to display results)\n\n\n\n\n\n\nSpecifically, GPUs and a new Google-only device, TPUs\n\nMore on the “T” latter\nThis was the “more compute” that alongside “more data” has made the modern AI boom possible.\n\n\n\n\n\nColab, or “Colaboratory”, allows you to write and execute Python in your browser, with\n\nZero configuration required\nAccess to GPUs free of charge\nEasy sharing\n\n\n\n\n\nYou can save and share Colab documents in Google Drive, just like Google Documents, Spreadsheets, and Forms.\nWe will take advantage of this shareability this term!\n\n\n\n\n\nGood for outside of class.\n\n\nWhether you’re a student, a data scientist or an AI researcher, Colab can make your work easier. Watch Introduction to Colab or Colab Features You May Have Missed to learn more, or just get started below!\n\n\n\n\n\nNavigate to https://colab.research.google.com/\nThe document there is not a static web page…\nIt is an interactive environment called a Colab notebook!\n\n\n\n\n\nColab works in “cells” which are kind of like pages.\nYou can make a new cell by clicking the “+ Code” button.\nDo so, and somewhere on your screen you will see the text:\n\nStart coding or generate with AI.\n\n\n\n\nWe can use Gemini from within Colab as follows:\n\nTell Colab we want to use AI (only have to do this once, perhaps in one “cell”)\n\nfrom google.colab import ai\n\nAsk the AI to generate text in response to some prompt (you can do this as much as you like, possibly in many “cells”)\n\nBut only after telling Colab to import ai!\n\n\n\n\n\n\nSimply write the task ai.generate_text, append an open paratheses (, type your prompt inside quotes \"\", and then add close parentheses ).\nThe parentheses tell Python to take some action!\nThe quotes tell Python it’s dealing with text and not the name of a command.\n\nai.generate_text(\"What is the capital of France?\")\n\nWe see the different color here - there will also be different colors for text and tasks in Colab.\n\n\n\n\nTo see the response, select the cell with a click and then either press the play button to the left of the code, or use the keyboard shortcut “Command/Ctrl+Enter”.\n\n\n\n\n\n\nFirst things first!\n\n\n\nYou will have to “run” both the command to import ai (first) then the command to generate text.\n\n\n\nTry finding the capital of Wakanda or Narnia!\nTry telling Colab to play the imitation game!\n\n\n\n\nTo create a new Colab notebook you can…\n\nUse the File menu on https://colab.research.google.com/, or\nUse the following link: http://colab.research.google.com#create=true.\n\n\n\n\n\nYou can easily share your Colab notebooks, allowing them to comment on your notebooks or even edit them.\n\nPotentially useful for a class on AI!\n\nTo learn more, see Overview of Colab.\nTry to share your prompt with your team from the lab last week by creating a Colab document providing your prompt via ai.generate_text.\n\n\n\n\n\nColab is an outgrowth of a major scientific computing project called Jupyter.\nWe won’t dwell on it much this term\n\nComputer scientists: the “py” stands for Python\nData scientists: the “r” stands for R.\n\n\n\n\n\n\nColab notebooks are Jupyter notebooks that are hosted by Colab. To learn more about the Jupyter project, see jupyter.org.\nI think Jupyter is a bit out-of-scope this term, but Colab is too useful not to use, so it will be our home to explore AI this term!",
+    "text": "Colab is a hosted Jupyter Notebook service that requires no setup to use and provides free access to computing resources, including GPUs and TPUs. Colab is especially well suited to machine learning, data science, and education.\n\n\n\n\nColab is offered by Google.\n\nThey want you to get used to using Google, so that more people use Google Cloud Platform, which is Google’s 2nd biggest revenue source (after advertising, ahead of Workspace)\nThey run it on their cloud servers, so it doesn’t use resources on your computer (except to display results)\n\n\n\n\n\n\nSpecifically, GPUs and a new Google-only device, TPUs\n\nMore on the “T” latter\nThis was the “more compute” that alongside “more data” has made the modern AI boom possible.\n\n\n\n\n\nColab, or “Colaboratory”, allows you to write and execute Python in your browser, with\n\nZero configuration required\nAccess to GPUs free of charge\nEasy sharing\n\n\n\n\n\nYou can save and share Colab documents in Google Drive, just like Google Documents, Spreadsheets, and Forms.\nWe will take advantage of this shareability this term!\n\n\n\n\n\nGood for outside of class.\n\n\nWhether you’re a student, a data scientist or an AI researcher, Colab can make your work easier. Watch Introduction to Colab or Colab Features You May Have Missed to learn more, or just get started below!\n\n\n\n\n\nNavigate to https://colab.research.google.com/\nThe document there is not a static web page…\nIt is an interactive environment called a Colab notebook!\n\n\n\n\n\nColab works in “cells” which are kind of like pages.\nYou can make a new cell by clicking the “+ Code” button.\nDo so, and somewhere on your screen you will see the text:\n\nStart coding or generate with AI.\n\n\n\n\nWe can use Gemini from within Colab as follows:\n\nTell Colab we want to use AI (only have to do this once, perhaps in one “cell”)\n\nfrom google.colab import ai\n\nAsk the AI to generate text in response to some prompt (you can do this as much as you like, possibly in many “cells”)\n\nBut only after telling Colab to import ai!\n\n\n\n\n\n\nSimply write the task ai.generate_text, append an open paratheses (, type your prompt inside quotes \"\", and then add close parentheses ).\nThe parentheses tell Python to take some action!\nThe quotes tell Python it’s dealing with text and not the name of a command.\n\nai.generate_text(\"What is the capital of France?\")\n\nWe see the different color here - there will also be different colors for text and tasks in Colab.\n\n\n\n\nTo see the response, select the cell with a click and then either press the play button to the left of the code, or use the keyboard shortcut “Command/Ctrl+Enter”.\n\n\n\n\n\n\nFirst things first!\n\n\n\nYou will have to “run” both the command to import ai (first) then the command to generate text.\n\n\n\nTry finding the capital of Wakanda or Narnia!\nTry telling Colab to play the imitation game!\n\n\n\n\nTo create a new Colab notebook you can…\n\nUse the File menu on https://colab.research.google.com/, or\nUse the following link: http://colab.research.google.com#create=true.\n\n\n\n\n\nYou can easily share your Colab notebooks, allowing them to comment on your notebooks or even edit them.\n\nPotentially useful for a class on AI!\n\nTry to share your prompt with your team from the lab last week by creating a Colab document providing your prompt via ai.generate_text.\n\n\n\n\n\nColab is an outgrowth of a major scientific computing project called Jupyter.\nWe won’t dwell on it much this term\n\nComputer scientists: the “py” stands for Python\nData scientists: the “r” stands for R.\n\n\n\n\n\n\nColab notebooks are Jupyter notebooks that are hosted by Colab. To learn more about the Jupyter project, see jupyter.org.\nI think Jupyter is a bit out-of-scope this term, but Colab is too useful not to use, so it will be our home to explore AI this term!",
     "crumbs": [
       "Colab"
     ]
@@ -131,7 +131,7 @@
     "href": "11_colab.html#share",
     "title": "Colab",
     "section": "",
-    "text": "You can easily share your Colab notebooks, allowing them to comment on your notebooks or even edit them.\n\nPotentially useful for a class on AI!\n\nTo learn more, see Overview of Colab.\nTry to share your prompt with your team from the lab last week by creating a Colab document providing your prompt via ai.generate_text.",
+    "text": "You can easily share your Colab notebooks, allowing them to comment on your notebooks or even edit them.\n\nPotentially useful for a class on AI!\n\nTry to share your prompt with your team from the lab last week by creating a Colab document providing your prompt via ai.generate_text.",
     "crumbs": [
       "Colab"
     ]
@@ -497,6 +497,16 @@
     ]
   },
   {
+    "objectID": "11_colab.html#write-your-own",
+    "href": "11_colab.html#write-your-own",
+    "title": "Colab",
+    "section": "Write your own",
+    "text": "Write your own\n\nCreate a new notebook named “Lab01”\nSave it in your “AI folder” from the first lab.\nCreate a chatbot that agrees with you on something.\nChat with it once or twice to make sure it works.\n\nUse at least print, input, while, and ai.generate_text.",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
     "objectID": "11_colab.rjs.html#hosted",
     "href": "11_colab.rjs.html#hosted",
     "title": "Colab",
@@ -578,7 +588,7 @@
     "href": "11_colab.rjs.html#share",
     "title": "Colab",
     "section": "Share!",
-    "text": "Share!\n\nYou can easily share your Colab notebooks, allowing them to comment on your notebooks or even edit them.\n\nPotentially useful for a class on AI!\n\nTo learn more, see Overview of Colab.\nTry to share your prompt with your team from the lab last week by creating a Colab document providing your prompt via ai.generate_text."
+    "text": "Share!\n\nYou can easily share your Colab notebooks, allowing them to comment on your notebooks or even edit them.\n\nPotentially useful for a class on AI!\n\nTry to share your prompt with your team from the lab last week by creating a Colab document providing your prompt via ai.generate_text."
   },
   {
     "objectID": "11_colab.rjs.html#learn-more",
@@ -831,6 +841,13 @@
     "title": "Colab",
     "section": "Try it",
     "text": "Try it\n\nAt long last, someone who loves Nosferatu as much as I do.\n\n\nPerson: Nosferatu &gt; Day the Earth Stood Still don't @ me\n\nGemini: Heard loud and clear! No @ from me. Nosferatu's iconic, chilling atmosphere and groundbreaking horror really do leave a lasting impression. Your preference is noted and respected!\n\n\nPerson:\n\nI can see why people chat with these things all day!"
+  },
+  {
+    "objectID": "11_colab.rjs.html#write-your-own",
+    "href": "11_colab.rjs.html#write-your-own",
+    "title": "Colab",
+    "section": "Write your own",
+    "text": "Write your own\n\nCreate a new notebook named “Lab01”\nSave it in your “AI folder” from the first lab.\nCreate a chatbot that agrees with you on something.\nChat with it once or twice to make sure it works.\n\nUse at least print, input, while, and ai.generate_text."
   },
   {
     "objectID": "00_turing.html",

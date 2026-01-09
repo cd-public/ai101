@@ -106,7 +106,6 @@ To create a new Colab notebook you can...
 
 - You can easily share your Colab notebooks, allowing them to comment on your notebooks or even edit them. 
     - Potentially useful for a class on AI!
-- To learn more, see [Overview of Colab](/notebooks/basic_features_overview.ipynb). 
 - Try to share your prompt with your team from the lab last week by creating a Colab document providing your *prompt* via `ai.generate_text`.
 
 ## Learn more!
@@ -160,7 +159,7 @@ ai.generate_text("Define natural and artifical intelligence.")
 
 - Below is an example of something we can put in a **text cell**. 
 - You can **double-click** to edit this cell. 
-- Text cells use markdown syntax. [More Latter](/notebooks/markdown_guide.ipynb).
+- Text cells use markdown syntax. More Latter.
 
 ```md
 **This would be bold.**
@@ -491,3 +490,13 @@ Person:
 ```
 
 - I can see why people chat with these things all day!
+
+# Exercise
+
+## Write your own
+
+- Create a new notebook named "Lab01"
+- Save it in your "AI folder" from the first lab.
+- Create a chatbot that agrees with you on something.
+- Chat with it once or twice to make sure it works.
+    - Use at least `print`, `input`, `while`, and `ai.generate_text`.
