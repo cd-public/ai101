@@ -16,11 +16,13 @@ format:
         toc: true
         theme: darkly 
         code-line-numbers: true
+        code-overflow: wrap
         code-tools:
             source: true
             toggle: false
             caption: none
     revealjs: 
+        code-overflow: wrap
         theme: dark
         slide-number: true
         show-slide-number: all
