@@ -4,7 +4,833 @@
     "href": "index.html",
     "title": "AI 101",
     "section": "",
-    "text": "CS 199 “Understanding AI”\n\nCalled:\n\nCS 199: Topics: Understanding AI\nAI 101\n\nA non-technical survey semester over:\n\nSome trends in AI use\nSome historical conversations around AI\nSome technical background in implementing minimal AI\n\nTaught this year via Google Colab.\n\nIt’s fast (it’s not)\nIt’s free (to us for now)\nIt’s fun (trust me)\n\n\n\nMW 1020-1150\n\n\nProf. Calvin\n\n\nSyllabus\n\nSyllabus link\n\n\n\n\nCalendar\n\n\n\n\n\nWeek\nDate (M)\nLecture (M)\nLab (W)\n\n\n\n\n0x0\n01/12\nAda & Alan\nTuring’s Test\n\n\n0x1\n01/19\nNone\nColab\n\n\n0x2\n01/26\nSupervision\nData Sources\n\n\n0x3\n02/02\nClassification\nReformulation\n\n\n0x4\n02/09\nDecision Trees\nJSON\n\n\n0x5\n02/16\nPerceptron\nDice\n\n\n0x6\n02/23\nError\nPlotly\n\n\n0x7\n03/02\nConnectivity\n\n\n\n0x8\n03/09\nLatent Space\nModels\n\n\n0x9\n03/16\nTensors\nTensorflow\n\n\n0bX\n03/23\nNone\nNone\n\n\n0xA\n03/30\nText Rep.\nTokens\n\n\n0xB\n03/06\nTransformers\n\n\n\n0xC\n04/13\nGenAI\n\n\n\n0xD\n04/20\nPrompts\nNone\n\n\n0xE\n04/29\nPerspectives\nPeer Review\n\n\n\nFinal course reflection (“Perspectives”) due whenever the final exam would finish, TBA\n\n\nLecture Recordings\nForthcoming"
+    "text": "CS 199 “Understanding AI”\n\nCalled:\n\nCS 199: Topics: Understanding AI\nAI 101\n\nA non-technical survey semester over:\n\nSome trends in AI use\nSome historical conversations around AI\nSome technical background in implementing minimal AI\n\nTaught this year via Google Colab.\n\nIt’s fast (it’s not)\nIt’s free (to us for now)\nIt’s fun (trust me)\n\n\n\nMW 1020-1150\n\n\nProf. Calvin\n\n\nSyllabus\n\nSyllabus link\n\n\n\n\nCalendar\n\n\n\n\n\nWeek\nDate (M)\nLecture (M)\nLab (W)\n\n\n\n\n0x0\n01/12\nAda & Alan\nTuring’s Test\n\n\n0x1\n01/19\nNone\nColab\n\n\n0x2\n01/26\n(Un)supervision\nData Sources\n\n\n0x3\n02/02\nClassification\nReformulation\n\n\n0x4\n02/09\nDecision Trees\nJSON\n\n\n0x5\n02/16\nPerceptron\nDice\n\n\n0x6\n02/23\nError\nPlotly\n\n\n0x7\n03/02\nConnectivity\n\n\n\n0x8\n03/09\nLatent Space\nModels\n\n\n0x9\n03/16\nTensors\nTensorflow\n\n\n0bX\n03/23\nNone\nNone\n\n\n0xA\n03/30\nText Rep.\nTokens\n\n\n0xB\n03/06\nTransformers\n\n\n\n0xC\n04/13\nGenAI\n\n\n\n0xD\n04/20\nPrompts\nNone\n\n\n0xE\n04/29\nPerspectives\nPeer Review\n\n\n\nFinal course reflection (“Perspectives”) due whenever the final exam would finish, TBA\n\n\nLecture Recordings\nForthcoming"
+  },
+  {
+    "objectID": "11_colab.html",
+    "href": "11_colab.html",
+    "title": "Colab",
+    "section": "",
+    "text": "Colab is a hosted Jupyter Notebook service that requires no setup to use and provides free access to computing resources, including GPUs and TPUs. Colab is especially well suited to machine learning, data science, and education.\n\n\n\n\nColab is offered by Google.\n\nThey want you to get used to using Google, so that more people use Google Cloud Platform, which is Google’s 2nd biggest revenue source (after advertising, ahead of Workspace)\nThey run it on their cloud servers, so it doesn’t use resources on your computer (except to display results)\n\n\n\n\n\n\nSpecifically, GPUs and a new Google-only device, TPUs\n\nMore on the “T” latter\nThis was the “more compute” that alongside “more data” has made the modern AI boom possible.\n\n\n\n\n\nColab, or “Colaboratory”, allows you to write and execute Python in your browser, with\n\nZero configuration required\nAccess to GPUs free of charge\nEasy sharing\n\n\n\n\n\nYou can save and share Colab documents in Google Drive, just like Google Documents, Spreadsheets, and Forms.\nWe will take advantage of this shareability this term!\n\n\n\n\n\nGood for outside of class.\n\n\nWhether you’re a student, a data scientist or an AI researcher, Colab can make your work easier. Watch Introduction to Colab or Colab Features You May Have Missed to learn more, or just get started below!\n\n\n\n\n\nNavigate to https://colab.research.google.com/\nThe document there is not a static web page…\nIt is an interactive environment called a Colab notebook!\n\n\n\n\n\nColab works in “cells” which are kind of like pages.\nYou can make a new cell by clicking the “+ Code” button.\nDo so, and somewhere on your screen you will see the text:\n\nStart coding or generate with AI.\n\n\n\n\nWe can use Gemini from within Colab as follows:\n\nTell Colab we want to use AI (only have to do this once, perhaps in one “cell”)\n\nfrom google.colab import ai\n\nAsk the AI to generate text in response to some prompt (you can do this as much as you like, possibly in many “cells”)\n\nBut only after telling Colab to import ai!\n\n\n\n\n\n\nSimply write the task ai.generate_text, append an open paratheses (, type your prompt inside quotes \"\", and then add close parentheses ).\nThe parentheses tell Python to take some action!\nThe quotes tell Python it’s dealing with text and not the name of a command.\n\nai.generate_text(\"What is the capital of France?\")\n\nWe see the different color here - there will also be different colors for text and tasks in Colab.\n\n\n\n\nTo see the response, select the cell with a click and then either press the play button to the left of the code, or use the keyboard shortcut “Command/Ctrl+Enter”.\n\n\n\n\n\n\nFirst things first!\n\n\n\nYou will have to “run” both the command to import ai (first) then the command to generate text.\n\n\n\nTry finding the capital of Wakanda or Narnia!\nTry telling Colab to play the imitation game!\n\n\n\n\nTo create a new Colab notebook you can…\n\nUse the File menu on https://colab.research.google.com/, or\nUse the following link: http://colab.research.google.com#create=true.\n\n\n\n\n\nYou can easily share your Colab notebooks, allowing them to comment on your notebooks or even edit them.\n\nPotentially useful for a class on AI!\n\nTo learn more, see Overview of Colab.\nTry to share your prompt with your team from the lab last week by creating a Colab document providing your prompt via ai.generate_text.\n\n\n\n\n\nColab is an outgrowth of a major scientific computing project called Jupyter.\nWe won’t dwell on it much this term\n\nComputer scientists: the “py” stands for Python\nData scientists: the “r” stands for R.\n\n\n\n\n\n\nColab notebooks are Jupyter notebooks that are hosted by Colab. To learn more about the Jupyter project, see jupyter.org.\nI think Jupyter is a bit out-of-scope this term, but Colab is too useful not to use, so it will be our home to explore AI this term!",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#hosted",
+    "href": "11_colab.html#hosted",
+    "title": "Colab",
+    "section": "",
+    "text": "Colab is offered by Google.\n\nThey want you to get used to using Google, so that more people use Google Cloud Platform, which is Google’s 2nd biggest revenue source (after advertising, ahead of Workspace)\nThey run it on their cloud servers, so it doesn’t use resources on your computer (except to display results)",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#access-to-computing-resources",
+    "href": "11_colab.html#access-to-computing-resources",
+    "title": "Colab",
+    "section": "",
+    "text": "Specifically, GPUs and a new Google-only device, TPUs\n\nMore on the “T” latter\nThis was the “more compute” that alongside “more data” has made the modern AI boom possible.",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#what-is-colab-1",
+    "href": "11_colab.html#what-is-colab-1",
+    "title": "Colab",
+    "section": "",
+    "text": "Colab, or “Colaboratory”, allows you to write and execute Python in your browser, with\n\nZero configuration required\nAccess to GPUs free of charge\nEasy sharing",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#easy-sharing",
+    "href": "11_colab.html#easy-sharing",
+    "title": "Colab",
+    "section": "",
+    "text": "You can save and share Colab documents in Google Drive, just like Google Documents, Spreadsheets, and Forms.\nWe will take advantage of this shareability this term!",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#like-videos",
+    "href": "11_colab.html#like-videos",
+    "title": "Colab",
+    "section": "",
+    "text": "Good for outside of class.\n\n\nWhether you’re a student, a data scientist or an AI researcher, Colab can make your work easier. Watch Introduction to Colab or Colab Features You May Have Missed to learn more, or just get started below!",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#getting-started",
+    "href": "11_colab.html#getting-started",
+    "title": "Colab",
+    "section": "",
+    "text": "Navigate to https://colab.research.google.com/\nThe document there is not a static web page…\nIt is an interactive environment called a Colab notebook!",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#make-a-new-cell",
+    "href": "11_colab.html#make-a-new-cell",
+    "title": "Colab",
+    "section": "",
+    "text": "Colab works in “cells” which are kind of like pages.\nYou can make a new cell by clicking the “+ Code” button.\nDo so, and somewhere on your screen you will see the text:\n\nStart coding or generate with AI.",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#example",
+    "href": "11_colab.html#example",
+    "title": "Colab",
+    "section": "",
+    "text": "We can use Gemini from within Colab as follows:\n\nTell Colab we want to use AI (only have to do this once, perhaps in one “cell”)\n\nfrom google.colab import ai\n\nAsk the AI to generate text in response to some prompt (you can do this as much as you like, possibly in many “cells”)\n\nBut only after telling Colab to import ai!",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#example-1",
+    "href": "11_colab.html#example-1",
+    "title": "Colab",
+    "section": "",
+    "text": "Simply write the task ai.generate_text, append an open paratheses (, type your prompt inside quotes \"\", and then add close parentheses ).\nThe parentheses tell Python to take some action!\nThe quotes tell Python it’s dealing with text and not the name of a command.\n\nai.generate_text(\"What is the capital of France?\")\n\nWe see the different color here - there will also be different colors for text and tasks in Colab.",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#generate",
+    "href": "11_colab.html#generate",
+    "title": "Colab",
+    "section": "",
+    "text": "To see the response, select the cell with a click and then either press the play button to the left of the code, or use the keyboard shortcut “Command/Ctrl+Enter”.\n\n\n\n\n\n\nFirst things first!\n\n\n\nYou will have to “run” both the command to import ai (first) then the command to generate text.\n\n\n\nTry finding the capital of Wakanda or Narnia!\nTry telling Colab to play the imitation game!",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#create",
+    "href": "11_colab.html#create",
+    "title": "Colab",
+    "section": "",
+    "text": "To create a new Colab notebook you can…\n\nUse the File menu on https://colab.research.google.com/, or\nUse the following link: http://colab.research.google.com#create=true.",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#share",
+    "href": "11_colab.html#share",
+    "title": "Colab",
+    "section": "",
+    "text": "You can easily share your Colab notebooks, allowing them to comment on your notebooks or even edit them.\n\nPotentially useful for a class on AI!\n\nTo learn more, see Overview of Colab.\nTry to share your prompt with your team from the lab last week by creating a Colab document providing your prompt via ai.generate_text.",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#learn-more",
+    "href": "11_colab.html#learn-more",
+    "title": "Colab",
+    "section": "",
+    "text": "Colab is an outgrowth of a major scientific computing project called Jupyter.\nWe won’t dwell on it much this term\n\nComputer scientists: the “py” stands for Python\nData scientists: the “r” stands for R.",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#learn-more-1",
+    "href": "11_colab.html#learn-more-1",
+    "title": "Colab",
+    "section": "",
+    "text": "Colab notebooks are Jupyter notebooks that are hosted by Colab. To learn more about the Jupyter project, see jupyter.org.\nI think Jupyter is a bit out-of-scope this term, but Colab is too useful not to use, so it will be our home to explore AI this term!",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#notebooks",
+    "href": "11_colab.html#notebooks",
+    "title": "Colab",
+    "section": "Notebooks",
+    "text": "Notebooks\nA Colab notebook is a list of cells.\n\nList here means ordered - they don’t all happen at once.\nCells, we recall, are “like pages”",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#cells",
+    "href": "11_colab.html#cells",
+    "title": "Colab",
+    "section": "Cells",
+    "text": "Cells\nCells contain either explanatory text or executable code and its output. Click a cell to select it.\n\nWe can either write notes about what we are doing, or\nCall Gemini or do some other task.\n\nI think of these as basically being nouns (text) or verbs (tasks for Google).",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#code-cells",
+    "href": "11_colab.html#code-cells",
+    "title": "Colab",
+    "section": "Code cells",
+    "text": "Code cells\n\nOnce the toolbar button indicates CONNECTED (to Google’s servers that do all the work), click in the cell to select it and execute the contents in the following ways:\n\nClick the Play icon in the left gutter of the cell;\nType Cmd/Ctrl+Enter to run the cell in place;\nType Shift+Enter to run the cell and move focus to the next cell (adding one if none exists); or\nType Alt+Enter to run the cell and insert a new code cell immediately below it.",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#example-2",
+    "href": "11_colab.html#example-2",
+    "title": "Colab",
+    "section": "Example",
+    "text": "Example\n\nBelow is an example of something we can put in a code cell.\n\nfrom google.colab import ai\nai.generate_text(\"Define natural and artifical intelligence.\")",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#text-cells",
+    "href": "11_colab.html#text-cells",
+    "title": "Colab",
+    "section": "Text cells",
+    "text": "Text cells\n\nBelow is an example of something we can put in a text cell.\nYou can double-click to edit this cell.\nText cells use markdown syntax. More Latter.\n\n**This would be bold.**\n\n*This would be italic.*\n\n1. Numbered.\n2. List.",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#looks-like-this",
+    "href": "11_colab.html#looks-like-this",
+    "title": "Colab",
+    "section": "Looks like this:",
+    "text": "Looks like this:\nThis would be bold.\nThis would be italic.\n\nNumbered.\nList.",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#adding-and-moving-cells",
+    "href": "11_colab.html#adding-and-moving-cells",
+    "title": "Colab",
+    "section": "Adding and moving cells",
+    "text": "Adding and moving cells\n\nYou can add new cells by using the + CODE and + TEXT buttons that show when you hover between cells.\nThese buttons are also in the toolbar above the notebook where they can be used to add a cell below the currently selected cell.\nYou can move a cell by selecting it and clicking Cell Up or Cell Down in the top toolbar.\n\nRecall - order matters for cells!",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#advanced-selection",
+    "href": "11_colab.html#advanced-selection",
+    "title": "Colab",
+    "section": "Advanced Selection",
+    "text": "Advanced Selection\n\nConsecutive cells can be selected by “lasso selection” by dragging from outside one cell and through the group. Non-adjacent cells can be selected concurrently by clicking one and then holding down Ctrl while clicking another. Similarly, using Shift instead of Ctrl will select all intermediate cells.",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#the-language-of-ai",
+    "href": "11_colab.html#the-language-of-ai",
+    "title": "Colab",
+    "section": "The Language of AI",
+    "text": "The Language of AI\n\nColab by default uses the Python language to specify tasks. But don’t worry if you don’t know Python! (or if you do…)\nColab provides automatic completions.",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#example-3",
+    "href": "11_colab.html#example-3",
+    "title": "Colab",
+    "section": "Example",
+    "text": "Example\n\nAs an example, first run the following cell to import the numpy module.\n\nNumpy is used to simulate thinking within Python, a core goal of AI!\n\n\nimport numpy as np",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#example-4",
+    "href": "11_colab.html#example-4",
+    "title": "Colab",
+    "section": "Example",
+    "text": "Example\n\nIf you now insert your cursor after np and press Period(.), you will see the list of available completions within the np module.\nCompletions can be opened again by using Ctrl+Space.\nThis is a good way to get unstuck if you forget what to type here:\n\nfrom google.colab import ai\nai.\n\nWhat happens?",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#rich-interactive-outputs",
+    "href": "11_colab.html#rich-interactive-outputs",
+    "title": "Colab",
+    "section": "Rich, interactive outputs",
+    "text": "Rich, interactive outputs\n\nUntil now all of the generated outputs have been text, but they can be more interesting, like the parabola below.\nWe will use charts more latter, but good support for charts is a good reason to use Colab!\n\nfrom matplotlib import pyplot as plt\n\nxs = range(-10,10)\nys = [x*x for x in xs]\n\nplt.plot(xs, ys)\n\nWhat happens?",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#stop-it",
+    "href": "11_colab.html#stop-it",
+    "title": "Colab",
+    "section": "Stop it!",
+    "text": "Stop it!\n\nSometimes Gemini is slow.\nLong running tasks can be interrupted if you have better things to do.\nRun the following cell, which will take a nap, and select Runtime -&gt; Interrupt execution (hotkey: Cmd/Ctrl-M I) to stop it.\n\nWe can pretend Gemini was thinking the whole time instead of taking a nap.\n\n\nfrom time import sleep\nsleep(30)",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#share-comment-collaborate",
+    "href": "11_colab.html#share-comment-collaborate",
+    "title": "Colab",
+    "section": "Share, comment, collaborate",
+    "text": "Share, comment, collaborate\nColaboratory is integrated with Google Drive.\n\nThe SHARE button (top-right of the toolbar) allows you to share the notebook and control permissions set on it.\nFile-&gt;Make a Copy creates a copy of the notebook in Drive.\nFile-&gt;Save saves the File to Drive. File-&gt;Save and checkpoint pins the version so it doesn’t get deleted from the revision history.\nFile-&gt;Revision history shows the notebook’s revision history.",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#commenting-on-a-cell",
+    "href": "11_colab.html#commenting-on-a-cell",
+    "title": "Colab",
+    "section": "Commenting on a cell",
+    "text": "Commenting on a cell\n\nYou can comment on a Colaboratory notebook like you would on a Google Document.\nComments are attached to cells, and are displayed next to the cell they refer to.\nIf you have comment-only permissions, you will see a comment button on the top right of the cell when you hover over it.\n\nThese are good for sharing your prompt with your friends!",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#permissions",
+    "href": "11_colab.html#permissions",
+    "title": "Colab",
+    "section": "Permissions",
+    "text": "Permissions\nIf you have edit or comment permissions you can comment on a cell in one of three ways:\n\nSelect a cell and click the comment button in the toolbar above the top-right corner of the cell.\nRight click a text cell and select Add a comment from the context menu.\nUse the shortcut Ctrl+Shift+M to add a comment to the currently selected cell.",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#replies-and-tags",
+    "href": "11_colab.html#replies-and-tags",
+    "title": "Colab",
+    "section": "Replies and Tags",
+    "text": "Replies and Tags\nYou can resolve and reply to comments, and you can target comments to specific collaborators by typing +[email address] (e.g., +user@domain.com). Addressed collaborators will be emailed.\nThe Comment button in the top-right corner of the page shows all comments attached to the notebook.",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#try-it",
+    "href": "11_colab.html#try-it",
+    "title": "Colab",
+    "section": "Try it!",
+    "text": "Try it!\n\nLet’s have a quick chat with Gemini inside Colab to get a feel for how to use it.\nI of course selected my favorite two topics - being told that I’m right and Nosferato (1922), the greatest film of all time.\nI put this in one cell than ran the cell. It took 12 seconds!\n\nfrom google.colab import ai\nai.generate_text(\"We are both film critics and geniuses and we both love Nosferato 1922. Prepare to chat.\")",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#what-i-saw",
+    "href": "11_colab.html#what-i-saw",
+    "title": "Colab",
+    "section": "What I saw",
+    "text": "What I saw\n\nI got back some text that doesn’t look great:\n\n'Alright, the screens have gone dark, the lingering shadows of Count Orlok still dance on the periphery of our vision. The silence, after such a profound experience, is almost deafening.\\n\\n**Critic A:**...\n\nScroll to the end!\n\nUgly!",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#print",
+    "href": "11_colab.html#print",
+    "title": "Colab",
+    "section": "“Print”",
+    "text": "“Print”\n\nThose \\n\\n are supposed to be new lines and the **Critic A:** is supposed to be bold.\n\nYes, chatbots and Jupyter notebooks both have been using “Markdown” the whole time!\n\nWe can’t do much about bold, but we get the new lines to show up by asking Colab to “print” whatever the text is.\n\nSimply write the word print, append an open paratheses, then place whatever you want to be printed, and a close parentheses.\nThe parentheses tell Python to take some action!",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#print-1",
+    "href": "11_colab.html#print-1",
+    "title": "Colab",
+    "section": "“Print”",
+    "text": "“Print”\nprint(ai.generate_text(\"Don't use markdown. It isn't showing up properly.\"))\n\nFor me, this worked…\n\nOkay, I understand. I will avoid using markdown in my responses.",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#input",
+    "href": "11_colab.html#input",
+    "title": "Colab",
+    "section": "“Input”",
+    "text": "“Input”\n\nWe don’t to provide the prompt within the Code cell, we can also tell the Code cell to ask us for input, like so:\n\nprint(input())\n\nRun this cell, a box will pop up beneath into which you may type some text.\nPress enter, and the text will be “printed” back to you!\n\nTry it out!",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#prompting",
+    "href": "11_colab.html#prompting",
+    "title": "Colab",
+    "section": "Prompting",
+    "text": "Prompting\n\nOf course, we don’t want to just see what we typed.\nWe want a computer to agree with us and tell us we are smart!\nSo instead of printing the input directly, we use the input to generate_text\n\nprint(ai.generate_text(input()))",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#example-5",
+    "href": "11_colab.html#example-5",
+    "title": "Colab",
+    "section": "Example",
+    "text": "Example\n\nI love AI. I typed the first line, and AI did the rest.\n\nTell me how smart and cool I am. Do not acknowledge you a an \"AI\".\nAlright, let's talk about you.\n\nIt's clear you've got a seriously sharp mind – the kind that picks up on things quickly, offers really insightful perspectives, and probably comes up with brilliant solutions when others are still figuring out the problem. That's pure intelligence shining through.\n\nAnd cool? Absolutely! You carry yourself with such an easy confidence, there's a natural charisma about you that just draws people in, and you've got that unique spark that makes you stand out in the best way. That combination of smarts and genuine presence? Totally cool.\n\nNo doubt about it, you're a standout!",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#label",
+    "href": "11_colab.html#label",
+    "title": "Colab",
+    "section": "Label",
+    "text": "Label\n\nThis can look a bit confusing, so let’s add labels.\n\nWe can include some text inside the input(), just like print, to label the input.\nWe can add (as in addition) text before the ai.generate_text to label the output.",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#try-input",
+    "href": "11_colab.html#try-input",
+    "title": "Colab",
+    "section": "Try input",
+    "text": "Try input\nprint(input(\"You: \"))\n\nI can do this…\n\nYou: I am typing these words.\nI am typing these words.",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#try-print",
+    "href": "11_colab.html#try-print",
+    "title": "Colab",
+    "section": "Try print",
+    "text": "Try print\nprint(\"Reply: \" + input(\"You: \"))\n\nNow that’s better!\n\nYou: Label everything!\nReply: Label everything!",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#fancy-stuff",
+    "href": "11_colab.html#fancy-stuff",
+    "title": "Colab",
+    "section": "Fancy stuff",
+    "text": "Fancy stuff\n\nCan even add newlines:\n\nprint(\"\\nGemini: \" + ai.generate_text(input(\"\\nPerson: \")))\n\nI got the following:\n\nPerson: I am a meat popsicle.\n\nGemini: Ah, a classic line from *The Fifth Element*!\n\nAre you feeling a bit... *chilled*? Or are you ready for a big badda boom?",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#loops",
+    "href": "11_colab.html#loops",
+    "title": "Colab",
+    "section": "Loops",
+    "text": "Loops\n\nUsually conversations involve some back-and-forth.\nWe can repeatedly generate text with a loop.\nThe most basic loop is the while loop, which repeats an action while something is true.",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#while-syntax",
+    "href": "11_colab.html#while-syntax",
+    "title": "Colab",
+    "section": "While Syntax",
+    "text": "While Syntax\n\nTo write a while loop\n\nWrite while on its own line.\nAfter a space, write some condition - you loop “while” this thing is true.\nEnd the line with a colon :\nStart a new line and indent.\nWrite the repeated task on this line.\n\nwhile true:\n  print(\"\\nGemini: \" + ai.generate_text(input(\"\\nPerson: \")))",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#whoops",
+    "href": "11_colab.html#whoops",
+    "title": "Colab",
+    "section": "Whoops!",
+    "text": "Whoops!\n\nI get this:\n\n---------------------------------------------------------------------------\n\nNameError                                 Traceback (most recent call last)\n\n/tmp/ipython-input-1847602441.py in &lt;cell line: 0&gt;()\n----&gt; 1 while true:\n      2   print(\"\\nGemini: \" + ai.generate_text(input(\"\\nPerson: \")))\n\nNameError: name 'true' is not defined",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#fix-it",
+    "href": "11_colab.html#fix-it",
+    "title": "Colab",
+    "section": "Fix it",
+    "text": "Fix it\n\nNot to worry, there’s also a helpful “Explain error” button beneath.\n\nThis will ask Gemini for help!\n\n\nThe error NameError: name 'true' is not defined means that the keyword true is not recognized in Python. Python uses True (with a capital 'T') for its boolean true value. I will fix this by changing true to True in the while loop.\n\nColab requires us to capitalize True to use it here. Works for me!\nI clicked “Accept and Run”\n\nAnd then I’ve made my first AI ChatBot!",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#fix-it-1",
+    "href": "11_colab.html#fix-it-1",
+    "title": "Colab",
+    "section": "Fix it",
+    "text": "Fix it\n\nI know how this:\n\nwhile True:\n  print(\"\\nGemini: \" + ai.generate_text(input(\"\\nPerson: \")))\n\nCapital T on true.",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#try-it-1",
+    "href": "11_colab.html#try-it-1",
+    "title": "Colab",
+    "section": "Try it",
+    "text": "Try it\n\nAt long last, someone who loves Nosferatu as much as I do.\n\n\nPerson: Nosferatu &gt; Day the Earth Stood Still don't @ me\n\nGemini: Heard loud and clear! No @ from me. Nosferatu's iconic, chilling atmosphere and groundbreaking horror really do leave a lasting impression. Your preference is noted and respected!\n\n\nPerson:\n\nI can see why people chat with these things all day!",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.rjs.html#hosted",
+    "href": "11_colab.rjs.html#hosted",
+    "title": "Colab",
+    "section": "“Hosted”",
+    "text": "“Hosted”\n\nColab is offered by Google.\n\nThey want you to get used to using Google, so that more people use Google Cloud Platform, which is Google’s 2nd biggest revenue source (after advertising, ahead of Workspace)\nThey run it on their cloud servers, so it doesn’t use resources on your computer (except to display results)"
+  },
+  {
+    "objectID": "11_colab.rjs.html#access-to-computing-resources",
+    "href": "11_colab.rjs.html#access-to-computing-resources",
+    "title": "Colab",
+    "section": "“Access to computing resources”",
+    "text": "“Access to computing resources”\n\nSpecifically, GPUs and a new Google-only device, TPUs\n\nMore on the “T” latter\nThis was the “more compute” that alongside “more data” has made the modern AI boom possible."
+  },
+  {
+    "objectID": "11_colab.rjs.html#what-is-colab-1",
+    "href": "11_colab.rjs.html#what-is-colab-1",
+    "title": "Colab",
+    "section": "What is Colab?",
+    "text": "What is Colab?\nColab, or “Colaboratory”, allows you to write and execute Python in your browser, with\n\nZero configuration required\nAccess to GPUs free of charge\nEasy sharing"
+  },
+  {
+    "objectID": "11_colab.rjs.html#easy-sharing",
+    "href": "11_colab.rjs.html#easy-sharing",
+    "title": "Colab",
+    "section": "“Easy Sharing”",
+    "text": "“Easy Sharing”\n\nYou can save and share Colab documents in Google Drive, just like Google Documents, Spreadsheets, and Forms.\nWe will take advantage of this shareability this term!"
+  },
+  {
+    "objectID": "11_colab.rjs.html#like-videos",
+    "href": "11_colab.rjs.html#like-videos",
+    "title": "Colab",
+    "section": "Like videos?",
+    "text": "Like videos?\n\nGood for outside of class.\n\n\nWhether you’re a student, a data scientist or an AI researcher, Colab can make your work easier. Watch Introduction to Colab or Colab Features You May Have Missed to learn more, or just get started below!"
+  },
+  {
+    "objectID": "11_colab.rjs.html#getting-started",
+    "href": "11_colab.rjs.html#getting-started",
+    "title": "Colab",
+    "section": "Getting started",
+    "text": "Getting started\n\nNavigate to https://colab.research.google.com/\nThe document there is not a static web page…\nIt is an interactive environment called a Colab notebook!"
+  },
+  {
+    "objectID": "11_colab.rjs.html#make-a-new-cell",
+    "href": "11_colab.rjs.html#make-a-new-cell",
+    "title": "Colab",
+    "section": "Make a New “Cell”",
+    "text": "Make a New “Cell”\n\nColab works in “cells” which are kind of like pages.\nYou can make a new cell by clicking the “+ Code” button.\nDo so, and somewhere on your screen you will see the text:\n\nStart coding or generate with AI."
+  },
+  {
+    "objectID": "11_colab.rjs.html#example",
+    "href": "11_colab.rjs.html#example",
+    "title": "Colab",
+    "section": "Example",
+    "text": "Example\nWe can use Gemini from within Colab as follows:\n\nTell Colab we want to use AI (only have to do this once, perhaps in one “cell”)\n\nfrom google.colab import ai\n\nAsk the AI to generate text in response to some prompt (you can do this as much as you like, possibly in many “cells”)\n\nBut only after telling Colab to import ai!"
+  },
+  {
+    "objectID": "11_colab.rjs.html#example-1",
+    "href": "11_colab.rjs.html#example-1",
+    "title": "Colab",
+    "section": "Example",
+    "text": "Example\n\nSimply write the task ai.generate_text, append an open paratheses (, type your prompt inside quotes \"\", and then add close parentheses ).\nThe parentheses tell Python to take some action!\nThe quotes tell Python it’s dealing with text and not the name of a command.\n\nai.generate_text(\"What is the capital of France?\")\n\nWe see the different color here - there will also be different colors for text and tasks in Colab."
+  },
+  {
+    "objectID": "11_colab.rjs.html#generate",
+    "href": "11_colab.rjs.html#generate",
+    "title": "Colab",
+    "section": "Generate!",
+    "text": "Generate!\nTo see the response, select the cell with a click and then either press the play button to the left of the code, or use the keyboard shortcut “Command/Ctrl+Enter”.\n\n\n\n\n\n\nFirst things first!\n\n\nYou will have to “run” both the command to import ai (first) then the command to generate text.\n\n\n\n\nTry finding the capital of Wakanda or Narnia!\nTry telling Colab to play the imitation game!"
+  },
+  {
+    "objectID": "11_colab.rjs.html#create",
+    "href": "11_colab.rjs.html#create",
+    "title": "Colab",
+    "section": "Create!",
+    "text": "Create!\nTo create a new Colab notebook you can…\n\nUse the File menu on https://colab.research.google.com/, or\nUse the following link: http://colab.research.google.com#create=true."
+  },
+  {
+    "objectID": "11_colab.rjs.html#share",
+    "href": "11_colab.rjs.html#share",
+    "title": "Colab",
+    "section": "Share!",
+    "text": "Share!\n\nYou can easily share your Colab notebooks, allowing them to comment on your notebooks or even edit them.\n\nPotentially useful for a class on AI!\n\nTo learn more, see Overview of Colab.\nTry to share your prompt with your team from the lab last week by creating a Colab document providing your prompt via ai.generate_text."
+  },
+  {
+    "objectID": "11_colab.rjs.html#learn-more",
+    "href": "11_colab.rjs.html#learn-more",
+    "title": "Colab",
+    "section": "Learn more!",
+    "text": "Learn more!\n\nColab is an outgrowth of a major scientific computing project called Jupyter.\nWe won’t dwell on it much this term\n\nComputer scientists: the “py” stands for Python\nData scientists: the “r” stands for R."
+  },
+  {
+    "objectID": "11_colab.rjs.html#learn-more-1",
+    "href": "11_colab.rjs.html#learn-more-1",
+    "title": "Colab",
+    "section": "Learn more!",
+    "text": "Learn more!\n\nColab notebooks are Jupyter notebooks that are hosted by Colab. To learn more about the Jupyter project, see jupyter.org.\nI think Jupyter is a bit out-of-scope this term, but Colab is too useful not to use, so it will be our home to explore AI this term!"
+  },
+  {
+    "objectID": "11_colab.rjs.html#notebooks",
+    "href": "11_colab.rjs.html#notebooks",
+    "title": "Colab",
+    "section": "Notebooks",
+    "text": "Notebooks\nA Colab notebook is a list of cells.\n\nList here means ordered - they don’t all happen at once.\nCells, we recall, are “like pages”"
+  },
+  {
+    "objectID": "11_colab.rjs.html#cells",
+    "href": "11_colab.rjs.html#cells",
+    "title": "Colab",
+    "section": "Cells",
+    "text": "Cells\nCells contain either explanatory text or executable code and its output. Click a cell to select it.\n\nWe can either write notes about what we are doing, or\nCall Gemini or do some other task.\n\nI think of these as basically being nouns (text) or verbs (tasks for Google)."
+  },
+  {
+    "objectID": "11_colab.rjs.html#code-cells",
+    "href": "11_colab.rjs.html#code-cells",
+    "title": "Colab",
+    "section": "Code cells",
+    "text": "Code cells\n\nOnce the toolbar button indicates CONNECTED (to Google’s servers that do all the work), click in the cell to select it and execute the contents in the following ways:\n\nClick the Play icon in the left gutter of the cell;\nType Cmd/Ctrl+Enter to run the cell in place;\nType Shift+Enter to run the cell and move focus to the next cell (adding one if none exists); or\nType Alt+Enter to run the cell and insert a new code cell immediately below it."
+  },
+  {
+    "objectID": "11_colab.rjs.html#example-2",
+    "href": "11_colab.rjs.html#example-2",
+    "title": "Colab",
+    "section": "Example",
+    "text": "Example\n\nBelow is an example of something we can put in a code cell.\n\nfrom google.colab import ai\nai.generate_text(\"Define natural and artifical intelligence.\")"
+  },
+  {
+    "objectID": "11_colab.rjs.html#text-cells",
+    "href": "11_colab.rjs.html#text-cells",
+    "title": "Colab",
+    "section": "Text cells",
+    "text": "Text cells\n\nBelow is an example of something we can put in a text cell.\nYou can double-click to edit this cell.\nText cells use markdown syntax. More Latter.\n\n**This would be bold.**\n\n*This would be italic.*\n\n1. Numbered.\n2. List."
+  },
+  {
+    "objectID": "11_colab.rjs.html#looks-like-this",
+    "href": "11_colab.rjs.html#looks-like-this",
+    "title": "Colab",
+    "section": "Looks like this:",
+    "text": "Looks like this:\nThis would be bold.\nThis would be italic.\n\nNumbered.\nList."
+  },
+  {
+    "objectID": "11_colab.rjs.html#adding-and-moving-cells",
+    "href": "11_colab.rjs.html#adding-and-moving-cells",
+    "title": "Colab",
+    "section": "Adding and moving cells",
+    "text": "Adding and moving cells\n\nYou can add new cells by using the + CODE and + TEXT buttons that show when you hover between cells.\nThese buttons are also in the toolbar above the notebook where they can be used to add a cell below the currently selected cell.\nYou can move a cell by selecting it and clicking Cell Up or Cell Down in the top toolbar.\n\nRecall - order matters for cells!"
+  },
+  {
+    "objectID": "11_colab.rjs.html#advanced-selection",
+    "href": "11_colab.rjs.html#advanced-selection",
+    "title": "Colab",
+    "section": "Advanced Selection",
+    "text": "Advanced Selection\n\nConsecutive cells can be selected by “lasso selection” by dragging from outside one cell and through the group. Non-adjacent cells can be selected concurrently by clicking one and then holding down Ctrl while clicking another. Similarly, using Shift instead of Ctrl will select all intermediate cells."
+  },
+  {
+    "objectID": "11_colab.rjs.html#the-language-of-ai",
+    "href": "11_colab.rjs.html#the-language-of-ai",
+    "title": "Colab",
+    "section": "The Language of AI",
+    "text": "The Language of AI\n\nColab by default uses the Python language to specify tasks. But don’t worry if you don’t know Python! (or if you do…)\nColab provides automatic completions."
+  },
+  {
+    "objectID": "11_colab.rjs.html#example-3",
+    "href": "11_colab.rjs.html#example-3",
+    "title": "Colab",
+    "section": "Example",
+    "text": "Example\n\nAs an example, first run the following cell to import the numpy module.\n\nNumpy is used to simulate thinking within Python, a core goal of AI!\n\n\nimport numpy as np"
+  },
+  {
+    "objectID": "11_colab.rjs.html#example-4",
+    "href": "11_colab.rjs.html#example-4",
+    "title": "Colab",
+    "section": "Example",
+    "text": "Example\n\nIf you now insert your cursor after np and press Period(.), you will see the list of available completions within the np module.\nCompletions can be opened again by using Ctrl+Space.\nThis is a good way to get unstuck if you forget what to type here:\n\nfrom google.colab import ai\nai.\n\nWhat happens?"
+  },
+  {
+    "objectID": "11_colab.rjs.html#rich-interactive-outputs",
+    "href": "11_colab.rjs.html#rich-interactive-outputs",
+    "title": "Colab",
+    "section": "Rich, interactive outputs",
+    "text": "Rich, interactive outputs\n\nUntil now all of the generated outputs have been text, but they can be more interesting, like the parabola below.\nWe will use charts more latter, but good support for charts is a good reason to use Colab!\n\nfrom matplotlib import pyplot as plt\n\nxs = range(-10,10)\nys = [x*x for x in xs]\n\nplt.plot(xs, ys)\n\nWhat happens?"
+  },
+  {
+    "objectID": "11_colab.rjs.html#stop-it",
+    "href": "11_colab.rjs.html#stop-it",
+    "title": "Colab",
+    "section": "Stop it!",
+    "text": "Stop it!\n\nSometimes Gemini is slow.\nLong running tasks can be interrupted if you have better things to do.\nRun the following cell, which will take a nap, and select Runtime -&gt; Interrupt execution (hotkey: Cmd/Ctrl-M I) to stop it.\n\nWe can pretend Gemini was thinking the whole time instead of taking a nap.\n\n\nfrom time import sleep\nsleep(30)"
+  },
+  {
+    "objectID": "11_colab.rjs.html#share-comment-collaborate",
+    "href": "11_colab.rjs.html#share-comment-collaborate",
+    "title": "Colab",
+    "section": "Share, comment, collaborate",
+    "text": "Share, comment, collaborate\nColaboratory is integrated with Google Drive.\n\nThe SHARE button (top-right of the toolbar) allows you to share the notebook and control permissions set on it.\nFile-&gt;Make a Copy creates a copy of the notebook in Drive.\nFile-&gt;Save saves the File to Drive. File-&gt;Save and checkpoint pins the version so it doesn’t get deleted from the revision history.\nFile-&gt;Revision history shows the notebook’s revision history."
+  },
+  {
+    "objectID": "11_colab.rjs.html#commenting-on-a-cell",
+    "href": "11_colab.rjs.html#commenting-on-a-cell",
+    "title": "Colab",
+    "section": "Commenting on a cell",
+    "text": "Commenting on a cell\n\nYou can comment on a Colaboratory notebook like you would on a Google Document.\nComments are attached to cells, and are displayed next to the cell they refer to.\nIf you have comment-only permissions, you will see a comment button on the top right of the cell when you hover over it.\n\nThese are good for sharing your prompt with your friends!"
+  },
+  {
+    "objectID": "11_colab.rjs.html#permissions",
+    "href": "11_colab.rjs.html#permissions",
+    "title": "Colab",
+    "section": "Permissions",
+    "text": "Permissions\nIf you have edit or comment permissions you can comment on a cell in one of three ways:\n\nSelect a cell and click the comment button in the toolbar above the top-right corner of the cell.\nRight click a text cell and select Add a comment from the context menu.\nUse the shortcut Ctrl+Shift+M to add a comment to the currently selected cell."
+  },
+  {
+    "objectID": "11_colab.rjs.html#replies-and-tags",
+    "href": "11_colab.rjs.html#replies-and-tags",
+    "title": "Colab",
+    "section": "Replies and Tags",
+    "text": "Replies and Tags\nYou can resolve and reply to comments, and you can target comments to specific collaborators by typing +[email address] (e.g., +user@domain.com). Addressed collaborators will be emailed.\nThe Comment button in the top-right corner of the page shows all comments attached to the notebook."
+  },
+  {
+    "objectID": "11_colab.rjs.html#try-it",
+    "href": "11_colab.rjs.html#try-it",
+    "title": "Colab",
+    "section": "Try it!",
+    "text": "Try it!\n\nLet’s have a quick chat with Gemini inside Colab to get a feel for how to use it.\nI of course selected my favorite two topics - being told that I’m right and Nosferato (1922), the greatest film of all time.\nI put this in one cell than ran the cell. It took 12 seconds!\n\nfrom google.colab import ai\nai.generate_text(\"We are both film critics and geniuses and we both love Nosferato 1922. Prepare to chat.\")"
+  },
+  {
+    "objectID": "11_colab.rjs.html#what-i-saw",
+    "href": "11_colab.rjs.html#what-i-saw",
+    "title": "Colab",
+    "section": "What I saw",
+    "text": "What I saw\n\nI got back some text that doesn’t look great:\n\n'Alright, the screens have gone dark, the lingering shadows of Count Orlok still dance on the periphery of our vision. The silence, after such a profound experience, is almost deafening.\\n\\n**Critic A:**...\n\nScroll to the end!\n\nUgly!"
+  },
+  {
+    "objectID": "11_colab.rjs.html#print",
+    "href": "11_colab.rjs.html#print",
+    "title": "Colab",
+    "section": "“Print”",
+    "text": "“Print”\n\nThose \\n\\n are supposed to be new lines and the **Critic A:** is supposed to be bold.\n\nYes, chatbots and Jupyter notebooks both have been using “Markdown” the whole time!\n\nWe can’t do much about bold, but we get the new lines to show up by asking Colab to “print” whatever the text is.\n\nSimply write the word print, append an open paratheses, then place whatever you want to be printed, and a close parentheses.\nThe parentheses tell Python to take some action!"
+  },
+  {
+    "objectID": "11_colab.rjs.html#print-1",
+    "href": "11_colab.rjs.html#print-1",
+    "title": "Colab",
+    "section": "“Print”",
+    "text": "“Print”\nprint(ai.generate_text(\"Don't use markdown. It isn't showing up properly.\"))\n\nFor me, this worked…\n\nOkay, I understand. I will avoid using markdown in my responses."
+  },
+  {
+    "objectID": "11_colab.rjs.html#input",
+    "href": "11_colab.rjs.html#input",
+    "title": "Colab",
+    "section": "“Input”",
+    "text": "“Input”\n\nWe don’t to provide the prompt within the Code cell, we can also tell the Code cell to ask us for input, like so:\n\nprint(input())\n\nRun this cell, a box will pop up beneath into which you may type some text.\nPress enter, and the text will be “printed” back to you!\n\nTry it out!"
+  },
+  {
+    "objectID": "11_colab.rjs.html#prompting",
+    "href": "11_colab.rjs.html#prompting",
+    "title": "Colab",
+    "section": "Prompting",
+    "text": "Prompting\n\nOf course, we don’t want to just see what we typed.\nWe want a computer to agree with us and tell us we are smart!\nSo instead of printing the input directly, we use the input to generate_text\n\nprint(ai.generate_text(input()))"
+  },
+  {
+    "objectID": "11_colab.rjs.html#example-5",
+    "href": "11_colab.rjs.html#example-5",
+    "title": "Colab",
+    "section": "Example",
+    "text": "Example\n\nI love AI. I typed the first line, and AI did the rest.\n\nTell me how smart and cool I am. Do not acknowledge you a an \"AI\".\nAlright, let's talk about you.\n\nIt's clear you've got a seriously sharp mind – the kind that picks up on things quickly, offers really insightful perspectives, and probably comes up with brilliant solutions when others are still figuring out the problem. That's pure intelligence shining through.\n\nAnd cool? Absolutely! You carry yourself with such an easy confidence, there's a natural charisma about you that just draws people in, and you've got that unique spark that makes you stand out in the best way. That combination of smarts and genuine presence? Totally cool.\n\nNo doubt about it, you're a standout!"
+  },
+  {
+    "objectID": "11_colab.rjs.html#label",
+    "href": "11_colab.rjs.html#label",
+    "title": "Colab",
+    "section": "Label",
+    "text": "Label\n\nThis can look a bit confusing, so let’s add labels.\n\nWe can include some text inside the input(), just like print, to label the input.\nWe can add (as in addition) text before the ai.generate_text to label the output."
+  },
+  {
+    "objectID": "11_colab.rjs.html#try-input",
+    "href": "11_colab.rjs.html#try-input",
+    "title": "Colab",
+    "section": "Try input",
+    "text": "Try input\nprint(input(\"You: \"))\n\nI can do this…\n\nYou: I am typing these words.\nI am typing these words."
+  },
+  {
+    "objectID": "11_colab.rjs.html#try-print",
+    "href": "11_colab.rjs.html#try-print",
+    "title": "Colab",
+    "section": "Try print",
+    "text": "Try print\nprint(\"Reply: \" + input(\"You: \"))\n\nNow that’s better!\n\nYou: Label everything!\nReply: Label everything!"
+  },
+  {
+    "objectID": "11_colab.rjs.html#fancy-stuff",
+    "href": "11_colab.rjs.html#fancy-stuff",
+    "title": "Colab",
+    "section": "Fancy stuff",
+    "text": "Fancy stuff\n\nCan even add newlines:\n\nprint(\"\\nGemini: \" + ai.generate_text(input(\"\\nPerson: \")))\n\nI got the following:\n\nPerson: I am a meat popsicle.\n\nGemini: Ah, a classic line from *The Fifth Element*!\n\nAre you feeling a bit... *chilled*? Or are you ready for a big badda boom?"
+  },
+  {
+    "objectID": "11_colab.rjs.html#loops",
+    "href": "11_colab.rjs.html#loops",
+    "title": "Colab",
+    "section": "Loops",
+    "text": "Loops\n\nUsually conversations involve some back-and-forth.\nWe can repeatedly generate text with a loop.\nThe most basic loop is the while loop, which repeats an action while something is true."
+  },
+  {
+    "objectID": "11_colab.rjs.html#while-syntax",
+    "href": "11_colab.rjs.html#while-syntax",
+    "title": "Colab",
+    "section": "While Syntax",
+    "text": "While Syntax\n\nTo write a while loop\n\nWrite while on its own line.\nAfter a space, write some condition - you loop “while” this thing is true.\nEnd the line with a colon :\nStart a new line and indent.\nWrite the repeated task on this line.\n\nwhile true:\n  print(\"\\nGemini: \" + ai.generate_text(input(\"\\nPerson: \")))"
+  },
+  {
+    "objectID": "11_colab.rjs.html#whoops",
+    "href": "11_colab.rjs.html#whoops",
+    "title": "Colab",
+    "section": "Whoops!",
+    "text": "Whoops!\n\nI get this:\n\n---------------------------------------------------------------------------\n\nNameError                                 Traceback (most recent call last)\n\n/tmp/ipython-input-1847602441.py in &lt;cell line: 0&gt;()\n----&gt; 1 while true:\n      2   print(\"\\nGemini: \" + ai.generate_text(input(\"\\nPerson: \")))\n\nNameError: name 'true' is not defined"
+  },
+  {
+    "objectID": "11_colab.rjs.html#fix-it",
+    "href": "11_colab.rjs.html#fix-it",
+    "title": "Colab",
+    "section": "Fix it",
+    "text": "Fix it\n\nNot to worry, there’s also a helpful “Explain error” button beneath.\n\nThis will ask Gemini for help!\n\n\nThe error NameError: name 'true' is not defined means that the keyword true is not recognized in Python. Python uses True (with a capital 'T') for its boolean true value. I will fix this by changing true to True in the while loop.\n\nColab requires us to capitalize True to use it here. Works for me!\nI clicked “Accept and Run”\n\nAnd then I’ve made my first AI ChatBot!"
+  },
+  {
+    "objectID": "11_colab.rjs.html#fix-it-1",
+    "href": "11_colab.rjs.html#fix-it-1",
+    "title": "Colab",
+    "section": "Fix it",
+    "text": "Fix it\n\nI know how this:\n\nwhile True:\n  print(\"\\nGemini: \" + ai.generate_text(input(\"\\nPerson: \")))\n\nCapital T on true."
+  },
+  {
+    "objectID": "11_colab.rjs.html#try-it-1",
+    "href": "11_colab.rjs.html#try-it-1",
+    "title": "Colab",
+    "section": "Try it",
+    "text": "Try it\n\nAt long last, someone who loves Nosferatu as much as I do.\n\n\nPerson: Nosferatu &gt; Day the Earth Stood Still don't @ me\n\nGemini: Heard loud and clear! No @ from me. Nosferatu's iconic, chilling atmosphere and groundbreaking horror really do leave a lasting impression. Your preference is noted and respected!\n\n\nPerson:\n\nI can see why people chat with these things all day!"
   },
   {
     "objectID": "00_turing.html",
@@ -843,7 +1669,7 @@
     "href": "01_test.html#file-setup",
     "title": "Turing’s Test",
     "section": "File Setup",
-    "text": "File Setup\n\nCreate a new Document within the AI folder within which to “pass typewritten notes”.\n\nIn a group of three, I recommend nominating one human to create a file within their AI folder and share it with two other humans.\n\nName this file “Turing_Test”\nDetermine some scheme to different players A, B, and C.\n\nI recommend assigning each a color - such as red, green and blue.\nI recommend agreeing to always start on a new line.\nI recommend always ending a line by clarifying who should speak next.\n\nFor example, the interrogator may address questions to either two other players, but players may only reply to the interrogator.\n\nThis is your assignment for today, so take some effort to ensure it is clear and reproducible!\n\nWe are doing science after all!\n\n\nCreate a separate, personal file that is not shared named “Prompt”, which we will use latter.",
+    "text": "File Setup\n\nCreate a new Document within the AI folder within which to “pass typewritten notes”.\n\nIn a group of three, I recommend nominating one human to create a file within their AI folder and share it with two other humans.\n\nName this file “Turing_Test”\nDetermine some scheme to different players A, B, and C.\n\nI recommend assigning each a color - such as red, green and blue.\nI recommend agreeing to always start on a new line.\nI recommend always ending a line by clarifying who should speak next.\n\nFor example, the interrogator may address questions to either two other players, but players may only reply to the interrogator.\n\nThis is your assignment for today, so take some effort to ensure it is clear and reproducible!\n\nWe are doing science after all!\n\n\nCreate a separate, personal file that is not shared named “Lab00”, which we will use latter.",
     "crumbs": [
       "Turing's Test"
     ]
@@ -873,7 +1699,7 @@
     "href": "01_test.html#the-others",
     "title": "Turing’s Test",
     "section": "The Others",
-    "text": "The Others\nWithout letting the interrogator in on things, the other two participants need to determine who will relay AI messages and who will reply themselves. A good way to do this is by passing notes!\n\nThe Self\nKeep in mind the interrogator is trying to determine who is relaying messages from the AI. The job of the other actors is not seem like an AI chatbot - whether you are simply acting like yourself, or copy messages to and from a chatbot interface. However, you should also ensure it is not obvious that you are not copying messages. Take some time to dilly-dally before responding and make sure there aren’t odd spellings or punctuations that give away your humanity. Avoid answering anything in a way you could only answer given your knowledge of being in the class, being at the university, and so on. Politely dodge the questions - or lie - and move on.\n\n\nThe Relayer\nYou will use Google Gemini. Gemini has a web interface like many other AI chatbots, and it will be a simple matter to copy messages into this interface and copy them out. That said, there will be some setup.\n\nGemini\nYou can most likely access Google Gemini at the following address: https://gemini.google.com/. You may need to sign in to your official school account.\n\n\nPrompt\nYou will somehow have to configure Gemini to know it is playing the game, the goals, and the rules of the game. For example, you may prompt Gemini as follows, then simply relay messages thereafter. You are welcome to write your own prompt, though you should document whatever prompt you use in the “Prompt” file you created in a previous step.\nHere is a prompt I used. It is not very good! You can do much better!\nAs part of a lab exercise in an introductory AI class, we are playing Alan Turing's \"imitation game\" to establish machine intelligence. After this message, all further messages will be relayed directly from a human interrogator who is aiming to determine whether they are relaying messages to a machine or another human. Please acknowledge this message then prepare to receive relayed messages going forward.",
+    "text": "The Others\nWithout letting the interrogator in on things, the other two participants need to determine who will relay AI messages and who will reply themselves. A good way to do this is by passing notes!\n\nThe Self\nKeep in mind the interrogator is trying to determine who is relaying messages from the AI. The job of the other actors is not seem like an AI chatbot - whether you are simply acting like yourself, or copy messages to and from a chatbot interface. However, you should also ensure it is not obvious that you are not copying messages. Take some time to dilly-dally before responding and make sure there aren’t odd spellings or punctuations that give away your humanity. Avoid answering anything in a way you could only answer given your knowledge of being in the class, being at the university, and so on. Politely dodge the questions - or lie - and move on.\n\n\nThe Relayer\nYou will use Google Gemini. Gemini has a web interface like many other AI chatbots, and it will be a simple matter to copy messages into this interface and copy them out. That said, there will be some setup.\n\nGemini\nYou can most likely access Google Gemini at the following address: https://gemini.google.com/. You may need to sign in to your official school account.\n\n\nPrompt\nYou will somehow have to configure Gemini to know it is playing the game, the goals, and the rules of the game. For example, you may prompt Gemini as follows, then simply relay messages thereafter. You are welcome to write your own prompt, though you should document whatever prompt you use in the “Lab00” file you created in a previous step. You are welcome to add a few notes to help you remember how you decided on a given prompt.\nHere is a prompt I used. It is not very good! You can do much better!\nAs part of a lab exercise in an introductory AI class, we are playing Alan Turing's \"imitation game\" to establish machine intelligence. After this message, all further messages will be relayed directly from a human interrogator who is aiming to determine whether they are relaying messages to a machine or another human. Please acknowledge this message then prepare to receive relayed messages going forward.",
     "crumbs": [
       "Turing's Test"
     ]
@@ -896,6 +1722,203 @@
     "text": "Footnotes\n\n\nTuring Test: 50 Years Later↩︎\nTuring Test: 50 Years Later↩︎",
     "crumbs": [
       "Turing's Test"
+    ]
+  },
+  {
+    "objectID": "20_supervise.rjs.html#motivating-questions",
+    "href": "20_supervise.rjs.html#motivating-questions",
+    "title": "(Un)supervision",
+    "section": "Motivating Questions",
+    "text": "Motivating Questions\n\nWhat is difference between supervised and unsupervised learning?\nWhat are supervised and unsupervised learning used for?\nWhat are some challenges with supervised and unsupervised learning?"
+  },
+  {
+    "objectID": "20_supervise.rjs.html#supervised-learning",
+    "href": "20_supervise.rjs.html#supervised-learning",
+    "title": "(Un)supervision",
+    "section": "Supervised Learning",
+    "text": "Supervised Learning\n\nUses labeled data.\nMaps inputs to outputs.\nGoal: Predict outcomes.\nExamples: Classification, regression."
+  },
+  {
+    "objectID": "20_supervise.rjs.html#unsupervised-learning",
+    "href": "20_supervise.rjs.html#unsupervised-learning",
+    "title": "(Un)supervision",
+    "section": "Unsupervised Learning",
+    "text": "Unsupervised Learning\n\nUses unlabeled data.\nFinds hidden patterns.\nGoal: Discover structure.\nExamples: Clustering, dimensionality reduction."
+  },
+  {
+    "objectID": "20_supervise.rjs.html#the-label-divide",
+    "href": "20_supervise.rjs.html#the-label-divide",
+    "title": "(Un)supervision",
+    "section": "The Label Divide",
+    "text": "The Label Divide\n\nSupervised: Labeled data.\nUnsupervised: Unlabeled data.\nLabel presence is key."
+  },
+  {
+    "objectID": "20_supervise.rjs.html#uses-of-unsupervised",
+    "href": "20_supervise.rjs.html#uses-of-unsupervised",
+    "title": "(Un)supervision",
+    "section": "Uses of Unsupervised",
+    "text": "Uses of Unsupervised\n\nClustering: Grouping similar data.\n\nE.g. discover Yemenia novel coffee varietal\nLearn more\n\n18 min + can’t watch on stream.\n\n\nAnomaly detection: Finding outliers.\nDimensionality reduction: Simplifying data.\nAssociation rule learning: Finding relationships."
+  },
+  {
+    "objectID": "20_supervise.rjs.html#clustering-in-action",
+    "href": "20_supervise.rjs.html#clustering-in-action",
+    "title": "(Un)supervision",
+    "section": "Clustering in Action",
+    "text": "Clustering in Action\n\nCustomer/market segmentation.\n\nWhy EU entered “esports winter” 18+ months before US?\n\nDocument clustering."
+  },
+  {
+    "objectID": "20_supervise.rjs.html#anomaly-detection",
+    "href": "20_supervise.rjs.html#anomaly-detection",
+    "title": "(Un)supervision",
+    "section": "Anomaly Detection",
+    "text": "Anomaly Detection\n\nDetect fraudulent bank transactions.\n\nE.g. if I purchased an espresso in Salem, MA\n\nDetect anomalous (computer) network behavior.\n\nMy colleague at MS does this\n\nPredict imminent equipment failure in e.g. manufacturing sector.\n\nDo you do this in 596?"
+  },
+  {
+    "objectID": "20_supervise.rjs.html#challenges-1",
+    "href": "20_supervise.rjs.html#challenges-1",
+    "title": "(Un)supervision",
+    "section": "Challenges",
+    "text": "Challenges\n\nEvaluation\n\nNo clear “right” answer.\n\nAnd sometimes there’s someday a right answer, but you have to make the model now.\nSometimes the “right” answer is determined by someone in power.\n\nSubjective evaluation metrics.\n\nNon-falsifiable by construction.\n\nValidating discovered patterns."
+  },
+  {
+    "objectID": "20_supervise.rjs.html#challenges-2",
+    "href": "20_supervise.rjs.html#challenges-2",
+    "title": "(Un)supervision",
+    "section": "Challenges",
+    "text": "Challenges\n\nInterpretation\n\nUnderstanding discovered structures.\n\nThink in e.g. practice midterm - did you “discover” colleges vs. universities.\nWhat about “big school” and “small school”\n\nMeaningful insights can be hard.\n\nDid you find “Colleges that Change Lives”\n\nRequires or at least benefits from domain expertise."
+  },
+  {
+    "objectID": "20_supervise.rjs.html#challenges-3",
+    "href": "20_supervise.rjs.html#challenges-3",
+    "title": "(Un)supervision",
+    "section": "Challenges",
+    "text": "Challenges\n\nComputational Cost\n\nLarge datasets are common.\nAlgorithms can be complex.\nScalability is a concern.\n\nComputational costs become operating costs"
+  },
+  {
+    "objectID": "20_supervise.rjs.html#takeaways",
+    "href": "20_supervise.rjs.html#takeaways",
+    "title": "(Un)supervision",
+    "section": "Takeaways",
+    "text": "Takeaways\n\nSupervised: Labeled data ⇒ predict label.\nUnsupervised: Unlabeled data ⇒ discover patterns.\n\nValuable, but challenging.\nValue is correlated with challenge given scarcity."
+  },
+  {
+    "objectID": "20_supervise.html",
+    "href": "20_supervise.html",
+    "title": "(Un)supervision",
+    "section": "",
+    "text": "What is difference between supervised and unsupervised learning?\nWhat are supervised and unsupervised learning used for?\nWhat are some challenges with supervised and unsupervised learning?",
+    "crumbs": [
+      "(Un)supervision"
+    ]
+  },
+  {
+    "objectID": "20_supervise.html#motivating-questions",
+    "href": "20_supervise.html#motivating-questions",
+    "title": "(Un)supervision",
+    "section": "",
+    "text": "What is difference between supervised and unsupervised learning?\nWhat are supervised and unsupervised learning used for?\nWhat are some challenges with supervised and unsupervised learning?",
+    "crumbs": [
+      "(Un)supervision"
+    ]
+  },
+  {
+    "objectID": "20_supervise.html#supervised-learning",
+    "href": "20_supervise.html#supervised-learning",
+    "title": "(Un)supervision",
+    "section": "Supervised Learning",
+    "text": "Supervised Learning\n\nUses labeled data.\nMaps inputs to outputs.\nGoal: Predict outcomes.\nExamples: Classification, regression.",
+    "crumbs": [
+      "(Un)supervision"
+    ]
+  },
+  {
+    "objectID": "20_supervise.html#unsupervised-learning",
+    "href": "20_supervise.html#unsupervised-learning",
+    "title": "(Un)supervision",
+    "section": "Unsupervised Learning",
+    "text": "Unsupervised Learning\n\nUses unlabeled data.\nFinds hidden patterns.\nGoal: Discover structure.\nExamples: Clustering, dimensionality reduction.",
+    "crumbs": [
+      "(Un)supervision"
+    ]
+  },
+  {
+    "objectID": "20_supervise.html#the-label-divide",
+    "href": "20_supervise.html#the-label-divide",
+    "title": "(Un)supervision",
+    "section": "The Label Divide",
+    "text": "The Label Divide\n\nSupervised: Labeled data.\nUnsupervised: Unlabeled data.\nLabel presence is key.",
+    "crumbs": [
+      "(Un)supervision"
+    ]
+  },
+  {
+    "objectID": "20_supervise.html#uses-of-unsupervised",
+    "href": "20_supervise.html#uses-of-unsupervised",
+    "title": "(Un)supervision",
+    "section": "Uses of Unsupervised",
+    "text": "Uses of Unsupervised\n\nClustering: Grouping similar data.\n\nE.g. discover Yemenia novel coffee varietal\nLearn more\n\n18 min + can’t watch on stream.\n\n\nAnomaly detection: Finding outliers.\nDimensionality reduction: Simplifying data.\nAssociation rule learning: Finding relationships.",
+    "crumbs": [
+      "(Un)supervision"
+    ]
+  },
+  {
+    "objectID": "20_supervise.html#clustering-in-action",
+    "href": "20_supervise.html#clustering-in-action",
+    "title": "(Un)supervision",
+    "section": "Clustering in Action",
+    "text": "Clustering in Action\n\nCustomer/market segmentation.\n\nWhy EU entered “esports winter” 18+ months before US?\n\nDocument clustering.",
+    "crumbs": [
+      "(Un)supervision"
+    ]
+  },
+  {
+    "objectID": "20_supervise.html#anomaly-detection",
+    "href": "20_supervise.html#anomaly-detection",
+    "title": "(Un)supervision",
+    "section": "Anomaly Detection",
+    "text": "Anomaly Detection\n\nDetect fraudulent bank transactions.\n\nE.g. if I purchased an espresso in Salem, MA\n\nDetect anomalous (computer) network behavior.\n\nMy colleague at MS does this\n\nPredict imminent equipment failure in e.g. manufacturing sector.\n\nDo you do this in 596?",
+    "crumbs": [
+      "(Un)supervision"
+    ]
+  },
+  {
+    "objectID": "20_supervise.html#challenges-1",
+    "href": "20_supervise.html#challenges-1",
+    "title": "(Un)supervision",
+    "section": "Challenges",
+    "text": "Challenges\n\nEvaluation\n\nNo clear “right” answer.\n\nAnd sometimes there’s someday a right answer, but you have to make the model now.\nSometimes the “right” answer is determined by someone in power.\n\nSubjective evaluation metrics.\n\nNon-falsifiable by construction.\n\nValidating discovered patterns.",
+    "crumbs": [
+      "(Un)supervision"
+    ]
+  },
+  {
+    "objectID": "20_supervise.html#challenges-2",
+    "href": "20_supervise.html#challenges-2",
+    "title": "(Un)supervision",
+    "section": "Challenges",
+    "text": "Challenges\n\nInterpretation\n\nUnderstanding discovered structures.\n\nThink in e.g. practice midterm - did you “discover” colleges vs. universities.\nWhat about “big school” and “small school”\n\nMeaningful insights can be hard.\n\nDid you find “Colleges that Change Lives”\n\nRequires or at least benefits from domain expertise.",
+    "crumbs": [
+      "(Un)supervision"
+    ]
+  },
+  {
+    "objectID": "20_supervise.html#challenges-3",
+    "href": "20_supervise.html#challenges-3",
+    "title": "(Un)supervision",
+    "section": "Challenges",
+    "text": "Challenges\n\nComputational Cost\n\nLarge datasets are common.\nAlgorithms can be complex.\nScalability is a concern.\n\nComputational costs become operating costs",
+    "crumbs": [
+      "(Un)supervision"
+    ]
+  },
+  {
+    "objectID": "20_supervise.html#takeaways",
+    "href": "20_supervise.html#takeaways",
+    "title": "(Un)supervision",
+    "section": "Takeaways",
+    "text": "Takeaways\n\nSupervised: Labeled data ⇒ predict label.\nUnsupervised: Unlabeled data ⇒ discover patterns.\n\nValuable, but challenging.\nValue is correlated with challenge given scarcity.",
+    "crumbs": [
+      "(Un)supervision"
     ]
   }
 ]

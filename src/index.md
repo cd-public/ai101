@@ -57,8 +57,8 @@ format: html
 |Week|Date (M)|Lecture (M)|Lab (W)|
 |:--:|:---|:----|:-------|
 |0x0|01/12|[Ada & Alan](00_turing.md)|[Turing's Test](01_test.md)|
-|0x1|01/19|[`None`](https://www2.hawaii.edu/~freeman/courses/phil100/17.%20MLK%20Beyond%20Vietnam.pdf)|Colab|
-|0x2|01/26|Supervision|Data Sources|
+|0x1|01/19|[`None`](https://www2.hawaii.edu/~freeman/courses/phil100/17.%20MLK%20Beyond%20Vietnam.pdf)|[Colab](11_colab.md)|
+|0x2|01/26|[(Un)supervision](20_supervise.qmd)|Data Sources| <!-- do we https://github.com/microsoft/ML-For-Beginners/blob/main/1-Introduction/3-fairness/README.md here -->
 |0x3|02/02|Classification|Reformulation|
 |0x4|02/09|Decision Trees|JSON|
 |0x5|02/16|Perceptron|Dice|

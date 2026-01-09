@@ -64,6 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./11_colab.html" rel="next">
 <link href="./00_turing.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -149,6 +150,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="./01_test.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Turing’s Test</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11_colab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Colab</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20_supervise.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">(Un)supervision</span></a>
   </div>
 </li>
     </ul>
@@ -312,7 +325,7 @@ Identity in the Architecture
 <li>We are doing science after all!</li>
 </ul></li>
 </ul></li>
-<li>Create a separate, personal file that is not shared named “Prompt”, which we will use latter.</li>
+<li>Create a separate, personal file that is not shared named “Lab00”, which we will use latter.</li>
 </ul>
 </section>
 <section id="gemini-setup" class="level2">
@@ -357,7 +370,7 @@ Identity in the Architecture
 </section>
 <section id="prompt" class="level4">
 <h4 class="anchored" data-anchor-id="prompt">Prompt</h4>
-<p>You will somehow have to configure Gemini to know it is playing the game, the goals, and the rules of the game. For example, you may <em>prompt</em> Gemini as follows, then simply relay messages thereafter. You are welcome to write your own prompt, though you should document whatever prompt you use in the “Prompt” file you created in a previous step.</p>
+<p>You will somehow have to configure Gemini to know it is playing the game, the goals, and the rules of the game. For example, you may <em>prompt</em> Gemini as follows, then simply relay messages thereafter. You are welcome to write your own prompt, though you should document whatever prompt you use in the “Lab00” file you created in a previous step. You are welcome to add a few notes to help you remember how you decided on a given prompt.</p>
 <p>Here is a prompt I used. It is not very good! You can do much better!</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource email number-lines code-with-copy"><code class="sourceCode email"><span id="cb1-1"><a href="#cb1-1"></a>As part of a lab exercise in an introductory AI class, we are playing Alan Turing's "imitation game" to establish machine intelligence. After this message, all further messages will be relayed directly from a human interrogator who is aiming to determine whether they are relaying messages to a machine or another human. Please acknowledge this message then prepare to receive relayed messages going forward. </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
@@ -376,8 +389,9 @@ Identity in the Architecture
 </section>
 <section id="conclusion" class="level1">
 <h1>Conclusion</h1>
-<p>Once you have conducted all tests, in your “Prompt” file answer the following questions at “social media post” length (150-300 characters):</p>
-<ol type="1">
+<p>Once you have conducted all tests, in your “Lab00” file answer the following questions at “social media post” length (150-300 characters):</p>
+<ol start="0" type="1">
+<li>What prompt did you use? (no character limit here)</li>
 <li>Is Google Gemini intelligent?</li>
 <li>Is the Turing Test a convincing measure of intelligence?</li>
 <li>How reliant is the Turing Test on the prompt?</li>
@@ -880,6 +894,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./11_colab.html" class="pagination-link" aria-label="Colab">
+        <span class="nav-page-text">Colab</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">---</span></span>
@@ -960,7 +977,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb2-76"><a href="#cb2-76"></a><span class="ss">        - </span>For example, the interrogator may address questions to either two other players, but players may only reply to the interrogator.</span>
 <span id="cb2-77"><a href="#cb2-77"></a><span class="ss">    - </span>This is your assignment for today, so take some effort to ensure it is clear and reproducible!</span>
 <span id="cb2-78"><a href="#cb2-78"></a><span class="ss">        - </span>We are doing science after all!</span>
-<span id="cb2-79"><a href="#cb2-79"></a><span class="ss">- </span>Create a separate, personal file that is not shared named "Prompt", which we will use latter.</span>
+<span id="cb2-79"><a href="#cb2-79"></a><span class="ss">- </span>Create a separate, personal file that is not shared named "Lab00", which we will use latter.</span>
 <span id="cb2-80"><a href="#cb2-80"></a>        </span>
 <span id="cb2-81"><a href="#cb2-81"></a><span class="fu">## Gemini Setup</span></span>
 <span id="cb2-82"><a href="#cb2-82"></a></span>
@@ -1002,7 +1019,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb2-118"><a href="#cb2-118"></a></span>
 <span id="cb2-119"><a href="#cb2-119"></a><span class="fu">#### Prompt</span></span>
 <span id="cb2-120"><a href="#cb2-120"></a></span>
-<span id="cb2-121"><a href="#cb2-121"></a>You will somehow have to configure Gemini to know it is playing the game, the goals, and the rules of the game. For example, you may *prompt* Gemini as follows, then simply relay messages thereafter. You are welcome to write your own prompt, though you should document whatever prompt you use in the "Prompt" file you created in a previous step.</span>
+<span id="cb2-121"><a href="#cb2-121"></a>You will somehow have to configure Gemini to know it is playing the game, the goals, and the rules of the game. For example, you may *prompt* Gemini as follows, then simply relay messages thereafter. You are welcome to write your own prompt, though you should document whatever prompt you use in the "Lab00" file you created in a previous step. You are welcome to add a few notes to help you remember how you decided on a given prompt.</span>
 <span id="cb2-122"><a href="#cb2-122"></a></span>
 <span id="cb2-123"><a href="#cb2-123"></a>Here is a prompt I used. It is not very good! You can do much better!</span>
 <span id="cb2-124"><a href="#cb2-124"></a></span>
@@ -1022,21 +1039,22 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb2-138"><a href="#cb2-138"></a></span>
 <span id="cb2-139"><a href="#cb2-139"></a><span class="fu"># Conclusion</span></span>
 <span id="cb2-140"><a href="#cb2-140"></a></span>
-<span id="cb2-141"><a href="#cb2-141"></a>Once you have conducted all tests, in your "Prompt" file answer the following questions at "social media post" length (150-300 characters):</span>
+<span id="cb2-141"><a href="#cb2-141"></a>Once you have conducted all tests, in your "Lab00" file answer the following questions at "social media post" length (150-300 characters):</span>
 <span id="cb2-142"><a href="#cb2-142"></a></span>
-<span id="cb2-143"><a href="#cb2-143"></a><span class="ss">1. </span>Is Google Gemini intelligent?</span>
-<span id="cb2-144"><a href="#cb2-144"></a><span class="ss">2. </span>Is the Turing Test a convincing measure of intelligence?</span>
-<span id="cb2-145"><a href="#cb2-145"></a><span class="ss">3. </span>How reliant is the Turing Test on the prompt?</span>
-<span id="cb2-146"><a href="#cb2-146"></a><span class="ss">4. </span>How reliant is the Turing Test on the experimental design?</span>
-<span id="cb2-147"><a href="#cb2-147"></a><span class="ss">5. </span>Is Google Gemini more or less intelligent than a cat?</span>
-<span id="cb2-148"><a href="#cb2-148"></a><span class="ss">6. </span>Is Google Gemini more or less intelligent than an ecosystem?</span>
-<span id="cb2-149"><a href="#cb2-149"></a><span class="ss">7. </span>Is Google Gemini more or less intelligent than an assistant professor of computer science?</span>
-<span id="cb2-150"><a href="#cb2-150"></a></span>
-<span id="cb2-151"><a href="#cb2-151"></a>If you do not have time to complete these in class, complete them as homework by Sunday at 10:20 AM PT - 24 hours before class would have happened on Monday - so I can look them over before when lecture would be.</span>
-<span id="cb2-152"><a href="#cb2-152"></a></span>
-<span id="cb2-153"><a href="#cb2-153"></a>Ensure your AI folder is shared with me, and then you are good to go!</span>
-<span id="cb2-154"><a href="#cb2-154"></a></span>
-<span id="cb2-155"><a href="#cb2-155"></a><span class="ot">[^1]: </span><span class="co">[</span><span class="ot">Turing Test: 50 Years Later</span><span class="co">](https://web.archive.org/web/20110409073501/http://crl.ucsd.edu/~saygin/papers/MMTT.pdf)</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb2-143"><a href="#cb2-143"></a><span class="ss">0. </span>What prompt did you use? (no character limit here)</span>
+<span id="cb2-144"><a href="#cb2-144"></a><span class="ss">1. </span>Is Google Gemini intelligent?</span>
+<span id="cb2-145"><a href="#cb2-145"></a><span class="ss">2. </span>Is the Turing Test a convincing measure of intelligence?</span>
+<span id="cb2-146"><a href="#cb2-146"></a><span class="ss">3. </span>How reliant is the Turing Test on the prompt?</span>
+<span id="cb2-147"><a href="#cb2-147"></a><span class="ss">4. </span>How reliant is the Turing Test on the experimental design?</span>
+<span id="cb2-148"><a href="#cb2-148"></a><span class="ss">5. </span>Is Google Gemini more or less intelligent than a cat?</span>
+<span id="cb2-149"><a href="#cb2-149"></a><span class="ss">6. </span>Is Google Gemini more or less intelligent than an ecosystem?</span>
+<span id="cb2-150"><a href="#cb2-150"></a><span class="ss">7. </span>Is Google Gemini more or less intelligent than an assistant professor of computer science?</span>
+<span id="cb2-151"><a href="#cb2-151"></a></span>
+<span id="cb2-152"><a href="#cb2-152"></a>If you do not have time to complete these in class, complete them as homework by Sunday at 10:20 AM PT - 24 hours before class would have happened on Monday - so I can look them over before when lecture would be.</span>
+<span id="cb2-153"><a href="#cb2-153"></a></span>
+<span id="cb2-154"><a href="#cb2-154"></a>Ensure your AI folder is shared with me, and then you are good to go!</span>
+<span id="cb2-155"><a href="#cb2-155"></a></span>
+<span id="cb2-156"><a href="#cb2-156"></a><span class="ot">[^1]: </span><span class="co">[</span><span class="ot">Turing Test: 50 Years Later</span><span class="co">](https://web.archive.org/web/20110409073501/http://crl.ucsd.edu/~saygin/papers/MMTT.pdf)</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

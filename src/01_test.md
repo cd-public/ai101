@@ -76,7 +76,7 @@ An astute learning at this juncture will realize that a group of 3 humans is suf
         - For example, the interrogator may address questions to either two other players, but players may only reply to the interrogator.
     - This is your assignment for today, so take some effort to ensure it is clear and reproducible!
         - We are doing science after all!
-- Create a separate, personal file that is not shared named "Prompt", which we will use latter.
+- Create a separate, personal file that is not shared named "Lab00", which we will use latter.
         
 ## Gemini Setup
 
@@ -118,7 +118,7 @@ You can most likely access Google Gemini at the following address: [https://gemi
 
 #### Prompt
 
-You will somehow have to configure Gemini to know it is playing the game, the goals, and the rules of the game. For example, you may *prompt* Gemini as follows, then simply relay messages thereafter. You are welcome to write your own prompt, though you should document whatever prompt you use in the "Prompt" file you created in a previous step.
+You will somehow have to configure Gemini to know it is playing the game, the goals, and the rules of the game. For example, you may *prompt* Gemini as follows, then simply relay messages thereafter. You are welcome to write your own prompt, though you should document whatever prompt you use in the "Lab00" file you created in a previous step. You are welcome to add a few notes to help you remember how you decided on a given prompt.
 
 Here is a prompt I used. It is not very good! You can do much better!
 
@@ -138,8 +138,9 @@ Conduct 3 tests of 20 minutes, where each human does each role once. Log all of 
 
 # Conclusion
 
-Once you have conducted all tests, in your "Prompt" file answer the following questions at "social media post" length (150-300 characters):
+Once you have conducted all tests, in your "Lab00" file answer the following questions at "social media post" length (150-300 characters):
 
+0. What prompt did you use? (no character limit here)
 1. Is Google Gemini intelligent?
 2. Is the Turing Test a convincing measure of intelligence?
 3. How reliant is the Turing Test on the prompt?
