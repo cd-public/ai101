@@ -199,6 +199,11 @@
 </div>
 
 </section>
+<section>
+<section id="approaches" class="title-slide slide level1 center">
+<h1>Approaches</h1>
+
+</section>
 <section id="different-approaches-to-ai" class="slide level2">
 <h2>Different Approaches to AI</h2>
 <p>If we want a computer to behave like a human, we need somehow to model inside a computer our way of thinking. Consequently, we need to try to understand what makes a human being intelligent.</p>
@@ -359,7 +364,7 @@
 <h2>Chatbots</h2>
 <p>Similarly, we can see how the approach towards creating “talking programs” (that might pass the Turing test) changed:</p>
 <ul>
-<li>Modern assistants, such as Cortana, Siri or Google Assistant are all hybrid systems that use Neural networks to convert speech into text and recognize our intent, and then employ some reasoning or explicit algorithms to perform required actions.</li>
+<li>Modern assistants, such as Cortana, Siri or Google Assistant are all hybrid systems that use neural networks to convert speech into text and recognize our intent, and then employ some reasoning or explicit algorithms to perform required actions.</li>
 </ul>
 </section>
 <section id="chatbots-2" class="slide level2">
@@ -383,6 +388,11 @@
 <h2></h2>
 
 <img alt="the Turing test's evolution" src="images/turing-test-evol.png" width="70%" class="r-stretch"><p><em>Image by Dmitry Soshnikov, <a href="https://unsplash.com/photos/r8LmVbUKgns">photo</a> by <a href="https://unsplash.com/@abrosimova_marina_foto">Marina Abrosimova</a>, Unsplash</em></p>
+</section></section>
+<section>
+<section id="boom" class="title-slide slide level1 center">
+<h1>Boom</h1>
+
 </section>
 <section id="recent-ai-research" class="slide level2">
 <h2>Recent AI Research</h2>
@@ -398,10 +408,16 @@
 <h2>More compute</h2>
 <ul>
 <li>A graduate students at UToronto affiliated with Prof.&nbsp;Hinton decided to use a GPU (graphics processing unit) instead of CPU (central processing unit) for <em>image classification</em>.</li>
+</ul>
+
+<img data-src="https://i.ytimg.com/vi/Ge-g3xZ5bb8/sddefault.jpg" class="r-stretch"></section>
+<section id="utoronto" class="slide level2">
+<h2>UToronto</h2>
+<ul>
 <li>This is the first <em>documented</em> usage of a graphics-intended compute device for general purpose - or perhaps general AI - usage - of which I am aware.
 <ul>
 <li>This is not super well-documented and only something I became aware of “through the grapevine”.</li>
-<li>As an architecture researcher (e.g.&nbsp;I study GPU vs.&nbsp;CPU) I tend to think it’s a big deal.</li>
+<li>As an architecture researcher (e.g.&nbsp;I <em>study</em> GPU vs.&nbsp;CPU) I tend to think it’s a big deal.</li>
 </ul></li>
 <li>Read more <a href="https://arstechnica.com/ai/2024/11/how-a-stubborn-computer-scientist-accidentally-launched-the-deep-learning-boom/">here</a> perhaps?</li>
 </ul>
@@ -421,7 +437,10 @@
 <section id="the-world-changed-quickly" class="slide level2">
 <h2>The world changed quickly</h2>
 
-<img data-src="images/ilsvrc.gif" class="r-stretch"><ul>
+<img data-src="images/ilsvrc.gif" class="r-stretch"></section>
+<section id="comments" class="slide level2">
+<h2>Comments</h2>
+<ul>
 <li>2012 AlexNet is from the Toronto team and the “quantum leap” on here.</li>
 <li>In 2015, ResNet architecture from Microsoft Research <a href="https://doi.org/10.1109/ICCV.2015.123">achieved human-level accuracy</a>.
 <ul>
@@ -462,7 +481,7 @@
 </tr>
 </tbody>
 </table>
-</section>
+</section></section>
 <section>
 <section id="supervision" class="title-slide slide level1 center">
 <h1>Supervision</h1>
@@ -544,10 +563,7 @@
 <ul>
 <li>My colleague at MS does this</li>
 </ul></li>
-<li>Predict imminent equipment failure in e.g.&nbsp;manufacturing sector.
-<ul>
-<li>Do you do this in 596?</li>
-</ul></li>
+<li>Predict imminent equipment failure in e.g.&nbsp;manufacturing sector.</li>
 </ul>
 </section></section>
 <section>
@@ -576,24 +592,6 @@
 <section id="challenges-2" class="slide level2">
 <h2>Challenges</h2>
 <ul>
-<li>Interpretation
-<ul>
-<li>Understanding discovered structures.
-<ul>
-<li>Think in e.g.&nbsp;practice midterm - did you “discover” colleges vs.&nbsp;universities.</li>
-<li>What about “big school” and “small school”</li>
-</ul></li>
-<li>Meaningful insights can be hard.
-<ul>
-<li>Did you find “Colleges that Change Lives”</li>
-</ul></li>
-<li>Requires or at least benefits from domain expertise.</li>
-</ul></li>
-</ul>
-</section>
-<section id="challenges-3" class="slide level2">
-<h2>Challenges</h2>
-<ul>
 <li>Computational Cost
 <ul>
 <li>Large datasets are common.</li>
@@ -615,27 +613,47 @@
 </ul>
 </section></section>
 <section>
-<section id="supervised-vs-unsupervised-vs-reinforcement-learning" class="title-slide slide level1 center">
-<h1>Supervised vs Unsupervised vs Reinforcement Learning</h1>
-<p>Machine learning (ML) is a subset of artificial intelligence (AI) that enables systems to learn from data, identify patterns, and make decisions with minimal human intervention. The three primary types of ML are:</p>
+<section id="reinforcement-learning" class="title-slide slide level1 center">
+<h1>Reinforcement Learning</h1>
+
+</section>
+<section id="the-third-way" class="slide level2">
+<h2>The Third Way</h2>
 <ul>
 <li><strong>Supervised Learning:</strong> Learning from labeled data.</li>
 <li><strong>Unsupervised Learning:</strong> Discovering patterns in unlabeled data.</li>
 <li><strong>Reinforcement Learning:</strong> Learning through interactions with an environment.</li>
 </ul>
 </section>
-<section class="slide level2">
-
-<h3 id="supervised-learning-1">1. Supervised Learning</h3>
-<p>The model is trained on a labeled dataset, meaning each input has a corresponding output. * <strong>Labeled Data:</strong> Training data has predefined labels. * <strong>Types of Problems:</strong> Used for classification (e.g., spam detection) and regression (e.g., predicting house prices). * <strong>Algorithms:</strong> Linear Regression, Logistic Regression, SVM, Decision Trees, Neural Networks.</p>
-<h3 id="unsupervised-learning-1">2. Unsupervised Learning</h3>
-<p>The model identifies patterns, clusters, or associations independently without predefined labels. * <strong>Unlabeled Data:</strong> No predefined outputs. * <strong>Types of Problems:</strong> Used for clustering (e.g., customer segmentation) and association (e.g., market basket analysis). * <strong>Algorithms:</strong> K-Means, Hierarchical Clustering, PCA, Autoencoders.</p>
-<h3 id="reinforcement-learning-rl">3. Reinforcement Learning (RL)</h3>
-<p>Involves an agent that interacts with an environment, learning through rewards and penalties to maximize long-term success. * <strong>Interaction-Based Learning:</strong> The agent learns by taking actions and receiving feedback. * <strong>No Labeled Data:</strong> Learns from trial and error. * <strong>Algorithms:</strong> Q-learning, SARSA, Deep Q-Networks (DQN).</p>
+<section id="supervised-learning-1" class="slide level2">
+<h2>1. Supervised Learning</h2>
+<p>The model is trained on a labeled dataset, meaning each input has a corresponding output.</p>
+<ul>
+<li><strong>Labeled Data:</strong> Training data has predefined labels.</li>
+<li><strong>Types of Problems:</strong> Used for classification (e.g., spam detection) and regression (e.g., predicting house prices).</li>
+</ul>
 </section>
-<section class="slide level2">
-
-<h3 id="comparison-table-supervised-vs-unsupervised-vs-reinforcement-learning">Comparison Table: Supervised vs Unsupervised vs Reinforcement Learning</h3>
+<section id="unsupervised-learning-1" class="slide level2">
+<h2>2. Unsupervised Learning</h2>
+<p>The model identifies patterns, clusters, or associations independently without predefined labels.</p>
+<ul>
+<li><strong>Unlabeled Data:</strong> No predefined outputs.</li>
+<li><strong>Types of Problems:</strong> Used for clustering (e.g., customer segmentation) and association (e.g., market basket analysis).</li>
+</ul>
+</section>
+<section id="reinforcement-learning-rl" class="slide level2">
+<h2>3. Reinforcement Learning (RL)</h2>
+<p>Involves an agent that interacts with an environment, learning through rewards and penalties to maximize long-term success.</p>
+<ul>
+<li><strong>Interaction-Based Learning:</strong> The agent learns by taking actions and receiving feedback.</li>
+<li><strong>No Labeled Data:</strong> Learns from trial and error.
+<ul>
+<li>Just like us!</li>
+</ul></li>
+</ul>
+</section>
+<section id="comparison-table" class="slide level2">
+<h2>Comparison Table</h2>
 <table class="caption-top">
 <colgroup>
 <col style="width: 25%">
@@ -659,11 +677,65 @@
 <td style="text-align: left;">Learns through interaction with environment</td>
 </tr>
 <tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comparison-table-1" class="slide level2">
+<h2>Comparison Table</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Criteria</th>
+<th style="text-align: left;">Supervised Learning</th>
+<th style="text-align: left;">Unsupervised Learning</th>
+<th style="text-align: left;">Reinforcement Learning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
 <td style="text-align: left;"><strong>Type of Data</strong></td>
 <td style="text-align: left;">Labeled data</td>
 <td style="text-align: left;">Unlabeled data</td>
 <td style="text-align: left;">No predefined data; learn from environment</td>
 </tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comparison-table-2" class="slide level2">
+<h2>Comparison Table</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Criteria</th>
+<th style="text-align: left;">Supervised Learning</th>
+<th style="text-align: left;">Unsupervised Learning</th>
+<th style="text-align: left;">Reinforcement Learning</th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Type of Problems</strong></td>
 <td style="text-align: left;">Classification, Regression</td>
@@ -671,23 +743,98 @@
 <td style="text-align: left;">Sequential decision-making</td>
 </tr>
 <tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comparison-table-3" class="slide level2">
+<h2>Comparison Table</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Criteria</th>
+<th style="text-align: left;">Supervised Learning</th>
+<th style="text-align: left;">Unsupervised Learning</th>
+<th style="text-align: left;">Reinforcement Learning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
 <td style="text-align: left;"><strong>Supervision</strong></td>
 <td style="text-align: left;">Requires external supervision</td>
 <td style="text-align: left;">No supervision</td>
 <td style="text-align: left;">No supervision; learns from feedback</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Algorithms</strong></td>
-<td style="text-align: left;">SVM, Decision Trees, Neural Networks</td>
-<td style="text-align: left;">K-Means, PCA, Autoencoders</td>
-<td style="text-align: left;">Q-learning, DQN, SARSA</td>
-</tr>
 <tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comparison-table-4" class="slide level2">
+<h2>Comparison Table</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Criteria</th>
+<th style="text-align: left;">Supervised Learning</th>
+<th style="text-align: left;">Unsupervised Learning</th>
+<th style="text-align: left;">Reinforcement Learning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
 <td style="text-align: left;"><strong>Goal</strong></td>
 <td style="text-align: left;">Predict outcomes accurately</td>
 <td style="text-align: left;">Discover hidden patterns</td>
 <td style="text-align: left;">Optimize actions for maximum rewards</td>
 </tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comparison-table-5" class="slide level2">
+<h2>Comparison Table</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Criteria</th>
+<th style="text-align: left;">Supervised Learning</th>
+<th style="text-align: left;">Unsupervised Learning</th>
+<th style="text-align: left;">Reinforcement Learning</th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>Applications</strong></td>
 <td style="text-align: left;">Medical diagnosis, fraud detection</td>
@@ -697,67 +844,85 @@
 </tbody>
 </table>
 </section>
-<section class="slide level2">
-
-<h3 id="real-world-applications">Real-World Applications</h3>
+<section id="supervised-learning-2" class="slide level2">
+<h2><strong>Supervised Learning</strong></h2>
 <table class="caption-top">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Machine Learning Type</th>
 <th style="text-align: left;">Domain</th>
 <th style="text-align: left;">Examples</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><strong>Supervised Learning</strong></td>
 <td style="text-align: left;">Healthcare</td>
 <td style="text-align: left;">Disease diagnosis (e.g., cancer detection)</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>Supervised Learning</strong></td>
 <td style="text-align: left;">Finance</td>
 <td style="text-align: left;">Loan approval, credit risk assessment</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><strong>Supervised Learning</strong></td>
 <td style="text-align: left;">NLP</td>
 <td style="text-align: left;">Sentiment analysis, text classification</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Unsupervised Learning</strong></td>
+</tbody>
+</table>
+</section>
+<section id="comparison-table-6" class="slide level2">
+<h2>Comparison Table</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Domain</th>
+<th style="text-align: left;">Examples</th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
 <td style="text-align: left;">E-commerce</td>
 <td style="text-align: left;">Product recommendation, customer segmentation</td>
+<td style="text-align: left;"></td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Unsupervised Learning</strong></td>
+<tr class="even">
 <td style="text-align: left;">Cybersecurity</td>
 <td style="text-align: left;">Fraud detection, intrusion detection</td>
+<td style="text-align: left;"></td>
 </tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Unsupervised Learning</strong></td>
+<tr class="odd">
 <td style="text-align: left;">Biology</td>
 <td style="text-align: left;">Gene classification, dimensionality reduction</td>
+<td style="text-align: left;"></td>
 </tr>
+</tbody>
+</table>
+</section>
+<section id="comparison-table-7" class="slide level2">
+<h2>Comparison Table</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Domain</th>
+<th style="text-align: left;">Examples</th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td style="text-align: left;"><strong>Reinforcement Learning</strong></td>
 <td style="text-align: left;">Autonomous Driving</td>
 <td style="text-align: left;">Self-driving cars learning optimal behavior</td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>Reinforcement Learning</strong></td>
 <td style="text-align: left;">Robotics</td>
 <td style="text-align: left;">Training robots for automated assembly tasks</td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><strong>Reinforcement Learning</strong></td>
 <td style="text-align: left;">Gaming</td>
 <td style="text-align: left;">AI-driven strategy games like AlphaGo</td>
+<td style="text-align: left;"></td>
 </tr>
 </tbody>
 </table>
@@ -770,9 +935,6 @@
 <li><strong>Unsupervised Learning:</strong> Use when exploring data structures without predefined labels.</li>
 <li><strong>Reinforcement Learning:</strong> Use when decision-making is required in a dynamic environment.</li>
 </ul>
-<p>https://microsoft.github.io/ML-For-Beginners/?id=content#/4-Classification/1-Introduction/README</p>
-<p>https://microsoft.github.io/ML-For-Beginners/?id=content#/5-Clustering/README</p>
-<p>https://microsoft.github.io/ML-For-Beginners/?id=content#/8-Reinforcement/README</p>
 
 
 </section></section>

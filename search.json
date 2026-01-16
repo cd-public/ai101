@@ -1450,7 +1450,7 @@
     "href": "20_supervise.rjs.html#chatbots-1",
     "title": "(Un)supervision",
     "section": "Chatbots",
-    "text": "Chatbots\nSimilarly, we can see how the approach towards creating “talking programs” (that might pass the Turing test) changed:\n\nModern assistants, such as Cortana, Siri or Google Assistant are all hybrid systems that use Neural networks to convert speech into text and recognize our intent, and then employ some reasoning or explicit algorithms to perform required actions."
+    "text": "Chatbots\nSimilarly, we can see how the approach towards creating “talking programs” (that might pass the Turing test) changed:\n\nModern assistants, such as Cortana, Siri or Google Assistant are all hybrid systems that use neural networks to convert speech into text and recognize our intent, and then employ some reasoning or explicit algorithms to perform required actions."
   },
   {
     "objectID": "20_supervise.rjs.html#chatbots-2",
@@ -1478,7 +1478,14 @@
     "href": "20_supervise.rjs.html#more-compute",
     "title": "(Un)supervision",
     "section": "More compute",
-    "text": "More compute\n\nA graduate students at UToronto affiliated with Prof. Hinton decided to use a GPU (graphics processing unit) instead of CPU (central processing unit) for image classification.\nThis is the first documented usage of a graphics-intended compute device for general purpose - or perhaps general AI - usage - of which I am aware.\n\nThis is not super well-documented and only something I became aware of “through the grapevine”.\nAs an architecture researcher (e.g. I study GPU vs. CPU) I tend to think it’s a big deal.\n\nRead more here perhaps?"
+    "text": "More compute\n\nA graduate students at UToronto affiliated with Prof. Hinton decided to use a GPU (graphics processing unit) instead of CPU (central processing unit) for image classification."
+  },
+  {
+    "objectID": "20_supervise.rjs.html#utoronto",
+    "href": "20_supervise.rjs.html#utoronto",
+    "title": "(Un)supervision",
+    "section": "UToronto",
+    "text": "UToronto\n\nThis is the first documented usage of a graphics-intended compute device for general purpose - or perhaps general AI - usage - of which I am aware.\n\nThis is not super well-documented and only something I became aware of “through the grapevine”.\nAs an architecture researcher (e.g. I study GPU vs. CPU) I tend to think it’s a big deal.\n\nRead more here perhaps?"
   },
   {
     "objectID": "20_supervise.rjs.html#more-data",
@@ -1492,7 +1499,14 @@
     "href": "20_supervise.rjs.html#the-world-changed-quickly",
     "title": "(Un)supervision",
     "section": "The world changed quickly",
-    "text": "The world changed quickly\n\n\n2012 AlexNet is from the Toronto team and the “quantum leap” on here.\nIn 2015, ResNet architecture from Microsoft Research achieved human-level accuracy.\n\nUniversities solve the problem.\nTrillion dollar companies take the credit.\nAsk me about this outside of class."
+    "text": "The world changed quickly"
+  },
+  {
+    "objectID": "20_supervise.rjs.html#comments",
+    "href": "20_supervise.rjs.html#comments",
+    "title": "(Un)supervision",
+    "section": "Comments",
+    "text": "Comments\n\n2012 AlexNet is from the Toronto team and the “quantum leap” on here.\nIn 2015, ResNet architecture from Microsoft Research achieved human-level accuracy.\n\nUniversities solve the problem.\nTrillion dollar companies take the credit.\nAsk me about this outside of class."
   },
   {
     "objectID": "20_supervise.rjs.html#going-forward",
@@ -1548,7 +1562,7 @@
     "href": "20_supervise.rjs.html#anomaly-detection",
     "title": "(Un)supervision",
     "section": "Anomaly Detection",
-    "text": "Anomaly Detection\n\nDetect fraudulent bank transactions.\n\nE.g. if I purchased an espresso in Salem, MA\n\nDetect anomalous (computer) network behavior.\n\nMy colleague at MS does this\n\nPredict imminent equipment failure in e.g. manufacturing sector.\n\nDo you do this in 596?"
+    "text": "Anomaly Detection\n\nDetect fraudulent bank transactions.\n\nE.g. if I purchased an espresso in Salem, MA\n\nDetect anomalous (computer) network behavior.\n\nMy colleague at MS does this\n\nPredict imminent equipment failure in e.g. manufacturing sector."
   },
   {
     "objectID": "20_supervise.rjs.html#challenges-1",
@@ -1562,13 +1576,6 @@
     "href": "20_supervise.rjs.html#challenges-2",
     "title": "(Un)supervision",
     "section": "Challenges",
-    "text": "Challenges\n\nInterpretation\n\nUnderstanding discovered structures.\n\nThink in e.g. practice midterm - did you “discover” colleges vs. universities.\nWhat about “big school” and “small school”\n\nMeaningful insights can be hard.\n\nDid you find “Colleges that Change Lives”\n\nRequires or at least benefits from domain expertise."
-  },
-  {
-    "objectID": "20_supervise.rjs.html#challenges-3",
-    "href": "20_supervise.rjs.html#challenges-3",
-    "title": "(Un)supervision",
-    "section": "Challenges",
     "text": "Challenges\n\nComputational Cost\n\nLarge datasets are common.\nAlgorithms can be complex.\nScalability is a concern.\n\nComputational costs become operating costs"
   },
   {
@@ -1579,11 +1586,102 @@
     "text": "Takeaways\n\nSupervised: Labeled data ⇒ predict label.\nUnsupervised: Unlabeled data ⇒ discover patterns.\n\nValuable, but challenging.\nValue is correlated with challenge given scarcity."
   },
   {
+    "objectID": "20_supervise.rjs.html#the-third-way",
+    "href": "20_supervise.rjs.html#the-third-way",
+    "title": "(Un)supervision",
+    "section": "The Third Way",
+    "text": "The Third Way\n\nSupervised Learning: Learning from labeled data.\nUnsupervised Learning: Discovering patterns in unlabeled data.\nReinforcement Learning: Learning through interactions with an environment."
+  },
+  {
+    "objectID": "20_supervise.rjs.html#supervised-learning-1",
+    "href": "20_supervise.rjs.html#supervised-learning-1",
+    "title": "(Un)supervision",
+    "section": "1. Supervised Learning",
+    "text": "1. Supervised Learning\nThe model is trained on a labeled dataset, meaning each input has a corresponding output.\n\nLabeled Data: Training data has predefined labels.\nTypes of Problems: Used for classification (e.g., spam detection) and regression (e.g., predicting house prices)."
+  },
+  {
+    "objectID": "20_supervise.rjs.html#unsupervised-learning-1",
+    "href": "20_supervise.rjs.html#unsupervised-learning-1",
+    "title": "(Un)supervision",
+    "section": "2. Unsupervised Learning",
+    "text": "2. Unsupervised Learning\nThe model identifies patterns, clusters, or associations independently without predefined labels.\n\nUnlabeled Data: No predefined outputs.\nTypes of Problems: Used for clustering (e.g., customer segmentation) and association (e.g., market basket analysis)."
+  },
+  {
+    "objectID": "20_supervise.rjs.html#reinforcement-learning-rl",
+    "href": "20_supervise.rjs.html#reinforcement-learning-rl",
+    "title": "(Un)supervision",
+    "section": "3. Reinforcement Learning (RL)",
+    "text": "3. Reinforcement Learning (RL)\nInvolves an agent that interacts with an environment, learning through rewards and penalties to maximize long-term success.\n\nInteraction-Based Learning: The agent learns by taking actions and receiving feedback.\nNo Labeled Data: Learns from trial and error.\n\nJust like us!"
+  },
+  {
+    "objectID": "20_supervise.rjs.html#comparison-table",
+    "href": "20_supervise.rjs.html#comparison-table",
+    "title": "(Un)supervision",
+    "section": "Comparison Table",
+    "text": "Comparison Table\n\n\n\n\n\n\n\n\n\nCriteria\nSupervised Learning\nUnsupervised Learning\nReinforcement Learning\n\n\n\n\nDefinition\nLearns from labeled data\nIdentifies patterns in unlabeled data\nLearns through interaction with environment"
+  },
+  {
+    "objectID": "20_supervise.rjs.html#comparison-table-1",
+    "href": "20_supervise.rjs.html#comparison-table-1",
+    "title": "(Un)supervision",
+    "section": "Comparison Table",
+    "text": "Comparison Table\n\n\n\n\n\n\n\n\n\nCriteria\nSupervised Learning\nUnsupervised Learning\nReinforcement Learning\n\n\n\n\nType of Data\nLabeled data\nUnlabeled data\nNo predefined data; learn from environment"
+  },
+  {
+    "objectID": "20_supervise.rjs.html#comparison-table-2",
+    "href": "20_supervise.rjs.html#comparison-table-2",
+    "title": "(Un)supervision",
+    "section": "Comparison Table",
+    "text": "Comparison Table\n\n\n\n\n\n\n\n\n\nCriteria\nSupervised Learning\nUnsupervised Learning\nReinforcement Learning\n\n\n\n\nType of Problems\nClassification, Regression\nClustering, Association\nSequential decision-making"
+  },
+  {
+    "objectID": "20_supervise.rjs.html#comparison-table-3",
+    "href": "20_supervise.rjs.html#comparison-table-3",
+    "title": "(Un)supervision",
+    "section": "Comparison Table",
+    "text": "Comparison Table\n\n\n\n\n\n\n\n\n\nCriteria\nSupervised Learning\nUnsupervised Learning\nReinforcement Learning\n\n\n\n\nSupervision\nRequires external supervision\nNo supervision\nNo supervision; learns from feedback"
+  },
+  {
+    "objectID": "20_supervise.rjs.html#comparison-table-4",
+    "href": "20_supervise.rjs.html#comparison-table-4",
+    "title": "(Un)supervision",
+    "section": "Comparison Table",
+    "text": "Comparison Table\n\n\n\n\n\n\n\n\n\nCriteria\nSupervised Learning\nUnsupervised Learning\nReinforcement Learning\n\n\n\n\nGoal\nPredict outcomes accurately\nDiscover hidden patterns\nOptimize actions for maximum rewards"
+  },
+  {
+    "objectID": "20_supervise.rjs.html#comparison-table-5",
+    "href": "20_supervise.rjs.html#comparison-table-5",
+    "title": "(Un)supervision",
+    "section": "Comparison Table",
+    "text": "Comparison Table\n\n\n\n\n\n\n\n\n\nCriteria\nSupervised Learning\nUnsupervised Learning\nReinforcement Learning\n\n\n\n\nApplications\nMedical diagnosis, fraud detection\nCustomer segmentation, anomaly detection\nSelf-driving cars, robotics, gaming"
+  },
+  {
+    "objectID": "20_supervise.rjs.html#supervised-learning-2",
+    "href": "20_supervise.rjs.html#supervised-learning-2",
+    "title": "(Un)supervision",
+    "section": "Supervised Learning",
+    "text": "Supervised Learning\n\n\n\nDomain\nExamples\n\n\n\n\nHealthcare\nDisease diagnosis (e.g., cancer detection)\n\n\nFinance\nLoan approval, credit risk assessment\n\n\nNLP\nSentiment analysis, text classification"
+  },
+  {
+    "objectID": "20_supervise.rjs.html#comparison-table-6",
+    "href": "20_supervise.rjs.html#comparison-table-6",
+    "title": "(Un)supervision",
+    "section": "Comparison Table",
+    "text": "Comparison Table\n\n\n\nDomain\nExamples\n\n\n\n\n\nE-commerce\nProduct recommendation, customer segmentation\n\n\n\nCybersecurity\nFraud detection, intrusion detection\n\n\n\nBiology\nGene classification, dimensionality reduction"
+  },
+  {
+    "objectID": "20_supervise.rjs.html#comparison-table-7",
+    "href": "20_supervise.rjs.html#comparison-table-7",
+    "title": "(Un)supervision",
+    "section": "Comparison Table",
+    "text": "Comparison Table\n\n\n\nDomain\nExamples\n\n\n\n\n\nAutonomous Driving\nSelf-driving cars learning optimal behavior\n\n\n\nRobotics\nTraining robots for automated assembly tasks\n\n\n\nGaming\nAI-driven strategy games like AlphaGo"
+  },
+  {
     "objectID": "20_supervise.html",
     "href": "20_supervise.html",
     "title": "(Un)supervision",
     "section": "",
-    "text": "If we want a computer to behave like a human, we need somehow to model inside a computer our way of thinking. Consequently, we need to try to understand what makes a human being intelligent.\n\nTo be able to program intelligence into a machine, we need to understand how our own processes of making decisions work. If you do a little self-introspection, you will realize that there are some processes that happen subconsciously – eg. we can distinguish a cat from a dog without thinking about it - while some others involve reasoning.",
+    "text": "If we want a computer to behave like a human, we need somehow to model inside a computer our way of thinking. Consequently, we need to try to understand what makes a human being intelligent.\n\nTo be able to program intelligence into a machine, we need to understand how our own processes of making decisions work. If you do a little self-introspection, you will realize that there are some processes that happen subconsciously – eg. we can distinguish a cat from a dog without thinking about it - while some others involve reasoning.\n\n\n\n\n\n\n\n\n\n\n\nTop-down Approach (Symbolic Reasoning)\nBottom-up Approach (Neural Networks)\n\n\n\n\nA top-down approach models the way a person reasons to solve a problem. It involves extracting knowledge from a human being, and representing it in a computer-readable form. We also need to develop a way to model reasoning inside a computer.\nA bottom-up approach models the structure of a human brain, consisting of a huge number of simple units called neurons. We can train a network of neurons to solve useful problems by providing training data.\n\n\n\n\n\n\nThere are also some other possible approaches to intelligence:\n\nAn Emergent, Synergetic or multi-agent approach are based on the fact that complex intelligent behaviour can be obtained by an interaction of a large number of simple agents. According to evolutionary cybernetics, intelligence can emerge from more simple, reactive behaviour in the process of metasystem transition.\nAn Evolutionary approach, or genetic algorithm is an optimization process based on the principles of evolution.\n\n\n\n\n\n\n\n\n\nIn a top-down approach, we try to model our reasoning.\n\nBecause we can follow our thoughts when we reason, we can try to formalize this process and program it inside the computer.\nThis is called symbolic reasoning, one example is grade-school algebra\n\nx = 2\ny = 2 * x\n\n\n\n\nPeople tend to have some rules in their head that guide their decision making processes.\n\nAt least according to them (go observe rush hour drivers for example)\n\nFor example, when a doctor is diagnosing a patient, they may realize that a person has a fever, and thus there might be some inflammation going on inside the body.\nBy applying a large set of rules to a specific problem a doctor may be able to come up with the final diagnosis.\n\n\n\n\n\nThis approach relies heavily on knowledge representation and reasoning.\nExtracting knowledge from a human expert might be the most difficult part, because a doctor in many cases would not know exactly why they are coming up with a particular diagnosis.\nSometimes the solution just comes up in their head without explicit thinking.\nSome tasks, such as determining the age of a person from a photograph, cannot be reduced to manipulating knowledge.\n\n\n\n\n\nAlternately, we can try to model the simplest atomic elements inside our brain – a neuron.\n\nObviously there are simpler elements (e.g. chemicals) but they take on different meaning in when not considered in isolation.\nTherefore they are not atomic, or indivisible units of “brain”.\n\n\n\n\n\n\nWe can construct a so-called artificial neural network inside a computer, and then try to teach it to solve problems by giving it examples.\n\nAllegedly this process is similar to how a newborn child learns about their surroundings by making observations.\n\nSimply program a computer to pretend to be however we think brains work.\n\nOf note, in some sense it doesn’t matter if we model the brain correctly or not.\n\n\n\n\n\n\nArtificial Intelligence was started as a field in the middle of the twentieth century.\nInitially, symbolic reasoning was a prevalent approach, and it led to a number of important successes, such as expert systems – computer programs that were able to act as an expert in some limited problem domains.\nHowever, it soon became clear that such approach does not scale well.\n\n\n\n\n\nExtracting the knowledge from an expert, representing it in a computer, and keeping that knowledgebase accurate turns out to be a very complex task, and too expensive to be practical in many cases.\nThis led to so-called AI Winter in the 1970s.\n\n\n\n\n\nImage by Dmitry Soshnikov\n\n\n\n\nAs time passed…\n\nComputing resources became cheaper, and\nMore data has become available…\n\nSo neural network approaches started demonstrating great performance in competing with human beings in many areas, such as computer vision or speech understanding.\n\nIn the last decade, the term Artificial Intelligence has been mostly used as a synonym for Neural Networks, because most of the AI successes that we hear about are based on them.\n\n\n\nWe can observe how the approaches changed, for example, in creating a chess playing computer program:\n\nEarly chess programs were based on search – a program explicitly tried to estimate possible moves of an opponent for a given number of next moves, and selected an optimal move based on the optimal position that can be achieved in a few moves. It led to the development of the so-called alpha-beta pruning search algorithm.\n\n\n\n\nWe can observe how the approaches changed, for example, in creating a chess playing computer program:\n\nSearch strategies work well toward the end of the game, where the search space is limited by a small number of possible moves. However, at the beginning of the game, the search space is huge, and the algorithm can be improved by learning from existing matches between human players.\nSubsequent experiments employed so-called case-based reasoning, where the program looked for cases in the knowledge base very similar to the current position in the game.\n\n\n\n\nWe can observe how the approaches changed, for example, in creating a chess playing computer program:\n\nModern programs that win over human players are based on neural networks and reinforcement learning, where the programs learn to play solely by playing a long time against themselves and learning from their own mistakes – much like human beings do when learning to play chess.\nHowever, a computer program can play many more games in much less time, and thus can learn much faster.\n\n\n\n\nSimilarly, we can see how the approach towards creating “talking programs” (that might pass the Turing test) changed:\n\nEarly programs of this kind such as Eliza, were based on very simple grammatical rules and the re-formulation of the input sentence into a question.\n\n\n\n\nSimilarly, we can see how the approach towards creating “talking programs” (that might pass the Turing test) changed:\n\nModern assistants, such as Cortana, Siri or Google Assistant are all hybrid systems that use neural networks to convert speech into text and recognize our intent, and then employ some reasoning or explicit algorithms to perform required actions.\n\n\n\n\nSimilarly, we can see how the approach towards creating “talking programs” (that might pass the Turing test) changed:\n\nDepending on who you ask, this is where we are now.\n\nIf you ask me, “no”.\n\nMy job is to know how to answer this question.\n\nIf you ask Sam Altman, “yes”.\n\nSam Altman’s job is convincingly say “yes” when asked this question.\n\n\n\n\n\n\n\nImage by Dmitry Soshnikov, photo by Marina Abrosimova, Unsplash",
     "crumbs": [
       "(Un)supervision"
     ]
@@ -1602,8 +1700,8 @@
     "objectID": "20_supervise.html#different-approaches-to-ai-1",
     "href": "20_supervise.html#different-approaches-to-ai-1",
     "title": "(Un)supervision",
-    "section": "Different Approaches to AI",
-    "text": "Different Approaches to AI\n\n\n\n\n\n\n\nTop-down Approach (Symbolic Reasoning)\nBottom-up Approach (Neural Networks)\n\n\n\n\nA top-down approach models the way a person reasons to solve a problem. It involves extracting knowledge from a human being, and representing it in a computer-readable form. We also need to develop a way to model reasoning inside a computer.\nA bottom-up approach models the structure of a human brain, consisting of a huge number of simple units called neurons. We can train a network of neurons to solve useful problems by providing training data.",
+    "section": "",
+    "text": "Top-down Approach (Symbolic Reasoning)\nBottom-up Approach (Neural Networks)\n\n\n\n\nA top-down approach models the way a person reasons to solve a problem. It involves extracting knowledge from a human being, and representing it in a computer-readable form. We also need to develop a way to model reasoning inside a computer.\nA bottom-up approach models the structure of a human brain, consisting of a huge number of simple units called neurons. We can train a network of neurons to solve useful problems by providing training data.",
     "crumbs": [
       "(Un)supervision"
     ]
@@ -1612,18 +1710,8 @@
     "objectID": "20_supervise.html#different-approaches-to-ai-2",
     "href": "20_supervise.html#different-approaches-to-ai-2",
     "title": "(Un)supervision",
-    "section": "Different Approaches to AI",
-    "text": "Different Approaches to AI\nThere are also some other possible approaches to intelligence:\n\nAn Emergent, Synergetic or multi-agent approach are based on the fact that complex intelligent behaviour can be obtained by an interaction of a large number of simple agents. According to evolutionary cybernetics, intelligence can emerge from more simple, reactive behaviour in the process of metasystem transition.\nAn Evolutionary approach, or genetic algorithm is an optimization process based on the principles of evolution.",
-    "crumbs": [
-      "(Un)supervision"
-    ]
-  },
-  {
-    "objectID": "20_supervise.html#aside-csail",
-    "href": "20_supervise.html#aside-csail",
-    "title": "(Un)supervision",
-    "section": "Aside: CSAIL",
-    "text": "Aside: CSAIL",
+    "section": "",
+    "text": "There are also some other possible approaches to intelligence:\n\nAn Emergent, Synergetic or multi-agent approach are based on the fact that complex intelligent behaviour can be obtained by an interaction of a large number of simple agents. According to evolutionary cybernetics, intelligence can emerge from more simple, reactive behaviour in the process of metasystem transition.\nAn Evolutionary approach, or genetic algorithm is an optimization process based on the principles of evolution.",
     "crumbs": [
       "(Un)supervision"
     ]
@@ -1632,8 +1720,8 @@
     "objectID": "20_supervise.html#the-top-down-approach",
     "href": "20_supervise.html#the-top-down-approach",
     "title": "(Un)supervision",
-    "section": "The Top-Down Approach",
-    "text": "The Top-Down Approach\n\nIn a top-down approach, we try to model our reasoning.\n\nBecause we can follow our thoughts when we reason, we can try to formalize this process and program it inside the computer.\nThis is called symbolic reasoning, one example is grade-school algebra\n\nx = 2\ny = 2 * x",
+    "section": "",
+    "text": "In a top-down approach, we try to model our reasoning.\n\nBecause we can follow our thoughts when we reason, we can try to formalize this process and program it inside the computer.\nThis is called symbolic reasoning, one example is grade-school algebra\n\nx = 2\ny = 2 * x",
     "crumbs": [
       "(Un)supervision"
     ]
@@ -1642,8 +1730,8 @@
     "objectID": "20_supervise.html#the-top-down-approach-1",
     "href": "20_supervise.html#the-top-down-approach-1",
     "title": "(Un)supervision",
-    "section": "The Top-Down Approach",
-    "text": "The Top-Down Approach\n\nPeople tend to have some rules in their head that guide their decision making processes.\n\nAt least according to them (go observe rush hour drivers for example)\n\nFor example, when a doctor is diagnosing a patient, they may realize that a person has a fever, and thus there might be some inflammation going on inside the body.\nBy applying a large set of rules to a specific problem a doctor may be able to come up with the final diagnosis.",
+    "section": "",
+    "text": "People tend to have some rules in their head that guide their decision making processes.\n\nAt least according to them (go observe rush hour drivers for example)\n\nFor example, when a doctor is diagnosing a patient, they may realize that a person has a fever, and thus there might be some inflammation going on inside the body.\nBy applying a large set of rules to a specific problem a doctor may be able to come up with the final diagnosis.",
     "crumbs": [
       "(Un)supervision"
     ]
@@ -1652,8 +1740,8 @@
     "objectID": "20_supervise.html#the-top-down-approach-2",
     "href": "20_supervise.html#the-top-down-approach-2",
     "title": "(Un)supervision",
-    "section": "The Top-Down Approach",
-    "text": "The Top-Down Approach\n\nThis approach relies heavily on knowledge representation and reasoning.\nExtracting knowledge from a human expert might be the most difficult part, because a doctor in many cases would not know exactly why they are coming up with a particular diagnosis.\nSometimes the solution just comes up in their head without explicit thinking.\nSome tasks, such as determining the age of a person from a photograph, cannot be reduced to manipulating knowledge.",
+    "section": "",
+    "text": "This approach relies heavily on knowledge representation and reasoning.\nExtracting knowledge from a human expert might be the most difficult part, because a doctor in many cases would not know exactly why they are coming up with a particular diagnosis.\nSometimes the solution just comes up in their head without explicit thinking.\nSome tasks, such as determining the age of a person from a photograph, cannot be reduced to manipulating knowledge.",
     "crumbs": [
       "(Un)supervision"
     ]
@@ -1662,8 +1750,8 @@
     "objectID": "20_supervise.html#bottom-up-approach",
     "href": "20_supervise.html#bottom-up-approach",
     "title": "(Un)supervision",
-    "section": "Bottom-Up Approach",
-    "text": "Bottom-Up Approach\n\nAlternately, we can try to model the simplest atomic elements inside our brain – a neuron.\n\nObviously there are simpler elements (e.g. chemicals) but they take on different meaning in when not considered in isolation.\nTherefore they are not atomic, or indivisible units of “brain”.",
+    "section": "",
+    "text": "Alternately, we can try to model the simplest atomic elements inside our brain – a neuron.\n\nObviously there are simpler elements (e.g. chemicals) but they take on different meaning in when not considered in isolation.\nTherefore they are not atomic, or indivisible units of “brain”.",
     "crumbs": [
       "(Un)supervision"
     ]
@@ -1672,8 +1760,8 @@
     "objectID": "20_supervise.html#bottom-up-approach-1",
     "href": "20_supervise.html#bottom-up-approach-1",
     "title": "(Un)supervision",
-    "section": "Bottom-Up Approach",
-    "text": "Bottom-Up Approach\n\nWe can construct a so-called artificial neural network inside a computer, and then try to teach it to solve problems by giving it examples.\n\nAllegedly this process is similar to how a newborn child learns about their surroundings by making observations.\n\nSimply program a computer to pretend to be however we think brains work.\n\nOf note, in some sense it doesn’t matter if we model the brain correctly or not.",
+    "section": "",
+    "text": "We can construct a so-called artificial neural network inside a computer, and then try to teach it to solve problems by giving it examples.\n\nAllegedly this process is similar to how a newborn child learns about their surroundings by making observations.\n\nSimply program a computer to pretend to be however we think brains work.\n\nOf note, in some sense it doesn’t matter if we model the brain correctly or not.",
     "crumbs": [
       "(Un)supervision"
     ]
@@ -1682,8 +1770,8 @@
     "objectID": "20_supervise.html#a-brief-history-of-ai",
     "href": "20_supervise.html#a-brief-history-of-ai",
     "title": "(Un)supervision",
-    "section": "A Brief History of AI",
-    "text": "A Brief History of AI\n\nArtificial Intelligence was started as a field in the middle of the twentieth century.\nInitially, symbolic reasoning was a prevalent approach, and it led to a number of important successes, such as expert systems – computer programs that were able to act as an expert in some limited problem domains.\nHowever, it soon became clear that such approach does not scale well.",
+    "section": "",
+    "text": "Artificial Intelligence was started as a field in the middle of the twentieth century.\nInitially, symbolic reasoning was a prevalent approach, and it led to a number of important successes, such as expert systems – computer programs that were able to act as an expert in some limited problem domains.\nHowever, it soon became clear that such approach does not scale well.",
     "crumbs": [
       "(Un)supervision"
     ]
@@ -1692,8 +1780,8 @@
     "objectID": "20_supervise.html#problems-arise",
     "href": "20_supervise.html#problems-arise",
     "title": "(Un)supervision",
-    "section": "Problems arise",
-    "text": "Problems arise\n\nExtracting the knowledge from an expert, representing it in a computer, and keeping that knowledgebase accurate turns out to be a very complex task, and too expensive to be practical in many cases.\nThis led to so-called AI Winter in the 1970s.",
+    "section": "",
+    "text": "Extracting the knowledge from an expert, representing it in a computer, and keeping that knowledgebase accurate turns out to be a very complex task, and too expensive to be practical in many cases.\nThis led to so-called AI Winter in the 1970s.",
     "crumbs": [
       "(Un)supervision"
     ]
@@ -1712,8 +1800,8 @@
     "objectID": "20_supervise.html#computers-emerge",
     "href": "20_supervise.html#computers-emerge",
     "title": "(Un)supervision",
-    "section": "Computers Emerge",
-    "text": "Computers Emerge\n\nAs time passed…\n\nComputing resources became cheaper, and\nMore data has become available…\n\nSo neural network approaches started demonstrating great performance in competing with human beings in many areas, such as computer vision or speech understanding.\n\nIn the last decade, the term Artificial Intelligence has been mostly used as a synonym for Neural Networks, because most of the AI successes that we hear about are based on them.",
+    "section": "",
+    "text": "As time passed…\n\nComputing resources became cheaper, and\nMore data has become available…\n\nSo neural network approaches started demonstrating great performance in competing with human beings in many areas, such as computer vision or speech understanding.\n\nIn the last decade, the term Artificial Intelligence has been mostly used as a synonym for Neural Networks, because most of the AI successes that we hear about are based on them.",
     "crumbs": [
       "(Un)supervision"
     ]
@@ -1722,8 +1810,8 @@
     "objectID": "20_supervise.html#chess",
     "href": "20_supervise.html#chess",
     "title": "(Un)supervision",
-    "section": "Chess",
-    "text": "Chess\nWe can observe how the approaches changed, for example, in creating a chess playing computer program:\n\nEarly chess programs were based on search – a program explicitly tried to estimate possible moves of an opponent for a given number of next moves, and selected an optimal move based on the optimal position that can be achieved in a few moves. It led to the development of the so-called alpha-beta pruning search algorithm.",
+    "section": "",
+    "text": "We can observe how the approaches changed, for example, in creating a chess playing computer program:\n\nEarly chess programs were based on search – a program explicitly tried to estimate possible moves of an opponent for a given number of next moves, and selected an optimal move based on the optimal position that can be achieved in a few moves. It led to the development of the so-called alpha-beta pruning search algorithm.",
     "crumbs": [
       "(Un)supervision"
     ]
@@ -1732,8 +1820,8 @@
     "objectID": "20_supervise.html#chess-1",
     "href": "20_supervise.html#chess-1",
     "title": "(Un)supervision",
-    "section": "Chess",
-    "text": "Chess\nWe can observe how the approaches changed, for example, in creating a chess playing computer program:\n\nSearch strategies work well toward the end of the game, where the search space is limited by a small number of possible moves. However, at the beginning of the game, the search space is huge, and the algorithm can be improved by learning from existing matches between human players.\nSubsequent experiments employed so-called case-based reasoning, where the program looked for cases in the knowledge base very similar to the current position in the game.",
+    "section": "",
+    "text": "We can observe how the approaches changed, for example, in creating a chess playing computer program:\n\nSearch strategies work well toward the end of the game, where the search space is limited by a small number of possible moves. However, at the beginning of the game, the search space is huge, and the algorithm can be improved by learning from existing matches between human players.\nSubsequent experiments employed so-called case-based reasoning, where the program looked for cases in the knowledge base very similar to the current position in the game.",
     "crumbs": [
       "(Un)supervision"
     ]
@@ -1742,8 +1830,8 @@
     "objectID": "20_supervise.html#chess-2",
     "href": "20_supervise.html#chess-2",
     "title": "(Un)supervision",
-    "section": "Chess",
-    "text": "Chess\nWe can observe how the approaches changed, for example, in creating a chess playing computer program:\n\nModern programs that win over human players are based on neural networks and reinforcement learning, where the programs learn to play solely by playing a long time against themselves and learning from their own mistakes – much like human beings do when learning to play chess.\nHowever, a computer program can play many more games in much less time, and thus can learn much faster.",
+    "section": "",
+    "text": "We can observe how the approaches changed, for example, in creating a chess playing computer program:\n\nModern programs that win over human players are based on neural networks and reinforcement learning, where the programs learn to play solely by playing a long time against themselves and learning from their own mistakes – much like human beings do when learning to play chess.\nHowever, a computer program can play many more games in much less time, and thus can learn much faster.",
     "crumbs": [
       "(Un)supervision"
     ]
@@ -1752,8 +1840,8 @@
     "objectID": "20_supervise.html#chatbots",
     "href": "20_supervise.html#chatbots",
     "title": "(Un)supervision",
-    "section": "Chatbots",
-    "text": "Chatbots\nSimilarly, we can see how the approach towards creating “talking programs” (that might pass the Turing test) changed:\n\nEarly programs of this kind such as Eliza, were based on very simple grammatical rules and the re-formulation of the input sentence into a question.",
+    "section": "",
+    "text": "Similarly, we can see how the approach towards creating “talking programs” (that might pass the Turing test) changed:\n\nEarly programs of this kind such as Eliza, were based on very simple grammatical rules and the re-formulation of the input sentence into a question.",
     "crumbs": [
       "(Un)supervision"
     ]
@@ -1762,8 +1850,8 @@
     "objectID": "20_supervise.html#chatbots-1",
     "href": "20_supervise.html#chatbots-1",
     "title": "(Un)supervision",
-    "section": "Chatbots",
-    "text": "Chatbots\nSimilarly, we can see how the approach towards creating “talking programs” (that might pass the Turing test) changed:\n\nModern assistants, such as Cortana, Siri or Google Assistant are all hybrid systems that use Neural networks to convert speech into text and recognize our intent, and then employ some reasoning or explicit algorithms to perform required actions.",
+    "section": "",
+    "text": "Similarly, we can see how the approach towards creating “talking programs” (that might pass the Turing test) changed:\n\nModern assistants, such as Cortana, Siri or Google Assistant are all hybrid systems that use neural networks to convert speech into text and recognize our intent, and then employ some reasoning or explicit algorithms to perform required actions.",
     "crumbs": [
       "(Un)supervision"
     ]
@@ -1772,8 +1860,8 @@
     "objectID": "20_supervise.html#chatbots-2",
     "href": "20_supervise.html#chatbots-2",
     "title": "(Un)supervision",
-    "section": "Chatbots",
-    "text": "Chatbots\nSimilarly, we can see how the approach towards creating “talking programs” (that might pass the Turing test) changed:\n\nDepending on who you ask, this is where we are now.\n\nIf you ask me, “no”.\n\nMy job is to know how to answer this question.\n\nIf you ask Sam Altman, “yes”.\n\nSam Altman’s job is convincingly say “yes” when asked this question.",
+    "section": "",
+    "text": "Similarly, we can see how the approach towards creating “talking programs” (that might pass the Turing test) changed:\n\nDepending on who you ask, this is where we are now.\n\nIf you ask me, “no”.\n\nMy job is to know how to answer this question.\n\nIf you ask Sam Altman, “yes”.\n\nSam Altman’s job is convincingly say “yes” when asked this question.",
     "crumbs": [
       "(Un)supervision"
     ]
@@ -1803,7 +1891,17 @@
     "href": "20_supervise.html#more-compute",
     "title": "(Un)supervision",
     "section": "More compute",
-    "text": "More compute\n\nA graduate students at UToronto affiliated with Prof. Hinton decided to use a GPU (graphics processing unit) instead of CPU (central processing unit) for image classification.\nThis is the first documented usage of a graphics-intended compute device for general purpose - or perhaps general AI - usage - of which I am aware.\n\nThis is not super well-documented and only something I became aware of “through the grapevine”.\nAs an architecture researcher (e.g. I study GPU vs. CPU) I tend to think it’s a big deal.\n\nRead more here perhaps?",
+    "text": "More compute\n\nA graduate students at UToronto affiliated with Prof. Hinton decided to use a GPU (graphics processing unit) instead of CPU (central processing unit) for image classification.",
+    "crumbs": [
+      "(Un)supervision"
+    ]
+  },
+  {
+    "objectID": "20_supervise.html#utoronto",
+    "href": "20_supervise.html#utoronto",
+    "title": "(Un)supervision",
+    "section": "UToronto",
+    "text": "UToronto\n\nThis is the first documented usage of a graphics-intended compute device for general purpose - or perhaps general AI - usage - of which I am aware.\n\nThis is not super well-documented and only something I became aware of “through the grapevine”.\nAs an architecture researcher (e.g. I study GPU vs. CPU) I tend to think it’s a big deal.\n\nRead more here perhaps?",
     "crumbs": [
       "(Un)supervision"
     ]
@@ -1823,7 +1921,17 @@
     "href": "20_supervise.html#the-world-changed-quickly",
     "title": "(Un)supervision",
     "section": "The world changed quickly",
-    "text": "The world changed quickly\n\n\n2012 AlexNet is from the Toronto team and the “quantum leap” on here.\nIn 2015, ResNet architecture from Microsoft Research achieved human-level accuracy.\n\nUniversities solve the problem.\nTrillion dollar companies take the credit.\nAsk me about this outside of class.",
+    "text": "The world changed quickly",
+    "crumbs": [
+      "(Un)supervision"
+    ]
+  },
+  {
+    "objectID": "20_supervise.html#comments",
+    "href": "20_supervise.html#comments",
+    "title": "(Un)supervision",
+    "section": "Comments",
+    "text": "Comments\n\n2012 AlexNet is from the Toronto team and the “quantum leap” on here.\nIn 2015, ResNet architecture from Microsoft Research achieved human-level accuracy.\n\nUniversities solve the problem.\nTrillion dollar companies take the credit.\nAsk me about this outside of class.",
     "crumbs": [
       "(Un)supervision"
     ]
@@ -1903,7 +2011,7 @@
     "href": "20_supervise.html#anomaly-detection",
     "title": "(Un)supervision",
     "section": "Anomaly Detection",
-    "text": "Anomaly Detection\n\nDetect fraudulent bank transactions.\n\nE.g. if I purchased an espresso in Salem, MA\n\nDetect anomalous (computer) network behavior.\n\nMy colleague at MS does this\n\nPredict imminent equipment failure in e.g. manufacturing sector.\n\nDo you do this in 596?",
+    "text": "Anomaly Detection\n\nDetect fraudulent bank transactions.\n\nE.g. if I purchased an espresso in Salem, MA\n\nDetect anomalous (computer) network behavior.\n\nMy colleague at MS does this\n\nPredict imminent equipment failure in e.g. manufacturing sector.",
     "crumbs": [
       "(Un)supervision"
     ]
@@ -1923,16 +2031,6 @@
     "href": "20_supervise.html#challenges-2",
     "title": "(Un)supervision",
     "section": "Challenges",
-    "text": "Challenges\n\nInterpretation\n\nUnderstanding discovered structures.\n\nThink in e.g. practice midterm - did you “discover” colleges vs. universities.\nWhat about “big school” and “small school”\n\nMeaningful insights can be hard.\n\nDid you find “Colleges that Change Lives”\n\nRequires or at least benefits from domain expertise.",
-    "crumbs": [
-      "(Un)supervision"
-    ]
-  },
-  {
-    "objectID": "20_supervise.html#challenges-3",
-    "href": "20_supervise.html#challenges-3",
-    "title": "(Un)supervision",
-    "section": "Challenges",
     "text": "Challenges\n\nComputational Cost\n\nLarge datasets are common.\nAlgorithms can be complex.\nScalability is a concern.\n\nComputational costs become operating costs",
     "crumbs": [
       "(Un)supervision"
@@ -1944,6 +2042,136 @@
     "title": "(Un)supervision",
     "section": "Takeaways",
     "text": "Takeaways\n\nSupervised: Labeled data ⇒ predict label.\nUnsupervised: Unlabeled data ⇒ discover patterns.\n\nValuable, but challenging.\nValue is correlated with challenge given scarcity.",
+    "crumbs": [
+      "(Un)supervision"
+    ]
+  },
+  {
+    "objectID": "20_supervise.html#the-third-way",
+    "href": "20_supervise.html#the-third-way",
+    "title": "(Un)supervision",
+    "section": "The Third Way",
+    "text": "The Third Way\n\nSupervised Learning: Learning from labeled data.\nUnsupervised Learning: Discovering patterns in unlabeled data.\nReinforcement Learning: Learning through interactions with an environment.",
+    "crumbs": [
+      "(Un)supervision"
+    ]
+  },
+  {
+    "objectID": "20_supervise.html#supervised-learning-1",
+    "href": "20_supervise.html#supervised-learning-1",
+    "title": "(Un)supervision",
+    "section": "1. Supervised Learning",
+    "text": "1. Supervised Learning\nThe model is trained on a labeled dataset, meaning each input has a corresponding output.\n\nLabeled Data: Training data has predefined labels.\nTypes of Problems: Used for classification (e.g., spam detection) and regression (e.g., predicting house prices).",
+    "crumbs": [
+      "(Un)supervision"
+    ]
+  },
+  {
+    "objectID": "20_supervise.html#unsupervised-learning-1",
+    "href": "20_supervise.html#unsupervised-learning-1",
+    "title": "(Un)supervision",
+    "section": "2. Unsupervised Learning",
+    "text": "2. Unsupervised Learning\nThe model identifies patterns, clusters, or associations independently without predefined labels.\n\nUnlabeled Data: No predefined outputs.\nTypes of Problems: Used for clustering (e.g., customer segmentation) and association (e.g., market basket analysis).",
+    "crumbs": [
+      "(Un)supervision"
+    ]
+  },
+  {
+    "objectID": "20_supervise.html#reinforcement-learning-rl",
+    "href": "20_supervise.html#reinforcement-learning-rl",
+    "title": "(Un)supervision",
+    "section": "3. Reinforcement Learning (RL)",
+    "text": "3. Reinforcement Learning (RL)\nInvolves an agent that interacts with an environment, learning through rewards and penalties to maximize long-term success.\n\nInteraction-Based Learning: The agent learns by taking actions and receiving feedback.\nNo Labeled Data: Learns from trial and error.\n\nJust like us!",
+    "crumbs": [
+      "(Un)supervision"
+    ]
+  },
+  {
+    "objectID": "20_supervise.html#comparison-table",
+    "href": "20_supervise.html#comparison-table",
+    "title": "(Un)supervision",
+    "section": "Comparison Table",
+    "text": "Comparison Table\n\n\n\n\n\n\n\n\n\nCriteria\nSupervised Learning\nUnsupervised Learning\nReinforcement Learning\n\n\n\n\nDefinition\nLearns from labeled data\nIdentifies patterns in unlabeled data\nLearns through interaction with environment",
+    "crumbs": [
+      "(Un)supervision"
+    ]
+  },
+  {
+    "objectID": "20_supervise.html#comparison-table-1",
+    "href": "20_supervise.html#comparison-table-1",
+    "title": "(Un)supervision",
+    "section": "Comparison Table",
+    "text": "Comparison Table\n\n\n\n\n\n\n\n\n\nCriteria\nSupervised Learning\nUnsupervised Learning\nReinforcement Learning\n\n\n\n\nType of Data\nLabeled data\nUnlabeled data\nNo predefined data; learn from environment",
+    "crumbs": [
+      "(Un)supervision"
+    ]
+  },
+  {
+    "objectID": "20_supervise.html#comparison-table-2",
+    "href": "20_supervise.html#comparison-table-2",
+    "title": "(Un)supervision",
+    "section": "Comparison Table",
+    "text": "Comparison Table\n\n\n\n\n\n\n\n\n\nCriteria\nSupervised Learning\nUnsupervised Learning\nReinforcement Learning\n\n\n\n\nType of Problems\nClassification, Regression\nClustering, Association\nSequential decision-making",
+    "crumbs": [
+      "(Un)supervision"
+    ]
+  },
+  {
+    "objectID": "20_supervise.html#comparison-table-3",
+    "href": "20_supervise.html#comparison-table-3",
+    "title": "(Un)supervision",
+    "section": "Comparison Table",
+    "text": "Comparison Table\n\n\n\n\n\n\n\n\n\nCriteria\nSupervised Learning\nUnsupervised Learning\nReinforcement Learning\n\n\n\n\nSupervision\nRequires external supervision\nNo supervision\nNo supervision; learns from feedback",
+    "crumbs": [
+      "(Un)supervision"
+    ]
+  },
+  {
+    "objectID": "20_supervise.html#comparison-table-4",
+    "href": "20_supervise.html#comparison-table-4",
+    "title": "(Un)supervision",
+    "section": "Comparison Table",
+    "text": "Comparison Table\n\n\n\n\n\n\n\n\n\nCriteria\nSupervised Learning\nUnsupervised Learning\nReinforcement Learning\n\n\n\n\nGoal\nPredict outcomes accurately\nDiscover hidden patterns\nOptimize actions for maximum rewards",
+    "crumbs": [
+      "(Un)supervision"
+    ]
+  },
+  {
+    "objectID": "20_supervise.html#comparison-table-5",
+    "href": "20_supervise.html#comparison-table-5",
+    "title": "(Un)supervision",
+    "section": "Comparison Table",
+    "text": "Comparison Table\n\n\n\n\n\n\n\n\n\nCriteria\nSupervised Learning\nUnsupervised Learning\nReinforcement Learning\n\n\n\n\nApplications\nMedical diagnosis, fraud detection\nCustomer segmentation, anomaly detection\nSelf-driving cars, robotics, gaming",
+    "crumbs": [
+      "(Un)supervision"
+    ]
+  },
+  {
+    "objectID": "20_supervise.html#supervised-learning-2",
+    "href": "20_supervise.html#supervised-learning-2",
+    "title": "(Un)supervision",
+    "section": "Supervised Learning",
+    "text": "Supervised Learning\n\n\n\nDomain\nExamples\n\n\n\n\nHealthcare\nDisease diagnosis (e.g., cancer detection)\n\n\nFinance\nLoan approval, credit risk assessment\n\n\nNLP\nSentiment analysis, text classification",
+    "crumbs": [
+      "(Un)supervision"
+    ]
+  },
+  {
+    "objectID": "20_supervise.html#comparison-table-6",
+    "href": "20_supervise.html#comparison-table-6",
+    "title": "(Un)supervision",
+    "section": "Comparison Table",
+    "text": "Comparison Table\n\n\n\nDomain\nExamples\n\n\n\n\n\nE-commerce\nProduct recommendation, customer segmentation\n\n\n\nCybersecurity\nFraud detection, intrusion detection\n\n\n\nBiology\nGene classification, dimensionality reduction",
+    "crumbs": [
+      "(Un)supervision"
+    ]
+  },
+  {
+    "objectID": "20_supervise.html#comparison-table-7",
+    "href": "20_supervise.html#comparison-table-7",
+    "title": "(Un)supervision",
+    "section": "Comparison Table",
+    "text": "Comparison Table\n\n\n\nDomain\nExamples\n\n\n\n\n\nAutonomous Driving\nSelf-driving cars learning optimal behavior\n\n\n\nRobotics\nTraining robots for automated assembly tasks\n\n\n\nGaming\nAI-driven strategy games like AlphaGo\n\n\n\n\n\n\nChoosing the Right Approach\n\nSupervised Learning: Use when labeled data is available for prediction tasks.\nUnsupervised Learning: Use when exploring data structures without predefined labels.\nReinforcement Learning: Use when decision-making is required in a dynamic environment.",
     "crumbs": [
       "(Un)supervision"
     ]

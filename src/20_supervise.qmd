@@ -2,6 +2,8 @@
 title: (Un)supervision
 ---
 
+# Approaches
+
 ## Different Approaches to AI
 
 If we want a computer to behave like a human, we need somehow to model inside a computer our way of thinking. Consequently, we need to try to understand what makes a human being intelligent.
@@ -119,7 +121,7 @@ Similarly, we can see how the approach towards creating “talking programs” (
 
 Similarly, we can see how the approach towards creating “talking programs” (that might pass the Turing test) changed:
 
-- Modern assistants, such as Cortana, Siri or Google Assistant are all hybrid systems that use Neural networks to convert speech into text and recognize our intent, and then employ some reasoning or explicit algorithms to perform required actions.
+- Modern assistants, such as Cortana, Siri or Google Assistant are all hybrid systems that use neural networks to convert speech into text and recognize our intent, and then employ some reasoning or explicit algorithms to perform required actions.
 
 ## Chatbots
 
@@ -137,6 +139,8 @@ Similarly, we can see how the approach towards creating “talking programs” (
 
 *Image by Dmitry Soshnikov, [photo](https://unsplash.com/photos/r8LmVbUKgns) by [Marina Abrosimova](https://unsplash.com/@abrosimova_marina_foto), Unsplash*
 
+# Boom
+
 ## Recent AI Research
 
 - The huge recent growth in neural network research started around 2010, when two things happened.
@@ -146,9 +150,14 @@ Similarly, we can see how the approach towards creating “talking programs” (
 ## More compute
 
 - A graduate students at UToronto affiliated with Prof. Hinton decided to use a GPU (graphics processing unit) instead of CPU (central processing unit) for *image classification*.
+
+![](https://i.ytimg.com/vi/Ge-g3xZ5bb8/sddefault.jpg)
+
+## UToronto 
+
 - This is the first *documented* usage of a graphics-intended compute device for general purpose - or perhaps general AI - usage - of which I am aware.
     - This is not super well-documented and only something I became aware of "through the grapevine".
-    - As an architecture researcher (e.g. I study GPU vs. CPU) I tend to think it's a big deal.
+    - As an architecture researcher (e.g. I *study* GPU vs. CPU) I tend to think it's a big deal.
 - Read more [here](https://arstechnica.com/ai/2024/11/how-a-stubborn-computer-scientist-accidentally-launched-the-deep-learning-boom/) perhaps?
 
 ## More data
@@ -174,6 +183,8 @@ Similarly, we can see how the approach towards creating “talking programs” (
 ## The world changed quickly
 
 ![](images/ilsvrc.gif)
+
+## Comments
 
 - 2012 AlexNet is from the Toronto team and the "quantum leap" on here.
 - In 2015, ResNet architecture from Microsoft Research [achieved human-level accuracy](https://doi.org/10.1109/ICCV.2015.123).
@@ -253,7 +264,6 @@ Year | Human Parity (nominally) achieved
 * Detect anomalous (computer) network behavior.
   * My colleague at MS does this
 * Predict imminent equipment failure in e.g. manufacturing sector.
-  * Do you do this in 596?
 
 # Challenges
 
@@ -266,18 +276,6 @@ Year | Human Parity (nominally) achieved
   * Subjective evaluation metrics.
     * Non-falsifiable by construction.
   * Validating discovered patterns.
-
-
-
-## Challenges
-
-- Interpretation
-  * Understanding discovered structures.
-    * Think in e.g. practice midterm - did you "discover" colleges vs. universities.
-    * What about "big school" and "small school"
-  * Meaningful insights can be hard.
-    * Did you find "Colleges that Change Lives"
-  * Requires or at least benefits from domain expertise.
 
 ## Challenges
 
@@ -294,73 +292,104 @@ Year | Human Parity (nominally) achieved
   * Valuable, but challenging.
   * Value is correlated with challenge given scarcity.
   
-# Supervised vs Unsupervised vs Reinforcement Learning
+# Reinforcement Learning
 
-Machine learning (ML) is a subset of artificial intelligence (AI) that enables systems to learn from data, identify patterns, and make decisions with minimal human intervention. The three primary types of ML are:
+## The Third Way
+
 
 * **Supervised Learning:** Learning from labeled data.
 * **Unsupervised Learning:** Discovering patterns in unlabeled data.
 * **Reinforcement Learning:** Learning through interactions with an environment.
 
----
 
-### 1. Supervised Learning
+## 1. Supervised Learning
+
 The model is trained on a labeled dataset, meaning each input has a corresponding output.
+
 * **Labeled Data:** Training data has predefined labels.
 * **Types of Problems:** Used for classification (e.g., spam detection) and regression (e.g., predicting house prices).
-* **Algorithms:** Linear Regression, Logistic Regression, SVM, Decision Trees, Neural Networks.
 
-### 2. Unsupervised Learning
+## 2. Unsupervised Learning
+
 The model identifies patterns, clusters, or associations independently without predefined labels.
+
 * **Unlabeled Data:** No predefined outputs.
 * **Types of Problems:** Used for clustering (e.g., customer segmentation) and association (e.g., market basket analysis).
-* **Algorithms:** K-Means, Hierarchical Clustering, PCA, Autoencoders.
 
-### 3. Reinforcement Learning (RL)
+## 3. Reinforcement Learning (RL)
+
 Involves an agent that interacts with an environment, learning through rewards and penalties to maximize long-term success.
+
 * **Interaction-Based Learning:** The agent learns by taking actions and receiving feedback.
 * **No Labeled Data:** Learns from trial and error.
-* **Algorithms:** Q-learning, SARSA, Deep Q-Networks (DQN).
+	* Just like us!
 
----
-
-### Comparison Table: Supervised vs Unsupervised vs Reinforcement Learning
+## Comparison Table
 
 | Criteria | Supervised Learning | Unsupervised Learning | Reinforcement Learning |
 | :--- | :--- | :--- | :--- |
 | **Definition** | Learns from labeled data | Identifies patterns in unlabeled data | Learns through interaction with environment |
-| **Type of Data** | Labeled data | Unlabeled data | No predefined data; learn from environment |
-| **Type of Problems** | Classification, Regression | Clustering, Association | Sequential decision-making |
-| **Supervision** | Requires external supervision | No supervision | No supervision; learns from feedback |
-| **Algorithms** | SVM, Decision Trees, Neural Networks | K-Means, PCA, Autoencoders | Q-learning, DQN, SARSA |
-| **Goal** | Predict outcomes accurately | Discover hidden patterns | Optimize actions for maximum rewards |
-| **Applications** | Medical diagnosis, fraud detection | Customer segmentation, anomaly detection | Self-driving cars, robotics, gaming |
+|
+## Comparison Table
 
----
+| Criteria | Supervised Learning | Unsupervised Learning | Reinforcement Learning |
+| :--- | :--- | :--- | :--- |
+ **Type of Data** | Labeled data | Unlabeled data | No predefined data; learn from environment |
+|
+## Comparison Table
 
-### Real-World Applications
+| Criteria | Supervised Learning | Unsupervised Learning | Reinforcement Learning |
+| :--- | :--- | :--- | :--- |
+ **Type of Problems** | Classification, Regression | Clustering, Association | Sequential decision-making |
+|
+## Comparison Table
 
-| Machine Learning Type | Domain | Examples |
+| Criteria | Supervised Learning | Unsupervised Learning | Reinforcement Learning |
+| :--- | :--- | :--- | :--- |
+ **Supervision** | Requires external supervision | No supervision | No supervision; learns from feedback |
+ |
+
+## Comparison Table
+
+| Criteria | Supervised Learning | Unsupervised Learning | Reinforcement Learning |
+| :--- | :--- | :--- | :--- |
+ **Goal** | Predict outcomes accurately | Discover hidden patterns | Optimize actions for maximum rewards |
+|
+## Comparison Table
+
+| Criteria | Supervised Learning | Unsupervised Learning | Reinforcement Learning |
+| :--- | :--- | :--- | :--- |
+ **Applications** | Medical diagnosis, fraud detection | Customer segmentation, anomaly detection | Self-driving cars, robotics, gaming |
+
+## **Supervised Learning**
+
+| Domain | Examples |
+| :--- | :--- |
+| Healthcare | Disease diagnosis (e.g., cancer detection) |
+| Finance | Loan approval, credit risk assessment |
+| NLP | Sentiment analysis, text classification |
+
+## Comparison Table
+
+| Domain | Examples |
 | :--- | :--- | :--- |
-| **Supervised Learning** | Healthcare | Disease diagnosis (e.g., cancer detection) |
-| **Supervised Learning** | Finance | Loan approval, credit risk assessment |
-| **Supervised Learning** | NLP | Sentiment analysis, text classification |
-| **Unsupervised Learning** | E-commerce | Product recommendation, customer segmentation |
-| **Unsupervised Learning** | Cybersecurity | Fraud detection, intrusion detection |
-| **Unsupervised Learning** | Biology | Gene classification, dimensionality reduction |
-| **Reinforcement Learning** | Autonomous Driving | Self-driving cars learning optimal behavior |
-| **Reinforcement Learning** | Robotics | Training robots for automated assembly tasks |
-| **Reinforcement Learning** | Gaming | AI-driven strategy games like AlphaGo |
+| E-commerce | Product recommendation, customer segmentation |
+| Cybersecurity | Fraud detection, intrusion detection |
+| Biology | Gene classification, dimensionality reduction |
+
+## Comparison Table
+
+| Domain | Examples |
+| :--- | :--- | :--- |
+| Autonomous Driving | Self-driving cars learning optimal behavior |
+| Robotics | Training robots for automated assembly tasks |
+| Gaming | AI-driven strategy games like AlphaGo |
 
 ---
 
 ### Choosing the Right Approach
+
 * **Supervised Learning:** Use when labeled data is available for prediction tasks.
 * **Unsupervised Learning:** Use when exploring data structures without predefined labels.
 * **Reinforcement Learning:** Use when decision-making is required in a dynamic environment.
 
-https://microsoft.github.io/ML-For-Beginners/?id=content#/4-Classification/1-Introduction/README
-
-https://microsoft.github.io/ML-For-Beginners/?id=content#/5-Clustering/README
-
-https://microsoft.github.io/ML-For-Beginners/?id=content#/8-Reinforcement/README
