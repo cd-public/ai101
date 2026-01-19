@@ -417,6 +417,26 @@
     ]
   },
   {
+    "objectID": "21_key.html#take-notes",
+    "href": "21_key.html#take-notes",
+    "title": "Dichotomous Key",
+    "section": "",
+    "text": "Create a “Lab03” Colab notebook (NOT a Google Document) in your AI Folder.\nCreate a text cell in this Colab notebook.\nRecord 140-280 characters worth of thoughts on working through the key - more if you have more thoughts.",
+    "crumbs": [
+      "Dichotomous Key"
+    ]
+  },
+  {
+    "objectID": "21_key.html#computer-vision",
+    "href": "21_key.html#computer-vision",
+    "title": "Dichotomous Key",
+    "section": "",
+    "text": "Computer vision tasks include methods for acquiring, processing, analyzing, and understanding digital images, and extraction of high-dimensional data from the real world in order to produce numerical or symbolic information, e.g. in the form of decisions.\n\n\nProf. Rachel Brown in the CS department is a computer vision researcher and helped develop this course!\nWe will use the dichotomous key and Google Gemini to to classify oaks, from their images, as one of the 8 species in our key.\n\n\n\n\nTo implement our dichotomous key we will:\n\nShare images with Gemini\nAsk Gemini a question about the images.\nBased on the answer, either:\n\nAsk a new question, or\nGive a result, the classification of the tree.\n\n\nTo do so we will use “if/else” syntax.\n\n\n\n\n\nLike while which we learned in the “Colab” lab, we can use if and else to ask Gemini questions more than once.\n\nFor example, we can ask if leaves are “smooth” or “lobed”.\nif Gemini says “smooth”, we can then ask if the leaves are evergreen.\nelse we can ask if the lobes (or teeth) are bristle-tipped.",
+    "crumbs": [
+      "Dichotomous Key"
+    ]
+  },
+  {
     "objectID": "01_test.html",
     "href": "01_test.html",
     "title": "Turing’s Test",
@@ -602,6 +622,27 @@
     "title": "Colab",
     "section": "Create!",
     "text": "Create!\nTo create a new Colab notebook you can…\n\nUse the File menu on https://colab.research.google.com/, or\nUse the following link: http://colab.research.google.com#create=true."
+  },
+  {
+    "objectID": "11_colab.rjs.html#follow-along",
+    "href": "11_colab.rjs.html#follow-along",
+    "title": "Colab",
+    "section": "Follow Along",
+    "text": "Follow Along\n\n\n\n\n\n\nDo this!\n\n\n\nCreate a Colab notebook named Lab01\nSave it in your AI folder\n\nThis is your lab for this week!"
+  },
+  {
+    "objectID": "11_colab.rjs.html#ai-folder",
+    "href": "11_colab.rjs.html#ai-folder",
+    "title": "Colab",
+    "section": "AI Folder",
+    "text": "AI Folder\n\nTo quote last class:\n\n\nCreate a folder named “AI_”. For example, mine is “AI_ckdeutschbein”. Share this folder with ckdeutschbein@willamette.edu\n\n\nAt this time, 4 students have not named their folder correctly and 11 students have not shared a folder.\nDo this now."
+  },
+  {
+    "objectID": "11_colab.rjs.html#save-your-lab01",
+    "href": "11_colab.rjs.html#save-your-lab01",
+    "title": "Colab",
+    "section": "Save your Lab01",
+    "text": "Save your Lab01\n\nEnsure you save Lab01 in the same folder as Lab00, your “AI folder” named “AI_your_wu_name”"
   },
   {
     "objectID": "11_colab.rjs.html#share",
@@ -874,7 +915,7 @@
     "href": "11_colab.html",
     "title": "Colab",
     "section": "",
-    "text": "Colab is a hosted Jupyter Notebook service that requires no setup to use and provides free access to computing resources, including GPUs and TPUs. Colab is especially well suited to machine learning, data science, and education.\n\n\n\n\nColab is offered by Google.\n\nThey want you to get used to using Google, so that more people use Google Cloud Platform, which is Google’s 2nd biggest revenue source (after advertising, ahead of Workspace)\nThey run it on their cloud servers, so it doesn’t use resources on your computer (except to display results)\n\n\n\n\n\n\nSpecifically, GPUs and a new Google-only device, TPUs\n\nMore on the “T” latter\nThis was the “more compute” that alongside “more data” has made the modern AI boom possible.\n\n\n\n\n\nColab, or “Colaboratory”, allows you to write and execute Python in your browser, with\n\nZero configuration required\nAccess to GPUs free of charge\nEasy sharing\n\n\n\n\n\nYou can save and share Colab documents in Google Drive, just like Google Documents, Spreadsheets, and Forms.\nWe will take advantage of this shareability this term!\n\n\n\n\n\nGood for outside of class.\n\n\nWhether you’re a student, a data scientist or an AI researcher, Colab can make your work easier. Watch Introduction to Colab or Colab Features You May Have Missed to learn more, or just get started below!\n\n\n\n\n\nNavigate to https://colab.research.google.com/\nThe document there is not a static web page…\nIt is an interactive environment called a Colab notebook!\n\n\n\n\n\nColab works in “cells” which are kind of like pages.\nYou can make a new cell by clicking the “+ Code” button.\nDo so, and somewhere on your screen you will see the text:\n\nStart coding or generate with AI.\n\n\n\n\nWe can use Gemini from within Colab as follows:\n\nTell Colab we want to use AI (only have to do this once, perhaps in one “cell”)\n\nfrom google.colab import ai\n\nAsk the AI to generate text in response to some prompt (you can do this as much as you like, possibly in many “cells”)\n\nBut only after telling Colab to import ai!\n\n\n\n\n\n\nSimply write the task ai.generate_text, append an open paratheses (, type your prompt inside quotes \"\", and then add close parentheses ).\nThe parentheses tell Python to take some action!\nThe quotes tell Python it’s dealing with text and not the name of a command.\n\nai.generate_text(\"What is the capital of France?\")\n\nWe see the different color here - there will also be different colors for text and tasks in Colab.\n\n\n\n\nTo see the response, select the cell with a click and then either press the play button to the left of the code, or use the keyboard shortcut “Command/Ctrl+Enter”.\n\n\n\n\n\n\nNoteFirst things first!\n\n\n\nYou will have to “run” both the command to import ai (first) then the command to generate text.\n\n\n\nTry finding the capital of Wakanda or Narnia!\nTry telling Colab to play the imitation game!\n\n\n\n\nTo create a new Colab notebook you can…\n\nUse the File menu on https://colab.research.google.com/, or\nUse the following link: http://colab.research.google.com#create=true.\n\n\n\n\n\nYou can easily share your Colab notebooks, allowing them to comment on your notebooks or even edit them.\n\nPotentially useful for a class on AI!\n\nTry to share your prompt with your team from the lab last week by creating a Colab document providing your prompt via ai.generate_text.\n\n\n\n\n\nColab is an outgrowth of a major scientific computing project called Jupyter.\nWe won’t dwell on it much this term\n\nComputer scientists: the “py” stands for Python\nData scientists: the “r” stands for R.\n\n\n\n\n\n\nColab notebooks are Jupyter notebooks that are hosted by Colab. To learn more about the Jupyter project, see jupyter.org.\nI think Jupyter is a bit out-of-scope this term, but Colab is too useful not to use, so it will be our home to explore AI this term!",
+    "text": "Colab is a hosted Jupyter Notebook service that requires no setup to use and provides free access to computing resources, including GPUs and TPUs. Colab is especially well suited to machine learning, data science, and education.\n\n\n\n\nColab is offered by Google.\n\nThey want you to get used to using Google, so that more people use Google Cloud Platform, which is Google’s 2nd biggest revenue source (after advertising, ahead of Workspace)\nThey run it on their cloud servers, so it doesn’t use resources on your computer (except to display results)\n\n\n\n\n\n\nSpecifically, GPUs and a new Google-only device, TPUs\n\nMore on the “T” latter\nThis was the “more compute” that alongside “more data” has made the modern AI boom possible.\n\n\n\n\n\nColab, or “Colaboratory”, allows you to write and execute Python in your browser, with\n\nZero configuration required\nAccess to GPUs free of charge\nEasy sharing\n\n\n\n\n\nYou can save and share Colab documents in Google Drive, just like Google Documents, Spreadsheets, and Forms.\nWe will take advantage of this shareability this term!\n\n\n\n\n\nGood for outside of class.\n\n\nWhether you’re a student, a data scientist or an AI researcher, Colab can make your work easier. Watch Introduction to Colab or Colab Features You May Have Missed to learn more, or just get started below!\n\n\n\n\n\nNavigate to https://colab.research.google.com/\nThe document there is not a static web page…\nIt is an interactive environment called a Colab notebook!\n\n\n\n\n\nColab works in “cells” which are kind of like pages.\nYou can make a new cell by clicking the “+ Code” button.\nDo so, and somewhere on your screen you will see the text:\n\nStart coding or generate with AI.\n\n\n\n\nWe can use Gemini from within Colab as follows:\n\nTell Colab we want to use AI (only have to do this once, perhaps in one “cell”)\n\nfrom google.colab import ai\n\nAsk the AI to generate text in response to some prompt (you can do this as much as you like, possibly in many “cells”)\n\nBut only after telling Colab to import ai!\n\n\n\n\n\n\nSimply write the task ai.generate_text, append an open paratheses (, type your prompt inside quotes \"\", and then add close parentheses ).\nThe parentheses tell Python to take some action!\nThe quotes tell Python it’s dealing with text and not the name of a command.\n\nai.generate_text(\"What is the capital of France?\")\n\nWe see the different color here - there will also be different colors for text and tasks in Colab.\n\n\n\n\nTo see the response, select the cell with a click and then either press the play button to the left of the code, or use the keyboard shortcut “Command/Ctrl+Enter”.\n\n\n\n\n\n\nNoteFirst things first!\n\n\n\nYou will have to “run” both the command to import ai (first) then the command to generate text.\n\n\n\nTry finding the capital of Wakanda or Narnia!\nTry telling Colab to play the imitation game!\n\n\n\n\nTo create a new Colab notebook you can…\n\nUse the File menu on https://colab.research.google.com/, or\nUse the following link: http://colab.research.google.com#create=true.\n\n\n\n\n\n\n\n\n\n\nImportantDo this!\n\n\n\n\nCreate a Colab notebook named Lab01\nSave it in your AI folder\n\nThis is your lab for this week!\n\n\n\n\n\n\nTo quote last class:\n\n\nCreate a folder named “AI_”. For example, mine is “AI_ckdeutschbein”. Share this folder with ckdeutschbein@willamette.edu\n\n\nAt this time, 4 students have not named their folder correctly and 11 students have not shared a folder.\nDo this now.\n\n\n\n\n\nEnsure you save Lab01 in the same folder as Lab00, your “AI folder” named “AI_your_wu_name”\n\n\n\n\n\nYou can easily share your Colab notebooks, allowing them to comment on your notebooks or even edit them.\n\nPotentially useful for a class on AI!\n\nTry to share your prompt with your team from the lab last week by creating a Colab document providing your prompt via ai.generate_text.\n\n\n\n\n\nColab is an outgrowth of a major scientific computing project called Jupyter.\nWe won’t dwell on it much this term\n\nComputer scientists: the “py” stands for Python\nData scientists: the “r” stands for R.\n\n\n\n\n\n\nColab notebooks are Jupyter notebooks that are hosted by Colab. To learn more about the Jupyter project, see jupyter.org.\nI think Jupyter is a bit out-of-scope this term, but Colab is too useful not to use, so it will be our home to explore AI this term!",
     "crumbs": [
       "Colab"
     ]
@@ -985,6 +1026,36 @@
     "title": "Colab",
     "section": "",
     "text": "To create a new Colab notebook you can…\n\nUse the File menu on https://colab.research.google.com/, or\nUse the following link: http://colab.research.google.com#create=true.",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#follow-along",
+    "href": "11_colab.html#follow-along",
+    "title": "Colab",
+    "section": "",
+    "text": "ImportantDo this!\n\n\n\n\nCreate a Colab notebook named Lab01\nSave it in your AI folder\n\nThis is your lab for this week!",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#ai-folder",
+    "href": "11_colab.html#ai-folder",
+    "title": "Colab",
+    "section": "",
+    "text": "To quote last class:\n\n\nCreate a folder named “AI_”. For example, mine is “AI_ckdeutschbein”. Share this folder with ckdeutschbein@willamette.edu\n\n\nAt this time, 4 students have not named their folder correctly and 11 students have not shared a folder.\nDo this now.",
+    "crumbs": [
+      "Colab"
+    ]
+  },
+  {
+    "objectID": "11_colab.html#save-your-lab01",
+    "href": "11_colab.html#save-your-lab01",
+    "title": "Colab",
+    "section": "",
+    "text": "Ensure you save Lab01 in the same folder as Lab00, your “AI folder” named “AI_your_wu_name”",
     "crumbs": [
       "Colab"
     ]
@@ -1374,7 +1445,7 @@
     "href": "index.html",
     "title": "AI 101",
     "section": "",
-    "text": "CS 199 “Understanding AI”\n\nCalled:\n\nCS 199: Topics: Understanding AI\nAI 101\n\nA non-technical survey semester over:\n\nSome trends in AI use\nSome historical conversations around AI\nSome technical background in implementing minimal AI\n\nTaught this year via Google Colab.\n\nIt’s fast (it’s not)\nIt’s free (to us for now)\nIt’s fun (trust me)\n\n\n\nMW 1020-1150\n\n\nProf. Calvin\n\n\nSyllabus\n\nSyllabus link\n\n\n\n\nCalendar\n\n\n\n\n\nWeek\nDate (M)\nLecture (M)\nLab (W)\n\n\n\n\n0x0\n01/12\nAda & Alan\nTuring’s Test\n\n\n0x1\n01/19\nNone\nColab\n\n\n0x2\n01/26\n(Un)supervision\nData Sources\n\n\n0x3\n02/02\nClassification\nReformulation\n\n\n0x4\n02/09\nDecision Trees\nJSON\n\n\n0x5\n02/16\nPerceptron\nDice\n\n\n0x6\n02/23\nError\nPlotly\n\n\n0x7\n03/02\nConnectivity\n\n\n\n0x8\n03/09\nLatent Space\nModels\n\n\n0x9\n03/16\nTensors\nTensorflow\n\n\n0bX\n03/23\nNone\nNone\n\n\n0xA\n03/30\nText Rep.\nTokens\n\n\n0xB\n03/06\nTransformers\n\n\n\n0xC\n04/13\nGenAI\n\n\n\n0xD\n04/20\nPrompts\nNone\n\n\n0xE\n04/29\nPerspectives\nPeer Review\n\n\n\nFinal course reflection (“Perspectives”) due whenever the final exam would finish, TBA\n\n\nLecture Recordings\nForthcoming"
+    "text": "CS 199 “Understanding AI”\n\nCalled:\n\nCS 199: Topics: Understanding AI\nAI 101\n\nA non-technical survey semester over:\n\nSome trends in AI use\nSome historical conversations around AI\nSome technical background in implementing minimal AI\n\nTaught this year via Google Colab.\n\nIt’s fast (it’s not)\nIt’s free (to us for now)\nIt’s fun (trust me)\n\n\n\nMW 1020-1150\n\n\nProf. Calvin\n\n\nSyllabus\n\nSyllabus link\n\n\n\n\nCalendar\n\n\n\n\n\nWeek\nDate (M)\nLecture (M)\nLab (W)\n\n\n\n\n0x0\n01/12\nAda & Alan\nTuring’s Test\n\n\n0x1\n01/19\nNone\nColab\n\n\n0x2\n01/26\n(Un)supervision\nDichotomy\n\n\n0x3\n02/02\nClassification\nReformulation\n\n\n0x4\n02/09\nDecision Trees\nJSON\n\n\n0x5\n02/16\nPerceptron\nDice\n\n\n0x6\n02/23\nError\nPlotly\n\n\n0x7\n03/02\nConnectivity\n\n\n\n0x8\n03/09\nLatent Space\nModels\n\n\n0x9\n03/16\nTensors\nTensorflow\n\n\n0bX\n03/23\nNone\nNone\n\n\n0xA\n03/30\nText Rep.\nTokens\n\n\n0xB\n03/06\nTransformers\n\n\n\n0xC\n04/13\nGenAI\n\n\n\n0xD\n04/20\nPrompts\nNone\n\n\n0xE\n04/29\nPerspectives\nPeer Review\n\n\n\nFinal course reflection (“Perspectives”) due whenever the final exam would finish, TBA\n\n\nLecture Recordings\nForthcoming"
   },
   {
     "objectID": "20_supervise.rjs.html#different-approaches-to-ai",
@@ -2224,26 +2295,6 @@
     "text": "Comparison Table\n\n\n\nDomain\nExamples\n\n\n\n\n\nAutonomous Driving\nSelf-driving cars learning optimal behavior\n\n\n\nRobotics\nTraining robots for automated assembly tasks\n\n\n\nGaming\nAI-driven strategy games like AlphaGo\n\n\n\n\n\n\nChoosing the Right Approach\n\nSupervised Learning: Use when labeled data is available for prediction tasks.\nUnsupervised Learning: Use when exploring data structures without predefined labels.\nReinforcement Learning: Use when decision-making is required in a dynamic environment.",
     "crumbs": [
       "(Un)supervision"
-    ]
-  },
-  {
-    "objectID": "21_key.html#computer-vision",
-    "href": "21_key.html#computer-vision",
-    "title": "Dichotomous Key",
-    "section": "",
-    "text": "Computer vision tasks include methods for acquiring, processing, analyzing, and understanding digital images, and extraction of high-dimensional data from the real world in order to produce numerical or symbolic information, e.g. in the form of decisions.\n\n\nProf. Rachel Brown in the CS department is a computer vision researcher and helped develop this course!\nWe will use the dichotomous key and Google Gemini to to classify oaks, from their images, as one of the 8 species in our key.\n\n\n\n\nTo implement our dichotomous key we will:\n\nShare images with Gemini\nAsk Gemini a question about the images.\nBased on the answer, either:\n\nAsk a new question, or\nGive a result, the classification of the tree.\n\n\nTo do so we will use “if/else” syntax.\n\n\n\n\n\nLike while which we learned in the “Colab” lab, we can use if and else to ask Gemini questions more than once.\n\nFor example, we can ask if leaves are “smooth” or “lobed”.\nif Gemini says “smooth”, we can then ask if the leaves are evergreen.\nelse we can ask if the lobes (or teeth) are bristle-tipped.",
-    "crumbs": [
-      "Dichotomous Key"
-    ]
-  },
-  {
-    "objectID": "21_key.html#take-notes",
-    "href": "21_key.html#take-notes",
-    "title": "Dichotomous Key",
-    "section": "",
-    "text": "Create a “Lab03” Colab notebook (NOT a Google Document) in your AI Folder.\nCreate a text cell in this Colab notebook.\nRecord 140-280 characters worth of thoughts on working through the key - more if you have more thoughts.",
-    "crumbs": [
-      "Dichotomous Key"
     ]
   }
 ]
