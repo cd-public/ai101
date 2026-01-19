@@ -1,0 +1,193 @@
+---
+title: Dichotomous Key 
+format: html
+---
+
+# What is a Dichotmous Key?
+
+> [...an identification key where the sequence and structure of identification steps is fixed by the author of the key. At each point in the decision process, multiple alternatives are offered, each leading to a result or a further choice.](https://en.wikipedia.org/wiki/Single-access_key)
+
+![](https://upload.wikimedia.org/wikipedia/commons/b/bb/US_President_Dichotomous_Key.jpg)
+
+
+## Why do we care?
+
+> Single access keys are closely related to decision trees and binary search trees. However, to improve the usability and reliability of keys, many single-access keys incorporate reticulation, changing the tree structure into a directed acyclic graph. Single-access keys have been in use for several hundred years.
+
+- They:
+    - Predate computers, yet
+    - Use state-of-the-art techniques in computing.
+- We study them as a way to understand AI
+
+## Motivating Example
+
+- I learned about dichtomous keys in biology class, and only realized the connection years latter.
+- In the spirit of good ole biology, a *real* science, we will study the example of "botanical classification of oaks."
+    - Please under absolutely no circumstances ask me anything about biology.
+    - I do not know and will embarrass myself and may confuse or even horrify you.
+    - Biology is cool though!
+
+### The Key
+
+- Basically, a key is a branching series of yes/no questions.
+    - The dichotomous key gets its name from having two ("di") possibilities for any case
+    - "yes" and "no" or "true" and "false" or etc. etc.
+- To classify an oak, there are a series of questions that a non-expert can answer by inspecting the tree, such as being looking at the whole tree or looking at its leaves.
+- After answer a question, there is either a reference to a new question, usually by number, or a note that you have determined what the type of tree is.
+
+### Example
+
+    1. Leaves usually without teeth or lobes: 2
+    1. Leaves usually with teeth or lobes: 5
+
+        2. Leaves evergreen: 3
+        2. Leaves not evergreen: 4
+
+    3. Mature plant a large tree — Southern live oak Quercus virginiana
+    3. Mature plant a small shrub — Dwarf live oak Quercus minima
+
+        4. Leaf narrow, about 4-6 times as long as broad — Willow oak Quercus phellos
+        4. Leaf broad, about 2-3 times as long as broad — Shingle oak Quercus imbricaria
+
+    5. Lobes or teeth bristle-tipped: 6
+    5. Lobes or teeth rounded or blunt-pointed, no bristles: 7
+
+        6. Leaves mostly with 3 lobes — Blackjack oak Quercus marilandica
+        6. Leaves mostly with 7-9 lobes — Northern red oak Quercus rubra
+
+    7. Leaves with 5-9 deep lobes — White oak Quercus alba
+    7. Leaves with 21-27 shallow lobes — Swamp chestnut oak Quercus prinus
+
+### Visually
+
+- You may have to zoom in...
+
+```{dot}
+digraph OakKey {
+    bgcolor="transparent"
+    node [shape=box,  fontcolor="white", color="white"];
+    edge [color="white", fontcolor="white"];
+    
+    // Questions/Nodes
+    Start [label="Leaves are smooth with no teeth or lobes?"];
+    Evergreen [label="Laves evergreen?"];
+    GrowthHabit [label="Large Tree (not shrub)?"];
+    LeafShape [label="Leaves more than 3x long as wide"];
+    Bristles [label="Lobes/teeth bristle-tipped?"];
+    LobeCount6 [label="3 or fewer lobes?"];
+    LobeCount7 [label="9 or fewer lobes?"];
+
+    // Species (Leaf nodes)
+    LiveOak [label="Southern live oak"];
+    DwarfOak [label="Dwarf live oak"];
+    WillowOak [label="Willow oak"];
+    ShingleOak [label="Shingle oak"];
+    BlackjackOak [label="Blackjack oak"];
+    RedOak [label="Northern red oak"];
+    WhiteOak [label="White oak"];
+    SwampOak [label="Swamp chestnut oak"];
+
+    // Relationships
+    Start -> Evergreen [label="True"];
+    Start -> Bristles [label="False"];
+
+    Evergreen -> GrowthHabit [label="True"];
+    Evergreen -> LeafShape [label="False"];
+
+    GrowthHabit -> LiveOak [label="True"];
+    GrowthHabit -> DwarfOak [label="False"];
+
+    LeafShape -> WillowOak [label="True"];
+    LeafShape -> ShingleOak [label="False"];
+
+    Bristles -> LobeCount6 [label="True"];
+    Bristles -> LobeCount7 [label="False"];
+
+    LobeCount6 -> BlackjackOak [label="True"];
+    LobeCount6 -> RedOak [label="False"];
+
+    LobeCount7 -> WhiteOak [label="True"];
+    LobeCount7 -> SwampOak [label="False"];
+}
+```
+
+## Some oaks
+
+- One problem with using pictures of oaks on the internet is that they usually named something like "I am this type of oak".png (Portable Network Graphic - the type of image it is) and then when you ask Gemini what type of oak it is, Gemini just reads the name.
+- Not to worry, I downloaded a bunch of pictures of oaks and changed their names.
+- I have given them a temporary name and used "spoiler tags" to hide the actual name.
+- For each tree, I provide an image of the tree and an image of leaves.
+    - All are sourced from Wikipedia and appropriately licensed, with the links to the host page in the key.
+
+### Key
+
+*Click "Details" to expand*
+
+<details>
+
+|Nickname|Common Name|Scientific Name|
+|-|-|-|
+| A | [Blackjack oak](https://en.wikipedia.org/wiki/Quercus_marilandica) | Quercus marilandica |
+| B | [Dwarf live oak](https://en.wikipedia.org/wiki/Dwarf_live_oak) | Quercus minima |
+| C | [Northern red oak](https://en.wikipedia.org/wiki/Quercus_rubra) | Quercus rubra | 
+
+</details>
+
+### Oak A
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+![](images/oaks/a_tree.jpg)
+
+:::
+
+::: {.column width="50%"}
+
+![](images/oaks/a_leaf.jpg)
+
+:::
+
+::::
+
+### Oak B
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+
+![](images/oaks/b_tree.jpg)
+
+:::
+
+::: {.column width="50%"}
+
+![](images/oaks/b_leaf.jpg)
+
+:::
+
+::::
+
+### Oak C
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+![](images/oaks/c_tree.jpg)
+
+:::
+
+::: {.column width="50%"}
+
+![](images/oaks/c_leaf.jpg)
+
+:::
+
+::::
+
+## Sorting Oaks
+
+- Pick one of the three oaks, work through the key, then check your answer!

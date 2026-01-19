@@ -2175,5 +2175,76 @@
     "crumbs": [
       "(Un)supervision"
     ]
+  },
+  {
+    "objectID": "21_key.html",
+    "href": "21_key.html",
+    "title": "Dichotomous Key",
+    "section": "",
+    "text": "…an identification key where the sequence and structure of identification steps is fixed by the author of the key. At each point in the decision process, multiple alternatives are offered, each leading to a result or a further choice.\n\n\n\n\n\nSingle access keys are closely related to decision trees and binary search trees. However, to improve the usability and reliability of keys, many single-access keys incorporate reticulation, changing the tree structure into a directed acyclic graph. Single-access keys have been in use for several hundred years.\n\n\nThey:\n\nPredate computers, yet\nUse state-of-the-art techniques in computing.\n\nWe study them as a way to understand AI\n\n\n\n\n\nI learned about dichtomous keys in biology class, and only realized the connection years latter.\nIn the spirit of good ole biology, a real science, we will study the example of “botanical classification of oaks.”\n\nPlease under absolutely no circumstances ask me anything about biology.\nI do not know and will embarrass myself and may confuse or even horrify you.\nBiology is cool though!\n\n\n\n\n\nBasically, a key is a branching series of yes/no questions.\n\nThe dichotomous key gets its name from having two (“di”) possibilities for any case\n“yes” and “no” or “true” and “false” or etc. etc.\n\nTo classify an oak, there are a series of questions that a non-expert can answer by inspecting the tree, such as being looking at the whole tree or looking at its leaves.\nAfter answer a question, there is either a reference to a new question, usually by number, or a note that you have determined what the type of tree is.\n\n\n\n\n1. Leaves usually without teeth or lobes: 2\n1. Leaves usually with teeth or lobes: 5\n\n    2. Leaves evergreen: 3\n    2. Leaves not evergreen: 4\n\n3. Mature plant a large tree — Southern live oak Quercus virginiana\n3. Mature plant a small shrub — Dwarf live oak Quercus minima\n\n    4. Leaf narrow, about 4-6 times as long as broad — Willow oak Quercus phellos\n    4. Leaf broad, about 2-3 times as long as broad — Shingle oak Quercus imbricaria\n\n5. Lobes or teeth bristle-tipped: 6\n5. Lobes or teeth rounded or blunt-pointed, no bristles: 7\n\n    6. Leaves mostly with 3 lobes — Blackjack oak Quercus marilandica\n    6. Leaves mostly with 7-9 lobes — Northern red oak Quercus rubra\n\n7. Leaves with 5-9 deep lobes — White oak Quercus alba\n7. Leaves with 21-27 shallow lobes — Swamp chestnut oak Quercus prinus\n\n\n\n\nYou may have to zoom in…\n\n\n\n\n\n\n\n\nOakKey\n\n\nStart\n\nLeaves are smooth with no teeth or lobes?\n\n\n\nEvergreen\n\nLaves evergreen?\n\n\n\nStart-&gt;Evergreen\n\n\nTrue\n\n\n\nBristles\n\nLobes/teeth bristle-tipped?\n\n\n\nStart-&gt;Bristles\n\n\nFalse\n\n\n\nGrowthHabit\n\nLarge Tree (not shrub)?\n\n\n\nEvergreen-&gt;GrowthHabit\n\n\nTrue\n\n\n\nLeafShape\n\nLeaves more than 3x long as wide\n\n\n\nEvergreen-&gt;LeafShape\n\n\nFalse\n\n\n\nLiveOak\n\nSouthern live oak\n\n\n\nGrowthHabit-&gt;LiveOak\n\n\nTrue\n\n\n\nDwarfOak\n\nDwarf live oak\n\n\n\nGrowthHabit-&gt;DwarfOak\n\n\nFalse\n\n\n\nWillowOak\n\nWillow oak\n\n\n\nLeafShape-&gt;WillowOak\n\n\nTrue\n\n\n\nShingleOak\n\nShingle oak\n\n\n\nLeafShape-&gt;ShingleOak\n\n\nFalse\n\n\n\nLobeCount6\n\n3 or fewer lobes?\n\n\n\nBristles-&gt;LobeCount6\n\n\nTrue\n\n\n\nLobeCount7\n\n9 or fewer lobes?\n\n\n\nBristles-&gt;LobeCount7\n\n\nFalse\n\n\n\nBlackjackOak\n\nBlackjack oak\n\n\n\nLobeCount6-&gt;BlackjackOak\n\n\nTrue\n\n\n\nRedOak\n\nNorthern red oak\n\n\n\nLobeCount6-&gt;RedOak\n\n\nFalse\n\n\n\nWhiteOak\n\nWhite oak\n\n\n\nLobeCount7-&gt;WhiteOak\n\n\nTrue\n\n\n\nSwampOak\n\nSwamp chestnut oak\n\n\n\nLobeCount7-&gt;SwampOak\n\n\nFalse\n\n\n\n\n\n\n\n\n\n\n\n\n\nOne problem with using pictures of oaks on the internet is that they usually named something like “I am this type of oak”.png (Portable Network Graphic - the type of image it is) and then when you ask Gemini what type of oak it is, Gemini just reads the name.\nNot to worry, I downloaded a bunch of pictures of oaks and changed their names.\nI have given them a temporary name and used “spoiler tags” to hide the actual name.\nFor each tree, I provide an image of the tree and an image of leaves.\n\nAll are sourced from Wikipedia and appropriately licensed, with the links to the host page in the key.\n\n\n\n\nClick “Details” to expand\n\n\n\n\nNickname\nCommon Name\nScientific Name\n\n\n\n\nA\nBlackjack oak\nQuercus marilandica\n\n\nB\nDwarf live oak\nQuercus minima\n\n\nC\nNorthern red oak\nQuercus rubra\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPick one of the three oaks, work through the key, then check your answer!",
+    "crumbs": [
+      "Dichotomous Key"
+    ]
+  },
+  {
+    "objectID": "21_key.html#why-do-we-care",
+    "href": "21_key.html#why-do-we-care",
+    "title": "Dichotomous Key",
+    "section": "",
+    "text": "Single access keys are closely related to decision trees and binary search trees. However, to improve the usability and reliability of keys, many single-access keys incorporate reticulation, changing the tree structure into a directed acyclic graph. Single-access keys have been in use for several hundred years.\n\n\nThey:\n\nPredate computers, yet\nUse state-of-the-art techniques in computing.\n\nWe study them as a way to understand AI",
+    "crumbs": [
+      "Dichotomous Key"
+    ]
+  },
+  {
+    "objectID": "21_key.html#motivating-example",
+    "href": "21_key.html#motivating-example",
+    "title": "Dichotomous Key",
+    "section": "",
+    "text": "I learned about dichtomous keys in biology class, and only realized the connection years latter.\nIn the spirit of good ole biology, a real science, we will study the example of “botanical classification of oaks.”\n\nPlease under absolutely no circumstances ask me anything about biology.\nI do not know and will embarrass myself and may confuse or even horrify you.\nBiology is cool though!\n\n\n\n\n\nBasically, a key is a branching series of yes/no questions.\n\nThe dichotomous key gets its name from having two (“di”) possibilities for any case\n“yes” and “no” or “true” and “false” or etc. etc.\n\nTo classify an oak, there are a series of questions that a non-expert can answer by inspecting the tree, such as being looking at the whole tree or looking at its leaves.\nAfter answer a question, there is either a reference to a new question, usually by number, or a note that you have determined what the type of tree is.\n\n\n\n\n1. Leaves usually without teeth or lobes: 2\n1. Leaves usually with teeth or lobes: 5\n\n    2. Leaves evergreen: 3\n    2. Leaves not evergreen: 4\n\n3. Mature plant a large tree — Southern live oak Quercus virginiana\n3. Mature plant a small shrub — Dwarf live oak Quercus minima\n\n    4. Leaf narrow, about 4-6 times as long as broad — Willow oak Quercus phellos\n    4. Leaf broad, about 2-3 times as long as broad — Shingle oak Quercus imbricaria\n\n5. Lobes or teeth bristle-tipped: 6\n5. Lobes or teeth rounded or blunt-pointed, no bristles: 7\n\n    6. Leaves mostly with 3 lobes — Blackjack oak Quercus marilandica\n    6. Leaves mostly with 7-9 lobes — Northern red oak Quercus rubra\n\n7. Leaves with 5-9 deep lobes — White oak Quercus alba\n7. Leaves with 21-27 shallow lobes — Swamp chestnut oak Quercus prinus\n\n\n\n\nYou may have to zoom in…\n\n\n\n\n\n\n\n\nOakKey\n\n\nStart\n\nLeaves are smooth with no teeth or lobes?\n\n\n\nEvergreen\n\nLaves evergreen?\n\n\n\nStart-&gt;Evergreen\n\n\nTrue\n\n\n\nBristles\n\nLobes/teeth bristle-tipped?\n\n\n\nStart-&gt;Bristles\n\n\nFalse\n\n\n\nGrowthHabit\n\nLarge Tree (not shrub)?\n\n\n\nEvergreen-&gt;GrowthHabit\n\n\nTrue\n\n\n\nLeafShape\n\nLeaves more than 3x long as wide\n\n\n\nEvergreen-&gt;LeafShape\n\n\nFalse\n\n\n\nLiveOak\n\nSouthern live oak\n\n\n\nGrowthHabit-&gt;LiveOak\n\n\nTrue\n\n\n\nDwarfOak\n\nDwarf live oak\n\n\n\nGrowthHabit-&gt;DwarfOak\n\n\nFalse\n\n\n\nWillowOak\n\nWillow oak\n\n\n\nLeafShape-&gt;WillowOak\n\n\nTrue\n\n\n\nShingleOak\n\nShingle oak\n\n\n\nLeafShape-&gt;ShingleOak\n\n\nFalse\n\n\n\nLobeCount6\n\n3 or fewer lobes?\n\n\n\nBristles-&gt;LobeCount6\n\n\nTrue\n\n\n\nLobeCount7\n\n9 or fewer lobes?\n\n\n\nBristles-&gt;LobeCount7\n\n\nFalse\n\n\n\nBlackjackOak\n\nBlackjack oak\n\n\n\nLobeCount6-&gt;BlackjackOak\n\n\nTrue\n\n\n\nRedOak\n\nNorthern red oak\n\n\n\nLobeCount6-&gt;RedOak\n\n\nFalse\n\n\n\nWhiteOak\n\nWhite oak\n\n\n\nLobeCount7-&gt;WhiteOak\n\n\nTrue\n\n\n\nSwampOak\n\nSwamp chestnut oak\n\n\n\nLobeCount7-&gt;SwampOak\n\n\nFalse",
+    "crumbs": [
+      "Dichotomous Key"
+    ]
+  },
+  {
+    "objectID": "21_key.html#some-oaks",
+    "href": "21_key.html#some-oaks",
+    "title": "Dichotomous Key",
+    "section": "",
+    "text": "One problem with using pictures of oaks on the internet is that they usually named something like “I am this type of oak”.png (Portable Network Graphic - the type of image it is) and then when you ask Gemini what type of oak it is, Gemini just reads the name.\nNot to worry, I downloaded a bunch of pictures of oaks and changed their names.\nI have given them a temporary name and used “spoiler tags” to hide the actual name.\nFor each tree, I provide an image of the tree and an image of leaves.\n\nAll are sourced from Wikipedia and appropriately licensed, with the links to the host page in the key.\n\n\n\n\nClick “Details” to expand\n\n\n\n\nNickname\nCommon Name\nScientific Name\n\n\n\n\nA\nBlackjack oak\nQuercus marilandica\n\n\nB\nDwarf live oak\nQuercus minima\n\n\nC\nNorthern red oak\nQuercus rubra",
+    "crumbs": [
+      "Dichotomous Key"
+    ]
+  },
+  {
+    "objectID": "21_key.rjs.html#why-do-we-care",
+    "href": "21_key.rjs.html#why-do-we-care",
+    "title": "Dichotomous Key",
+    "section": "Why do we care?",
+    "text": "Why do we care?\n\nSingle access keys are closely related to decision trees and binary search trees. However, to improve the usability and reliability of keys, many single-access keys incorporate reticulation, changing the tree structure into a directed acyclic graph. Single-access keys have been in use for several hundred years.\n\n\nThey:\n\nPredate computers, yet\nUse state-of-the-art techniques in computing.\n\nWe study them as a way to understand AI"
+  },
+  {
+    "objectID": "21_key.rjs.html#motivating-example",
+    "href": "21_key.rjs.html#motivating-example",
+    "title": "Dichotomous Key",
+    "section": "Motivating Example",
+    "text": "Motivating Example\n\nI learned about dichtomous keys in biology class, and only realized the connection years latter.\nIn the spirit of good ole biology, a real science, we will study the example of “botanical classification of oaks.”\n\nPlease under absolutely no circumstances ask me anything about biology.\nI do not know and will embarrass myself and may confuse or even horrify you.\nBiology is cool though!"
+  },
+  {
+    "objectID": "21_key.rjs.html#some-oaks",
+    "href": "21_key.rjs.html#some-oaks",
+    "title": "Dichotomous Key",
+    "section": "Some oaks",
+    "text": "Some oaks\n\nOne problem with using pictures of oaks on the internet is that they usually named something like “I am this type of oak”.png (Portable Network Graphic - the type of image it is) and then when you ask Gemini what type of oak it is, Gemini just reads the name.\nNot to worry, I downloaded a bunch of pictures of oaks and changed their names.\nI have given them a temporary name and used “spoiler tags” to hide the actual name.\n\nKey\n\n\n\n\nNickname\nCommon Name\nScientific Name\n\n\n\n\nA\nBlackjack oak\nQuercus marilandica\n\n\nB\nDwarf live oak\nQuercus minima\n\n\nC\nNorthern red oak\nQuercus rubra"
+  },
+  {
+    "objectID": "21_key.html#sorting-oaks",
+    "href": "21_key.html#sorting-oaks",
+    "title": "Dichotomous Key",
+    "section": "",
+    "text": "Pick one of the three oaks, work through the key, then check your answer!",
+    "crumbs": [
+      "Dichotomous Key"
+    ]
   }
 ]
