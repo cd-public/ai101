@@ -198,6 +198,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#oak-c" id="toc-oak-c" class="nav-link" data-scroll-target="#oak-c">Oak C</a></li>
   </ul></li>
   <li><a href="#sorting-oaks" id="toc-sorting-oaks" class="nav-link" data-scroll-target="#sorting-oaks">Sorting Oaks</a></li>
+  <li><a href="#take-notes" id="toc-take-notes" class="nav-link" data-scroll-target="#take-notes">Take notes</a></li>
+  <li><a href="#computer-vision" id="toc-computer-vision" class="nav-link" data-scroll-target="#computer-vision">Computer Vision</a>
+  <ul class="collapse">
+  <li><a href="#your-task" id="toc-your-task" class="nav-link" data-scroll-target="#your-task">Your Task</a></li>
+  <li><a href="#ifelse-syntax" id="toc-ifelse-syntax" class="nav-link" data-scroll-target="#ifelse-syntax">If/else Syntax</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -580,10 +586,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>Pick one of the three oaks, work through the key, then check your answer!</li>
 </ul>
+</section>
+<section id="take-notes" class="level2">
+<h2 class="anchored" data-anchor-id="take-notes">Take notes</h2>
+<ul>
+<li>Create a “Lab03” Colab notebook (NOT a Google Document) in your AI Folder.</li>
+<li>Create a text cell in this Colab notebook.</li>
+<li>Record 140-280 characters worth of thoughts on working through the key - more if you have more thoughts.</li>
+</ul>
+</section>
+<section id="computer-vision" class="level2">
+<h2 class="anchored" data-anchor-id="computer-vision">Computer Vision</h2>
+<blockquote class="blockquote">
+<p><a href="https://en.wikipedia.org/wiki/Computer_vision">Computer vision tasks include methods for acquiring, processing, analyzing, and understanding digital images, and extraction of high-dimensional data from the real world in order to produce numerical or symbolic information, e.g.&nbsp;in the form of decisions.</a></p>
+</blockquote>
+<ul>
+<li><a href="https://www.rachelabrown.com/">Prof.&nbsp;Rachel Brown</a> in the CS department is a computer vision researcher and helped develop this course!</li>
+<li>We will use the <em>dichotomous key</em> and Google Gemini to to classify oaks, from their images, as one of the 8 species in our key.</li>
+</ul>
+<section id="your-task" class="level3">
+<h3 class="anchored" data-anchor-id="your-task">Your Task</h3>
+<ul>
+<li>To implement our <em>dichotomous key</em> we will:
+<ul>
+<li>Share images with Gemini</li>
+<li>Ask Gemini a question about the images.</li>
+<li>Based on the answer, either:
+<ul>
+<li>Ask a new question, or</li>
+<li>Give a result, the classification of the tree.</li>
+</ul></li>
+</ul></li>
+<li>To do so we will use “if/else” syntax.</li>
+</ul>
+</section>
+<section id="ifelse-syntax" class="level3">
+<h3 class="anchored" data-anchor-id="ifelse-syntax">If/else Syntax</h3>
+<ul>
+<li>Like <code>while</code> which we learned in the “Colab” lab, we can use <code>if</code> and <code>else</code> to ask Gemini questions more than once.
+<ul>
+<li>For example, we can ask if leaves are “smooth” or “lobed”.</li>
+<li><code>if</code> Gemini says “smooth”, we can then ask if the leaves are evergreen.</li>
+<li><code>else</code> we can ask if the lobes (or teeth) are bristle-tipped.</li>
+</ul></li>
+</ul>
 
 
 <!-- -->
 
+</section>
 </section>
 </section>
 
@@ -1241,6 +1292,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-193"><a href="#cb2-193"></a><span class="fu">## Sorting Oaks</span></span>
 <span id="cb2-194"><a href="#cb2-194"></a></span>
 <span id="cb2-195"><a href="#cb2-195"></a><span class="ss">- </span>Pick one of the three oaks, work through the key, then check your answer!</span>
+<span id="cb2-196"><a href="#cb2-196"></a></span>
+<span id="cb2-197"><a href="#cb2-197"></a><span class="fu">## Take notes</span></span>
+<span id="cb2-198"><a href="#cb2-198"></a></span>
+<span id="cb2-199"><a href="#cb2-199"></a><span class="ss">- </span>Create a "Lab03" Colab notebook (NOT a Google Document) in your AI Folder.</span>
+<span id="cb2-200"><a href="#cb2-200"></a><span class="ss">- </span>Create a text cell in this Colab notebook.</span>
+<span id="cb2-201"><a href="#cb2-201"></a><span class="ss">- </span>Record 140-280 characters worth of thoughts on working through the key - more if you have more thoughts.</span>
+<span id="cb2-202"><a href="#cb2-202"></a></span>
+<span id="cb2-203"><a href="#cb2-203"></a></span>
+<span id="cb2-204"><a href="#cb2-204"></a><span class="fu">## Computer Vision</span></span>
+<span id="cb2-205"><a href="#cb2-205"></a></span>
+<span id="cb2-206"><a href="#cb2-206"></a><span class="at">&gt; </span><span class="co">[</span><span class="ot">Computer vision tasks include methods for acquiring, processing, analyzing, and understanding digital images, and extraction of high-dimensional data from the real world in order to produce numerical or symbolic information, e.g. in the form of decisions.</span><span class="co">](https://en.wikipedia.org/wiki/Computer_vision)</span></span>
+<span id="cb2-207"><a href="#cb2-207"></a></span>
+<span id="cb2-208"><a href="#cb2-208"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Prof. Rachel Brown</span><span class="co">](https://www.rachelabrown.com/)</span> in the CS department is a computer vision researcher and helped develop this course!</span>
+<span id="cb2-209"><a href="#cb2-209"></a><span class="ss">- </span>We will use the *dichotomous key* and Google Gemini to to classify oaks, from their images, as one of the 8 species in our key.</span>
+<span id="cb2-210"><a href="#cb2-210"></a></span>
+<span id="cb2-211"><a href="#cb2-211"></a><span class="fu">### Your Task</span></span>
+<span id="cb2-212"><a href="#cb2-212"></a></span>
+<span id="cb2-213"><a href="#cb2-213"></a><span class="ss">- </span>To implement our *dichotomous key* we will:</span>
+<span id="cb2-214"><a href="#cb2-214"></a><span class="ss">  - </span>Share images with Gemini</span>
+<span id="cb2-215"><a href="#cb2-215"></a><span class="ss">  - </span>Ask Gemini a question about the images.</span>
+<span id="cb2-216"><a href="#cb2-216"></a><span class="ss">  - </span>Based on the answer, either:</span>
+<span id="cb2-217"><a href="#cb2-217"></a><span class="ss">    - </span>Ask a new question, or</span>
+<span id="cb2-218"><a href="#cb2-218"></a><span class="ss">    - </span>Give a result, the classification of the tree.</span>
+<span id="cb2-219"><a href="#cb2-219"></a><span class="ss">- </span>To do so we will use "if/else" syntax.</span>
+<span id="cb2-220"><a href="#cb2-220"></a></span>
+<span id="cb2-221"><a href="#cb2-221"></a><span class="fu">### If/else Syntax</span></span>
+<span id="cb2-222"><a href="#cb2-222"></a></span>
+<span id="cb2-223"><a href="#cb2-223"></a><span class="ss">- </span>Like <span class="in">`while`</span> which we learned in the "Colab" lab, we can use <span class="in">`if`</span> and <span class="in">`else`</span> to ask Gemini questions more than once.</span>
+<span id="cb2-224"><a href="#cb2-224"></a><span class="ss">    - </span>For example, we can ask if leaves are "smooth" or "lobed".</span>
+<span id="cb2-225"><a href="#cb2-225"></a><span class="ss">    - </span><span class="in">`if`</span> Gemini says "smooth", we can then ask if the leaves are evergreen.</span>
+<span id="cb2-226"><a href="#cb2-226"></a><span class="ss">    - </span><span class="in">`else`</span> we can ask if the lobes (or teeth) are bristle-tipped.</span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

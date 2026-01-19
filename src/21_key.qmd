@@ -191,3 +191,34 @@ digraph OakKey {
 ## Sorting Oaks
 
 - Pick one of the three oaks, work through the key, then check your answer!
+
+## Take notes
+
+- Create a "Lab03" Colab notebook (NOT a Google Document) in your AI Folder.
+- Create a text cell in this Colab notebook.
+- Record 140-280 characters worth of thoughts on working through the key - more if you have more thoughts.
+
+
+## Computer Vision
+
+> [Computer vision tasks include methods for acquiring, processing, analyzing, and understanding digital images, and extraction of high-dimensional data from the real world in order to produce numerical or symbolic information, e.g. in the form of decisions.](https://en.wikipedia.org/wiki/Computer_vision)
+
+- [Prof. Rachel Brown](https://www.rachelabrown.com/) in the CS department is a computer vision researcher and helped develop this course!
+- We will use the *dichotomous key* and Google Gemini to to classify oaks, from their images, as one of the 8 species in our key.
+
+### Your Task
+
+- To implement our *dichotomous key* we will:
+  - Share images with Gemini
+  - Ask Gemini a question about the images.
+  - Based on the answer, either:
+    - Ask a new question, or
+    - Give a result, the classification of the tree.
+- To do so we will use "if/else" syntax.
+
+### If/else Syntax
+
+- Like `while` which we learned in the "Colab" lab, we can use `if` and `else` to ask Gemini questions more than once.
+	- For example, we can ask if leaves are "smooth" or "lobed".
+	- `if` Gemini says "smooth", we can then ask if the leaves are evergreen.
+	- `else` we can ask if the lobes (or teeth) are bristle-tipped.
