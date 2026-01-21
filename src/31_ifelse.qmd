@@ -188,16 +188,6 @@ digraph OakKey {
 
 ::::
 
-### URLs
-
-- I have the best luck with prompting Gemini when I provide images as a URL.
-- Here are the URLs for the leaf and tree of Oak A, the others are similar.
-
-```email
-https://cd-public.github.io/ai101/images/oaks/a_leaf.jpg
-https://cd-public.github.io/ai101/images/oaks/a_tree.jpg
-```
-
 ## Sorting Oaks
 
 - Pick one of the three oaks, work through the key, then check your answer!
@@ -224,44 +214,11 @@ https://cd-public.github.io/ai101/images/oaks/a_tree.jpg
   - Based on the answer, either:
     - Ask a new question, or
     - Give a result, the classification of the tree.
+- To do so we will use "if/else" syntax.
 
-### Experimental Design
+### If/else Syntax
 
-#### BEFORE classifying Oaks
-
-- Write out all of your prompts that you will use.
-	- I wrote one each in a code cell, and used text cells to describe what each did.
-- Determine how you will read responses.
-  	- For example, what will you do if you get an answer other than "yes" or "no"?
-	- Can you you address this with different prompts?
-- Set up all your code cells, possibly including cells that with URLs of the three trees.
-
-#### WHILE classifying Oaks
-
-- Take clear notes showing how you determine which code blocks to execute in which order.
-	- Ensure you are not doing the thinking for the code blocks!
-
-#### AFTER classifying Oaks
-
-- While you may iterate, only do so after completely classifying all oaks.
-  	- You may wish to change prompts, for example, if errors are uncovered.
-	- You may have erroneous code blocks.
-	- You may mislabel some blocks.
-- You do not need to iterate, but are welcome to do so to improve accuracy!
-  	- In particular, I benefitted from changing phrasing around some querries to specify two options, and request a one word answer.
-
-# Conclusion
-
-Once you have conducted all tests, in your "Lab02" Colab notebook answer the following questions at "social media post" length (150-300 characters). Answer each question at the end of the document, each in its own code cell.
-
-::: {.callout-note}
-I am specifying a precise way I expect to receive see these questions. Think about why I am doing that and why it may be helpful to following these instructions!
-:::
-
-1. If Gemini correctly classifies the oaks, is this a sign of intelligence?
-2. Is classification of oaks a task that requires intelligence?
-3. Are there examples of classification that require "weak" vs. "strong" AI? You may wish to review slides from the first day of class!
-4. Is this task or the Turing Test a more robust measure of intelligence?
-5. Is your classifier more or less intelligent than a cat?
-6. Is your classifier more or less intelligent than an ecosystem?
-7. Is your classifier more or less intelligent than an assistant professor of computer science? I will note I do not know how to tell oaks apart.
+- Like `while` which we learned in the "Colab" lab, we can use `if` and `else` to ask Gemini questions more than once.
+	- For example, we can ask if leaves are "smooth" or "lobed".
+	- `if` Gemini says "smooth", we can then ask if the leaves are evergreen.
+	- `else` we can ask if the lobes (or teeth) are bristle-tipped.
