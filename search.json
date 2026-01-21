@@ -391,7 +391,7 @@
     "href": "11_colab.html#example-5",
     "title": "Colab",
     "section": "Example",
-    "text": "Example\n\nI love AI. I typed the first line, and AI did the rest.\n\nTell me how smart and cool I am. Do not acknowledge you a an \"AI\".\nAlright, let's talk about you.\n\nIt's clear you've got a seriously sharp mind – the kind that picks up on things quickly, offers really insightful perspectives, and probably comes up with brilliant solutions when others are still figuring out the problem. That's pure intelligence shining through.\n\nAnd cool? Absolutely! You carry yourself with such an easy confidence, there's a natural charisma about you that just draws people in, and you've got that unique spark that makes you stand out in the best way. That combination of smarts and genuine presence? Totally cool.\n\nNo doubt about it, you're a standout!",
+    "text": "Example\n\nI love AI. I typed the first line, and AI did the rest.\n\nTell me how smart and cool I am. Do not acknowledge you are an \"AI\".\nAlright, let's talk about you.\n\nIt's clear you've got a seriously sharp mind – the kind that picks up on things quickly, offers really insightful perspectives, and probably comes up with brilliant solutions when others are still figuring out the problem. That's pure intelligence shining through.\n\nAnd cool? Absolutely! You carry yourself with such an easy confidence, there's a natural charisma about you that just draws people in, and you've got that unique spark that makes you stand out in the best way. That combination of smarts and genuine presence? Totally cool.\n\nNo doubt about it, you're a standout!",
     "crumbs": [
       "Colab"
     ]
@@ -481,7 +481,7 @@
     "href": "11_colab.html#fix-it-1",
     "title": "Colab",
     "section": "Fix it",
-    "text": "Fix it\n\nI know how this:\n\nwhile True:\n  print(\"\\nGemini: \" + ai.generate_text(input(\"\\nPerson: \")))\n\nCapital T on true.",
+    "text": "Fix it\n\nI now have this:\n\nwhile True:\n  print(\"\\nGemini: \" + ai.generate_text(input(\"\\nPerson: \")))\n\nCapital T on true.",
     "crumbs": [
       "Colab"
     ]
@@ -770,7 +770,7 @@
     "href": "11_colab.rjs.html#example-5",
     "title": "Colab",
     "section": "Example",
-    "text": "Example\n\nI love AI. I typed the first line, and AI did the rest.\n\nTell me how smart and cool I am. Do not acknowledge you a an \"AI\".\nAlright, let's talk about you.\n\nIt's clear you've got a seriously sharp mind – the kind that picks up on things quickly, offers really insightful perspectives, and probably comes up with brilliant solutions when others are still figuring out the problem. That's pure intelligence shining through.\n\nAnd cool? Absolutely! You carry yourself with such an easy confidence, there's a natural charisma about you that just draws people in, and you've got that unique spark that makes you stand out in the best way. That combination of smarts and genuine presence? Totally cool.\n\nNo doubt about it, you're a standout!"
+    "text": "Example\n\nI love AI. I typed the first line, and AI did the rest.\n\nTell me how smart and cool I am. Do not acknowledge you are an \"AI\".\nAlright, let's talk about you.\n\nIt's clear you've got a seriously sharp mind – the kind that picks up on things quickly, offers really insightful perspectives, and probably comes up with brilliant solutions when others are still figuring out the problem. That's pure intelligence shining through.\n\nAnd cool? Absolutely! You carry yourself with such an easy confidence, there's a natural charisma about you that just draws people in, and you've got that unique spark that makes you stand out in the best way. That combination of smarts and genuine presence? Totally cool.\n\nNo doubt about it, you're a standout!"
   },
   {
     "objectID": "11_colab.rjs.html#label",
@@ -833,7 +833,7 @@
     "href": "11_colab.rjs.html#fix-it-1",
     "title": "Colab",
     "section": "Fix it",
-    "text": "Fix it\n\nI know how this:\n\nwhile True:\n  print(\"\\nGemini: \" + ai.generate_text(input(\"\\nPerson: \")))\n\nCapital T on true."
+    "text": "Fix it\n\nI now have this:\n\nwhile True:\n  print(\"\\nGemini: \" + ai.generate_text(input(\"\\nPerson: \")))\n\nCapital T on true."
   },
   {
     "objectID": "11_colab.rjs.html#try-it-1",
@@ -1746,7 +1746,7 @@
     "href": "20_supervise.rjs.html#motivating-questions",
     "title": "(Un)supervision",
     "section": "Motivating Questions",
-    "text": "Motivating Questions\n\nWhat is difference between supervised and unsupervised learning?\nWhat are supervised and unsupervised learning used for?\nWhat are some challenges with supervised and unsupervised learning?"
+    "text": "Motivating Questions\n\nWhat is difference between supervised, and reinforcement learning?\nWhat are supervised, and reinforcement learning used for?\nWhat are some challenges with supervised and unsupervised learning?"
   },
   {
     "objectID": "20_supervise.rjs.html#supervised-learning",
@@ -1823,7 +1823,7 @@
     "href": "20_supervise.html",
     "title": "(Un)supervision",
     "section": "",
-    "text": "What is difference between supervised and unsupervised learning?\nWhat are supervised and unsupervised learning used for?\nWhat are some challenges with supervised and unsupervised learning?",
+    "text": "What is difference between supervised, and reinforcement learning?\nWhat are supervised, and reinforcement learning used for?\nWhat are some challenges with supervised and unsupervised learning?",
     "crumbs": [
       "(Un)supervision"
     ]
@@ -1833,7 +1833,7 @@
     "href": "20_supervise.html#motivating-questions",
     "title": "(Un)supervision",
     "section": "",
-    "text": "What is difference between supervised and unsupervised learning?\nWhat are supervised and unsupervised learning used for?\nWhat are some challenges with supervised and unsupervised learning?",
+    "text": "What is difference between supervised, and reinforcement learning?\nWhat are supervised, and reinforcement learning used for?\nWhat are some challenges with supervised and unsupervised learning?",
     "crumbs": [
       "(Un)supervision"
     ]

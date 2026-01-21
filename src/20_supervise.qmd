@@ -4,8 +4,8 @@ title: (Un)supervision
 
 ## Motivating Questions
 
-1. What is difference between supervised and unsupervised learning?
-2. What are supervised and unsupervised learning used for?
+1. What is difference between supervised, and reinforcement learning?
+2. What are supervised, and reinforcement learning used for?
 3. What are some challenges with supervised and unsupervised learning?
 
 ## Supervised Learning
