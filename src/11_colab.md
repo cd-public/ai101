@@ -102,6 +102,30 @@ To create a new Colab notebook you can...
 - Use the File menu on [https://colab.research.google.com/](https://colab.research.google.com/), or 
 - Use the following link: [http://colab.research.google.com#create=true](http://colab.research.google.com#create=true).
 
+## Follow Along
+
+::: {.callout-important}
+## Do this!
+
+1. Create a Colab notebook named Lab01
+2. Save it in your AI folder
+
+This is your lab for this week!
+:::
+
+## AI Folder
+
+- To quote last class:
+
+> [Create a folder named “AI_”. For example, mine is “AI_ckdeutschbein”. Share this folder with ckdeutschbein@willamette.edu](https://cd-public.github.io/ai101/01_test.html#folder-setup)
+
+- At this time, 4 students have not named their folder correctly and 11 students have not shared a folder.
+- Do this now.
+
+## Save your Lab01
+
+- Ensure you save Lab01 in the same folder as Lab00, your "AI folder" named "AI_your_wu_name"
+
 ## Share!
 
 - You can easily share your Colab notebooks, allowing them to comment on your notebooks or even edit them. 

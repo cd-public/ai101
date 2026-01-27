@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.30">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Dichotomous Key – AI 101</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./21_key.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-a4a11d514c7d463668e07712114998e6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-70c9a4798e5f6abb0636bcdc3eed0e90.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./31_ifelse.html">Dichotomous Key</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">AI 101</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00_turing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ada &amp; Alan</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Turing’s Test</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11_colab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Colab</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20_supervise.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">(Un)supervision</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21_key.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dichotomous Key</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./31_ifelse.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Dichotomous Key</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-is-a-dichotmous-key" id="toc-what-is-a-dichotmous-key" class="nav-link active" data-scroll-target="#what-is-a-dichotmous-key">What is a Dichotmous Key?</a>
+  <ul class="collapse">
+  <li><a href="#why-do-we-care" id="toc-why-do-we-care" class="nav-link" data-scroll-target="#why-do-we-care">Why do we care?</a></li>
+  <li><a href="#motivating-example" id="toc-motivating-example" class="nav-link" data-scroll-target="#motivating-example">Motivating Example</a>
+  <ul class="collapse">
+  <li><a href="#the-key" id="toc-the-key" class="nav-link" data-scroll-target="#the-key">The Key</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
+  <li><a href="#visually" id="toc-visually" class="nav-link" data-scroll-target="#visually">Visually</a></li>
+  </ul></li>
+  <li><a href="#some-oaks" id="toc-some-oaks" class="nav-link" data-scroll-target="#some-oaks">Some oaks</a>
+  <ul class="collapse">
+  <li><a href="#key" id="toc-key" class="nav-link" data-scroll-target="#key">Key</a></li>
+  <li><a href="#oak-a" id="toc-oak-a" class="nav-link" data-scroll-target="#oak-a">Oak A</a></li>
+  <li><a href="#oak-b" id="toc-oak-b" class="nav-link" data-scroll-target="#oak-b">Oak B</a></li>
+  <li><a href="#oak-c" id="toc-oak-c" class="nav-link" data-scroll-target="#oak-c">Oak C</a></li>
+  </ul></li>
+  <li><a href="#sorting-oaks" id="toc-sorting-oaks" class="nav-link" data-scroll-target="#sorting-oaks">Sorting Oaks</a></li>
+  <li><a href="#take-notes" id="toc-take-notes" class="nav-link" data-scroll-target="#take-notes">Take notes</a></li>
+  <li><a href="#computer-vision" id="toc-computer-vision" class="nav-link" data-scroll-target="#computer-vision">Computer Vision</a>
+  <ul class="collapse">
+  <li><a href="#your-task" id="toc-your-task" class="nav-link" data-scroll-target="#your-task">Your Task</a></li>
+  <li><a href="#ifelse-syntax" id="toc-ifelse-syntax" class="nav-link" data-scroll-target="#ifelse-syntax">If/else Syntax</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Dichotomous Key</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i></button></div></div>
+<p class="subtitle lead">AI 101</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="what-is-a-dichotmous-key" class="level1">
+<h1>What is a Dichotmous Key?</h1>
+<blockquote class="blockquote">
+<p><a href="https://en.wikipedia.org/wiki/Single-access_key">…an identification key where the sequence and structure of identification steps is fixed by the author of the key. At each point in the decision process, multiple alternatives are offered, each leading to a result or a further choice.</a></p>
+</blockquote>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/b/bb/US_President_Dichotomous_Key.jpg" class="img-fluid"></p>
+<section id="why-do-we-care" class="level2">
+<h2 class="anchored" data-anchor-id="why-do-we-care">Why do we care?</h2>
+<blockquote class="blockquote">
+<p>Single access keys are closely related to decision trees and binary search trees. However, to improve the usability and reliability of keys, many single-access keys incorporate reticulation, changing the tree structure into a directed acyclic graph. Single-access keys have been in use for several hundred years.</p>
+</blockquote>
+<ul>
+<li>They:
+<ul>
+<li>Predate computers, yet</li>
+<li>Use state-of-the-art techniques in computing.</li>
+</ul></li>
+<li>We study them as a way to understand AI</li>
+</ul>
+</section>
+<section id="motivating-example" class="level2">
+<h2 class="anchored" data-anchor-id="motivating-example">Motivating Example</h2>
+<ul>
+<li>I learned about dichtomous keys in biology class, and only realized the connection years latter.</li>
+<li>In the spirit of good ole biology, a <em>real</em> science, we will study the example of “botanical classification of oaks.”
+<ul>
+<li>Please under absolutely no circumstances ask me anything about biology.</li>
+<li>I do not know and will embarrass myself and may confuse or even horrify you.</li>
+<li>Biology is cool though!</li>
+</ul></li>
+</ul>
+<section id="the-key" class="level3">
+<h3 class="anchored" data-anchor-id="the-key">The Key</h3>
+<ul>
+<li>Basically, a key is a branching series of yes/no questions.
+<ul>
+<li>The dichotomous key gets its name from having two (“di”) possibilities for any case</li>
+<li>“yes” and “no” or “true” and “false” or etc. etc.</li>
+</ul></li>
+<li>To classify an oak, there are a series of questions that a non-expert can answer by inspecting the tree, such as being looking at the whole tree or looking at its leaves.</li>
+<li>After answer a question, there is either a reference to a new question, usually by number, or a note that you have determined what the type of tree is.</li>
+</ul>
+</section>
+<section id="example" class="level3">
+<h3 class="anchored" data-anchor-id="example">Example</h3>
+<pre><code>1. Leaves usually without teeth or lobes: 2
+1. Leaves usually with teeth or lobes: 5
+
+    2. Leaves evergreen: 3
+    2. Leaves not evergreen: 4
+
+3. Mature plant a large tree — Southern live oak Quercus virginiana
+3. Mature plant a small shrub — Dwarf live oak Quercus minima
+
+    4. Leaf narrow, about 4-6 times as long as broad — Willow oak Quercus phellos
+    4. Leaf broad, about 2-3 times as long as broad — Shingle oak Quercus imbricaria
+
+5. Lobes or teeth bristle-tipped: 6
+5. Lobes or teeth rounded or blunt-pointed, no bristles: 7
+
+    6. Leaves mostly with 3 lobes — Blackjack oak Quercus marilandica
+    6. Leaves mostly with 7-9 lobes — Northern red oak Quercus rubra
+
+7. Leaves with 5-9 deep lobes — White oak Quercus alba
+7. Leaves with 21-27 shallow lobes — Swamp chestnut oak Quercus prinus</code></pre>
+</section>
+<section id="visually" class="level3">
+<h3 class="anchored" data-anchor-id="visually">Visually</h3>
+<ul>
+<li>You may have to zoom in…</li>
+</ul>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 926.31 310.40" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 306.4)">
+<title>OakKey</title>
+<!-- Start -->
+<g id="node1" class="node">
+<title>Start</title>
+<polygon fill="none" stroke="white" points="598.36,-302.4 346.4,-302.4 346.4,-266.4 598.36,-266.4 598.36,-302.4"></polygon>
+<text text-anchor="middle" x="472.38" y="-280.2" font-family="Times,serif" font-size="14.00" fill="white">Leaves are smooth with no teeth or lobes?</text>
+</g>
+<!-- Evergreen -->
+<g id="node2" class="node">
+<title>Evergreen</title>
+<polygon fill="none" stroke="white" points="441.7,-213.6 327.06,-213.6 327.06,-177.6 441.7,-177.6 441.7,-213.6"></polygon>
+<text text-anchor="middle" x="384.38" y="-191.4" font-family="Times,serif" font-size="14.00" fill="white">Laves evergreen?</text>
+</g>
+<!-- Start&#45;&gt;Evergreen -->
+<g id="edge1" class="edge">
+<title>Start-&gt;Evergreen</title>
+<path fill="none" stroke="white" d="M454.99,-266.25C441.86,-253.29 423.65,-235.33 409.01,-220.9"></path>
+<polygon fill="white" stroke="white" points="411.31,-218.24 401.73,-213.71 406.39,-223.23 411.31,-218.24"></polygon>
+<text text-anchor="middle" x="449.59" y="-235.8" font-family="Times,serif" font-size="14.00" fill="white">True</text>
+</g>
+<!-- Bristles -->
+<g id="node5" class="node">
+<title>Bristles</title>
+<polygon fill="none" stroke="white" points="664.05,-213.6 498.71,-213.6 498.71,-177.6 664.05,-177.6 664.05,-213.6"></polygon>
+<text text-anchor="middle" x="581.38" y="-191.4" font-family="Times,serif" font-size="14.00" fill="white">Lobes/teeth bristle-tipped?</text>
+</g>
+<!-- Start&#45;&gt;Bristles -->
+<g id="edge2" class="edge">
+<title>Start-&gt;Bristles</title>
+<path fill="none" stroke="white" d="M493.91,-266.25C510.49,-253.05 533.57,-234.67 551.86,-220.11"></path>
+<polygon fill="white" stroke="white" points="554.25,-222.68 559.89,-213.71 549.89,-217.2 554.25,-222.68"></polygon>
+<text text-anchor="middle" x="552.16" y="-235.8" font-family="Times,serif" font-size="14.00" fill="white">False</text>
+</g>
+<!-- GrowthHabit -->
+<g id="node3" class="node">
+<title>GrowthHabit</title>
+<polygon fill="none" stroke="white" points="257.2,-124.8 107.56,-124.8 107.56,-88.8 257.2,-88.8 257.2,-124.8"></polygon>
+<text text-anchor="middle" x="182.38" y="-102.6" font-family="Times,serif" font-size="14.00" fill="white">Large Tree (not shrub)?</text>
+</g>
+<!-- Evergreen&#45;&gt;GrowthHabit -->
+<g id="edge3" class="edge">
+<title>Evergreen-&gt;GrowthHabit</title>
+<path fill="none" stroke="white" d="M344.47,-177.45C312.1,-163.54 266.32,-143.87 231.66,-128.98"></path>
+<polygon fill="white" stroke="white" points="232.77,-125.65 222.21,-124.91 230.01,-132.08 232.77,-125.65"></polygon>
+<text text-anchor="middle" x="315.59" y="-147" font-family="Times,serif" font-size="14.00" fill="white">True</text>
+</g>
+<!-- LeafShape -->
+<g id="node4" class="node">
+<title>LeafShape</title>
+<polygon fill="none" stroke="white" points="488.16,-124.8 280.6,-124.8 280.6,-88.8 488.16,-88.8 488.16,-124.8"></polygon>
+<text text-anchor="middle" x="384.38" y="-102.6" font-family="Times,serif" font-size="14.00" fill="white">Leaves more than 3x long as wide</text>
+</g>
+<!-- Evergreen&#45;&gt;LeafShape -->
+<g id="edge4" class="edge">
+<title>Evergreen-&gt;LeafShape</title>
+<path fill="none" stroke="white" d="M384.38,-177.45C384.38,-165.32 384.38,-148.82 384.38,-134.92"></path>
+<polygon fill="white" stroke="white" points="387.88,-134.91 384.38,-124.91 380.88,-134.91 387.88,-134.91"></polygon>
+<text text-anchor="middle" x="399.16" y="-147" font-family="Times,serif" font-size="14.00" fill="white">False</text>
+</g>
+<!-- LiveOak -->
+<g id="node8" class="node">
+<title>LiveOak</title>
+<polygon fill="none" stroke="white" points="114.64,-36 0.12,-36 0.12,0 114.64,0 114.64,-36"></polygon>
+<text text-anchor="middle" x="57.38" y="-13.8" font-family="Times,serif" font-size="14.00" fill="white">Southern live oak</text>
+</g>
+<!-- GrowthHabit&#45;&gt;LiveOak -->
+<g id="edge5" class="edge">
+<title>GrowthHabit-&gt;LiveOak</title>
+<path fill="none" stroke="white" d="M157.68,-88.65C138.42,-75.28 111.49,-56.57 90.38,-41.92"></path>
+<polygon fill="white" stroke="white" points="92.23,-38.94 82.02,-36.11 88.24,-44.69 92.23,-38.94"></polygon>
+<text text-anchor="middle" x="144.59" y="-58.2" font-family="Times,serif" font-size="14.00" fill="white">True</text>
+</g>
+<!-- DwarfOak -->
+<g id="node9" class="node">
+<title>DwarfOak</title>
+<polygon fill="none" stroke="white" points="232.35,-36 132.41,-36 132.41,0 232.35,0 232.35,-36"></polygon>
+<text text-anchor="middle" x="182.38" y="-13.8" font-family="Times,serif" font-size="14.00" fill="white">Dwarf live oak</text>
+</g>
+<!-- GrowthHabit&#45;&gt;DwarfOak -->
+<g id="edge6" class="edge">
+<title>GrowthHabit-&gt;DwarfOak</title>
+<path fill="none" stroke="white" d="M182.38,-88.65C182.38,-76.52 182.38,-60.02 182.38,-46.12"></path>
+<polygon fill="white" stroke="white" points="185.88,-46.11 182.38,-36.11 178.88,-46.11 185.88,-46.11"></polygon>
+<text text-anchor="middle" x="197.16" y="-58.2" font-family="Times,serif" font-size="14.00" fill="white">False</text>
+</g>
+<!-- WillowOak -->
+<g id="node10" class="node">
+<title>WillowOak</title>
+<polygon fill="none" stroke="white" points="332.09,-36 250.67,-36 250.67,0 332.09,0 332.09,-36"></polygon>
+<text text-anchor="middle" x="291.38" y="-13.8" font-family="Times,serif" font-size="14.00" fill="white">Willow oak</text>
+</g>
+<!-- LeafShape&#45;&gt;WillowOak -->
+<g id="edge7" class="edge">
+<title>LeafShape-&gt;WillowOak</title>
+<path fill="none" stroke="white" d="M366.01,-88.65C352.12,-75.69 332.88,-57.73 317.41,-43.3"></path>
+<polygon fill="white" stroke="white" points="319.41,-40.38 309.72,-36.11 314.64,-45.5 319.41,-40.38"></polygon>
+<text text-anchor="middle" x="359.59" y="-58.2" font-family="Times,serif" font-size="14.00" fill="white">True</text>
+</g>
+<!-- ShingleOak -->
+<g id="node11" class="node">
+<title>ShingleOak</title>
+<polygon fill="none" stroke="white" points="432.87,-36 349.88,-36 349.88,0 432.87,0 432.87,-36"></polygon>
+<text text-anchor="middle" x="391.38" y="-13.8" font-family="Times,serif" font-size="14.00" fill="white">Shingle oak</text>
+</g>
+<!-- LeafShape&#45;&gt;ShingleOak -->
+<g id="edge8" class="edge">
+<title>LeafShape-&gt;ShingleOak</title>
+<path fill="none" stroke="white" d="M385.76,-88.65C386.74,-76.52 388.07,-60.02 389.19,-46.12"></path>
+<polygon fill="white" stroke="white" points="392.68,-46.36 390,-36.11 385.71,-45.8 392.68,-46.36"></polygon>
+<text text-anchor="middle" x="404.16" y="-58.2" font-family="Times,serif" font-size="14.00" fill="white">False</text>
+</g>
+<!-- LobeCount6 -->
+<g id="node6" class="node">
+<title>LobeCount6</title>
+<polygon fill="none" stroke="white" points="637.67,-124.8 525.09,-124.8 525.09,-88.8 637.67,-88.8 637.67,-124.8"></polygon>
+<text text-anchor="middle" x="581.38" y="-102.6" font-family="Times,serif" font-size="14.00" fill="white">3 or fewer lobes?</text>
+</g>
+<!-- Bristles&#45;&gt;LobeCount6 -->
+<g id="edge9" class="edge">
+<title>Bristles-&gt;LobeCount6</title>
+<path fill="none" stroke="white" d="M581.38,-177.45C581.38,-165.32 581.38,-148.82 581.38,-134.92"></path>
+<polygon fill="white" stroke="white" points="584.88,-134.91 581.38,-124.91 577.88,-134.91 584.88,-134.91"></polygon>
+<text text-anchor="middle" x="594.59" y="-147" font-family="Times,serif" font-size="14.00" fill="white">True</text>
+</g>
+<!-- LobeCount7 -->
+<g id="node7" class="node">
+<title>LobeCount7</title>
+<polygon fill="none" stroke="white" points="787.67,-124.8 675.09,-124.8 675.09,-88.8 787.67,-88.8 787.67,-124.8"></polygon>
+<text text-anchor="middle" x="731.38" y="-102.6" font-family="Times,serif" font-size="14.00" fill="white">9 or fewer lobes?</text>
+</g>
+<!-- Bristles&#45;&gt;LobeCount7 -->
+<g id="edge10" class="edge">
+<title>Bristles-&gt;LobeCount7</title>
+<path fill="none" stroke="white" d="M611.01,-177.45C634.54,-163.84 667.6,-144.71 693.12,-129.94"></path>
+<polygon fill="white" stroke="white" points="694.9,-132.95 701.81,-124.91 691.4,-126.89 694.9,-132.95"></polygon>
+<text text-anchor="middle" x="685.16" y="-147" font-family="Times,serif" font-size="14.00" fill="white">False</text>
+</g>
+<!-- BlackjackOak -->
+<g id="node12" class="node">
+<title>BlackjackOak</title>
+<polygon fill="none" stroke="white" points="546.07,-36 450.69,-36 450.69,0 546.07,0 546.07,-36"></polygon>
+<text text-anchor="middle" x="498.38" y="-13.8" font-family="Times,serif" font-size="14.00" fill="white">Blackjack oak</text>
+</g>
+<!-- LobeCount6&#45;&gt;BlackjackOak -->
+<g id="edge11" class="edge">
+<title>LobeCount6-&gt;BlackjackOak</title>
+<path fill="none" stroke="white" d="M564.98,-88.65C552.7,-75.81 535.73,-58.06 521.99,-43.69"></path>
+<polygon fill="white" stroke="white" points="524.18,-40.92 514.74,-36.11 519.12,-45.76 524.18,-40.92"></polygon>
+<text text-anchor="middle" x="560.59" y="-58.2" font-family="Times,serif" font-size="14.00" fill="white">True</text>
+</g>
+<!-- RedOak -->
+<g id="node13" class="node">
+<title>RedOak</title>
+<polygon fill="none" stroke="white" points="676.01,-36 564.75,-36 564.75,0 676.01,0 676.01,-36"></polygon>
+<text text-anchor="middle" x="620.38" y="-13.8" font-family="Times,serif" font-size="14.00" fill="white">Northern red oak</text>
+</g>
+<!-- LobeCount6&#45;&gt;RedOak -->
+<g id="edge12" class="edge">
+<title>LobeCount6-&gt;RedOak</title>
+<path fill="none" stroke="white" d="M589.08,-88.65C594.64,-76.29 602.24,-59.37 608.56,-45.3"></path>
+<polygon fill="white" stroke="white" points="611.78,-46.67 612.69,-36.11 605.4,-43.8 611.78,-46.67"></polygon>
+<text text-anchor="middle" x="619.16" y="-58.2" font-family="Times,serif" font-size="14.00" fill="white">False</text>
+</g>
+<!-- WhiteOak -->
+<g id="node14" class="node">
+<title>WhiteOak</title>
+<polygon fill="none" stroke="white" points="768.3,-36 694.46,-36 694.46,0 768.3,0 768.3,-36"></polygon>
+<text text-anchor="middle" x="731.38" y="-13.8" font-family="Times,serif" font-size="14.00" fill="white">White oak</text>
+</g>
+<!-- LobeCount7&#45;&gt;WhiteOak -->
+<g id="edge13" class="edge">
+<title>LobeCount7-&gt;WhiteOak</title>
+<path fill="none" stroke="white" d="M731.38,-88.65C731.38,-76.52 731.38,-60.02 731.38,-46.12"></path>
+<polygon fill="white" stroke="white" points="734.88,-46.11 731.38,-36.11 727.88,-46.11 734.88,-46.11"></polygon>
+<text text-anchor="middle" x="744.59" y="-58.2" font-family="Times,serif" font-size="14.00" fill="white">True</text>
+</g>
+<!-- SwampOak -->
+<g id="node15" class="node">
+<title>SwampOak</title>
+<polygon fill="none" stroke="white" points="918.25,-36 786.51,-36 786.51,0 918.25,0 918.25,-36"></polygon>
+<text text-anchor="middle" x="852.38" y="-13.8" font-family="Times,serif" font-size="14.00" fill="white">Swamp chestnut oak</text>
+</g>
+<!-- LobeCount7&#45;&gt;SwampOak -->
+<g id="edge14" class="edge">
+<title>LobeCount7-&gt;SwampOak</title>
+<path fill="none" stroke="white" d="M755.29,-88.65C773.85,-75.34 799.77,-56.74 820.16,-42.11"></path>
+<polygon fill="white" stroke="white" points="822.44,-44.79 828.52,-36.11 818.36,-39.1 822.44,-44.79"></polygon>
+<text text-anchor="middle" x="817.16" y="-58.2" font-family="Times,serif" font-size="14.00" fill="white">False</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="some-oaks" class="level2">
+<h2 class="anchored" data-anchor-id="some-oaks">Some oaks</h2>
+<ul>
+<li>One problem with using pictures of oaks on the internet is that they usually named something like “I am this type of oak”.png (Portable Network Graphic - the type of image it is) and then when you ask Gemini what type of oak it is, Gemini just reads the name.</li>
+<li>Not to worry, I downloaded a bunch of pictures of oaks and changed their names.</li>
+<li>I have given them a temporary name and used “spoiler tags” to hide the actual name.</li>
+<li>For each tree, I provide an image of the tree and an image of leaves.
+<ul>
+<li>All are sourced from Wikipedia and appropriately licensed, with the links to the host page in the key.</li>
+</ul></li>
+</ul>
+<section id="key" class="level3">
+<h3 class="anchored" data-anchor-id="key">Key</h3>
+<p><em>Click “Details” to expand</em></p>
+<details>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Nickname</th>
+<th>Common Name</th>
+<th>Scientific Name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td><a href="https://en.wikipedia.org/wiki/Quercus_marilandica">Blackjack oak</a></td>
+<td>Quercus marilandica</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td><a href="https://en.wikipedia.org/wiki/Dwarf_live_oak">Dwarf live oak</a></td>
+<td>Quercus minima</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td><a href="https://en.wikipedia.org/wiki/Quercus_rubra">Northern red oak</a></td>
+<td>Quercus rubra</td>
+</tr>
+</tbody>
+</table>
+</details>
+</section>
+<section id="oak-a" class="level3">
+<h3 class="anchored" data-anchor-id="oak-a">Oak A</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img src="images/oaks/a_tree.jpg" class="img-fluid"></p>
+</div><div class="column" style="width:50%;">
+<p><img src="images/oaks/a_leaf.jpg" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="oak-b" class="level3">
+<h3 class="anchored" data-anchor-id="oak-b">Oak B</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img src="images/oaks/b_tree.jpg" class="img-fluid"></p>
+</div><div class="column" style="width:50%;">
+<p><img src="images/oaks/b_leaf.jpg" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="oak-c" class="level3">
+<h3 class="anchored" data-anchor-id="oak-c">Oak C</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img src="images/oaks/c_tree.jpg" class="img-fluid"></p>
+</div><div class="column" style="width:50%;">
+<p><img src="images/oaks/c_leaf.jpg" class="img-fluid"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="sorting-oaks" class="level2">
+<h2 class="anchored" data-anchor-id="sorting-oaks">Sorting Oaks</h2>
+<ul>
+<li>Pick one of the three oaks, work through the key, then check your answer!</li>
+</ul>
+</section>
+<section id="take-notes" class="level2">
+<h2 class="anchored" data-anchor-id="take-notes">Take notes</h2>
+<ul>
+<li>Create a “Lab03” Colab notebook (NOT a Google Document) in your AI Folder.</li>
+<li>Create a text cell in this Colab notebook.</li>
+<li>Record 140-280 characters worth of thoughts on working through the key - more if you have more thoughts.</li>
+</ul>
+</section>
+<section id="computer-vision" class="level2">
+<h2 class="anchored" data-anchor-id="computer-vision">Computer Vision</h2>
+<blockquote class="blockquote">
+<p><a href="https://en.wikipedia.org/wiki/Computer_vision">Computer vision tasks include methods for acquiring, processing, analyzing, and understanding digital images, and extraction of high-dimensional data from the real world in order to produce numerical or symbolic information, e.g.&nbsp;in the form of decisions.</a></p>
+</blockquote>
+<ul>
+<li><a href="https://www.rachelabrown.com/">Prof.&nbsp;Rachel Brown</a> in the CS department is a computer vision researcher and helped develop this course!</li>
+<li>We will use the <em>dichotomous key</em> and Google Gemini to to classify oaks, from their images, as one of the 8 species in our key.</li>
+</ul>
+<section id="your-task" class="level3">
+<h3 class="anchored" data-anchor-id="your-task">Your Task</h3>
+<ul>
+<li>To implement our <em>dichotomous key</em> we will:
+<ul>
+<li>Share images with Gemini</li>
+<li>Ask Gemini a question about the images.</li>
+<li>Based on the answer, either:
+<ul>
+<li>Ask a new question, or</li>
+<li>Give a result, the classification of the tree.</li>
+</ul></li>
+</ul></li>
+<li>To do so we will use “if/else” syntax.</li>
+</ul>
+</section>
+<section id="ifelse-syntax" class="level3">
+<h3 class="anchored" data-anchor-id="ifelse-syntax">If/else Syntax</h3>
+<ul>
+<li>Like <code>while</code> which we learned in the “Colab” lab, we can use <code>if</code> and <code>else</code> to ask Gemini questions more than once.
+<ul>
+<li>For example, we can ask if leaves are “smooth” or “lobed”.</li>
+<li><code>if</code> Gemini says “smooth”, we can then ask if the leaves are evergreen.</li>
+<li><code>else</code> we can ask if the lobes (or teeth) are bristle-tipped.</li>
+</ul></li>
+</ul>
+
+
+<!-- -->
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./21_key.html" class="pagination-link" aria-label="Dichotomous Key">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Dichotomous Key</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">---</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="an">title:</span><span class="co"> Dichotomous Key </span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="an">format:</span><span class="co"> html</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="co">---</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="fu"># What is a Dichotmous Key?</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="at">&gt; </span><span class="co">[</span><span class="ot">...an identification key where the sequence and structure of identification steps is fixed by the author of the key. At each point in the decision process, multiple alternatives are offered, each leading to a result or a further choice.</span><span class="co">](https://en.wikipedia.org/wiki/Single-access_key)</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a></span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="al">![](https://upload.wikimedia.org/wikipedia/commons/b/bb/US_President_Dichotomous_Key.jpg)</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a></span>
+<span id="cb2-12"><a href="#cb2-12"></a></span>
+<span id="cb2-13"><a href="#cb2-13"></a><span class="fu">## Why do we care?</span></span>
+<span id="cb2-14"><a href="#cb2-14"></a></span>
+<span id="cb2-15"><a href="#cb2-15"></a><span class="at">&gt; Single access keys are closely related to decision trees and binary search trees. However, to improve the usability and reliability of keys, many single-access keys incorporate reticulation, changing the tree structure into a directed acyclic graph. Single-access keys have been in use for several hundred years.</span></span>
+<span id="cb2-16"><a href="#cb2-16"></a></span>
+<span id="cb2-17"><a href="#cb2-17"></a><span class="ss">- </span>They:</span>
+<span id="cb2-18"><a href="#cb2-18"></a><span class="ss">    - </span>Predate computers, yet</span>
+<span id="cb2-19"><a href="#cb2-19"></a><span class="ss">    - </span>Use state-of-the-art techniques in computing.</span>
+<span id="cb2-20"><a href="#cb2-20"></a><span class="ss">- </span>We study them as a way to understand AI</span>
+<span id="cb2-21"><a href="#cb2-21"></a></span>
+<span id="cb2-22"><a href="#cb2-22"></a><span class="fu">## Motivating Example</span></span>
+<span id="cb2-23"><a href="#cb2-23"></a></span>
+<span id="cb2-24"><a href="#cb2-24"></a><span class="ss">- </span>I learned about dichtomous keys in biology class, and only realized the connection years latter.</span>
+<span id="cb2-25"><a href="#cb2-25"></a><span class="ss">- </span>In the spirit of good ole biology, a *real* science, we will study the example of "botanical classification of oaks."</span>
+<span id="cb2-26"><a href="#cb2-26"></a><span class="ss">    - </span>Please under absolutely no circumstances ask me anything about biology.</span>
+<span id="cb2-27"><a href="#cb2-27"></a><span class="ss">    - </span>I do not know and will embarrass myself and may confuse or even horrify you.</span>
+<span id="cb2-28"><a href="#cb2-28"></a><span class="ss">    - </span>Biology is cool though!</span>
+<span id="cb2-29"><a href="#cb2-29"></a></span>
+<span id="cb2-30"><a href="#cb2-30"></a><span class="fu">### The Key</span></span>
+<span id="cb2-31"><a href="#cb2-31"></a></span>
+<span id="cb2-32"><a href="#cb2-32"></a><span class="ss">- </span>Basically, a key is a branching series of yes/no questions.</span>
+<span id="cb2-33"><a href="#cb2-33"></a><span class="ss">    - </span>The dichotomous key gets its name from having two ("di") possibilities for any case</span>
+<span id="cb2-34"><a href="#cb2-34"></a><span class="ss">    - </span>"yes" and "no" or "true" and "false" or etc. etc.</span>
+<span id="cb2-35"><a href="#cb2-35"></a><span class="ss">- </span>To classify an oak, there are a series of questions that a non-expert can answer by inspecting the tree, such as being looking at the whole tree or looking at its leaves.</span>
+<span id="cb2-36"><a href="#cb2-36"></a><span class="ss">- </span>After answer a question, there is either a reference to a new question, usually by number, or a note that you have determined what the type of tree is.</span>
+<span id="cb2-37"><a href="#cb2-37"></a></span>
+<span id="cb2-38"><a href="#cb2-38"></a><span class="fu">### Example</span></span>
+<span id="cb2-39"><a href="#cb2-39"></a></span>
+<span id="cb2-40"><a href="#cb2-40"></a><span class="in">    1. Leaves usually without teeth or lobes: 2</span></span>
+<span id="cb2-41"><a href="#cb2-41"></a><span class="in">    1. Leaves usually with teeth or lobes: 5</span></span>
+<span id="cb2-42"><a href="#cb2-42"></a></span>
+<span id="cb2-43"><a href="#cb2-43"></a><span class="in">        2. Leaves evergreen: 3</span></span>
+<span id="cb2-44"><a href="#cb2-44"></a><span class="in">        2. Leaves not evergreen: 4</span></span>
+<span id="cb2-45"><a href="#cb2-45"></a></span>
+<span id="cb2-46"><a href="#cb2-46"></a><span class="in">    3. Mature plant a large tree — Southern live oak Quercus virginiana</span></span>
+<span id="cb2-47"><a href="#cb2-47"></a><span class="in">    3. Mature plant a small shrub — Dwarf live oak Quercus minima</span></span>
+<span id="cb2-48"><a href="#cb2-48"></a></span>
+<span id="cb2-49"><a href="#cb2-49"></a><span class="in">        4. Leaf narrow, about 4-6 times as long as broad — Willow oak Quercus phellos</span></span>
+<span id="cb2-50"><a href="#cb2-50"></a><span class="in">        4. Leaf broad, about 2-3 times as long as broad — Shingle oak Quercus imbricaria</span></span>
+<span id="cb2-51"><a href="#cb2-51"></a></span>
+<span id="cb2-52"><a href="#cb2-52"></a><span class="in">    5. Lobes or teeth bristle-tipped: 6</span></span>
+<span id="cb2-53"><a href="#cb2-53"></a><span class="in">    5. Lobes or teeth rounded or blunt-pointed, no bristles: 7</span></span>
+<span id="cb2-54"><a href="#cb2-54"></a></span>
+<span id="cb2-55"><a href="#cb2-55"></a><span class="in">        6. Leaves mostly with 3 lobes — Blackjack oak Quercus marilandica</span></span>
+<span id="cb2-56"><a href="#cb2-56"></a><span class="in">        6. Leaves mostly with 7-9 lobes — Northern red oak Quercus rubra</span></span>
+<span id="cb2-57"><a href="#cb2-57"></a></span>
+<span id="cb2-58"><a href="#cb2-58"></a><span class="in">    7. Leaves with 5-9 deep lobes — White oak Quercus alba</span></span>
+<span id="cb2-59"><a href="#cb2-59"></a><span class="in">    7. Leaves with 21-27 shallow lobes — Swamp chestnut oak Quercus prinus</span></span>
+<span id="cb2-60"><a href="#cb2-60"></a></span>
+<span id="cb2-61"><a href="#cb2-61"></a><span class="fu">### Visually</span></span>
+<span id="cb2-62"><a href="#cb2-62"></a></span>
+<span id="cb2-63"><a href="#cb2-63"></a><span class="ss">- </span>You may have to zoom in...</span>
+<span id="cb2-64"><a href="#cb2-64"></a></span>
+<span id="cb2-67"><a href="#cb2-67"></a><span class="in">```{dot}</span></span>
+<span id="cb2-68"><a href="#cb2-68"></a><span class="in">digraph OakKey {</span></span>
+<span id="cb2-69"><a href="#cb2-69"></a><span class="in">    bgcolor="transparent"</span></span>
+<span id="cb2-70"><a href="#cb2-70"></a><span class="in">    node [shape=box,  fontcolor="white", color="white"];</span></span>
+<span id="cb2-71"><a href="#cb2-71"></a><span class="in">    edge [color="white", fontcolor="white"];</span></span>
+<span id="cb2-72"><a href="#cb2-72"></a><span class="in">    </span></span>
+<span id="cb2-73"><a href="#cb2-73"></a><span class="in">    // Questions/Nodes</span></span>
+<span id="cb2-74"><a href="#cb2-74"></a><span class="in">    Start [label="Leaves are smooth with no teeth or lobes?"];</span></span>
+<span id="cb2-75"><a href="#cb2-75"></a><span class="in">    Evergreen [label="Laves evergreen?"];</span></span>
+<span id="cb2-76"><a href="#cb2-76"></a><span class="in">    GrowthHabit [label="Large Tree (not shrub)?"];</span></span>
+<span id="cb2-77"><a href="#cb2-77"></a><span class="in">    LeafShape [label="Leaves more than 3x long as wide"];</span></span>
+<span id="cb2-78"><a href="#cb2-78"></a><span class="in">    Bristles [label="Lobes/teeth bristle-tipped?"];</span></span>
+<span id="cb2-79"><a href="#cb2-79"></a><span class="in">    LobeCount6 [label="3 or fewer lobes?"];</span></span>
+<span id="cb2-80"><a href="#cb2-80"></a><span class="in">    LobeCount7 [label="9 or fewer lobes?"];</span></span>
+<span id="cb2-81"><a href="#cb2-81"></a></span>
+<span id="cb2-82"><a href="#cb2-82"></a><span class="in">    // Species (Leaf nodes)</span></span>
+<span id="cb2-83"><a href="#cb2-83"></a><span class="in">    LiveOak [label="Southern live oak"];</span></span>
+<span id="cb2-84"><a href="#cb2-84"></a><span class="in">    DwarfOak [label="Dwarf live oak"];</span></span>
+<span id="cb2-85"><a href="#cb2-85"></a><span class="in">    WillowOak [label="Willow oak"];</span></span>
+<span id="cb2-86"><a href="#cb2-86"></a><span class="in">    ShingleOak [label="Shingle oak"];</span></span>
+<span id="cb2-87"><a href="#cb2-87"></a><span class="in">    BlackjackOak [label="Blackjack oak"];</span></span>
+<span id="cb2-88"><a href="#cb2-88"></a><span class="in">    RedOak [label="Northern red oak"];</span></span>
+<span id="cb2-89"><a href="#cb2-89"></a><span class="in">    WhiteOak [label="White oak"];</span></span>
+<span id="cb2-90"><a href="#cb2-90"></a><span class="in">    SwampOak [label="Swamp chestnut oak"];</span></span>
+<span id="cb2-91"><a href="#cb2-91"></a></span>
+<span id="cb2-92"><a href="#cb2-92"></a><span class="in">    // Relationships</span></span>
+<span id="cb2-93"><a href="#cb2-93"></a><span class="in">    Start -&gt; Evergreen [label="True"];</span></span>
+<span id="cb2-94"><a href="#cb2-94"></a><span class="in">    Start -&gt; Bristles [label="False"];</span></span>
+<span id="cb2-95"><a href="#cb2-95"></a></span>
+<span id="cb2-96"><a href="#cb2-96"></a><span class="in">    Evergreen -&gt; GrowthHabit [label="True"];</span></span>
+<span id="cb2-97"><a href="#cb2-97"></a><span class="in">    Evergreen -&gt; LeafShape [label="False"];</span></span>
+<span id="cb2-98"><a href="#cb2-98"></a></span>
+<span id="cb2-99"><a href="#cb2-99"></a><span class="in">    GrowthHabit -&gt; LiveOak [label="True"];</span></span>
+<span id="cb2-100"><a href="#cb2-100"></a><span class="in">    GrowthHabit -&gt; DwarfOak [label="False"];</span></span>
+<span id="cb2-101"><a href="#cb2-101"></a></span>
+<span id="cb2-102"><a href="#cb2-102"></a><span class="in">    LeafShape -&gt; WillowOak [label="True"];</span></span>
+<span id="cb2-103"><a href="#cb2-103"></a><span class="in">    LeafShape -&gt; ShingleOak [label="False"];</span></span>
+<span id="cb2-104"><a href="#cb2-104"></a></span>
+<span id="cb2-105"><a href="#cb2-105"></a><span class="in">    Bristles -&gt; LobeCount6 [label="True"];</span></span>
+<span id="cb2-106"><a href="#cb2-106"></a><span class="in">    Bristles -&gt; LobeCount7 [label="False"];</span></span>
+<span id="cb2-107"><a href="#cb2-107"></a></span>
+<span id="cb2-108"><a href="#cb2-108"></a><span class="in">    LobeCount6 -&gt; BlackjackOak [label="True"];</span></span>
+<span id="cb2-109"><a href="#cb2-109"></a><span class="in">    LobeCount6 -&gt; RedOak [label="False"];</span></span>
+<span id="cb2-110"><a href="#cb2-110"></a></span>
+<span id="cb2-111"><a href="#cb2-111"></a><span class="in">    LobeCount7 -&gt; WhiteOak [label="True"];</span></span>
+<span id="cb2-112"><a href="#cb2-112"></a><span class="in">    LobeCount7 -&gt; SwampOak [label="False"];</span></span>
+<span id="cb2-113"><a href="#cb2-113"></a><span class="in">}</span></span>
+<span id="cb2-114"><a href="#cb2-114"></a><span class="in">```</span></span>
+<span id="cb2-115"><a href="#cb2-115"></a></span>
+<span id="cb2-116"><a href="#cb2-116"></a><span class="fu">## Some oaks</span></span>
+<span id="cb2-117"><a href="#cb2-117"></a></span>
+<span id="cb2-118"><a href="#cb2-118"></a><span class="ss">- </span>One problem with using pictures of oaks on the internet is that they usually named something like "I am this type of oak".png (Portable Network Graphic - the type of image it is) and then when you ask Gemini what type of oak it is, Gemini just reads the name.</span>
+<span id="cb2-119"><a href="#cb2-119"></a><span class="ss">- </span>Not to worry, I downloaded a bunch of pictures of oaks and changed their names.</span>
+<span id="cb2-120"><a href="#cb2-120"></a><span class="ss">- </span>I have given them a temporary name and used "spoiler tags" to hide the actual name.</span>
+<span id="cb2-121"><a href="#cb2-121"></a><span class="ss">- </span>For each tree, I provide an image of the tree and an image of leaves.</span>
+<span id="cb2-122"><a href="#cb2-122"></a><span class="ss">    - </span>All are sourced from Wikipedia and appropriately licensed, with the links to the host page in the key.</span>
+<span id="cb2-123"><a href="#cb2-123"></a></span>
+<span id="cb2-124"><a href="#cb2-124"></a><span class="fu">### Key</span></span>
+<span id="cb2-125"><a href="#cb2-125"></a></span>
+<span id="cb2-126"><a href="#cb2-126"></a>*Click "Details" to expand*</span>
+<span id="cb2-127"><a href="#cb2-127"></a></span>
+<span id="cb2-128"><a href="#cb2-128"></a>&lt;details&gt;</span>
+<span id="cb2-129"><a href="#cb2-129"></a></span>
+<span id="cb2-130"><a href="#cb2-130"></a>|Nickname|Common Name|Scientific Name|</span>
+<span id="cb2-131"><a href="#cb2-131"></a>|-|-|-|</span>
+<span id="cb2-132"><a href="#cb2-132"></a>| A | <span class="co">[</span><span class="ot">Blackjack oak</span><span class="co">](https://en.wikipedia.org/wiki/Quercus_marilandica)</span> | Quercus marilandica |</span>
+<span id="cb2-133"><a href="#cb2-133"></a>| B | <span class="co">[</span><span class="ot">Dwarf live oak</span><span class="co">](https://en.wikipedia.org/wiki/Dwarf_live_oak)</span> | Quercus minima |</span>
+<span id="cb2-134"><a href="#cb2-134"></a>| C | <span class="co">[</span><span class="ot">Northern red oak</span><span class="co">](https://en.wikipedia.org/wiki/Quercus_rubra)</span> | Quercus rubra | </span>
+<span id="cb2-135"><a href="#cb2-135"></a></span>
+<span id="cb2-136"><a href="#cb2-136"></a>&lt;/details&gt;</span>
+<span id="cb2-137"><a href="#cb2-137"></a></span>
+<span id="cb2-138"><a href="#cb2-138"></a><span class="fu">### Oak A</span></span>
+<span id="cb2-139"><a href="#cb2-139"></a></span>
+<span id="cb2-140"><a href="#cb2-140"></a>:::: {.columns}</span>
+<span id="cb2-141"><a href="#cb2-141"></a></span>
+<span id="cb2-142"><a href="#cb2-142"></a>::: {.column width="50%"}</span>
+<span id="cb2-143"><a href="#cb2-143"></a></span>
+<span id="cb2-144"><a href="#cb2-144"></a><span class="al">![](images/oaks/a_tree.jpg)</span></span>
+<span id="cb2-145"><a href="#cb2-145"></a></span>
+<span id="cb2-146"><a href="#cb2-146"></a>:::</span>
+<span id="cb2-147"><a href="#cb2-147"></a></span>
+<span id="cb2-148"><a href="#cb2-148"></a>::: {.column width="50%"}</span>
+<span id="cb2-149"><a href="#cb2-149"></a></span>
+<span id="cb2-150"><a href="#cb2-150"></a><span class="al">![](images/oaks/a_leaf.jpg)</span></span>
+<span id="cb2-151"><a href="#cb2-151"></a></span>
+<span id="cb2-152"><a href="#cb2-152"></a>:::</span>
+<span id="cb2-153"><a href="#cb2-153"></a></span>
+<span id="cb2-154"><a href="#cb2-154"></a>::::</span>
+<span id="cb2-155"><a href="#cb2-155"></a></span>
+<span id="cb2-156"><a href="#cb2-156"></a><span class="fu">### Oak B</span></span>
+<span id="cb2-157"><a href="#cb2-157"></a></span>
+<span id="cb2-158"><a href="#cb2-158"></a>:::: {.columns}</span>
+<span id="cb2-159"><a href="#cb2-159"></a></span>
+<span id="cb2-160"><a href="#cb2-160"></a>::: {.column width="50%"}</span>
+<span id="cb2-161"><a href="#cb2-161"></a></span>
+<span id="cb2-162"><a href="#cb2-162"></a></span>
+<span id="cb2-163"><a href="#cb2-163"></a><span class="al">![](images/oaks/b_tree.jpg)</span></span>
+<span id="cb2-164"><a href="#cb2-164"></a></span>
+<span id="cb2-165"><a href="#cb2-165"></a>:::</span>
+<span id="cb2-166"><a href="#cb2-166"></a></span>
+<span id="cb2-167"><a href="#cb2-167"></a>::: {.column width="50%"}</span>
+<span id="cb2-168"><a href="#cb2-168"></a></span>
+<span id="cb2-169"><a href="#cb2-169"></a><span class="al">![](images/oaks/b_leaf.jpg)</span></span>
+<span id="cb2-170"><a href="#cb2-170"></a></span>
+<span id="cb2-171"><a href="#cb2-171"></a>:::</span>
+<span id="cb2-172"><a href="#cb2-172"></a></span>
+<span id="cb2-173"><a href="#cb2-173"></a>::::</span>
+<span id="cb2-174"><a href="#cb2-174"></a></span>
+<span id="cb2-175"><a href="#cb2-175"></a><span class="fu">### Oak C</span></span>
+<span id="cb2-176"><a href="#cb2-176"></a></span>
+<span id="cb2-177"><a href="#cb2-177"></a>:::: {.columns}</span>
+<span id="cb2-178"><a href="#cb2-178"></a></span>
+<span id="cb2-179"><a href="#cb2-179"></a>::: {.column width="50%"}</span>
+<span id="cb2-180"><a href="#cb2-180"></a></span>
+<span id="cb2-181"><a href="#cb2-181"></a><span class="al">![](images/oaks/c_tree.jpg)</span></span>
+<span id="cb2-182"><a href="#cb2-182"></a></span>
+<span id="cb2-183"><a href="#cb2-183"></a>:::</span>
+<span id="cb2-184"><a href="#cb2-184"></a></span>
+<span id="cb2-185"><a href="#cb2-185"></a>::: {.column width="50%"}</span>
+<span id="cb2-186"><a href="#cb2-186"></a></span>
+<span id="cb2-187"><a href="#cb2-187"></a><span class="al">![](images/oaks/c_leaf.jpg)</span></span>
+<span id="cb2-188"><a href="#cb2-188"></a></span>
+<span id="cb2-189"><a href="#cb2-189"></a>:::</span>
+<span id="cb2-190"><a href="#cb2-190"></a></span>
+<span id="cb2-191"><a href="#cb2-191"></a>::::</span>
+<span id="cb2-192"><a href="#cb2-192"></a></span>
+<span id="cb2-193"><a href="#cb2-193"></a><span class="fu">## Sorting Oaks</span></span>
+<span id="cb2-194"><a href="#cb2-194"></a></span>
+<span id="cb2-195"><a href="#cb2-195"></a><span class="ss">- </span>Pick one of the three oaks, work through the key, then check your answer!</span>
+<span id="cb2-196"><a href="#cb2-196"></a></span>
+<span id="cb2-197"><a href="#cb2-197"></a><span class="fu">## Take notes</span></span>
+<span id="cb2-198"><a href="#cb2-198"></a></span>
+<span id="cb2-199"><a href="#cb2-199"></a><span class="ss">- </span>Create a "Lab03" Colab notebook (NOT a Google Document) in your AI Folder.</span>
+<span id="cb2-200"><a href="#cb2-200"></a><span class="ss">- </span>Create a text cell in this Colab notebook.</span>
+<span id="cb2-201"><a href="#cb2-201"></a><span class="ss">- </span>Record 140-280 characters worth of thoughts on working through the key - more if you have more thoughts.</span>
+<span id="cb2-202"><a href="#cb2-202"></a></span>
+<span id="cb2-203"><a href="#cb2-203"></a></span>
+<span id="cb2-204"><a href="#cb2-204"></a><span class="fu">## Computer Vision</span></span>
+<span id="cb2-205"><a href="#cb2-205"></a></span>
+<span id="cb2-206"><a href="#cb2-206"></a><span class="at">&gt; </span><span class="co">[</span><span class="ot">Computer vision tasks include methods for acquiring, processing, analyzing, and understanding digital images, and extraction of high-dimensional data from the real world in order to produce numerical or symbolic information, e.g. in the form of decisions.</span><span class="co">](https://en.wikipedia.org/wiki/Computer_vision)</span></span>
+<span id="cb2-207"><a href="#cb2-207"></a></span>
+<span id="cb2-208"><a href="#cb2-208"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Prof. Rachel Brown</span><span class="co">](https://www.rachelabrown.com/)</span> in the CS department is a computer vision researcher and helped develop this course!</span>
+<span id="cb2-209"><a href="#cb2-209"></a><span class="ss">- </span>We will use the *dichotomous key* and Google Gemini to to classify oaks, from their images, as one of the 8 species in our key.</span>
+<span id="cb2-210"><a href="#cb2-210"></a></span>
+<span id="cb2-211"><a href="#cb2-211"></a><span class="fu">### Your Task</span></span>
+<span id="cb2-212"><a href="#cb2-212"></a></span>
+<span id="cb2-213"><a href="#cb2-213"></a><span class="ss">- </span>To implement our *dichotomous key* we will:</span>
+<span id="cb2-214"><a href="#cb2-214"></a><span class="ss">  - </span>Share images with Gemini</span>
+<span id="cb2-215"><a href="#cb2-215"></a><span class="ss">  - </span>Ask Gemini a question about the images.</span>
+<span id="cb2-216"><a href="#cb2-216"></a><span class="ss">  - </span>Based on the answer, either:</span>
+<span id="cb2-217"><a href="#cb2-217"></a><span class="ss">    - </span>Ask a new question, or</span>
+<span id="cb2-218"><a href="#cb2-218"></a><span class="ss">    - </span>Give a result, the classification of the tree.</span>
+<span id="cb2-219"><a href="#cb2-219"></a><span class="ss">- </span>To do so we will use "if/else" syntax.</span>
+<span id="cb2-220"><a href="#cb2-220"></a></span>
+<span id="cb2-221"><a href="#cb2-221"></a><span class="fu">### If/else Syntax</span></span>
+<span id="cb2-222"><a href="#cb2-222"></a></span>
+<span id="cb2-223"><a href="#cb2-223"></a><span class="ss">- </span>Like <span class="in">`while`</span> which we learned in the "Colab" lab, we can use <span class="in">`if`</span> and <span class="in">`else`</span> to ask Gemini questions more than once.</span>
+<span id="cb2-224"><a href="#cb2-224"></a><span class="ss">    - </span>For example, we can ask if leaves are "smooth" or "lobed".</span>
+<span id="cb2-225"><a href="#cb2-225"></a><span class="ss">    - </span><span class="in">`if`</span> Gemini says "smooth", we can then ask if the leaves are evergreen.</span>
+<span id="cb2-226"><a href="#cb2-226"></a><span class="ss">    - </span><span class="in">`else`</span> we can ask if the lobes (or teeth) are bristle-tipped.</span>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
