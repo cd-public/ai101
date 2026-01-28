@@ -3,7 +3,7 @@ title: Dichotomous Key
 format: html
 ---
 
-# What is a Dichotmous Key?
+# What is a Dichotomous Key?
 
 > [...an identification key where the sequence and structure of identification steps is fixed by the author of the key. At each point in the decision process, multiple alternatives are offered, each leading to a result or a further choice.](https://en.wikipedia.org/wiki/Single-access_key)
 
@@ -21,7 +21,7 @@ format: html
 
 ## Motivating Example
 
-- I learned about dichtomous keys in biology class, and only realized the connection years latter.
+- I learned about dichtomous keys in biology class, and only realized the connection years later.
 - In the spirit of good ole biology, a *real* science, we will study the example of "botanical classification of oaks."
     - Please under absolutely no circumstances ask me anything about biology.
     - I do not know and will embarrass myself and may confuse or even horrify you.
@@ -204,7 +204,7 @@ https://cd-public.github.io/ai101/images/oaks/a_tree.jpg
 
 ## Take notes
 
-- Create a "Lab03" Colab notebook (NOT a Google Document) in your AI Folder.
+- Create a "Lab02" Colab notebook (NOT a Google Document) in your AI Folder.
 - Create a text cell in this Colab notebook.
 - Record 140-280 characters worth of thoughts on working through the key - more if you have more thoughts.
 
