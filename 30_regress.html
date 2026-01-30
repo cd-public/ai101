@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./41_ifelse.html" rel="next">
+<link href="./40_class.html" rel="next">
 <link href="./21_key.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -180,6 +180,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./40_class.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Classification</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./41_ifelse.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tree Tree</span></a>
   </div>
@@ -219,6 +225,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#plot-it" id="toc-plot-it" class="nav-link" data-scroll-target="#plot-it">Plot it</a></li>
   <li><a href="#arithmetic" id="toc-arithmetic" class="nav-link" data-scroll-target="#arithmetic">Arithmetic</a></li>
   <li><a href="#predict" id="toc-predict" class="nav-link" data-scroll-target="#predict">Predict</a></li>
+  <li><a href="#look-at-it" id="toc-look-at-it" class="nav-link" data-scroll-target="#look-at-it">Look at it</a></li>
+  <li><a href="#non-linearity" id="toc-non-linearity" class="nav-link" data-scroll-target="#non-linearity">Non-linearity</a></li>
+  <li><a href="#i-see" id="toc-i-see" class="nav-link" data-scroll-target="#i-see">I see…</a></li>
+  <li><a href="#complication" id="toc-complication" class="nav-link" data-scroll-target="#complication">Complication</a></li>
+  <li><a href="#takeaways" id="toc-takeaways" class="nav-link" data-scroll-target="#takeaways">Takeaways</a></li>
   </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="30_regress.rjs.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
@@ -498,7 +509,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>I just asked Gemini to make this.</li>
 </ul>
-<div id="1695e2c8" class="cell" data-execution_count="1">
+<div id="25ffc021" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>eps <span class="op">=</span> [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]</span>
 <span id="cb1-2"><a href="#cb1-2"></a>yrs <span class="op">=</span> [<span class="dv">1977</span>, <span class="dv">1980</span>, <span class="dv">1983</span>, <span class="dv">1999</span>, <span class="dv">2002</span>, <span class="dv">2005</span>, <span class="dv">2015</span>, <span class="dv">2017</span>, <span class="dv">2019</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -508,7 +519,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>I naively make a <em>scatterplot</em> to view the data…</li>
 </ul>
-<div id="b9c6d8b7" class="cell" data-execution_count="2">
+<div id="4b0a771d" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb2-2"><a href="#cb2-2"></a></span>
 <span id="cb2-3"><a href="#cb2-3"></a>plt.scatter(eps,yrs)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -526,7 +537,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>Arithmetic is hard, so just use a <a href="https://www.geeksforgeeks.org/data-visualization/drawing-scatter-trend-lines-using-matplotlib/?ysclid=mkwsf5lepx713076579">built-in function</a>.</li>
 </ul>
-<div id="106b84d6" class="cell" data-execution_count="3">
+<div id="36366089" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb3-2"><a href="#cb3-2"></a></span>
 <span id="cb3-3"><a href="#cb3-3"></a>p <span class="op">=</span> np.poly1d(np.polyfit(eps, yrs, <span class="dv">1</span>))</span>
@@ -546,18 +557,143 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>What year do we expect episode 10 to come out?</li>
 </ul>
-<div id="d7a3e01c" class="cell" data-execution_count="4">
+<div id="337b40bc" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb4-2"><a href="#cb4-2"></a></span>
-<span id="cb4-3"><a href="#cb4-3"></a>z <span class="op">=</span> np.polyfit(eps, yrs, <span class="dv">1</span>)</span>
-<span id="cb4-4"><a href="#cb4-4"></a>p <span class="op">=</span> np.poly1d(z)</span>
-<span id="cb4-5"><a href="#cb4-5"></a>p(<span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<span id="cb4-3"><a href="#cb4-3"></a>p(<span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
 <pre><code>2012.2500000000002</code></pre>
 </div>
 </div>
 <ul>
 <li>Whoops.</li>
+</ul>
+</section>
+<section id="look-at-it" class="level2">
+<h2 class="anchored" data-anchor-id="look-at-it">Look at it</h2>
+<ul>
+<li>Do you see… any other patterns?</li>
+</ul>
+<div id="c5ec48bc" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>plt.scatter(eps,yrs)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="30_regress_files/figure-html/cell-6-output-1.png" width="583" height="411" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="non-linearity" class="level2">
+<h2 class="anchored" data-anchor-id="non-linearity">Non-linearity</h2>
+<div class="columns">
+<div class="column" style="width:33%;">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Episode</th>
+<th>Year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>4</td>
+<td>1977</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>1980</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>1983</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:33%;">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Episode</th>
+<th>Year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>1999</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>2002</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>2005</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:33%;">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Episode</th>
+<th>Year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>7</td>
+<td>2015</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>2017</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>2019</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="i-see" class="level2">
+<h2 class="anchored" data-anchor-id="i-see">I see…</h2>
+<ul>
+<li>Within trilogies, every 2-3 years, decreasing over time.</li>
+<li>Between triloigies, every 16-10 years, decreasing over time.</li>
+<li>Prequels before sequels, often.</li>
+<li>I’d say episode 10
+<ul>
+<li>Next trilogy in ~10 years after 2019.</li>
+<li>2029ish if there’s another prequel (High Republic) or 2044ish</li>
+</ul></li>
+</ul>
+</section>
+<section id="complication" class="level2">
+<h2 class="anchored" data-anchor-id="complication">Complication</h2>
+<ul>
+<li>Should we include Rogue One as:
+<ul>
+<li>Between Episodes 3 and 4</li>
+<li>Released in 2016</li>
+</ul></li>
+</ul>
+<center>
+<a href="https://starwars.fandom.com/wiki/Battle_of_Scarif"> <img src="https://static.wikia.nocookie.net/starwars/images/0/0d/XwingDiveAtShieldGate-CineFex151.png/revision/latest/scale-to-width-down/1000?cb=20250216011057"> </a>
+</center>
+</section>
+<section id="takeaways" class="level2">
+<h2 class="anchored" data-anchor-id="takeaways">Takeaways</h2>
+<ul>
+<li>Linear regression can be <em>cool</em>.</li>
+<li>But it is not <em>intelligent</em>, probably.
+<ul>
+<li>Perhaps, if it appears intelligence the site of the intelligence is actually the human user, not the computer.</li>
+</ul></li>
 </ul>
 
 
@@ -1025,240 +1161,311 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./41_ifelse.html" class="pagination-link" aria-label="Tree Tree">
-        <span class="nav-page-text">Tree Tree</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./40_class.html" class="pagination-link" aria-label="Classification">
+        <span class="nav-page-text">Classification</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">---</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="an">title:</span><span class="co"> Regression </span></span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="co">---</span></span>
-<span id="cb6-4"><a href="#cb6-4"></a></span>
-<span id="cb6-5"><a href="#cb6-5"></a><span class="fu">## First Things First</span></span>
-<span id="cb6-6"><a href="#cb6-6"></a></span>
-<span id="cb6-7"><a href="#cb6-7"></a><span class="ss">- </span>I will now live-code the Dichotomy lab</span>
-<span id="cb6-8"><a href="#cb6-8"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Write-up</span><span class="co">](21_key.qmd)</span></span>
-<span id="cb6-9"><a href="#cb6-9"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Colab</span><span class="co">](http://colab.research.google.com/#create=true)</span></span>
-<span id="cb6-10"><a href="#cb6-10"></a></span>
-<span id="cb6-11"><a href="#cb6-11"></a><span class="fu">## Takeaways - Colab</span></span>
-<span id="cb6-12"><a href="#cb6-12"></a></span>
-<span id="cb6-13"><a href="#cb6-13"></a><span class="ss">- </span>Use <span class="in">`+`</span></span>
-<span id="cb6-14"><a href="#cb6-14"></a><span class="ss">- </span>Use <span class="in">`=`</span></span>
-<span id="cb6-15"><a href="#cb6-15"></a><span class="ss">- </span>Use "run all"</span>
-<span id="cb6-16"><a href="#cb6-16"></a></span>
-<span id="cb6-17"><a href="#cb6-17"></a><span class="fu">## Takeaways - Gemini</span></span>
-<span id="cb6-18"><a href="#cb6-18"></a></span>
-<span id="cb6-19"><a href="#cb6-19"></a><span class="ss">- </span>Be specific</span>
-<span id="cb6-20"><a href="#cb6-20"></a><span class="ss">- </span>Be precise</span>
-<span id="cb6-21"><a href="#cb6-21"></a><span class="ss">- </span>Be consistent</span>
-<span id="cb6-22"><a href="#cb6-22"></a></span>
-<span id="cb6-23"><a href="#cb6-23"></a><span class="fu">## Takeaways - Both</span></span>
-<span id="cb6-24"><a href="#cb6-24"></a></span>
-<span id="cb6-25"><a href="#cb6-25"></a><span class="ss">- </span>Your "chatbot" will persist as long as you keep the window open</span>
-<span id="cb6-26"><a href="#cb6-26"></a><span class="ss">- </span>If you come back latter or manually restart it will change</span>
-<span id="cb6-27"><a href="#cb6-27"></a><span class="ss">- </span>Some things should be repeated, others don't need to be!</span>
-<span id="cb6-28"><a href="#cb6-28"></a><span class="ss">    - </span>I write a "prefix" I use on all my prompts, and provide it each time.</span>
-<span id="cb6-29"><a href="#cb6-29"></a></span>
-<span id="cb6-30"><a href="#cb6-30"></a><span class="fu"># Regression </span></span>
-<span id="cb6-31"><a href="#cb6-31"></a></span>
-<span id="cb6-32"><a href="#cb6-32"></a><span class="fu">## </span></span>
-<span id="cb6-33"><a href="#cb6-33"></a></span>
-<span id="cb6-34"><a href="#cb6-34"></a><span class="al">![Linear vs polynomial regression infographic](https://microsoft.github.io/ML-For-Beginners/2-Regression/3-Linear/images/linear-polynomial.png)</span></span>
-<span id="cb6-35"><a href="#cb6-35"></a>*Infographic by [Dasani Madipalli](https://twitter.com/dasani_decoded)*</span>
-<span id="cb6-36"><a href="#cb6-36"></a></span>
-<span id="cb6-37"><a href="#cb6-37"></a><span class="fu">## Why Regression?</span></span>
-<span id="cb6-38"><a href="#cb6-38"></a></span>
-<span id="cb6-39"><a href="#cb6-39"></a><span class="ss">- </span>Not, in my view, an AI topic.</span>
-<span id="cb6-40"><a href="#cb6-40"></a><span class="ss">- </span>Not, in my view, really an ML topic.</span>
-<span id="cb6-41"><a href="#cb6-41"></a><span class="ss">- </span>It seems commonly to be considered an ML topic.</span>
-<span id="cb6-42"><a href="#cb6-42"></a><span class="ss">- </span>It is the basis for some more advanced ML/AI stuff.</span>
-<span id="cb6-43"><a href="#cb6-43"></a><span class="ss">- </span>We'll get it out of the way quickly then move on.</span>
-<span id="cb6-44"><a href="#cb6-44"></a></span>
-<span id="cb6-45"><a href="#cb6-45"></a><span class="fu">## What is Regression?</span></span>
-<span id="cb6-46"><a href="#cb6-46"></a></span>
-<span id="cb6-47"><a href="#cb6-47"></a><span class="dt">&lt;</span><span class="kw">center</span><span class="dt">&gt;</span></span>
-<span id="cb6-48"><a href="#cb6-48"></a><span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://en.wikipedia.org/wiki/Regression_analysis"</span><span class="dt">&gt;</span></span>
-<span id="cb6-49"><a href="#cb6-49"></a><span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"https://upload.wikimedia.org/wikipedia/commons/b/be/Normdist_regression.png"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"filter:invert(.9)"</span><span class="dt">&gt;</span></span>
-<span id="cb6-50"><a href="#cb6-50"></a><span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
-<span id="cb6-51"><a href="#cb6-51"></a><span class="dt">&lt;/</span><span class="kw">center</span><span class="dt">&gt;</span></span>
-<span id="cb6-52"><a href="#cb6-52"></a></span>
-<span id="cb6-53"><a href="#cb6-53"></a><span class="fu">## What is Regression?</span></span>
-<span id="cb6-54"><a href="#cb6-54"></a></span>
-<span id="cb6-55"><a href="#cb6-55"></a><span class="at">&gt; In statistical modeling, regression analysis is a statistical method for estimating the relationship between a dependent variable (often called the outcome or response variable, or a label in machine learning parlance) and one or more independent variables (often called regressors, predictors, covariates, explanatory variables or features).</span></span>
-<span id="cb6-56"><a href="#cb6-56"></a></span>
-<span id="cb6-57"><a href="#cb6-57"></a></span>
-<span id="cb6-58"><a href="#cb6-58"></a><span class="fu">## Shorter</span></span>
-<span id="cb6-59"><a href="#cb6-59"></a></span>
-<span id="cb6-60"><a href="#cb6-60"></a><span class="ss">- </span>Given some predictor, determine an outcome.</span>
-<span id="cb6-61"><a href="#cb6-61"></a><span class="ss">    - </span>Given hours studied, determine exam grade.</span>
-<span id="cb6-62"><a href="#cb6-62"></a><span class="ss">    - </span>Given square footage, determine home price.</span>
-<span id="cb6-63"><a href="#cb6-63"></a><span class="ss">    - </span>Given parental income, determine income.</span>
-<span id="cb6-64"><a href="#cb6-64"></a></span>
-<span id="cb6-65"><a href="#cb6-65"></a><span class="fu">## Two Types</span></span>
-<span id="cb6-66"><a href="#cb6-66"></a></span>
-<span id="cb6-67"><a href="#cb6-67"></a><span class="ss">- </span>Linear</span>
-<span id="cb6-68"><a href="#cb6-68"></a><span class="ss">    - </span>The most common type</span>
-<span id="cb6-69"><a href="#cb6-69"></a><span class="ss">    - </span>Relate a numeric to numeric</span>
-<span id="cb6-70"><a href="#cb6-70"></a><span class="ss">        - </span>Years of schooling to annual salary</span>
-<span id="cb6-71"><a href="#cb6-71"></a><span class="ss">- </span>Logistic</span>
-<span id="cb6-72"><a href="#cb6-72"></a><span class="ss">    - </span>Special type</span>
-<span id="cb6-73"><a href="#cb6-73"></a><span class="ss">    - </span>Relate a numeric to true/false</span>
-<span id="cb6-74"><a href="#cb6-74"></a><span class="ss">        - </span>Years of school vs. employed (or not)</span>
-<span id="cb6-75"><a href="#cb6-75"></a></span>
-<span id="cb6-76"><a href="#cb6-76"></a><span class="fu">## Machine learning</span></span>
-<span id="cb6-77"><a href="#cb6-77"></a></span>
-<span id="cb6-78"><a href="#cb6-78"></a><span class="ss">- </span>The real power of machine learning (ML) comes from _training models_.</span>
-<span id="cb6-79"><a href="#cb6-79"></a><span class="ss">- </span>Models are trained on historic data to automatically capture data dependencies.</span>
-<span id="cb6-80"><a href="#cb6-80"></a><span class="ss">- </span>They allow you to predict outcomes for new data.</span>
-<span id="cb6-81"><a href="#cb6-81"></a></span>
-<span id="cb6-82"><a href="#cb6-82"></a><span class="fu">## ML</span></span>
-<span id="cb6-83"><a href="#cb6-83"></a></span>
-<span id="cb6-84"><a href="#cb6-84"></a><span class="at">&gt; Prediction is hard, especially when it is about the future.</span></span>
-<span id="cb6-85"><a href="#cb6-85"></a></span>
-<span id="cb6-86"><a href="#cb6-86"></a><span class="ss">- </span>The core insight of ML is the ability to infer (or approximate) *new* knowledge, not describe existing, known facts.</span>
-<span id="cb6-87"><a href="#cb6-87"></a></span>
-<span id="cb6-88"><a href="#cb6-88"></a><span class="fu">## Linear Regression</span></span>
-<span id="cb6-89"><a href="#cb6-89"></a></span>
-<span id="cb6-90"><a href="#cb6-90"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Start here</span><span class="co">](https://raw.githubusercontent.com/microsoft/ML-For-Beginners/refs/heads/main/2-Regression/3-Linear/README.md)</span></span>
-<span id="cb6-91"><a href="#cb6-91"></a></span>
-<span id="cb6-92"><a href="#cb6-92"></a><span class="fu">## The Goal</span></span>
-<span id="cb6-93"><a href="#cb6-93"></a>::: {.incremental}</span>
-<span id="cb6-94"><a href="#cb6-94"></a></span>
-<span id="cb6-95"><a href="#cb6-95"></a><span class="ss">- </span>The goal of a linear regression is to be able to *plot a line*, which...</span>
-<span id="cb6-96"><a href="#cb6-96"></a><span class="ss">- </span>Shows the relationship between the variables.</span>
-<span id="cb6-97"><a href="#cb6-97"></a><span class="ss">    - </span>The *predictor(s)*</span>
-<span id="cb6-98"><a href="#cb6-98"></a><span class="ss">    - </span>The *outcome*</span>
-<span id="cb6-99"><a href="#cb6-99"></a><span class="ss">- </span>Makes predictions.</span>
-<span id="cb6-100"><a href="#cb6-100"></a><span class="ss">    - </span>What would we expect the GDP of a nation-state of 700 million people to be?</span>
-<span id="cb6-101"><a href="#cb6-101"></a></span>
-<span id="cb6-102"><a href="#cb6-102"></a>:::</span>
-<span id="cb6-103"><a href="#cb6-103"></a></span>
-<span id="cb6-104"><a href="#cb6-104"></a><span class="fu">## Least Squares</span></span>
-<span id="cb6-105"><a href="#cb6-105"></a></span>
-<span id="cb6-106"><a href="#cb6-106"></a><span class="ss">- </span>By social convention...</span>
-<span id="cb6-107"><a href="#cb6-107"></a><span class="ss">    - </span>That is, not by mathematical law, but by historical accident...</span>
-<span id="cb6-108"><a href="#cb6-108"></a><span class="ss">- </span>...linear relationships are predicted using **least-squares regression**.</span>
-<span id="cb6-109"><a href="#cb6-109"></a></span>
-<span id="cb6-110"><a href="#cb6-110"></a><span class="at">&gt; </span><span class="co">[</span><span class="ot">The first known publication of a ‘Method of Averages’ was by the German astronomer Tobias Mayer in 1750.</span><span class="co">](https://towardsdatascience.com/an-introduction-to-linear-regression-9cbb64b52d23/)</span></span>
-<span id="cb6-111"><a href="#cb6-111"></a></span>
-<span id="cb6-112"><a href="#cb6-112"></a><span class="fu">## Caution!</span></span>
-<span id="cb6-113"><a href="#cb6-113"></a></span>
-<span id="cb6-114"><a href="#cb6-114"></a>::: {.callout-warning}</span>
-<span id="cb6-115"><a href="#cb6-115"></a></span>
-<span id="cb6-116"><a href="#cb6-116"></a><span class="fu">## Look out!</span></span>
-<span id="cb6-117"><a href="#cb6-117"></a></span>
-<span id="cb6-118"><a href="#cb6-118"></a>Least squares and linear regression are related, but distinct.</span>
-<span id="cb6-119"><a href="#cb6-119"></a><span class="ss">1. </span>Linear regression is a way to solution to a type of meaningful research question.</span>
-<span id="cb6-120"><a href="#cb6-120"></a><span class="ss">2. </span>Least squares is a solution to a system of equations.</span>
-<span id="cb6-121"><a href="#cb6-121"></a></span>
-<span id="cb6-122"><a href="#cb6-122"></a>:::</span>
-<span id="cb6-123"><a href="#cb6-123"></a></span>
-<span id="cb6-124"><a href="#cb6-124"></a><span class="ss">- </span>There are other forms of numeric-to-numeric regression (e.g. polynomial).</span>
-<span id="cb6-125"><a href="#cb6-125"></a></span>
-<span id="cb6-126"><a href="#cb6-126"></a><span class="fu">## Minimal Example</span></span>
-<span id="cb6-127"><a href="#cb6-127"></a></span>
-<span id="cb6-128"><a href="#cb6-128"></a><span class="ss">- </span>Take some data points and a candidate line.</span>
-<span id="cb6-129"><a href="#cb6-129"></a></span>
-<span id="cb6-130"><a href="#cb6-130"></a><span class="dt">&lt;</span><span class="kw">center</span><span class="dt">&gt;</span></span>
-<span id="cb6-131"><a href="#cb6-131"></a><span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://towardsdatascience.com/an-introduction-to-linear-regression-9cbb64b52d23/"</span><span class="dt">&gt;</span></span>
-<span id="cb6-132"><a href="#cb6-132"></a><span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"https://towardsdatascience.com/wp-content/uploads/2021/03/1icgMTS3If8VilWykm6kkHA-1024x502.jpeg"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"filter:invert(.9)"</span><span class="dt">&gt;</span></span>
-<span id="cb6-133"><a href="#cb6-133"></a><span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
-<span id="cb6-134"><a href="#cb6-134"></a><span class="dt">&lt;/</span><span class="kw">center</span><span class="dt">&gt;</span></span>
-<span id="cb6-135"><a href="#cb6-135"></a></span>
-<span id="cb6-136"><a href="#cb6-136"></a></span>
-<span id="cb6-137"><a href="#cb6-137"></a><span class="fu">## Square it</span></span>
-<span id="cb6-138"><a href="#cb6-138"></a></span>
-<span id="cb6-139"><a href="#cb6-139"></a><span class="ss">- </span>Take the distance data-to-candidate and square it.</span>
-<span id="cb6-140"><a href="#cb6-140"></a></span>
-<span id="cb6-141"><a href="#cb6-141"></a></span>
-<span id="cb6-142"><a href="#cb6-142"></a><span class="dt">&lt;</span><span class="kw">center</span><span class="dt">&gt;</span></span>
-<span id="cb6-143"><a href="#cb6-143"></a><span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://towardsdatascience.com/an-introduction-to-linear-regression-9cbb64b52d23/"</span><span class="dt">&gt;</span></span>
-<span id="cb6-144"><a href="#cb6-144"></a><span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"https://towardsdatascience.com/wp-content/uploads/2021/03/1ThlNNj4XJhCq6sGKQzSiyw.png"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"filter:invert(.9)"</span><span class="dt">&gt;</span></span>
-<span id="cb6-145"><a href="#cb6-145"></a><span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
-<span id="cb6-146"><a href="#cb6-146"></a><span class="dt">&lt;/</span><span class="kw">center</span><span class="dt">&gt;</span></span>
-<span id="cb6-147"><a href="#cb6-147"></a></span>
-<span id="cb6-148"><a href="#cb6-148"></a><span class="fu">## In Colab</span></span>
-<span id="cb6-149"><a href="#cb6-149"></a></span>
-<span id="cb6-150"><a href="#cb6-150"></a></span>
-<span id="cb6-151"><a href="#cb6-151"></a>:::: {.columns}</span>
-<span id="cb6-152"><a href="#cb6-152"></a></span>
-<span id="cb6-153"><a href="#cb6-153"></a>::: {.column width="50%"}</span>
-<span id="cb6-154"><a href="#cb6-154"></a></span>
-<span id="cb6-155"><a href="#cb6-155"></a><span class="ss">- </span>It is possible to show this in Colab/Python.</span>
-<span id="cb6-156"><a href="#cb6-156"></a><span class="ss">- </span>I will not quiz you on this but it's cool.</span>
-<span id="cb6-157"><a href="#cb6-157"></a><span class="ss">- </span>Let's take Star Wars episodes vs. year.</span>
-<span id="cb6-158"><a href="#cb6-158"></a><span class="ss">  - </span>I made this by hand.</span>
-<span id="cb6-159"><a href="#cb6-159"></a></span>
-<span id="cb6-160"><a href="#cb6-160"></a>:::</span>
-<span id="cb6-161"><a href="#cb6-161"></a></span>
-<span id="cb6-162"><a href="#cb6-162"></a>::: {.column width="50%"}</span>
-<span id="cb6-163"><a href="#cb6-163"></a></span>
-<span id="cb6-164"><a href="#cb6-164"></a></span>
-<span id="cb6-165"><a href="#cb6-165"></a><span class="pp">|</span>Episode<span class="pp">|</span>Year<span class="pp">|</span></span>
-<span id="cb6-166"><a href="#cb6-166"></a><span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span></span>
-<span id="cb6-167"><a href="#cb6-167"></a><span class="pp">|</span>1<span class="pp">|</span>1999<span class="pp">|</span></span>
-<span id="cb6-168"><a href="#cb6-168"></a><span class="pp">|</span>2<span class="pp">|</span>2002<span class="pp">|</span></span>
-<span id="cb6-169"><a href="#cb6-169"></a><span class="pp">|</span>3<span class="pp">|</span>2005<span class="pp">|</span></span>
-<span id="cb6-170"><a href="#cb6-170"></a><span class="pp">|</span>4<span class="pp">|</span>1977<span class="pp">|</span></span>
-<span id="cb6-171"><a href="#cb6-171"></a><span class="pp">|</span>5<span class="pp">|</span>1980<span class="pp">|</span></span>
-<span id="cb6-172"><a href="#cb6-172"></a><span class="pp">|</span>6<span class="pp">|</span>1983<span class="pp">|</span></span>
-<span id="cb6-173"><a href="#cb6-173"></a><span class="pp">|</span>7<span class="pp">|</span>2015<span class="pp">|</span></span>
-<span id="cb6-174"><a href="#cb6-174"></a><span class="pp">|</span>8<span class="pp">|</span>2017<span class="pp">|</span></span>
-<span id="cb6-175"><a href="#cb6-175"></a><span class="pp">|</span>9<span class="pp">|</span>2019<span class="pp">|</span></span>
-<span id="cb6-176"><a href="#cb6-176"></a></span>
-<span id="cb6-177"><a href="#cb6-177"></a>:::</span>
-<span id="cb6-178"><a href="#cb6-178"></a></span>
-<span id="cb6-179"><a href="#cb6-179"></a>::::</span>
-<span id="cb6-180"><a href="#cb6-180"></a></span>
-<span id="cb6-181"><a href="#cb6-181"></a><span class="fu">## Colab</span></span>
-<span id="cb6-182"><a href="#cb6-182"></a></span>
-<span id="cb6-183"><a href="#cb6-183"></a><span class="ss">- </span>I just asked Gemini to make this.</span>
-<span id="cb6-184"><a href="#cb6-184"></a></span>
-<span id="cb6-187"><a href="#cb6-187"></a><span class="in">```{python}</span></span>
-<span id="cb6-188"><a href="#cb6-188"></a><span class="co">#| echo: true</span></span>
-<span id="cb6-189"><a href="#cb6-189"></a>eps <span class="op">=</span> [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]</span>
-<span id="cb6-190"><a href="#cb6-190"></a>yrs <span class="op">=</span> [<span class="dv">1977</span>, <span class="dv">1980</span>, <span class="dv">1983</span>, <span class="dv">1999</span>, <span class="dv">2002</span>, <span class="dv">2005</span>, <span class="dv">2015</span>, <span class="dv">2017</span>, <span class="dv">2019</span>]</span>
-<span id="cb6-191"><a href="#cb6-191"></a><span class="in">```</span></span>
-<span id="cb6-192"><a href="#cb6-192"></a></span>
-<span id="cb6-193"><a href="#cb6-193"></a><span class="fu">## Plot it</span></span>
-<span id="cb6-194"><a href="#cb6-194"></a></span>
-<span id="cb6-195"><a href="#cb6-195"></a><span class="ss">- </span>I naively make a *scatterplot* to view the data...</span>
-<span id="cb6-196"><a href="#cb6-196"></a></span>
-<span id="cb6-199"><a href="#cb6-199"></a><span class="in">```{python}</span></span>
-<span id="cb6-200"><a href="#cb6-200"></a><span class="co">#| echo: true</span></span>
-<span id="cb6-201"><a href="#cb6-201"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
-<span id="cb6-202"><a href="#cb6-202"></a></span>
-<span id="cb6-203"><a href="#cb6-203"></a>plt.scatter(eps,yrs)</span>
-<span id="cb6-204"><a href="#cb6-204"></a><span class="in">```</span></span>
-<span id="cb6-205"><a href="#cb6-205"></a></span>
-<span id="cb6-206"><a href="#cb6-206"></a><span class="fu">## Arithmetic</span></span>
-<span id="cb6-207"><a href="#cb6-207"></a></span>
-<span id="cb6-208"><a href="#cb6-208"></a><span class="ss">- </span>Arithmetic is hard, so just use a <span class="co">[</span><span class="ot">built-in function</span><span class="co">](https://www.geeksforgeeks.org/data-visualization/drawing-scatter-trend-lines-using-matplotlib/?ysclid=mkwsf5lepx713076579)</span>.</span>
-<span id="cb6-209"><a href="#cb6-209"></a></span>
-<span id="cb6-212"><a href="#cb6-212"></a><span class="in">```{python}</span></span>
-<span id="cb6-213"><a href="#cb6-213"></a><span class="co">#| echo: true</span></span>
-<span id="cb6-214"><a href="#cb6-214"></a><span class="co">#| output: column</span></span>
-<span id="cb6-215"><a href="#cb6-215"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb6-216"><a href="#cb6-216"></a></span>
-<span id="cb6-217"><a href="#cb6-217"></a>p <span class="op">=</span> np.poly1d(np.polyfit(eps, yrs, <span class="dv">1</span>))</span>
-<span id="cb6-218"><a href="#cb6-218"></a>plt.scatter(eps,yrs)</span>
-<span id="cb6-219"><a href="#cb6-219"></a>plt.plot(eps,p(eps))</span>
-<span id="cb6-220"><a href="#cb6-220"></a><span class="in">```</span></span>
-<span id="cb6-221"><a href="#cb6-221"></a></span>
-<span id="cb6-222"><a href="#cb6-222"></a><span class="fu">## Predict</span></span>
-<span id="cb6-223"><a href="#cb6-223"></a></span>
-<span id="cb6-224"><a href="#cb6-224"></a><span class="ss">- </span>What year do we expect episode 10 to come out?</span>
-<span id="cb6-225"><a href="#cb6-225"></a></span>
-<span id="cb6-228"><a href="#cb6-228"></a><span class="in">```{python}</span></span>
-<span id="cb6-229"><a href="#cb6-229"></a><span class="co">#| echo: true</span></span>
-<span id="cb6-230"><a href="#cb6-230"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb6-231"><a href="#cb6-231"></a></span>
-<span id="cb6-232"><a href="#cb6-232"></a>z <span class="op">=</span> np.polyfit(eps, yrs, <span class="dv">1</span>)</span>
-<span id="cb6-233"><a href="#cb6-233"></a>p <span class="op">=</span> np.poly1d(z)</span>
-<span id="cb6-234"><a href="#cb6-234"></a>p(<span class="dv">10</span>)</span>
-<span id="cb6-235"><a href="#cb6-235"></a><span class="in">```</span></span>
-<span id="cb6-236"><a href="#cb6-236"></a></span>
-<span id="cb6-237"><a href="#cb6-237"></a><span class="ss">- </span>Whoops.</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">---</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="an">title:</span><span class="co"> Regression </span></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="co">---</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="fu">## First Things First</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a></span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="ss">- </span>I will now live-code the Dichotomy lab</span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Write-up</span><span class="co">](21_key.qmd)</span></span>
+<span id="cb7-9"><a href="#cb7-9"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Colab</span><span class="co">](http://colab.research.google.com/#create=true)</span></span>
+<span id="cb7-10"><a href="#cb7-10"></a></span>
+<span id="cb7-11"><a href="#cb7-11"></a><span class="fu">## Takeaways - Colab</span></span>
+<span id="cb7-12"><a href="#cb7-12"></a></span>
+<span id="cb7-13"><a href="#cb7-13"></a><span class="ss">- </span>Use <span class="in">`+`</span></span>
+<span id="cb7-14"><a href="#cb7-14"></a><span class="ss">- </span>Use <span class="in">`=`</span></span>
+<span id="cb7-15"><a href="#cb7-15"></a><span class="ss">- </span>Use "run all"</span>
+<span id="cb7-16"><a href="#cb7-16"></a></span>
+<span id="cb7-17"><a href="#cb7-17"></a><span class="fu">## Takeaways - Gemini</span></span>
+<span id="cb7-18"><a href="#cb7-18"></a></span>
+<span id="cb7-19"><a href="#cb7-19"></a><span class="ss">- </span>Be specific</span>
+<span id="cb7-20"><a href="#cb7-20"></a><span class="ss">- </span>Be precise</span>
+<span id="cb7-21"><a href="#cb7-21"></a><span class="ss">- </span>Be consistent</span>
+<span id="cb7-22"><a href="#cb7-22"></a></span>
+<span id="cb7-23"><a href="#cb7-23"></a><span class="fu">## Takeaways - Both</span></span>
+<span id="cb7-24"><a href="#cb7-24"></a></span>
+<span id="cb7-25"><a href="#cb7-25"></a><span class="ss">- </span>Your "chatbot" will persist as long as you keep the window open</span>
+<span id="cb7-26"><a href="#cb7-26"></a><span class="ss">- </span>If you come back latter or manually restart it will change</span>
+<span id="cb7-27"><a href="#cb7-27"></a><span class="ss">- </span>Some things should be repeated, others don't need to be!</span>
+<span id="cb7-28"><a href="#cb7-28"></a><span class="ss">    - </span>I write a "prefix" I use on all my prompts, and provide it each time.</span>
+<span id="cb7-29"><a href="#cb7-29"></a></span>
+<span id="cb7-30"><a href="#cb7-30"></a><span class="fu"># Regression </span></span>
+<span id="cb7-31"><a href="#cb7-31"></a></span>
+<span id="cb7-32"><a href="#cb7-32"></a><span class="fu">## </span></span>
+<span id="cb7-33"><a href="#cb7-33"></a></span>
+<span id="cb7-34"><a href="#cb7-34"></a><span class="al">![Linear vs polynomial regression infographic](https://microsoft.github.io/ML-For-Beginners/2-Regression/3-Linear/images/linear-polynomial.png)</span></span>
+<span id="cb7-35"><a href="#cb7-35"></a>*Infographic by [Dasani Madipalli](https://twitter.com/dasani_decoded)*</span>
+<span id="cb7-36"><a href="#cb7-36"></a></span>
+<span id="cb7-37"><a href="#cb7-37"></a><span class="fu">## Why Regression?</span></span>
+<span id="cb7-38"><a href="#cb7-38"></a></span>
+<span id="cb7-39"><a href="#cb7-39"></a><span class="ss">- </span>Not, in my view, an AI topic.</span>
+<span id="cb7-40"><a href="#cb7-40"></a><span class="ss">- </span>Not, in my view, really an ML topic.</span>
+<span id="cb7-41"><a href="#cb7-41"></a><span class="ss">- </span>It seems commonly to be considered an ML topic.</span>
+<span id="cb7-42"><a href="#cb7-42"></a><span class="ss">- </span>It is the basis for some more advanced ML/AI stuff.</span>
+<span id="cb7-43"><a href="#cb7-43"></a><span class="ss">- </span>We'll get it out of the way quickly then move on.</span>
+<span id="cb7-44"><a href="#cb7-44"></a></span>
+<span id="cb7-45"><a href="#cb7-45"></a><span class="fu">## What is Regression?</span></span>
+<span id="cb7-46"><a href="#cb7-46"></a></span>
+<span id="cb7-47"><a href="#cb7-47"></a><span class="dt">&lt;</span><span class="kw">center</span><span class="dt">&gt;</span></span>
+<span id="cb7-48"><a href="#cb7-48"></a><span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://en.wikipedia.org/wiki/Regression_analysis"</span><span class="dt">&gt;</span></span>
+<span id="cb7-49"><a href="#cb7-49"></a><span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"https://upload.wikimedia.org/wikipedia/commons/b/be/Normdist_regression.png"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"filter:invert(.9)"</span><span class="dt">&gt;</span></span>
+<span id="cb7-50"><a href="#cb7-50"></a><span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
+<span id="cb7-51"><a href="#cb7-51"></a><span class="dt">&lt;/</span><span class="kw">center</span><span class="dt">&gt;</span></span>
+<span id="cb7-52"><a href="#cb7-52"></a></span>
+<span id="cb7-53"><a href="#cb7-53"></a><span class="fu">## What is Regression?</span></span>
+<span id="cb7-54"><a href="#cb7-54"></a></span>
+<span id="cb7-55"><a href="#cb7-55"></a><span class="at">&gt; In statistical modeling, regression analysis is a statistical method for estimating the relationship between a dependent variable (often called the outcome or response variable, or a label in machine learning parlance) and one or more independent variables (often called regressors, predictors, covariates, explanatory variables or features).</span></span>
+<span id="cb7-56"><a href="#cb7-56"></a></span>
+<span id="cb7-57"><a href="#cb7-57"></a></span>
+<span id="cb7-58"><a href="#cb7-58"></a><span class="fu">## Shorter</span></span>
+<span id="cb7-59"><a href="#cb7-59"></a></span>
+<span id="cb7-60"><a href="#cb7-60"></a><span class="ss">- </span>Given some predictor, determine an outcome.</span>
+<span id="cb7-61"><a href="#cb7-61"></a><span class="ss">    - </span>Given hours studied, determine exam grade.</span>
+<span id="cb7-62"><a href="#cb7-62"></a><span class="ss">    - </span>Given square footage, determine home price.</span>
+<span id="cb7-63"><a href="#cb7-63"></a><span class="ss">    - </span>Given parental income, determine income.</span>
+<span id="cb7-64"><a href="#cb7-64"></a></span>
+<span id="cb7-65"><a href="#cb7-65"></a><span class="fu">## Two Types</span></span>
+<span id="cb7-66"><a href="#cb7-66"></a></span>
+<span id="cb7-67"><a href="#cb7-67"></a><span class="ss">- </span>Linear</span>
+<span id="cb7-68"><a href="#cb7-68"></a><span class="ss">    - </span>The most common type</span>
+<span id="cb7-69"><a href="#cb7-69"></a><span class="ss">    - </span>Relate a numeric to numeric</span>
+<span id="cb7-70"><a href="#cb7-70"></a><span class="ss">        - </span>Years of schooling to annual salary</span>
+<span id="cb7-71"><a href="#cb7-71"></a><span class="ss">- </span>Logistic</span>
+<span id="cb7-72"><a href="#cb7-72"></a><span class="ss">    - </span>Special type</span>
+<span id="cb7-73"><a href="#cb7-73"></a><span class="ss">    - </span>Relate a numeric to true/false</span>
+<span id="cb7-74"><a href="#cb7-74"></a><span class="ss">        - </span>Years of school vs. employed (or not)</span>
+<span id="cb7-75"><a href="#cb7-75"></a></span>
+<span id="cb7-76"><a href="#cb7-76"></a><span class="fu">## Machine learning</span></span>
+<span id="cb7-77"><a href="#cb7-77"></a></span>
+<span id="cb7-78"><a href="#cb7-78"></a><span class="ss">- </span>The real power of machine learning (ML) comes from _training models_.</span>
+<span id="cb7-79"><a href="#cb7-79"></a><span class="ss">- </span>Models are trained on historic data to automatically capture data dependencies.</span>
+<span id="cb7-80"><a href="#cb7-80"></a><span class="ss">- </span>They allow you to predict outcomes for new data.</span>
+<span id="cb7-81"><a href="#cb7-81"></a></span>
+<span id="cb7-82"><a href="#cb7-82"></a><span class="fu">## ML</span></span>
+<span id="cb7-83"><a href="#cb7-83"></a></span>
+<span id="cb7-84"><a href="#cb7-84"></a><span class="at">&gt; Prediction is hard, especially when it is about the future.</span></span>
+<span id="cb7-85"><a href="#cb7-85"></a></span>
+<span id="cb7-86"><a href="#cb7-86"></a><span class="ss">- </span>The core insight of ML is the ability to infer (or approximate) *new* knowledge, not describe existing, known facts.</span>
+<span id="cb7-87"><a href="#cb7-87"></a></span>
+<span id="cb7-88"><a href="#cb7-88"></a><span class="fu">## Linear Regression</span></span>
+<span id="cb7-89"><a href="#cb7-89"></a></span>
+<span id="cb7-90"><a href="#cb7-90"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Start here</span><span class="co">](https://raw.githubusercontent.com/microsoft/ML-For-Beginners/refs/heads/main/2-Regression/3-Linear/README.md)</span></span>
+<span id="cb7-91"><a href="#cb7-91"></a></span>
+<span id="cb7-92"><a href="#cb7-92"></a><span class="fu">## The Goal</span></span>
+<span id="cb7-93"><a href="#cb7-93"></a>::: {.incremental}</span>
+<span id="cb7-94"><a href="#cb7-94"></a></span>
+<span id="cb7-95"><a href="#cb7-95"></a><span class="ss">- </span>The goal of a linear regression is to be able to *plot a line*, which...</span>
+<span id="cb7-96"><a href="#cb7-96"></a><span class="ss">- </span>Shows the relationship between the variables.</span>
+<span id="cb7-97"><a href="#cb7-97"></a><span class="ss">    - </span>The *predictor(s)*</span>
+<span id="cb7-98"><a href="#cb7-98"></a><span class="ss">    - </span>The *outcome*</span>
+<span id="cb7-99"><a href="#cb7-99"></a><span class="ss">- </span>Makes predictions.</span>
+<span id="cb7-100"><a href="#cb7-100"></a><span class="ss">    - </span>What would we expect the GDP of a nation-state of 700 million people to be?</span>
+<span id="cb7-101"><a href="#cb7-101"></a></span>
+<span id="cb7-102"><a href="#cb7-102"></a>:::</span>
+<span id="cb7-103"><a href="#cb7-103"></a></span>
+<span id="cb7-104"><a href="#cb7-104"></a><span class="fu">## Least Squares</span></span>
+<span id="cb7-105"><a href="#cb7-105"></a></span>
+<span id="cb7-106"><a href="#cb7-106"></a><span class="ss">- </span>By social convention...</span>
+<span id="cb7-107"><a href="#cb7-107"></a><span class="ss">    - </span>That is, not by mathematical law, but by historical accident...</span>
+<span id="cb7-108"><a href="#cb7-108"></a><span class="ss">- </span>...linear relationships are predicted using **least-squares regression**.</span>
+<span id="cb7-109"><a href="#cb7-109"></a></span>
+<span id="cb7-110"><a href="#cb7-110"></a><span class="at">&gt; </span><span class="co">[</span><span class="ot">The first known publication of a ‘Method of Averages’ was by the German astronomer Tobias Mayer in 1750.</span><span class="co">](https://towardsdatascience.com/an-introduction-to-linear-regression-9cbb64b52d23/)</span></span>
+<span id="cb7-111"><a href="#cb7-111"></a></span>
+<span id="cb7-112"><a href="#cb7-112"></a><span class="fu">## Caution!</span></span>
+<span id="cb7-113"><a href="#cb7-113"></a></span>
+<span id="cb7-114"><a href="#cb7-114"></a>::: {.callout-warning}</span>
+<span id="cb7-115"><a href="#cb7-115"></a></span>
+<span id="cb7-116"><a href="#cb7-116"></a><span class="fu">## Look out!</span></span>
+<span id="cb7-117"><a href="#cb7-117"></a></span>
+<span id="cb7-118"><a href="#cb7-118"></a>Least squares and linear regression are related, but distinct.</span>
+<span id="cb7-119"><a href="#cb7-119"></a><span class="ss">1. </span>Linear regression is a way to solution to a type of meaningful research question.</span>
+<span id="cb7-120"><a href="#cb7-120"></a><span class="ss">2. </span>Least squares is a solution to a system of equations.</span>
+<span id="cb7-121"><a href="#cb7-121"></a></span>
+<span id="cb7-122"><a href="#cb7-122"></a>:::</span>
+<span id="cb7-123"><a href="#cb7-123"></a></span>
+<span id="cb7-124"><a href="#cb7-124"></a><span class="ss">- </span>There are other forms of numeric-to-numeric regression (e.g. polynomial).</span>
+<span id="cb7-125"><a href="#cb7-125"></a></span>
+<span id="cb7-126"><a href="#cb7-126"></a><span class="fu">## Minimal Example</span></span>
+<span id="cb7-127"><a href="#cb7-127"></a></span>
+<span id="cb7-128"><a href="#cb7-128"></a><span class="ss">- </span>Take some data points and a candidate line.</span>
+<span id="cb7-129"><a href="#cb7-129"></a></span>
+<span id="cb7-130"><a href="#cb7-130"></a><span class="dt">&lt;</span><span class="kw">center</span><span class="dt">&gt;</span></span>
+<span id="cb7-131"><a href="#cb7-131"></a><span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://towardsdatascience.com/an-introduction-to-linear-regression-9cbb64b52d23/"</span><span class="dt">&gt;</span></span>
+<span id="cb7-132"><a href="#cb7-132"></a><span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"https://towardsdatascience.com/wp-content/uploads/2021/03/1icgMTS3If8VilWykm6kkHA-1024x502.jpeg"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"filter:invert(.9)"</span><span class="dt">&gt;</span></span>
+<span id="cb7-133"><a href="#cb7-133"></a><span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
+<span id="cb7-134"><a href="#cb7-134"></a><span class="dt">&lt;/</span><span class="kw">center</span><span class="dt">&gt;</span></span>
+<span id="cb7-135"><a href="#cb7-135"></a></span>
+<span id="cb7-136"><a href="#cb7-136"></a></span>
+<span id="cb7-137"><a href="#cb7-137"></a><span class="fu">## Square it</span></span>
+<span id="cb7-138"><a href="#cb7-138"></a></span>
+<span id="cb7-139"><a href="#cb7-139"></a><span class="ss">- </span>Take the distance data-to-candidate and square it.</span>
+<span id="cb7-140"><a href="#cb7-140"></a></span>
+<span id="cb7-141"><a href="#cb7-141"></a></span>
+<span id="cb7-142"><a href="#cb7-142"></a><span class="dt">&lt;</span><span class="kw">center</span><span class="dt">&gt;</span></span>
+<span id="cb7-143"><a href="#cb7-143"></a><span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://towardsdatascience.com/an-introduction-to-linear-regression-9cbb64b52d23/"</span><span class="dt">&gt;</span></span>
+<span id="cb7-144"><a href="#cb7-144"></a><span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"https://towardsdatascience.com/wp-content/uploads/2021/03/1ThlNNj4XJhCq6sGKQzSiyw.png"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"filter:invert(.9)"</span><span class="dt">&gt;</span></span>
+<span id="cb7-145"><a href="#cb7-145"></a><span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
+<span id="cb7-146"><a href="#cb7-146"></a><span class="dt">&lt;/</span><span class="kw">center</span><span class="dt">&gt;</span></span>
+<span id="cb7-147"><a href="#cb7-147"></a></span>
+<span id="cb7-148"><a href="#cb7-148"></a><span class="fu">## In Colab</span></span>
+<span id="cb7-149"><a href="#cb7-149"></a></span>
+<span id="cb7-150"><a href="#cb7-150"></a></span>
+<span id="cb7-151"><a href="#cb7-151"></a>:::: {.columns}</span>
+<span id="cb7-152"><a href="#cb7-152"></a></span>
+<span id="cb7-153"><a href="#cb7-153"></a>::: {.column width="50%"}</span>
+<span id="cb7-154"><a href="#cb7-154"></a></span>
+<span id="cb7-155"><a href="#cb7-155"></a><span class="ss">- </span>It is possible to show this in Colab/Python.</span>
+<span id="cb7-156"><a href="#cb7-156"></a><span class="ss">- </span>I will not quiz you on this but it's cool.</span>
+<span id="cb7-157"><a href="#cb7-157"></a><span class="ss">- </span>Let's take Star Wars episodes vs. year.</span>
+<span id="cb7-158"><a href="#cb7-158"></a><span class="ss">  - </span>I made this by hand.</span>
+<span id="cb7-159"><a href="#cb7-159"></a></span>
+<span id="cb7-160"><a href="#cb7-160"></a>:::</span>
+<span id="cb7-161"><a href="#cb7-161"></a></span>
+<span id="cb7-162"><a href="#cb7-162"></a>::: {.column width="50%"}</span>
+<span id="cb7-163"><a href="#cb7-163"></a></span>
+<span id="cb7-164"><a href="#cb7-164"></a></span>
+<span id="cb7-165"><a href="#cb7-165"></a><span class="pp">|</span>Episode<span class="pp">|</span>Year<span class="pp">|</span></span>
+<span id="cb7-166"><a href="#cb7-166"></a><span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span></span>
+<span id="cb7-167"><a href="#cb7-167"></a><span class="pp">|</span>1<span class="pp">|</span>1999<span class="pp">|</span></span>
+<span id="cb7-168"><a href="#cb7-168"></a><span class="pp">|</span>2<span class="pp">|</span>2002<span class="pp">|</span></span>
+<span id="cb7-169"><a href="#cb7-169"></a><span class="pp">|</span>3<span class="pp">|</span>2005<span class="pp">|</span></span>
+<span id="cb7-170"><a href="#cb7-170"></a><span class="pp">|</span>4<span class="pp">|</span>1977<span class="pp">|</span></span>
+<span id="cb7-171"><a href="#cb7-171"></a><span class="pp">|</span>5<span class="pp">|</span>1980<span class="pp">|</span></span>
+<span id="cb7-172"><a href="#cb7-172"></a><span class="pp">|</span>6<span class="pp">|</span>1983<span class="pp">|</span></span>
+<span id="cb7-173"><a href="#cb7-173"></a><span class="pp">|</span>7<span class="pp">|</span>2015<span class="pp">|</span></span>
+<span id="cb7-174"><a href="#cb7-174"></a><span class="pp">|</span>8<span class="pp">|</span>2017<span class="pp">|</span></span>
+<span id="cb7-175"><a href="#cb7-175"></a><span class="pp">|</span>9<span class="pp">|</span>2019<span class="pp">|</span></span>
+<span id="cb7-176"><a href="#cb7-176"></a></span>
+<span id="cb7-177"><a href="#cb7-177"></a>:::</span>
+<span id="cb7-178"><a href="#cb7-178"></a></span>
+<span id="cb7-179"><a href="#cb7-179"></a>::::</span>
+<span id="cb7-180"><a href="#cb7-180"></a></span>
+<span id="cb7-181"><a href="#cb7-181"></a><span class="fu">## Colab</span></span>
+<span id="cb7-182"><a href="#cb7-182"></a></span>
+<span id="cb7-183"><a href="#cb7-183"></a><span class="ss">- </span>I just asked Gemini to make this.</span>
+<span id="cb7-184"><a href="#cb7-184"></a></span>
+<span id="cb7-187"><a href="#cb7-187"></a><span class="in">```{python}</span></span>
+<span id="cb7-188"><a href="#cb7-188"></a><span class="co">#| echo: true</span></span>
+<span id="cb7-189"><a href="#cb7-189"></a>eps <span class="op">=</span> [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]</span>
+<span id="cb7-190"><a href="#cb7-190"></a>yrs <span class="op">=</span> [<span class="dv">1977</span>, <span class="dv">1980</span>, <span class="dv">1983</span>, <span class="dv">1999</span>, <span class="dv">2002</span>, <span class="dv">2005</span>, <span class="dv">2015</span>, <span class="dv">2017</span>, <span class="dv">2019</span>]</span>
+<span id="cb7-191"><a href="#cb7-191"></a><span class="in">```</span></span>
+<span id="cb7-192"><a href="#cb7-192"></a></span>
+<span id="cb7-193"><a href="#cb7-193"></a><span class="fu">## Plot it</span></span>
+<span id="cb7-194"><a href="#cb7-194"></a></span>
+<span id="cb7-195"><a href="#cb7-195"></a><span class="ss">- </span>I naively make a *scatterplot* to view the data...</span>
+<span id="cb7-196"><a href="#cb7-196"></a></span>
+<span id="cb7-199"><a href="#cb7-199"></a><span class="in">```{python}</span></span>
+<span id="cb7-200"><a href="#cb7-200"></a><span class="co">#| echo: true</span></span>
+<span id="cb7-201"><a href="#cb7-201"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb7-202"><a href="#cb7-202"></a></span>
+<span id="cb7-203"><a href="#cb7-203"></a>plt.scatter(eps,yrs)</span>
+<span id="cb7-204"><a href="#cb7-204"></a><span class="in">```</span></span>
+<span id="cb7-205"><a href="#cb7-205"></a></span>
+<span id="cb7-206"><a href="#cb7-206"></a><span class="fu">## Arithmetic</span></span>
+<span id="cb7-207"><a href="#cb7-207"></a></span>
+<span id="cb7-208"><a href="#cb7-208"></a><span class="ss">- </span>Arithmetic is hard, so just use a <span class="co">[</span><span class="ot">built-in function</span><span class="co">](https://www.geeksforgeeks.org/data-visualization/drawing-scatter-trend-lines-using-matplotlib/?ysclid=mkwsf5lepx713076579)</span>.</span>
+<span id="cb7-209"><a href="#cb7-209"></a></span>
+<span id="cb7-212"><a href="#cb7-212"></a><span class="in">```{python}</span></span>
+<span id="cb7-213"><a href="#cb7-213"></a><span class="co">#| echo: true</span></span>
+<span id="cb7-214"><a href="#cb7-214"></a><span class="co">#| output: column</span></span>
+<span id="cb7-215"><a href="#cb7-215"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb7-216"><a href="#cb7-216"></a></span>
+<span id="cb7-217"><a href="#cb7-217"></a>p <span class="op">=</span> np.poly1d(np.polyfit(eps, yrs, <span class="dv">1</span>))</span>
+<span id="cb7-218"><a href="#cb7-218"></a>plt.scatter(eps,yrs)</span>
+<span id="cb7-219"><a href="#cb7-219"></a>plt.plot(eps,p(eps))</span>
+<span id="cb7-220"><a href="#cb7-220"></a><span class="in">```</span></span>
+<span id="cb7-221"><a href="#cb7-221"></a></span>
+<span id="cb7-222"><a href="#cb7-222"></a><span class="fu">## Predict</span></span>
+<span id="cb7-223"><a href="#cb7-223"></a></span>
+<span id="cb7-224"><a href="#cb7-224"></a><span class="ss">- </span>What year do we expect episode 10 to come out?</span>
+<span id="cb7-225"><a href="#cb7-225"></a></span>
+<span id="cb7-228"><a href="#cb7-228"></a><span class="in">```{python}</span></span>
+<span id="cb7-229"><a href="#cb7-229"></a><span class="co">#| echo: true</span></span>
+<span id="cb7-230"><a href="#cb7-230"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb7-231"><a href="#cb7-231"></a></span>
+<span id="cb7-232"><a href="#cb7-232"></a>p(<span class="dv">10</span>)</span>
+<span id="cb7-233"><a href="#cb7-233"></a><span class="in">```</span></span>
+<span id="cb7-234"><a href="#cb7-234"></a></span>
+<span id="cb7-235"><a href="#cb7-235"></a><span class="ss">- </span>Whoops.</span>
+<span id="cb7-236"><a href="#cb7-236"></a></span>
+<span id="cb7-237"><a href="#cb7-237"></a><span class="fu">## Look at it</span></span>
+<span id="cb7-238"><a href="#cb7-238"></a></span>
+<span id="cb7-239"><a href="#cb7-239"></a><span class="ss">- </span>Do you see... any other patterns?</span>
+<span id="cb7-240"><a href="#cb7-240"></a></span>
+<span id="cb7-243"><a href="#cb7-243"></a><span class="in">```{python}</span></span>
+<span id="cb7-244"><a href="#cb7-244"></a>plt.scatter(eps,yrs)</span>
+<span id="cb7-245"><a href="#cb7-245"></a><span class="in">```</span></span>
+<span id="cb7-246"><a href="#cb7-246"></a></span>
+<span id="cb7-247"><a href="#cb7-247"></a><span class="fu">## Non-linearity</span></span>
+<span id="cb7-248"><a href="#cb7-248"></a></span>
+<span id="cb7-249"><a href="#cb7-249"></a>:::: {.columns}</span>
+<span id="cb7-250"><a href="#cb7-250"></a></span>
+<span id="cb7-251"><a href="#cb7-251"></a>::: {.column width="33%"}</span>
+<span id="cb7-252"><a href="#cb7-252"></a></span>
+<span id="cb7-253"><a href="#cb7-253"></a></span>
+<span id="cb7-254"><a href="#cb7-254"></a><span class="pp">|</span>Episode<span class="pp">|</span>Year<span class="pp">|</span></span>
+<span id="cb7-255"><a href="#cb7-255"></a><span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span></span>
+<span id="cb7-256"><a href="#cb7-256"></a><span class="pp">|</span>4<span class="pp">|</span>1977<span class="pp">|</span></span>
+<span id="cb7-257"><a href="#cb7-257"></a><span class="pp">|</span>5<span class="pp">|</span>1980<span class="pp">|</span></span>
+<span id="cb7-258"><a href="#cb7-258"></a><span class="pp">|</span>6<span class="pp">|</span>1983<span class="pp">|</span></span>
+<span id="cb7-259"><a href="#cb7-259"></a>:::</span>
+<span id="cb7-260"><a href="#cb7-260"></a></span>
+<span id="cb7-261"><a href="#cb7-261"></a>::: {.column width="33%"}</span>
+<span id="cb7-262"><a href="#cb7-262"></a></span>
+<span id="cb7-263"><a href="#cb7-263"></a></span>
+<span id="cb7-264"><a href="#cb7-264"></a><span class="pp">|</span>Episode<span class="pp">|</span>Year<span class="pp">|</span></span>
+<span id="cb7-265"><a href="#cb7-265"></a><span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span></span>
+<span id="cb7-266"><a href="#cb7-266"></a><span class="pp">|</span>1<span class="pp">|</span>1999<span class="pp">|</span></span>
+<span id="cb7-267"><a href="#cb7-267"></a><span class="pp">|</span>2<span class="pp">|</span>2002<span class="pp">|</span></span>
+<span id="cb7-268"><a href="#cb7-268"></a><span class="pp">|</span>3<span class="pp">|</span>2005<span class="pp">|</span></span>
+<span id="cb7-269"><a href="#cb7-269"></a></span>
+<span id="cb7-270"><a href="#cb7-270"></a>:::</span>
+<span id="cb7-271"><a href="#cb7-271"></a></span>
+<span id="cb7-272"><a href="#cb7-272"></a>::: {.column width="33%"}</span>
+<span id="cb7-273"><a href="#cb7-273"></a></span>
+<span id="cb7-274"><a href="#cb7-274"></a><span class="pp">|</span>Episode<span class="pp">|</span>Year<span class="pp">|</span></span>
+<span id="cb7-275"><a href="#cb7-275"></a><span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span></span>
+<span id="cb7-276"><a href="#cb7-276"></a><span class="pp">|</span>7<span class="pp">|</span>2015<span class="pp">|</span></span>
+<span id="cb7-277"><a href="#cb7-277"></a><span class="pp">|</span>8<span class="pp">|</span>2017<span class="pp">|</span></span>
+<span id="cb7-278"><a href="#cb7-278"></a><span class="pp">|</span>9<span class="pp">|</span>2019<span class="pp">|</span></span>
+<span id="cb7-279"><a href="#cb7-279"></a></span>
+<span id="cb7-280"><a href="#cb7-280"></a>:::</span>
+<span id="cb7-281"><a href="#cb7-281"></a></span>
+<span id="cb7-282"><a href="#cb7-282"></a>::::</span>
+<span id="cb7-283"><a href="#cb7-283"></a></span>
+<span id="cb7-284"><a href="#cb7-284"></a><span class="fu">## I see...</span></span>
+<span id="cb7-285"><a href="#cb7-285"></a></span>
+<span id="cb7-286"><a href="#cb7-286"></a><span class="ss">- </span>Within trilogies, every 2-3 years, decreasing over time.</span>
+<span id="cb7-287"><a href="#cb7-287"></a><span class="ss">- </span>Between triloigies, every 16-10 years, decreasing over time.</span>
+<span id="cb7-288"><a href="#cb7-288"></a><span class="ss">- </span>Prequels before sequels, often.</span>
+<span id="cb7-289"><a href="#cb7-289"></a><span class="ss">- </span>I'd say episode 10</span>
+<span id="cb7-290"><a href="#cb7-290"></a><span class="ss">    - </span>Next trilogy in ~10 years after 2019.</span>
+<span id="cb7-291"><a href="#cb7-291"></a><span class="ss">    - </span>2029ish if there's another prequel (High Republic) or 2044ish</span>
+<span id="cb7-292"><a href="#cb7-292"></a></span>
+<span id="cb7-293"><a href="#cb7-293"></a><span class="fu">## Complication</span></span>
+<span id="cb7-294"><a href="#cb7-294"></a></span>
+<span id="cb7-295"><a href="#cb7-295"></a><span class="ss">- </span>Should we include Rogue One as:</span>
+<span id="cb7-296"><a href="#cb7-296"></a><span class="ss">    - </span>Between Episodes 3 and 4</span>
+<span id="cb7-297"><a href="#cb7-297"></a><span class="ss">    - </span>Released in 2016</span>
+<span id="cb7-298"><a href="#cb7-298"></a></span>
+<span id="cb7-299"><a href="#cb7-299"></a><span class="dt">&lt;</span><span class="kw">center</span><span class="dt">&gt;</span></span>
+<span id="cb7-300"><a href="#cb7-300"></a><span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://starwars.fandom.com/wiki/Battle_of_Scarif"</span><span class="dt">&gt;</span></span>
+<span id="cb7-301"><a href="#cb7-301"></a><span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"https://static.wikia.nocookie.net/starwars/images/0/0d/XwingDiveAtShieldGate-CineFex151.png/revision/latest/scale-to-width-down/1000?cb=20250216011057"</span><span class="dt">&gt;</span></span>
+<span id="cb7-302"><a href="#cb7-302"></a><span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
+<span id="cb7-303"><a href="#cb7-303"></a><span class="dt">&lt;/</span><span class="kw">center</span><span class="dt">&gt;</span></span>
+<span id="cb7-304"><a href="#cb7-304"></a></span>
+<span id="cb7-305"><a href="#cb7-305"></a><span class="fu">## Takeaways</span></span>
+<span id="cb7-306"><a href="#cb7-306"></a></span>
+<span id="cb7-307"><a href="#cb7-307"></a><span class="ss">- </span>Linear regression can be *cool*.</span>
+<span id="cb7-308"><a href="#cb7-308"></a><span class="ss">- </span>But it is not *intelligent*, probably.</span>
+<span id="cb7-309"><a href="#cb7-309"></a><span class="ss">    - </span>Perhaps, if it appears intelligence the site of the intelligence is actually the human user, not the computer.</span>
+<span id="cb7-310"><a href="#cb7-310"></a></span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

@@ -601,7 +601,7 @@
     "href": "30_regress.html#predict",
     "title": "Regression",
     "section": "Predict",
-    "text": "Predict\n\nWhat year do we expect episode 10 to come out?\n\n\nimport numpy as np\n\nz = np.polyfit(eps, yrs, 1)\np = np.poly1d(z)\np(10)\n\n2012.2500000000002\n\n\n\nWhoops.",
+    "text": "Predict\n\nWhat year do we expect episode 10 to come out?\n\n\nimport numpy as np\n\np(10)\n\n2012.2500000000002\n\n\n\nWhoops.",
     "crumbs": [
       "Regression"
     ]
@@ -765,7 +765,7 @@
     "href": "30_regress.rjs.html#predict",
     "title": "Regression",
     "section": "Predict",
-    "text": "Predict\n\nWhat year do we expect episode 10 to come out?\n\n\nimport numpy as np\n\nz = np.polyfit(eps, yrs, 1)\np = np.poly1d(z)\np(10)\n\n2012.2500000000002\n\n\n\nWhoops."
+    "text": "Predict\n\nWhat year do we expect episode 10 to come out?\n\n\nimport numpy as np\n\np(10)\n\n2012.2500000000002\n\n\n\nWhoops."
   },
   {
     "objectID": "21_key.html",
@@ -2727,5 +2727,158 @@
     "crumbs": [
       "Tree Tree"
     ]
+  },
+  {
+    "objectID": "30_regress.html#look-at-it",
+    "href": "30_regress.html#look-at-it",
+    "title": "Regression",
+    "section": "Look at it",
+    "text": "Look at it\n\nDo you see… any other patterns?\n\n\nplt.scatter(eps,yrs)",
+    "crumbs": [
+      "Regression"
+    ]
+  },
+  {
+    "objectID": "30_regress.html#takeaways",
+    "href": "30_regress.html#takeaways",
+    "title": "Regression",
+    "section": "Takeaways",
+    "text": "Takeaways\n\nLinear regression can be cool.\nBut it is not intelligent, probably.\n\nPerhaps, if it appears intelligence the site of the intelligence is actually the human user, not the computer.",
+    "crumbs": [
+      "Regression"
+    ]
+  },
+  {
+    "objectID": "30_regress.rjs.html#look-at-it",
+    "href": "30_regress.rjs.html#look-at-it",
+    "title": "Regression",
+    "section": "Look at it",
+    "text": "Look at it\n\nDo you see… any other patterns?"
+  },
+  {
+    "objectID": "30_regress.rjs.html#takeaways",
+    "href": "30_regress.rjs.html#takeaways",
+    "title": "Regression",
+    "section": "Takeaways",
+    "text": "Takeaways\n\nLinear regression can be cool.\nBut it is not intelligent, probably.\n\nPerhaps, if it appears intelligence the site of the intelligence is actually the human user, not the computer."
+  },
+  {
+    "objectID": "30_regress.html#non-linearity",
+    "href": "30_regress.html#non-linearity",
+    "title": "Regression",
+    "section": "Non-linearity",
+    "text": "Non-linearity\n\n\n\n\n\nEpisode\nYear\n\n\n\n\n4\n1977\n\n\n5\n1980\n\n\n6\n1983\n\n\n\n\n\n\n\nEpisode\nYear\n\n\n\n\n1\n1999\n\n\n2\n2002\n\n\n3\n2005\n\n\n\n\n\n\n\nEpisode\nYear\n\n\n\n\n7\n2015\n\n\n8\n2017\n\n\n9\n2019",
+    "crumbs": [
+      "Regression"
+    ]
+  },
+  {
+    "objectID": "30_regress.html#i-see",
+    "href": "30_regress.html#i-see",
+    "title": "Regression",
+    "section": "I see…",
+    "text": "I see…\n\nWithin trilogies, every 2-3 years, decreasing over time.\nBetween triloigies, every 16-10 years, decreasing over time.\nPrequels before sequels, often.\nI’d say episode 10\n\nNext trilogy in ~10 years after 2019.\n2029ish if there’s another prequel (High Republic) or 2044ish",
+    "crumbs": [
+      "Regression"
+    ]
+  },
+  {
+    "objectID": "30_regress.rjs.html#non-linearity",
+    "href": "30_regress.rjs.html#non-linearity",
+    "title": "Regression",
+    "section": "Non-linearity",
+    "text": "Non-linearity\n\n\n\n\n\nEpisode\nYear\n\n\n\n\n4\n1977\n\n\n5\n1980\n\n\n6\n1983\n\n\n\n\n\n\n\nEpisode\nYear\n\n\n\n\n1\n1999\n\n\n2\n2002\n\n\n3\n2005\n\n\n\n\n\n\n\nEpisode\nYear\n\n\n\n\n7\n2015\n\n\n8\n2017\n\n\n9\n2019"
+  },
+  {
+    "objectID": "30_regress.rjs.html#i-see",
+    "href": "30_regress.rjs.html#i-see",
+    "title": "Regression",
+    "section": "I see…",
+    "text": "I see…\n\nWithin trilogies, every 2-3 years, decreasing over time.\nBetween triloigies, every 16-10 years, decreasing over time.\nPrequels before sequels, often.\nI’d say episode 10\n\nNext trilogy in ~10 years after 2019.\n2029ish if there’s another prequel (High Republic) or 2044ish"
+  },
+  {
+    "objectID": "30_regress.html#complication",
+    "href": "30_regress.html#complication",
+    "title": "Regression",
+    "section": "Complication",
+    "text": "Complication\n\nShould we include Rogue One as:\n\nBetween Episodes 3 and 4\nReleased in 2016",
+    "crumbs": [
+      "Regression"
+    ]
+  },
+  {
+    "objectID": "30_regress.rjs.html#complication",
+    "href": "30_regress.rjs.html#complication",
+    "title": "Regression",
+    "section": "Complication",
+    "text": "Complication\n\nShould we include Rogue One as:\n\nBetween Episodes 3 and 4\nReleased in 2016"
+  },
+  {
+    "objectID": "30_regress.html#why-classification",
+    "href": "30_regress.html#why-classification",
+    "title": "Regression",
+    "section": "Why classification?",
+    "text": "Why classification?\n\nDefinitely AI topic!\n\nRecall Imagenet\n“Is this image a cat or dog?”\n\nIt is the basis for some more advanced ML/AI stuff.\nWe’ll use it within our labs.",
+    "crumbs": [
+      "Regression"
+    ]
+  },
+  {
+    "objectID": "30_regress.html#what-is-regression-2",
+    "href": "30_regress.html#what-is-regression-2",
+    "title": "Regression",
+    "section": "What is Regression?",
+    "text": "What is Regression?",
+    "crumbs": [
+      "Regression"
+    ]
+  },
+  {
+    "objectID": "30_regress.html#what-is-regression-3",
+    "href": "30_regress.html#what-is-regression-3",
+    "title": "Regression",
+    "section": "What is Regression?",
+    "text": "What is Regression?\n\nIn statistical modeling, regression analysis is a statistical method for estimating the relationship between a dependent variable (often called the outcome or response variable, or a label in machine learning parlance) and one or more independent variables (often called regressors, predictors, covariates, explanatory variables or features).",
+    "crumbs": [
+      "Regression"
+    ]
+  },
+  {
+    "objectID": "30_regress.html#shorter-1",
+    "href": "30_regress.html#shorter-1",
+    "title": "Regression",
+    "section": "Shorter",
+    "text": "Shorter\n\nGiven some predictor, determine an outcome.\n\nGiven hours studied, determine exam grade.\nGiven square footage, determine home price.\nGiven parental income, determine income.",
+    "crumbs": [
+      "Regression"
+    ]
+  },
+  {
+    "objectID": "30_regress.rjs.html#why-classification",
+    "href": "30_regress.rjs.html#why-classification",
+    "title": "Regression",
+    "section": "Why classification?",
+    "text": "Why classification?\n\nDefinitely AI topic!\n\nRecall Imagenet\n“Is this image a cat or dog?”\n\nIt is the basis for some more advanced ML/AI stuff.\nWe’ll use it within our labs."
+  },
+  {
+    "objectID": "30_regress.rjs.html#what-is-regression-2",
+    "href": "30_regress.rjs.html#what-is-regression-2",
+    "title": "Regression",
+    "section": "What is Regression?",
+    "text": "What is Regression?"
+  },
+  {
+    "objectID": "30_regress.rjs.html#what-is-regression-3",
+    "href": "30_regress.rjs.html#what-is-regression-3",
+    "title": "Regression",
+    "section": "What is Regression?",
+    "text": "What is Regression?\n\nIn statistical modeling, regression analysis is a statistical method for estimating the relationship between a dependent variable (often called the outcome or response variable, or a label in machine learning parlance) and one or more independent variables (often called regressors, predictors, covariates, explanatory variables or features)."
+  },
+  {
+    "objectID": "30_regress.rjs.html#shorter-1",
+    "href": "30_regress.rjs.html#shorter-1",
+    "title": "Regression",
+    "section": "Shorter",
+    "text": "Shorter\n\nGiven some predictor, determine an outcome.\n\nGiven hours studied, determine exam grade.\nGiven square footage, determine home price.\nGiven parental income, determine income."
   }
 ]

@@ -1,0 +1,34 @@
+---
+title: Classification
+---
+
+# Classification
+
+## Why classification?
+
+- Definitely AI topic!
+	- Recall Imagenet
+	- "Is this image a cat or dog?"
+- It is the basis for some more advanced ML/AI stuff.
+- We'll use it within our labs.
+
+## What is Regression?
+
+<center>
+<a href="https://en.wikipedia.org/wiki/Regression_analysis">
+<img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Normdist_regression.png" style="filter:invert(.9)">
+</a>
+</center>
+
+## What is Regression?
+
+> In statistical modeling, regression analysis is a statistical method for estimating the relationship between a dependent variable (often called the outcome or response variable, or a label in machine learning parlance) and one or more independent variables (often called regressors, predictors, covariates, explanatory variables or features).
+
+
+## Shorter
+
+- Given some predictor, determine an outcome.
+  	- Given hours studied, determine exam grade.
+	- Given square footage, determine home price.
+	- Given parental income, determine income.
+

@@ -1,0 +1,171 @@
+---
+title: $n$-D
+format: html
+---
+
+# What is $n$-D? 
+
+- Or longer, $n$-dimensional
+
+> [Having an arbitrary number of dimensions.](https://en.wiktionary.org/wiki/n-dimensional)
+
+## Why do we care?
+
+Recall *Star Wars* over which I claimed:
+
+- Linear regression can be *cool*.
+- But it is not *intelligent*, probably.
+	- Perhaps, if it appears intelligence the site of the intelligence is actually the human user, not the computer.
+
+We are intelligent. Let's try again.
+
+## Recall Release Dates
+
+
+:::: {.columns}
+
+::: {.column width="33%"}
+
+
+|Episode|Year|
+|-|-|
+|4|1977|
+|5|1980|
+|6|1983|
+:::
+
+::: {.column width="33%"}
+
+
+|Episode|Year|
+|-|-|
+|1|1999|
+|2|2002|
+|3|2005|
+
+:::
+
+::: {.column width="33%"}
+
+|Episode|Year|
+|-|-|
+|7|2015|
+|8|2017|
+|9|2019|
+
+:::
+
+::::
+
+## Thinking Model
+
+- Perhaps instead of thinking of films (1 dimension) vs year (1 dimension)...
+- Consider "trilogy-wise"
+  - In which trilogy is some film (a dimension)
+  - Which film within a trilogy is some film (another dimension)
+
+|Episode|Trilogy #|# in Trilogy|
+|-|-|-|
+|1|2|1|
+|2|2|2|
+|3|2|3|
+|4|1|1|
+|5|1|2|
+|6|1|3|
+|7|3|1|
+|8|3|2|
+|9|3|3|
+
+|Episode|Trilogy Year|Year in Trilogy|
+|-|-|-|
+|1|1999|0|
+|2|1999|3|
+|3|1999|6|
+|4|1977|0|
+|5|1977|3|
+|6|1977|6|
+|7|2015|0|
+|8|2015|2|
+|9|2015|4|
+
+# Your Task
+
+- We will visually examine the *Star Wars* releases in $n$-D.
+- We will make some informed estimate of the release date of next trilogy
+- In the post-lab, you will comment on the comparative merits of an $n$-D approach to the naive linear approach.
+
+## Plotting in $n$-D
+
+- There is one difficulty.
+- Computer monitors have only two dimensions, right?
+
+## Wrong!
+
+- Just because something is represented in a dimension like up, down, or... out?
+- We can also use shape, color, size, or more subtle manners.
+
+## Citations 
+
+- I am stealing my slides from my [scientific computing course](https://cd-public.github.io/scicom/08_pandas.html#patterns)
+- I needed one more dimension so I found *Star Wars* "in-universe" years expressed as [(B)BY](https://www.reddit.com/r/starwarscanon/comments/12lc7mu/an_updated_star_wars_timeline/)
+  - It's from Reddit... just regard that as accurate I guess.
+
+## Extended example
+
+- You can copy paste this data, as is, into a Colab code cell.
+- And try things out!
+
+### Data
+
+In order these are:
+
+1. Episode Number (`eps`)
+2. Trilogy Number (`tri`)
+3. Number in Trilogy (`num`)
+4. In-universe year (`bby`)
+
+```{python}
+eps = [4,5,6,1,2,3,7,8,9]
+tri = [2,2,2,1,1,1,3,3,3]
+num = [1,2,3,1,2,3,1,2,3]
+bby = [0,3,4,-32,-22,-19,34,34,35]
+```
+
+## 2D
+
+- Try out a few 2D plots, here is one example.
+	- We can specify these as the `x` and `y` dimension.
+	- A la grade school mathematics
+
+```{python}
+plt.scatter(x=tri,y=num)
+```
+
+## 3D
+
+- Third dimension via `s=` for size 
+
+
+```{python}
+plt.scatter(df["OutermostElectrons"], df["MeltingPoint"], s=df["AtomicNumber"])
+```
+
+## Columns to Columns
+
+- Using vector operations, we can make novel columns from existing columns.
+```{python}
+df["NeutronsLessProtons"] = df["NumberofNeutrons"] - df["NumberofProtons"]
+plt.plot(df["NeutronsLessProtons"])
+```
+
+## 4D
+
+```{python}
+plt.scatter(x=df["OutermostElectrons"], # we can optional specify x and y 
+            y=df["MeltingPoint"], 
+            s=df["AtomicNumber"], 
+            c=df["NeutronsLessProtons"]) # color
+plt.colorbar() # Like a legend for colors.
+```
+
+

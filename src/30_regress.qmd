@@ -221,9 +221,81 @@ plt.plot(eps,p(eps))
 #| echo: true
 import numpy as np
 
-z = np.polyfit(eps, yrs, 1)
-p = np.poly1d(z)
 p(10)
 ```
 
 - Whoops.
+
+## Look at it
+
+- Do you see... any other patterns?
+
+```{python}
+plt.scatter(eps,yrs)
+```
+
+## Non-linearity
+
+:::: {.columns}
+
+::: {.column width="33%"}
+
+
+|Episode|Year|
+|-|-|
+|4|1977|
+|5|1980|
+|6|1983|
+:::
+
+::: {.column width="33%"}
+
+
+|Episode|Year|
+|-|-|
+|1|1999|
+|2|2002|
+|3|2005|
+
+:::
+
+::: {.column width="33%"}
+
+|Episode|Year|
+|-|-|
+|7|2015|
+|8|2017|
+|9|2019|
+
+:::
+
+::::
+
+## I see...
+
+- Within trilogies, every 2-3 years, decreasing over time.
+- Between triloigies, every 16-10 years, decreasing over time.
+- Prequels before sequels, often.
+- I'd say episode 10
+  	- Next trilogy in ~10 years after 2019.
+	- 2029ish if there's another prequel (High Republic) or 2044ish
+
+## Complication
+
+- Should we include Rogue One as:
+  	- Between Episodes 3 and 4
+	- Released in 2016
+
+<center>
+<a href="https://starwars.fandom.com/wiki/Battle_of_Scarif">
+<img src="https://static.wikia.nocookie.net/starwars/images/0/0d/XwingDiveAtShieldGate-CineFex151.png/revision/latest/scale-to-width-down/1000?cb=20250216011057">
+</a>
+</center>
+
+## Takeaways
+
+- Linear regression can be *cool*.
+- But it is not *intelligent*, probably.
+	- Perhaps, if it appears intelligence the site of the intelligence is actually the human user, not the computer.
+
+
