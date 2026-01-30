@@ -5,6 +5,8 @@ title: Regression
 ## First Things First
 
 - I will now live-code the Dichotomy lab
+- [Write-up](21_key.qmd)
+- [Colab](http://colab.research.google.com/#create=true)
 
 ## Takeaways - Colab
 
@@ -73,7 +75,7 @@ title: Regression
 
 ## Machine learning
 
-- The real power of Machine Learning comes from _training models_.
+- The real power of machine learning (ML) comes from _training models_.
 - Models are trained on historic data to automatically capture data dependencies.
 - They allow you to predict outcomes for new data.
 
@@ -86,3 +88,142 @@ title: Regression
 ## Linear Regression
 
 - [Start here](https://raw.githubusercontent.com/microsoft/ML-For-Beginners/refs/heads/main/2-Regression/3-Linear/README.md)
+
+## The Goal
+::: {.incremental}
+
+- The goal of a linear regression is to be able to *plot a line*, which...
+- Shows the relationship between the variables.
+  	- The *predictor(s)*
+	- The *outcome*
+- Makes predictions.
+  	- What would we expect the GDP of a nation-state of 700 million people to be?
+
+:::
+
+## Least Squares
+
+- By social convention...
+  	- That is, not by mathematical law, but by historical accident...
+- ...linear relationships are predicted using **least-squares regression**.
+
+> [The first known publication of a ‘Method of Averages’ was by the German astronomer Tobias Mayer in 1750.](https://towardsdatascience.com/an-introduction-to-linear-regression-9cbb64b52d23/)
+
+## Caution!
+
+::: {.callout-warning}
+
+## Look out!
+
+Least squares and linear regression are related, but distinct.
+1. Linear regression is a way to solution to a type of meaningful research question.
+2. Least squares is a solution to a system of equations.
+
+:::
+
+- There are other forms of numeric-to-numeric regression (e.g. polynomial).
+
+## Minimal Example
+
+- Take some data points and a candidate line.
+
+<center>
+<a href="https://towardsdatascience.com/an-introduction-to-linear-regression-9cbb64b52d23/">
+<img src="https://towardsdatascience.com/wp-content/uploads/2021/03/1icgMTS3If8VilWykm6kkHA-1024x502.jpeg" style="filter:invert(.9)">
+</a>
+</center>
+
+
+## Square it
+
+- Take the distance data-to-candidate and square it.
+
+
+<center>
+<a href="https://towardsdatascience.com/an-introduction-to-linear-regression-9cbb64b52d23/">
+<img src="https://towardsdatascience.com/wp-content/uploads/2021/03/1ThlNNj4XJhCq6sGKQzSiyw.png" style="filter:invert(.9)">
+</a>
+</center>
+
+## In Colab
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- It is possible to show this in Colab/Python.
+- I will not quiz you on this but it's cool.
+- Let's take Star Wars episodes vs. year.
+  - I made this by hand.
+
+:::
+
+::: {.column width="50%"}
+
+
+|Episode|Year|
+|-|-|
+|1|1999|
+|2|2002|
+|3|2005|
+|4|1977|
+|5|1980|
+|6|1983|
+|7|2015|
+|8|2017|
+|9|2019|
+
+:::
+
+::::
+
+## Colab
+
+- I just asked Gemini to make this.
+
+```{python}
+#| echo: true
+eps = [4, 5, 6, 1, 2, 3, 7, 8, 9]
+yrs = [1977, 1980, 1983, 1999, 2002, 2005, 2015, 2017, 2019]
+```
+
+## Plot it
+
+- I naively make a *scatterplot* to view the data...
+
+```{python}
+#| echo: true
+from matplotlib import pyplot as plt
+
+plt.scatter(eps,yrs)
+```
+
+## Arithmetic
+
+- Arithmetic is hard, so just use a [built-in function](https://www.geeksforgeeks.org/data-visualization/drawing-scatter-trend-lines-using-matplotlib/?ysclid=mkwsf5lepx713076579).
+
+```{python}
+#| echo: true
+#| output: column
+import numpy as np
+
+p = np.poly1d(np.polyfit(eps, yrs, 1))
+plt.scatter(eps,yrs)
+plt.plot(eps,p(eps))
+```
+
+## Predict
+
+- What year do we expect episode 10 to come out?
+
+```{python}
+#| echo: true
+import numpy as np
+
+z = np.polyfit(eps, yrs, 1)
+p = np.poly1d(z)
+p(10)
+```
+
+- Whoops.

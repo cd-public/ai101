@@ -9,7 +9,7 @@
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.25">
 
-  <title>AI 101 – Ada &amp; Alan</title>
+  <title>AI 101 – Regression</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -27,6 +27,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #f8f8f2;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #f8f8f2; } /* Normal */
+    code span.al { color: #f07178; } /* Alert */
+    code span.an { color: #d4d0ab; } /* Annotation */
+    code span.at { color: #00e0e0; } /* Attribute */
+    code span.bn { color: #d4d0ab; } /* BaseN */
+    code span.bu { color: #abe338; } /* BuiltIn */
+    code span.cf { color: #ffa07a; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #abe338; } /* Char */
+    code span.cn { color: #ffd700; } /* Constant */
+    code span.co { color: #f8f8f2; font-style: italic; } /* Comment */
+    code span.cv { color: #ffd700; } /* CommentVar */
+    code span.do { color: #f8f8f2; } /* Documentation */
+    code span.dt { color: #ffa07a; } /* DataType */
+    code span.dv { color: #d4d0ab; } /* DecVal */
+    code span.er { color: #f07178; text-decoration: underline; } /* Error */
+    code span.ex { color: #00e0e0; font-weight: bold; } /* Extension */
+    code span.fl { color: #d4d0ab; } /* Float */
+    code span.fu { color: #ffa07a; } /* Function */
+    code span.im { color: #abe338; } /* Import */
+    code span.in { color: #d4d0ab; } /* Information */
+    code span.kw { color: #ffa07a; font-weight: bold; } /* Keyword */
+    code span.op { color: #ffa07a; } /* Operator */
+    code span.ot { color: #00e0e0; } /* Other */
+    code span.pp { color: #dcc6e0; } /* Preprocessor */
+    code span.re { color: #00e0e0; background-color: #f8f8f2; } /* RegionMarker */
+    code span.sc { color: #abe338; } /* SpecialChar */
+    code span.ss { color: #abe338; } /* SpecialString */
+    code span.st { color: #abe338; } /* String */
+    code span.va { color: #00e0e0; } /* Variable */
+    code span.vs { color: #abe338; } /* VerbatimString */
+    code span.wa { color: #dcc6e0; } /* Warning */
   </style>
   <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-327cab17de08e4a17faa7d61f48ae591.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -126,272 +192,325 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Ada &amp; Alan</h1>
+  <h1 class="title">Regression</h1>
   <p class="subtitle">AI 101</p>
 
 <div class="quarto-title-authors">
 </div>
 
 </section>
-<section>
-<section id="introduction-to-ai" class="title-slide slide level1 center">
-<h1>Introduction to AI</h1>
-
-<img data-src="images/ai-intro.png" class="r-stretch"><p><em>Sketchnote by <a href="https://twitter.com/girlie_mac">Tomomi Imura</a>. Edits by <a href="https://cd-public.github.io/">Prof.&nbsp;Calvin</a></em></p>
+<section id="first-things-first" class="slide level2">
+<h2>First Things First</h2>
+<ul>
+<li>I will now live-code the Dichotomy lab</li>
+<li><a href="./21_key.html">Write-up</a></li>
+<li><a href="http://colab.research.google.com/#create=true">Colab</a></li>
+</ul>
 </section>
-<section id="what-is-ai" class="slide level2">
-<h2>What is AI?</h2>
-<div class="callout callout-note callout-titled callout-style-default">
+<section id="takeaways---colab" class="slide level2">
+<h2>Takeaways - Colab</h2>
+<ul>
+<li>Use <code>+</code></li>
+<li>Use <code>=</code></li>
+<li>Use “run all”</li>
+</ul>
+</section>
+<section id="takeaways---gemini" class="slide level2">
+<h2>Takeaways - Gemini</h2>
+<ul>
+<li>Be specific</li>
+<li>Be precise</li>
+<li>Be consistent</li>
+</ul>
+</section>
+<section id="takeaways---both" class="slide level2">
+<h2>Takeaways - Both</h2>
+<ul>
+<li>Your “chatbot” will persist as long as you keep the window open</li>
+<li>If you come back latter or manually restart it will change</li>
+<li>Some things should be repeated, others don’t need to be!
+<ul>
+<li>I write a “prefix” I use on all my prompts, and provide it each time.</li>
+</ul></li>
+</ul>
+</section>
+<section>
+<section id="regression" class="title-slide slide level1 center">
+<h1>Regression</h1>
+
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+<p><img data-src="https://microsoft.github.io/ML-For-Beginners/2-Regression/3-Linear/images/linear-polynomial.png" alt="Linear vs polynomial regression infographic"> <em>Infographic by <a href="https://twitter.com/dasani_decoded">Dasani Madipalli</a></em></p>
+</section>
+<section id="why-regression" class="slide level2">
+<h2>Why Regression?</h2>
+<ul>
+<li>Not, in my view, an AI topic.</li>
+<li>Not, in my view, really an ML topic.</li>
+<li>It seems commonly to be considered an ML topic.</li>
+<li>It is the basis for some more advanced ML/AI stuff.</li>
+<li>We’ll get it out of the way quickly then move on.</li>
+</ul>
+</section>
+<section id="what-is-regression" class="slide level2">
+<h2>What is Regression?</h2>
+<center>
+<a href="https://en.wikipedia.org/wiki/Regression_analysis"> <img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Normdist_regression.png" style="filter:invert(.9)"> </a>
+</center>
+</section>
+<section id="what-is-regression-1" class="slide level2">
+<h2>What is Regression?</h2>
+<blockquote>
+<p>In statistical modeling, regression analysis is a statistical method for estimating the relationship between a dependent variable (often called the outcome or response variable, or a label in machine learning parlance) and one or more independent variables (often called regressors, predictors, covariates, explanatory variables or features).</p>
+</blockquote>
+</section>
+<section id="shorter" class="slide level2">
+<h2>Shorter</h2>
+<ul>
+<li>Given some predictor, determine an outcome.
+<ul>
+<li>Given hours studied, determine exam grade.</li>
+<li>Given square footage, determine home price.</li>
+<li>Given parental income, determine income.</li>
+</ul></li>
+</ul>
+</section>
+<section id="two-types" class="slide level2">
+<h2>Two Types</h2>
+<ul>
+<li>Linear
+<ul>
+<li>The most common type</li>
+<li>Relate a numeric to numeric
+<ul>
+<li>Years of schooling to annual salary</li>
+</ul></li>
+</ul></li>
+<li>Logistic
+<ul>
+<li>Special type</li>
+<li>Relate a numeric to true/false
+<ul>
+<li>Years of school vs.&nbsp;employed (or not)</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="machine-learning" class="slide level2">
+<h2>Machine learning</h2>
+<ul>
+<li>The real power of machine learning (ML) comes from <em>training models</em>.</li>
+<li>Models are trained on historic data to automatically capture data dependencies.</li>
+<li>They allow you to predict outcomes for new data.</li>
+</ul>
+</section>
+<section id="ml" class="slide level2">
+<h2>ML</h2>
+<blockquote>
+<p>Prediction is hard, especially when it is about the future.</p>
+</blockquote>
+<ul>
+<li>The core insight of ML is the ability to infer (or approximate) <em>new</em> knowledge, not describe existing, known facts.</li>
+</ul>
+</section>
+<section id="linear-regression" class="slide level2">
+<h2>Linear Regression</h2>
+<ul>
+<li><a href="https://raw.githubusercontent.com/microsoft/ML-For-Beginners/refs/heads/main/2-Regression/3-Linear/README.md">Start here</a></li>
+</ul>
+</section>
+<section id="the-goal" class="slide level2">
+<h2>The Goal</h2>
+<ul>
+<li class="fragment">The goal of a linear regression is to be able to <em>plot a line</em>, which…</li>
+<li class="fragment">Shows the relationship between the variables.
+<ul>
+<li class="fragment">The <em>predictor(s)</em></li>
+<li class="fragment">The <em>outcome</em></li>
+</ul></li>
+<li class="fragment">Makes predictions.
+<ul>
+<li class="fragment">What would we expect the GDP of a nation-state of 700 million people to be?</li>
+</ul></li>
+</ul>
+</section>
+<section id="least-squares" class="slide level2">
+<h2>Least Squares</h2>
+<ul>
+<li>By social convention…
+<ul>
+<li>That is, not by mathematical law, but by historical accident…</li>
+</ul></li>
+<li>…linear relationships are predicted using <strong>least-squares regression</strong>.</li>
+</ul>
+<blockquote>
+<p><a href="https://towardsdatascience.com/an-introduction-to-linear-regression-9cbb64b52d23/">The first known publication of a ‘Method of Averages’ was by the German astronomer Tobias Mayer in 1750.</a></p>
+</blockquote>
+</section>
+<section id="caution" class="slide level2">
+<h2>Caution!</h2>
+<div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Working Definition</strong></p>
+<p><strong>Look out!</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Artificial Intelligence</strong> is a <em>scientific discipline</em> that studies how we can make computers exhibit intelligent behavior, e.g.&nbsp;do those things that human beings are good at doing.</p>
+<p>Least squares and linear regression are related, but distinct. 1. Linear regression is a way to solution to a type of meaningful research question. 2. Least squares is a solution to a system of equations.</p>
 </div>
 </div>
 </div>
 <ul>
-<li>Scientific - uses experimentation, publication, and falsification.</li>
-<li>Computers - based on the existing fields of computer science but also linguistics, philosophy, mathematics, and physics (or perhaps electrical engineering)</li>
-<li>Humans - measured against a <em>human</em> baseline</li>
+<li>There are other forms of numeric-to-numeric regression (e.g.&nbsp;polynomial).</li>
 </ul>
 </section>
-<section id="computers" class="slide level2">
-<h2>Computers</h2>
+<section id="minimal-example" class="slide level2">
+<h2>Minimal Example</h2>
 <ul>
-<li>Originally, programming was discovered by <a href="https://en.wikipedia.org/wiki/Ada_Lovelace">Ada Lovelace</a> to operate on numbers following a well-defined procedure - an <em>algorithm</em> - like a recipe or knitting pattern.</li>
-<li>Modern computers are theoretical identical (through practically quite distinct)</li>
-<li>Thus it is possible to program a computer to do something if we know the <em>exact sequence of steps</em> that we need to do in order to achieve the goal.</li>
+<li>Take some data points and a candidate line.</li>
 </ul>
-</section>
-<section id="how-many-years-old" class="slide level2">
-<h2>How many years old?</h2>
 <center>
-<img data-src="images/dsh_age.png">
+<a href="https://towardsdatascience.com/an-introduction-to-linear-regression-9cbb64b52d23/"> <img src="https://towardsdatascience.com/wp-content/uploads/2021/03/1icgMTS3If8VilWykm6kkHA-1024x502.jpeg" style="filter:invert(.9)"> </a>
 </center>
-<p><em>Photo by <a href="http://twitter.com/vickievalerie">Vickie Soshnikova</a></em></p>
 </section>
-<section id="intelligence" class="slide level2">
-<h2>Intelligence?</h2>
+<section id="square-it" class="slide level2">
+<h2>Square it</h2>
 <ul>
-<li>Defining the age of a person from their photograph is a task that cannot be explicitly programmed
-<ul>
-<li>We do not know how we come up with a number inside our head when we do it!</li>
-<li>Oftentimes we wish to <em>avoid</em> estimating age…
-<ul>
-<li>Hire/fire decisions, most notably!</li>
-</ul></li>
-</ul></li>
+<li>Take the distance data-to-candidate and square it.</li>
 </ul>
+<center>
+<a href="https://towardsdatascience.com/an-introduction-to-linear-regression-9cbb64b52d23/"> <img src="https://towardsdatascience.com/wp-content/uploads/2021/03/1ThlNNj4XJhCq6sGKQzSiyw.png" style="filter:invert(.9)"> </a>
+</center>
 </section>
-<section id="which-is-more-beautiful" class="slide level2">
-<h2>Which is more beautiful?</h2>
+<section id="in-colab" class="slide level2">
+<h2>In Colab</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p>Elowah Falls</p>
-<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Elowah_Falls_2597.JPG/960px-Elowah_Falls_2597.JPG"></p>
-</div><div class="column" style="width:50%;">
-<p>Fairy Falls</p>
-<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/9/91/Fairy_Falls_%28Oregon%29.jpg"></p>
-</div></div>
-</section>
-<section id="intelligence-1" class="slide level2">
-<h2>Intelligence?</h2>
 <ul>
-<li>There are some tasks that we do not explicitly know how to solve.</li>
-<li>Consider determining the age of a person from their photograph.</li>
-<li>We somehow learn to do it, because we have seen many examples of people of different age, but we cannot explicitly explain how we do it, nor can we program the computer to do it.</li>
-<li>This is exactly the kind of task that are of interest to <strong>Artificial Intelligence</strong> (AI for short).</li>
-</ul>
-</section>
-<section id="thinkpairshare" class="slide level2">
-<h2>Think/Pair/Share</h2>
-<p>✅ Think of some tasks that one may wish to offload to AI.</p>
+<li>It is possible to show this in Colab/Python.</li>
+<li>I will not quiz you on this but it’s cool.</li>
+<li>Let’s take Star Wars episodes vs.&nbsp;year.
 <ul>
-<li>Consider the fields like education, politics, medicine, and the arts.</li>
-<li>How are these fields interacting today with AI?</li>
-<li>Who benefits from the use of AI and who pays the costs?</li>
-</ul>
-</section>
-<section id="weak-ai-vs.-strong-ai" class="slide level2">
-<h2>Weak AI vs.&nbsp;Strong AI</h2>
-<ul>
-<li>Early AI research differentiated two forms of AI</li>
-<li>Dicussion of the forms has become a much more popular distinction with the emergence of entreprise grade chatbots beginning with OpenAI ChatGPT</li>
-</ul>
-</section>
-<section id="section" class="slide level2">
-<h2></h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 51%">
-<col style="width: 48%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Weak AI</th>
-<th>Strong AI</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Weak AI refers to AI systems that are designed and trained for a specific task or a narrow set of tasks.</td>
-<td>Strong AI, or Artificial General Intelligence (AGI), refers to AI systems with human-level intelligence and understanding.</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="section-1" class="slide level2">
-<h2></h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 51%">
-<col style="width: 48%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Weak AI</th>
-<th>Strong AI</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>These AI systems are not generally intelligent; they excel in performing a predefined task but lack true understanding or consciousness.</td>
-<td>These AI systems have the ability to perform any intellectual task that a human being can do, adapt to different domains, and possess a form of consciousness or self-awareness.</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="section-2" class="slide level2">
-<h2></h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 51%">
-<col style="width: 48%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Weak AI</th>
-<th>Strong AI</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Examples of weak AI include virtual assistants like Siri or Alexa, recommendation algorithms used by streaming services, and chatbots that are designed for specific customer service tasks.</td>
-<td>Achieving Strong AI is a long-term goal of AI research and would require the development of AI systems that can reason, learn, understand, and adapt across a wide range of tasks and contexts.</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="section-3" class="slide level2">
-<h2></h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 51%">
-<col style="width: 48%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Weak AI</th>
-<th>Strong AI</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Weak AI is highly specialized and does not possess human-like cognitive abilities or general problem-solving capabilities beyond its narrow domain.</td>
-<td>Strong AI is currently a theoretical concept, and no AI system has reached this level of general intelligence.</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="definitions" class="slide level2">
-<h2>Definitions</h2>
-<ul>
-<li>One of the problems when dealing with the term “<strong><a href="https://en.wikipedia.org/wiki/Intelligence">Intelligence</a></strong>” is that there is no clear definition of this term.</li>
-<li>One can argue that intelligence is connected to <strong>abstract thinking</strong>, or to <strong>self-awareness</strong>, but we cannot properly define it.</li>
-</ul>
-</section>
-<section id="intelligence-2" class="slide level2">
-<h2>Intelligence?</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><img data-src="images/photo-cat.jpg"></p>
-<p><em>Photo by <a href="https://cd-public.github.io/">Prof.&nbsp;Calvin</a></em></p>
-</div><div class="column" style="width:50%;">
-<p>To see the ambiguity, try answering a question: “Is this cat (Ursula) intelligent?”</p>
-<ul>
-<li>(She is)</li>
-<li>(She is VERY smart)</li>
-</ul>
-</div></div>
-</section>
-<section id="consider" class="slide level2">
-<h2>Consider…</h2>
-<ul>
-<li>Different people tend to give different answers to this question, as there is no universally accepted test to prove the assertion is true or not.</li>
-<li>And if you think there is - try an IQ test… What could go wrong.</li>
-</ul>
-</section>
-<section id="by-the-way" class="slide level2">
-<h2>By the way…</h2>
-<ul>
-<li>It is common for IQ to enter conversations as a throwaway line in discussion of AI.
-<ul>
-<li><a href="https://psycnet.apa.org/doiLanding?doi=10.1037%2Famp0001228">Confronting scientific racism in psychology: Lessons from evolutionary biology and genetics.</a></li>
-<li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9909835/">How White nationalists mobilize genetics: From genetic ancestry and human biodiversity to counterscience and metapolitics</a></li>
-<li><a href="https://oxfordre.com/psychology/display/10.1093/acrefore/9780190236557.001.0001/acrefore-9780190236557-e-516">Scientific Racism and North American Psychology</a></li>
+<li>I made this by hand.</li>
 </ul></li>
 </ul>
+</div><div class="column" style="width:50%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Episode</th>
+<th>Year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>1999</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>2002</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>2005</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>1977</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>1980</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>1983</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>2015</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>2017</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>2019</td>
+</tr>
+</tbody>
+</table>
+</div></div>
 </section>
-<section id="thinkpairshare-1" class="slide level2">
-<h2>Think/Pair/Share</h2>
-<p>✅ Think for a minute about how you define intelligence.</p>
+<section id="colab" class="slide level2">
+<h2>Colab</h2>
 <ul>
-<li>Is a crow who can solve a maze and get at some food intelligent?</li>
-<li>Is a traffic light intelligent?</li>
-<li>Is an ecosystem intelligent?</li>
-<li>Is a character in a novel or play?</li>
+<li>I just asked Gemini to make this.</li>
 </ul>
+<div id="1695e2c8" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a>eps <span class="op">=</span> [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]</span>
+<span id="cb1-2"><a></a>yrs <span class="op">=</span> [<span class="dv">1977</span>, <span class="dv">1980</span>, <span class="dv">1983</span>, <span class="dv">1999</span>, <span class="dv">2002</span>, <span class="dv">2005</span>, <span class="dv">2015</span>, <span class="dv">2017</span>, <span class="dv">2019</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
-<section id="the-turing-test" class="slide level2">
-<h2>The Turing Test</h2>
+<section id="plot-it" class="slide level2">
+<h2>Plot it</h2>
 <ul>
-<li>When speaking about AI we need to have some way to tell if we have created a truly intelligent system.</li>
-<li><a href="https://en.wikipedia.org/wiki/Alan_Turing">Alan Turing</a> proposed a way called a <strong><a href="https://en.wikipedia.org/wiki/Turing_test">Turing Test</a></strong>, which also acts like a definition of intelligence.
-<ul>
-<li>Alan Turing the 🐐</li>
-</ul></li>
-<li>The test compares a given system to something inherently intelligent - a real human being, and because any automatic comparison can be bypassed by a computer program, we use a human interrogator.</li>
+<li>I naively make a <em>scatterplot</em> to view the data…</li>
 </ul>
+<div id="b9c6d8b7" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb2-2"><a></a></span>
+<span id="cb2-3"><a></a>plt.scatter(eps,yrs)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="30_regress_files/figure-revealjs/cell-3-output-1.png" width="807" height="411"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
-<section id="aside-on-turing" class="slide level2">
-<h2>Aside on Turing</h2>
+<section id="arithmetic" class="slide level2">
+<h2>Arithmetic</h2>
 <ul>
-<li>Turing, by cracking the enigma code used by Nazi war criminals, can be regarded as almost single-handedly winning the Western front for the allies in WWII.</li>
-<li>Turing was prosecuted by the British Empire for his sexuality until his death at 41 in 1953.</li>
-<li>Ask me how I feel about this but not during class.</li>
+<li>Arithmetic is hard, so just use a <a href="https://www.geeksforgeeks.org/data-visualization/drawing-scatter-trend-lines-using-matplotlib/?ysclid=mkwsf5lepx713076579">built-in function</a>.</li>
 </ul>
+<div id="106b84d6" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-2"><a></a></span>
+<span id="cb3-3"><a></a>p <span class="op">=</span> np.poly1d(np.polyfit(eps, yrs, <span class="dv">1</span>))</span>
+<span id="cb3-4"><a></a>plt.scatter(eps,yrs)</span>
+<span id="cb3-5"><a></a>plt.plot(eps,p(eps))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="30_regress_files/figure-revealjs/cell-4-output-1.png" width="807" height="411"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
-<section id="eugene-goostman" class="slide level2 smaller">
-<h2>Eugene Goostman</h2>
+<section id="predict" class="slide level2">
+<h2>Predict</h2>
 <ul>
-<li>One path to intelligence? Cheat!</li>
+<li>What year do we expect episode 10 to come out?</li>
 </ul>
-<blockquote>
-<p>A chat-bot called <a href="https://en.wikipedia.org/wiki/Eugene_Goostman">Eugene Goostman</a>, developed in St.&nbsp;Petersburg, came close to passing the Turing test in 2014 by using a clever personality trick. It announced up front that it was a 13-year old Ukrainian boy, which would explain the lack of knowledge and some discrepancies in the text. The bot convinced 30% of the judges that it was human after a 5 minute dialogue, a metric that Turing believed a machine would be able to pass by 2000. However, one should understand that this does not indicate that we have created an intelligent system, or that a computer system has fooled the human interrogator - the system didn’t fool the humans, but rather the bot creators did!</p>
-</blockquote>
-<p>✅ Have you ever been fooled by a chat bot into thinking that you are speaking to a human? How did it convince you?</p>
-</section>
-<section id="syllabus" class="slide level2">
-<h2>Syllabus</h2>
+<div id="d7a3e01c" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb4-2"><a></a></span>
+<span id="cb4-3"><a></a>z <span class="op">=</span> np.polyfit(eps, yrs, <span class="dv">1</span>)</span>
+<span id="cb4-4"><a></a>p <span class="op">=</span> np.poly1d(z)</span>
+<span id="cb4-5"><a></a>p(<span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>2012.2500000000002</code></pre>
+</div>
+</div>
 <ul>
-<li>Bring a computer with internet access on Wednesday.</li>
-<li>Join the Discord - I owe you an email.</li>
-<li>Check out the <a href="syllabus/syllabus.pdf">syllabus</a></li>
+<li>Whoops.</li>
 </ul>
 
 
