@@ -1,0 +1,88 @@
+---
+title: Regression 
+---
+
+## First Things First
+
+- I will now live-code the Dichotomy lab
+
+## Takeaways - Colab
+
+- Use `+`
+- Use `=`
+- Use "run all"
+
+## Takeaways - Gemini
+
+- Be specific
+- Be precise
+- Be consistent
+
+## Takeaways - Both
+
+- Your "chatbot" will persist as long as you keep the window open
+- If you come back latter or manually restart it will change
+- Some things should be repeated, others don't need to be!
+	- I write a "prefix" I use on all my prompts, and provide it each time.
+
+# Regression 
+
+## 
+
+![Linear vs polynomial regression infographic](https://microsoft.github.io/ML-For-Beginners/2-Regression/3-Linear/images/linear-polynomial.png)
+*Infographic by [Dasani Madipalli](https://twitter.com/dasani_decoded)*
+
+## Why Regression?
+
+- Not, in my view, an AI topic.
+- Not, in my view, really an ML topic.
+- It seems commonly to be considered an ML topic.
+- It is the basis for some more advanced ML/AI stuff.
+- We'll get it out of the way quickly then move on.
+
+## What is Regression?
+
+<center>
+<a href="https://en.wikipedia.org/wiki/Regression_analysis">
+<img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Normdist_regression.png" style="filter:invert(.9)">
+</a>
+</center>
+
+## What is Regression?
+
+> In statistical modeling, regression analysis is a statistical method for estimating the relationship between a dependent variable (often called the outcome or response variable, or a label in machine learning parlance) and one or more independent variables (often called regressors, predictors, covariates, explanatory variables or features).
+
+
+## Shorter
+
+- Given some predictor, determine an outcome.
+  	- Given hours studied, determine exam grade.
+	- Given square footage, determine home price.
+	- Given parental income, determine income.
+
+## Two Types
+
+- Linear
+  	- The most common type
+	- Relate a numeric to numeric
+		- Years of schooling to annual salary
+- Logistic
+  	- Special type
+	- Relate a numeric to true/false
+	  	- Years of school vs. employed (or not)
+
+## Machine learning
+
+- The real power of Machine Learning comes from _training models_.
+- Models are trained on historic data to automatically capture data dependencies.
+- They allow you to predict outcomes for new data.
+
+## ML
+
+> Prediction is hard, especially when it is about the future.
+
+- The core insight of ML is the ability to infer (or approximate) *new* knowledge, not describe existing, known facts.
+
+## Linear Regression
+
+- [Start here](https://raw.githubusercontent.com/microsoft/ML-For-Beginners/refs/heads/main/2-Regression/3-Linear/README.md)

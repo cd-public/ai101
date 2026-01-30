@@ -1,0 +1,166 @@
+---
+title: Tree Tree 
+format: html
+---
+
+# What is a Decision tree?
+
+::: {.callout-note appearance="simple"}
+
+## Trees and Keys
+
+We return to the question of oaks with:
+
+1. More understanding of Colab, and...
+2. More understanding of classification.
+
+:::
+
+
+### The Key
+
+- Recall, a key is a branching series of yes/no questions.
+    - The dichotomous key gets its name from having two ("di") possibilities for any case
+    - "yes" and "no" or "true" and "false" or etc. etc.
+- To classify an oak, there are a series of questions that a non-expert can answer by inspecting the tree, such as being looking at the whole tree or looking at its leaves.
+- After answer a question, there is either a reference to a new question, usually by number, or a note that you have determined what the type of tree is.
+
+### Example
+
+    1. Leaves usually without teeth or lobes: 2
+    1. Leaves usually with teeth or lobes: 5
+
+        2. Leaves evergreen: 3
+        2. Leaves not evergreen: 4
+
+    3. Mature plant a large tree — Southern live oak Quercus virginiana
+    3. Mature plant a small shrub — Dwarf live oak Quercus minima
+
+        4. Leaf narrow, about 4-6 times as long as broad — Willow oak Quercus phellos
+        4. Leaf broad, about 2-3 times as long as broad — Shingle oak Quercus imbricaria
+
+    5. Lobes or teeth bristle-tipped: 6
+    5. Lobes or teeth rounded or blunt-pointed, no bristles: 7
+
+        6. Leaves mostly with 3 lobes — Blackjack oak Quercus marilandica
+        6. Leaves mostly with 7-9 lobes — Northern red oak Quercus rubra
+
+    7. Leaves with 5-9 deep lobes — White oak Quercus alba
+    7. Leaves with 21-27 shallow lobes — Swamp chestnut oak Quercus prinus
+
+### Visually
+
+- You may have to zoom in...
+
+```{dot}
+digraph OakKey {
+    bgcolor="transparent"
+    node [shape=box,  fontcolor="white", color="white"];
+    edge [color="white", fontcolor="white"];
+    
+    // Questions/Nodes
+    Start [label="Leaves are smooth with no teeth or lobes?"];
+    Evergreen [label="Laves evergreen?"];
+    GrowthHabit [label="Large Tree (not shrub)?"];
+    LeafShape [label="Leaves more than 3x long as wide"];
+    Bristles [label="Lobes/teeth bristle-tipped?"];
+    LobeCount6 [label="3 or fewer lobes?"];
+    LobeCount7 [label="9 or fewer lobes?"];
+
+    // Species (Leaf nodes)
+    LiveOak [label="Southern live oak"];
+    DwarfOak [label="Dwarf live oak"];
+    WillowOak [label="Willow oak"];
+    ShingleOak [label="Shingle oak"];
+    BlackjackOak [label="Blackjack oak"];
+    RedOak [label="Northern red oak"];
+    WhiteOak [label="White oak"];
+    SwampOak [label="Swamp chestnut oak"];
+
+    // Relationships
+    Start -> Evergreen [label="True"];
+    Start -> Bristles [label="False"];
+
+    Evergreen -> GrowthHabit [label="True"];
+    Evergreen -> LeafShape [label="False"];
+
+    GrowthHabit -> LiveOak [label="True"];
+    GrowthHabit -> DwarfOak [label="False"];
+
+    LeafShape -> WillowOak [label="True"];
+    LeafShape -> ShingleOak [label="False"];
+
+    Bristles -> LobeCount6 [label="True"];
+    Bristles -> LobeCount7 [label="False"];
+
+    LobeCount6 -> BlackjackOak [label="True"];
+    LobeCount6 -> RedOak [label="False"];
+
+    LobeCount7 -> WhiteOak [label="True"];
+    LobeCount7 -> SwampOak [label="False"];
+}
+```
+
+## Some oaks
+
+- All are sourced from Wikipedia and appropriately licensed, with the links to the host page in the key.
+
+### Key
+
+*Click "Details" to expand*
+
+<details>
+
+|Nickname|Common Name|Scientific Name|
+|-|-|-|
+| A | [Blackjack oak](https://en.wikipedia.org/wiki/Quercus_marilandica) | Quercus marilandica |
+| B | [Dwarf live oak](https://en.wikipedia.org/wiki/Dwarf_live_oak) | Quercus minima |
+| C | [Northern red oak](https://en.wikipedia.org/wiki/Quercus_rubra) | Quercus rubra | 
+
+</details>
+
+### URLs
+
+- I have the best luck with prompting Gemini when I provide images as a URL.
+- Here are the URLs for the leaf and tree of Oak A, the others are similar.
+
+```email
+https://cd-public.github.io/ai101/images/oaks/a_leaf.jpg
+https://cd-public.github.io/ai101/images/oaks/a_tree.jpg
+```
+
+
+## Requirements 
+
+- [ ] Create a "Lab04" Colab notebook (NOT a Google Document) in your AI Folder.
+- [ ] The very first cell must be a *code cell* containing exactly the following text:
+```{.py}
+tree_letter = "a"
+```
+- [ ] You must be able to change this letter to "b" or "c" and receive a correct classification when using "Run all"
+- [ ] You may use any number of intermediate code or text blocks, but the final block *must* print out the name of the tree.
+
+|Letter|Common Name|Scientific Name|
+|-|-|-|
+| 'a' | [Blackjack oak](https://en.wikipedia.org/wiki/Quercus_marilandica) | Quercus marilandica |
+| 'b' | [Dwarf live oak](https://en.wikipedia.org/wiki/Dwarf_live_oak) | Quercus minima |
+| 'c' | [Northern red oak](https://en.wikipedia.org/wiki/Quercus_rubra) | Quercus rubra | 
+
+
+You should use the following:
+- [ ] Use `+` to combine strings
+- [ ] Use `ai.generate_text` to ask questions, and 
+- [ ] Use `=` to store the results of queries to Gemini
+- [ ] **NEW**:  `if` and `else` to determine which questions to ask.
+
+### Plus
+
+- I found it very helpful in this lab to create big str
+
+### If/else Syntax
+
+- Like `while` which we learned in the "Colab" lab, we can use `if` and `else` to ask Gemini questions depending on some **condition**.
+	- For example, we can ask if leaves are "smooth" or "lobed".
+	- `if` Gemini says "smooth", we can then ask if the leaves are evergreen.
+	- `else` we can ask if the lobes (or teeth) are bristle-tipped.
+- Here is an example:
