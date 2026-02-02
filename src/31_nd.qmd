@@ -131,6 +131,16 @@ num = [1,2,3,1,2,3,1,2,3]
 bby = [0,3,4,-32,-22,-19,34,34,35]
 ```
 
+### Matplotlib
+
+- We quickly recall how to include `matplotlib` to see charts!
+
+```{python}
+import matplotlib.pyplot as plt
+```
+
+- Or you can just ask Gemini!
+
 ## 2D
 
 - Try out a few 2D plots, here is one example.
@@ -146,21 +156,21 @@ plt.scatter(x=tri,y=num)
 - Third dimension via `s=` for size 
 
 
-```{python}
+```{.py}
 plt.scatter(df["OutermostElectrons"], df["MeltingPoint"], s=df["AtomicNumber"])
 ```
 
 ## Columns to Columns
 
 - Using vector operations, we can make novel columns from existing columns.
-```{python}
+```{.py}
 df["NeutronsLessProtons"] = df["NumberofNeutrons"] - df["NumberofProtons"]
 plt.plot(df["NeutronsLessProtons"])
 ```
 
 ## 4D
 
-```{python}
+```{.py}
 plt.scatter(x=df["OutermostElectrons"], # we can optional specify x and y 
             y=df["MeltingPoint"], 
             s=df["AtomicNumber"], 
