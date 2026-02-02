@@ -88,7 +88,7 @@ We are intelligent. Let's try again.
 |8|2015|2|
 |9|2015|4|
 
-# Your Task
+# Set up
 
 - We will visually examine the *Star Wars* releases in $n$-D.
 - We will make some informed estimate of the release date of next trilogy
@@ -151,31 +151,80 @@ import matplotlib.pyplot as plt
 plt.scatter(x=tri,y=num)
 ```
 
+- Wow - that is not that exciting.
+- What is this showing?
+
 ## 3D
 
-- Third dimension via `s=` for size 
+- Third dimension via `s=` for size. 
+- Also, I start putting things on their own lines - you may find this easier to read.
 
-
-```{.py}
-plt.scatter(df["OutermostElectrons"], df["MeltingPoint"], s=df["AtomicNumber"])
-```
-
-## Columns to Columns
-
-- Using vector operations, we can make novel columns from existing columns.
-```{.py}
-df["NeutronsLessProtons"] = df["NumberofNeutrons"] - df["NumberofProtons"]
-plt.plot(df["NeutronsLessProtons"])
+```{python}
+plt.scatter(
+	x=tri,
+	y=num,
+	s=num
+)
 ```
 
 ## 4D
 
-```{.py}
-plt.scatter(x=df["OutermostElectrons"], # we can optional specify x and y 
-            y=df["MeltingPoint"], 
-            s=df["AtomicNumber"], 
-            c=df["NeutronsLessProtons"]) # color
-plt.colorbar() # Like a legend for colors.
+- For the fourth dimension, we can use color.
+
+```{python}
+plt.scatter(
+	x=tri,
+	y=num,
+	s=num,
+	c=bby
+)
 ```
 
+- Often we using colors we also include a legend as a "color bar".
 
+```{python}
+plt.scatter(
+	x=tri,
+	y=num,
+	s=num,
+	c=bby
+)
+plt.colorbar()
+```
+
+## Other values
+
+- We can also include release year, year within trilogy (`ywt`), and box office in millions.
+
+```{python}
+yrs = [1977, 1980, 1983, 1999, 2002, 2005, 2015, 2017, 2019]
+ywt = [0, 3, 6, 0, 3, 6, 0, 2, 4]
+box = [461, 293, 317, 488, 311, 414, 937, 620, 515]
+```
+
+# Your Task
+
+- Take some time and effort plotting the *Star Wars* films in different ways. 
+- Look for patterns.
+- Take notes.
+- Perform your work in a `Lab03` Colab notebook in your AI folder.
+
+After some time exploring, answer some questions. Before introducing the questions, I would like you to answer them as follows:
+
+- Add a text cell (NOT a code cell) with 2-3 sentences of explanation. 
+  	- Think of around 100 words. 
+	- If you can't think of 100 words, you didn't think hard enough about your explanation.
+- Add a code cell of a 4-dimensional (or higher) plot supporting your explanation.
+- Add a text cell *after* the code block explaining how you choose what values to make within your plot.
+
+::: {.callout-note}
+I am specifying a precise way I expect to receive see these questions. Think about why I am doing that and why it may be helpful to following these instructions!
+:::
+
+1. What year do you expect Episode 10 to be released?
+2. What year do you expect Episode 0 to be released?
+3. How much profit do you expect Episode 10 to make at the box office?
+4. How much profit do you expect Episode 0 to make at the box office?
+5. Do relationships between *Star Wars* films appear linear in two dimensions?
+6. Do relationships between *Star Wars* films make more or less sense when considering additional dimensions?
+7. Does selecting dimensions when predicting future events require intelligence?

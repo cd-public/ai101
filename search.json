@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "AI 101",
     "section": "",
-    "text": "CS 199 “Understanding AI”\n\nCalled:\n\nCS 199: Topics: Understanding AI\nAI 101\n\nA non-technical survey semester over:\n\nSome trends in AI use\nSome historical conversations around AI\nSome technical background in implementing minimal AI\n\nTaught this year via Google Colab.\n\nIt’s fast (it’s not)\nIt’s free (to us for now)\nIt’s fun (trust me)\n\n\n\nMW 1020-1150\n\n\nProf. Calvin\n\n\nSyllabus\n\nSyllabus link\n\n\n\n\nCalendar\n\n\n\n\n\nWeek\nDate (M)\nLecture (M)\nLab (W)\n\n\n\n\n0x0\n01/12\nAda & Alan\nTuring’s Test\n\n\n0x1\n01/19\nNone\nColab\n\n\n0x2\n01/26\n(Un)supervision\nDichotomy\n\n\n0x3\n02/02\nClassification\n\\(n\\)D\n\n\n0x4\n02/09\nDecision Trees\nJSON\n\n\n0x5\n02/16\nPerceptron\nDice\n\n\n0x6\n02/23\nError\nPlotly\n\n\n0x7\n03/02\nConnectivity\n\n\n\n0x8\n03/09\nLatent Space\nModels\n\n\n0x9\n03/16\nTensors\nTensorflow\n\n\n0bX\n03/23\nNone\nNone\n\n\n0xA\n03/30\nText Rep.\nTokens\n\n\n0xB\n03/06\nTransformers\n\n\n\n0xC\n04/13\nGenAI\n\n\n\n0xD\n04/20\nPrompts\nNone\n\n\n0xE\n04/29\nPerspectives\nPeer Review\n\n\n\nFinal course reflection (“Perspectives”) due whenever the final exam would finish, TBA\n\n\nLecture Recordings\nForthcoming"
+    "text": "CS 199 “Understanding AI”\n\nCalled:\n\nCS 199: Topics: Understanding AI\nAI 101\n\nA non-technical survey semester over:\n\nSome trends in AI use\nSome historical conversations around AI\nSome technical background in implementing minimal AI\n\nTaught this year via Google Colab.\n\nIt’s fast (it’s not)\nIt’s free (to us for now)\nIt’s fun (trust me)\n\n\n\nMW 1020-1150\n\n\nProf. Calvin\n\n\nSyllabus\n\nSyllabus link\n\n\n\n\nCalendar\n\n\n\n\n\nWeek\nDate (M)\nLecture (M)\nLab (W)\n\n\n\n\n0x0\n01/12\nAda & Alan\nTuring’s Test\n\n\n0x1\n01/19\nNone\nColab\n\n\n0x2\n01/26\n(Un)supervision\nDichotomy, Solution\n\n\n0x3\n02/02\nRegression\n\\(n\\)D\n\n\n0x4\n02/09\nClassification\nTree tree\n\n\n0x5\n02/16\nPerceptron\nDice\n\n\n0x6\n02/23\nError\nPlotly\n\n\n0x7\n03/02\nConnectivity\n\n\n\n0x8\n03/09\nLatent Space\nModels\n\n\n0x9\n03/16\nTensors\nTensorflow\n\n\n0bX\n03/23\nNone\nNone\n\n\n0xA\n03/30\nText Rep.\nTokens\n\n\n0xB\n03/06\nTransformers\n\n\n\n0xC\n04/13\nGenAI\n\n\n\n0xD\n04/20\nPrompts\nNone\n\n\n0xE\n04/29\nPerspectives\nPeer Review\n\n\n\nFinal course reflection (“Perspectives”) due whenever the final exam would finish, TBA\n\n\nLecture Recordings\nForthcoming"
   },
   {
     "objectID": "40_class.html",
@@ -2936,7 +2936,7 @@
     "href": "31_nd.html#d",
     "title": "\\(n\\)-D",
     "section": "2D",
-    "text": "2D\n\nTry out a few 2D plots, here is one example.\n\nWe can specify these as the x and y dimension.\nA la grade school mathematics\n\n\n\nplt.scatter(x=tri,y=num)",
+    "text": "2D\n\nTry out a few 2D plots, here is one example.\n\nWe can specify these as the x and y dimension.\nA la grade school mathematics\n\n\n\nplt.scatter(x=tri,y=num)\n\n\n\n\n\n\n\n\n\nWow - that is not that exciting.\nWhat is this showing?",
     "crumbs": [
       "$n$-D"
     ]
@@ -2946,7 +2946,7 @@
     "href": "31_nd.html#d-1",
     "title": "\\(n\\)-D",
     "section": "3D",
-    "text": "3D\n\nThird dimension via s= for size\n\nplt.scatter(df[\"OutermostElectrons\"], df[\"MeltingPoint\"], s=df[\"AtomicNumber\"])",
+    "text": "3D\n\nThird dimension via s= for size.\nAlso, I start putting things on their own lines - you may find this easier to read.\n\n\nplt.scatter(\n    x=tri,\n    y=num,\n    s=num\n)",
     "crumbs": [
       "$n$-D"
     ]
@@ -2966,7 +2966,7 @@
     "href": "31_nd.html#d-2",
     "title": "\\(n\\)-D",
     "section": "4D",
-    "text": "4D\nplt.scatter(x=df[\"OutermostElectrons\"], # we can optional specify x and y \n            y=df[\"MeltingPoint\"], \n            s=df[\"AtomicNumber\"], \n            c=df[\"NeutronsLessProtons\"]) # color\nplt.colorbar() # Like a legend for colors.",
+    "text": "4D\n\nFor the fourth dimension, we can use color.\n\n\nplt.scatter(\n    x=tri,\n    y=num,\n    s=num,\n    c=bby\n)\n\n\n\n\n\n\n\n\n\nOften we using colors we also include a legend as a “color bar”.\n\n\nplt.scatter(\n    x=tri,\n    y=num,\n    s=num,\n    c=bby\n)\nplt.colorbar()",
     "crumbs": [
       "$n$-D"
     ]
@@ -2999,6 +2999,16 @@
     "text": "Create a “Lab04” Colab notebook (NOT a Google Document) in your AI Folder.\nThe very first cell must be a code cell containing exactly the following text:\n\ntree_letter = \"a\"\n\nYou must be able to change this letter to “b” or “c” and receive a correct classification when using “Run all”\nYou may use any number of intermediate code or text blocks, but the final block must print out the name of the tree.\n\n\n\n\nLetter\nCommon Name\nScientific Name\n\n\n\n\n‘a’\nBlackjack oak\nQuercus marilandica\n\n\n‘b’\nDwarf live oak\nQuercus minima\n\n\n‘c’\nNorthern red oak\nQuercus rubra\n\n\n\nYou should use the following: - [ ] Use + to combine strings - [ ] Use ai.generate_text to ask questions, and - [ ] Use = to store the results of queries to Gemini - [ ] NEW: if and else to determine which questions to ask.\n\n\n\nI found it very helpful in this lab to create big str\n\n\n\n\n\nLike while which we learned in the “Colab” lab, we can use if and else to ask Gemini questions depending on some condition.\n\nFor example, we can ask if leaves are “smooth” or “lobed”.\nif Gemini says “smooth”, we can then ask if the leaves are evergreen.\nelse we can ask if the lobes (or teeth) are bristle-tipped.\n\nHere is an example:",
     "crumbs": [
       "Tree Tree"
+    ]
+  },
+  {
+    "objectID": "31_nd.html#other-values",
+    "href": "31_nd.html#other-values",
+    "title": "\\(n\\)-D",
+    "section": "Other values",
+    "text": "Other values\n\nWe can also include release year, year within trilogy (ywt), and box office in millions.\n\n\nyrs = [1977, 1980, 1983, 1999, 2002, 2005, 2015, 2017, 2019]\nywt = [0, 3, 6, 0, 3, 6, 0, 2, 4]\nbox = [461, 293, 317, 488, 311, 414, 937, 620, 515]",
+    "crumbs": [
+      "$n$-D"
     ]
   }
 ]
