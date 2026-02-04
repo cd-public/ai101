@@ -58,9 +58,9 @@ format: html
 |:--:|:---|:----|:-------|
 |0x0|01/12|[Ada & Alan](00_turing.md)|[Turing's Test](01_test.md)|
 |0x1|01/19|[`None`](https://www2.hawaii.edu/~freeman/courses/phil100/17.%20MLK%20Beyond%20Vietnam.pdf)|[Colab](11_colab.md)|
-|0x2|01/26|[(Un)supervision](20_supervise.qmd)|[Dichotomy](21_key.qmd)| <!-- do we https://github.com/microsoft/ML-For-Beginners/blob/main/1-Introduction/3-fairness/README.md here -->
-|0x3|02/02|[Classification](40_class.qmd)|[$n$D](31_nd.qmd)|
-|0x4|02/09|Decision Trees|JSON|
+|0x2|01/26|[(Un)supervision](20_supervise.qmd)|[Dichotomy](21_key.qmd), [Solution](https://github.com/cd-public/ai101/blob/main/sols/key_key.ipynb)| <!-- do we https://github.com/microsoft/ML-For-Beginners/blob/main/1-Introduction/3-fairness/README.md here -->
+|0x3|02/02|[Regression](30_regress.qmd)|[$n$D](31_nd.qmd)|
+|0x4|02/09|[Classification](40_class.qmd)|[Tree tree](41_treetree.qmd)|
 |0x5|02/16|Perceptron|Dice|
 |0x6|02/23|Error|Plotly| <!-- incl. back propagation -->
 |0x7|03/02|Connectivity|| <!-- fully connected networks, https://docs.nvidia.com/deeplearning/performance/dl-performance-fully-connected/index.html -->
