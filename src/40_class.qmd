@@ -12,23 +12,285 @@ title: Classification
 - It is the basis for some more advanced ML/AI stuff.
 - We'll use it within our labs.
 
-## What is Regression?
+## Carolus Linnæus
 
-<center>
-<a href="https://en.wikipedia.org/wiki/Regression_analysis">
-<img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Normdist_regression.png" style="filter:invert(.9)">
-</a>
-</center>
-
-## What is Regression?
-
-> In statistical modeling, regression analysis is a statistical method for estimating the relationship between a dependent variable (often called the outcome or response variable, or a label in machine learning parlance) and one or more independent variables (often called regressors, predictors, covariates, explanatory variables or features).
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Carl_von_Linn%C3%A9%2C_1707-1778%2C_botanist%2C_professor_%28Alexander_Roslin%29_-_Nationalmuseum_-_15723_%28cropped%29.tif/lossy-page1-842px-Carl_von_Linn%C3%A9%2C_1707-1778%2C_botanist%2C_professor_%28Alexander_Roslin%29_-_Nationalmuseum_-_15723_%28cropped%29.tif.jpg)
 
 
-## Shorter
+## High School Biology
 
-- Given some predictor, determine an outcome.
-  	- Given hours studied, determine exam grade.
-	- Given square footage, determine home price.
-	- Given parental income, determine income.
+- The first time I heard of classification it was high school biology.
+  	- Y'all *already know* I love a dichotomous key.
+- I was told  Carolus Linnæus invented the idea of categorizing things.
+  	- This seems unlikely to be true but we can go with it.
+- Specifically, Carl (we're on a first name basis) classified living things into species.
+
+## Two Species
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+*Felis catus*
+
+![](images/photo-cat.jpg)
+
+:::
+
+::: {.column width="50%"}
+
+*Homo sapiens*
+
+![](https://cd-public.github.io/photos/Calvin_Deutschbein_Willamette_v2.png)
+
+:::
+
+::::
+
+## Life is complicated
+
+- Classification into species is a complex and multi-faceted process.
+- In that respect, it is the negation of American action horror film production.
+- So we study the simpler system: specifically, the *Alien vs. Predator* films.
+  - Specifically, from 1976 to 2024 (since I haven't been keeping up the past few years).
+
+## We Begin... 
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+...in 1979 with the release of *Alien*, widely regard as the greatest film of the post-silent era by instructors of this class.
+
+:::
+
+::: {.column width="50%"}
+
+![](https://static.wikia.nocookie.net/alienanthology/images/e/e2/Alien_-_HD_poster.jpg/revision/latest?cb=20240826180931)
+
+:::
+
+::::
+
+## Classification
+
+- In order to differentiate *Alien* from latter installments, we make a few notes.
+  - *Alien* starred Sigourney Weaver*
+  - *Alien* was directed by Ridley Scott
+  - *Alien* contains the term "Alien" in its name.
+
+## Timeline
+
+- We can place *Alien* on a timeline as follows:
+
+```{python}
+#| code-fold: true 
+import matplotlib.pyplot as plt
+
+def plot(films):
+
+	years = list(range(1976, 2025))  # Create a list of years from 1976 to 2024
+
+	plt.figure(figsize=(10,1)) # Adjust figure size for better visualization
+	plt.plot(years, [0] * len(years), color='black', linewidth=2) # Plot a horizontal line
+
+	def add_film(name, year, color="green"):
+	  plt.annotate(
+	      name,
+	      xy=(year, 0.0),
+	      xytext=(year, 0.2),
+	      arrowprops=dict(color=color, shrink=0.05, width=1, headwidth=8),
+	      horizontalalignment='center',
+	      verticalalignment='bottom',
+	      fontsize=10,
+	      color=color
+	  )
+	
+	[add_film(*film) for film in films]
+	
+	plt.yticks([]) # Remove y-axis ticks as they are not relevant for a horizontal line
+	plt.grid(True, axis='x', linestyle='--', alpha=0.7)
+	plt.xlim(1976, 2024) # Set x-axis limits slightly beyond the data range
+	plt.show()
+
+
+films = [
+    ["Alien", 1979],
+]
+
+
+plot(films)
+```
+
+## An Aside
+
+- *Alien* featured not one but **two** high profile depiction of artifical intelligence:
+  	- MU/TH/UR, the ship computer
+	- Ash, a seemingly human crew member
+- In fact, it raises important questions about *AI ethics*, especially related to labor issues.
+
+## Special Order 937
+
+- At one point in the film, the crew of spacecraft bring onboard a dangerous alien organism.
+- The corporate ownership of the vessel which to retrieve the organism, despite the danger it poses to the crew.
+- This leads to a famous sequence in cinema and AI history:
+
+![](https://static.wikia.nocookie.net/avp/images/7/76/937.jpg)
+
+## Special Order 937
+
+> Priority one — Ensure return of organism for analysis. All other considerations secondary. Crew expendable
+
+## Commands
+
+- This command, issued by MU/TH/UR to Ash, a "synthetic" passing as human, led to Ash bamboozling the human crew into various unsafe circumstances, and ultimately killing many of them.
+- This plot point raises interesting questions that remain unanswered!
+
+## Think, Pair, Share
+
+- Find a partner and discuss:
+	- Can you trust an AI to do what is best for humans?
+	- Can you trust a computer to do what is best for humans?
+	- Can you trust a corporation to do what is best for humans?
+	- Can you trust humans to do what is best for humans?
+
+
+## Up Next
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+After a series of studio mishaps, the next official franchise film is *Aliens* in 1986.
+
+> *Aliens* is about how director James Cameron (*Titanic*, *Avatar*, *Terminator*) does not understand art.
+
+:::
+
+::: {.column width="50%"}
+
+![](https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p9384_p_v8_bk.jpg)
+
+:::
+
+::::
+
+## Classification
+
+- In order to differentiate *Alien* from latter installments, we make a few notes.
+  - *Aliens* starred Sigourney Weaver
+  - *Aliens* was *not* directed by Ridley Scott
+  - *Aliens* contains the term "Alien" in its name.
+
+## Timeline
+
+- We can place *Aliens* on a timeline as follows:
+
+```{python}
+#| code-fold: true 
+
+films = [
+    ["Alien", 1979],
+    ["Aliens", 1986],
+]
+
+plot(films)
+```
+
+## More
+
+- *Alien 3* and *Alien Resurrection* were the next films in the franchise
+- Both even worse and less interesting than *Aliens*, so we'll just add them and move on.
+  - Both starred Sigourney Weaver
+  - Both were *not* directed by Ridley Scott
+  - Both contained the term "Alien" in their name.
+
+## Timeline
+
+- We can the Sigourney Weaver *Alien* films on a timeline as follows:
+
+```{python}
+#| code-fold: true 
+
+films = [
+    ["Alien", 1979],
+    ["Aliens", 1986],
+    ["Alien 3", 1992],
+    ["Alien Res.", 1997],
+]
+
+plot(films)
+```
+
+## The Big Mistake
+
+- The 2000s were a time of silliness and goofery.
+- And from the glorious excess can a blissful union of two great franchises.
+  	- *Alien*, a four film franchise with one good film.
+	- *Predator* a two film franchise starring two future governors.
+	  	- Arnold Schwarzenegger (R-CA)
+		- Jesse Ventura (Reform-MN)
+
+## More
+
+- *Alien vs. Predator* and *AVPR: Alien vs. Predator - Requiem* were released in 2004 and 2007, respectively.
+- While playful romps, they broke from tradition and switched from femme to masc leads, and were set in present rather than future (both borrowing from *Predator*).
+  - Both *did not* star Sigourney Weaver
+  - Both were *not* directed by Ridley Scott
+  - Both contained the term "Alien" in their name.
+
+## Timeline
+
+- We can add the *AVP* films on a timeline as follows:
+
+```{python}
+#| code-fold: true 
+
+films = [
+    ["Alien", 1979],
+    ["Aliens", 1986],
+    ["Alien 3", 1992],
+    ["Alien Res.", 1997],
+    ["AVP", 2004, "darkgoldenrod"],
+    ["AVPR", 2007, "darkgoldenrod"],
+]
+
+plot(films)
+```
+
+## Reverse Reverse
+
+- While both AVP films would soon come into canon conflict with the Ridley Scott films, for a brief shining moment they retroactively brought two addition films into the now combined franchise.
+  	- *Predator* (1987)
+	- *Predator 2* (1990)
+- The less said about them the better.
+
+
+## Classification
+
+- Both *did not* star Sigourney Weaver
+- Both were *not* directed by Ridley Scott
+- Both *did not* contain the term "Alien" in their name.
+
+## Timeline
+
+- We can add the pre-*AVP* *Predator* films.
+
+```{python}
+#| code-fold: true 
+
+films = [
+    ["Alien", 1979],
+    ["A's", 1986],
+    ["A3", 1992],
+    ["Res.", 1997],
+    ["AVP", 2004, "darkgoldenrod"],
+    ["AVPR", 2007, "darkgoldenrod"],
+    ["P", 1987, "red"],
+    ["P2", 1990, "red"],
+]
+
+plot(films)
+```
+
 
