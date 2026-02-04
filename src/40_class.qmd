@@ -234,7 +234,7 @@ plot(films)
 ## More
 
 - *Alien vs. Predator* and *AVPR: Alien vs. Predator - Requiem* were released in 2004 and 2007, respectively.
-- While playful romps, they broke from tradition and switched from femme to masc leads, and were set in present rather than future (both borrowing from *Predator*).
+- While playful romps, they broke from tradition and switched from women to men as leads, and were set in present rather than future (both borrowing from *Predator*).
   - Both *did not* star Sigourney Weaver
   - Both were *not* directed by Ridley Scott
   - Both contained the term "Alien" in their name.
@@ -271,6 +271,8 @@ plot(films)
 - Both *did not* star Sigourney Weaver
 - Both were *not* directed by Ridley Scott
 - Both *did not* contain the term "Alien" in their name.
+- Both do contain the term "Predator" in their name.
+  	- Like AVP films but unlike the other *Alien* films.
 
 ## Timeline
 
@@ -293,4 +295,80 @@ films = [
 plot(films)
 ```
 
+## Modern Era
 
+- The AVP films renewed interest in the *Predator* sub-franchise, with several new releases.
+  	- There's post 2024 releases I haven't considered as I haven't watched them.
+- They are:
+  	- *Predators* (2010) - the first "off-Earth" franchise film.
+	- *The Predator* (2018) - a soft reboot
+	- *Prey* - a prequel film and the first franchise film to star a woman in the leading role.
+
+## Timeline
+
+- We can add the "modern" *Predator* films.
+
+```{python}
+#| code-fold: true 
+
+films = [
+    ["Alien", 1979],
+    ["A's", 1986],
+    ["A3", 1992],
+    ["Res.", 1997],
+    ["AVP", 2004, "darkgoldenrod"],
+    ["AVPR", 2007, "darkgoldenrod"],
+    ["P", 1987, "red"],
+    ["P2", 1990, "red"],
+    ["P's", 2010, "darkred"],
+    ["The", 2018, "darkred"],
+    ["Prey", 2022, "darkred"],
+]
+
+plot(films)
+```
+
+## Return of the King 👑
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+2012 marked the triumphant return of Ridley Scott the *Alien* franchise with *Prometheus*, a retelling of *Frankenstein* in the *Alien* universe raising essential questions about life, control, and - again - AI.
+
+:::
+
+::: {.column width="50%"}
+
+![](https://static.wikia.nocookie.net/alienanthology/images/e/e2/Alien_-_HD_poster.jpg/revision/latest?cb=20240826180931)
+
+:::
+
+::::
+
+## David
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+David is an android serving as a butler, maintenance man, and surrogate son to his creator... David is obsessed with the concept of creating life of his own. After Weyland is killed, David is freed from servitude...
+
+:::
+
+::: {.column width="50%"}
+
+![](https://upload.wikimedia.org/wikipedia/en/f/ff/David_-_Promotional_Video.jpg)
+
+:::
+
+::::
+
+## Inflection Point
+
+A major plot point in *Prometheus* is the radicalization of David against human creators, portrayed through a repartee with human scientist.
+
+- David : Why do you think your people made me?
+- Human : We made you because we could.
+- David : Can you imagine how disappointing it would be for you to hear the same thing from your creator?
+- Human : I guess it's good you can't be disappointed. 
