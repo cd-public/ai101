@@ -2505,7 +2505,7 @@
     "href": "40_class.html",
     "title": "Classification",
     "section": "",
-    "text": "Definitely AI topic!\n\nRecall Imagenet\n“Is this image a cat or dog?”\n\nIt is the basis for some more advanced ML/AI stuff.\nWe’ll use it within our labs.\n\n\n\n\n\n\n\n\n\nThe first time I heard of classification it was high school biology.\n\nY’all already know I love a dichotomous key.\n\nI was told Carolus Linnæus invented the idea of categorizing things.\n\nThis seems unlikely to be true but we can go with it.\n\nSpecifically, Carl (we’re on a first name basis) classified living things into species.\n\n\n\n\n\n\nFelis catus\n\n\nHomo sapiens\n\n\n\n\n\n\n\nClassification into species is a complex and multi-faceted process.\nIn that respect, it is the negation of American action horror film production.\nSo we study the simpler system: specifically, the Alien vs. Predator films.\n\nSpecifically, from 1976 to 2024 (since I haven’t been keeping up the past few years).\n\n\n\n\n\n\n\n…in 1979 with the release of Alien, widely regard as the greatest film of the post-silent era by instructors of this class.\n\n\n\n\n\n\n\n\nIn order to differentiate Alien from latter installments, we make a few notes.\n\nAlien starred Sigourney Weaver*\nAlien was directed by Ridley Scott\nAlien contains the term “Alien” in its name.\n\n\n\n\n\n\nWe can place Alien on a timeline as follows:\n\n\n\nCode\nimport matplotlib.pyplot as plt\n\ndef plot(films):\n\n    years = list(range(1976, 2025))  # Create a list of years from 1976 to 2024\n\n    plt.figure(figsize=(10,1)) # Adjust figure size for better visualization\n    plt.plot(years, [0] * len(years), color='black', linewidth=2) # Plot a horizontal line\n\n    def add_film(name, year, color=\"green\"):\n      plt.annotate(\n          name,\n          xy=(year, 0.0),\n          xytext=(year, 0.2),\n          arrowprops=dict(color=color, shrink=0.05, width=1, headwidth=8),\n          horizontalalignment='center',\n          verticalalignment='bottom',\n          fontsize=10,\n          color=color\n      )\n    \n    [add_film(*film) for film in films]\n    \n    plt.yticks([]) # Remove y-axis ticks as they are not relevant for a horizontal line\n    plt.grid(True, axis='x', linestyle='--', alpha=0.7)\n    plt.xlim(1976, 2024) # Set x-axis limits slightly beyond the data range\n    plt.show()\n\n\nfilms = [\n    [\"Alien\", 1979],\n]\n\n\nplot(films)\n\n\n\n\n\n\n\n\n\n\n\n\n\nAlien featured not one but two high profile depiction of artifical intelligence:\n\nMU/TH/UR, the ship computer\nAsh, a seemingly human crew member\n\nIn fact, it raises important questions about AI ethics, especially related to labor issues.\n\n\n\n\n\nAt one point in the film, the crew of spacecraft bring onboard a dangerous alien organism.\nThe corporate ownership of the vessel which to retrieve the organism, despite the danger it poses to the crew.\nThis leads to a famous sequence in cinema and AI history:\n\n\n\n\n\n\nPriority one — Ensure return of organism for analysis. All other considerations secondary. Crew expendable\n\n\n\n\n\nThis command, issued by MU/TH/UR to Ash, a “synthetic” passing as human, led to Ash bamboozling the human crew into various unsafe circumstances, and ultimately killing many of them.\nThis plot point raises interesting questions that remain unanswered!\n\n\n\n\n\nFind a partner and discuss:\n\nCan you trust an AI to do what is best for humans?\nCan you trust a computer to do what is best for humans?\nCan you trust a corporation to do what is best for humans?\nCan you trust humans to do what is best for humans?\n\n\n\n\n\n\n\nAfter a series of studio mishaps, the next official franchise film is Aliens in 1986.\n\nAliens is about how director James Cameron (Titanic, Avatar, Terminator) does not understand art.\n\n\n\n\n\n\n\n\n\nIn order to differentiate Alien from latter installments, we make a few notes.\n\nAliens starred Sigourney Weaver\nAliens was not directed by Ridley Scott\nAliens contains the term “Alien” in its name.\n\n\n\n\n\n\nWe can place Aliens on a timeline as follows:\n\n\n\nCode\nfilms = [\n    [\"Alien\", 1979],\n    [\"Aliens\", 1986],\n]\n\nplot(films)\n\n\n\n\n\n\n\n\n\n\n\n\n\nAlien 3 and Alien Resurrection were the next films in the franchise\nBoth even worse and less interesting than Aliens, so we’ll just add them and move on.\n\nBoth starred Sigourney Weaver\nBoth were not directed by Ridley Scott\nBoth contained the term “Alien” in their name.\n\n\n\n\n\n\nWe can the Sigourney Weaver Alien films on a timeline as follows:\n\n\n\nCode\nfilms = [\n    [\"Alien\", 1979],\n    [\"Aliens\", 1986],\n    [\"Alien 3\", 1992],\n    [\"Alien Res.\", 1997],\n]\n\nplot(films)\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe 2000s were a time of silliness and goofery.\nAnd from the glorious excess can a blissful union of two great franchises.\n\nAlien, a four film franchise with one good film.\nPredator a two film franchise starring two future governors.\n\nArnold Schwarzenegger (R-CA)\nJesse Ventura (Reform-MN)\n\n\n\n\n\n\n\nAlien vs. Predator and AVPR: Alien vs. Predator - Requiem were released in 2004 and 2007, respectively.\nWhile playful romps, they broke from tradition and switched from women to men as leads, and were set in present rather than future (both borrowing from Predator).\n\nBoth did not star Sigourney Weaver\nBoth were not directed by Ridley Scott\nBoth contained the term “Alien” in their name.\n\n\n\n\n\n\nWe can add the AVP films on a timeline as follows:\n\n\n\nCode\nfilms = [\n    [\"Alien\", 1979],\n    [\"Aliens\", 1986],\n    [\"Alien 3\", 1992],\n    [\"Alien Res.\", 1997],\n    [\"AVP\", 2004, \"darkgoldenrod\"],\n    [\"AVPR\", 2007, \"darkgoldenrod\"],\n]\n\nplot(films)\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhile both AVP films would soon come into canon conflict with the Ridley Scott films, for a brief shining moment they retroactively brought two addition films into the now combined franchise.\n\nPredator (1987)\nPredator 2 (1990)\n\nThe less said about them the better.\n\n\n\n\n\nBoth did not star Sigourney Weaver\nBoth were not directed by Ridley Scott\nBoth did not contain the term “Alien” in their name.\nBoth do contain the term “Predator” in their name.\n\nLike AVP films but unlike the other Alien films.\n\n\n\n\n\n\nWe can add the pre-AVP Predator films.\n\n\n\nCode\nfilms = [\n    [\"Alien\", 1979],\n    [\"A's\", 1986],\n    [\"A3\", 1992],\n    [\"Res.\", 1997],\n    [\"AVP\", 2004, \"darkgoldenrod\"],\n    [\"AVPR\", 2007, \"darkgoldenrod\"],\n    [\"P\", 1987, \"red\"],\n    [\"P2\", 1990, \"red\"],\n]\n\nplot(films)\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe AVP films renewed interest in the Predator sub-franchise, with several new releases.\n\nThere’s post 2024 releases I haven’t considered as I haven’t watched them.\n\nThey are:\n\nPredators (2010) - the first “off-Earth” franchise film.\nThe Predator (2018) - a soft reboot\nPrey - a prequel film and the first franchise film to star a woman in the leading role.\n\n\n\n\n\n\nWe can add the “modern” Predator films.\n\n\n\nCode\nfilms = [\n    [\"Alien\", 1979],\n    [\"A's\", 1986],\n    [\"A3\", 1992],\n    [\"Res.\", 1997],\n    [\"AVP\", 2004, \"darkgoldenrod\"],\n    [\"AVPR\", 2007, \"darkgoldenrod\"],\n    [\"P\", 1987, \"red\"],\n    [\"P2\", 1990, \"red\"],\n    [\"P's\", 2010, \"darkred\"],\n    [\"The\", 2018, \"darkred\"],\n    [\"Prey\", 2022, \"darkred\"],\n]\n\nplot(films)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2012 marked the triumphant return of Ridley Scott the Alien franchise with Prometheus, a retelling of Frankenstein in the Alien universe raising essential questions about life, control, and - again - AI.\n\n\n\n\n\n\n\n\n\nDavid is an android serving as a butler, maintenance man, and surrogate son to his creator… David is obsessed with the concept of creating life of his own. After Weyland is killed, David is freed from servitude…\n\n\n\n\n\n\n\nA major plot point in Prometheus is the radicalization of David against human creators, portrayed through a repartee with human scientist.\n\nDavid : Why do you think your people made me?\nHuman : We made you because we could.\nDavid : Can you imagine how disappointing it would be for you to hear the same thing from your creator?\nHuman : I guess it’s good you can’t be disappointed.",
+    "text": "Definitely AI topic!\n\nRecall Imagenet\n“Is this image a cat or dog?”\n\nIt is the basis for some more advanced ML/AI stuff.\nWe’ll use it within our labs.\n\n\n\n\n\n\n\n\n\nThe first time I heard of classification it was high school biology.\n\nY’all already know I love a dichotomous key.\n\nI was told Carolus Linnæus invented the idea of categorizing things.\n\nThis seems unlikely to be true but we can go with it.\n\nSpecifically, Carl (we’re on a first name basis) classified living things into species.\n\n\n\n\n\n\nFelis catus\n\n\nHomo sapiens\n\n\n\n\n\n\n\nClassification into species is a complex and multi-faceted process.\nIn that respect, it is the negation of American action horror film production.\nSo we study the simpler system: specifically, the Alien vs. Predator films.\n\nSpecifically, from 1976 to 2024 (since I haven’t been keeping up the past few years).",
     "crumbs": [
       "Classification"
     ]
@@ -2554,8 +2554,8 @@
     "objectID": "40_class.html#we-begin",
     "href": "40_class.html#we-begin",
     "title": "Classification",
-    "section": "",
-    "text": "…in 1979 with the release of Alien, widely regard as the greatest film of the post-silent era by instructors of this class.",
+    "section": "We Begin…",
+    "text": "We Begin…\n\n\n…in 1979 with the release of Alien, widely regard as the greatest film of the post-silent era by instructors of this class.",
     "crumbs": [
       "Classification"
     ]
@@ -2564,8 +2564,8 @@
     "objectID": "40_class.html#classification-1",
     "href": "40_class.html#classification-1",
     "title": "Classification",
-    "section": "",
-    "text": "In order to differentiate Alien from latter installments, we make a few notes.\n\nAlien starred Sigourney Weaver*\nAlien was directed by Ridley Scott\nAlien contains the term “Alien” in its name.",
+    "section": "Classification",
+    "text": "Classification\n\nIn order to differentiate Alien from latter installments, we make a few notes.\n\nAlien starred Sigourney Weaver*\nAlien was directed by Ridley Scott\nAlien contains the term “Alien” in its name.",
     "crumbs": [
       "Classification"
     ]
@@ -2574,8 +2574,8 @@
     "objectID": "40_class.html#timeline",
     "href": "40_class.html#timeline",
     "title": "Classification",
-    "section": "",
-    "text": "We can place Alien on a timeline as follows:\n\n\n\nCode\nimport matplotlib.pyplot as plt\n\ndef plot(films):\n\n    years = list(range(1976, 2025))  # Create a list of years from 1976 to 2024\n\n    plt.figure(figsize=(10,1)) # Adjust figure size for better visualization\n    plt.plot(years, [0] * len(years), color='black', linewidth=2) # Plot a horizontal line\n\n    def add_film(name, year, color=\"green\"):\n      plt.annotate(\n          name,\n          xy=(year, 0.0),\n          xytext=(year, 0.2),\n          arrowprops=dict(color=color, shrink=0.05, width=1, headwidth=8),\n          horizontalalignment='center',\n          verticalalignment='bottom',\n          fontsize=10,\n          color=color\n      )\n    \n    [add_film(*film) for film in films]\n    \n    plt.yticks([]) # Remove y-axis ticks as they are not relevant for a horizontal line\n    plt.grid(True, axis='x', linestyle='--', alpha=0.7)\n    plt.xlim(1976, 2024) # Set x-axis limits slightly beyond the data range\n    plt.show()\n\n\nfilms = [\n    [\"Alien\", 1979],\n]\n\n\nplot(films)",
+    "section": "Timeline",
+    "text": "Timeline\n\nWe can place Alien on a timeline as follows:\n\n\n\nCode\nimport matplotlib.pyplot as plt\n\ndef plot(films):\n\n    years = list(range(1976, 2027))  # Create a list of years from 1976 to 2024\n\n    plt.figure(figsize=(9,1)) # Adjust figure size for better visualization\n    plt.plot(years, [0] * len(years), color='black', linewidth=2) # Plot a horizontal line\n\n    def add_film(name, year, color=\"green\"):\n      plt.annotate(\n          name,\n          xy=(year, 0.0),\n          xytext=(year, 0.2),\n          arrowprops=dict(color=color, shrink=0.05, width=1, headwidth=8),\n          horizontalalignment='center',\n          verticalalignment='bottom',\n          fontsize=10,\n          color=color\n      )\n    \n    [add_film(*film) for film in films]\n    \n    plt.yticks([]) # Remove y-axis ticks as they are not relevant for a horizontal line\n    plt.grid(True, axis='x', linestyle='--', alpha=0.7)\n    plt.xlim(1976, 2027) # Set x-axis limits slightly beyond the data range\n    plt.show()\n\n\nfilms = [\n    [\"Alien\", 1979],\n]\n\n\nplot(films)",
     "crumbs": [
       "Classification"
     ]
@@ -2584,8 +2584,8 @@
     "objectID": "40_class.html#an-aside",
     "href": "40_class.html#an-aside",
     "title": "Classification",
-    "section": "",
-    "text": "Alien featured not one but two high profile depiction of artifical intelligence:\n\nMU/TH/UR, the ship computer\nAsh, a seemingly human crew member\n\nIn fact, it raises important questions about AI ethics, especially related to labor issues.",
+    "section": "An Aside",
+    "text": "An Aside\n\nAlien featured not one but two high profile depiction of artifical intelligence:\n\nMU/TH/UR, the ship computer\nAsh, a seemingly human crew member\n\nIn fact, it raises important questions about AI ethics, especially related to labor issues.",
     "crumbs": [
       "Classification"
     ]
@@ -2594,8 +2594,8 @@
     "objectID": "40_class.html#special-order-937",
     "href": "40_class.html#special-order-937",
     "title": "Classification",
-    "section": "",
-    "text": "At one point in the film, the crew of spacecraft bring onboard a dangerous alien organism.\nThe corporate ownership of the vessel which to retrieve the organism, despite the danger it poses to the crew.\nThis leads to a famous sequence in cinema and AI history:",
+    "section": "Special Order 937",
+    "text": "Special Order 937\n\nAt one point in the film, the crew of spacecraft bring onboard a dangerous alien organism.\nThe corporate ownership of the vessel which to retrieve the organism, despite the danger it poses to the crew.\nThis leads to a famous sequence in cinema and AI history:",
     "crumbs": [
       "Classification"
     ]
@@ -2604,8 +2604,8 @@
     "objectID": "40_class.html#special-order-937-1",
     "href": "40_class.html#special-order-937-1",
     "title": "Classification",
-    "section": "",
-    "text": "Priority one — Ensure return of organism for analysis. All other considerations secondary. Crew expendable",
+    "section": "Special Order 937",
+    "text": "Special Order 937\n\nPriority one — Ensure return of organism for analysis. All other considerations secondary. Crew expendable",
     "crumbs": [
       "Classification"
     ]
@@ -2614,8 +2614,8 @@
     "objectID": "40_class.html#commands",
     "href": "40_class.html#commands",
     "title": "Classification",
-    "section": "",
-    "text": "This command, issued by MU/TH/UR to Ash, a “synthetic” passing as human, led to Ash bamboozling the human crew into various unsafe circumstances, and ultimately killing many of them.\nThis plot point raises interesting questions that remain unanswered!",
+    "section": "Commands",
+    "text": "Commands\n\nThis command, issued by MU/TH/UR to Ash, a “synthetic” passing as human, led to Ash bamboozling the human crew into various unsafe circumstances, and ultimately killing many of them.\nThis plot point raises interesting questions that remain unanswered!",
     "crumbs": [
       "Classification"
     ]
@@ -2624,8 +2624,8 @@
     "objectID": "40_class.html#think-pair-share",
     "href": "40_class.html#think-pair-share",
     "title": "Classification",
-    "section": "",
-    "text": "Find a partner and discuss:\n\nCan you trust an AI to do what is best for humans?\nCan you trust a computer to do what is best for humans?\nCan you trust a corporation to do what is best for humans?\nCan you trust humans to do what is best for humans?",
+    "section": "Think, Pair, Share",
+    "text": "Think, Pair, Share\n\nFind a partner and discuss:\n\nCan you trust an AI to do what is best for humans?\nCan you trust a computer to do what is best for humans?\nCan you trust a corporation to do what is best for humans?\nCan you trust humans to do what is best for humans?",
     "crumbs": [
       "Classification"
     ]
@@ -2634,8 +2634,8 @@
     "objectID": "40_class.html#up-next",
     "href": "40_class.html#up-next",
     "title": "Classification",
-    "section": "",
-    "text": "After a series of studio mishaps, the next official franchise film is Aliens in 1986.\n\nAliens is about how director James Cameron (Titanic, Avatar, Terminator) does not understand art.",
+    "section": "Up Next",
+    "text": "Up Next\n\n\nAfter a series of studio mishaps, the next official franchise film is Aliens in 1986.\n\nAliens is about how director James Cameron (Titanic, Avatar, Terminator) does not understand art.",
     "crumbs": [
       "Classification"
     ]
@@ -2644,8 +2644,8 @@
     "objectID": "40_class.html#classification-2",
     "href": "40_class.html#classification-2",
     "title": "Classification",
-    "section": "",
-    "text": "In order to differentiate Alien from latter installments, we make a few notes.\n\nAliens starred Sigourney Weaver\nAliens was not directed by Ridley Scott\nAliens contains the term “Alien” in its name.",
+    "section": "Classification",
+    "text": "Classification\n\nIn order to differentiate Alien from latter installments, we make a few notes.\n\nAliens starred Sigourney Weaver\nAliens was not directed by Ridley Scott\nAliens contains the term “Alien” in its name.",
     "crumbs": [
       "Classification"
     ]
@@ -2654,8 +2654,8 @@
     "objectID": "40_class.html#timeline-1",
     "href": "40_class.html#timeline-1",
     "title": "Classification",
-    "section": "",
-    "text": "We can place Aliens on a timeline as follows:\n\n\n\nCode\nfilms = [\n    [\"Alien\", 1979],\n    [\"Aliens\", 1986],\n]\n\nplot(films)",
+    "section": "Timeline",
+    "text": "Timeline\n\nWe can place Aliens on a timeline as follows:\n\n\n\nCode\nfilms = [\n    [\"Alien\", 1979],\n    [\"Aliens\", 1986],\n]\n\nplot(films)",
     "crumbs": [
       "Classification"
     ]
@@ -2664,8 +2664,8 @@
     "objectID": "40_class.html#more",
     "href": "40_class.html#more",
     "title": "Classification",
-    "section": "",
-    "text": "Alien 3 and Alien Resurrection were the next films in the franchise\nBoth even worse and less interesting than Aliens, so we’ll just add them and move on.\n\nBoth starred Sigourney Weaver\nBoth were not directed by Ridley Scott\nBoth contained the term “Alien” in their name.",
+    "section": "More",
+    "text": "More\n\nAlien 3 and Alien Resurrection were the next films in the franchise\nBoth even worse and less interesting than Aliens, so we’ll just add them and move on.\n\nBoth starred Sigourney Weaver\nBoth were not directed by Ridley Scott\nBoth contained the term “Alien” in their name.",
     "crumbs": [
       "Classification"
     ]
@@ -2674,8 +2674,8 @@
     "objectID": "40_class.html#timeline-2",
     "href": "40_class.html#timeline-2",
     "title": "Classification",
-    "section": "",
-    "text": "We can the Sigourney Weaver Alien films on a timeline as follows:\n\n\n\nCode\nfilms = [\n    [\"Alien\", 1979],\n    [\"Aliens\", 1986],\n    [\"Alien 3\", 1992],\n    [\"Alien Res.\", 1997],\n]\n\nplot(films)",
+    "section": "Timeline",
+    "text": "Timeline\n\nWe can the Sigourney Weaver Alien films on a timeline as follows:\n\n\n\nCode\nfilms = [\n    [\"Alien\", 1979],\n    [\"Aliens\", 1986],\n    [\"Alien 3\", 1992],\n    [\"Alien Res.\", 1997],\n]\n\nplot(films)",
     "crumbs": [
       "Classification"
     ]
@@ -2684,8 +2684,8 @@
     "objectID": "40_class.html#the-big-mistake",
     "href": "40_class.html#the-big-mistake",
     "title": "Classification",
-    "section": "",
-    "text": "The 2000s were a time of silliness and goofery.\nAnd from the glorious excess can a blissful union of two great franchises.\n\nAlien, a four film franchise with one good film.\nPredator a two film franchise starring two future governors.\n\nArnold Schwarzenegger (R-CA)\nJesse Ventura (Reform-MN)",
+    "section": "The Big Mistake",
+    "text": "The Big Mistake\n\nThe 2000s were a time of silliness and goofery.\nAnd from the glorious excess can a blissful union of two great franchises.\n\nAlien, a four film franchise with one good film.\nPredator a two film franchise starring two future governors.\n\nArnold Schwarzenegger (R-CA)\nJesse Ventura (Reform-MN)",
     "crumbs": [
       "Classification"
     ]
@@ -2694,8 +2694,8 @@
     "objectID": "40_class.html#more-1",
     "href": "40_class.html#more-1",
     "title": "Classification",
-    "section": "",
-    "text": "Alien vs. Predator and AVPR: Alien vs. Predator - Requiem were released in 2004 and 2007, respectively.\nWhile playful romps, they broke from tradition and switched from women to men as leads, and were set in present rather than future (both borrowing from Predator).\n\nBoth did not star Sigourney Weaver\nBoth were not directed by Ridley Scott\nBoth contained the term “Alien” in their name.",
+    "section": "More",
+    "text": "More\n\nAlien vs. Predator and AVPR: Alien vs. Predator - Requiem were released in 2004 and 2007, respectively.\nWhile playful romps, they broke from tradition and switched from women to men as leads, and were set in present rather than future (both borrowing from Predator).\n\nBoth did not star Sigourney Weaver\nBoth were not directed by Ridley Scott\nBoth contained the term “Alien” in their name.",
     "crumbs": [
       "Classification"
     ]
@@ -2704,8 +2704,8 @@
     "objectID": "40_class.html#timeline-3",
     "href": "40_class.html#timeline-3",
     "title": "Classification",
-    "section": "",
-    "text": "We can add the AVP films on a timeline as follows:\n\n\n\nCode\nfilms = [\n    [\"Alien\", 1979],\n    [\"Aliens\", 1986],\n    [\"Alien 3\", 1992],\n    [\"Alien Res.\", 1997],\n    [\"AVP\", 2004, \"darkgoldenrod\"],\n    [\"AVPR\", 2007, \"darkgoldenrod\"],\n]\n\nplot(films)",
+    "section": "Timeline",
+    "text": "Timeline\n\nWe can add the AVP films on a timeline as follows:\n\n\n\nCode\nfilms = [\n    [\"Alien\", 1979],\n    [\"Aliens\", 1986],\n    [\"Alien 3\", 1992],\n    [\"Alien Res.\", 1997],\n    [\"AVP\", 2004, \"darkgoldenrod\"],\n    [\"AVPR\", 2007, \"darkgoldenrod\"],\n]\n\nplot(films)",
     "crumbs": [
       "Classification"
     ]
@@ -2714,8 +2714,8 @@
     "objectID": "40_class.html#reverse-reverse",
     "href": "40_class.html#reverse-reverse",
     "title": "Classification",
-    "section": "",
-    "text": "While both AVP films would soon come into canon conflict with the Ridley Scott films, for a brief shining moment they retroactively brought two addition films into the now combined franchise.\n\nPredator (1987)\nPredator 2 (1990)\n\nThe less said about them the better.",
+    "section": "Reverse Reverse",
+    "text": "Reverse Reverse\n\nWhile both AVP films would soon come into canon conflict with the Ridley Scott films, for a brief shining moment they retroactively brought two addition films into the now combined franchise.\n\nPredator (1987)\nPredator 2 (1990)\n\nThe less said about them the better.",
     "crumbs": [
       "Classification"
     ]
@@ -2724,8 +2724,8 @@
     "objectID": "40_class.html#classification-3",
     "href": "40_class.html#classification-3",
     "title": "Classification",
-    "section": "",
-    "text": "Both did not star Sigourney Weaver\nBoth were not directed by Ridley Scott\nBoth did not contain the term “Alien” in their name.\nBoth do contain the term “Predator” in their name.\n\nLike AVP films but unlike the other Alien films.",
+    "section": "Classification",
+    "text": "Classification\n\nBoth did not star Sigourney Weaver\nBoth were not directed by Ridley Scott\nBoth did not contain the term “Alien” in their name.\nBoth do contain the term “Predator” in their name.\n\nLike AVP films but unlike the other Alien films.",
     "crumbs": [
       "Classification"
     ]
@@ -2734,8 +2734,8 @@
     "objectID": "40_class.html#timeline-4",
     "href": "40_class.html#timeline-4",
     "title": "Classification",
-    "section": "",
-    "text": "We can add the pre-AVP Predator films.\n\n\n\nCode\nfilms = [\n    [\"Alien\", 1979],\n    [\"A's\", 1986],\n    [\"A3\", 1992],\n    [\"Res.\", 1997],\n    [\"AVP\", 2004, \"darkgoldenrod\"],\n    [\"AVPR\", 2007, \"darkgoldenrod\"],\n    [\"P\", 1987, \"red\"],\n    [\"P2\", 1990, \"red\"],\n]\n\nplot(films)",
+    "section": "Timeline",
+    "text": "Timeline\n\nWe can add the pre-AVP Predator films.\n\n\n\nCode\nfilms = [\n    [\"Alien\", 1979],\n    [\"A's\", 1986],\n    [\"A3\", 1992],\n    [\"Res.\", 1997],\n    [\"AVP\", 2004, \"darkgoldenrod\"],\n    [\"AVPR\", 2007, \"darkgoldenrod\"],\n    [\"P\", 1987, \"red\"],\n    [\"P2\", 1990, \"red\"],\n]\n\nplot(films)",
     "crumbs": [
       "Classification"
     ]
@@ -2744,8 +2744,8 @@
     "objectID": "40_class.html#modern-era",
     "href": "40_class.html#modern-era",
     "title": "Classification",
-    "section": "",
-    "text": "The AVP films renewed interest in the Predator sub-franchise, with several new releases.\n\nThere’s post 2024 releases I haven’t considered as I haven’t watched them.\n\nThey are:\n\nPredators (2010) - the first “off-Earth” franchise film.\nThe Predator (2018) - a soft reboot\nPrey - a prequel film and the first franchise film to star a woman in the leading role.",
+    "section": "Modern Era",
+    "text": "Modern Era\n\nThe AVP films renewed interest in the Predator sub-franchise, with several new releases.\n\nThere’s post 2024 releases I haven’t considered as I haven’t watched them.\n\nThey are:\n\nPredators (2010) - the first “off-Earth” franchise film.\nThe Predator (2018) - a soft reboot\nPrey - a prequel film and the first franchise film to star a woman in the leading role.",
     "crumbs": [
       "Classification"
     ]
@@ -2754,8 +2754,8 @@
     "objectID": "40_class.html#timeline-5",
     "href": "40_class.html#timeline-5",
     "title": "Classification",
-    "section": "",
-    "text": "We can add the “modern” Predator films.\n\n\n\nCode\nfilms = [\n    [\"Alien\", 1979],\n    [\"A's\", 1986],\n    [\"A3\", 1992],\n    [\"Res.\", 1997],\n    [\"AVP\", 2004, \"darkgoldenrod\"],\n    [\"AVPR\", 2007, \"darkgoldenrod\"],\n    [\"P\", 1987, \"red\"],\n    [\"P2\", 1990, \"red\"],\n    [\"P's\", 2010, \"darkred\"],\n    [\"The\", 2018, \"darkred\"],\n    [\"Prey\", 2022, \"darkred\"],\n]\n\nplot(films)",
+    "section": "Timeline",
+    "text": "Timeline\n\nWe can add the “modern” Predator films.\n\n\n\nCode\nfilms = [\n    [\"Alien\", 1979],\n    [\"A's\", 1986],\n    [\"A3\", 1992],\n    [\"Res.\", 1997],\n    [\"AVP\", 2004, \"darkgoldenrod\"],\n    [\"AVPR\", 2007, \"darkgoldenrod\"],\n    [\"P\", 1987, \"red\"],\n    [\"P2\", 1990, \"red\"],\n    [\"P's\", 2010, \"darkred\"],\n    [\"The\", 2018, \"darkred\"],\n    [\"Prey\", 2022, \"darkred\"],\n]\n\nplot(films)",
     "crumbs": [
       "Classification"
     ]
@@ -2764,8 +2764,8 @@
     "objectID": "40_class.html#return-of-the-king",
     "href": "40_class.html#return-of-the-king",
     "title": "Classification",
-    "section": "",
-    "text": "2012 marked the triumphant return of Ridley Scott the Alien franchise with Prometheus, a retelling of Frankenstein in the Alien universe raising essential questions about life, control, and - again - AI.",
+    "section": "Return of the King 👑",
+    "text": "Return of the King 👑\n\n\n2012 marked the triumphant return of Ridley Scott the Alien franchise with Prometheus, a retelling of Frankenstein in the Alien universe raising essential questions about life, control, and - again - AI.",
     "crumbs": [
       "Classification"
     ]
@@ -2774,8 +2774,8 @@
     "objectID": "40_class.html#david",
     "href": "40_class.html#david",
     "title": "Classification",
-    "section": "",
-    "text": "David is an android serving as a butler, maintenance man, and surrogate son to his creator… David is obsessed with the concept of creating life of his own. After Weyland is killed, David is freed from servitude…",
+    "section": "David",
+    "text": "David\n\n\nDavid is an android serving as a butler, maintenance man, and surrogate son to his creator… David is obsessed with the concept of creating life of his own. After Weyland is killed, David is freed from servitude…",
     "crumbs": [
       "Classification"
     ]
@@ -2784,8 +2784,8 @@
     "objectID": "40_class.html#inflection-point",
     "href": "40_class.html#inflection-point",
     "title": "Classification",
-    "section": "",
-    "text": "A major plot point in Prometheus is the radicalization of David against human creators, portrayed through a repartee with human scientist.\n\nDavid : Why do you think your people made me?\nHuman : We made you because we could.\nDavid : Can you imagine how disappointing it would be for you to hear the same thing from your creator?\nHuman : I guess it’s good you can’t be disappointed.",
+    "section": "Inflection Point",
+    "text": "Inflection Point\nA major plot point in Prometheus is the radicalization of David against human creators, portrayed through a repartee with human scientist.\n\nDavid : Why do you think your people made me?\nHuman : We made you because we could.\nDavid : Can you imagine how disappointing it would be for you to hear the same thing from your creator?\nHuman : I guess it’s good you can’t be disappointed.",
     "crumbs": [
       "Classification"
     ]
@@ -3425,5 +3425,345 @@
     "crumbs": [
       "Regression"
     ]
+  },
+  {
+    "objectID": "40_class.html#frankenstein",
+    "href": "40_class.html#frankenstein",
+    "title": "Classification",
+    "section": "Frankenstein",
+    "text": "Frankenstein\n\n\nFrankenstein; or, The Modern Prometheus written by Mary Shelley in 1818 is widely regarded as the greatest original English text by instructors of this class.",
+    "crumbs": [
+      "Classification"
+    ]
+  },
+  {
+    "objectID": "40_class.html#think-pair-share-1",
+    "href": "40_class.html#think-pair-share-1",
+    "title": "Classification",
+    "section": "Think, Pair, Share",
+    "text": "Think, Pair, Share\n\nCenturies ahead of its time, in Frankenstein Mary Shelley approached questions like:\n\nWhere is the line between humans and creations?\nIs there a line and does it matter?\nWhy are creatures, including humans, created?\n\nFind a partner and discuss.",
+    "crumbs": [
+      "Classification"
+    ]
+  },
+  {
+    "objectID": "40_class.html#timeline-6",
+    "href": "40_class.html#timeline-6",
+    "title": "Classification",
+    "section": "Timeline",
+    "text": "Timeline\n\nWe can add Prometheus\n\n\n\nCode\nfilms = [\n    [\"Alien\", 1979],\n    [\"A's\", 1986],\n    [\"A3\", 1992],\n    [\"Res.\", 1997],\n    [\"AVP\", 2004, \"darkgoldenrod\"],\n    [\"AVPR\", 2007, \"darkgoldenrod\"],\n    [\"P\", 1987, \"red\"],\n    [\"P2\", 1990, \"red\"],\n    [\"P's\", 2010, \"darkred\"],\n    [\"The\", 2018, \"darkred\"],\n    [\"Prey\", 2022, \"darkred\"],\n    [\"Prom.\", 2012, \"darkgreen\"],\n]\n\nplot(films)",
+    "crumbs": [
+      "Classification"
+    ]
+  },
+  {
+    "objectID": "40_class.rjs.html#frankenstein",
+    "href": "40_class.rjs.html#frankenstein",
+    "title": "Classification",
+    "section": "Frankenstein",
+    "text": "Frankenstein\n\n\nFrankenstein; or, The Modern Prometheus written by Mary Shelley in 1818 is widely regarded as the greatest original English text by instructors of this class."
+  },
+  {
+    "objectID": "40_class.rjs.html#think-pair-share-1",
+    "href": "40_class.rjs.html#think-pair-share-1",
+    "title": "Classification",
+    "section": "Think, Pair, Share",
+    "text": "Think, Pair, Share\n\nCenturies ahead of its time, in Frankenstein Mary Shelley approached questions like:\n\nWhere is the line between humans and creations?\nIs there a line and does it matter?\nWhy are creatures, including humans, created?\n\nFind a partner and discuss."
+  },
+  {
+    "objectID": "40_class.rjs.html#timeline-6",
+    "href": "40_class.rjs.html#timeline-6",
+    "title": "Classification",
+    "section": "Timeline",
+    "text": "Timeline\n\nWe can add Prometheus"
+  },
+  {
+    "objectID": "40_class.html#classification-4",
+    "href": "40_class.html#classification-4",
+    "title": "Classification",
+    "section": "Classification",
+    "text": "Classification\n\nPrometheus did not star Sigourney Weaver…\n\n…but did feature a woman in a leading role (Noomi Rapace)\n\nWas directed by Ridley Scott\nDid not contain the term “Alien” in their name.\n\nOr “Predator”",
+    "crumbs": [
+      "Classification"
+    ]
+  },
+  {
+    "objectID": "40_class.html#a-wrinkle-in-time",
+    "href": "40_class.html#a-wrinkle-in-time",
+    "title": "Classification",
+    "section": "A Wrinkle in Time",
+    "text": "A Wrinkle in Time\n\nWhile both the AVP films and Prometheus may exist in the same universe as Alien, they most exist together.\n\nIn AVP films, “aliens” are present on earth in the modern day.\nIn Prometheus, the “aliens” are genetic engineered off-planet by David.",
+    "crumbs": [
+      "Classification"
+    ]
+  },
+  {
+    "objectID": "40_class.rjs.html#classification-4",
+    "href": "40_class.rjs.html#classification-4",
+    "title": "Classification",
+    "section": "Classification",
+    "text": "Classification\n\nPrometheus did not star Sigourney Weaver…\n\n…but did feature a woman in a leading role (Noomi Rapace)\n\nWas directed by Ridley Scott\nDid not contain the term “Alien” in their name.\n\nOr “Predator”"
+  },
+  {
+    "objectID": "40_class.rjs.html#a-wrinkle-in-time",
+    "href": "40_class.rjs.html#a-wrinkle-in-time",
+    "title": "Classification",
+    "section": "A Wrinkle in Time",
+    "text": "A Wrinkle in Time\n\nWhile both the AVP films and Prometheus may exist in the same universe as Alien, they most exist together.\n\nIn AVP films, “aliens” are present on earth in the modern day.\nIn Prometheus, the “aliens” are genetic engineered off-planet by David."
+  },
+  {
+    "objectID": "40_class.html#canon-timeline",
+    "href": "40_class.html#canon-timeline",
+    "title": "Classification",
+    "section": "Canon Timeline",
+    "text": "Canon Timeline\n\nThrough properly Prometheus is mutually exclusive all Predator films.\n\n\n\nCode\nfilms = [\n    [\"Alien\", 1979],\n    [\"A's\", 1986],\n    [\"A3\", 1992],\n    [\"Res.\", 1997],\n    [\"Prom.\", 2012, \"darkgreen\"],\n]\n\nplot(films)",
+    "crumbs": [
+      "Classification"
+    ]
+  },
+  {
+    "objectID": "40_class.rjs.html#canon-timeline",
+    "href": "40_class.rjs.html#canon-timeline",
+    "title": "Classification",
+    "section": "Canon Timeline",
+    "text": "Canon Timeline\n\nThrough properly Prometheus is mutually exclusive all Predator films."
+  },
+  {
+    "objectID": "40_class.html#more-2",
+    "href": "40_class.html#more-2",
+    "title": "Classification",
+    "section": "More",
+    "text": "More\n\nUnfortunately, Prometheus was subject to fairly extreme studio interference (as was Alien but not quite as grievously).\nThe fallout led to the interesting but imperfect Alien: Covenant also from Scott and Alien: Romulus (from director Fede Álvarez).\nEach featured leading roles for women, “Alien” in title, and a canon conflict with Predator films.",
+    "crumbs": [
+      "Classification"
+    ]
+  },
+  {
+    "objectID": "40_class.rjs.html#more-2",
+    "href": "40_class.rjs.html#more-2",
+    "title": "Classification",
+    "section": "More",
+    "text": "More\n\nUnfortunately, Prometheus was subject to fairly extreme studio interference (as was Alien but not quite as grievously).\nThe fallout led to the interesting but imperfect Alien: Covenant also from Scott and Alien: Romulus (from director Fede Álvarez).\nEach featured leading roles for women, “Alien” in title, and a canon conflict with Predator films."
+  },
+  {
+    "objectID": "40_class.html#canon-timeline-1",
+    "href": "40_class.html#canon-timeline-1",
+    "title": "Classification",
+    "section": "Canon Timeline",
+    "text": "Canon Timeline\n\nWe use the “canon” timeline just for clarity.\n\n\n\nCode\nfilms = [\n    [\"Alien\", 1979],\n    [\"A's\", 1986],\n    [\"A3\", 1992],\n    [\"Res.\", 1997],\n    [\"Prom.\", 2012, \"darkgreen\"],\n    [\"Cov.\", 2017, \"darkgreen\"],\n    [\"Rom.\", 2024, \"darkgreen\"],\n]\n\nplot(films)",
+    "crumbs": [
+      "Classification"
+    ]
+  },
+  {
+    "objectID": "40_class.rjs.html#canon-timeline-1",
+    "href": "40_class.rjs.html#canon-timeline-1",
+    "title": "Classification",
+    "section": "Canon Timeline",
+    "text": "Canon Timeline\n\nWe use the “canon” timeline just for clarity."
+  },
+  {
+    "objectID": "40_class.html#full-timeline",
+    "href": "40_class.html#full-timeline",
+    "title": "Classification",
+    "section": "Full Timeline",
+    "text": "Full Timeline\n\nAnd the full timeline.\n\n\n\nCode\nfilms = [\n    [\"Alien\", 1979],\n    [\"A's\", 1986],\n    [\"A3\", 1992],\n    [\"Res.\", 1997],\n    [\"Prom.\", 2012, \"darkgreen\"],\n    [\"Cov.\", 2017, \"darkgreen\"],\n    [\"Rom.\", 2024, \"darkgreen\"],\n    [\"AVP\", 2004, \"darkgoldenrod\"],\n    [\"AVPR\", 2007, \"darkgoldenrod\"],\n    [\"P\", 1987, \"red\"],\n    [\"P2\", 1990, \"red\"],\n    [\"P's\", 2010, \"darkred\"],\n    [\"The\", 2018, \"darkred\"],\n    [\"Prey\", 2022, \"darkred\"],\n]\n\nplot(films)",
+    "crumbs": [
+      "Classification"
+    ]
+  },
+  {
+    "objectID": "40_class.rjs.html#full-timeline",
+    "href": "40_class.rjs.html#full-timeline",
+    "title": "Classification",
+    "section": "Full Timeline",
+    "text": "Full Timeline\n\nAnd the full timeline."
+  },
+  {
+    "objectID": "40_class.html#classes",
+    "href": "40_class.html#classes",
+    "title": "Classification",
+    "section": "Classes",
+    "text": "Classes\n\nNow we raise the question of classification:\n\n\nHow can we label these films?\n\n\nFor example:\n\n“Canonical”\n“Alien”\n“Modern”\n“Good”",
+    "crumbs": [
+      "Classification"
+    ]
+  },
+  {
+    "objectID": "40_class.rjs.html#classes",
+    "href": "40_class.rjs.html#classes",
+    "title": "Classification",
+    "section": "Classes",
+    "text": "Classes\n\nNow we raise the question of classification:\n\n\nHow can we label these films?\n\n\nFor example:\n\n“Canonical”\n“Alien”\n“Modern”\n“Good”"
+  },
+  {
+    "objectID": "40_class.html#background",
+    "href": "40_class.html#background",
+    "title": "Classification",
+    "section": "Background",
+    "text": "Background\n\nClassification is a supervised machine learning technique used to predict labels or categories based on input data. The goal is to assign each data point to a predefined class, such as spam vs. non-spam emails or diseased vs. healthy patients.\n\n\nFor example, a classification model might be trained on dataset of images labeled as either dogs or cats and it can be used to predict the class of new and unseen images as dogs or cats based on their features such as colour, texture or shape.",
+    "crumbs": [
+      "Classification"
+    ]
+  },
+  {
+    "objectID": "40_class.rjs.html#background",
+    "href": "40_class.rjs.html#background",
+    "title": "Classification",
+    "section": "Background",
+    "text": "Background\n\nClassification is a supervised machine learning technique used to predict labels or categories based on input data. The goal is to assign each data point to a predefined class, such as spam vs. non-spam emails or diseased vs. healthy patients.\n\n\nFor example, a classification model might be trained on dataset of images labeled as either dogs or cats and it can be used to predict the class of new and unseen images as dogs or cats based on their features such as colour, texture or shape."
+  },
+  {
+    "objectID": "40_class.html#supervision",
+    "href": "40_class.html#supervision",
+    "title": "Classification",
+    "section": "Supervision",
+    "text": "Supervision\n\nWe recall supervision:\n\nUses labeled data.\nMaps inputs to outputs.\nGoal: Predict outcomes.\nExamples: Classification, regression.",
+    "crumbs": [
+      "Classification"
+    ]
+  },
+  {
+    "objectID": "40_class.rjs.html#supervision",
+    "href": "40_class.rjs.html#supervision",
+    "title": "Classification",
+    "section": "Supervision",
+    "text": "Supervision\n\nWe recall supervision:\n\nUses labeled data.\nMaps inputs to outputs.\nGoal: Predict outcomes.\nExamples: Classification, regression."
+  },
+  {
+    "objectID": "40_class.html#types-of-classification",
+    "href": "40_class.html#types-of-classification",
+    "title": "Classification",
+    "section": "Types of Classification",
+    "text": "Types of Classification\n\nBinary Classification (Good vs. Bad)\nMulti-class (Alien Quadrilogy vs. Prometheus Trilogy vs. AVP)\nMulti-label (Alien vs. Sigourney vs. Ridley)",
+    "crumbs": [
+      "Classification"
+    ]
+  },
+  {
+    "objectID": "40_class.rjs.html#types-of-classification",
+    "href": "40_class.rjs.html#types-of-classification",
+    "title": "Classification",
+    "section": "Types of Classification",
+    "text": "Types of Classification\n\nBinary Classification (Good vs. Bad)\nMulti-class (Alien Quadrilogy vs. Prometheus Trilogy vs. AVP)\nMulti-label (Alien vs. Sigourney vs. Ridley)"
+  },
+  {
+    "objectID": "40_class.html#stages",
+    "href": "40_class.html#stages",
+    "title": "Classification",
+    "section": "Stages",
+    "text": "Stages\n\nData Collection\nFeature Extraction\nModel Training\nIterate\n\nModel Evaluation\nPrediction",
+    "crumbs": [
+      "Classification"
+    ]
+  },
+  {
+    "objectID": "40_class.html#data-collection",
+    "href": "40_class.html#data-collection",
+    "title": "Classification",
+    "section": "Data Collection",
+    "text": "Data Collection\n\nWe start with some training data.\n\nFor example, the films of the Alien franchise.\n\n\n\n\nCode\nfilms = [\n    [\"Alien\", 1979],\n    [\"A's\", 1986],\n    [\"A3\", 1992],\n    [\"Res.\", 1997],\n    [\"Prom.\", 2012, \"darkgreen\"],\n    [\"Cov.\", 2017, \"darkgreen\"],\n    [\"Rom.\", 2024, \"darkgreen\"],\n    [\"AVP\", 2004, \"darkgoldenrod\"],\n    [\"AVPR\", 2007, \"darkgoldenrod\"],\n    [\"P\", 1987, \"red\"],\n    [\"P2\", 1990, \"red\"],\n    [\"P's\", 2010, \"darkred\"],\n    [\"The\", 2018, \"darkred\"],\n    [\"Prey\", 2022, \"darkred\"],\n]\n\nplot(films)",
+    "crumbs": [
+      "Classification"
+    ]
+  },
+  {
+    "objectID": "40_class.html#feature-extraction",
+    "href": "40_class.html#feature-extraction",
+    "title": "Classification",
+    "section": "Feature Extraction",
+    "text": "Feature Extraction\n\nWe learn some information about the training data.\n\nFor example, whether each film features Sigourney Weaver\n\n\n\n\nCode\nfilms = [\n    [\"Alien\", 1979],\n    [\"A's\", 1986],\n    [\"A3\", 1992],\n    [\"Res.\", 1997],\n    [\"Prom.\", 2012, \"black\"],\n    [\"Cov.\", 2017, \"black\"],\n    [\"Rom.\", 2024, \"black\"],\n    [\"AVP\", 2004, \"black\"],\n    [\"AVPR\", 2007, \"black\"],\n    [\"P\", 1987, \"black\"],\n    [\"P2\", 1990, \"black\"],\n    [\"P's\", 2010, \"black\"],\n    [\"The\", 2018, \"black\"],\n    [\"Prey\", 2022, \"black\"],\n]\n\nplot(films)",
+    "crumbs": [
+      "Classification"
+    ]
+  },
+  {
+    "objectID": "40_class.html#model-training",
+    "href": "40_class.html#model-training",
+    "title": "Classification",
+    "section": "Model Training",
+    "text": "Model Training\n\nPretend you are a model.\nHere are the films I consider “good” in red.\nHow can we “predict” if a film is good.\n\n\n\nCode\nfilms = [\n    [\"Alien\", 1979,\"red\"],\n    [\"A's\", 1986],\n    [\"A3\", 1992],\n    [\"Res.\", 1997],\n    [\"Prom.\", 2012,\"red\"],\n    [\"Cov.\", 2017],\n    [\"Rom.\", 2024,\"red\"],\n    [\"AVP\", 2004],\n    [\"AVPR\", 2007],\n    [\"P\", 1987],\n    [\"P2\", 1990],\n    [\"P's\", 2010],\n    [\"The\", 2018],\n    [\"Prey\", 2022,\"red\"],\n]\n\nplot(films)",
+    "crumbs": [
+      "Classification"
+    ]
+  },
+  {
+    "objectID": "40_class.html#model-training-1",
+    "href": "40_class.html#model-training-1",
+    "title": "Classification",
+    "section": "Model Training",
+    "text": "Model Training\n\nImagine we use “Directed by Ridley Scott” as our model for a good film.\nHits in red, mispredicts in blue, missed predicts in purple, correct omits in green.\n\n\n\nCode\nfilms = [\n    [\"Alien\", 1979,\"red\"],\n    [\"A's\", 1986],\n    [\"A3\", 1992],\n    [\"Res.\", 1997],\n    [\"Prom.\", 2012,\"red\"],\n    [\"Cov.\", 2017,\"blue\"],\n    [\"Rom.\", 2024,\"purple\"],\n    [\"AVP\", 2004],\n    [\"AVPR\", 2007],\n    [\"P\", 1987],\n    [\"P2\", 1990],\n    [\"P's\", 2010],\n    [\"The\", 2018],\n    [\"Prey\", 2022,\"purple\"],\n]\n\nplot(films)\n\n\n\n\n\n\n\n\n\n\nThis was accurate until 2017!",
+    "crumbs": [
+      "Classification"
+    ]
+  },
+  {
+    "objectID": "40_class.rjs.html#stages",
+    "href": "40_class.rjs.html#stages",
+    "title": "Classification",
+    "section": "Stages",
+    "text": "Stages\n\nData Collection\nFeature Extraction\nModel Training\nIterate\n\nModel Evaluation\nPrediction"
+  },
+  {
+    "objectID": "40_class.rjs.html#data-collection",
+    "href": "40_class.rjs.html#data-collection",
+    "title": "Classification",
+    "section": "Data Collection",
+    "text": "Data Collection\n\nWe start with some training data.\n\nFor example, the films of the Alien franchise."
+  },
+  {
+    "objectID": "40_class.rjs.html#feature-extraction",
+    "href": "40_class.rjs.html#feature-extraction",
+    "title": "Classification",
+    "section": "Feature Extraction",
+    "text": "Feature Extraction\n\nWe learn some information about the training data.\n\nFor example, whether each film features Sigourney Weaver"
+  },
+  {
+    "objectID": "40_class.rjs.html#model-training",
+    "href": "40_class.rjs.html#model-training",
+    "title": "Classification",
+    "section": "Model Training",
+    "text": "Model Training\n\nPretend you are a model.\nHere are the films I consider “good” in red.\nHow can we “predict” if a film is good."
+  },
+  {
+    "objectID": "40_class.rjs.html#model-training-1",
+    "href": "40_class.rjs.html#model-training-1",
+    "title": "Classification",
+    "section": "Model Training",
+    "text": "Model Training\n\nImagine we use “Directed by Ridley Scott” as our model for a good film.\nHits in red, mispredicts in blue, missed predicts in purple, correct omits in green.\n\n\n\n\n\n\n\n\n\n\n\nThis was accurate until 2017!"
+  },
+  {
+    "objectID": "40_class.html#model-evaluation",
+    "href": "40_class.html#model-evaluation",
+    "title": "Classification",
+    "section": "Model Evaluation",
+    "text": "Model Evaluation\n\nImagine we use “Directed by Ridley Scott” as our model for a good film.\nHits in red, mispredicts in blue, missed predicts in purple, correct omits in green.\n\n\n\nCode\nfilms = [\n    [\"Alien\", 1979,\"red\"],\n    [\"A's\", 1986],\n    [\"A3\", 1992],\n    [\"Res.\", 1997],\n    [\"Prom.\", 2012,\"red\"],\n    [\"Cov.\", 2017,\"blue\"],\n    [\"Rom.\", 2024,\"purple\"],\n    [\"AVP\", 2004],\n    [\"AVPR\", 2007],\n    [\"P\", 1987],\n    [\"P2\", 1990],\n    [\"P's\", 2010],\n    [\"The\", 2018],\n    [\"Prey\", 2022,\"purple\"],\n]\n\nplot(films)",
+    "crumbs": [
+      "Classification"
+    ]
+  },
+  {
+    "objectID": "40_class.html#prediction",
+    "href": "40_class.html#prediction",
+    "title": "Classification",
+    "section": "Prediction",
+    "text": "Prediction\n\nThis was accurate until 2017!\n\nIt wouldn’t have been a very good predicting model!\n\nIn 2017\n\nStudios pushed Ridley Scott to release a middling Alien: Covenant\nOut of nowhere, Prey was an incredible film in the Predator franchise.\n\nAnd the sole Predator film not in cannon conflict with Prometheus\n\nAlien: Romulus was a superb Alien film, and the first in the franchise not directed by Ridley Scott",
+    "crumbs": [
+      "Classification"
+    ]
+  },
+  {
+    "objectID": "40_class.rjs.html#model-evaluation",
+    "href": "40_class.rjs.html#model-evaluation",
+    "title": "Classification",
+    "section": "Model Evaluation",
+    "text": "Model Evaluation\n\nImagine we use “Directed by Ridley Scott” as our model for a good film.\nHits in red, mispredicts in blue, missed predicts in purple, correct omits in green."
+  },
+  {
+    "objectID": "40_class.rjs.html#prediction",
+    "href": "40_class.rjs.html#prediction",
+    "title": "Classification",
+    "section": "Prediction",
+    "text": "Prediction\n\nThis was accurate until 2017!\n\nIt wouldn’t have been a very good predicting model!\n\nIn 2017\n\nStudios pushed Ridley Scott to release a middling Alien: Covenant\nOut of nowhere, Prey was an incredible film in the Predator franchise.\n\nAnd the sole Predator film not in cannon conflict with Prometheus\n\nAlien: Romulus was a superb Alien film, and the first in the franchise not directed by Ridley Scott"
   }
 ]

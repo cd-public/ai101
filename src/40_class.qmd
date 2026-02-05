@@ -54,6 +54,8 @@ title: Classification
 - So we study the simpler system: specifically, the *Alien vs. Predator* films.
   - Specifically, from 1976 to 2024 (since I haven't been keeping up the past few years).
 
+# Example
+
 ## We Begin... 
 
 :::: {.columns}
@@ -89,9 +91,9 @@ import matplotlib.pyplot as plt
 
 def plot(films):
 
-	years = list(range(1976, 2025))  # Create a list of years from 1976 to 2024
+	years = list(range(1976, 2027))  # Create a list of years from 1976 to 2024
 
-	plt.figure(figsize=(10,1)) # Adjust figure size for better visualization
+	plt.figure(figsize=(9,1)) # Adjust figure size for better visualization
 	plt.plot(years, [0] * len(years), color='black', linewidth=2) # Plot a horizontal line
 
 	def add_film(name, year, color="green"):
@@ -110,7 +112,7 @@ def plot(films):
 	
 	plt.yticks([]) # Remove y-axis ticks as they are not relevant for a horizontal line
 	plt.grid(True, axis='x', linestyle='--', alpha=0.7)
-	plt.xlim(1976, 2024) # Set x-axis limits slightly beyond the data range
+	plt.xlim(1976, 2027) # Set x-axis limits slightly beyond the data range
 	plt.show()
 
 
@@ -371,4 +373,313 @@ A major plot point in *Prometheus* is the radicalization of David against human 
 - David : Why do you think your people made me?
 - Human : We made you because we could.
 - David : Can you imagine how disappointing it would be for you to hear the same thing from your creator?
-- Human : I guess it's good you can't be disappointed. 
+- Human : I guess it's good you can't be disappointed.
+
+## Frankenstein
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+*Frankenstein; or, The Modern Prometheus* written by Mary Shelley in 1818 is widely regarded as the greatest original English text by instructors of this class.
+
+:::
+
+::: {.column width="50%"}
+
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Mary_Wollstonecraft_Shelley_Rothwell.tif/lossy-page1-841px-Mary_Wollstonecraft_Shelley_Rothwell.tif.jpg)
+
+:::
+
+::::
+
+## Think, Pair, Share
+
+- Centuries ahead of its time, in *Frankenstein* Mary Shelley approached questions like:
+	- Where is the line between humans and creations?
+	- Is there a line and does it matter?
+	- Why are creatures, including humans, created?
+- Find a partner and discuss.
+
+
+## Classification
+
+- *Prometheus* *did not* star Sigourney Weaver...
+  - ...but did feature a woman in a leading role (Noomi Rapace)
+- Was directed by Ridley Scott
+- *Did not* contain the term "Alien" in their name.
+  - Or "Predator"
+
+## A Wrinkle in Time
+
+- While both the AVP films and *Prometheus* may exist in the same universe as *Alien*, they most exist together.
+  	- In AVP films, "aliens" are present on earth in the modern day.
+	- In *Prometheus*, the "aliens" are genetic engineered off-planet by David.
+
+## Timeline
+
+- We can add *Prometheus*
+
+```{python}
+#| code-fold: true 
+
+films = [
+    ["Alien", 1979],
+    ["A's", 1986],
+    ["A3", 1992],
+    ["Res.", 1997],
+    ["AVP", 2004, "darkgoldenrod"],
+    ["AVPR", 2007, "darkgoldenrod"],
+    ["P", 1987, "red"],
+    ["P2", 1990, "red"],
+    ["P's", 2010, "darkred"],
+    ["The", 2018, "darkred"],
+    ["Prey", 2022, "darkred"],
+    ["Prom.", 2012, "darkgreen"],
+]
+
+plot(films)
+```
+
+## Canon Timeline
+
+- Through properly *Prometheus* is mutually exclusive all *Predator* films.
+
+```{python}
+#| code-fold: true 
+
+films = [
+    ["Alien", 1979],
+    ["A's", 1986],
+    ["A3", 1992],
+    ["Res.", 1997],
+    ["Prom.", 2012, "darkgreen"],
+]
+
+plot(films)
+```
+
+## More
+
+- Unfortunately, *Prometheus* was subject to fairly extreme studio interference (as was *Alien* but not quite as grievously).
+- The fallout led to the interesting but imperfect *Alien: Covenant* also from Scott and *Alien: Romulus* (from director Fede Álvarez).
+- Each featured leading roles for women, "Alien" in title, and a canon conflict with *Predator* films.
+
+## Canon Timeline
+
+- We use the "canon" timeline just for clarity. 
+
+```{python}
+#| code-fold: true 
+
+films = [
+    ["Alien", 1979],
+    ["A's", 1986],
+    ["A3", 1992],
+    ["Res.", 1997],
+    ["Prom.", 2012, "darkgreen"],
+    ["Cov.", 2017, "darkgreen"],
+    ["Rom.", 2024, "darkgreen"],
+]
+
+plot(films)
+```
+
+## Full Timeline
+
+
+- And the full timeline. 
+
+```{python}
+#| code-fold: true 
+
+films = [
+    ["Alien", 1979],
+    ["A's", 1986],
+    ["A3", 1992],
+    ["Res.", 1997],
+    ["Prom.", 2012, "darkgreen"],
+    ["Cov.", 2017, "darkgreen"],
+    ["Rom.", 2024, "darkgreen"],
+    ["AVP", 2004, "darkgoldenrod"],
+    ["AVPR", 2007, "darkgoldenrod"],
+    ["P", 1987, "red"],
+    ["P2", 1990, "red"],
+    ["P's", 2010, "darkred"],
+    ["The", 2018, "darkred"],
+    ["Prey", 2022, "darkred"],
+]
+
+plot(films)
+```
+
+# Classification
+
+## Background
+
+> [Classification is a **supervised** machine learning technique used to predict labels or categories based on input data. The goal is to assign each data point to a predefined class, such as spam vs. non-spam emails or diseased vs. healthy patients.](https://www.geeksforgeeks.org/machine-learning/getting-started-with-classification/)
+
+> [For example, a classification model might be trained on dataset of images labeled as either dogs or cats and it can be used to predict the class of new and unseen images as dogs or cats based on their features such as colour, texture or shape.](https://www.geeksforgeeks.org/machine-learning/getting-started-with-classification/)
+
+## Supervision
+
+- We recall supervision:
+	- Uses *labeled* data.
+	- Maps inputs to outputs.
+	- Goal: Predict outcomes.
+	- Examples: Classification, regression.
+
+## Types of Classification
+
+1. Binary Classification (Good vs. Bad)
+2. Multi-class (*Alien* Quadrilogy vs. *Prometheus* Trilogy vs. AVP)
+3. Multi-label (*Alien* vs. Sigourney vs. Ridley)
+
+# Process
+
+## Stages
+
+1. Data Collection
+2. Feature Extraction
+3. Model Training
+4. Iterate
+   1. Model Evaluation
+   2. Prediction
+
+## Data Collection
+
+- We start with some training data.
+  - For example, the films of the *Alien* franchise.
+
+```{python}
+#| code-fold: true 
+
+films = [
+    ["Alien", 1979],
+    ["A's", 1986],
+    ["A3", 1992],
+    ["Res.", 1997],
+    ["Prom.", 2012, "darkgreen"],
+    ["Cov.", 2017, "darkgreen"],
+    ["Rom.", 2024, "darkgreen"],
+    ["AVP", 2004, "darkgoldenrod"],
+    ["AVPR", 2007, "darkgoldenrod"],
+    ["P", 1987, "red"],
+    ["P2", 1990, "red"],
+    ["P's", 2010, "darkred"],
+    ["The", 2018, "darkred"],
+    ["Prey", 2022, "darkred"],
+]
+
+plot(films)
+```
+
+## Feature Extraction
+
+- We learn some information about the training data.
+  - For example, whether each film features Sigourney Weaver
+
+```{python}
+#| code-fold: true 
+
+films = [
+    ["Alien", 1979],
+    ["A's", 1986],
+    ["A3", 1992],
+    ["Res.", 1997],
+    ["Prom.", 2012, "black"],
+    ["Cov.", 2017, "black"],
+    ["Rom.", 2024, "black"],
+    ["AVP", 2004, "black"],
+    ["AVPR", 2007, "black"],
+    ["P", 1987, "black"],
+    ["P2", 1990, "black"],
+    ["P's", 2010, "black"],
+    ["The", 2018, "black"],
+    ["Prey", 2022, "black"],
+]
+
+plot(films)
+```
+
+## Model Training
+
+- Pretend you are a model.
+- Here are the films I consider "good" in red.
+- How can we "predict" if a film is good.
+
+```{python}
+#| code-fold: true 
+
+films = [
+    ["Alien", 1979,"red"],
+    ["A's", 1986],
+    ["A3", 1992],
+    ["Res.", 1997],
+    ["Prom.", 2012,"red"],
+    ["Cov.", 2017],
+    ["Rom.", 2024,"red"],
+    ["AVP", 2004],
+    ["AVPR", 2007],
+    ["P", 1987],
+    ["P2", 1990],
+    ["P's", 2010],
+    ["The", 2018],
+    ["Prey", 2022,"red"],
+]
+
+plot(films)
+```
+
+## Model Evaluation 
+
+- Imagine we use "Directed by Ridley Scott" as our model for a good film.
+- Hits in red, mispredicts in blue, missed predicts in purple, correct omits in green.
+
+```{python}
+#| code-fold: true 
+
+films = [
+    ["Alien", 1979,"red"],
+    ["A's", 1986],
+    ["A3", 1992],
+    ["Res.", 1997],
+    ["Prom.", 2012,"red"],
+    ["Cov.", 2017,"blue"],
+    ["Rom.", 2024,"purple"],
+    ["AVP", 2004],
+    ["AVPR", 2007],
+    ["P", 1987],
+    ["P2", 1990],
+    ["P's", 2010],
+    ["The", 2018],
+    ["Prey", 2022,"purple"],
+]
+
+plot(films)
+```
+
+## Prediction
+
+- This was accurate until 2017!
+  	- It wouldn't have been a very good predicting model!
+- In 2017
+	- Studios pushed Ridley Scott to release a middling *Alien: Covenant*
+	- Out of nowhere, *Prey* was an incredible film in the *Predator* franchise.
+	  	- And the sole *Predator* film not in cannon conflict with *Prometheus*
+	- *Alien: Romulus* was a superb *Alien* film, and the first in the franchise not directed by Ridley Scott
+
+## Iteration
+
+- However!
+  - *Alien: Covenant* was Ridley Scott's first direct sequel.
+  - *Prey* is the sole *Predator* film to feature a woman in a leading role.
+  - *Alien: Romulus* was the second standalone preequel - after *Prometheus*.
+- It comes down to feature selection!
+
+## Simple Example
+
+- It's not always complicated.
+  	- *Alien* original quadrilogy.
+	- Stars Sigourney Weaver.
+- Easy!
