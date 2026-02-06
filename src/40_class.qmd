@@ -68,7 +68,7 @@ title: Classification
 
 ::: {.column width="50%"}
 
-![](https://static.wikia.nocookie.net/alienanthology/images/e/e2/Alien_-_HD_poster.jpg/revision/latest?cb=20240826180931)
+![](https://upload.wikimedia.org/wikipedia/en/c/c3/Alien_movie_poster.jpg)
 
 :::
 
@@ -342,7 +342,7 @@ plot(films)
 
 ::: {.column width="50%"}
 
-![](https://static.wikia.nocookie.net/alienanthology/images/e/e2/Alien_-_HD_poster.jpg/revision/latest?cb=20240826180931)
+![](https://upload.wikimedia.org/wikipedia/en/a/a3/Prometheusposterfixed.jpg)
 
 :::
 
@@ -602,6 +602,13 @@ films = [
 plot(films)
 ```
 
+## Aside: Features
+
+> [In machine learning and pattern recognition, a feature is an individual measurable property or characteristic of a data set.](https://en.wikipedia.org/wiki/Feature_(machine_learning))
+
+- Can be: Released before 2000.
+- Can't be: Is art.
+
 ## Model Training
 
 - Pretend you are a model.
@@ -663,6 +670,9 @@ plot(films)
 
 - This was accurate until 2017!
   	- It wouldn't have been a very good predicting model!
+    
+## Iteration
+    
 - In 2017
 	- Studios pushed Ridley Scott to release a middling *Alien: Covenant*
 	- Out of nowhere, *Prey* was an incredible film in the *Predator* franchise.
@@ -677,9 +687,38 @@ plot(films)
   - *Alien: Romulus* was the second standalone preequel - after *Prometheus*.
 - It comes down to feature selection!
 
+## 
+
+|Film|Woman-led|Canon|Not a direct sequel|*"Good"*|
+|-|-|-|-|-|
+|Alien|✓|✓|✓|**✓**|
+|Aliens|✓|✓|||
+|Predator|||✓||
+|AVP|||✓||
+|Prometheus|✓|✓|✓|**✓**|
+|Covenant|✓|✓|||
+|Prey|✓|✓|✓|**✓**|
+|Romulus|✓|✓|✓|**✓**|
+
+
 ## Simple Example
 
 - It's not always complicated.
-  	- *Alien* original quadrilogy.
+  	- How to capture the *Alien* original quadrilogy?
 	- Stars Sigourney Weaver.
 - Easy!
+
+## 
+
+|Film|Weaver|*Alien* in name|*"Original"*|
+|-|-|-|-|-|
+|Alien|✓|✓|**✓**|
+|Alien 2[^1]||✓||
+|Aliens|✓|✓|**✓**|
+|Predator|||
+|AVP||✓||
+|Romulus||✓||
+|Avatar[^2]|✓||
+
+[^1]: *Alien 2: On Earth* was an unauthorized 1980 "sequel".
+[^2]: Some speculated Dir. J. Cameron (*Aliens* and *Avatar*) set both in the some universe.

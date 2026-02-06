@@ -288,11 +288,15 @@ window.Quarto = {
   <li><a href="#stages" id="toc-stages" class="nav-link" data-scroll-target="#stages">Stages</a></li>
   <li><a href="#data-collection" id="toc-data-collection" class="nav-link" data-scroll-target="#data-collection">Data Collection</a></li>
   <li><a href="#feature-extraction" id="toc-feature-extraction" class="nav-link" data-scroll-target="#feature-extraction">Feature Extraction</a></li>
+  <li><a href="#aside-features" id="toc-aside-features" class="nav-link" data-scroll-target="#aside-features">Aside: Features</a></li>
   <li><a href="#model-training" id="toc-model-training" class="nav-link" data-scroll-target="#model-training">Model Training</a></li>
   <li><a href="#model-evaluation" id="toc-model-evaluation" class="nav-link" data-scroll-target="#model-evaluation">Model Evaluation</a></li>
   <li><a href="#prediction" id="toc-prediction" class="nav-link" data-scroll-target="#prediction">Prediction</a></li>
   <li><a href="#iteration" id="toc-iteration" class="nav-link" data-scroll-target="#iteration">Iteration</a></li>
+  <li><a href="#iteration-1" id="toc-iteration-1" class="nav-link" data-scroll-target="#iteration-1">Iteration</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
   <li><a href="#simple-example" id="toc-simple-example" class="nav-link" data-scroll-target="#simple-example">Simple Example</a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"></a></li>
   </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="40_class.rjs.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
@@ -384,7 +388,7 @@ window.Quarto = {
 <div class="column" style="width:50%;">
 <p>…in 1979 with the release of <em>Alien</em>, widely regard as the greatest film of the post-silent era by instructors of this class.</p>
 </div><div class="column" style="width:50%;">
-<p><img src="https://static.wikia.nocookie.net/alienanthology/images/e/e2/Alien_-_HD_poster.jpg/revision/latest?cb=20240826180931.png" class="img-fluid"></p>
+<p><img src="https://upload.wikimedia.org/wikipedia/en/c/c3/Alien_movie_poster.jpg" class="img-fluid"></p>
 </div>
 </div>
 </section>
@@ -404,7 +408,7 @@ window.Quarto = {
 <ul>
 <li>We can place <em>Alien</em> on a timeline as follows:</li>
 </ul>
-<div id="85f3a24a" class="cell" data-execution_count="1">
+<div id="3059fb98" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -526,7 +530,7 @@ window.Quarto = {
 <ul>
 <li>We can place <em>Aliens</em> on a timeline as follows:</li>
 </ul>
-<div id="c3251bdc" class="cell" data-execution_count="2">
+<div id="a7bc7e62" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>films <span class="op">=</span> [</span>
@@ -562,7 +566,7 @@ window.Quarto = {
 <ul>
 <li>We can the Sigourney Weaver <em>Alien</em> films on a timeline as follows:</li>
 </ul>
-<div id="2262c93d" class="cell" data-execution_count="3">
+<div id="4ab6e0c1" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>films <span class="op">=</span> [</span>
@@ -615,7 +619,7 @@ window.Quarto = {
 <ul>
 <li>We can add the <em>AVP</em> films on a timeline as follows:</li>
 </ul>
-<div id="f09f0d04" class="cell" data-execution_count="4">
+<div id="dc0dfff0" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>films <span class="op">=</span> [</span>
@@ -666,7 +670,7 @@ window.Quarto = {
 <ul>
 <li>We can add the pre-<em>AVP</em> <em>Predator</em> films.</li>
 </ul>
-<div id="7f5157d4" class="cell" data-execution_count="5">
+<div id="c82661cf" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>films <span class="op">=</span> [</span>
@@ -711,7 +715,7 @@ window.Quarto = {
 <ul>
 <li>We can add the “modern” <em>Predator</em> films.</li>
 </ul>
-<div id="b8cdfee6" class="cell" data-execution_count="6">
+<div id="25ce140b" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>films <span class="op">=</span> [</span>
@@ -745,7 +749,7 @@ window.Quarto = {
 <div class="column" style="width:50%;">
 <p>2012 marked the triumphant return of Ridley Scott the <em>Alien</em> franchise with <em>Prometheus</em>, a retelling of <em>Frankenstein</em> in the <em>Alien</em> universe raising essential questions about life, control, and - again - AI.</p>
 </div><div class="column" style="width:50%;">
-<p><img src="https://static.wikia.nocookie.net/alienanthology/images/e/e2/Alien_-_HD_poster.jpg/revision/latest?cb=20240826180931.png" class="img-fluid"></p>
+<p><img src="https://upload.wikimedia.org/wikipedia/en/a/a3/Prometheusposterfixed.jpg" class="img-fluid"></p>
 </div>
 </div>
 </section>
@@ -820,7 +824,7 @@ window.Quarto = {
 <ul>
 <li>We can add <em>Prometheus</em></li>
 </ul>
-<div id="2929bcd3" class="cell" data-execution_count="7">
+<div id="5cbbb493" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>films <span class="op">=</span> [</span>
@@ -854,7 +858,7 @@ window.Quarto = {
 <ul>
 <li>Through properly <em>Prometheus</em> is mutually exclusive all <em>Predator</em> films.</li>
 </ul>
-<div id="09827701" class="cell" data-execution_count="8">
+<div id="ac34db1f" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>films <span class="op">=</span> [</span>
@@ -889,7 +893,7 @@ window.Quarto = {
 <ul>
 <li>We use the “canon” timeline just for clarity.</li>
 </ul>
-<div id="14af456b" class="cell" data-execution_count="9">
+<div id="ee47b8eb" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>films <span class="op">=</span> [</span>
@@ -918,7 +922,7 @@ window.Quarto = {
 <ul>
 <li>And the full timeline.</li>
 </ul>
-<div id="dc0ad5ab" class="cell" data-execution_count="10">
+<div id="84493462" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>films <span class="op">=</span> [</span>
@@ -1005,7 +1009,7 @@ window.Quarto = {
 <li>For example, the films of the <em>Alien</em> franchise.</li>
 </ul></li>
 </ul>
-<div id="8e571664" class="cell" data-execution_count="11">
+<div id="39e3b776" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>films <span class="op">=</span> [</span>
@@ -1044,7 +1048,7 @@ window.Quarto = {
 <li>For example, whether each film features Sigourney Weaver</li>
 </ul></li>
 </ul>
-<div id="5a96a6bc" class="cell" data-execution_count="12">
+<div id="b72b4289" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>films <span class="op">=</span> [</span>
@@ -1075,6 +1079,16 @@ window.Quarto = {
 </div>
 </div>
 </section>
+<section id="aside-features" class="level2">
+<h2 class="anchored" data-anchor-id="aside-features">Aside: Features</h2>
+<blockquote class="blockquote">
+<p><a href="https://en.wikipedia.org/wiki/Feature_(machine_learning)">In machine learning and pattern recognition, a feature is an individual measurable property or characteristic of a data set.</a></p>
+</blockquote>
+<ul>
+<li>Can be: Released before 2000.</li>
+<li>Can’t be: Is art.</li>
+</ul>
+</section>
 <section id="model-training" class="level2">
 <h2 class="anchored" data-anchor-id="model-training">Model Training</h2>
 <ul>
@@ -1082,7 +1096,7 @@ window.Quarto = {
 <li>Here are the films I consider “good” in red.</li>
 <li>How can we “predict” if a film is good.</li>
 </ul>
-<div id="aa4199bc" class="cell" data-execution_count="13">
+<div id="8b3d5c30" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>films <span class="op">=</span> [</span>
@@ -1119,7 +1133,7 @@ window.Quarto = {
 <li>Imagine we use “Directed by Ridley Scott” as our model for a good film.</li>
 <li>Hits in red, mispredicts in blue, missed predicts in purple, correct omits in green.</li>
 </ul>
-<div id="f8139581" class="cell" data-execution_count="14">
+<div id="8d738d73" class="cell" data-execution_count="14">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>films <span class="op">=</span> [</span>
@@ -1157,6 +1171,11 @@ window.Quarto = {
 <ul>
 <li>It wouldn’t have been a very good predicting model!</li>
 </ul></li>
+</ul>
+</section>
+<section id="iteration" class="level2">
+<h2 class="anchored" data-anchor-id="iteration">Iteration</h2>
+<ul>
 <li>In 2017
 <ul>
 <li>Studios pushed Ridley Scott to release a middling <em>Alien: Covenant</em></li>
@@ -1168,8 +1187,8 @@ window.Quarto = {
 </ul></li>
 </ul>
 </section>
-<section id="iteration" class="level2">
-<h2 class="anchored" data-anchor-id="iteration">Iteration</h2>
+<section id="iteration-1" class="level2">
+<h2 class="anchored" data-anchor-id="iteration-1">Iteration</h2>
 <ul>
 <li>However!
 <ul>
@@ -1180,16 +1199,153 @@ window.Quarto = {
 <li>It comes down to feature selection!</li>
 </ul>
 </section>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Film</th>
+<th>Woman-led</th>
+<th>Canon</th>
+<th>Not a direct sequel</th>
+<th><em>“Good”</em></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Alien</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td><strong>✓</strong></td>
+</tr>
+<tr class="even">
+<td>Aliens</td>
+<td>✓</td>
+<td>✓</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Predator</td>
+<td></td>
+<td></td>
+<td>✓</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>AVP</td>
+<td></td>
+<td></td>
+<td>✓</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Prometheus</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td><strong>✓</strong></td>
+</tr>
+<tr class="even">
+<td>Covenant</td>
+<td>✓</td>
+<td>✓</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Prey</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td><strong>✓</strong></td>
+</tr>
+<tr class="even">
+<td>Romulus</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td><strong>✓</strong></td>
+</tr>
+</tbody>
+</table>
+</section>
 <section id="simple-example" class="level2">
 <h2 class="anchored" data-anchor-id="simple-example">Simple Example</h2>
 <ul>
 <li>It’s not always complicated.
 <ul>
-<li><em>Alien</em> original quadrilogy.</li>
+<li>How to capture the <em>Alien</em> original quadrilogy?</li>
 <li>Stars Sigourney Weaver.</li>
 </ul></li>
 <li>Easy!</li>
 </ul>
+</section>
+<section id="section-1" class="level2">
+<h2 class="anchored" data-anchor-id="section-1"></h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Film</th>
+<th>Weaver</th>
+<th><em>Alien</em> in name</th>
+<th><em>“Original”</em></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Alien</td>
+<td>✓</td>
+<td>✓</td>
+<td><strong>✓</strong></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Alien 2<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></td>
+<td></td>
+<td>✓</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Aliens</td>
+<td>✓</td>
+<td>✓</td>
+<td><strong>✓</strong></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Predator</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>AVP</td>
+<td></td>
+<td>✓</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Romulus</td>
+<td></td>
+<td>✓</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Avatar<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
 
 <!-- -->
@@ -1197,7 +1353,14 @@ window.Quarto = {
 </section>
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p><em>Alien 2: On Earth</em> was an unauthorized 1980 “sequel”.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Some speculated Dir. J. Cameron (<em>Aliens</em> and <em>Avatar</em>) set both in the some universe.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1751,7 +1914,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb15-68"><a href="#cb15-68"></a></span>
 <span id="cb15-69"><a href="#cb15-69"></a>::: {.column width="50%"}</span>
 <span id="cb15-70"><a href="#cb15-70"></a></span>
-<span id="cb15-71"><a href="#cb15-71"></a><span class="al">![](https://static.wikia.nocookie.net/alienanthology/images/e/e2/Alien_-_HD_poster.jpg/revision/latest?cb=20240826180931)</span></span>
+<span id="cb15-71"><a href="#cb15-71"></a><span class="al">![](https://upload.wikimedia.org/wikipedia/en/c/c3/Alien_movie_poster.jpg)</span></span>
 <span id="cb15-72"><a href="#cb15-72"></a></span>
 <span id="cb15-73"><a href="#cb15-73"></a>:::</span>
 <span id="cb15-74"><a href="#cb15-74"></a></span>
@@ -2025,7 +2188,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb15-354"><a href="#cb15-354"></a></span>
 <span id="cb15-355"><a href="#cb15-355"></a>::: {.column width="50%"}</span>
 <span id="cb15-356"><a href="#cb15-356"></a></span>
-<span id="cb15-357"><a href="#cb15-357"></a><span class="al">![](https://static.wikia.nocookie.net/alienanthology/images/e/e2/Alien_-_HD_poster.jpg/revision/latest?cb=20240826180931)</span></span>
+<span id="cb15-357"><a href="#cb15-357"></a><span class="al">![](https://upload.wikimedia.org/wikipedia/en/a/a3/Prometheusposterfixed.jpg)</span></span>
 <span id="cb15-358"><a href="#cb15-358"></a></span>
 <span id="cb15-359"><a href="#cb15-359"></a>:::</span>
 <span id="cb15-360"><a href="#cb15-360"></a></span>
@@ -2285,87 +2448,126 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb15-626"><a href="#cb15-626"></a>plot(films)</span>
 <span id="cb15-627"><a href="#cb15-627"></a><span class="in">```</span></span>
 <span id="cb15-628"><a href="#cb15-628"></a></span>
-<span id="cb15-629"><a href="#cb15-629"></a><span class="fu">## Model Training</span></span>
+<span id="cb15-629"><a href="#cb15-629"></a><span class="fu">## Aside: Features</span></span>
 <span id="cb15-630"><a href="#cb15-630"></a></span>
-<span id="cb15-631"><a href="#cb15-631"></a><span class="ss">- </span>Pretend you are a model.</span>
-<span id="cb15-632"><a href="#cb15-632"></a><span class="ss">- </span>Here are the films I consider "good" in red.</span>
-<span id="cb15-633"><a href="#cb15-633"></a><span class="ss">- </span>How can we "predict" if a film is good.</span>
-<span id="cb15-634"><a href="#cb15-634"></a></span>
-<span id="cb15-637"><a href="#cb15-637"></a><span class="in">```{python}</span></span>
-<span id="cb15-638"><a href="#cb15-638"></a><span class="co">#| code-fold: true </span></span>
-<span id="cb15-639"><a href="#cb15-639"></a></span>
-<span id="cb15-640"><a href="#cb15-640"></a>films <span class="op">=</span> [</span>
-<span id="cb15-641"><a href="#cb15-641"></a>    [<span class="st">"Alien"</span>, <span class="dv">1979</span>,<span class="st">"red"</span>],</span>
-<span id="cb15-642"><a href="#cb15-642"></a>    [<span class="st">"A's"</span>, <span class="dv">1986</span>],</span>
-<span id="cb15-643"><a href="#cb15-643"></a>    [<span class="st">"A3"</span>, <span class="dv">1992</span>],</span>
-<span id="cb15-644"><a href="#cb15-644"></a>    [<span class="st">"Res."</span>, <span class="dv">1997</span>],</span>
-<span id="cb15-645"><a href="#cb15-645"></a>    [<span class="st">"Prom."</span>, <span class="dv">2012</span>,<span class="st">"red"</span>],</span>
-<span id="cb15-646"><a href="#cb15-646"></a>    [<span class="st">"Cov."</span>, <span class="dv">2017</span>],</span>
-<span id="cb15-647"><a href="#cb15-647"></a>    [<span class="st">"Rom."</span>, <span class="dv">2024</span>,<span class="st">"red"</span>],</span>
-<span id="cb15-648"><a href="#cb15-648"></a>    [<span class="st">"AVP"</span>, <span class="dv">2004</span>],</span>
-<span id="cb15-649"><a href="#cb15-649"></a>    [<span class="st">"AVPR"</span>, <span class="dv">2007</span>],</span>
-<span id="cb15-650"><a href="#cb15-650"></a>    [<span class="st">"P"</span>, <span class="dv">1987</span>],</span>
-<span id="cb15-651"><a href="#cb15-651"></a>    [<span class="st">"P2"</span>, <span class="dv">1990</span>],</span>
-<span id="cb15-652"><a href="#cb15-652"></a>    [<span class="st">"P's"</span>, <span class="dv">2010</span>],</span>
-<span id="cb15-653"><a href="#cb15-653"></a>    [<span class="st">"The"</span>, <span class="dv">2018</span>],</span>
-<span id="cb15-654"><a href="#cb15-654"></a>    [<span class="st">"Prey"</span>, <span class="dv">2022</span>,<span class="st">"red"</span>],</span>
-<span id="cb15-655"><a href="#cb15-655"></a>]</span>
-<span id="cb15-656"><a href="#cb15-656"></a></span>
-<span id="cb15-657"><a href="#cb15-657"></a>plot(films)</span>
-<span id="cb15-658"><a href="#cb15-658"></a><span class="in">```</span></span>
-<span id="cb15-659"><a href="#cb15-659"></a></span>
-<span id="cb15-660"><a href="#cb15-660"></a><span class="fu">## Model Evaluation </span></span>
-<span id="cb15-661"><a href="#cb15-661"></a></span>
-<span id="cb15-662"><a href="#cb15-662"></a><span class="ss">- </span>Imagine we use "Directed by Ridley Scott" as our model for a good film.</span>
-<span id="cb15-663"><a href="#cb15-663"></a><span class="ss">- </span>Hits in red, mispredicts in blue, missed predicts in purple, correct omits in green.</span>
-<span id="cb15-664"><a href="#cb15-664"></a></span>
-<span id="cb15-667"><a href="#cb15-667"></a><span class="in">```{python}</span></span>
-<span id="cb15-668"><a href="#cb15-668"></a><span class="co">#| code-fold: true </span></span>
-<span id="cb15-669"><a href="#cb15-669"></a></span>
-<span id="cb15-670"><a href="#cb15-670"></a>films <span class="op">=</span> [</span>
-<span id="cb15-671"><a href="#cb15-671"></a>    [<span class="st">"Alien"</span>, <span class="dv">1979</span>,<span class="st">"red"</span>],</span>
-<span id="cb15-672"><a href="#cb15-672"></a>    [<span class="st">"A's"</span>, <span class="dv">1986</span>],</span>
-<span id="cb15-673"><a href="#cb15-673"></a>    [<span class="st">"A3"</span>, <span class="dv">1992</span>],</span>
-<span id="cb15-674"><a href="#cb15-674"></a>    [<span class="st">"Res."</span>, <span class="dv">1997</span>],</span>
-<span id="cb15-675"><a href="#cb15-675"></a>    [<span class="st">"Prom."</span>, <span class="dv">2012</span>,<span class="st">"red"</span>],</span>
-<span id="cb15-676"><a href="#cb15-676"></a>    [<span class="st">"Cov."</span>, <span class="dv">2017</span>,<span class="st">"blue"</span>],</span>
-<span id="cb15-677"><a href="#cb15-677"></a>    [<span class="st">"Rom."</span>, <span class="dv">2024</span>,<span class="st">"purple"</span>],</span>
-<span id="cb15-678"><a href="#cb15-678"></a>    [<span class="st">"AVP"</span>, <span class="dv">2004</span>],</span>
-<span id="cb15-679"><a href="#cb15-679"></a>    [<span class="st">"AVPR"</span>, <span class="dv">2007</span>],</span>
-<span id="cb15-680"><a href="#cb15-680"></a>    [<span class="st">"P"</span>, <span class="dv">1987</span>],</span>
-<span id="cb15-681"><a href="#cb15-681"></a>    [<span class="st">"P2"</span>, <span class="dv">1990</span>],</span>
-<span id="cb15-682"><a href="#cb15-682"></a>    [<span class="st">"P's"</span>, <span class="dv">2010</span>],</span>
-<span id="cb15-683"><a href="#cb15-683"></a>    [<span class="st">"The"</span>, <span class="dv">2018</span>],</span>
-<span id="cb15-684"><a href="#cb15-684"></a>    [<span class="st">"Prey"</span>, <span class="dv">2022</span>,<span class="st">"purple"</span>],</span>
-<span id="cb15-685"><a href="#cb15-685"></a>]</span>
-<span id="cb15-686"><a href="#cb15-686"></a></span>
-<span id="cb15-687"><a href="#cb15-687"></a>plot(films)</span>
-<span id="cb15-688"><a href="#cb15-688"></a><span class="in">```</span></span>
-<span id="cb15-689"><a href="#cb15-689"></a></span>
-<span id="cb15-690"><a href="#cb15-690"></a><span class="fu">## Prediction</span></span>
-<span id="cb15-691"><a href="#cb15-691"></a></span>
-<span id="cb15-692"><a href="#cb15-692"></a><span class="ss">- </span>This was accurate until 2017!</span>
-<span id="cb15-693"><a href="#cb15-693"></a><span class="ss">    - </span>It wouldn't have been a very good predicting model!</span>
-<span id="cb15-694"><a href="#cb15-694"></a><span class="ss">- </span>In 2017</span>
-<span id="cb15-695"><a href="#cb15-695"></a><span class="ss">    - </span>Studios pushed Ridley Scott to release a middling *Alien: Covenant*</span>
-<span id="cb15-696"><a href="#cb15-696"></a><span class="ss">    - </span>Out of nowhere, *Prey* was an incredible film in the *Predator* franchise.</span>
-<span id="cb15-697"><a href="#cb15-697"></a><span class="ss">        - </span>And the sole *Predator* film not in cannon conflict with *Prometheus*</span>
-<span id="cb15-698"><a href="#cb15-698"></a><span class="ss">    - </span>*Alien: Romulus* was a superb *Alien* film, and the first in the franchise not directed by Ridley Scott</span>
-<span id="cb15-699"><a href="#cb15-699"></a></span>
-<span id="cb15-700"><a href="#cb15-700"></a><span class="fu">## Iteration</span></span>
-<span id="cb15-701"><a href="#cb15-701"></a></span>
-<span id="cb15-702"><a href="#cb15-702"></a><span class="ss">- </span>However!</span>
-<span id="cb15-703"><a href="#cb15-703"></a><span class="ss">  - </span>*Alien: Covenant* was Ridley Scott's first direct sequel.</span>
-<span id="cb15-704"><a href="#cb15-704"></a><span class="ss">  - </span>*Prey* is the sole *Predator* film to feature a woman in a leading role.</span>
-<span id="cb15-705"><a href="#cb15-705"></a><span class="ss">  - </span>*Alien: Romulus* was the second standalone preequel - after *Prometheus*.</span>
-<span id="cb15-706"><a href="#cb15-706"></a><span class="ss">- </span>It comes down to feature selection!</span>
-<span id="cb15-707"><a href="#cb15-707"></a></span>
-<span id="cb15-708"><a href="#cb15-708"></a><span class="fu">## Simple Example</span></span>
+<span id="cb15-631"><a href="#cb15-631"></a><span class="at">&gt; </span><span class="co">[</span><span class="ot">In machine learning and pattern recognition, a feature is an individual measurable property or characteristic of a data set.</span><span class="co">]</span><span class="at">(https://en.wikipedia.org/wiki/Feature_(machine_learning))</span></span>
+<span id="cb15-632"><a href="#cb15-632"></a></span>
+<span id="cb15-633"><a href="#cb15-633"></a><span class="ss">- </span>Can be: Released before 2000.</span>
+<span id="cb15-634"><a href="#cb15-634"></a><span class="ss">- </span>Can't be: Is art.</span>
+<span id="cb15-635"><a href="#cb15-635"></a></span>
+<span id="cb15-636"><a href="#cb15-636"></a><span class="fu">## Model Training</span></span>
+<span id="cb15-637"><a href="#cb15-637"></a></span>
+<span id="cb15-638"><a href="#cb15-638"></a><span class="ss">- </span>Pretend you are a model.</span>
+<span id="cb15-639"><a href="#cb15-639"></a><span class="ss">- </span>Here are the films I consider "good" in red.</span>
+<span id="cb15-640"><a href="#cb15-640"></a><span class="ss">- </span>How can we "predict" if a film is good.</span>
+<span id="cb15-641"><a href="#cb15-641"></a></span>
+<span id="cb15-644"><a href="#cb15-644"></a><span class="in">```{python}</span></span>
+<span id="cb15-645"><a href="#cb15-645"></a><span class="co">#| code-fold: true </span></span>
+<span id="cb15-646"><a href="#cb15-646"></a></span>
+<span id="cb15-647"><a href="#cb15-647"></a>films <span class="op">=</span> [</span>
+<span id="cb15-648"><a href="#cb15-648"></a>    [<span class="st">"Alien"</span>, <span class="dv">1979</span>,<span class="st">"red"</span>],</span>
+<span id="cb15-649"><a href="#cb15-649"></a>    [<span class="st">"A's"</span>, <span class="dv">1986</span>],</span>
+<span id="cb15-650"><a href="#cb15-650"></a>    [<span class="st">"A3"</span>, <span class="dv">1992</span>],</span>
+<span id="cb15-651"><a href="#cb15-651"></a>    [<span class="st">"Res."</span>, <span class="dv">1997</span>],</span>
+<span id="cb15-652"><a href="#cb15-652"></a>    [<span class="st">"Prom."</span>, <span class="dv">2012</span>,<span class="st">"red"</span>],</span>
+<span id="cb15-653"><a href="#cb15-653"></a>    [<span class="st">"Cov."</span>, <span class="dv">2017</span>],</span>
+<span id="cb15-654"><a href="#cb15-654"></a>    [<span class="st">"Rom."</span>, <span class="dv">2024</span>,<span class="st">"red"</span>],</span>
+<span id="cb15-655"><a href="#cb15-655"></a>    [<span class="st">"AVP"</span>, <span class="dv">2004</span>],</span>
+<span id="cb15-656"><a href="#cb15-656"></a>    [<span class="st">"AVPR"</span>, <span class="dv">2007</span>],</span>
+<span id="cb15-657"><a href="#cb15-657"></a>    [<span class="st">"P"</span>, <span class="dv">1987</span>],</span>
+<span id="cb15-658"><a href="#cb15-658"></a>    [<span class="st">"P2"</span>, <span class="dv">1990</span>],</span>
+<span id="cb15-659"><a href="#cb15-659"></a>    [<span class="st">"P's"</span>, <span class="dv">2010</span>],</span>
+<span id="cb15-660"><a href="#cb15-660"></a>    [<span class="st">"The"</span>, <span class="dv">2018</span>],</span>
+<span id="cb15-661"><a href="#cb15-661"></a>    [<span class="st">"Prey"</span>, <span class="dv">2022</span>,<span class="st">"red"</span>],</span>
+<span id="cb15-662"><a href="#cb15-662"></a>]</span>
+<span id="cb15-663"><a href="#cb15-663"></a></span>
+<span id="cb15-664"><a href="#cb15-664"></a>plot(films)</span>
+<span id="cb15-665"><a href="#cb15-665"></a><span class="in">```</span></span>
+<span id="cb15-666"><a href="#cb15-666"></a></span>
+<span id="cb15-667"><a href="#cb15-667"></a><span class="fu">## Model Evaluation </span></span>
+<span id="cb15-668"><a href="#cb15-668"></a></span>
+<span id="cb15-669"><a href="#cb15-669"></a><span class="ss">- </span>Imagine we use "Directed by Ridley Scott" as our model for a good film.</span>
+<span id="cb15-670"><a href="#cb15-670"></a><span class="ss">- </span>Hits in red, mispredicts in blue, missed predicts in purple, correct omits in green.</span>
+<span id="cb15-671"><a href="#cb15-671"></a></span>
+<span id="cb15-674"><a href="#cb15-674"></a><span class="in">```{python}</span></span>
+<span id="cb15-675"><a href="#cb15-675"></a><span class="co">#| code-fold: true </span></span>
+<span id="cb15-676"><a href="#cb15-676"></a></span>
+<span id="cb15-677"><a href="#cb15-677"></a>films <span class="op">=</span> [</span>
+<span id="cb15-678"><a href="#cb15-678"></a>    [<span class="st">"Alien"</span>, <span class="dv">1979</span>,<span class="st">"red"</span>],</span>
+<span id="cb15-679"><a href="#cb15-679"></a>    [<span class="st">"A's"</span>, <span class="dv">1986</span>],</span>
+<span id="cb15-680"><a href="#cb15-680"></a>    [<span class="st">"A3"</span>, <span class="dv">1992</span>],</span>
+<span id="cb15-681"><a href="#cb15-681"></a>    [<span class="st">"Res."</span>, <span class="dv">1997</span>],</span>
+<span id="cb15-682"><a href="#cb15-682"></a>    [<span class="st">"Prom."</span>, <span class="dv">2012</span>,<span class="st">"red"</span>],</span>
+<span id="cb15-683"><a href="#cb15-683"></a>    [<span class="st">"Cov."</span>, <span class="dv">2017</span>,<span class="st">"blue"</span>],</span>
+<span id="cb15-684"><a href="#cb15-684"></a>    [<span class="st">"Rom."</span>, <span class="dv">2024</span>,<span class="st">"purple"</span>],</span>
+<span id="cb15-685"><a href="#cb15-685"></a>    [<span class="st">"AVP"</span>, <span class="dv">2004</span>],</span>
+<span id="cb15-686"><a href="#cb15-686"></a>    [<span class="st">"AVPR"</span>, <span class="dv">2007</span>],</span>
+<span id="cb15-687"><a href="#cb15-687"></a>    [<span class="st">"P"</span>, <span class="dv">1987</span>],</span>
+<span id="cb15-688"><a href="#cb15-688"></a>    [<span class="st">"P2"</span>, <span class="dv">1990</span>],</span>
+<span id="cb15-689"><a href="#cb15-689"></a>    [<span class="st">"P's"</span>, <span class="dv">2010</span>],</span>
+<span id="cb15-690"><a href="#cb15-690"></a>    [<span class="st">"The"</span>, <span class="dv">2018</span>],</span>
+<span id="cb15-691"><a href="#cb15-691"></a>    [<span class="st">"Prey"</span>, <span class="dv">2022</span>,<span class="st">"purple"</span>],</span>
+<span id="cb15-692"><a href="#cb15-692"></a>]</span>
+<span id="cb15-693"><a href="#cb15-693"></a></span>
+<span id="cb15-694"><a href="#cb15-694"></a>plot(films)</span>
+<span id="cb15-695"><a href="#cb15-695"></a><span class="in">```</span></span>
+<span id="cb15-696"><a href="#cb15-696"></a></span>
+<span id="cb15-697"><a href="#cb15-697"></a><span class="fu">## Prediction</span></span>
+<span id="cb15-698"><a href="#cb15-698"></a></span>
+<span id="cb15-699"><a href="#cb15-699"></a><span class="ss">- </span>This was accurate until 2017!</span>
+<span id="cb15-700"><a href="#cb15-700"></a><span class="ss">    - </span>It wouldn't have been a very good predicting model!</span>
+<span id="cb15-701"><a href="#cb15-701"></a>    </span>
+<span id="cb15-702"><a href="#cb15-702"></a><span class="fu">## Iteration</span></span>
+<span id="cb15-703"><a href="#cb15-703"></a>    </span>
+<span id="cb15-704"><a href="#cb15-704"></a><span class="ss">- </span>In 2017</span>
+<span id="cb15-705"><a href="#cb15-705"></a><span class="ss">    - </span>Studios pushed Ridley Scott to release a middling *Alien: Covenant*</span>
+<span id="cb15-706"><a href="#cb15-706"></a><span class="ss">    - </span>Out of nowhere, *Prey* was an incredible film in the *Predator* franchise.</span>
+<span id="cb15-707"><a href="#cb15-707"></a><span class="ss">        - </span>And the sole *Predator* film not in cannon conflict with *Prometheus*</span>
+<span id="cb15-708"><a href="#cb15-708"></a><span class="ss">    - </span>*Alien: Romulus* was a superb *Alien* film, and the first in the franchise not directed by Ridley Scott</span>
 <span id="cb15-709"><a href="#cb15-709"></a></span>
-<span id="cb15-710"><a href="#cb15-710"></a><span class="ss">- </span>It's not always complicated.</span>
-<span id="cb15-711"><a href="#cb15-711"></a><span class="ss">    - </span>*Alien* original quadrilogy.</span>
-<span id="cb15-712"><a href="#cb15-712"></a><span class="ss">    - </span>Stars Sigourney Weaver.</span>
-<span id="cb15-713"><a href="#cb15-713"></a><span class="ss">- </span>Easy!</span>
+<span id="cb15-710"><a href="#cb15-710"></a><span class="fu">## Iteration</span></span>
+<span id="cb15-711"><a href="#cb15-711"></a></span>
+<span id="cb15-712"><a href="#cb15-712"></a><span class="ss">- </span>However!</span>
+<span id="cb15-713"><a href="#cb15-713"></a><span class="ss">  - </span>*Alien: Covenant* was Ridley Scott's first direct sequel.</span>
+<span id="cb15-714"><a href="#cb15-714"></a><span class="ss">  - </span>*Prey* is the sole *Predator* film to feature a woman in a leading role.</span>
+<span id="cb15-715"><a href="#cb15-715"></a><span class="ss">  - </span>*Alien: Romulus* was the second standalone preequel - after *Prometheus*.</span>
+<span id="cb15-716"><a href="#cb15-716"></a><span class="ss">- </span>It comes down to feature selection!</span>
+<span id="cb15-717"><a href="#cb15-717"></a></span>
+<span id="cb15-718"><a href="#cb15-718"></a><span class="fu">## </span></span>
+<span id="cb15-719"><a href="#cb15-719"></a></span>
+<span id="cb15-720"><a href="#cb15-720"></a>|Film|Woman-led|Canon|Not a direct sequel|*"Good"*|</span>
+<span id="cb15-721"><a href="#cb15-721"></a>|-|-|-|-|-|</span>
+<span id="cb15-722"><a href="#cb15-722"></a>|Alien|✓|✓|✓|**✓**|</span>
+<span id="cb15-723"><a href="#cb15-723"></a>|Aliens|✓|✓|||</span>
+<span id="cb15-724"><a href="#cb15-724"></a>|Predator|||✓||</span>
+<span id="cb15-725"><a href="#cb15-725"></a>|AVP|||✓||</span>
+<span id="cb15-726"><a href="#cb15-726"></a>|Prometheus|✓|✓|✓|**✓**|</span>
+<span id="cb15-727"><a href="#cb15-727"></a>|Covenant|✓|✓|||</span>
+<span id="cb15-728"><a href="#cb15-728"></a>|Prey|✓|✓|✓|**✓**|</span>
+<span id="cb15-729"><a href="#cb15-729"></a>|Romulus|✓|✓|✓|**✓**|</span>
+<span id="cb15-730"><a href="#cb15-730"></a></span>
+<span id="cb15-731"><a href="#cb15-731"></a></span>
+<span id="cb15-732"><a href="#cb15-732"></a><span class="fu">## Simple Example</span></span>
+<span id="cb15-733"><a href="#cb15-733"></a></span>
+<span id="cb15-734"><a href="#cb15-734"></a><span class="ss">- </span>It's not always complicated.</span>
+<span id="cb15-735"><a href="#cb15-735"></a><span class="ss">    - </span>How to capture the *Alien* original quadrilogy?</span>
+<span id="cb15-736"><a href="#cb15-736"></a><span class="ss">    - </span>Stars Sigourney Weaver.</span>
+<span id="cb15-737"><a href="#cb15-737"></a><span class="ss">- </span>Easy!</span>
+<span id="cb15-738"><a href="#cb15-738"></a></span>
+<span id="cb15-739"><a href="#cb15-739"></a><span class="fu">## </span></span>
+<span id="cb15-740"><a href="#cb15-740"></a></span>
+<span id="cb15-741"><a href="#cb15-741"></a>|Film|Weaver|*Alien* in name|*"Original"*|</span>
+<span id="cb15-742"><a href="#cb15-742"></a>|-|-|-|-|-|</span>
+<span id="cb15-743"><a href="#cb15-743"></a>|Alien|✓|✓|**✓**|</span>
+<span id="cb15-744"><a href="#cb15-744"></a>|Alien 2<span class="ot">[^1]</span>||✓||</span>
+<span id="cb15-745"><a href="#cb15-745"></a>|Aliens|✓|✓|**✓**|</span>
+<span id="cb15-746"><a href="#cb15-746"></a>|Predator|||</span>
+<span id="cb15-747"><a href="#cb15-747"></a>|AVP||✓||</span>
+<span id="cb15-748"><a href="#cb15-748"></a>|Romulus||✓||</span>
+<span id="cb15-749"><a href="#cb15-749"></a>|Avatar<span class="ot">[^2]</span>|✓||</span>
+<span id="cb15-750"><a href="#cb15-750"></a></span>
+<span id="cb15-751"><a href="#cb15-751"></a><span class="ot">[^1]: </span>*Alien 2: On Earth* was an unauthorized 1980 "sequel".</span>
+<span id="cb15-752"><a href="#cb15-752"></a><span class="ot">[^2]: </span>Some speculated Dir. J. Cameron (*Aliens* and *Avatar*) set both in the some universe.</span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

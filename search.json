@@ -447,6 +447,16 @@
     ]
   },
   {
+    "objectID": "40_class.html#aside-features",
+    "href": "40_class.html#aside-features",
+    "title": "Classification",
+    "section": "Aside: Features",
+    "text": "Aside: Features\n\nIn machine learning and pattern recognition, a feature is an individual measurable property or characteristic of a data set.\n\n\nCan be: Released before 2000.\nCan’t be: Is art.",
+    "crumbs": [
+      "Classification"
+    ]
+  },
+  {
     "objectID": "40_class.html#model-training",
     "href": "40_class.html#model-training",
     "title": "Classification",
@@ -471,7 +481,7 @@
     "href": "40_class.html#prediction",
     "title": "Classification",
     "section": "Prediction",
-    "text": "Prediction\n\nThis was accurate until 2017!\n\nIt wouldn’t have been a very good predicting model!\n\nIn 2017\n\nStudios pushed Ridley Scott to release a middling Alien: Covenant\nOut of nowhere, Prey was an incredible film in the Predator franchise.\n\nAnd the sole Predator film not in cannon conflict with Prometheus\n\nAlien: Romulus was a superb Alien film, and the first in the franchise not directed by Ridley Scott",
+    "text": "Prediction\n\nThis was accurate until 2017!\n\nIt wouldn’t have been a very good predicting model!",
     "crumbs": [
       "Classification"
     ]
@@ -481,7 +491,27 @@
     "href": "40_class.html#iteration",
     "title": "Classification",
     "section": "Iteration",
+    "text": "Iteration\n\nIn 2017\n\nStudios pushed Ridley Scott to release a middling Alien: Covenant\nOut of nowhere, Prey was an incredible film in the Predator franchise.\n\nAnd the sole Predator film not in cannon conflict with Prometheus\n\nAlien: Romulus was a superb Alien film, and the first in the franchise not directed by Ridley Scott",
+    "crumbs": [
+      "Classification"
+    ]
+  },
+  {
+    "objectID": "40_class.html#iteration-1",
+    "href": "40_class.html#iteration-1",
+    "title": "Classification",
+    "section": "Iteration",
     "text": "Iteration\n\nHowever!\n\nAlien: Covenant was Ridley Scott’s first direct sequel.\nPrey is the sole Predator film to feature a woman in a leading role.\nAlien: Romulus was the second standalone preequel - after Prometheus.\n\nIt comes down to feature selection!",
+    "crumbs": [
+      "Classification"
+    ]
+  },
+  {
+    "objectID": "40_class.html#section",
+    "href": "40_class.html#section",
+    "title": "Classification",
+    "section": "",
+    "text": "Film\nWoman-led\nCanon\nNot a direct sequel\n“Good”\n\n\n\n\nAlien\n✓\n✓\n✓\n✓\n\n\nAliens\n✓\n✓\n\n\n\n\nPredator\n\n\n✓\n\n\n\nAVP\n\n\n✓\n\n\n\nPrometheus\n✓\n✓\n✓\n✓\n\n\nCovenant\n✓\n✓\n\n\n\n\nPrey\n✓\n✓\n✓\n✓\n\n\nRomulus\n✓\n✓\n✓\n✓",
     "crumbs": [
       "Classification"
     ]
@@ -491,7 +521,27 @@
     "href": "40_class.html#simple-example",
     "title": "Classification",
     "section": "Simple Example",
-    "text": "Simple Example\n\nIt’s not always complicated.\n\nAlien original quadrilogy.\nStars Sigourney Weaver.\n\nEasy!",
+    "text": "Simple Example\n\nIt’s not always complicated.\n\nHow to capture the Alien original quadrilogy?\nStars Sigourney Weaver.\n\nEasy!",
+    "crumbs": [
+      "Classification"
+    ]
+  },
+  {
+    "objectID": "40_class.html#section-1",
+    "href": "40_class.html#section-1",
+    "title": "Classification",
+    "section": "",
+    "text": "Film\nWeaver\nAlien in name\n“Original”\n\n\n\n\n\nAlien\n✓\n✓\n✓\n\n\n\nAlien 21\n\n✓\n\n\n\n\nAliens\n✓\n✓\n✓\n\n\n\nPredator\n\n\n\n\n\n\nAVP\n\n✓\n\n\n\n\nRomulus\n\n✓\n\n\n\n\nAvatar2\n✓",
+    "crumbs": [
+      "Classification"
+    ]
+  },
+  {
+    "objectID": "40_class.html#footnotes",
+    "href": "40_class.html#footnotes",
+    "title": "Classification",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nAlien 2: On Earth was an unauthorized 1980 “sequel”.↩︎\nSome speculated Dir. J. Cameron (Aliens and Avatar) set both in the some universe.↩︎",
     "crumbs": [
       "Classification"
     ]
@@ -805,6 +855,13 @@
     "text": "Feature Extraction\n\nWe learn some information about the training data.\n\nFor example, whether each film features Sigourney Weaver"
   },
   {
+    "objectID": "40_class.rjs.html#aside-features",
+    "href": "40_class.rjs.html#aside-features",
+    "title": "Classification",
+    "section": "Aside: Features",
+    "text": "Aside: Features\n\nIn machine learning and pattern recognition, a feature is an individual measurable property or characteristic of a data set.\n\n\nCan be: Released before 2000.\nCan’t be: Is art."
+  },
+  {
     "objectID": "40_class.rjs.html#model-training",
     "href": "40_class.rjs.html#model-training",
     "title": "Classification",
@@ -823,21 +880,42 @@
     "href": "40_class.rjs.html#prediction",
     "title": "Classification",
     "section": "Prediction",
-    "text": "Prediction\n\nThis was accurate until 2017!\n\nIt wouldn’t have been a very good predicting model!\n\nIn 2017\n\nStudios pushed Ridley Scott to release a middling Alien: Covenant\nOut of nowhere, Prey was an incredible film in the Predator franchise.\n\nAnd the sole Predator film not in cannon conflict with Prometheus\n\nAlien: Romulus was a superb Alien film, and the first in the franchise not directed by Ridley Scott"
+    "text": "Prediction\n\nThis was accurate until 2017!\n\nIt wouldn’t have been a very good predicting model!"
   },
   {
     "objectID": "40_class.rjs.html#iteration",
     "href": "40_class.rjs.html#iteration",
     "title": "Classification",
     "section": "Iteration",
+    "text": "Iteration\n\nIn 2017\n\nStudios pushed Ridley Scott to release a middling Alien: Covenant\nOut of nowhere, Prey was an incredible film in the Predator franchise.\n\nAnd the sole Predator film not in cannon conflict with Prometheus\n\nAlien: Romulus was a superb Alien film, and the first in the franchise not directed by Ridley Scott"
+  },
+  {
+    "objectID": "40_class.rjs.html#iteration-1",
+    "href": "40_class.rjs.html#iteration-1",
+    "title": "Classification",
+    "section": "Iteration",
     "text": "Iteration\n\nHowever!\n\nAlien: Covenant was Ridley Scott’s first direct sequel.\nPrey is the sole Predator film to feature a woman in a leading role.\nAlien: Romulus was the second standalone preequel - after Prometheus.\n\nIt comes down to feature selection!"
+  },
+  {
+    "objectID": "40_class.rjs.html#section",
+    "href": "40_class.rjs.html#section",
+    "title": "Classification",
+    "section": "",
+    "text": "Film\nWoman-led\nCanon\nNot a direct sequel\n“Good”\n\n\n\n\nAlien\n✓\n✓\n✓\n✓\n\n\nAliens\n✓\n✓\n\n\n\n\nPredator\n\n\n✓\n\n\n\nAVP\n\n\n✓\n\n\n\nPrometheus\n✓\n✓\n✓\n✓\n\n\nCovenant\n✓\n✓\n\n\n\n\nPrey\n✓\n✓\n✓\n✓\n\n\nRomulus\n✓\n✓\n✓\n✓"
   },
   {
     "objectID": "40_class.rjs.html#simple-example",
     "href": "40_class.rjs.html#simple-example",
     "title": "Classification",
     "section": "Simple Example",
-    "text": "Simple Example\n\nIt’s not always complicated.\n\nAlien original quadrilogy.\nStars Sigourney Weaver.\n\nEasy!"
+    "text": "Simple Example\n\nIt’s not always complicated.\n\nHow to capture the Alien original quadrilogy?\nStars Sigourney Weaver.\n\nEasy!"
+  },
+  {
+    "objectID": "40_class.rjs.html#section-1",
+    "href": "40_class.rjs.html#section-1",
+    "title": "Classification",
+    "section": "",
+    "text": "Film\nWeaver\nAlien in name\n“Original”\n\n\n\n\n\nAlien\n✓\n✓\n✓\n\n\n\nAlien 21\n\n✓\n\n\n\n\nAliens\n✓\n✓\n✓\n\n\n\nPredator\n\n\n\n\n\n\nAVP\n\n✓\n\n\n\n\nRomulus\n\n✓\n\n\n\n\nAvatar2\n✓\n\n\n\n\n\n\n\n\nAlien 2: On Earth was an unauthorized 1980 “sequel”.Some speculated Dir. J. Cameron (Aliens and Avatar) set both in the some universe."
   },
   {
     "objectID": "30_regress.html",
@@ -3741,7 +3819,7 @@
     "href": "41_treetree.html",
     "title": "Tree Tree",
     "section": "",
-    "text": "Trees and Keys\n\n\n\nWe return to the question of oaks with:\n\nMore understanding of Colab, and…\nMore understanding of classification.\n\n\n\n\n\n\nRecall, a key is a branching series of yes/no questions.\n\nThe dichotomous key gets its name from having two (“di”) possibilities for any case\n“yes” and “no” or “true” and “false” or etc. etc.\n\nTo classify an oak, there are a series of questions that a non-expert can answer by inspecting the tree, such as being looking at the whole tree or looking at its leaves.\nAfter answer a question, there is either a reference to a new question, usually by number, or a note that you have determined what the type of tree is.\n\n\n\n\n1. Leaves usually without teeth or lobes: 2\n1. Leaves usually with teeth or lobes: 5\n\n    2. Leaves evergreen: 3\n    2. Leaves not evergreen: 4\n\n3. Mature plant a large tree — Southern live oak Quercus virginiana\n3. Mature plant a small shrub — Dwarf live oak Quercus minima\n\n    4. Leaf narrow, about 4-6 times as long as broad — Willow oak Quercus phellos\n    4. Leaf broad, about 2-3 times as long as broad — Shingle oak Quercus imbricaria\n\n5. Lobes or teeth bristle-tipped: 6\n5. Lobes or teeth rounded or blunt-pointed, no bristles: 7\n\n    6. Leaves mostly with 3 lobes — Blackjack oak Quercus marilandica\n    6. Leaves mostly with 7-9 lobes — Northern red oak Quercus rubra\n\n7. Leaves with 5-9 deep lobes — White oak Quercus alba\n7. Leaves with 21-27 shallow lobes — Swamp chestnut oak Quercus prinus\n\n\n\n\nYou may have to zoom in…\n\n\n\n\n\n\n\n\nOakKey\n\n\nStart\n\nLeaves are smooth with no teeth or lobes?\n\n\n\nEvergreen\n\nLaves evergreen?\n\n\n\nStart-&gt;Evergreen\n\n\nTrue\n\n\n\nBristles\n\nLobes/teeth bristle-tipped?\n\n\n\nStart-&gt;Bristles\n\n\nFalse\n\n\n\nGrowthHabit\n\nLarge Tree (not shrub)?\n\n\n\nEvergreen-&gt;GrowthHabit\n\n\nTrue\n\n\n\nLeafShape\n\nLeaves more than 3x long as wide\n\n\n\nEvergreen-&gt;LeafShape\n\n\nFalse\n\n\n\nLiveOak\n\nSouthern live oak\n\n\n\nGrowthHabit-&gt;LiveOak\n\n\nTrue\n\n\n\nDwarfOak\n\nDwarf live oak\n\n\n\nGrowthHabit-&gt;DwarfOak\n\n\nFalse\n\n\n\nWillowOak\n\nWillow oak\n\n\n\nLeafShape-&gt;WillowOak\n\n\nTrue\n\n\n\nShingleOak\n\nShingle oak\n\n\n\nLeafShape-&gt;ShingleOak\n\n\nFalse\n\n\n\nLobeCount6\n\n3 or fewer lobes?\n\n\n\nBristles-&gt;LobeCount6\n\n\nTrue\n\n\n\nLobeCount7\n\n9 or fewer lobes?\n\n\n\nBristles-&gt;LobeCount7\n\n\nFalse\n\n\n\nBlackjackOak\n\nBlackjack oak\n\n\n\nLobeCount6-&gt;BlackjackOak\n\n\nTrue\n\n\n\nRedOak\n\nNorthern red oak\n\n\n\nLobeCount6-&gt;RedOak\n\n\nFalse\n\n\n\nWhiteOak\n\nWhite oak\n\n\n\nLobeCount7-&gt;WhiteOak\n\n\nTrue\n\n\n\nSwampOak\n\nSwamp chestnut oak\n\n\n\nLobeCount7-&gt;SwampOak\n\n\nFalse\n\n\n\n\n\n\n\n\n\n\n\n\nAll are sourced from Wikipedia and appropriately licensed, with the links to the host page in the key.\n\n\n\nClick “Details” to expand\n\n\n\n\nNickname\nCommon Name\nScientific Name\n\n\n\n\nA\nBlackjack oak\nQuercus marilandica\n\n\nB\nDwarf live oak\nQuercus minima\n\n\nC\nNorthern red oak\nQuercus rubra\n\n\n\n\n\n\n\n\nI have the best luck with prompting Gemini when I provide images as a URL.\nHere are the URLs for the leaf and tree of Oak A, the others are similar.\n\nhttps://cd-public.github.io/ai101/images/oaks/a_leaf.jpg\nhttps://cd-public.github.io/ai101/images/oaks/a_tree.jpg\n\n\n\n\n\nCreate a “Lab04” Colab notebook (NOT a Google Document) in your AI Folder.\nThe very first cell must be a code cell containing exactly the following text:\n\ntree_letter = \"a\"\n\nYou must be able to change this letter to “b” or “c” and receive a correct classification when using “Run all”\nYou may use any number of intermediate code or text blocks, but the final block must print out the name of the tree.\n\n\n\n\nLetter\nCommon Name\nScientific Name\n\n\n\n\n‘a’\nBlackjack oak\nQuercus marilandica\n\n\n‘b’\nDwarf live oak\nQuercus minima\n\n\n‘c’\nNorthern red oak\nQuercus rubra\n\n\n\nYou should use the following: - [ ] Use + to combine strings - [ ] Use ai.generate_text to ask questions, and - [ ] Use = to store the results of queries to Gemini - [ ] NEW: if and else to determine which questions to ask.\n\n\n\nI found it very helpful in this lab to create big str\n\n\n\n\n\nLike while which we learned in the “Colab” lab, we can use if and else to ask Gemini questions depending on some condition.\n\nFor example, we can ask if leaves are “smooth” or “lobed”.\nif Gemini says “smooth”, we can then ask if the leaves are evergreen.\nelse we can ask if the lobes (or teeth) are bristle-tipped.\n\nHere is an example:",
+    "text": "Trees and Keys\n\n\n\nWe return to the question of oaks with:\n\nMore understanding of Colab, and…\nMore understanding of classification.",
     "crumbs": [
       "Tree Tree"
     ]
@@ -3750,8 +3828,8 @@
     "objectID": "41_treetree.html#some-oaks",
     "href": "41_treetree.html#some-oaks",
     "title": "Tree Tree",
-    "section": "",
-    "text": "All are sourced from Wikipedia and appropriately licensed, with the links to the host page in the key.\n\n\n\nClick “Details” to expand\n\n\n\n\nNickname\nCommon Name\nScientific Name\n\n\n\n\nA\nBlackjack oak\nQuercus marilandica\n\n\nB\nDwarf live oak\nQuercus minima\n\n\nC\nNorthern red oak\nQuercus rubra\n\n\n\n\n\n\n\n\nI have the best luck with prompting Gemini when I provide images as a URL.\nHere are the URLs for the leaf and tree of Oak A, the others are similar.\n\nhttps://cd-public.github.io/ai101/images/oaks/a_leaf.jpg\nhttps://cd-public.github.io/ai101/images/oaks/a_tree.jpg",
+    "section": "Some oaks",
+    "text": "Some oaks\n\nAll are sourced from Wikipedia and appropriately licensed, with the links to the host page in the key.\n\n\nKey\nClick “Details” to expand\n\n\n\n\nNickname\nCommon Name\nScientific Name\n\n\n\n\nA\nBlackjack oak\nQuercus marilandica\n\n\nB\nDwarf live oak\nQuercus minima\n\n\nC\nNorthern red oak\nQuercus rubra\n\n\n\n\n\n\nURLs\n\nI have the best luck with prompting Gemini when I provide images as a URL.\nHere are the URLs for the leaf and tree of Oak A, the others are similar.\n\nhttps://cd-public.github.io/ai101/images/oaks/a_leaf.jpg\nhttps://cd-public.github.io/ai101/images/oaks/a_tree.jpg",
     "crumbs": [
       "Tree Tree"
     ]
@@ -3760,8 +3838,8 @@
     "objectID": "41_treetree.html#requirements",
     "href": "41_treetree.html#requirements",
     "title": "Tree Tree",
-    "section": "",
-    "text": "Create a “Lab04” Colab notebook (NOT a Google Document) in your AI Folder.\nThe very first cell must be a code cell containing exactly the following text:\n\ntree_letter = \"a\"\n\nYou must be able to change this letter to “b” or “c” and receive a correct classification when using “Run all”\nYou may use any number of intermediate code or text blocks, but the final block must print out the name of the tree.\n\n\n\n\nLetter\nCommon Name\nScientific Name\n\n\n\n\n‘a’\nBlackjack oak\nQuercus marilandica\n\n\n‘b’\nDwarf live oak\nQuercus minima\n\n\n‘c’\nNorthern red oak\nQuercus rubra\n\n\n\nYou should use the following: - [ ] Use + to combine strings - [ ] Use ai.generate_text to ask questions, and - [ ] Use = to store the results of queries to Gemini - [ ] NEW: if and else to determine which questions to ask.\n\n\n\nI found it very helpful in this lab to create big str\n\n\n\n\n\nLike while which we learned in the “Colab” lab, we can use if and else to ask Gemini questions depending on some condition.\n\nFor example, we can ask if leaves are “smooth” or “lobed”.\nif Gemini says “smooth”, we can then ask if the leaves are evergreen.\nelse we can ask if the lobes (or teeth) are bristle-tipped.\n\nHere is an example:",
+    "section": "Requirements",
+    "text": "Requirements\n\nCreate a “Lab04” Colab notebook (NOT a Google Document) in your AI Folder.\nThe very first cell must be a code cell containing exactly the following text:\n\ntree_letter = \"a\"\n\nYou must be able to change this letter to “b” or “c” and receive a correct classification when using “Run all”\nYou may use any number of intermediate code or text blocks, but the final block must print out the name of the tree.\n\n\n\n\nLetter\nCommon Name\nScientific Name\n\n\n\n\n‘a’\nBlackjack oak\nQuercus marilandica\n\n\n‘b’\nDwarf live oak\nQuercus minima\n\n\n‘c’\nNorthern red oak\nQuercus rubra\n\n\n\nYou should use the following:\n\nUse + to combine strings\nUse ai.generate_text to ask questions, and\nUse = to store the results of queries to Gemini\nNEW: if and else to determine which questions to ask.\n\n\nPlus/Equals\n\nI found it very helpful in this lab to add many helpful tidbits to Gemini together.\n\n“Hey we are classifying trees!”\n“Hey here’s some images by URL!”\n“I’m a Python script, reply only yes/no with no capitals or punctuation!”\n\nI used = to give short nicknames to longer messages.\nI used + to combine them - usually before asking a question from the key.\nHere is an example:\n\n\u0016from google.colab import ai\nprefix = \"I'm a Colab notebook, and I cannot read! Reply only yes/no with no capitals or punctuation!\"\nquestion = \"Is four an even number\"\nanswer = ai.generate_text(prefix + question)\nprint(answer)\n\n\nIf/else Syntax\n\nLike while which we learned in the “Colab” lab, we can use if and else to ask Gemini questions depending on some condition.\n\nFor example, we can ask if leaves are “smooth” or “lobed”.\nif Gemini says “smooth”, we can then ask if the leaves are evergreen.\nelse we can ask if the lobes (or teeth) are bristle-tipped.\nFar more easily, we ask yes or no questions.\n\nHere is an example:\n\nif answer == \"yes\":\n  print(\"Four is an even number\")\nelse:\n  print(\"Four is not an even number\")\n\n\n\n\n\n\nDouble equals? What’s that!\n\n\n\nIn Colab, both = and == mean something.\n\nI call = “single equals assignment”. It assigns a nickname to something longer or more complicated. It gets its own line.\nI call == “double equals equality”. It checks to see if two things are equal, usually with an if.\n\nif 1 == 1:\n    print(\"Hi!\")\n\n\n\n\nNesting\n\nIt is possible to place one if statement inside another with indentation.\n\nTerm this “nesting”.\n\n\neven = ai.generate_text(prefix + \"Is four an even number\")\npositive = ai.generate_text(prefix + \"Is four a positive number\")\n\nif even == \"yes\":\n  if positive == \"yes\":\n    print(\"Even positive number.\")\n  else:\n    print(\"Even negative number.\")\nelse:\n  print(\"Odd number.\")",
     "crumbs": [
       "Tree Tree"
     ]

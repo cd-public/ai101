@@ -3,8 +3,6 @@ title: Tree Tree
 format: html
 ---
 
-# What is a Decision tree?
-
 ::: {.callout-note appearance="simple"}
 
 ## Trees and Keys
@@ -17,6 +15,13 @@ We return to the question of oaks with:
 :::
 
 
+# What is a Decision tree?
+
+- A decision tree is a flowchart-like structure in which each internal step represents a feature, and each end point node represents a label. 
+- The paths from root to leaf represent classification rules.
+- A dichotomous key is a decision tree that can be used for classification.
+    - In our case with oaks, a "tree tree" - or an "oak decision tree".
+
 ### The Key
 
 - Recall, a key is a branching series of yes/no questions.
@@ -24,6 +29,18 @@ We return to the question of oaks with:
     - "yes" and "no" or "true" and "false" or etc. etc.
 - To classify an oak, there are a series of questions that a non-expert can answer by inspecting the tree, such as being looking at the whole tree or looking at its leaves.
 - After answer a question, there is either a reference to a new question, usually by number, or a note that you have determined what the type of tree is.
+
+::: {.callout-note appearance="simple"}
+
+## Features
+
+We now recognize these "yes"/"no" questions as *features*.
+
+We recall:
+
+> [In machine learning and pattern recognition, a feature is an individual measurable property or characteristic of a data set.](https://en.wikipedia.org/wiki/Feature_(machine_learning))
+
+:::
 
 ### Example
 
@@ -51,6 +68,7 @@ We return to the question of oaks with:
 ### Visually
 
 - You may have to zoom in...
+    - If you turn it upside down, it somewhat looks like a tree (hence the name).
 
 ```{dot}
 digraph OakKey {
@@ -148,14 +166,29 @@ tree_letter = "a"
 
 
 You should use the following:
+
 - [ ] Use `+` to combine strings
 - [ ] Use `ai.generate_text` to ask questions, and 
 - [ ] Use `=` to store the results of queries to Gemini
 - [ ] **NEW**:  `if` and `else` to determine which questions to ask.
 
-### Plus
+### Plus/Equals
 
-- I found it very helpful in this lab to create big str
+- I found it very helpful in this lab to add many helpful tidbits to Gemini together.
+    - "Hey we are classifying trees!"
+    - "Hey here's some images by URL!"
+    - "I'm a Python script, reply only yes/no with no capitals or punctuation!"
+- I used `=` to give short nicknames to longer messages.
+- I used `+` to combine them - usually before asking a question from the key.
+- Here is an example:
+
+```{.py}
+from google.colab import ai
+prefix = "I'm a Colab notebook, and I cannot read! Reply only yes/no with no capitals or punctuation!"
+question = "Is four an even number"
+answer = ai.generate_text(prefix + question)
+print(answer)
+```
 
 ### If/else Syntax
 
@@ -163,4 +196,53 @@ You should use the following:
 	- For example, we can ask if leaves are "smooth" or "lobed".
 	- `if` Gemini says "smooth", we can then ask if the leaves are evergreen.
 	- `else` we can ask if the lobes (or teeth) are bristle-tipped.
+    - Far more easily, we ask yes or no questions.
 - Here is an example:
+
+```{.py}
+if answer == "yes":
+  print("Four is an even number")
+else:
+  print("Four is not an even number")
+```
+
+::: {.callout-note appearance="simple"}
+
+## Double equals? What's that!
+
+In Colab, both `=` and `==` mean something.
+
+1. I call `=` "single equals assignment". It assigns a nickname to something longer or more complicated. It gets its own line.
+2. I call `==` "double equals equality". It checks to see if two things are equal, usually with an `if`.
+
+```{.py}
+if 1 == 1:
+    print("Hi!")
+```
+
+:::
+
+### Nesting
+
+- It is possible to place one `if` statement inside another with indentation.
+    - Term this "nesting".
+
+```{.py}
+even = ai.generate_text(prefix + "Is four an even number")
+positive = ai.generate_text(prefix + "Is four a positive number")
+
+if even == "yes":
+  if positive == "yes":
+    print("Even positive number.")
+  else:
+    print("Even negative number.")
+else:
+  print("Odd number.")
+```
+     
+# Your Task
+
+- Try to get this to work such when you run a cell, it gives the name of a tree.
+- No write-up today, just try to get this working.
+- Big hint:
+    - The shape of the "Visually" graphic - of a question with branching questions below - is the same shape you should for with `if` statements and indentation.

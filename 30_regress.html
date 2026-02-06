@@ -542,7 +542,7 @@ Look out!
 <ul>
 <li>I just asked Gemini to make this.</li>
 </ul>
-<div id="d3508cfb" class="cell" data-execution_count="1">
+<div id="a3081f58" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>eps <span class="op">=</span> [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]</span>
 <span id="cb1-2"><a href="#cb1-2"></a>yrs <span class="op">=</span> [<span class="dv">1977</span>, <span class="dv">1980</span>, <span class="dv">1983</span>, <span class="dv">1999</span>, <span class="dv">2002</span>, <span class="dv">2005</span>, <span class="dv">2015</span>, <span class="dv">2017</span>, <span class="dv">2019</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -552,7 +552,7 @@ Look out!
 <ul>
 <li>I naively make a <em>scatterplot</em> to view the data…</li>
 </ul>
-<div id="b21c4173" class="cell" data-execution_count="2">
+<div id="4229b6a3" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb2-2"><a href="#cb2-2"></a></span>
 <span id="cb2-3"><a href="#cb2-3"></a>plt.scatter(eps,yrs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -570,7 +570,7 @@ Look out!
 <ul>
 <li>Arithmetic is hard, so just use a <a href="https://www.geeksforgeeks.org/data-visualization/drawing-scatter-trend-lines-using-matplotlib/?ysclid=mkwsf5lepx713076579">built-in function</a>.</li>
 </ul>
-<div id="e5290bbd" class="cell" data-execution_count="3">
+<div id="443dc0de" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb3-2"><a href="#cb3-2"></a></span>
 <span id="cb3-3"><a href="#cb3-3"></a>p <span class="op">=</span> np.poly1d(np.polyfit(eps, yrs, <span class="dv">1</span>))</span>
@@ -590,7 +590,7 @@ Look out!
 <ul>
 <li>What year do we expect episode 10 to come out?</li>
 </ul>
-<div id="7446dce2" class="cell" data-execution_count="4">
+<div id="59f26378" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb4-2"><a href="#cb4-2"></a></span>
 <span id="cb4-3"><a href="#cb4-3"></a>p(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -607,7 +607,7 @@ Look out!
 <ul>
 <li>Do you see… any other patterns?</li>
 </ul>
-<div id="fd937dcd" class="cell" data-execution_count="5">
+<div id="e673fb6e" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>plt.scatter(eps,yrs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
