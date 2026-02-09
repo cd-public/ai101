@@ -1,0 +1,156 @@
+---
+title: Graphs 
+---
+
+# Context
+
+- What graphs aren't.
+- Why they matter.
+- What they are.
+
+# What They Aren't
+
+## Visualizations 
+
+- We recall the $n$-D lab were we made visualization representing information in multiple dimensions.
+- We may have referred to these visuals, perhaps these *graphics* as graphs.
+
+## Information
+
+- We took *Star Wars* release dates.
+
+```{python}
+#| echo: true
+eps = [4, 5, 6, 1, 2, 3, 7, 8, 9]
+yrs = [1977, 1980, 1983, 1999, 2002, 2005, 2015, 2017, 2019]
+```
+
+## Representation
+
+- I naively make a *scatterplot* to view the data...
+
+```{python}
+#| echo: true
+from matplotlib import pyplot as plt
+
+plt.scatter(eps,yrs)
+```
+
+## By Convention
+
+- Historically, I recall always thinking of a *graph* as something like these plots.
+  - A $x$ axis on the botton.
+  - A $y$ axis on the left.
+  - Some points throughout the space between them.
+- I will not use *graph* to refer to data visualizations of this form in this class.
+
+# Why They Matter
+
+## Oh no, math!
+
+- In a moment, we will introduce the mathematical notion of a *graph*.
+  - Mathematics as in college mathematics
+    - Logic not arithmetic.
+- This is a formalism and may seem heavyweight.
+- Why bother?
+
+## Precision
+
+- One recurring topic throughout this term is *precision*.
+- When we ask e.g. Gemini to do something, we must be precise about things like spelling and grammar or the AI may not correctly infer what we want.
+- When we try to run e.g. Gemini in Colab, we must be precise about the names of nicknames and of commands or Colab will not function properly.
+- I asked you, for example, to name your class folder with a specific name scheme.
+
+## Specific
+
+- One recurring topic through this term is *specificity*.
+- In addition to being precise (e.g. not wrong) we want to be clear (e.g. provide sufficient information).
+- We can debate the merits of my approach, but I try to be specific with, for example, lab instructions.
+  	- How am I doing? Form your own opinion!
+- I do not necessarily strive for percision with think-pair-share (can be better to see what happens.
+
+## Motivation
+
+- We want to be *precise* and *specific* when speaking about how an artifical intelligence technology
+	- Is designed.
+	- Is made.
+	- Is run.
+	- Is evaluated.
+- A mathematical formalism achieves all these goals.
+
+# Aside
+
+## Precision-recall tradeoff
+
+- We can perhaps better understand at least precision via the *precision-recall trade-off*, a classic topic in machine learning.
+- I will apply this to the "Alien Movie Good" problem.
+
+## Set Up
+
+- To begin, we will consider:
+  	- A data set.
+	- A model.
+	- The predictions made by a model.
+
+## Model 
+
+- Imagine we use "Directed by Ridley Scott" as our model for a good film.
+- Hits in red, mispredicts in blue, missed predicts in purple, correct omits in green.
+
+
+```{python}
+#| code-fold: true 
+import matplotlib.pyplot as plt
+
+def plot(films):
+
+	years = list(range(1976, 2027))  # Create a list of years from 1976 to 2024
+
+	plt.figure(figsize=(9,1)) # Adjust figure size for better visualization
+	plt.plot(years, [0] * len(years), color='black', linewidth=2) # Plot a horizontal line
+
+	def add_film(name, year, color="green"):
+	  plt.annotate(
+	      name,
+	      xy=(year, 0.0),
+	      xytext=(year, 0.2),
+	      arrowprops=dict(color=color, shrink=0.05, width=1, headwidth=8),
+	      horizontalalignment='center',
+	      verticalalignment='bottom',
+	      fontsize=10,
+	      color=color
+	  )
+	
+	[add_film(*film) for film in films]
+	
+	plt.yticks([]) # Remove y-axis ticks as they are not relevant for a horizontal line
+	plt.grid(True, axis='x', linestyle='--', alpha=0.7)
+	plt.xlim(1976, 2027) # Set x-axis limits slightly beyond the data range
+	plt.show()
+
+
+films = [
+    ["Alien", 1979,"red"],
+    ["A's", 1986],
+    ["A3", 1992],
+    ["Res.", 1997],
+    ["Prom.", 2012,"red"],
+    ["Cov.", 2017,"blue"],
+    ["Rom.", 2024,"purple"],
+    ["AVP", 2004],
+    ["AVPR", 2007],
+    ["P", 1987],
+    ["P2", 1990],
+    ["P's", 2010],
+    ["The", 2018],
+    ["Prey", 2022,"purple"],
+]
+
+plot(films)
+```
+
+## Last Time
+
+- Last time we naively looked at this and went no further.
+- Now, we introduce a formalism, the *confusion matrix*.
+
