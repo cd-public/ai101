@@ -153,4 +153,554 @@ plot(films)
 
 - Last time we naively looked at this and went no further.
 - Now, we introduce a formalism, the *confusion matrix*.
+	- A 2-by-2 grid
+	- Horizontally, whether films are *predicted by the model* to be good.
+	- Vertically, whether films are *held to actually* be good.
+	  	- In this case, by me, but usually you actually just have something that is true or not.
 
+## Terminology
+
+- We further introduce the terminology of true/false positive/negatives.
+	- I *believe* from medicine, where e.g. a false positive is a flu test coming back positive in a healthy patient.
+	- We can regard "film good" as the test.
+
+## Specifically
+
+
+- A **true positive** is a film predicted to be good which is good.
+- A **false positive** is a film predicted to be good which is not good.
+- A **false negative** is a film predicted to be not good which is good.
+- A **true negative** is a filme predicted to be not good which is not good.
+
+## Visually
+
+<table style="border: none; background: inherit; color: inherit; text-align: center; margin-left: auto; margin-right: auto; border-collapse: collapse;">
+  <tbody>
+    <tr>
+      <td rowspan="2" style="border: none;"></td>
+      <td style="border: none;"></td>
+      <th colspan="2" style="background: rgba(74, 210, 210, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;">
+        <strong>Predicted condition</strong>
+      </th>
+    </tr>
+    <tr>
+      <td style="">
+      </td>
+      <td style="background: rgba(120, 255, 255, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;">
+        <strong>Positive (PP)</strong>
+      </td>
+      <td style="background: rgba(29, 165, 165, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;">
+        <strong>Negative (PN)</strong>
+      </td>
+    </tr>
+    <tr>
+      <th rowspan="2" style="background: rgba(210, 210, 61, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px; writing-mode: vertical-rl; transform: rotate(180deg);">
+        <strong>Actual</strong>
+      </th>
+      <td style="background: rgba(255, 255, 120, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;">
+        <strong>Positive (P)</strong>
+      </td>
+      <td style="background: rgba(120, 255, 120, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;">
+        <strong>True positive (TP)</strong>
+      </td>
+      <td style="background: rgba(255, 165, 165, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;">
+        <strong>False negative (FN)</strong>
+      </td>
+    </tr>
+    <tr>
+      <td style="background: rgba(165, 165, 29, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;">
+        <strong>Negative (N)</strong>
+      </td>
+      <td style="background: rgba(255, 120, 120, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;">
+        <strong>False positive (FP)</strong>
+      </td>
+      <td style="background: rgba(61, 210, 61, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;">
+        <strong>True negative (TN)</strong>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="4" style="border: none; padding: 5px;"></td>
+    </tr>
+  </tbody>
+</table>
+
+
+## Examples
+
+<table style="border: none; background: inherit; color: inherit; text-align: center; margin-left: auto; margin-right: auto; border-collapse: collapse;">
+  <tbody>
+    <tr>
+      <td rowspan="2" style="border: none;"></td>
+      <td style="border: none;"></td>
+      <th colspan="2" style="background: rgba(74, 210, 210, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;">
+        <strong>Predicted condition</strong>
+      </th>
+    </tr>
+    <tr>
+      <td> 
+      </td>
+      <td style="background: rgba(120, 255, 255, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;">
+        <strong>Positive (PP)</strong>
+      </td>
+      <td style="background: rgba(29, 165, 165, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;">
+        <strong>Negative (PN)</strong>
+      </td>
+    </tr>
+    <tr>
+      <th rowspan="2" style="background: rgba(210, 210, 61, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px; writing-mode: vertical-rl; transform: rotate(180deg);">
+        <strong>Actual</strong>
+      </th>
+      <td style="background: rgba(255, 255, 120, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;">
+        <strong>Positive (P)</strong>
+      </td>
+      <td style="background: rgba(120, 255, 120, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;">
+        <strong>*Alien* (1979)</strong>
+      </td>
+      <td style="background: rgba(255, 165, 165, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;">
+        <strong>*Prey* (2022)</strong>
+      </td>
+    </tr>
+    <tr>
+      <td style="background: rgba(165, 165, 29, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;">
+        <strong>Negative (N)</strong>
+      </td>
+      <td style="background: rgba(255, 120, 120, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;">
+        <strong>*Covenant* (2017)</strong>
+      </td>
+      <td style="background: rgba(61, 210, 61, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;">
+        <strong>*Aliens* (1986)</strong>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="4" style="border: none; padding: 5px;"></td>
+    </tr>
+  </tbody>
+</table>
+
+
+## Populations
+
+- Often, when assess a model, it is dramatically *more* interesting to include the population within each "bin".
+- Then, a confusion matrix becomes a summary of the goodness of a model.
+- So the "directed by Ridley Scott" model of goodness yields:
+
+
+## Populations
+
+<table style="border: none; background: inherit; color: inherit; text-align: center; margin-left: auto; margin-right: auto; border-collapse: collapse;">
+  <tbody>
+    <tr>
+      <td rowspan="2" style="border: none;"></td>
+      <td style="border: none;"></td>
+      <th colspan="2" style="background: rgba(74, 210, 210, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;">
+        <strong>Predicted condition</strong>
+      </th>
+    </tr>
+    <tr>
+      <td>
+      </td>
+      <td style="background: rgba(120, 255, 255, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;">
+        <strong>Positive (PP)</strong>
+      </td>
+      <td style="background: rgba(29, 165, 165, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;">
+        <strong>Negative (PN)</strong>
+      </td>
+    </tr>
+    <tr>
+      <th rowspan="2" style="background: rgba(210, 210, 61, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px; writing-mode: vertical-rl; transform: rotate(180deg);">
+        <strong>Actual</strong>
+      </th>
+      <td style="background: rgba(255, 255, 120, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;">
+        <strong>Positive (P)</strong>
+      </td>
+      <td style="background: rgba(120, 255, 120, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;">
+        <strong>2</strong>
+      </td>
+      <td style="background: rgba(255, 165, 165, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;">
+        <strong>2</strong>
+      </td>
+    </tr>
+    <tr>
+      <td style="background: rgba(165, 165, 29, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;">
+        <strong>Negative (N)</strong>
+      </td>
+      <td style="background: rgba(255, 120, 120, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;">
+        <strong>1</strong>
+      </td>
+      <td style="background: rgba(61, 210, 61, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;">
+        <strong>9</strong>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="4" style="border: none; padding: 5px;"></td>
+    </tr>
+  </tbody>
+</table>
+
+- TP: 2 (*Alien*, *Prometheus*)
+- FN: 2 (*Prey*, *Alien: Romulus*)
+- FP: 1 (*Alien: Covenant*)
+- The remaining films are true negatives (TN)
+
+
+## Precision and Recall
+
+- Precision and recall are then defined as:
+
+$$
+\begin{align}
+  \text{Precision} &= \frac{tp}{tp + fp} \\
+     \text{Recall} &= \frac{tp}{tp + fn} \,
+\end{align}
+$$
+
+- *Precision* is the number of true positives among the predicted positives.
+- *Recall* is the number of true positives among the actual positives.
+
+## Calculate
+
+- For "directed by Ridley Scott":
+	- Precision is $\frac{2}{3}$
+	  	- *Alien* and *Prometheus* divided by them and *Covenant*
+	- Recall is $\frac{2}{4}$ or  $\frac{1}{2}$
+	  	- *Alien* and *Prometheus* divided by them, *Prey*, and *Romulus*
+
+## The Trade-off
+
+- Suppose you only care about precision.
+	- Try a new model: "every film is bad"
+	- Precision is arguably a perfect 100% if regard "zero out of zero" as 100%.
+	  	- Is undefined in practice, but we do what we can.
+
+## The Trade-off
+
+- Suppose you only care about recall.
+	- Try a new model: "every film is good"
+	- Recall is a perfect 100% as all good films are predicted to be good.
+
+## The Trade-off
+
+- When crafting a model to predict film goodness, it should be clear that "all good" and "all bad" are not useful models.
+- However, both individual succeed under an individual naive metric of either *precision* or *recall*.
+- When making models, we try to find a meaningful *trade-off* between the two.
+
+## Takeaways
+
+- Models are hard.
+- Intelligence is:
+  	- Hard to do, and
+	- Hard to measure.
+- Precision corresponds to some notion of goodness of a model.
+  	- We will now aim to be precise with language.
+
+# Graphs
+
+## Defintion
+
+- We will start with a definition which we gradually expand.
+  	- We recall (haha - recall) what a graph is not.
+
+## Graphs
+
+- There are many ways to understand graphs, but I actually think graph theory is quite accessible.
+- I think it's also easier when using a running example.
+- I will also use a running example, Amtrak 🚄
+    - Or perhaps... a training example?
+    - I am running... a train??????
+    - I am training... to run?????
+    
+## Amtrak 🚄
+
+<center>
+<img style="border-radius: 50%;height:100%" src="https://www.amtrak.com/content/dam/projects/dotcom/english/public/images/Carousel/Landing_Feature_03.gif">
+</center>
+
+## Graph: Definition
+
+- A graph is an **ordered pair** $G$
+- We denote the two elements of the pair as:
+    - $V$ for vertices
+    - $E$ for edges
+$$
+G = (V, E)
+$$
+
+## In Amtrak
+
+- $V$, the vertices or nodes, stations or stops or cities,
+    - like Portland and Seattle, or
+    - like Kings St Station and Central Station
+- $E$, the edges, are the connections to adjacent stations
+    - like Portland and Oregon City, or Portland and Vancouver, WA.
+
+## Graph: Definition
+
+- An `Amtrak` is an **ordered pair**
+- We denote the two elements of the pair as:
+    - Stations for train stations used by Amtrak passengers, and
+    - Trains which Amtrak passengers ride between stations.
+
+Amtrak = (Stations, Trains)
+
+## Nodes, Vertices, or $V$
+
+- Let us consider the "Amtrak Cascades"
+- The set of vertices is the set of stations:
+
+||||||
+| --------------- | --------------- | --------------- | ------------ | ---|
+| ALBANY        | EVERETT         | PORTLAND        | TUKWILA      | EUGENE          |
+| BELLINGHAM      | KELSO/LONGVIEW  | SALEM           | VANCOUVER BC | OREGON CITY     |
+| CENTRALIA       | MOUNT VERNON    | SEATTLE         | VANCOUVER WA | TACOMA          |  
+| EDMONDS         | OLYMPIA/LACEY   | STANWOOD        |
+
+## Nodes, Vertices, or $V$
+
+- Restrict our example to the PDX<->SEA 6x daily trains:
+
+|||||
+| -------------- | ------------- | --------- | ---------- |
+| CENTRALIA      | OLYMPIA/LACEY | SEATTLE   | TUKWILA    |
+| KELSO/LONGVIEW | PORTLAND      | TACOMA    | VANCOUVER WA |
+
+## Edges or $E$
+
+- $E$ is a set of elements termed 'edges', 'links', or 'lines'
+    - The edges are pairs of vertices
+    - In an *undirected graph*, edges are unordered pairs 
+    - In an *directed graph*, edges are ordered pairs 
+    - Amtrak is undirected, trains are directed.
+
+## Directionality
+
+- The internet is directed.
+    - We may use Firefox or an inferior browser like Chrome to visit a url, but going the other way (creating files at a url) is highly nontrivial.
+
+## Route
+
+- Order north-to-south:
+    
+    ```{.email}
+    SEATTLE
+    TUKWILA
+    TACOMA
+    OLYMPIA/LACEY
+    CENTRALIA
+    KELSO/LONGVIEW
+    VANCOUVER WA
+    PORTLAND
+    ```
+    
+- Centralia and Keslo/Longview is an edge.
+- The others, like Seattle and Tacoma, are not edges.
+
+## Edges or $E$
+
+- Our edges are pairs of *adjacent* stations
+- There are 8 stations so there are 7 edges
+
+|||
+| ----------------- | ------------------- |
+| (SEATTLE,         TUKWILA)       | (CENTRALIA,       KELSO) |
+| (TUKWILA,         TACOMA)        | (KELSO, VANCOUVER) |
+| (TACOMA,          OLYMPIA) | (VANCOUVER,   PORTLAND)      |
+| (OLYMPIA,   CENTRALIA)   |                     |
+
+
+## Graph: Definition
+
+- We can express G using only sets over elements of stations:
+    
+```{.py}
+v = [
+      "SEATTLE",
+      "TUKWILA",
+      "TACOMA",
+      "OLYMPIA/LACEY",
+      "CENTRALIA",
+      "KELSO/LONGVIEW",
+      "VANCOUVER WA",
+      "PORTLAND"
+]
+e = [
+      ["TUKWILA","TACOMA"],
+      ["TACOMA","OLYMPIA/LACEY"],
+      ["OLYMPIA/LACEY","CENTRALIA"],
+      ["CENTRALIA","KELSO/LONGVIEW"],
+      ["KELSO/LONGVIEW","VANCOUVER WA"],
+      ["VANCOUVER WA","PORTLAND"]
+]
+```
+
+## Graph: Exercise
+
+- Amtrak recently added lines, including the Hiawatha, with service from Milwaukee to the world's greatest city, Chicago.
+    
+    > From the grandeur of Grant Park’s Buckingham Fountain to iconic museums and skyscrapers, see for yourself why Chicago was once dubbed “Paris on the Prairie.” Engage in retail therapy on the Magnificent Mile or root for the home team within the friendly confines of famed Wrigley Field.
+    
+## Graph: Exercise
+
+- As an exercise, construct the graph of the Hiawatha.
+- The route is described [here](https://www.amtrak.com/routes/hiawatha-train.html) and contains five stations.
+- You may use the three letter codes like "MKE" and "CHI".
+	- Make a `v`
+	  	- Names of stations enclosed in quotes
+		- Separated by commas exclosed in boxy brackets `[]`
+	- Make an `e`
+	  	- As above, but over pairs (in boxy brackets)
+
+
+## Trust but Verify
+
+- You will be able to tell if your `e` and `v` are "well-formed" if they may be used within a Colab code cell.
+- You can try, for example, to print them.
+```{.py}
+print("v is " + v)
+print("e is " + e)
+```
+
+
+# What's next?
+
+## For what?
+
+- Next week, we will use graphs to describe a model that conceptualizes a thinking brain:
+	- The *neural network*
+- A neural network is a *weighted* and *directed* graph.
+
+
+## Edge Weights
+
+- Thus far, we have thought of graphs as connections - either *Amtrak* connects two stations, or it does not.
+- In practice, we often care about something else, like, how long a connection will take.
+- In practice, we can *also* often omit the vertices.
+  	- Unless there is a station with no connections that we still care about.
+	- E.g. interstate highway system and state capitals (no edge to Honolulu).
+
+
+## World's Greatest
+
+- Chicago is only minutes from, uh, "Glenview, IL"
+	- [Times](https://content.amtrak.com/content/timetable/Hiawatha%20Service.pdf)
+
+```{.py}
+e = [
+	["CHI","GLN",22],
+	["GLN","SVT",38],
+	["SVT","MKA",14],
+	["MKA","MKE",15]
+]
+```
+
+- This means "MKA" is 15 minutes away from "MKE".
+  	- It says *nothing* about how far "MKE" is from "MKA".
+	- We would need to find a different train that goes the other way.
+
+# Examples
+
+## Decision Tree
+
+- The decision tree/dichotomous key from labs is a graph.
+  	- Nodes are questions.
+	- Answers are edges.
+```{dot}
+digraph OakKey {
+    bgcolor="transparent"
+    node [shape=box,  fontcolor="white", color="white"];
+    edge [color="white", fontcolor="white"];
+    
+    // Questions/Nodes
+    Start [label="Leaves are smooth with no teeth or lobes?"];
+    Evergreen [label="Laves evergreen?"];
+    GrowthHabit [label="Large Tree (not shrub)?"];
+    LeafShape [label="Leaves more than 3x long as wide"];
+    Bristles [label="Lobes/teeth bristle-tipped?"];
+    LobeCount6 [label="3 or fewer lobes?"];
+    LobeCount7 [label="9 or fewer lobes?"];
+
+    // Species (Leaf nodes)
+    LiveOak [label="Southern live oak"];
+    DwarfOak [label="Dwarf live oak"];
+    WillowOak [label="Willow oak"];
+    ShingleOak [label="Shingle oak"];
+    BlackjackOak [label="Blackjack oak"];
+    RedOak [label="Northern red oak"];
+    WhiteOak [label="White oak"];
+    SwampOak [label="Swamp chestnut oak"];
+
+    // Relationships
+    Start -> Evergreen [label="True"];
+    Start -> Bristles [label="False"];
+
+    Evergreen -> GrowthHabit [label="True"];
+    Evergreen -> LeafShape [label="False"];
+
+    GrowthHabit -> LiveOak [label="True"];
+    GrowthHabit -> DwarfOak [label="False"];
+
+    LeafShape -> WillowOak [label="True"];
+    LeafShape -> ShingleOak [label="False"];
+
+    Bristles -> LobeCount6 [label="True"];
+    Bristles -> LobeCount7 [label="False"];
+
+    LobeCount6 -> BlackjackOak [label="True"];
+    LobeCount6 -> RedOak [label="False"];
+
+    LobeCount7 -> WhiteOak [label="True"];
+    LobeCount7 -> SwampOak [label="False"];
+}
+```
+
+## The gram
+
+![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*82qRohVmpVHmRzjd31GG_g.png)
+
+[src](https://medium.com/@maximpiessen/how-i-visualised-my-instagram-network-and-what-i-learned-from-it-d7cc125ef297)
+
+## Explainer
+
+- Accounts are nodes.
+- Follows are edges.
+  - You can regard edge weight as amount of following, ranging from block/mute/restrict up to like, stories and posts or whatever.
+  - I don't know how the gram works.
+
+## Molecule
+
+![](https://cdn.britannica.com/28/105428-050-8EA3E600/Caffeine-molecule.jpg)
+
+[src](https://www.britannica.com/science/molecule)
+
+## Explainer
+
+- Atoms are nodes
+- Bonds are edges
+  	- May be weighted!
+- This captures many *materials* as well
+
+## River system
+
+![](https://upload.wikimedia.org/wikipedia/commons/e/e4/Columbiarivermap.png)
+
+[src](https://en.wikipedia.org/wiki/Columbia_River_drainage_basin)
+
+## Explainer
+
+- E.g. the Columbia River Valley is a graph where
+  	- Edges are rivers
+	- Nodes are confluences (where two rivers merge).
+- This is a neat case where every node has two incoming and one outgoing edge.
+  	- Opposite of a decision tree.
+
+## The Brain?
+
+![](https://upload.wikimedia.org/wikipedia/commons/c/c6/PET-image.jpg)
+
+[src](https://en.wikipedia.org/wiki/Human_brain)
+
+## Explainer
+
+- Perhaps.
+	- Neurons are nodes.
+	- Axons are edges.
+	- There are both directions and weights!
