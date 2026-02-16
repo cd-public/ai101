@@ -61,10 +61,10 @@ format: html
 |0x2|01/26|[(Un)supervision](20_supervise.qmd)|[Dichotomy](21_key.qmd), [Solution](https://github.com/cd-public/ai101/blob/main/sols/key_key.ipynb)| <!-- do we https://github.com/microsoft/ML-For-Beginners/blob/main/1-Introduction/3-fairness/README.md here -->
 |0x3|02/02|[Regression](30_regress.qmd)|[$n$D](31_nd.qmd)|
 |0x4|02/09|[Classification](40_class.qmd)|[Tree tree](41_treetree.qmd)|
-|0x5|02/16|(Graphs)[50_graph.qmd)|[Xs&Os](51_xo.qmd)|
-|0x6|02/23|Perceptron|Dice|
-|0x7|03/02|Error|Plotly| <!-- incl. back propagation --> <!-- Connectivity|| <!-- fully connected networks, https://docs.nvidia.com/deeplearning/performance/dl-performance-fully-connected/index.html -->
-|0x8|03/09|Latent Space|Models|
+|0x5|02/16|[Graphs](50_graph.qmd)|[Sudoku](51_sudoku.qmd)|
+|0x6|02/23|Neural Networks|Dice|
+|0x7|03/02|Perceptron|MNIST|
+|0x8|03/09|Error|Plotly| <!-- incl. back propagation --> <!-- Connectivity|| <!-- fully connected networks, https://docs.nvidia.com/deeplearning/performance/dl-performance-fully-connected/index.html --><!--Latent Space|Models|-->
 |0x9|03/16|Tensors|Tensorflow|
 |0bX|03/23|`None`|`None`|
 |0xA|03/30|Text Rep.|Tokens|
@@ -76,6 +76,3 @@ format: html
 *Final course reflection ("Perspectives") due whenever the final exam would finish, TBA*
 
 
-# Lecture Recordings
-
-*Forthcoming*

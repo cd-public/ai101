@@ -121,7 +121,7 @@ Create a new Colab notebook titled **Lab05**.
 ["A2", ...]
 ```
 
-## Bonus: Lab Extension
+### Bonus: Lab Extension
 
 *I expect graph representation to be appropriate challenging for students without a computing background, but not for students with one. I expect the following, hidden task to be an appropriately challenging task for students with a computing background.*
 
@@ -152,3 +152,124 @@ adj = [
 ```
 
 </details>
+
+## Part 3: The Adjacency Matrix
+
+We recall
+
+> [In mathematics, a matrix (pl.: matrices) is a rectangular array of numbers or other mathematical objects with elements or entries arranged in rows and columns.](https://en.wikipedia.org/wiki/Matrix_(mathematics))
+
+No relation to the 1999 film of the same name.
+
+We often express them as follows:
+
+$$
+\begin{bmatrix}1 & 9 & -13 \\20 & 5 & -6 \end{bmatrix}
+$$
+
+We think of an *adjacency matrix* a lot like a table where a row refers to the starting node of an edge and a column refers to the ending edge of a node.
+
+We consider the example of *Amtrak Cascades*, specifically the 6x daily PDX<->SEA route.
+
+There are 8 stations: 
+
+```{.email}
+SEATTLE
+TUKWILA
+TACOMA
+OLYMPIA/LACEY
+CENTRALIA
+KELSO/LONGVIEW
+VANCOUVER WA
+PORTLAND
+```
+ 
+We can make a table showing edges from north-to-south, with the starting station on the right and the ending station on the top. We use `1` to denote an edge.
+
+||SEA|TUK|TAC|OLY|CEN|KEL|VAN|POR|
+|-|-|-|-|-|-|-|-|-|
+|SEATTLE||1|||||||
+|TUKWILA|||1||||||
+|TACOMA||||1|||||
+|OLYMPIA/LACEY|||||1||||
+|CENTRALIA||||||1|||
+|KELSO/LONGVIEW|||||||1||
+|VANCOUVER WA||||||||1|
+|PORTLAND|||||||||
+
+We note that *we do not have to label the sides* if we agree on some ordering.
+
+- Which we have! We ordered north-to-south.
+- Sudoku squares can similarly be ordered (left-to-right then top-to-bottom or "reading order")
+
+|||||||||
+|-|-|-|-|-|-|-|
+||1|||||||
+|||1||||||
+||||1|||||
+|||||1||||
+||||||1|||
+|||||||1||
+||||||||1|
+|||||||||
+
+We'd typically put zeroes everywhere without a one.
+
+| | | | | | | | |
+|-|-|-|-|-|-|-|-|
+|0|1|0|0|0|0|0|0|
+|0|0|1|0|0|0|0|0|
+|0|0|0|1|0|0|0|0|
+|0|0|0|0|1|0|0|0|
+|0|0|0|0|0|1|0|0|
+|0|0|0|0|0|0|1|0|
+|0|0|0|0|0|0|0|1|
+|0|0|0|0|0|0|0|0|
+
+We note this looks fairly even in Markdown table notation:
+
+```{.md filename="Markdown text cell"}
+| | | | | | | | |
+|-|-|-|-|-|-|-|-|
+|0|1|0|0|0|0|0|0|
+|0|0|1|0|0|0|0|0|
+|0|0|0|1|0|0|0|0|
+|0|0|0|0|1|0|0|0|
+|0|0|0|0|0|1|0|0|
+|0|0|0|0|0|0|1|0|
+|0|0|0|0|0|0|0|1|
+|0|0|0|0|0|0|0|0|
+```
+
+And we can also express as a list (`[]` enclose, `,` separated`) of lists *of adjacency*.
+
+- So the initial list has a `1` for every connection it has.
+- The next list has an etc etc.
+- We don't have to place the `0` or `1` within in quotes since they are numbers and follow special rules.
+  	- We can subtract `0` from `1` but not `KELSO` from `ALBANY`
+
+```{.py filename="Colab code cell"}
+amtrak_cascades = [
+	[0,1,0,0,0,0,0,0],
+	[0,0,1,0,0,0,0,0],
+	[0,0,0,1,0,0,0,0],
+	[0,0,0,0,1,0,0,0],
+	[0,0,0,0,0,1,0,0],
+	[0,0,0,0,0,0,1,0],
+	[0,0,0,0,0,0,0,1],
+	[0,0,0,0,0,0,0,0]
+]
+```
+
+Take a moment and make sure you understand this.
+
+### Your Task
+
+- [ ] Create an *adjacency matrix* for the Mini-Sudoku in Markdown text cell.
+- [ ] Create an *adjacency matrix* for the Mini-Sudoku in Colab code cell.
+
+The matrix will be quite large! This is okay - you'll do great.
+
+# Fin
+
+I expect making the matrix to be a whole thing, so there is no additional write-up today.
