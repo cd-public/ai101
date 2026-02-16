@@ -69,8 +69,8 @@ format: html
 |0bX|03/23|`None`|`None`|
 |0xA|03/30|Text Rep.|Tokens|
 |0xB|03/06|Transformers| <!-- Weight matrices (K, Q, V), and Multiple Heads-->
-|0xC|04/13|GenAI| <!-- Fine tuning, prompt injection, chat bots -->
-|0xD|04/20|Prompts|[`None`](https://my.willamette.edu/site/ssrd)||
+|0xC|04/13|GenAI|[`None`](https://my.willamette.edu/site/ssrd)|| <!-- Fine tuning, prompt injection, chat bots -->
+|0xD|04/20|Prompts|
 |0xE|04/29|Perspectives|Peer Review|
 
 *Final course reflection ("Perspectives") due whenever the final exam would finish, TBA*

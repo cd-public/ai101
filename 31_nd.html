@@ -229,6 +229,12 @@ window.Quarto = {
  <span class="menu-text">Graphs</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./51_sudoku.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sudoku</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -552,7 +558,7 @@ window.Quarto = {
 <li>Number in Trilogy (<code>num</code>)</li>
 <li>In-universe year (<code>bby</code>)</li>
 </ol>
-<div id="38a54cc4" class="cell" data-execution_count="1">
+<div id="58aee72a" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>eps <span class="op">=</span> [<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>]</span>
 <span id="cb1-2"><a href="#cb1-2"></a>tri <span class="op">=</span> [<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>]</span>
 <span id="cb1-3"><a href="#cb1-3"></a>num <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
@@ -564,7 +570,7 @@ window.Quarto = {
 <ul>
 <li>We quickly recall how to include <code>matplotlib</code> to see charts!</li>
 </ul>
-<div id="92978b1c" class="cell" data-execution_count="2">
+<div id="7758b75c" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
@@ -581,7 +587,7 @@ window.Quarto = {
 <li>A la grade school mathematics</li>
 </ul></li>
 </ul>
-<div id="47f33aaf" class="cell" data-execution_count="3">
+<div id="c113cf25" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>plt.scatter(x<span class="op">=</span>tri,y<span class="op">=</span>num)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -602,7 +608,7 @@ window.Quarto = {
 <li>Third dimension via <code>s=</code> for size.</li>
 <li>Also, I start putting things on their own lines - you may find this easier to read.</li>
 </ul>
-<div id="05bc1baa" class="cell" data-execution_count="4">
+<div id="1b1110d5" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>plt.scatter(</span>
 <span id="cb4-2"><a href="#cb4-2"></a>    x<span class="op">=</span>tri,</span>
 <span id="cb4-3"><a href="#cb4-3"></a>    y<span class="op">=</span>num,</span>
@@ -622,7 +628,7 @@ window.Quarto = {
 <ul>
 <li>For the fourth dimension, we can use color.</li>
 </ul>
-<div id="6b2f41d8" class="cell" data-execution_count="5">
+<div id="bb845654" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>plt.scatter(</span>
 <span id="cb5-2"><a href="#cb5-2"></a>    x<span class="op">=</span>tri,</span>
 <span id="cb5-3"><a href="#cb5-3"></a>    y<span class="op">=</span>num,</span>
@@ -640,7 +646,7 @@ window.Quarto = {
 <ul>
 <li>Often we using colors we also include a legend as a “color bar”.</li>
 </ul>
-<div id="7171a01f" class="cell" data-execution_count="6">
+<div id="87e55075" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>plt.scatter(</span>
 <span id="cb6-2"><a href="#cb6-2"></a>    x<span class="op">=</span>tri,</span>
 <span id="cb6-3"><a href="#cb6-3"></a>    y<span class="op">=</span>num,</span>
@@ -662,7 +668,7 @@ window.Quarto = {
 <ul>
 <li>We can also include release year, year within trilogy (<code>ywt</code>), and box office in millions.</li>
 </ul>
-<div id="2c515134" class="cell" data-execution_count="7">
+<div id="4acf150e" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>yrs <span class="op">=</span> [<span class="dv">1977</span>, <span class="dv">1980</span>, <span class="dv">1983</span>, <span class="dv">1999</span>, <span class="dv">2002</span>, <span class="dv">2005</span>, <span class="dv">2015</span>, <span class="dv">2017</span>, <span class="dv">2019</span>]</span>
 <span id="cb7-2"><a href="#cb7-2"></a>ywt <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">4</span>]</span>
 <span id="cb7-3"><a href="#cb7-3"></a>box <span class="op">=</span> [<span class="dv">461</span>, <span class="dv">293</span>, <span class="dv">317</span>, <span class="dv">488</span>, <span class="dv">311</span>, <span class="dv">414</span>, <span class="dv">937</span>, <span class="dv">620</span>, <span class="dv">515</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

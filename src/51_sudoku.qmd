@@ -1,0 +1,154 @@
+---
+title: Sudoku
+format: html
+---
+
+
+## Dots and Lines
+
+In our lecture, we saw how graphs represent connections — from Amtrak stations to the neurons in your brain. 
+
+Today, we use graphs to represent the constraints of a **Mini Sudoku** (4x4) puzzle.
+
+1. More understanding of **Nodes** and **Edges**.
+2. More understanding of **Representations** (Lists and Matrices).
+
+# The Mini Sudoku
+
+A Mini Sudoku is a $4 \times 4$ grid. To solve it, you must follow one main rule: **Numbers cannot repeat in the same row, column, or $2 \times 2$ square.**
+
+In graph theory, we can think of each cell in the grid as a **Node**. If two cells cannot have the same number, we draw an **Edge** between them.
+
+### The Nodes ($V$)
+For a 4x4 grid, we have 16 nodes. Let's label them by their row (A-D) and column (1-4):
+
+- `A1, A2, A3, A4` 
+- `B1, B2, B3, B4`
+- `C1, C2, C3, C4`
+- `D1, D2, D3, D4`
+
+# Representing the Graph
+
+One problem we have with graphs is **representation** - how do we show a graph?
+
+Historically, I learned graph theory from a professor drawing nodes and edges on a blackboard. There are merits to this approach, but I have come to prefer text-based methods for reasons not limited to my handwriting.
+
+## 1. The Adjacency List
+An **Adjacency List** is a collection of lists. For every node, we list out all the nodes it is connected to.
+
+If we look at cell **A1**, it cannot have the same number as anything else in Row A, Column 1, or the top-left square.
+* **Neighbors of A1:** `A2, A3, A4` (Row), `B1, C1, D1` (Column), and `B2` (Square).
+
+In Colab we can specify a list as "comma separated values". We show that lists start and end with "boxy brackets" `[]`
+
+```{.py}
+["This", "is", "a", "list", "of", "words", "and", 1, "number"]
+```
+
+- We can make, for example, the edges from "A1" as a list!
+    - It is basically up to you whether you consider "A1" as having an edge to itself - same as whether there is a Salem-to-Salem Amtrak connection.
+
+```{.py}
+["A1", "A2", "A3", "A4", "B1", "C1", "D1", "B2"]
+```
+
+## 2. The Adjacency Matrix
+
+An **Adjacency Matrix** is a grid of 1s and 0s. 
+* A **1** means there is an edge (a conflict).
+* A **0** means there is no edge.
+
+By convention, `0` and `1` are used, but this is the same idea as a *dichotomous key*, where yes/no, true/false, `0`/`1`, or anything other pair of distinct measures is appropriate!
+
+For our Sudoku, the matrix would be $16 \times 16$. If Row 1 represents `A1` and Column 2 represents `A2`, the spot where they meet would be `1` because they are in the same row!
+
+---
+
+# Your Task
+
+## Part 1: The **Markdown** Table
+In a text cell in Colab, create a table showing the neighbors for the first four cells. We've started the first one for you. 
+
+| Node | Row Neighbors | Column Neighbors | Square Neighbors |
+|------|---------------|------------------|------------------|
+| A1   | A2, A3, A4    | B1, C1, D1       | B2               |
+| A2   |               |                  |                  |
+| B1   |               |                  |                  |
+| B2   |               |                  |                  |
+
+## Aside: Building Markdown Tables
+
+In our labs, we use **Markdown tables** to organize data cleanly. They might look like a mess of pipes (`|`) and dashes (`-`) in your editor, but they render into professional grids in your notebook.
+
+### The Anatomy of a Table
+
+1.  **The Header Row**: This is the first line where you define your columns.
+2.  **The Divider**: The second line uses dashes to separate the header from the data.
+3.  **The Body**: Every line after is a row in your table.
+
+### Example Construction
+
+If you want to map a small graph where Node A is connected to B and C, it looks like this:
+
+```{.md}
+| Starting Node | Connected To |
+|---------------|--------------|
+| Node A        | Node B       |
+| Node A        | Node C       |
+```
+
+
+### Quick Tips
+* **Alignment**: You don't *have* to make the dashes match the length of the words, but it makes the "raw" text much easier for humans to read.
+
+```{.md}
+| Starting Node | Connected To |
+|-|-|
+| Node A        | Node B|
+| Node A | Node C       |
+```
+
+* **Pipes**: Every row must start and end with a pipe `|` to ensure the grid closes properly.
+
+## Part 2: The Python Code
+Create a new Colab notebook titled **Lab05**. 
+
+- [ ] Create a code cell that defines the connections for the top-left $2 \times 2$ square.
+- [ ] You may simply place a 4 lists each on their own line.
+
+```{.py}
+["A1", "A2", "A3", "A4", "B1", "C1", "D1", "B2"]
+["A2", ...]
+```
+
+## Bonus: Lab Extension
+
+*I expect graph representation to be appropriate challenging for students without a computing background, but not for students with one. I expect the following, hidden task to be an appropriately challenging task for students with a computing background.*
+
+<details>
+
+- Advanced students will wish to create a Python *function* which computes if a move is legal based on an existing board state (as a list of lists).
+- This function should accept an adjacency matrix (also a list of lists).
+    - While many Sudoku variations have predictable adjacencies, this is not always the case, and your *function* should generalize to other Sudoku variants.
+    - [Read more](https://en.wikipedia.org/wiki/Sudoku#Variations_of_grid_sizes_or_region_shapes)
+    
+<a title="R. A. Nonenmacher, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:A_nonomino_sudoku.svg"><img width="256" alt="A nonomino sudoku" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/A_nonomino_sudoku.svg/256px-A_nonomino_sudoku.svg.png?20080914220546"></a>
+
+
+
+```{.py}
+# I used zero index tuples `(0,1)` rather than strings `A1` for nodes.
+# I used a dictionary with keys as nodes/tuples and values as a list of nodes/tuples)
+# I placed either an int or `None` in each board position
+def is_legal(adj_dictionary: dict[tuple[int, int], list[tuple[int, int]]], board_state: list[list[Union[None, int]]]) -> bool:
+    # your code here
+
+# Example
+# Write a helper function to generate this, of course.
+adj = [
+    [(0,0), (0,1), (0,2), (0,3), (1,0), (2,0), (3,0), (1,1)],
+    # ...
+]
+```
+
+</details>

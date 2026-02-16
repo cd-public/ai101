@@ -64,6 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./51_sudoku.html" rel="next">
 <link href="./41_treetree.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -228,6 +229,12 @@ window.Quarto = {
  <span class="menu-text">Graphs</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./51_sudoku.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sudoku</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -357,7 +364,7 @@ window.Quarto = {
 <ul>
 <li>We took <em>Star Wars</em> release dates.</li>
 </ul>
-<div id="f30a377e" class="cell" data-execution_count="1">
+<div id="53d5384f" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>eps <span class="op">=</span> [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]</span>
 <span id="cb1-2"><a href="#cb1-2"></a>yrs <span class="op">=</span> [<span class="dv">1977</span>, <span class="dv">1980</span>, <span class="dv">1983</span>, <span class="dv">1999</span>, <span class="dv">2002</span>, <span class="dv">2005</span>, <span class="dv">2015</span>, <span class="dv">2017</span>, <span class="dv">2019</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -367,7 +374,7 @@ window.Quarto = {
 <ul>
 <li>I naively make a <em>scatterplot</em> to view the data…</li>
 </ul>
-<div id="0689785b" class="cell" data-execution_count="2">
+<div id="e2884b2b" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb2-2"><a href="#cb2-2"></a></span>
 <span id="cb2-3"><a href="#cb2-3"></a>plt.scatter(eps,yrs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -470,7 +477,7 @@ window.Quarto = {
 <li>Imagine we use “Directed by Ridley Scott” as our model for a good film.</li>
 <li>Hits in red, mispredicts in blue, missed predicts in purple, correct omits in green.</li>
 </ul>
-<div id="b214f5b2" class="cell" data-execution_count="3">
+<div id="1f8d3f73" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -1899,6 +1906,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./51_sudoku.html" class="pagination-link" aria-label="Sudoku">
+        <span class="nav-page-text">Sudoku</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb8" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">---</span></span>
