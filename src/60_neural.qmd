@@ -11,3 +11,10 @@ title: Neural Networks
 - Our first *neural network*
   	- Single layer, fully-connected.
 
+## Notes
+
+https://en.wikipedia.org/wiki/Bipartite_graph
+https://www.geeksforgeeks.org/deep-learning/what-is-fully-connected-layer-in-deep-learning/
+https://en.wikipedia.org/wiki/Neural_network_(machine_learning)
+https://www.geeksforgeeks.org/deep-learning/neural-networks-a-beginners-guide/
+https://en.wikipedia.org/wiki/Perceptron
