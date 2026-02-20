@@ -37,6 +37,7 @@ Historically, I learned graph theory from a professor drawing nodes and edges on
 An **Adjacency List** is a collection of lists. For every node, we list out all the nodes it is connected to.
 
 If we look at cell **A1**, it cannot have the same number as anything else in Row A, Column 1, or the top-left square.
+
 * **Neighbors of A1:** `A2, A3, A4` (Row), `B1, C1, D1` (Column), and `B2` (Square).
 
 In Colab we can specify a list as "comma separated values". We show that lists start and end with "boxy brackets" `[]`

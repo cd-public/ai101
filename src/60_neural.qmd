@@ -1,0 +1,13 @@
+---
+title: Neural Networks
+---
+
+# Today
+
+- Follow up on the *adjacency matrix*
+  	- I will live-code this then post my solution on the website and link it here.
+- Neurons
+- Bipartite graphs
+- Our first *neural network*
+  	- Single layer, fully-connected.
+
