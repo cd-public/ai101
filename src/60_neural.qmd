@@ -11,6 +11,126 @@ title: Neural Networks
 - Our first *neural network*
   	- Single layer, fully-connected.
 
+## Matrix
+
+- We recall matrices from the [Sudoku](51_sudoku.qmd) lab.
+
+## The Adjacency Matrix
+
+> [In mathematics, a matrix (pl.: matrices) is a rectangular array of numbers or other mathematical objects with elements or entries arranged in rows and columns.](https://en.wikipedia.org/wiki/Matrix_(mathematics))
+
+$$
+\begin{bmatrix}1 & 9 & -13 \\20 & 5 & -6 \end{bmatrix}
+$$
+
+## Indices
+
+- Mini-Sudoku is 4$\times$4.
+- General, matrices may be $m$ by $n$.
+
+$$
+\mathbf{A} = \begin{pmatrix}
+  a_{11} & a_{12} & \cdots & a_{1n} \\
+  a_{21} & a_{22} & \cdots & a_{2n} \\
+  \vdots & \vdots & \ddots & \vdots \\
+  a_{m1} & a_{m2} & \cdots & a_{mn} \\
+\end{pmatrix}
+$$
+
+## Indices
+
+- There are $4 \time 4 = 16$ total "positions" in a Mini-Sudoku
+- Each of these 16 "positions" are either *impacted* or *non-impacted*
+	- Each position is *impacted* by:
+	  	- Other positions in the same row.
+		- Other positions in the same column.
+		- Other positions in the same $2\times2$ submatrix
+
+## Encoding
+
+- Rather than refer to a position in the Mini-Sudoku as, e.g. `a_{mn}`.
+- However, this isn't useful in the adjacency context.
+- There, instead, we just give each "position" a unique number.
+
+||||
+|-|-|-|-|
+|1|2|3|4|
+|5|6|7|8|
+|9|10|11|12|
+|13|14|15|16|
+
+## Adjacency
+
+- Consider the top left position.
+
+||||
+|-|-|-|-|
+|***1***|**2**|**3**|**4**|
+|**5**|**6**|7|8|
+|**9**|10|11|12|
+|**13**|14|15|16|
+
+## Order
+
+- We can write these down in numerical order.
+
+|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|
+|-|-|-|-|-|-|-|-|-|--|--|--|--|--|--|--|
+| | | | | | | | | |  |  |  |  |  |  |  |
+
+## Adjacency
+
+- We can mark *adjacent* positions as one (`1`)
+  	- Like this. 
+
+|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|
+|-|-|-|-|-|-|-|-|-|--|--|--|--|--|--|--|
+|1|1|1|1|1|1| | |1|  |  |  | 1|  |  |  |
+
+## Zeroes 
+
+- We can mark *adjacent* positions as one (`1`)
+  	- And others as zero.
+
+|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|
+|-|-|-|-|-|-|-|-|-|--|--|--|--|--|--|--|
+|1|1|1|1|1|1|0|0|1| 0| 0| 0| 1| 0| 0| 0|
+
+## Code Cells
+
+- We can take that last row and treat it as *list*.
+  - Lists begin and end with boxy brackets `[]`
+  - Lists contain *multiple* values, like `0` or `1`
+  - The values are separated by commas `,`
+
+```{.py}
+[1,1,1,1,1,1,0,0,1,0,0,0,1,0,0,0]
+```
+
+## Further
+
+- This corresponds to things adjancent to position "1"
+- Next, we can do things adjacent to position "2".
+	- Same submatrix, same row, different column.
+
+```{.py}
+[1,1,1,1,1,1,0,0,0,1,0,0,0,1,0,0]
+```
+
+## Definition
+
+- We can combine each list into a *list of lists*
+
+```{.py}
+[
+    [1,1,1,1,1,1,0,0,1,0,0,0,1,0,0,0],
+    [1,1,1,1,1,1,0,0,0,1,0,0,0,1,0,0]
+]
+```
+
+- And so on.
+
+
 ## Notes
 
 https://en.wikipedia.org/wiki/Bipartite_graph
