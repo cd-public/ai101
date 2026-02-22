@@ -28,3 +28,7 @@ format:
         height: 700
         footer: "[Home](index.html)"
         output-ext: rjs.html        
+        
+execute:
+    cache: true
+    freeze: auto 
