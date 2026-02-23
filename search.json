@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "AI 101",
     "section": "",
-    "text": "CS 199 “Understanding AI”\n\nCalled:\n\nCS 199: Topics: Understanding AI\nAI 101\n\nA non-technical survey semester over:\n\nSome trends in AI use\nSome historical conversations around AI\nSome technical background in implementing minimal AI\n\nTaught this year via Google Colab.\n\nIt’s fast (it’s not)\nIt’s free (to us for now)\nIt’s fun (trust me)\n\n\n\nMW 1020-1150\n\n\nProf. Calvin\n\n\nSyllabus\n\nSyllabus link\n\n\n\n\nCalendar\n\n\n\n\n\nWeek\nDate (M)\nLecture (M)\nLab (W)\n\n\n\n\n0x0\n01/12\nAda & Alan\nTuring’s Test\n\n\n0x1\n01/19\nNone\nColab\n\n\n0x2\n01/26\n(Un)supervision\nDichotomy, Solution\n\n\n0x3\n02/02\nRegression\n\\(n\\)D\n\n\n0x4\n02/09\nClassification\nTree tree\n\n\n0x5\n02/16\nGraphs\nXs&Os\n\n\n0x6\n02/23\nNeural\n[Weights]\n\n\n0x7\n03/02\nError\nPlotly\n\n\n0x8\n03/09\nLatent Space\nModels\n\n\n0x9\n03/16\nTensors\nTensorflow\n\n\n0bX\n03/23\nNone\nNone\n\n\n0xA\n03/30\nText Rep.\nTokens\n\n\n0xB\n03/06\nTransformers\n\n\n\n0xC\n04/13\nGenAI\nNone\n\n\n0xD\n04/20\nPrompts\n\n\n\n0xE\n04/29\nPerspectives\nPeer Review\n\n\n\nFinal course reflection (“Perspectives”) due whenever the final exam would finish, TBA\n\n\nLecture Recordings\nForthcoming"
+    "text": "CS 199 “Understanding AI”\n\nCalled:\n\nCS 199: Topics: Understanding AI\nAI 101\n\nA non-technical survey semester over:\n\nSome trends in AI use\nSome historical conversations around AI\nSome technical background in implementing minimal AI\n\nTaught this year via Google Colab.\n\nIt’s fast (it’s not)\nIt’s free (to us for now)\nIt’s fun (trust me)\n\n\n\nMW 1020-1150\n\n\nProf. Calvin\n\n\nSyllabus\n\nSyllabus link\n\n\n\n\nCalendar\n\n\n\n\n\nWeek\nDate (M)\nLecture (M)\nLab (W)\n\n\n\n\n0x0\n01/12\nAda & Alan\nTuring’s Test\n\n\n0x1\n01/19\nNone\nColab\n\n\n0x2\n01/26\n(Un)supervision\nDichotomy, Solution\n\n\n0x3\n02/02\nRegression\n\\(n\\)D\n\n\n0x4\n02/09\nClassification\nTree tree\n\n\n0x5\n02/16\nGraphs\nXs&Os\n\n\n0x6\n02/23\nGuest\nNeural\n\n\n0x7\n03/02\nError\nPlotly\n\n\n0x8\n03/09\nLatent Space\nModels\n\n\n0x9\n03/16\nTensors\nTensorflow\n\n\n0bX\n03/23\nNone\nNone\n\n\n0xA\n03/30\nText Rep.\nTokens\n\n\n0xB\n03/06\nTransformers\n\n\n\n0xC\n04/13\nGenAI\nNone\n\n\n0xD\n04/20\nPrompts\n\n\n\n0xE\n04/29\nPerspectives\nPeer Review\n\n\n\nFinal course reflection (“Perspectives”) due whenever the final exam would finish, TBA\n\n\nLecture Recordings\nForthcoming"
   },
   {
     "objectID": "51_sudoku.html",
@@ -5455,6 +5455,56 @@
     "text": "Notes\nhttps://en.wikipedia.org/wiki/Bipartite_graph https://www.geeksforgeeks.org/deep-learning/what-is-fully-connected-layer-in-deep-learning/ https://en.wikipedia.org/wiki/Neural_network_(machine_learning) https://www.geeksforgeeks.org/deep-learning/neural-networks-a-beginners-guide/ https://en.wikipedia.org/wiki/Perceptron",
     "crumbs": [
       "Neural Networks"
+    ]
+  },
+  {
+    "objectID": "6*_guest.html",
+    "href": "6*_guest.html",
+    "title": "Guest",
+    "section": "",
+    "text": "Today we are taking a brief reprieve from the lecture-lab cadence to allow my voice to recover.\n\n\n\n“AI is an Ethical Nightmare” is a 2023 video essay by Abigail Thorn.\n\nMA Philosophy 2015\nMA Acting 2017\n\nWe are exploring a video essay from a YouTuber, despite the limitations of the platform, in order to achieve:\n\nHigher sound quality\nHigher quality subtitles\n\nI am including an embed to the video essay below:\n\n\n\n\n\nEmbeds do not always work, here is a direct link\n\n\n\n\n\n\n\nAbigail Thorn is an established expert in AI, and has previously delivered talks on the topic at academic conferences.\nThese conferences, as a rule, have tragically low sound, production, and subtitle quality.\nHowever, for the interested student, a 2017 talk on the same talk is available below.\n\n\n\n\n\nEmbeds do not always work, here is a direct link",
+    "crumbs": [
+      "Guest"
+    ]
+  },
+  {
+    "objectID": "6*_guest.html#ai-is-an-ethical-nightmare",
+    "href": "6*_guest.html#ai-is-an-ethical-nightmare",
+    "title": "Guest",
+    "section": "",
+    "text": "“AI is an Ethical Nightmare” is a 2023 video essay by Abigail Thorn.\n\nMA Philosophy 2015\nMA Acting 2017\n\nWe are exploring a video essay from a YouTuber, despite the limitations of the platform, in order to achieve:\n\nHigher sound quality\nHigher quality subtitles\n\nI am including an embed to the video essay below:",
+    "crumbs": [
+      "Guest"
+    ]
+  },
+  {
+    "objectID": "6*_guest.html#video-essay",
+    "href": "6*_guest.html#video-essay",
+    "title": "Guest",
+    "section": "",
+    "text": "Embeds do not always work, here is a direct link",
+    "crumbs": [
+      "Guest"
+    ]
+  },
+  {
+    "objectID": "6*_guest.html#supporting-evidence",
+    "href": "6*_guest.html#supporting-evidence",
+    "title": "Guest",
+    "section": "",
+    "text": "Abigail Thorn is an established expert in AI, and has previously delivered talks on the topic at academic conferences.\nThese conferences, as a rule, have tragically low sound, production, and subtitle quality.\nHowever, for the interested student, a 2017 talk on the same talk is available below.",
+    "crumbs": [
+      "Guest"
+    ]
+  },
+  {
+    "objectID": "6*_guest.html#conference-talk",
+    "href": "6*_guest.html#conference-talk",
+    "title": "Guest",
+    "section": "",
+    "text": "Embeds do not always work, here is a direct link",
+    "crumbs": [
+      "Guest"
     ]
   }
 ]
