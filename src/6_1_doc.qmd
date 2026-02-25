@@ -1,0 +1,46 @@
+---
+title: Thinking Game
+format: html
+---
+
+# The Thinking Game
+
+On February 2, 2025, I was invited to introduce and lead a discussion of the film [*The Thinking Game*](https://thinkinggamefilm.com/) at Salem Cinema. At that time, the film was undergoing selective screenings prior to award season, and would go on to be decorated at Tribeca and other major festivals.
+
+*The Thinking Game* is near and dear to my heart because it covers the usage of AI to solve the first problem that I believed would go unsolved in my lifetime - namely, the *protein folding problem*.
+
+> [The protein folding problem is the question of how a protein’s amino acid sequence dictates its three-dimensional atomic structure. The notion of a folding “problem” first emerged around 1960, with the appearance of the first atomic-resolution protein structures.](https://pmc.ncbi.nlm.nih.gov/articles/PMC2443096/)
+
+I was pleased to be proven wrong, though want to note one aspect - I did *not* find the insights of the team that solved the problem - namely DeepMind - to be breakthroughs, but I wildly underestimated the amount of computing resources that could possible be brought to bear on this, or any other, problem. This is consistent with the *large scale computing* thesis of [*AI is an Ethical Nightmare*](https://www.youtube.com/watch?v=AaU6tI2pb3M). However, it is worth interrogating with my sensibilities are meaningful or correct!
+
+## On The Film
+
+> With its focus on Nobel Prize winning scientist Demis Hassabis, THE THINKING GAME takes you on a fascinating journey into the heart of DeepMind, one of the world's leading AI labs, as it strives to unravel the mysteries of artificial general intelligence.  It captures the exhilaration of historic breakthroughs like AlphaFold, the crushing weight of disappointment during setbacks, and the unwavering pursuit of knowledge and scientific innovation. This film invites viewers to witness one of the most important scientific adventures of our time, exploring the potential of AGI to reshape our world.
+
+Before viewing, I encourage you to read a bit more [about](https://thinkinggamefilm.com/about) the film.
+
+## The Film Itself
+
+Google - which owns both DeepMind and YouTube - has released the documentary on YouTube.
+
+Embeds do not always work, here is a [direct link](https://www.youtube.com/watch?v=d95J8yzvjbQ)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/d95J8yzvjbQ?si=fpH1hRYzRQLyt_re" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Please watch the film and keep track of your thoughts while watching.
+
+## After the Film
+
+Create a new Colab document titled Lab06 and within it answer the following questions at "social media post" length (150-300 characters). Answer each question within the document, each in its own **text** cell (that is, **NOT** a *code* cell).
+
+::: {.callout-note}
+I am specifying a precise way I expect to receive see these questions. Think about why I am doing that and why it may be helpful to following these instructions!
+:::
+
+1. We previously have approached Sudoku in this class. Comment briefly on the merits of games to drive advancements in AI. 
+2. We previously have raised ethical concerns about large companies - including one of the ten largest companies in the world, Google - having control of AI technologies. Have you concerns increased or decreased following this documentary? Why?
+3. What problems solved by the DeepMind team were you previously aware of? Did any in particular surprise you? 
+4. At one point, a DeepMind engineer suggests using an entire data center to compute protein folding for months. Comment on the scale of this investment, and its financial, social, and environmental costs?
+5. For the most advanced DeepMind technologies, do you regard them as more or less intelligent than a human?
+6. Humans were able to create technologies such as AlphaGo and AlphaFold. Could DeepMind create an "AlphaHuman" that is able to create or closely emulate humans?
+7. Is AlphaFold intelligent?
