@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "AI 101",
     "section": "",
-    "text": "CS 199 “Understanding AI”\n\nCalled:\n\nCS 199: Topics: Understanding AI\nAI 101\n\nA non-technical survey semester over:\n\nSome trends in AI use\nSome historical conversations around AI\nSome technical background in implementing minimal AI\n\nTaught this year via Google Colab.\n\nIt’s fast (it’s not)\nIt’s free (to us for now)\nIt’s fun (trust me)\n\n\n\nMW 1020-1150\n\n\nProf. Calvin\n\n\nSyllabus\n\nSyllabus link\n\n\n\n\nCalendar\n\n\n\n\n\nWeek\nDate (M)\nLecture (M)\nLab (W)\n\n\n\n\n0x0\n01/12\nAda & Alan\nTuring’s Test\n\n\n0x1\n01/19\nNone\nColab\n\n\n0x2\n01/26\n(Un)supervision\nDichotomy, Solution\n\n\n0x3\n02/02\nRegression\n\\(n\\)D\n\n\n0x4\n02/09\nClassification\nTree tree\n\n\n0x5\n02/16\nGraphs\nXs&Os\n\n\n0x6\n02/23\nGuest\nNeural\n\n\n0x7\n03/02\nError\nPlotly\n\n\n0x8\n03/09\nLatent Space\nModels\n\n\n0x9\n03/16\nTensors\nTensorflow\n\n\n0bX\n03/23\nNone\nNone\n\n\n0xA\n03/30\nText Rep.\nTokens\n\n\n0xB\n03/06\nTransformers\n\n\n\n0xC\n04/13\nGenAI\nNone\n\n\n0xD\n04/20\nPrompts\n\n\n\n0xE\n04/29\nPerspectives\nPeer Review\n\n\n\nFinal course reflection (“Perspectives”) due whenever the final exam would finish, TBA\n\n\nLecture Recordings\nForthcoming"
+    "text": "CS 199 “Understanding AI”\n\nCalled:\n\nCS 199: Topics: Understanding AI\nAI 101\n\nA non-technical survey semester over:\n\nSome trends in AI use\nSome historical conversations around AI\nSome technical background in implementing minimal AI\n\nTaught this year via Google Colab.\n\nIt’s fast (it’s not)\nIt’s free (to us for now)\nIt’s fun (trust me)\n\n\n\nMW 1020-1150\n\n\nProf. Calvin\n\n\nSyllabus\n\nSyllabus link\n\n\n\n\nCalendar\n\n\n\n\n\nWeek\nDate (M)\nLecture (M)\nLab (W)\n\n\n\n\n0x0\n01/12\nAda & Alan\nTuring’s Test\n\n\n0x1\n01/19\nNone\nColab\n\n\n0x2\n01/26\n(Un)supervision\nDichotomy, Solution\n\n\n0x3\n02/02\nRegression\n\\(n\\)D\n\n\n0x4\n02/09\nClassification\nTree tree\n\n\n0x5\n02/16\nGraphs\nSudoku\n\n\n0x6\n02/23\nGuest\nThinking Game\n\n\n0x7\n03/02\nError\nPlotly\n\n\n0x8\n03/09\nLatent Space\nModels\n\n\n0x9\n03/16\nTensors\nTensorflow\n\n\n0bX\n03/23\nNone\nNone\n\n\n0xA\n03/30\nText Rep.\nTokens\n\n\n0xB\n03/06\nTransformers\n\n\n\n0xC\n04/13\nGenAI\nNone\n\n\n0xD\n04/20\nPrompts\n\n\n\n0xE\n04/29\nPerspectives\nPeer Review\n\n\n\nFinal course reflection (“Perspectives”) due whenever the final exam would finish, TBA\n\n\nLecture Recordings\nForthcoming"
   },
   {
     "objectID": "60_neural.html",
@@ -5505,6 +5505,46 @@
     "text": "Embeds do not always work, here is a direct link",
     "crumbs": [
       "Guest"
+    ]
+  },
+  {
+    "objectID": "6_1_doc.html",
+    "href": "6_1_doc.html",
+    "title": "Thinking Game",
+    "section": "",
+    "text": "On February 2, 2025, I was invited to introduce and lead a discussion of the film The Thinking Game at Salem Cinema. At that time, the film was undergoing selective screenings prior to award season, and would go on to be decorated at Tribeca and other major festivals.\nThe Thinking Game is near and dear to my heart because it covers the usage of AI to solve the first problem that I believed would go unsolved in my lifetime - namely, the protein folding problem.\n\nThe protein folding problem is the question of how a protein’s amino acid sequence dictates its three-dimensional atomic structure. The notion of a folding “problem” first emerged around 1960, with the appearance of the first atomic-resolution protein structures.\n\nI was pleased to be proven wrong, though want to note one aspect - I did not find the insights of the team that solved the problem - namely DeepMind - to be breakthroughs, but I wildly underestimated the amount of computing resources that could possible be brought to bear on this, or any other, problem. This is consistent with the large scale computing thesis of AI is an Ethical Nightmare. However, it is worth interrogating with my sensibilities are meaningful or correct!\n\n\n\nWith its focus on Nobel Prize winning scientist Demis Hassabis, THE THINKING GAME takes you on a fascinating journey into the heart of DeepMind, one of the world’s leading AI labs, as it strives to unravel the mysteries of artificial general intelligence. It captures the exhilaration of historic breakthroughs like AlphaFold, the crushing weight of disappointment during setbacks, and the unwavering pursuit of knowledge and scientific innovation. This film invites viewers to witness one of the most important scientific adventures of our time, exploring the potential of AGI to reshape our world.\n\nBefore viewing, I encourage you to read a bit more about the film.\n\n\n\nGoogle - which owns both DeepMind and YouTube - has released the documentary on YouTube.\nEmbeds do not always work, here is a direct link\n\n\nPlease watch the film and keep track of your thoughts while watching.\n\n\n\nCreate a new Colab document titled Lab06 and within it answer the following questions at “social media post” length (150-300 characters). Answer each question within the document, each in its own text cell (that is, NOT a code cell).\n\n\n\n\n\n\nNote\n\n\n\nI am specifying a precise way I expect to receive see these questions. Think about why I am doing that and why it may be helpful to following these instructions!\n\n\n\nWe previously have approached Sudoku in this class. Comment briefly on the merits of games to drive advancements in AI.\nWe previously have raised ethical concerns about large companies - including one of the ten largest companies in the world, Google - having control of AI technologies. Have you concerns increased or decreased following this documentary? Why?\nWhat problems solved by the DeepMind team were you previously aware of? Did any in particular surprise you?\nAt one point, a DeepMind engineer suggests using an entire data center to compute protein folding for months. Comment on the scale of this investment, and its financial, social, and environmental costs?\nFor the most advanced DeepMind technologies, do you regard them as more or less intelligent than a human?\nHumans were able to create technologies such as AlphaGo and AlphaFold. Could DeepMind create an “AlphaHuman” that is able to create or closely emulate humans?\nIs AlphaFold intelligent?",
+    "crumbs": [
+      "Thinking Game"
+    ]
+  },
+  {
+    "objectID": "6_1_doc.html#on-the-film",
+    "href": "6_1_doc.html#on-the-film",
+    "title": "Thinking Game",
+    "section": "",
+    "text": "With its focus on Nobel Prize winning scientist Demis Hassabis, THE THINKING GAME takes you on a fascinating journey into the heart of DeepMind, one of the world’s leading AI labs, as it strives to unravel the mysteries of artificial general intelligence. It captures the exhilaration of historic breakthroughs like AlphaFold, the crushing weight of disappointment during setbacks, and the unwavering pursuit of knowledge and scientific innovation. This film invites viewers to witness one of the most important scientific adventures of our time, exploring the potential of AGI to reshape our world.\n\nBefore viewing, I encourage you to read a bit more about the film.",
+    "crumbs": [
+      "Thinking Game"
+    ]
+  },
+  {
+    "objectID": "6_1_doc.html#the-film-itself",
+    "href": "6_1_doc.html#the-film-itself",
+    "title": "Thinking Game",
+    "section": "",
+    "text": "Google - which owns both DeepMind and YouTube - has released the documentary on YouTube.\nEmbeds do not always work, here is a direct link\n\n\nPlease watch the film and keep track of your thoughts while watching.",
+    "crumbs": [
+      "Thinking Game"
+    ]
+  },
+  {
+    "objectID": "6_1_doc.html#after-the-film",
+    "href": "6_1_doc.html#after-the-film",
+    "title": "Thinking Game",
+    "section": "",
+    "text": "Create a new Colab document titled Lab06 and within it answer the following questions at “social media post” length (150-300 characters). Answer each question within the document, each in its own text cell (that is, NOT a code cell).\n\n\n\n\n\n\nNote\n\n\n\nI am specifying a precise way I expect to receive see these questions. Think about why I am doing that and why it may be helpful to following these instructions!\n\n\n\nWe previously have approached Sudoku in this class. Comment briefly on the merits of games to drive advancements in AI.\nWe previously have raised ethical concerns about large companies - including one of the ten largest companies in the world, Google - having control of AI technologies. Have you concerns increased or decreased following this documentary? Why?\nWhat problems solved by the DeepMind team were you previously aware of? Did any in particular surprise you?\nAt one point, a DeepMind engineer suggests using an entire data center to compute protein folding for months. Comment on the scale of this investment, and its financial, social, and environmental costs?\nFor the most advanced DeepMind technologies, do you regard them as more or less intelligent than a human?\nHumans were able to create technologies such as AlphaGo and AlphaFold. Could DeepMind create an “AlphaHuman” that is able to create or closely emulate humans?\nIs AlphaFold intelligent?",
+    "crumbs": [
+      "Thinking Game"
     ]
   }
 ]
