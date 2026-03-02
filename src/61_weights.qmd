@@ -1,0 +1,100 @@
+---
+title: Weights 
+format: html
+---
+
+## Connections
+
+In our lecture, we saw how graphs can represent the relationship between a physical phenomenon, like a key on a keyboard, and an abstract thought or concept, like the letter `a`. 
+
+Today, we use graphs to represent the *strength* of connections using the idea of **weights**, also known as edge weights.
+
+- Previously in graphs, we only dealt with **adjacency**: whether there was a connection to a node (`1`) or not (`0`).
+- Now we will introduce numbers between `1` and `0` (or greater!) to represent **how likely** a correspondence is, or the **cost** of a transition.
+      - Specifically, how likely a key on the keyboard is to be depressed by a specific finger.
+
+---
+
+## Defining Edge Weights
+
+In a standard adjacency matrix, all connections are created equal. However, the real world is rarely binary.
+
+> [A *weighted graph*... is a *graph* in which a number (the **weight**) is assigned to each *edge*. Such **weights** might represent for example costs, lengths or capacities, depending on the problem at hand. Such graphs arise in many contexts...](https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)#Weighted_graph)
+
+
+### Weights in the Wild: Amtrak
+
+Recall our Amtrak Cascades graph. While an adjacency matrix tells us if a train *can* go from Seattle to Tukwila, a **weighted matrix** tells us how long it takes or how far it is.
+
+For example, the distance from Seattle (SEA) to Tukwila (TUK) is approximately 12 miles. The distance from Vancouver (VAN) to Portland (POR) is 10 miles. In a weighted matrix, we replace the `1` with the actual distance:
+
+| |SEA|TUK|TAC|OLY|CEN|KEL|VAN|POR|
+|-|-|-|-|-|-|-|-|-|
+|SEA|0|**12**|0|0|0|0|0|0|
+|TUK|0|0|**23**|0|0|0|0|0|
+|...|...|...|...|...|...|...|...|...|
+|VAN|0|0|0|0|0|0|0|**10**|
+
+---
+
+# Experimental Design
+
+To understand neural network weights, we must first look at our own associations between neurons governing fingers and neuron understanding letters. Most people don't use the same finger for every key every time - or at least I don't!
+
+## Sketch
+- **Partner Up**: Work with a partner to record each of you typing.
+	- I am entrusting you to be able to use a phone or something to create a recording.
+	- At any reasonable typing speed, it will be comically difficult to log keystrokes manually *while* someone else is typing.
+- **Data Collection**: 
+    - Type!
+    	- Type the alphabet backwards and forwards.
+    	- Perform a test on [Monkeytype](https://monkeytype.com/).
+    	- Type until you have used different fingers for the same letters (e.g., do you use your left or right thumb for `Space`? Do you use your pinky or ring finger for `q`?).
+	- If you need more text, transcribe [Pride and Prejudice](https://raw.githubusercontent.com/cd-public/books/main/pg1342.txt)
+    - Ensure while typing that you also **record**.
+      	- Have your partner point a camera at your hands.
+	- Be ready to tediously play it back many times.
+	- Science is fun.
+- **Logging**: For every key-press, record which finger was used. 
+    - **L1-L5**: Left thumb to pinky.
+    - **R1-R5**: Right thumb to pinky.
+    - But you can use your own numbers if you want (e.g. left pinky is 1, right pinky is 10).
+
+## Calculating Weights
+
+For each key/finger pair, calculate the probability:
+
+$$W = \frac{\text{Count of (Key pressed by Finger)}}{\text{Total presses of Key}}$$
+
+If you pressed `Space` 10 times, and 9 times it was your left thumb, the weight for (`" "`, `"L1"`) is `0.9`.
+
+# Example Output
+
+Below is a subset of what your data might look like. We are mapping **Keys** (rows) to **Fingers** (columns).
+
+### Markdown Table
+| Key | L5 | L4 | L3 | L2 | L1 | R1 | R2 | R3 | R4 | R5 |
+|-----|----|----|----|----|----|----|----|----|----|----|
+| `a` | .95| .05| 0  | 0  | 0  | 0  | 0  | 0  | 0  | 0  |
+| `s` | .10| .85| .05| 0  | 0  | 0  | 0  | 0  | 0  | 0  |
+| ` ` | 0  | 0  | 0  | 0  | .90| .10| 0  | 0  | 0  | 0  |
+
+
+# Your Task
+
+Perform your work in a `Lab07` Colab notebook in your AI folder.
+
+1. **Record your typing data** and calculate the weights for all 26 Latin characters and space (` `).
+2. **Create a Weighted Matrix** in a Markdown cell representing your typing habits.
+3. **Analysis**: Add a text cell with 2-3 sentences (approx. 100 words) answering:
+    - Why is a "weight" of `0.8` more useful for an AI than a simple "adjacency" of `1`?
+    - If you wanted to predict which finger would press the `Enter` key, how does your matrix help?
+    - Does your partner’s matrix look different? Why?
+    - Do the "weights" in your graph capture any form of conscious or unconscious connection in your brain?
+    - Do these weights measure intelligence in some way?
+    - Are the weights, themselves, "intelligence"? Explain at 2-3 "social media post" length, providing arguments both ways.
+
+::: {.callout-note}
+In neural networks, these "weights" are what the computer "learns." By adjusting these numbers, the AI changes how it perceives the importance of different connections!
+:::
+

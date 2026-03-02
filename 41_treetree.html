@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.30">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -21,8 +21,9 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +34,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -66,15 +67,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="./">
 <link href="./50_graph.html" rel="next">
 <link href="./40_class.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-a4a11d514c7d463668e07712114998e6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-70c9a4798e5f6abb0636bcdc3eed0e90.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-b86297dc19107d1c9b1952b0f8e15fd8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -117,7 +120,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -135,7 +138,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -158,9 +161,8 @@ window.Quarto = {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">AI 101</a> 
-    </div>
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
@@ -243,8 +245,20 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./6_1_doc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Thinking Game</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./60_neural.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Neural Networks</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./61_weights.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Weights</span></a>
   </div>
 </li>
     </ul>
@@ -307,7 +321,7 @@ window.Quarto = {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Trees and Keys
+<span class="screen-reader-only">Note</span>Trees and Keys
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -345,7 +359,7 @@ Trees and Keys
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Features
+<span class="screen-reader-only">Note</span>Features
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -635,8 +649,8 @@ Features
 <li>I have the best luck with prompting Gemini when I provide images as a URL.</li>
 <li>Here are the URLs for the leaf and tree of Oak A, the others are similar.</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource email number-lines code-with-copy"><code class="sourceCode email"><span id="cb2-1"><a href="#cb2-1"></a>https://cd-public.github.io/ai101/images/oaks/a_leaf.jpg</span>
-<span id="cb2-2"><a href="#cb2-2"></a>https://cd-public.github.io/ai101/images/oaks/a_tree.jpg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource email number-lines code-with-copy"><code class="sourceCode email"><span id="cb2-1"><a href="#cb2-1"></a>https://cd-public.github.io/ai101/images/oaks/a_leaf.jpg</span>
+<span id="cb2-2"><a href="#cb2-2"></a>https://cd-public.github.io/ai101/images/oaks/a_tree.jpg</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
 <section id="requirements" class="level2">
@@ -645,7 +659,7 @@ Features
 <li><label><input type="checkbox">Create a “Lab04” Colab notebook (NOT a Google Document) in your AI Folder.</label></li>
 <li><label><input type="checkbox">The very first cell must be a <em>code cell</em> containing exactly the following text:</label></li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>tree_letter <span class="op">=</span> <span class="st">"a"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>tree_letter <span class="op">=</span> <span class="st">"a"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul class="task-list">
 <li><label><input type="checkbox">You must be able to change this letter to “b” or “c” and receive a correct classification when using “Run all”</label></li>
 <li><label><input type="checkbox">You may use any number of intermediate code or text blocks, but the final block <em>must</em> print out the name of the tree.</label></li>
@@ -696,11 +710,11 @@ Features
 <li>I used <code>+</code> to combine them - usually before asking a question from the key.</li>
 <li>Here is an example:</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>from google.colab <span class="im">import</span> ai</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>from google.colab <span class="im">import</span> ai</span>
 <span id="cb4-2"><a href="#cb4-2"></a>prefix <span class="op">=</span> <span class="st">"I'm a Colab notebook, and I cannot read! Reply only yes/no with no capitals or punctuation!"</span></span>
 <span id="cb4-3"><a href="#cb4-3"></a>question <span class="op">=</span> <span class="st">"Is four an even number"</span></span>
 <span id="cb4-4"><a href="#cb4-4"></a>answer <span class="op">=</span> ai.generate_text(prefix <span class="op">+</span> question)</span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="bu">print</span>(answer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="bu">print</span>(answer)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="ifelse-syntax" class="level3">
 <h3 class="anchored" data-anchor-id="ifelse-syntax">If/else Syntax</h3>
@@ -714,17 +728,17 @@ Features
 </ul></li>
 <li>Here is an example:</li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="cf">if</span> answer <span class="op">==</span> <span class="st">"yes"</span>:</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="cf">if</span> answer <span class="op">==</span> <span class="st">"yes"</span>:</span>
 <span id="cb5-2"><a href="#cb5-2"></a>  <span class="bu">print</span>(<span class="st">"Four is an even number"</span>)</span>
 <span id="cb5-3"><a href="#cb5-3"></a><span class="cf">else</span>:</span>
-<span id="cb5-4"><a href="#cb5-4"></a>  <span class="bu">print</span>(<span class="st">"Four is not an even number"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-4"><a href="#cb5-4"></a>  <span class="bu">print</span>(<span class="st">"Four is not an even number"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Double equals? What’s that!
+<span class="screen-reader-only">Note</span>Double equals? What’s that!
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -733,8 +747,8 @@ Double equals? What’s that!
 <li>I call <code>=</code> “single equals assignment”. It assigns a nickname to something longer or more complicated. It gets its own line.</li>
 <li>I call <code>==</code> “double equals equality”. It checks to see if two things are equal, usually with an <code>if</code>.</li>
 </ol>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="cf">if</span> <span class="dv">1</span> <span class="op">==</span> <span class="dv">1</span>:</span>
-<span id="cb6-2"><a href="#cb6-2"></a>    <span class="bu">print</span>(<span class="st">"Hi!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="cf">if</span> <span class="dv">1</span> <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb6-2"><a href="#cb6-2"></a>    <span class="bu">print</span>(<span class="st">"Hi!"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -746,7 +760,7 @@ Double equals? What’s that!
 <li>Term this “nesting”.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>even <span class="op">=</span> ai.generate_text(prefix <span class="op">+</span> <span class="st">"Is four an even number"</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>even <span class="op">=</span> ai.generate_text(prefix <span class="op">+</span> <span class="st">"Is four an even number"</span>)</span>
 <span id="cb7-2"><a href="#cb7-2"></a>positive <span class="op">=</span> ai.generate_text(prefix <span class="op">+</span> <span class="st">"Is four a positive number"</span>)</span>
 <span id="cb7-3"><a href="#cb7-3"></a></span>
 <span id="cb7-4"><a href="#cb7-4"></a><span class="cf">if</span> even <span class="op">==</span> <span class="st">"yes"</span>:</span>
@@ -755,7 +769,7 @@ Double equals? What’s that!
 <span id="cb7-7"><a href="#cb7-7"></a>  <span class="cf">else</span>:</span>
 <span id="cb7-8"><a href="#cb7-8"></a>    <span class="bu">print</span>(<span class="st">"Even negative number."</span>)</span>
 <span id="cb7-9"><a href="#cb7-9"></a><span class="cf">else</span>:</span>
-<span id="cb7-10"><a href="#cb7-10"></a>  <span class="bu">print</span>(<span class="st">"Odd number."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-10"><a href="#cb7-10"></a>  <span class="bu">print</span>(<span class="st">"Odd number."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
 </section>
@@ -777,290 +791,294 @@ Double equals? What’s that!
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
       }
+      return false;
     }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
       }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
         }
       }
       return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
     });
-    clipboardModal.on('success', onCopySuccess);
-  }
-  const viewSource = window.document.getElementById('quarto-view-source') ||
-                     window.document.getElementById('quarto-code-tools-source');
-  if (viewSource) {
-    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-    viewSource.addEventListener("click", function(e) {
-      if (sourceUrl) {
-        // rstudio viewer pane
-        if (/\bcapabilities=\b/.test(window.location)) {
-          window.open(sourceUrl);
-        } else {
-          window.location.href = sourceUrl;
-        }
-      } else {
-        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-        modal.show();
-      }
-      return false;
-    });
-  }
-  function toggleCodeHandler(show) {
-    return function(e) {
-      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-      for (let i=0; i<detailsSrc.length; i++) {
-        const details = detailsSrc[i].parentElement;
-        if (show) {
-          details.open = true;
-        } else {
-          details.removeAttribute("open");
-        }
-      }
-      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-      const fromCls = show ? "hidden" : "unhidden";
-      const toCls = show ? "unhidden" : "hidden";
-      for (let i=0; i<cellCodeDivs.length; i++) {
-        const codeDiv = cellCodeDivs[i];
-        if (codeDiv.classList.contains(fromCls)) {
-          codeDiv.classList.remove(fromCls);
-          codeDiv.classList.add(toCls);
-        } 
-      }
-      return false;
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
     }
-  }
-  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-  if (hideAllCode) {
-    hideAllCode.addEventListener("click", toggleCodeHandler(false));
-  }
-  const showAllCode = window.document.getElementById("quarto-show-all-code");
-  if (showAllCode) {
-    showAllCode.addEventListener("click", toggleCodeHandler(true));
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
-    };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
           } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
         }
-        return container.innerHTML
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1068,185 +1086,161 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./40_class.html" class="pagination-link" aria-label="Classification">
@@ -1259,7 +1253,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb8" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">---</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">---</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a><span class="an">title:</span><span class="co"> Tree Tree </span></span>
 <span id="cb8-3"><a href="#cb8-3"></a><span class="an">format:</span><span class="co"> html</span></span>
 <span id="cb8-4"><a href="#cb8-4"></a><span class="co">---</span></span>
@@ -1332,52 +1326,52 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb8-71"><a href="#cb8-71"></a><span class="ss">    - </span>If you turn it upside down, it somewhat looks like a tree (hence the name).</span>
 <span id="cb8-72"><a href="#cb8-72"></a></span>
 <span id="cb8-75"><a href="#cb8-75"></a><span class="in">```{dot}</span></span>
-<span id="cb8-76"><a href="#cb8-76"></a><span class="in">digraph OakKey {</span></span>
-<span id="cb8-77"><a href="#cb8-77"></a><span class="in">    bgcolor="transparent"</span></span>
-<span id="cb8-78"><a href="#cb8-78"></a><span class="in">    node [shape=box,  fontcolor="white", color="white"];</span></span>
-<span id="cb8-79"><a href="#cb8-79"></a><span class="in">    edge [color="white", fontcolor="white"];</span></span>
-<span id="cb8-80"><a href="#cb8-80"></a><span class="in">    </span></span>
-<span id="cb8-81"><a href="#cb8-81"></a><span class="in">    // Questions/Nodes</span></span>
-<span id="cb8-82"><a href="#cb8-82"></a><span class="in">    Start [label="Leaves are smooth with no teeth or lobes?"];</span></span>
-<span id="cb8-83"><a href="#cb8-83"></a><span class="in">    Evergreen [label="Laves evergreen?"];</span></span>
-<span id="cb8-84"><a href="#cb8-84"></a><span class="in">    GrowthHabit [label="Large Tree (not shrub)?"];</span></span>
-<span id="cb8-85"><a href="#cb8-85"></a><span class="in">    LeafShape [label="Leaves more than 3x long as wide"];</span></span>
-<span id="cb8-86"><a href="#cb8-86"></a><span class="in">    Bristles [label="Lobes/teeth bristle-tipped?"];</span></span>
-<span id="cb8-87"><a href="#cb8-87"></a><span class="in">    LobeCount6 [label="3 or fewer lobes?"];</span></span>
-<span id="cb8-88"><a href="#cb8-88"></a><span class="in">    LobeCount7 [label="9 or fewer lobes?"];</span></span>
+<span id="cb8-76"><a href="#cb8-76"></a><span class="kw">digraph</span> <span class="va">OakKey</span> <span class="ot">{</span></span>
+<span id="cb8-77"><a href="#cb8-77"></a><span class="co">    </span><span class="at">bgcolor</span><span class="ot">=</span><span class="st">"transparent"</span></span>
+<span id="cb8-78"><a href="#cb8-78"></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">box</span><span class="co">,  </span><span class="at">fontcolor</span><span class="ot">=</span><span class="st">"white"</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"white"</span><span class="ot">];</span></span>
+<span id="cb8-79"><a href="#cb8-79"></a><span class="co">    </span><span class="kw">edge</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="ot">=</span><span class="st">"white"</span><span class="co">, </span><span class="at">fontcolor</span><span class="ot">=</span><span class="st">"white"</span><span class="ot">];</span></span>
+<span id="cb8-80"><a href="#cb8-80"></a><span class="co">    </span></span>
+<span id="cb8-81"><a href="#cb8-81"></a><span class="co">    // Questions/Nodes</span></span>
+<span id="cb8-82"><a href="#cb8-82"></a><span class="co">    </span><span class="va">Start</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Leaves are smooth with no teeth or lobes?"</span><span class="ot">];</span></span>
+<span id="cb8-83"><a href="#cb8-83"></a><span class="co">    </span><span class="va">Evergreen</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Laves evergreen?"</span><span class="ot">];</span></span>
+<span id="cb8-84"><a href="#cb8-84"></a><span class="co">    </span><span class="va">GrowthHabit</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Large Tree (not shrub)?"</span><span class="ot">];</span></span>
+<span id="cb8-85"><a href="#cb8-85"></a><span class="co">    </span><span class="va">LeafShape</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Leaves more than 3x long as wide"</span><span class="ot">];</span></span>
+<span id="cb8-86"><a href="#cb8-86"></a><span class="co">    </span><span class="va">Bristles</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Lobes/teeth bristle-tipped?"</span><span class="ot">];</span></span>
+<span id="cb8-87"><a href="#cb8-87"></a><span class="co">    </span><span class="va">LobeCount6</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"3 or fewer lobes?"</span><span class="ot">];</span></span>
+<span id="cb8-88"><a href="#cb8-88"></a><span class="co">    </span><span class="va">LobeCount7</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"9 or fewer lobes?"</span><span class="ot">];</span></span>
 <span id="cb8-89"><a href="#cb8-89"></a></span>
-<span id="cb8-90"><a href="#cb8-90"></a><span class="in">    // Species (Leaf nodes)</span></span>
-<span id="cb8-91"><a href="#cb8-91"></a><span class="in">    LiveOak [label="Southern live oak"];</span></span>
-<span id="cb8-92"><a href="#cb8-92"></a><span class="in">    DwarfOak [label="Dwarf live oak"];</span></span>
-<span id="cb8-93"><a href="#cb8-93"></a><span class="in">    WillowOak [label="Willow oak"];</span></span>
-<span id="cb8-94"><a href="#cb8-94"></a><span class="in">    ShingleOak [label="Shingle oak"];</span></span>
-<span id="cb8-95"><a href="#cb8-95"></a><span class="in">    BlackjackOak [label="Blackjack oak"];</span></span>
-<span id="cb8-96"><a href="#cb8-96"></a><span class="in">    RedOak [label="Northern red oak"];</span></span>
-<span id="cb8-97"><a href="#cb8-97"></a><span class="in">    WhiteOak [label="White oak"];</span></span>
-<span id="cb8-98"><a href="#cb8-98"></a><span class="in">    SwampOak [label="Swamp chestnut oak"];</span></span>
+<span id="cb8-90"><a href="#cb8-90"></a><span class="co">    // Species (Leaf nodes)</span></span>
+<span id="cb8-91"><a href="#cb8-91"></a><span class="co">    </span><span class="va">LiveOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Southern live oak"</span><span class="ot">];</span></span>
+<span id="cb8-92"><a href="#cb8-92"></a><span class="co">    </span><span class="va">DwarfOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Dwarf live oak"</span><span class="ot">];</span></span>
+<span id="cb8-93"><a href="#cb8-93"></a><span class="co">    </span><span class="va">WillowOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Willow oak"</span><span class="ot">];</span></span>
+<span id="cb8-94"><a href="#cb8-94"></a><span class="co">    </span><span class="va">ShingleOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Shingle oak"</span><span class="ot">];</span></span>
+<span id="cb8-95"><a href="#cb8-95"></a><span class="co">    </span><span class="va">BlackjackOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Blackjack oak"</span><span class="ot">];</span></span>
+<span id="cb8-96"><a href="#cb8-96"></a><span class="co">    </span><span class="va">RedOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Northern red oak"</span><span class="ot">];</span></span>
+<span id="cb8-97"><a href="#cb8-97"></a><span class="co">    </span><span class="va">WhiteOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"White oak"</span><span class="ot">];</span></span>
+<span id="cb8-98"><a href="#cb8-98"></a><span class="co">    </span><span class="va">SwampOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Swamp chestnut oak"</span><span class="ot">];</span></span>
 <span id="cb8-99"><a href="#cb8-99"></a></span>
-<span id="cb8-100"><a href="#cb8-100"></a><span class="in">    // Relationships</span></span>
-<span id="cb8-101"><a href="#cb8-101"></a><span class="in">    Start -&gt; Evergreen [label="True"];</span></span>
-<span id="cb8-102"><a href="#cb8-102"></a><span class="in">    Start -&gt; Bristles [label="False"];</span></span>
+<span id="cb8-100"><a href="#cb8-100"></a><span class="co">    // Relationships</span></span>
+<span id="cb8-101"><a href="#cb8-101"></a><span class="co">    </span><span class="va">Start</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">Evergreen</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"True"</span><span class="ot">];</span></span>
+<span id="cb8-102"><a href="#cb8-102"></a><span class="co">    </span><span class="va">Start</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">Bristles</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"False"</span><span class="ot">];</span></span>
 <span id="cb8-103"><a href="#cb8-103"></a></span>
-<span id="cb8-104"><a href="#cb8-104"></a><span class="in">    Evergreen -&gt; GrowthHabit [label="True"];</span></span>
-<span id="cb8-105"><a href="#cb8-105"></a><span class="in">    Evergreen -&gt; LeafShape [label="False"];</span></span>
+<span id="cb8-104"><a href="#cb8-104"></a><span class="co">    </span><span class="va">Evergreen</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">GrowthHabit</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"True"</span><span class="ot">];</span></span>
+<span id="cb8-105"><a href="#cb8-105"></a><span class="co">    </span><span class="va">Evergreen</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">LeafShape</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"False"</span><span class="ot">];</span></span>
 <span id="cb8-106"><a href="#cb8-106"></a></span>
-<span id="cb8-107"><a href="#cb8-107"></a><span class="in">    GrowthHabit -&gt; LiveOak [label="True"];</span></span>
-<span id="cb8-108"><a href="#cb8-108"></a><span class="in">    GrowthHabit -&gt; DwarfOak [label="False"];</span></span>
+<span id="cb8-107"><a href="#cb8-107"></a><span class="co">    </span><span class="va">GrowthHabit</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">LiveOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"True"</span><span class="ot">];</span></span>
+<span id="cb8-108"><a href="#cb8-108"></a><span class="co">    </span><span class="va">GrowthHabit</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">DwarfOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"False"</span><span class="ot">];</span></span>
 <span id="cb8-109"><a href="#cb8-109"></a></span>
-<span id="cb8-110"><a href="#cb8-110"></a><span class="in">    LeafShape -&gt; WillowOak [label="True"];</span></span>
-<span id="cb8-111"><a href="#cb8-111"></a><span class="in">    LeafShape -&gt; ShingleOak [label="False"];</span></span>
+<span id="cb8-110"><a href="#cb8-110"></a><span class="co">    </span><span class="va">LeafShape</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">WillowOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"True"</span><span class="ot">];</span></span>
+<span id="cb8-111"><a href="#cb8-111"></a><span class="co">    </span><span class="va">LeafShape</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">ShingleOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"False"</span><span class="ot">];</span></span>
 <span id="cb8-112"><a href="#cb8-112"></a></span>
-<span id="cb8-113"><a href="#cb8-113"></a><span class="in">    Bristles -&gt; LobeCount6 [label="True"];</span></span>
-<span id="cb8-114"><a href="#cb8-114"></a><span class="in">    Bristles -&gt; LobeCount7 [label="False"];</span></span>
+<span id="cb8-113"><a href="#cb8-113"></a><span class="co">    </span><span class="va">Bristles</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">LobeCount6</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"True"</span><span class="ot">];</span></span>
+<span id="cb8-114"><a href="#cb8-114"></a><span class="co">    </span><span class="va">Bristles</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">LobeCount7</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"False"</span><span class="ot">];</span></span>
 <span id="cb8-115"><a href="#cb8-115"></a></span>
-<span id="cb8-116"><a href="#cb8-116"></a><span class="in">    LobeCount6 -&gt; BlackjackOak [label="True"];</span></span>
-<span id="cb8-117"><a href="#cb8-117"></a><span class="in">    LobeCount6 -&gt; RedOak [label="False"];</span></span>
+<span id="cb8-116"><a href="#cb8-116"></a><span class="co">    </span><span class="va">LobeCount6</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">BlackjackOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"True"</span><span class="ot">];</span></span>
+<span id="cb8-117"><a href="#cb8-117"></a><span class="co">    </span><span class="va">LobeCount6</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">RedOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"False"</span><span class="ot">];</span></span>
 <span id="cb8-118"><a href="#cb8-118"></a></span>
-<span id="cb8-119"><a href="#cb8-119"></a><span class="in">    LobeCount7 -&gt; WhiteOak [label="True"];</span></span>
-<span id="cb8-120"><a href="#cb8-120"></a><span class="in">    LobeCount7 -&gt; SwampOak [label="False"];</span></span>
-<span id="cb8-121"><a href="#cb8-121"></a><span class="in">}</span></span>
+<span id="cb8-119"><a href="#cb8-119"></a><span class="co">    </span><span class="va">LobeCount7</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">WhiteOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"True"</span><span class="ot">];</span></span>
+<span id="cb8-120"><a href="#cb8-120"></a><span class="co">    </span><span class="va">LobeCount7</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">SwampOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"False"</span><span class="ot">];</span></span>
+<span id="cb8-121"><a href="#cb8-121"></a><span class="ot">}</span></span>
 <span id="cb8-122"><a href="#cb8-122"></a><span class="in">```</span></span>
 <span id="cb8-123"><a href="#cb8-123"></a></span>
 <span id="cb8-124"><a href="#cb8-124"></a><span class="fu">## Some oaks</span></span>
@@ -1388,15 +1382,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb8-129"><a href="#cb8-129"></a></span>
 <span id="cb8-130"><a href="#cb8-130"></a>*Click "Details" to expand*</span>
 <span id="cb8-131"><a href="#cb8-131"></a></span>
-<span id="cb8-132"><a href="#cb8-132"></a>&lt;details&gt;</span>
+<span id="cb8-132"><a href="#cb8-132"></a><span class="dt">&lt;</span><span class="kw">details</span><span class="dt">&gt;</span></span>
 <span id="cb8-133"><a href="#cb8-133"></a></span>
-<span id="cb8-134"><a href="#cb8-134"></a>|Nickname|Common Name|Scientific Name|</span>
-<span id="cb8-135"><a href="#cb8-135"></a>|-|-|-|</span>
-<span id="cb8-136"><a href="#cb8-136"></a>| A | <span class="co">[</span><span class="ot">Blackjack oak</span><span class="co">](https://en.wikipedia.org/wiki/Quercus_marilandica)</span> | Quercus marilandica |</span>
-<span id="cb8-137"><a href="#cb8-137"></a>| B | <span class="co">[</span><span class="ot">Dwarf live oak</span><span class="co">](https://en.wikipedia.org/wiki/Dwarf_live_oak)</span> | Quercus minima |</span>
-<span id="cb8-138"><a href="#cb8-138"></a>| C | <span class="co">[</span><span class="ot">Northern red oak</span><span class="co">](https://en.wikipedia.org/wiki/Quercus_rubra)</span> | Quercus rubra | </span>
+<span id="cb8-134"><a href="#cb8-134"></a><span class="pp">|</span>Nickname<span class="pp">|</span>Common Name<span class="pp">|</span>Scientific Name<span class="pp">|</span></span>
+<span id="cb8-135"><a href="#cb8-135"></a><span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span></span>
+<span id="cb8-136"><a href="#cb8-136"></a><span class="pp">|</span> A <span class="pp">|</span> <span class="co">[</span><span class="ot">Blackjack oak</span><span class="co">](https://en.wikipedia.org/wiki/Quercus_marilandica)</span> <span class="pp">|</span> Quercus marilandica <span class="pp">|</span></span>
+<span id="cb8-137"><a href="#cb8-137"></a><span class="pp">|</span> B <span class="pp">|</span> <span class="co">[</span><span class="ot">Dwarf live oak</span><span class="co">](https://en.wikipedia.org/wiki/Dwarf_live_oak)</span> <span class="pp">|</span> Quercus minima <span class="pp">|</span></span>
+<span id="cb8-138"><a href="#cb8-138"></a><span class="pp">|</span> C <span class="pp">|</span> <span class="co">[</span><span class="ot">Northern red oak</span><span class="co">](https://en.wikipedia.org/wiki/Quercus_rubra)</span> <span class="pp">|</span> Quercus rubra <span class="pp">|</span> </span>
 <span id="cb8-139"><a href="#cb8-139"></a></span>
-<span id="cb8-140"><a href="#cb8-140"></a>&lt;/details&gt;</span>
+<span id="cb8-140"><a href="#cb8-140"></a><span class="dt">&lt;/</span><span class="kw">details</span><span class="dt">&gt;</span></span>
 <span id="cb8-141"><a href="#cb8-141"></a></span>
 <span id="cb8-142"><a href="#cb8-142"></a><span class="fu">### URLs</span></span>
 <span id="cb8-143"><a href="#cb8-143"></a></span>
@@ -1414,16 +1408,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb8-155"><a href="#cb8-155"></a><span class="ss">- </span><span class="va">[ ]</span> Create a "Lab04" Colab notebook (NOT a Google Document) in your AI Folder.</span>
 <span id="cb8-156"><a href="#cb8-156"></a><span class="ss">- </span><span class="va">[ ]</span> The very first cell must be a *code cell* containing exactly the following text:</span>
 <span id="cb8-157"><a href="#cb8-157"></a><span class="in">```{.py}</span></span>
-<span id="cb8-158"><a href="#cb8-158"></a><span class="in">tree_letter = "a"</span></span>
+<span id="cb8-158"><a href="#cb8-158"></a>tree_letter <span class="op">=</span> <span class="st">"a"</span></span>
 <span id="cb8-159"><a href="#cb8-159"></a><span class="in">```</span></span>
 <span id="cb8-160"><a href="#cb8-160"></a><span class="ss">- </span><span class="va">[ ]</span> You must be able to change this letter to "b" or "c" and receive a correct classification when using "Run all"</span>
 <span id="cb8-161"><a href="#cb8-161"></a><span class="ss">- </span><span class="va">[ ]</span> You may use any number of intermediate code or text blocks, but the final block *must* print out the name of the tree.</span>
 <span id="cb8-162"><a href="#cb8-162"></a></span>
-<span id="cb8-163"><a href="#cb8-163"></a>|Letter|Common Name|Scientific Name|</span>
-<span id="cb8-164"><a href="#cb8-164"></a>|-|-|-|</span>
-<span id="cb8-165"><a href="#cb8-165"></a>| 'a' | <span class="co">[</span><span class="ot">Blackjack oak</span><span class="co">](https://en.wikipedia.org/wiki/Quercus_marilandica)</span> | Quercus marilandica |</span>
-<span id="cb8-166"><a href="#cb8-166"></a>| 'b' | <span class="co">[</span><span class="ot">Dwarf live oak</span><span class="co">](https://en.wikipedia.org/wiki/Dwarf_live_oak)</span> | Quercus minima |</span>
-<span id="cb8-167"><a href="#cb8-167"></a>| 'c' | <span class="co">[</span><span class="ot">Northern red oak</span><span class="co">](https://en.wikipedia.org/wiki/Quercus_rubra)</span> | Quercus rubra | </span>
+<span id="cb8-163"><a href="#cb8-163"></a><span class="pp">|</span>Letter<span class="pp">|</span>Common Name<span class="pp">|</span>Scientific Name<span class="pp">|</span></span>
+<span id="cb8-164"><a href="#cb8-164"></a><span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span></span>
+<span id="cb8-165"><a href="#cb8-165"></a><span class="pp">|</span> 'a' <span class="pp">|</span> <span class="co">[</span><span class="ot">Blackjack oak</span><span class="co">](https://en.wikipedia.org/wiki/Quercus_marilandica)</span> <span class="pp">|</span> Quercus marilandica <span class="pp">|</span></span>
+<span id="cb8-166"><a href="#cb8-166"></a><span class="pp">|</span> 'b' <span class="pp">|</span> <span class="co">[</span><span class="ot">Dwarf live oak</span><span class="co">](https://en.wikipedia.org/wiki/Dwarf_live_oak)</span> <span class="pp">|</span> Quercus minima <span class="pp">|</span></span>
+<span id="cb8-167"><a href="#cb8-167"></a><span class="pp">|</span> 'c' <span class="pp">|</span> <span class="co">[</span><span class="ot">Northern red oak</span><span class="co">](https://en.wikipedia.org/wiki/Quercus_rubra)</span> <span class="pp">|</span> Quercus rubra <span class="pp">|</span> </span>
 <span id="cb8-168"><a href="#cb8-168"></a></span>
 <span id="cb8-169"><a href="#cb8-169"></a></span>
 <span id="cb8-170"><a href="#cb8-170"></a>You should use the following:</span>
@@ -1444,11 +1438,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb8-185"><a href="#cb8-185"></a><span class="ss">- </span>Here is an example:</span>
 <span id="cb8-186"><a href="#cb8-186"></a></span>
 <span id="cb8-187"><a href="#cb8-187"></a><span class="in">```{.py}</span></span>
-<span id="cb8-188"><a href="#cb8-188"></a><span class="in">from google.colab import ai</span></span>
-<span id="cb8-189"><a href="#cb8-189"></a><span class="in">prefix = "I'm a Colab notebook, and I cannot read! Reply only yes/no with no capitals or punctuation!"</span></span>
-<span id="cb8-190"><a href="#cb8-190"></a><span class="in">question = "Is four an even number"</span></span>
-<span id="cb8-191"><a href="#cb8-191"></a><span class="in">answer = ai.generate_text(prefix + question)</span></span>
-<span id="cb8-192"><a href="#cb8-192"></a><span class="in">print(answer)</span></span>
+<span id="cb8-188"><a href="#cb8-188"></a>from google.colab <span class="im">import</span> ai</span>
+<span id="cb8-189"><a href="#cb8-189"></a>prefix <span class="op">=</span> <span class="st">"I'm a Colab notebook, and I cannot read! Reply only yes/no with no capitals or punctuation!"</span></span>
+<span id="cb8-190"><a href="#cb8-190"></a>question <span class="op">=</span> <span class="st">"Is four an even number"</span></span>
+<span id="cb8-191"><a href="#cb8-191"></a>answer <span class="op">=</span> ai.generate_text(prefix <span class="op">+</span> question)</span>
+<span id="cb8-192"><a href="#cb8-192"></a><span class="bu">print</span>(answer)</span>
 <span id="cb8-193"><a href="#cb8-193"></a><span class="in">```</span></span>
 <span id="cb8-194"><a href="#cb8-194"></a></span>
 <span id="cb8-195"><a href="#cb8-195"></a><span class="fu">### If/else Syntax</span></span>
@@ -1461,10 +1455,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb8-202"><a href="#cb8-202"></a><span class="ss">- </span>Here is an example:</span>
 <span id="cb8-203"><a href="#cb8-203"></a></span>
 <span id="cb8-204"><a href="#cb8-204"></a><span class="in">```{.py}</span></span>
-<span id="cb8-205"><a href="#cb8-205"></a><span class="in">if answer == "yes":</span></span>
-<span id="cb8-206"><a href="#cb8-206"></a><span class="in">  print("Four is an even number")</span></span>
-<span id="cb8-207"><a href="#cb8-207"></a><span class="in">else:</span></span>
-<span id="cb8-208"><a href="#cb8-208"></a><span class="in">  print("Four is not an even number")</span></span>
+<span id="cb8-205"><a href="#cb8-205"></a><span class="cf">if</span> answer <span class="op">==</span> <span class="st">"yes"</span>:</span>
+<span id="cb8-206"><a href="#cb8-206"></a>  <span class="bu">print</span>(<span class="st">"Four is an even number"</span>)</span>
+<span id="cb8-207"><a href="#cb8-207"></a><span class="cf">else</span>:</span>
+<span id="cb8-208"><a href="#cb8-208"></a>  <span class="bu">print</span>(<span class="st">"Four is not an even number"</span>)</span>
 <span id="cb8-209"><a href="#cb8-209"></a><span class="in">```</span></span>
 <span id="cb8-210"><a href="#cb8-210"></a></span>
 <span id="cb8-211"><a href="#cb8-211"></a>::: {.callout-note appearance="simple"}</span>
@@ -1477,8 +1471,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb8-218"><a href="#cb8-218"></a><span class="ss">2. </span>I call <span class="in">`==`</span> "double equals equality". It checks to see if two things are equal, usually with an <span class="in">`if`</span>.</span>
 <span id="cb8-219"><a href="#cb8-219"></a></span>
 <span id="cb8-220"><a href="#cb8-220"></a><span class="in">```{.py}</span></span>
-<span id="cb8-221"><a href="#cb8-221"></a><span class="in">if 1 == 1:</span></span>
-<span id="cb8-222"><a href="#cb8-222"></a><span class="in">    print("Hi!")</span></span>
+<span id="cb8-221"><a href="#cb8-221"></a><span class="cf">if</span> <span class="dv">1</span> <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb8-222"><a href="#cb8-222"></a>    <span class="bu">print</span>(<span class="st">"Hi!"</span>)</span>
 <span id="cb8-223"><a href="#cb8-223"></a><span class="in">```</span></span>
 <span id="cb8-224"><a href="#cb8-224"></a></span>
 <span id="cb8-225"><a href="#cb8-225"></a>:::</span>
@@ -1489,16 +1483,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb8-230"><a href="#cb8-230"></a><span class="ss">    - </span>Term this "nesting".</span>
 <span id="cb8-231"><a href="#cb8-231"></a></span>
 <span id="cb8-232"><a href="#cb8-232"></a><span class="in">```{.py}</span></span>
-<span id="cb8-233"><a href="#cb8-233"></a><span class="in">even = ai.generate_text(prefix + "Is four an even number")</span></span>
-<span id="cb8-234"><a href="#cb8-234"></a><span class="in">positive = ai.generate_text(prefix + "Is four a positive number")</span></span>
+<span id="cb8-233"><a href="#cb8-233"></a>even <span class="op">=</span> ai.generate_text(prefix <span class="op">+</span> <span class="st">"Is four an even number"</span>)</span>
+<span id="cb8-234"><a href="#cb8-234"></a>positive <span class="op">=</span> ai.generate_text(prefix <span class="op">+</span> <span class="st">"Is four a positive number"</span>)</span>
 <span id="cb8-235"><a href="#cb8-235"></a></span>
-<span id="cb8-236"><a href="#cb8-236"></a><span class="in">if even == "yes":</span></span>
-<span id="cb8-237"><a href="#cb8-237"></a><span class="in">  if positive == "yes":</span></span>
-<span id="cb8-238"><a href="#cb8-238"></a><span class="in">    print("Even positive number.")</span></span>
-<span id="cb8-239"><a href="#cb8-239"></a><span class="in">  else:</span></span>
-<span id="cb8-240"><a href="#cb8-240"></a><span class="in">    print("Even negative number.")</span></span>
-<span id="cb8-241"><a href="#cb8-241"></a><span class="in">else:</span></span>
-<span id="cb8-242"><a href="#cb8-242"></a><span class="in">  print("Odd number.")</span></span>
+<span id="cb8-236"><a href="#cb8-236"></a><span class="cf">if</span> even <span class="op">==</span> <span class="st">"yes"</span>:</span>
+<span id="cb8-237"><a href="#cb8-237"></a>  <span class="cf">if</span> positive <span class="op">==</span> <span class="st">"yes"</span>:</span>
+<span id="cb8-238"><a href="#cb8-238"></a>    <span class="bu">print</span>(<span class="st">"Even positive number."</span>)</span>
+<span id="cb8-239"><a href="#cb8-239"></a>  <span class="cf">else</span>:</span>
+<span id="cb8-240"><a href="#cb8-240"></a>    <span class="bu">print</span>(<span class="st">"Even negative number."</span>)</span>
+<span id="cb8-241"><a href="#cb8-241"></a><span class="cf">else</span>:</span>
+<span id="cb8-242"><a href="#cb8-242"></a>  <span class="bu">print</span>(<span class="st">"Odd number."</span>)</span>
 <span id="cb8-243"><a href="#cb8-243"></a><span class="in">```</span></span>
 <span id="cb8-244"><a href="#cb8-244"></a>     </span>
 <span id="cb8-245"><a href="#cb8-245"></a><span class="fu"># Your Task</span></span>
@@ -1507,7 +1501,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb8-248"><a href="#cb8-248"></a><span class="ss">- </span>No write-up today, just try to get this working.</span>
 <span id="cb8-249"><a href="#cb8-249"></a><span class="ss">- </span>Big hint:</span>
 <span id="cb8-250"><a href="#cb8-250"></a><span class="ss">    - </span>The shape of the "Visually" graphic - of a question with branching questions below - is the same shape you should for with <span class="in">`if`</span> statements and indentation.</span>
-</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
