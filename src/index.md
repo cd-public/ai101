@@ -63,8 +63,8 @@ format: html
 |0x4|02/09|[Classification](40_class.qmd)|[Tree tree](41_treetree.qmd)|
 |0x5|02/16|[Graphs](50_graph.qmd)|[Sudoku](51_sudoku.qmd)|
 |0x6|02/23|[Guest](6__guest.md)|[Thinking Game](6_1_doc.qmd)|<!--Perceptron|Dice|-->
-|0x7|03/02|Error|Plotly| <!-- incl. back propagation --> <!-- Connectivity|| <!-- fully connected networks, https://docs.nvidia.com/deeplearning/performance/dl-performance-fully-connected/index.html -->
-|0x8|03/09|Latent Space|Models|
+|0x7|03/02|[Neural](60_neural.qmd)|Weights|
+|0x8|03/09|Error|Plotly| <!-- incl. back propagation --> <!-- Connectivity|| <!-- fully connected networks, https://docs.nvidia.com/deeplearning/performance/dl-performance-fully-connected/index.html Latent Space|Models| -->
 |0x9|03/16|Tensors|Tensorflow|
 |0bX|03/23|`None`|`None`|
 |0xA|03/30|Text Rep.|Tokens|
