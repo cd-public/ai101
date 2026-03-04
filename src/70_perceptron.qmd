@@ -609,9 +609,51 @@ graph PerceptronWeights {
 
 ## Predate Computers!
 
-## Use *Linear Algebra*
+- Earliest known/recognizable modern form in 1943
+  	- During the last World War.
+	- Lots of research at that time.
+- Computers at that time referred to humans that performed calculations.
+
+
+## Quiz
+
+- Is 1943
+  	- Before or US entry to WWII
+	- Before or after the inauguration of Truman
+	- Before or after the first demonstration of electronic color TV
+	- Before or after the founding of Republi of Egypt
+
+## First Simulation
+
+- First simulated on something recognizable as a computer, an IMB 704, in 1957
+  - Room-sized "digitial mainframe" computer.
+  - First computer to use decimal values (e.g. not just round numbers).
+  - Vacuum tubes, not semiconductors.
+
+
+## Quiz
+
+- Is 1957
+  	- Before or after the *Brown v. Board* decision
+	- Before or after the passage of the Civil Rights Act
+	- Before or after the election of Kennedy
+	- Before or after the release of Elvis Presley's first single
+	  	- (Heartbreak Hotel)
+
+
+## Uses *Linear Algebra*
+
+- At some point (I'm not sure when) someone noticed modelling perceptrons using "linear algebra" rather than neurons was:
+  	- Logically equivalent
+	- Easier to write down.
+- I have followed this convention by specifying edge weights as ordered collections of values.
+  	- This can seem understandably confusing.
 
 ## Now on GPUs!
+
+- GPUs, graphics processing units, now often called AI chips, are incidentally very good at linear algebra.
+- They are also very good at interpreting images as data.
+- It should be at least a little but unsurprising that GPUs and neural networks gained popularity around the same time.
 
 # Applications
 
@@ -620,12 +662,15 @@ graph PerceptronWeights {
 - 70,000 handwritten digits.
 - Instead of a 3x3 grid, it is a **28x28 grid** (784 sensory neurons).
 - A single layer of neurons can achieve ~90% accuracy!
+- Common first project for in-major AI courses.
+  	- A bit heavyweight for us, hence dice.
 
 ## ImageNet
 
 - Millions of high-res images.
 - Hundreds of categories (Dog, Boat, Bird).
 - Uses the same core principles: **Weights, Sums, and Thresholds**.
+	- That's right, the big AI boom was basically just perceptrons!
 
 # Takeaways
 

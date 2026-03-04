@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Multi-class – AI 101</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./70_perceptron.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-b86297dc19107d1c9b1952b0f8e15fd8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./71_multi.html">Multi-class</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00_turing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ada &amp; Alan</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Turing’s Test</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11_colab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Colab</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20_supervise.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">(Un)supervision</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21_key.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dichotomous Key</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./30_regress.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Regression</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./31_nd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="math inline">\(n\)</span>-D</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./40_class.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Classification</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./41_treetree.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tree Tree</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./50_graph.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Graphs</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./51_sudoku.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sudoku</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6__guest.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Guest</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6_1_doc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Thinking Game</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./60_neural.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Neural Networks</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./61_weights.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Weights</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./70_perceptron.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Perceptron</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./71_multi.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Multi-class</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#connections" id="toc-connections" class="nav-link active" data-scroll-target="#connections">Connections</a></li>
+  <li><a href="#definitions" id="toc-definitions" class="nav-link" data-scroll-target="#definitions">Definitions</a>
+  <ul class="collapse">
+  <li><a href="#anatomy-of-a-definition" id="toc-anatomy-of-a-definition" class="nav-link" data-scroll-target="#anatomy-of-a-definition">Anatomy of a definition</a></li>
+  <li><a href="#anatomy-of-a-call" id="toc-anatomy-of-a-call" class="nav-link" data-scroll-target="#anatomy-of-a-call">Anatomy of a call</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
+  </ul></li>
+  <li><a href="#our-goal" id="toc-our-goal" class="nav-link" data-scroll-target="#our-goal">Our Goal</a></li>
+  <li><a href="#output-type" id="toc-output-type" class="nav-link" data-scroll-target="#output-type">Output Type</a></li>
+  <li><a href="#single-classification" id="toc-single-classification" class="nav-link" data-scroll-target="#single-classification">Single classification</a>
+  <ul class="collapse">
+  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1">Example</a></li>
+  </ul></li>
+  <li><a href="#your-task" id="toc-your-task" class="nav-link" data-scroll-target="#your-task">Your Task</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Multi-class</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i></button></div></div>
+<p class="subtitle lead">AI 101</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="connections" class="level2">
+<h2 class="anchored" data-anchor-id="connections">Connections</h2>
+<p>In our lecture, we introduced the <em>perceptron</em>, a <strong>binary</strong> classifier. It was able to classify inputs into two groups. Our example was dice, which it classified as odd or even.</p>
+<p>This is not as interesting as it could be. We would like to evolve beyond the mere decision problem:</p>
+<blockquote class="blockquote">
+<p><a href="https://en.wikipedia.org/wiki/Decision_problem">In computability theory and computational complexity theory, a decision problem is a computational problem that can be posed as a yes–no question on a set of input values. An example of a decision problem is deciding whether a given natural number is prime. Another example is the problem, “given two numbers x and y, does x evenly divide y?”</a></p>
+</blockquote>
+<ul>
+<li>A decision problem is a problem where the answer is yes or no.</li>
+</ul>
+<p>Instead, we would like to achieve more general classification (beyond <strong>binary</strong>).</p>
+<blockquote class="blockquote">
+<p><a href="https://en.wikipedia.org/wiki/Classification">Classification is the activity of assigning objects to some pre-existing classes or categories. This is distinct from the task of establishing the classes themselves (for example through cluster analysis). Examples include diagnostic tests, identifying spam emails and deciding whether to give someone a driving license.</a></p>
+</blockquote>
+<p>This is called a <em>multi-class perceptron</em> is a viable modern neural network architecture, though certainly no longer state-of-the-art.</p>
+</section>
+<section id="definitions" class="level2">
+<h2 class="anchored" data-anchor-id="definitions">Definitions</h2>
+<ul>
+<li>Today, we will work with <em>code cells</em> of Colab to create a multi-class perceptron than can correctly classify dice when run.
+<ul>
+<li>It will be similar to the decision tree, but not rely on Gemini.</li>
+<li>You may use Gemini to create code.</li>
+</ul></li>
+<li>To do so, we will introduce functions.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://www.geeksforgeeks.org/maths/what-is-a-function/">A function is a special relation or method connecting each member of some collection A to a unique member of some collection B via a defined relation.</a></p>
+</div>
+</div>
+<ul>
+<li>In code cells, we can both <em>define</em> and <em>call</em> functions.
+<ul>
+<li>We <em>define</em> functions with the <code>def</code> keyword. This is how we determine what incoming values relates to which outgoing value</li>
+<li>We <em>call</em> functions using the name of the function. This is how we can using some incoming value to generate an outgoing value.</li>
+</ul></li>
+<li>Many mathematical operations are functions. For example, add takes a pair of numbers and returns a number:</li>
+</ul>
+<section id="anatomy-of-a-definition" class="level3">
+<h3 class="anchored" data-anchor-id="anatomy-of-a-definition">Anatomy of a definition</h3>
+<div id="eb51539d" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> f(x,y):</span>
+<span id="cb1-2"><a href="#cb1-2"></a>    <span class="cf">return</span> x <span class="op">+</span> y</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol type="1">
+<li>First, the <code>def</code> keyword allows us to define a function. We follow <code>def</code> with a space.</li>
+<li>Next, we provide the name of our function. This name is like a variable name in mathematics, and can be whatever we want. I use <code>f</code> but could just as easily call the function <code>add</code> or <code>sum</code> or even something that doesn’t make sense, like <code>definitely_not_add</code>.</li>
+<li>Immediately after the name, with no space, we provide a collection of variable names. This collection is enclose in parentheses <code>()</code> (not <code>[]</code> like we sometimes use) and again, the names are not meaningful, but the number determines how many incoming values our function can handle and gives them names.</li>
+<li>Then, we end the first line with a colon <code>:</code>, go to a new line, and indent (usually with 4 spaces - Colab will handle this automatically).</li>
+<li>Within the function - that is, where indented, we can use the special <code>return</code> keyword. Whatever the function “returns” is the value that someone using the function will see after providing some input values.</li>
+<li>After <code>return</code>, we place a single space and then can some arithmetic expression, like <code>x + y</code>. In this case, the <code>x</code> and <code>y</code> are the same <code>x</code> and <code>y</code> referred to in the <code>def</code> line.</li>
+</ol>
+</section>
+<section id="anatomy-of-a-call" class="level3">
+<h3 class="anchored" data-anchor-id="anatomy-of-a-call">Anatomy of a call</h3>
+<p>We can call a function as follows, and the result will show up below wherever we call it from a code cell. Look for the <code>13</code> below:</p>
+<div id="61691680" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>f(<span class="dv">6</span>,<span class="dv">7</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>13</code></pre>
+</div>
+</div>
+<p>Calling is not so complicated as defining, we simply take the function name and postpend a collection of values (again, with parentheses <code>()</code> and separated by commas <code>,</code>).</p>
+</section>
+<section id="example" class="level3">
+<h3 class="anchored" data-anchor-id="example">Example</h3>
+<ul>
+<li>Here is a much more chaotic example.</li>
+</ul>
+<div id="afb991e2" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb4-3"><a href="#cb4-3"></a></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="kw">def</span> see(d):</span>
+<span id="cb4-5"><a href="#cb4-5"></a>  plt.imshow(np.array(d).reshape(<span class="dv">3</span>,<span class="dv">3</span>), cmap<span class="op">=</span><span class="st">"binary"</span>)</span>
+<span id="cb4-6"><a href="#cb4-6"></a>  plt.axis(<span class="st">'off'</span>)</span>
+<span id="cb4-7"><a href="#cb4-7"></a>  plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol start="0" type="1">
+<li>You have already seen import, so we don’t worry about that for now, but we will be making a plot here.</li>
+<li>Now, we take a single input named <code>d</code> which will refer to dice.</li>
+<li>In the next line, we will use a series of complex operations that I borrowed from Gemini to create a graph displaying the dice as a 3-by-3 grid. The <code>cmap="binary"</code> specifier will cause it to show up in black-and-white.</li>
+<li>In the next line, the axes of the visualization are turned off, which will make the result look more than an image than a chart.</li>
+<li>In the final line, we display the visualization.</li>
+<li>There is no return!</li>
+</ol>
+<p>From here, perhaps we have some dice value, like a three.</p>
+<div id="2f087263" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>three <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Now we can <code>see</code> the <code>three</code>. Again, we expect the result of the function (now an image) to show up below the code cell.</p>
+<div id="7c5a8941" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>see(three)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="71_multi_files/figure-html/cell-6-output-1.png" width="389" height="389" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Not the names I give using <code>def</code> or “single equals assignment” don’t have to make sense.</p>
+<div id="de854c42" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>six <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>That is called six, but is more properly… zero?</p>
+<div id="4cbf8d93" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>see(six)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="71_multi_files/figure-html/cell-8-output-1.png" width="389" height="389" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Whoops! Maybe <code>six</code> should be something else?</p>
+<div id="68e97502" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>six <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li>There are, at least, 6 <code>1</code>s there.</li>
+</ul>
+<div id="7b45be6e" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>see(six)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="71_multi_files/figure-html/cell-10-output-1.png" width="389" height="389" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>This is important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When I set <code>six</code> equal to a different collection of zeros and ones, this overwrites the earlier value. Be careful how you name things and how you update them! I can <code>see(six)</code> in two different places, and see two different outputs!</p>
+</div>
+</div>
+<p>Try coping my <em>definition</em> of <code>see</code> into Colab and seeing (haha!) if you can get it to work. - Play around a bit! - Remove a few lines, or change the order. - Maybe <code>print</code> something, like <code>d</code> - Maybe <code>return</code> something, like <code>7</code> or <code>hello</code>.</p>
+</section>
+</section>
+<section id="our-goal" class="level2">
+<h2 class="anchored" data-anchor-id="our-goal">Our Goal</h2>
+<ul>
+<li>Today, we would like to create a function, I’ll call mine <code>classify</code>, that can take the following dice:</li>
+</ul>
+<div id="5c7d9f7a" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>one <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>]</span>
+<span id="cb11-2"><a href="#cb11-2"></a>two <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>]</span>
+<span id="cb11-3"><a href="#cb11-3"></a>thr <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>]</span>
+<span id="cb11-4"><a href="#cb11-4"></a>fou <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>]</span>
+<span id="cb11-5"><a href="#cb11-5"></a>fiv <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>]</span>
+<span id="cb11-6"><a href="#cb11-6"></a>six <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li>And simulate a perceptron that correctly classifies each.</li>
+<li>First, here is something that is the incorrect kind of correct:</li>
+</ul>
+<div id="7b0575f2" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw">def</span> classify(d):</span>
+<span id="cb12-2"><a href="#cb12-2"></a>    <span class="cf">return</span> <span class="bu">sum</span>(d)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li>This “works”:</li>
+</ul>
+<div id="b156c77c" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>classify(thr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<pre><code>3</code></pre>
+</div>
+</div>
+<ul>
+<li>But is not a perceptron.</li>
+<li>It “cheats” by using a built-in Python <code>sum</code>.</li>
+<li>Neurons can’t just do that!</li>
+</ul>
+</section>
+<section id="output-type" class="level2">
+<h2 class="anchored" data-anchor-id="output-type">Output Type</h2>
+<ul>
+<li>Really, what a perceptron outputs is most properly a feature vector.
+<ul>
+<li>Feature: Something that is true or false.</li>
+<li>Vector: Ordered collection of something.</li>
+</ul></li>
+<li>So we would not say that we want to get <code>3</code> back from <code>classify</code>, but <code>[0,0,1,0,0,0]</code>.
+<ul>
+<li>That is, <code>thr</code> does not have the feature of being the first two or last three values.</li>
+<li>Rather, it is a member of the one particular “class” out of 6.</li>
+<li>One neuron can say “yes” (it can activate) but it cannot say “that’s a three”.</li>
+</ul></li>
+<li>All that remains now is to generate a series of weights (and possibly biases) that correctly <em>classify</em> <code>thr</code> - but also the other five values.</li>
+</ul>
+</section>
+<section id="single-classification" class="level2">
+<h2 class="anchored" data-anchor-id="single-classification">Single classification</h2>
+<ul>
+<li>It is presumably a simple enough matter to guess and check some edge weights that could result, but <em>code cells</em> can help us a lot.</li>
+<li>We can specify a <em>vector</em> of weights and multiply it by the inputs - which also, by the way, happen to be vectors (they are ordered collections of values after all).</li>
+<li>To do so, we convert the simple, easy bracket <code>[]</code> enclosed and comma <code>,</code> separated collections to a <em>NumPy array</em>.
+<ul>
+<li>NumPy stands for <em>numerical Python</em>. Don’t worry about it.</li>
+</ul></li>
+<li>And then we can simply multiply them.</li>
+</ul>
+<section id="example-1" class="level3">
+<h3 class="anchored" data-anchor-id="example-1">Example</h3>
+<ul>
+<li>In class, we found it was easy enough to classify one.</li>
+<li>Briefly, we looked for a center dot with a positive weight, and gave everything else a negative weight.</li>
+<li>I’ll call this the <code>is_one_vector</code> - a vector that determines if something “is one”.</li>
+</ul>
+<div id="9bd91526" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>is_one_vector <span class="op">=</span> [<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li>Then, I convert both <code>one</code> and the <code>is_one_vector</code> to be fancy, machine-learning-and-AI-ready “NumPy arrays using <code>np.array()</code></li>
+</ul>
+<div id="6b6218c6" class="cell" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>one <span class="op">=</span> np.array(one)</span>
+<span id="cb16-2"><a href="#cb16-2"></a>is_one_vector <span class="op">=</span> np.array(is_one_vector)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li>Then I can multiply them - and see the result!</li>
+</ul>
+<div id="43554767" class="cell" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>one <span class="op">*</span> is_one_vector</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<pre><code>array([0, 0, 0, 0, 1, 0, 0, 0, 0])</code></pre>
+</div>
+</div>
+<ul>
+<li>I can check <em>other</em> values.</li>
+</ul>
+<div id="23942743" class="cell" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>np.array(thr) <span class="op">*</span> np.array(is_one_vector)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<pre><code>array([ 0,  0, -1,  0,  1,  0, -1,  0,  0])</code></pre>
+</div>
+</div>
+<ul>
+<li>Can you tell what is happening?</li>
+</ul>
+<blockquote class="blockquote">
+<p>NumPy operations are usually done on pairs of arrays on an element-by-element basis.</p>
+</blockquote>
+<ul>
+<li><p>The initial element of one vector is multipled by the initial element of the other vector, then the next by the next, so on along the entire vector.</p></li>
+<li><p>It is then a simple matter to:</p></li>
+</ul>
+<ol type="1">
+<li>Sum</li>
+<li>Add a bias, or not (I didn’t)</li>
+<li>Apply a piecewise or indicator function to get a <code>1</code> or <code>0</code> - I’ll just show you how to do this.</li>
+</ol>
+<ul>
+<li>The purpose of this class is not to learn how to write these things, so here is an example that I provide:</li>
+</ul>
+<div id="607032b8" class="cell" data-execution_count="17">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="kw">def</span> one_classifier(d):</span>
+<span id="cb21-2"><a href="#cb21-2"></a>    is_one_vector <span class="op">=</span> np.array([<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>])</span>
+<span id="cb21-3"><a href="#cb21-3"></a>    <span class="cf">return</span> <span class="bu">sum</span>(np.array(d) <span class="op">*</span> is_one_vector) <span class="op">&gt;=</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li>This:
+<ul>
+<li>Takes some dice, <code>d</code></li>
+<li>Has some vector, <code>is_one_vector</code>.</li>
+<li>Makes both into NumPy arrays.</li>
+<li>Multiplies them.</li>
+<li>Sums them.</li>
+<li>Compares the result to one, to see if it is greater-than-or-equal to.</li>
+</ul></li>
+<li>We note that this is <em>identical</em> to the formulation of neurons covered in class.</li>
+</ul>
+</section>
+</section>
+<section id="your-task" class="level2">
+<h2 class="anchored" data-anchor-id="your-task">Your Task</h2>
+<ul>
+<li>Write classifiers for two through six.</li>
+<li>Write a multi-classifier that returns a <em>feature vector</em> by combining these classifiers into a vector which is <code>[]</code> enclosed and <code>,</code> separated.</li>
+<li>Test your multi-classifer on the all the examples provided.</li>
+<li>Test your multi-classifier on some nonsense data, like vectors of incorrect length, containing other values, contains words, and so on, and make some effort to understand the errors.</li>
+</ul>
+
+
+<!-- -->
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./70_perceptron.html" class="pagination-link" aria-label="Perceptron">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Perceptron</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a href="#cb22-1"></a><span class="co">---</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a><span class="an">title:</span><span class="co"> Multi-class </span></span>
+<span id="cb22-3"><a href="#cb22-3"></a><span class="an">format:</span><span class="co"> html</span></span>
+<span id="cb22-4"><a href="#cb22-4"></a><span class="co">---</span></span>
+<span id="cb22-5"><a href="#cb22-5"></a></span>
+<span id="cb22-6"><a href="#cb22-6"></a><span class="fu">## Connections</span></span>
+<span id="cb22-7"><a href="#cb22-7"></a></span>
+<span id="cb22-8"><a href="#cb22-8"></a>In our lecture, we introduced the *perceptron*, a **binary** classifier. It was able to classify inputs into two groups. Our example was dice, which it classified as odd or even.</span>
+<span id="cb22-9"><a href="#cb22-9"></a></span>
+<span id="cb22-10"><a href="#cb22-10"></a>This is not as interesting as it could be. We would like to evolve beyond the mere decision problem:</span>
+<span id="cb22-11"><a href="#cb22-11"></a></span>
+<span id="cb22-12"><a href="#cb22-12"></a><span class="at">&gt; </span><span class="co">[</span><span class="ot">In computability theory and computational complexity theory, a decision problem is a computational problem that can be posed as a yes–no question on a set of input values. An example of a decision problem is deciding whether a given natural number is prime. Another example is the problem, "given two numbers x and y, does x evenly divide y?"</span><span class="co">](https://en.wikipedia.org/wiki/Decision_problem)</span></span>
+<span id="cb22-13"><a href="#cb22-13"></a></span>
+<span id="cb22-14"><a href="#cb22-14"></a><span class="ss">- </span>A decision problem is a problem where the answer is yes or no.</span>
+<span id="cb22-15"><a href="#cb22-15"></a></span>
+<span id="cb22-16"><a href="#cb22-16"></a>Instead, we would like to achieve more general classification (beyond **binary**).</span>
+<span id="cb22-17"><a href="#cb22-17"></a></span>
+<span id="cb22-18"><a href="#cb22-18"></a><span class="at">&gt; </span><span class="co">[</span><span class="ot">Classification is the activity of assigning objects to some pre-existing classes or categories. This is distinct from the task of establishing the classes themselves (for example through cluster analysis). Examples include diagnostic tests, identifying spam emails and deciding whether to give someone a driving license.</span><span class="co">](https://en.wikipedia.org/wiki/Classification)</span></span>
+<span id="cb22-19"><a href="#cb22-19"></a></span>
+<span id="cb22-20"><a href="#cb22-20"></a>This is called a *multi-class perceptron* is a viable modern neural network architecture, though certainly no longer state-of-the-art.</span>
+<span id="cb22-21"><a href="#cb22-21"></a></span>
+<span id="cb22-22"><a href="#cb22-22"></a></span>
+<span id="cb22-23"><a href="#cb22-23"></a><span class="fu">## Definitions</span></span>
+<span id="cb22-24"><a href="#cb22-24"></a></span>
+<span id="cb22-25"><a href="#cb22-25"></a><span class="ss">- </span>Today, we will work with *code cells* of Colab to create a multi-class perceptron than can correctly classify dice when run.</span>
+<span id="cb22-26"><a href="#cb22-26"></a><span class="ss">    - </span>It will be similar to the decision tree, but not rely on Gemini.</span>
+<span id="cb22-27"><a href="#cb22-27"></a><span class="ss">    - </span>You may use Gemini to create code.</span>
+<span id="cb22-28"><a href="#cb22-28"></a><span class="ss">- </span>To do so, we will introduce functions.</span>
+<span id="cb22-29"><a href="#cb22-29"></a></span>
+<span id="cb22-30"><a href="#cb22-30"></a>::: {.callout-note}</span>
+<span id="cb22-31"><a href="#cb22-31"></a></span>
+<span id="cb22-32"><a href="#cb22-32"></a><span class="co">[</span><span class="ot">A function is a special relation or method connecting each member of some collection A to a unique member of some collection B via a defined relation.</span><span class="co">](https://www.geeksforgeeks.org/maths/what-is-a-function/)</span></span>
+<span id="cb22-33"><a href="#cb22-33"></a></span>
+<span id="cb22-34"><a href="#cb22-34"></a>:::</span>
+<span id="cb22-35"><a href="#cb22-35"></a></span>
+<span id="cb22-36"><a href="#cb22-36"></a><span class="ss">- </span>In code cells, we can both *define* and *call* functions.</span>
+<span id="cb22-37"><a href="#cb22-37"></a><span class="ss">    - </span>We *define* functions with the <span class="in">`def`</span> keyword. This is how we determine what incoming values relates to which outgoing value</span>
+<span id="cb22-38"><a href="#cb22-38"></a><span class="ss">    - </span>We *call* functions using the name of the function. This is how we can using some incoming value to generate an outgoing value.</span>
+<span id="cb22-39"><a href="#cb22-39"></a><span class="ss">- </span>Many mathematical operations are functions. For example, add takes a pair of numbers and returns a number:</span>
+<span id="cb22-40"><a href="#cb22-40"></a></span>
+<span id="cb22-41"><a href="#cb22-41"></a><span class="fu">### Anatomy of a definition</span></span>
+<span id="cb22-42"><a href="#cb22-42"></a></span>
+<span id="cb22-45"><a href="#cb22-45"></a><span class="in">```{python}</span></span>
+<span id="cb22-46"><a href="#cb22-46"></a><span class="kw">def</span> f(x,y):</span>
+<span id="cb22-47"><a href="#cb22-47"></a>    <span class="cf">return</span> x <span class="op">+</span> y</span>
+<span id="cb22-48"><a href="#cb22-48"></a><span class="in">```</span></span>
+<span id="cb22-49"><a href="#cb22-49"></a></span>
+<span id="cb22-50"><a href="#cb22-50"></a><span class="ss">1. </span>First, the <span class="in">`def`</span> keyword allows us to define a function. We follow <span class="in">`def`</span> with a space.</span>
+<span id="cb22-51"><a href="#cb22-51"></a><span class="ss">2. </span>Next, we provide the name of our function. This name is like a variable name in mathematics, and can be whatever we want. I use <span class="in">`f`</span> but could just as easily call the function <span class="in">`add`</span> or <span class="in">`sum`</span> or even something that doesn't make sense, like <span class="in">`definitely_not_add`</span>.</span>
+<span id="cb22-52"><a href="#cb22-52"></a><span class="ss">3. </span>Immediately after the name, with no space, we provide a collection of variable names. This collection is enclose in parentheses <span class="in">`()`</span> (not <span class="in">`[]`</span> like we sometimes use) and again, the names are not meaningful, but the number determines how many incoming values our function can handle and gives them names.</span>
+<span id="cb22-53"><a href="#cb22-53"></a><span class="ss">4. </span>Then, we end the first line with a colon <span class="in">`:`</span>, go to a new line, and indent (usually with 4 spaces - Colab will handle this automatically).</span>
+<span id="cb22-54"><a href="#cb22-54"></a><span class="ss">5. </span>Within the function - that is, where indented, we can use the special <span class="in">`return`</span> keyword. Whatever the function "returns" is the value that someone using the function will see after providing some input values.</span>
+<span id="cb22-55"><a href="#cb22-55"></a><span class="ss">6. </span>After <span class="in">`return`</span>, we place a single space and then can some arithmetic expression, like <span class="in">`x + y`</span>. In this case, the <span class="in">`x`</span> and <span class="in">`y`</span> are the same <span class="in">`x`</span> and <span class="in">`y`</span> referred to in the <span class="in">`def`</span> line.</span>
+<span id="cb22-56"><a href="#cb22-56"></a></span>
+<span id="cb22-57"><a href="#cb22-57"></a><span class="fu">### Anatomy of a call</span></span>
+<span id="cb22-58"><a href="#cb22-58"></a></span>
+<span id="cb22-59"><a href="#cb22-59"></a>We can call a function as follows, and the result will show up below wherever we call it from a code cell. Look for the <span class="in">`13`</span> below:</span>
+<span id="cb22-60"><a href="#cb22-60"></a></span>
+<span id="cb22-63"><a href="#cb22-63"></a><span class="in">```{python}</span></span>
+<span id="cb22-64"><a href="#cb22-64"></a>f(<span class="dv">6</span>,<span class="dv">7</span>)</span>
+<span id="cb22-65"><a href="#cb22-65"></a><span class="in">```</span></span>
+<span id="cb22-66"><a href="#cb22-66"></a></span>
+<span id="cb22-67"><a href="#cb22-67"></a>Calling is not so complicated as defining, we simply take the function name and postpend a collection of values (again, with parentheses <span class="in">`()`</span> and separated by commas <span class="in">`,`</span>).</span>
+<span id="cb22-68"><a href="#cb22-68"></a></span>
+<span id="cb22-69"><a href="#cb22-69"></a><span class="fu">### Example</span></span>
+<span id="cb22-70"><a href="#cb22-70"></a></span>
+<span id="cb22-71"><a href="#cb22-71"></a><span class="ss">- </span>Here is a much more chaotic example.</span>
+<span id="cb22-72"><a href="#cb22-72"></a></span>
+<span id="cb22-75"><a href="#cb22-75"></a><span class="in">```{python}</span></span>
+<span id="cb22-76"><a href="#cb22-76"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb22-77"><a href="#cb22-77"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb22-78"><a href="#cb22-78"></a></span>
+<span id="cb22-79"><a href="#cb22-79"></a><span class="kw">def</span> see(d):</span>
+<span id="cb22-80"><a href="#cb22-80"></a>  plt.imshow(np.array(d).reshape(<span class="dv">3</span>,<span class="dv">3</span>), cmap<span class="op">=</span><span class="st">"binary"</span>)</span>
+<span id="cb22-81"><a href="#cb22-81"></a>  plt.axis(<span class="st">'off'</span>)</span>
+<span id="cb22-82"><a href="#cb22-82"></a>  plt.show()</span>
+<span id="cb22-83"><a href="#cb22-83"></a><span class="in">```</span></span>
+<span id="cb22-84"><a href="#cb22-84"></a></span>
+<span id="cb22-85"><a href="#cb22-85"></a><span class="ss">0. </span>You have already seen import, so we don't worry about that for now, but we will be making a plot here.</span>
+<span id="cb22-86"><a href="#cb22-86"></a><span class="ss">1. </span>Now, we take a single input named <span class="in">`d`</span> which will refer to dice.</span>
+<span id="cb22-87"><a href="#cb22-87"></a><span class="ss">2. </span>In the next line, we will use a series of complex operations that I borrowed from Gemini to create a graph displaying the dice as a 3-by-3 grid. The <span class="in">`cmap="binary"`</span> specifier will cause it to show up in black-and-white.</span>
+<span id="cb22-88"><a href="#cb22-88"></a><span class="ss">3. </span>In the next line, the axes of the visualization are turned off, which will make the result look more than an image than a chart.</span>
+<span id="cb22-89"><a href="#cb22-89"></a><span class="ss">4. </span>In the final line, we display the visualization.</span>
+<span id="cb22-90"><a href="#cb22-90"></a><span class="ss">5. </span>There is no return!</span>
+<span id="cb22-91"><a href="#cb22-91"></a></span>
+<span id="cb22-92"><a href="#cb22-92"></a>From here, perhaps we have some dice value, like a three.</span>
+<span id="cb22-93"><a href="#cb22-93"></a></span>
+<span id="cb22-96"><a href="#cb22-96"></a><span class="in">```{python}</span></span>
+<span id="cb22-97"><a href="#cb22-97"></a>three <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,]</span>
+<span id="cb22-98"><a href="#cb22-98"></a><span class="in">```</span></span>
+<span id="cb22-99"><a href="#cb22-99"></a></span>
+<span id="cb22-100"><a href="#cb22-100"></a>Now we can <span class="in">`see`</span> the <span class="in">`three`</span>. Again, we expect the result of the function (now an image) to show up below the code cell.</span>
+<span id="cb22-101"><a href="#cb22-101"></a></span>
+<span id="cb22-104"><a href="#cb22-104"></a><span class="in">```{python}</span></span>
+<span id="cb22-105"><a href="#cb22-105"></a>see(three)</span>
+<span id="cb22-106"><a href="#cb22-106"></a><span class="in">```</span></span>
+<span id="cb22-107"><a href="#cb22-107"></a></span>
+<span id="cb22-108"><a href="#cb22-108"></a>Not the names I give using <span class="in">`def`</span> or "single equals assignment" don't have to make sense.</span>
+<span id="cb22-109"><a href="#cb22-109"></a></span>
+<span id="cb22-112"><a href="#cb22-112"></a><span class="in">```{python}</span></span>
+<span id="cb22-113"><a href="#cb22-113"></a>six <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>]</span>
+<span id="cb22-114"><a href="#cb22-114"></a><span class="in">```</span></span>
+<span id="cb22-115"><a href="#cb22-115"></a></span>
+<span id="cb22-116"><a href="#cb22-116"></a>That is called six, but is more properly... zero?</span>
+<span id="cb22-117"><a href="#cb22-117"></a></span>
+<span id="cb22-120"><a href="#cb22-120"></a><span class="in">```{python}</span></span>
+<span id="cb22-121"><a href="#cb22-121"></a>see(six)</span>
+<span id="cb22-122"><a href="#cb22-122"></a><span class="in">```</span></span>
+<span id="cb22-123"><a href="#cb22-123"></a></span>
+<span id="cb22-124"><a href="#cb22-124"></a>Whoops! Maybe <span class="in">`six`</span> should be something else?</span>
+<span id="cb22-125"><a href="#cb22-125"></a></span>
+<span id="cb22-128"><a href="#cb22-128"></a><span class="in">```{python}</span></span>
+<span id="cb22-129"><a href="#cb22-129"></a>six <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>]</span>
+<span id="cb22-130"><a href="#cb22-130"></a><span class="in">```</span></span>
+<span id="cb22-131"><a href="#cb22-131"></a></span>
+<span id="cb22-132"><a href="#cb22-132"></a><span class="ss">- </span>There are, at least, 6 <span class="in">`1`</span>s there.</span>
+<span id="cb22-133"><a href="#cb22-133"></a></span>
+<span id="cb22-136"><a href="#cb22-136"></a><span class="in">```{python}</span></span>
+<span id="cb22-137"><a href="#cb22-137"></a>see(six)</span>
+<span id="cb22-138"><a href="#cb22-138"></a><span class="in">```</span></span>
+<span id="cb22-139"><a href="#cb22-139"></a></span>
+<span id="cb22-140"><a href="#cb22-140"></a>::: {.callout-tip}</span>
+<span id="cb22-141"><a href="#cb22-141"></a><span class="fu">## This is important</span></span>
+<span id="cb22-142"><a href="#cb22-142"></a></span>
+<span id="cb22-143"><a href="#cb22-143"></a>When I set <span class="in">`six`</span> equal to a different collection of zeros and ones, this overwrites the earlier value. Be careful how you name things and how you update them! I can <span class="in">`see(six)`</span> in two different places, and see two different outputs!</span>
+<span id="cb22-144"><a href="#cb22-144"></a>:::</span>
+<span id="cb22-145"><a href="#cb22-145"></a></span>
+<span id="cb22-146"><a href="#cb22-146"></a>Try coping my *definition* of <span class="in">`see`</span> into Colab and seeing (haha!) if you can get it to work.</span>
+<span id="cb22-147"><a href="#cb22-147"></a><span class="ss">- </span>Play around a bit!</span>
+<span id="cb22-148"><a href="#cb22-148"></a><span class="ss">- </span>Remove a few lines, or change the order.</span>
+<span id="cb22-149"><a href="#cb22-149"></a><span class="ss">- </span>Maybe <span class="in">`print`</span> something, like <span class="in">`d`</span></span>
+<span id="cb22-150"><a href="#cb22-150"></a><span class="ss">- </span>Maybe <span class="in">`return`</span> something, like <span class="in">`7`</span> or <span class="in">`hello`</span>.</span>
+<span id="cb22-151"><a href="#cb22-151"></a></span>
+<span id="cb22-152"><a href="#cb22-152"></a><span class="fu">## Our Goal</span></span>
+<span id="cb22-153"><a href="#cb22-153"></a></span>
+<span id="cb22-154"><a href="#cb22-154"></a><span class="ss">- </span>Today, we would like to create a function, I'll call mine <span class="in">`classify`</span>, that can take the following dice:</span>
+<span id="cb22-155"><a href="#cb22-155"></a></span>
+<span id="cb22-158"><a href="#cb22-158"></a><span class="in">```{python}</span></span>
+<span id="cb22-159"><a href="#cb22-159"></a>one <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>]</span>
+<span id="cb22-160"><a href="#cb22-160"></a>two <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>]</span>
+<span id="cb22-161"><a href="#cb22-161"></a>thr <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>]</span>
+<span id="cb22-162"><a href="#cb22-162"></a>fou <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>]</span>
+<span id="cb22-163"><a href="#cb22-163"></a>fiv <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>]</span>
+<span id="cb22-164"><a href="#cb22-164"></a>six <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>]</span>
+<span id="cb22-165"><a href="#cb22-165"></a><span class="in">```</span></span>
+<span id="cb22-166"><a href="#cb22-166"></a></span>
+<span id="cb22-167"><a href="#cb22-167"></a><span class="ss">- </span>And simulate a perceptron that correctly classifies each.</span>
+<span id="cb22-168"><a href="#cb22-168"></a><span class="ss">- </span>First, here is something that is the incorrect kind of correct:</span>
+<span id="cb22-169"><a href="#cb22-169"></a></span>
+<span id="cb22-172"><a href="#cb22-172"></a><span class="in">```{python}</span></span>
+<span id="cb22-173"><a href="#cb22-173"></a><span class="kw">def</span> classify(d):</span>
+<span id="cb22-174"><a href="#cb22-174"></a>    <span class="cf">return</span> <span class="bu">sum</span>(d)</span>
+<span id="cb22-175"><a href="#cb22-175"></a><span class="in">```</span></span>
+<span id="cb22-176"><a href="#cb22-176"></a></span>
+<span id="cb22-177"><a href="#cb22-177"></a><span class="ss">- </span>This "works":</span>
+<span id="cb22-178"><a href="#cb22-178"></a></span>
+<span id="cb22-181"><a href="#cb22-181"></a><span class="in">```{python}</span></span>
+<span id="cb22-182"><a href="#cb22-182"></a>classify(thr)</span>
+<span id="cb22-183"><a href="#cb22-183"></a><span class="in">```</span></span>
+<span id="cb22-184"><a href="#cb22-184"></a></span>
+<span id="cb22-185"><a href="#cb22-185"></a><span class="ss">- </span>But is not a perceptron. </span>
+<span id="cb22-186"><a href="#cb22-186"></a><span class="ss">- </span>It "cheats" by using a built-in Python <span class="in">`sum`</span>.</span>
+<span id="cb22-187"><a href="#cb22-187"></a><span class="ss">- </span>Neurons can't just do that!</span>
+<span id="cb22-188"><a href="#cb22-188"></a></span>
+<span id="cb22-189"><a href="#cb22-189"></a><span class="fu">## Output Type</span></span>
+<span id="cb22-190"><a href="#cb22-190"></a></span>
+<span id="cb22-191"><a href="#cb22-191"></a><span class="ss">- </span>Really, what a perceptron outputs is most properly a feature vector.</span>
+<span id="cb22-192"><a href="#cb22-192"></a><span class="ss">    - </span>Feature: Something that is true or false.</span>
+<span id="cb22-193"><a href="#cb22-193"></a><span class="ss">    - </span>Vector: Ordered collection of something.</span>
+<span id="cb22-194"><a href="#cb22-194"></a><span class="ss">- </span>So we would not say that we want to get <span class="in">`3`</span> back from <span class="in">`classify`</span>, but <span class="in">`[0,0,1,0,0,0]`</span>.</span>
+<span id="cb22-195"><a href="#cb22-195"></a><span class="ss">    - </span>That is, <span class="in">`thr`</span> does not have the feature of being the first two or last three values.</span>
+<span id="cb22-196"><a href="#cb22-196"></a><span class="ss">    - </span>Rather, it is a member of the one particular "class" out of 6.</span>
+<span id="cb22-197"><a href="#cb22-197"></a><span class="ss">    - </span>One neuron can say "yes" (it can activate) but it cannot say "that's a three".</span>
+<span id="cb22-198"><a href="#cb22-198"></a><span class="ss">- </span>All that remains now is to generate a series of weights (and possibly biases) that correctly *classify* <span class="in">`thr`</span> - but also the other five values.</span>
+<span id="cb22-199"><a href="#cb22-199"></a></span>
+<span id="cb22-200"><a href="#cb22-200"></a><span class="fu">## Single classification</span></span>
+<span id="cb22-201"><a href="#cb22-201"></a></span>
+<span id="cb22-202"><a href="#cb22-202"></a><span class="ss">- </span>It is presumably a simple enough matter to guess and check some edge weights that could result, but *code cells* can help us a lot.</span>
+<span id="cb22-203"><a href="#cb22-203"></a><span class="ss">- </span>We can specify a *vector* of weights and multiply it by the inputs - which also, by the way, happen to be vectors (they are ordered collections of values after all).</span>
+<span id="cb22-204"><a href="#cb22-204"></a><span class="ss">- </span>To do so, we convert the simple, easy bracket <span class="in">`[]`</span> enclosed and comma <span class="in">`,`</span> separated collections to a *NumPy array*.</span>
+<span id="cb22-205"><a href="#cb22-205"></a><span class="ss">    - </span>NumPy stands for *numerical Python*. Don't worry about it.</span>
+<span id="cb22-206"><a href="#cb22-206"></a><span class="ss">- </span>And then we can simply multiply them.</span>
+<span id="cb22-207"><a href="#cb22-207"></a></span>
+<span id="cb22-208"><a href="#cb22-208"></a><span class="fu">### Example</span></span>
+<span id="cb22-209"><a href="#cb22-209"></a></span>
+<span id="cb22-210"><a href="#cb22-210"></a><span class="ss">- </span>In class, we found it was easy enough to classify one.</span>
+<span id="cb22-211"><a href="#cb22-211"></a><span class="ss">- </span>Briefly, we looked for a center dot with a positive weight, and gave everything else a negative weight.</span>
+<span id="cb22-212"><a href="#cb22-212"></a><span class="ss">- </span>I'll call this the <span class="in">`is_one_vector`</span> - a vector that determines if something "is one".</span>
+<span id="cb22-213"><a href="#cb22-213"></a></span>
+<span id="cb22-216"><a href="#cb22-216"></a><span class="in">```{python}</span></span>
+<span id="cb22-217"><a href="#cb22-217"></a>is_one_vector <span class="op">=</span> [<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb22-218"><a href="#cb22-218"></a><span class="in">```</span></span>
+<span id="cb22-219"><a href="#cb22-219"></a></span>
+<span id="cb22-220"><a href="#cb22-220"></a><span class="ss">- </span>Then, I convert both <span class="in">`one`</span> and the <span class="in">`is_one_vector`</span> to be fancy, machine-learning-and-AI-ready "NumPy arrays using <span class="in">`np.array()`</span></span>
+<span id="cb22-221"><a href="#cb22-221"></a></span>
+<span id="cb22-224"><a href="#cb22-224"></a><span class="in">```{python}</span></span>
+<span id="cb22-225"><a href="#cb22-225"></a>one <span class="op">=</span> np.array(one)</span>
+<span id="cb22-226"><a href="#cb22-226"></a>is_one_vector <span class="op">=</span> np.array(is_one_vector)</span>
+<span id="cb22-227"><a href="#cb22-227"></a><span class="in">```</span></span>
+<span id="cb22-228"><a href="#cb22-228"></a></span>
+<span id="cb22-229"><a href="#cb22-229"></a><span class="ss">- </span>Then I can multiply them - and see the result!</span>
+<span id="cb22-230"><a href="#cb22-230"></a></span>
+<span id="cb22-233"><a href="#cb22-233"></a><span class="in">```{python}</span></span>
+<span id="cb22-234"><a href="#cb22-234"></a>one <span class="op">*</span> is_one_vector</span>
+<span id="cb22-235"><a href="#cb22-235"></a><span class="in">```</span></span>
+<span id="cb22-236"><a href="#cb22-236"></a></span>
+<span id="cb22-237"><a href="#cb22-237"></a><span class="ss">- </span>I can check *other* values.</span>
+<span id="cb22-238"><a href="#cb22-238"></a></span>
+<span id="cb22-241"><a href="#cb22-241"></a><span class="in">```{python}</span></span>
+<span id="cb22-242"><a href="#cb22-242"></a>np.array(thr) <span class="op">*</span> np.array(is_one_vector)</span>
+<span id="cb22-243"><a href="#cb22-243"></a><span class="in">```</span></span>
+<span id="cb22-244"><a href="#cb22-244"></a></span>
+<span id="cb22-245"><a href="#cb22-245"></a><span class="ss">- </span>Can you tell what is happening?</span>
+<span id="cb22-246"><a href="#cb22-246"></a></span>
+<span id="cb22-247"><a href="#cb22-247"></a><span class="at">&gt; NumPy operations are usually done on pairs of arrays on an element-by-element basis. </span></span>
+<span id="cb22-248"><a href="#cb22-248"></a></span>
+<span id="cb22-249"><a href="#cb22-249"></a><span class="ss">- </span>The initial element of one vector is multipled by the initial element of the other vector, then the next by the next, so on along the entire vector.</span>
+<span id="cb22-250"><a href="#cb22-250"></a></span>
+<span id="cb22-251"><a href="#cb22-251"></a><span class="ss">- </span>It is then a simple matter to:</span>
+<span id="cb22-252"><a href="#cb22-252"></a></span>
+<span id="cb22-253"><a href="#cb22-253"></a><span class="ss">1. </span>Sum</span>
+<span id="cb22-254"><a href="#cb22-254"></a><span class="ss">2. </span>Add a bias, or not (I didn't)</span>
+<span id="cb22-255"><a href="#cb22-255"></a><span class="ss">3. </span>Apply a piecewise or indicator function to get a <span class="in">`1`</span> or <span class="in">`0`</span> - I'll just show you how to do this.</span>
+<span id="cb22-256"><a href="#cb22-256"></a>   </span>
+<span id="cb22-257"><a href="#cb22-257"></a><span class="ss">- </span>The purpose of this class is not to learn how to write these things, so here is an example that I provide:</span>
+<span id="cb22-258"><a href="#cb22-258"></a></span>
+<span id="cb22-261"><a href="#cb22-261"></a><span class="in">```{python}</span></span>
+<span id="cb22-262"><a href="#cb22-262"></a><span class="kw">def</span> one_classifier(d):</span>
+<span id="cb22-263"><a href="#cb22-263"></a>    is_one_vector <span class="op">=</span> np.array([<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>])</span>
+<span id="cb22-264"><a href="#cb22-264"></a>    <span class="cf">return</span> <span class="bu">sum</span>(np.array(d) <span class="op">*</span> is_one_vector) <span class="op">&gt;=</span> <span class="dv">1</span></span>
+<span id="cb22-265"><a href="#cb22-265"></a><span class="in">```</span></span>
+<span id="cb22-266"><a href="#cb22-266"></a></span>
+<span id="cb22-267"><a href="#cb22-267"></a><span class="ss">- </span>This:</span>
+<span id="cb22-268"><a href="#cb22-268"></a><span class="ss">    - </span>Takes some dice, <span class="in">`d`</span></span>
+<span id="cb22-269"><a href="#cb22-269"></a><span class="ss">    - </span>Has some vector, <span class="in">`is_one_vector`</span>.</span>
+<span id="cb22-270"><a href="#cb22-270"></a><span class="ss">    - </span>Makes both into NumPy arrays.</span>
+<span id="cb22-271"><a href="#cb22-271"></a><span class="ss">    - </span>Multiplies them.</span>
+<span id="cb22-272"><a href="#cb22-272"></a><span class="ss">    - </span>Sums them.</span>
+<span id="cb22-273"><a href="#cb22-273"></a><span class="ss">    - </span>Compares the result to one, to see if it is greater-than-or-equal to.</span>
+<span id="cb22-274"><a href="#cb22-274"></a><span class="ss">- </span>We note that this is *identical* to the formulation of neurons covered in class.</span>
+<span id="cb22-275"><a href="#cb22-275"></a></span>
+<span id="cb22-276"><a href="#cb22-276"></a><span class="fu">## Your Task</span></span>
+<span id="cb22-277"><a href="#cb22-277"></a></span>
+<span id="cb22-278"><a href="#cb22-278"></a><span class="ss">- </span>Write classifiers for two through six.</span>
+<span id="cb22-279"><a href="#cb22-279"></a><span class="ss">- </span>Write a multi-classifier that returns a *feature vector* by combining these classifiers into a vector which is <span class="in">`[]`</span> enclosed and <span class="in">`,`</span> separated.</span>
+<span id="cb22-280"><a href="#cb22-280"></a><span class="ss">- </span>Test your multi-classifer on the all the examples provided.</span>
+<span id="cb22-281"><a href="#cb22-281"></a><span class="ss">- </span>Test your multi-classifier on some nonsense data, like vectors of incorrect length, containing other values, contains words, and so on, and make some effort to understand the errors.</span>
+<span id="cb22-282"><a href="#cb22-282"></a></span>
+</code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

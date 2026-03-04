@@ -65,6 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./71_multi.html" rel="next">
 <link href="./61_weights.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -266,6 +267,12 @@ window.Quarto = {
  <span class="menu-text">Perceptron</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./71_multi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Multi-class</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -357,7 +364,10 @@ window.Quarto = {
   <li><a href="#history-of-the-perceptron" id="toc-history-of-the-perceptron" class="nav-link" data-scroll-target="#history-of-the-perceptron">History of the Perceptron</a>
   <ul class="collapse">
   <li><a href="#predate-computers" id="toc-predate-computers" class="nav-link" data-scroll-target="#predate-computers">Predate Computers!</a></li>
-  <li><a href="#use-linear-algebra" id="toc-use-linear-algebra" class="nav-link" data-scroll-target="#use-linear-algebra">Use <em>Linear Algebra</em></a></li>
+  <li><a href="#quiz" id="toc-quiz" class="nav-link" data-scroll-target="#quiz">Quiz</a></li>
+  <li><a href="#first-simulation" id="toc-first-simulation" class="nav-link" data-scroll-target="#first-simulation">First Simulation</a></li>
+  <li><a href="#quiz-1" id="toc-quiz-1" class="nav-link" data-scroll-target="#quiz-1">Quiz</a></li>
+  <li><a href="#uses-linear-algebra" id="toc-uses-linear-algebra" class="nav-link" data-scroll-target="#uses-linear-algebra">Uses <em>Linear Algebra</em></a></li>
   <li><a href="#now-on-gpus" id="toc-now-on-gpus" class="nav-link" data-scroll-target="#now-on-gpus">Now on GPUs!</a></li>
   </ul></li>
   <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications">Applications</a>
@@ -1407,12 +1417,74 @@ z = \sum_{i=1}^{n} w_i x_i + b
 <h1>History of the Perceptron</h1>
 <section id="predate-computers" class="level2">
 <h2 class="anchored" data-anchor-id="predate-computers">Predate Computers!</h2>
+<ul>
+<li>Earliest known/recognizable modern form in 1943
+<ul>
+<li>During the last World War.</li>
+<li>Lots of research at that time.</li>
+</ul></li>
+<li>Computers at that time referred to humans that performed calculations.</li>
+</ul>
 </section>
-<section id="use-linear-algebra" class="level2">
-<h2 class="anchored" data-anchor-id="use-linear-algebra">Use <em>Linear Algebra</em></h2>
+<section id="quiz" class="level2">
+<h2 class="anchored" data-anchor-id="quiz">Quiz</h2>
+<ul>
+<li>Is 1943
+<ul>
+<li>Before or US entry to WWII</li>
+<li>Before or after the inauguration of Truman</li>
+<li>Before or after the first demonstration of electronic color TV</li>
+<li>Before or after the founding of Republi of Egypt</li>
+</ul></li>
+</ul>
+</section>
+<section id="first-simulation" class="level2">
+<h2 class="anchored" data-anchor-id="first-simulation">First Simulation</h2>
+<ul>
+<li>First simulated on something recognizable as a computer, an IMB 704, in 1957
+<ul>
+<li>Room-sized “digitial mainframe” computer.</li>
+<li>First computer to use decimal values (e.g.&nbsp;not just round numbers).</li>
+<li>Vacuum tubes, not semiconductors.</li>
+</ul></li>
+</ul>
+</section>
+<section id="quiz-1" class="level2">
+<h2 class="anchored" data-anchor-id="quiz-1">Quiz</h2>
+<ul>
+<li>Is 1957
+<ul>
+<li>Before or after the <em>Brown v. Board</em> decision</li>
+<li>Before or after the passage of the Civil Rights Act</li>
+<li>Before or after the election of Kennedy</li>
+<li>Before or after the release of Elvis Presley’s first single
+<ul>
+<li>(Heartbreak Hotel)</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="uses-linear-algebra" class="level2">
+<h2 class="anchored" data-anchor-id="uses-linear-algebra">Uses <em>Linear Algebra</em></h2>
+<ul>
+<li>At some point (I’m not sure when) someone noticed modelling perceptrons using “linear algebra” rather than neurons was:
+<ul>
+<li>Logically equivalent</li>
+<li>Easier to write down.</li>
+</ul></li>
+<li>I have followed this convention by specifying edge weights as ordered collections of values.
+<ul>
+<li>This can seem understandably confusing.</li>
+</ul></li>
+</ul>
 </section>
 <section id="now-on-gpus" class="level2">
 <h2 class="anchored" data-anchor-id="now-on-gpus">Now on GPUs!</h2>
+<ul>
+<li>GPUs, graphics processing units, now often called AI chips, are incidentally very good at linear algebra.</li>
+<li>They are also very good at interpreting images as data.</li>
+<li>It should be at least a little but unsurprising that GPUs and neural networks gained popularity around the same time.</li>
+</ul>
 </section>
 </section>
 <section id="applications" class="level1">
@@ -1423,6 +1495,10 @@ z = \sum_{i=1}^{n} w_i x_i + b
 <li>70,000 handwritten digits.</li>
 <li>Instead of a 3x3 grid, it is a <strong>28x28 grid</strong> (784 sensory neurons).</li>
 <li>A single layer of neurons can achieve ~90% accuracy!</li>
+<li>Common first project for in-major AI courses.
+<ul>
+<li>A bit heavyweight for us, hence dice.</li>
+</ul></li>
 </ul>
 </section>
 <section id="imagenet" class="level2">
@@ -1430,7 +1506,10 @@ z = \sum_{i=1}^{n} w_i x_i + b
 <ul>
 <li>Millions of high-res images.</li>
 <li>Hundreds of categories (Dog, Boat, Bird).</li>
-<li>Uses the same core principles: <strong>Weights, Sums, and Thresholds</strong>.</li>
+<li>Uses the same core principles: <strong>Weights, Sums, and Thresholds</strong>.
+<ul>
+<li>That’s right, the big AI boom was basically just perceptrons!</li>
+</ul></li>
 </ul>
 </section>
 </section>
@@ -1907,6 +1986,9 @@ z = \sum_{i=1}^{n} w_i x_i + b
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./71_multi.html" class="pagination-link" aria-label="Multi-class">
+        <span class="nav-page-text">Multi-class</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">---</span></span>
@@ -2520,30 +2602,75 @@ z = \sum_{i=1}^{n} w_i x_i + b
 <span id="cb6-615"><a href="#cb6-615"></a></span>
 <span id="cb6-616"><a href="#cb6-616"></a><span class="fu">## Predate Computers!</span></span>
 <span id="cb6-617"><a href="#cb6-617"></a></span>
-<span id="cb6-618"><a href="#cb6-618"></a><span class="fu">## Use *Linear Algebra*</span></span>
-<span id="cb6-619"><a href="#cb6-619"></a></span>
-<span id="cb6-620"><a href="#cb6-620"></a><span class="fu">## Now on GPUs!</span></span>
-<span id="cb6-621"><a href="#cb6-621"></a></span>
-<span id="cb6-622"><a href="#cb6-622"></a><span class="fu"># Applications</span></span>
+<span id="cb6-618"><a href="#cb6-618"></a><span class="ss">- </span>Earliest known/recognizable modern form in 1943</span>
+<span id="cb6-619"><a href="#cb6-619"></a><span class="ss">    - </span>During the last World War.</span>
+<span id="cb6-620"><a href="#cb6-620"></a><span class="ss">    - </span>Lots of research at that time.</span>
+<span id="cb6-621"><a href="#cb6-621"></a><span class="ss">- </span>Computers at that time referred to humans that performed calculations.</span>
+<span id="cb6-622"><a href="#cb6-622"></a></span>
 <span id="cb6-623"><a href="#cb6-623"></a></span>
-<span id="cb6-624"><a href="#cb6-624"></a><span class="fu">## MNIST Dataset</span></span>
+<span id="cb6-624"><a href="#cb6-624"></a><span class="fu">## Quiz</span></span>
 <span id="cb6-625"><a href="#cb6-625"></a></span>
-<span id="cb6-626"><a href="#cb6-626"></a><span class="ss">- </span>70,000 handwritten digits.</span>
-<span id="cb6-627"><a href="#cb6-627"></a><span class="ss">- </span>Instead of a 3x3 grid, it is a **28x28 grid** (784 sensory neurons).</span>
-<span id="cb6-628"><a href="#cb6-628"></a><span class="ss">- </span>A single layer of neurons can achieve ~90% accuracy!</span>
-<span id="cb6-629"><a href="#cb6-629"></a></span>
-<span id="cb6-630"><a href="#cb6-630"></a><span class="fu">## ImageNet</span></span>
+<span id="cb6-626"><a href="#cb6-626"></a><span class="ss">- </span>Is 1943</span>
+<span id="cb6-627"><a href="#cb6-627"></a><span class="ss">    - </span>Before or US entry to WWII</span>
+<span id="cb6-628"><a href="#cb6-628"></a><span class="ss">    - </span>Before or after the inauguration of Truman</span>
+<span id="cb6-629"><a href="#cb6-629"></a><span class="ss">    - </span>Before or after the first demonstration of electronic color TV</span>
+<span id="cb6-630"><a href="#cb6-630"></a><span class="ss">    - </span>Before or after the founding of Republi of Egypt</span>
 <span id="cb6-631"><a href="#cb6-631"></a></span>
-<span id="cb6-632"><a href="#cb6-632"></a><span class="ss">- </span>Millions of high-res images.</span>
-<span id="cb6-633"><a href="#cb6-633"></a><span class="ss">- </span>Hundreds of categories (Dog, Boat, Bird).</span>
-<span id="cb6-634"><a href="#cb6-634"></a><span class="ss">- </span>Uses the same core principles: **Weights, Sums, and Thresholds**.</span>
-<span id="cb6-635"><a href="#cb6-635"></a></span>
-<span id="cb6-636"><a href="#cb6-636"></a><span class="fu"># Takeaways</span></span>
-<span id="cb6-637"><a href="#cb6-637"></a></span>
-<span id="cb6-638"><a href="#cb6-638"></a><span class="ss">- </span>**Inputs** are just flattened grids of numbers.</span>
-<span id="cb6-639"><a href="#cb6-639"></a><span class="ss">- </span>**Weights** determine which parts of the input matter.</span>
-<span id="cb6-640"><a href="#cb6-640"></a><span class="ss">- </span>**Classification** is the act of drawing a line between two sets of data.</span>
-<span id="cb6-641"><a href="#cb6-641"></a><span class="ss">- </span>**Graphs** allow us to visualize the flow of information from the eye to the decision.</span>
+<span id="cb6-632"><a href="#cb6-632"></a><span class="fu">## First Simulation</span></span>
+<span id="cb6-633"><a href="#cb6-633"></a></span>
+<span id="cb6-634"><a href="#cb6-634"></a><span class="ss">- </span>First simulated on something recognizable as a computer, an IMB 704, in 1957</span>
+<span id="cb6-635"><a href="#cb6-635"></a><span class="ss">  - </span>Room-sized "digitial mainframe" computer.</span>
+<span id="cb6-636"><a href="#cb6-636"></a><span class="ss">  - </span>First computer to use decimal values (e.g. not just round numbers).</span>
+<span id="cb6-637"><a href="#cb6-637"></a><span class="ss">  - </span>Vacuum tubes, not semiconductors.</span>
+<span id="cb6-638"><a href="#cb6-638"></a></span>
+<span id="cb6-639"><a href="#cb6-639"></a></span>
+<span id="cb6-640"><a href="#cb6-640"></a><span class="fu">## Quiz</span></span>
+<span id="cb6-641"><a href="#cb6-641"></a></span>
+<span id="cb6-642"><a href="#cb6-642"></a><span class="ss">- </span>Is 1957</span>
+<span id="cb6-643"><a href="#cb6-643"></a><span class="ss">    - </span>Before or after the *Brown v. Board* decision</span>
+<span id="cb6-644"><a href="#cb6-644"></a><span class="ss">    - </span>Before or after the passage of the Civil Rights Act</span>
+<span id="cb6-645"><a href="#cb6-645"></a><span class="ss">    - </span>Before or after the election of Kennedy</span>
+<span id="cb6-646"><a href="#cb6-646"></a><span class="ss">    - </span>Before or after the release of Elvis Presley's first single</span>
+<span id="cb6-647"><a href="#cb6-647"></a><span class="ss">        - </span>(Heartbreak Hotel)</span>
+<span id="cb6-648"><a href="#cb6-648"></a></span>
+<span id="cb6-649"><a href="#cb6-649"></a></span>
+<span id="cb6-650"><a href="#cb6-650"></a><span class="fu">## Uses *Linear Algebra*</span></span>
+<span id="cb6-651"><a href="#cb6-651"></a></span>
+<span id="cb6-652"><a href="#cb6-652"></a><span class="ss">- </span>At some point (I'm not sure when) someone noticed modelling perceptrons using "linear algebra" rather than neurons was:</span>
+<span id="cb6-653"><a href="#cb6-653"></a><span class="ss">    - </span>Logically equivalent</span>
+<span id="cb6-654"><a href="#cb6-654"></a><span class="ss">    - </span>Easier to write down.</span>
+<span id="cb6-655"><a href="#cb6-655"></a><span class="ss">- </span>I have followed this convention by specifying edge weights as ordered collections of values.</span>
+<span id="cb6-656"><a href="#cb6-656"></a><span class="ss">    - </span>This can seem understandably confusing.</span>
+<span id="cb6-657"><a href="#cb6-657"></a></span>
+<span id="cb6-658"><a href="#cb6-658"></a><span class="fu">## Now on GPUs!</span></span>
+<span id="cb6-659"><a href="#cb6-659"></a></span>
+<span id="cb6-660"><a href="#cb6-660"></a><span class="ss">- </span>GPUs, graphics processing units, now often called AI chips, are incidentally very good at linear algebra.</span>
+<span id="cb6-661"><a href="#cb6-661"></a><span class="ss">- </span>They are also very good at interpreting images as data.</span>
+<span id="cb6-662"><a href="#cb6-662"></a><span class="ss">- </span>It should be at least a little but unsurprising that GPUs and neural networks gained popularity around the same time.</span>
+<span id="cb6-663"><a href="#cb6-663"></a></span>
+<span id="cb6-664"><a href="#cb6-664"></a><span class="fu"># Applications</span></span>
+<span id="cb6-665"><a href="#cb6-665"></a></span>
+<span id="cb6-666"><a href="#cb6-666"></a><span class="fu">## MNIST Dataset</span></span>
+<span id="cb6-667"><a href="#cb6-667"></a></span>
+<span id="cb6-668"><a href="#cb6-668"></a><span class="ss">- </span>70,000 handwritten digits.</span>
+<span id="cb6-669"><a href="#cb6-669"></a><span class="ss">- </span>Instead of a 3x3 grid, it is a **28x28 grid** (784 sensory neurons).</span>
+<span id="cb6-670"><a href="#cb6-670"></a><span class="ss">- </span>A single layer of neurons can achieve ~90% accuracy!</span>
+<span id="cb6-671"><a href="#cb6-671"></a><span class="ss">- </span>Common first project for in-major AI courses.</span>
+<span id="cb6-672"><a href="#cb6-672"></a><span class="ss">    - </span>A bit heavyweight for us, hence dice.</span>
+<span id="cb6-673"><a href="#cb6-673"></a></span>
+<span id="cb6-674"><a href="#cb6-674"></a><span class="fu">## ImageNet</span></span>
+<span id="cb6-675"><a href="#cb6-675"></a></span>
+<span id="cb6-676"><a href="#cb6-676"></a><span class="ss">- </span>Millions of high-res images.</span>
+<span id="cb6-677"><a href="#cb6-677"></a><span class="ss">- </span>Hundreds of categories (Dog, Boat, Bird).</span>
+<span id="cb6-678"><a href="#cb6-678"></a><span class="ss">- </span>Uses the same core principles: **Weights, Sums, and Thresholds**.</span>
+<span id="cb6-679"><a href="#cb6-679"></a><span class="ss">    - </span>That's right, the big AI boom was basically just perceptrons!</span>
+<span id="cb6-680"><a href="#cb6-680"></a></span>
+<span id="cb6-681"><a href="#cb6-681"></a><span class="fu"># Takeaways</span></span>
+<span id="cb6-682"><a href="#cb6-682"></a></span>
+<span id="cb6-683"><a href="#cb6-683"></a><span class="ss">- </span>**Inputs** are just flattened grids of numbers.</span>
+<span id="cb6-684"><a href="#cb6-684"></a><span class="ss">- </span>**Weights** determine which parts of the input matter.</span>
+<span id="cb6-685"><a href="#cb6-685"></a><span class="ss">- </span>**Classification** is the act of drawing a line between two sets of data.</span>
+<span id="cb6-686"><a href="#cb6-686"></a><span class="ss">- </span>**Graphs** allow us to visualize the flow of information from the eye to the decision.</span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

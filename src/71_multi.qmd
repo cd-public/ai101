@@ -1,0 +1,249 @@
+---
+title: Multi-class 
+format: html
+---
+
+## Connections
+
+In our lecture, we introduced the *perceptron*, a **binary** classifier. It was able to classify inputs into two groups. Our example was dice, which it classified as odd or even.
+
+This is not as interesting as it could be. We would like to evolve beyond the mere decision problem:
+
+> [In computability theory and computational complexity theory, a decision problem is a computational problem that can be posed as a yes–no question on a set of input values. An example of a decision problem is deciding whether a given natural number is prime. Another example is the problem, "given two numbers x and y, does x evenly divide y?"](https://en.wikipedia.org/wiki/Decision_problem)
+
+- A decision problem is a problem where the answer is yes or no.
+
+Instead, we would like to achieve more general classification (beyond **binary**).
+
+> [Classification is the activity of assigning objects to some pre-existing classes or categories. This is distinct from the task of establishing the classes themselves (for example through cluster analysis). Examples include diagnostic tests, identifying spam emails and deciding whether to give someone a driving license.](https://en.wikipedia.org/wiki/Classification)
+
+This is called a *multi-class perceptron* is a viable modern neural network architecture, though certainly no longer state-of-the-art.
+
+
+## Definitions
+
+- Today, we will work with *code cells* of Colab to create a multi-class perceptron than can correctly classify dice when run.
+	- It will be similar to the decision tree, but not rely on Gemini.
+	- You may use Gemini to create code.
+- To do so, we will introduce functions.
+
+::: {.callout-note}
+
+[A function is a special relation or method connecting each member of some collection A to a unique member of some collection B via a defined relation.](https://www.geeksforgeeks.org/maths/what-is-a-function/)
+
+:::
+
+- In code cells, we can both *define* and *call* functions.
+  	- We *define* functions with the `def` keyword. This is how we determine what incoming values relates to which outgoing value
+	- We *call* functions using the name of the function. This is how we can using some incoming value to generate an outgoing value.
+- Many mathematical operations are functions. For example, add takes a pair of numbers and returns a number:
+
+### Anatomy of a definition
+
+```{python}
+def f(x,y):
+	return x + y
+```
+
+1. First, the `def` keyword allows us to define a function. We follow `def` with a space.
+2. Next, we provide the name of our function. This name is like a variable name in mathematics, and can be whatever we want. I use `f` but could just as easily call the function `add` or `sum` or even something that doesn't make sense, like `definitely_not_add`.
+3. Immediately after the name, with no space, we provide a collection of variable names. This collection is enclose in parentheses `()` (not `[]` like we sometimes use) and again, the names are not meaningful, but the number determines how many incoming values our function can handle and gives them names.
+4. Then, we end the first line with a colon `:`, go to a new line, and indent (usually with 4 spaces - Colab will handle this automatically).
+5. Within the function - that is, where indented, we can use the special `return` keyword. Whatever the function "returns" is the value that someone using the function will see after providing some input values.
+6. After `return`, we place a single space and then can some arithmetic expression, like `x + y`. In this case, the `x` and `y` are the same `x` and `y` referred to in the `def` line.
+
+### Anatomy of a call
+
+We can call a function as follows, and the result will show up below wherever we call it from a code cell. Look for the `13` below:
+
+```{python}
+f(6,7)
+```
+
+Calling is not so complicated as defining, we simply take the function name and postpend a collection of values (again, with parentheses `()` and separated by commas `,`).
+
+### Example
+
+- Here is a much more chaotic example.
+
+```{python}
+import matplotlib.pyplot as plt
+import numpy as np
+
+def see(d):
+  plt.imshow(np.array(d).reshape(3,3), cmap="binary")
+  plt.axis('off')
+  plt.show()
+```
+
+0. You have already seen import, so we don't worry about that for now, but we will be making a plot here.
+1. Now, we take a single input named `d` which will refer to dice.
+2. In the next line, we will use a series of complex operations that I borrowed from Gemini to create a graph displaying the dice as a 3-by-3 grid. The `cmap="binary"` specifier will cause it to show up in black-and-white.
+3. In the next line, the axes of the visualization are turned off, which will make the result look more than an image than a chart.
+4. In the final line, we display the visualization.
+5. There is no return!
+
+From here, perhaps we have some dice value, like a three.
+
+```{python}
+three = [0,0,1,0,1,0,1,0,0,]
+```
+
+Now we can `see` the `three`. Again, we expect the result of the function (now an image) to show up below the code cell.
+
+```{python}
+see(three)
+```
+
+Not the names I give using `def` or "single equals assignment" don't have to make sense.
+
+```{python}
+six = [0,0,0,0,0,0,0,0,0]
+```
+
+That is called six, but is more properly... zero?
+
+```{python}
+see(six)
+```
+
+Whoops! Maybe `six` should be something else?
+
+```{python}
+six = [1,0,1,1,0,1,1,0,1]
+```
+
+- There are, at least, 6 `1`s there.
+
+```{python}
+see(six)
+```
+
+::: {.callout-tip}
+## This is important
+
+When I set `six` equal to a different collection of zeros and ones, this overwrites the earlier value. Be careful how you name things and how you update them! I can `see(six)` in two different places, and see two different outputs!
+:::
+
+Try coping my *definition* of `see` into Colab and seeing (haha!) if you can get it to work.
+- Play around a bit!
+- Remove a few lines, or change the order.
+- Maybe `print` something, like `d`
+- Maybe `return` something, like `7` or `hello`.
+
+## Our Goal
+
+- Today, we would like to create a function, I'll call mine `classify`, that can take the following dice:
+
+```{python}
+one = [0,0,0,0,1,0,0,0,0]
+two = [0,0,1,0,0,0,1,0,0]
+thr = [0,0,1,0,1,0,1,0,0]
+fou = [1,0,1,0,0,0,1,0,1]
+fiv = [1,0,1,0,1,0,1,0,1]
+six = [1,0,1,1,0,1,1,0,1]
+```
+
+- And simulate a perceptron that correctly classifies each.
+- First, here is something that is the incorrect kind of correct:
+
+```{python}
+def classify(d):
+	return sum(d)
+```
+
+- This "works":
+
+```{python}
+classify(thr)
+```
+
+- But is not a perceptron. 
+- It "cheats" by using a built-in Python `sum`.
+- Neurons can't just do that!
+
+## Output Type
+
+- Really, what a perceptron outputs is most properly a feature vector.
+  	- Feature: Something that is true or false.
+	- Vector: Ordered collection of something.
+- So we would not say that we want to get `3` back from `classify`, but `[0,0,1,0,0,0]`.
+  	- That is, `thr` does not have the feature of being the first two or last three values.
+	- Rather, it is a member of the one particular "class" out of 6.
+	- One neuron can say "yes" (it can activate) but it cannot say "that's a three".
+- All that remains now is to generate a series of weights (and possibly biases) that correctly *classify* `thr` - but also the other five values.
+
+## Single classification
+
+- It is presumably a simple enough matter to guess and check some edge weights that could result, but *code cells* can help us a lot.
+- We can specify a *vector* of weights and multiply it by the inputs - which also, by the way, happen to be vectors (they are ordered collections of values after all).
+- To do so, we convert the simple, easy bracket `[]` enclosed and comma `,` separated collections to a *NumPy array*.
+  	- NumPy stands for *numerical Python*. Don't worry about it.
+- And then we can simply multiply them.
+
+### Example
+
+- In class, we found it was easy enough to classify one.
+- Briefly, we looked for a center dot with a positive weight, and gave everything else a negative weight.
+- I'll call this the `is_one_vector` - a vector that determines if something "is one".
+
+```{python}
+is_one_vector = [-1,-1,-1,-1,1,-1,-1,-1,-1]
+```
+
+- Then, I convert both `one` and the `is_one_vector` to be fancy, machine-learning-and-AI-ready "NumPy arrays using `np.array()`
+
+```{python}
+one = np.array(one)
+is_one_vector = np.array(is_one_vector)
+```
+
+- Then I can multiply them - and see the result!
+
+```{python}
+one * is_one_vector
+```
+
+- I can check *other* values.
+
+```{python}
+np.array(thr) * np.array(is_one_vector)
+```
+
+- Can you tell what is happening?
+
+> NumPy operations are usually done on pairs of arrays on an element-by-element basis. 
+
+- The initial element of one vector is multipled by the initial element of the other vector, then the next by the next, so on along the entire vector.
+
+- It is then a simple matter to:
+
+1. Sum
+2. Add a bias, or not (I didn't)
+3. Apply a piecewise or indicator function to get a `1` or `0` - I'll just show you how to do this.
+   
+- The purpose of this class is not to learn how to write these things, so here is an example that I provide:
+
+```{python}
+def one_classifier(d):
+	is_one_vector = np.array([-1,-1,-1,-1,1,-1,-1,-1,-1])
+	return sum(np.array(d) * is_one_vector) >= 1
+```
+
+- This:
+  	- Takes some dice, `d`
+	- Has some vector, `is_one_vector`.
+	- Makes both into NumPy arrays.
+	- Multiplies them.
+	- Sums them.
+	- Compares the result to one, to see if it is greater-than-or-equal to.
+- We note that this is *identical* to the formulation of neurons covered in class.
+
+## Your Task
+
+- Write classifiers for two through six.
+- Write a multi-classifier that returns a *feature vector* by combining these classifiers into a vector which is `[]` enclosed and `,` separated.
+- Test your multi-classifer on the all the examples provided.
+- Test your multi-classifier on some nonsense data, like vectors of incorrect length, containing other values, contains words, and so on, and make some effort to understand the errors.
+
+
