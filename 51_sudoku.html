@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.6.30">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -21,9 +21,8 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -34,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -67,17 +66,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="./">
 <link href="./6__guest.html" rel="next">
 <link href="./50_graph.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-a4a11d514c7d463668e07712114998e6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-b86297dc19107d1c9b1952b0f8e15fd8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-70c9a4798e5f6abb0636bcdc3eed0e90.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -120,7 +117,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+      if (mathElements[i].tagName == "SPAN") {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -138,7 +135,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar floating quarto-light">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -161,8 +158,9 @@ window.Quarto = {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">AI 101</a> 
+    </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
@@ -362,14 +360,14 @@ window.Quarto = {
 <li><strong>Neighbors of A1:</strong> <code>A2, A3, A4</code> (Row), <code>B1, C1, D1</code> (Column), and <code>B2</code> (Square).</li>
 </ul>
 <p>In Colab we can specify a list as “comma separated values”. We show that lists start and end with “boxy brackets” <code>[]</code></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>[<span class="st">"This"</span>, <span class="st">"is"</span>, <span class="st">"a"</span>, <span class="st">"list"</span>, <span class="st">"of"</span>, <span class="st">"words"</span>, <span class="st">"and"</span>, <span class="dv">1</span>, <span class="st">"number"</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>[<span class="st">"This"</span>, <span class="st">"is"</span>, <span class="st">"a"</span>, <span class="st">"list"</span>, <span class="st">"of"</span>, <span class="st">"words"</span>, <span class="st">"and"</span>, <span class="dv">1</span>, <span class="st">"number"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>We can make, for example, the edges from “A1” as a list!
 <ul>
 <li>It is basically up to you whether you consider “A1” as having an edge to itself - same as whether there is a Salem-to-Salem Amtrak connection.</li>
 </ul></li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>[<span class="st">"A1"</span>, <span class="st">"A2"</span>, <span class="st">"A3"</span>, <span class="st">"A4"</span>, <span class="st">"B1"</span>, <span class="st">"C1"</span>, <span class="st">"D1"</span>, <span class="st">"B2"</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>[<span class="st">"A1"</span>, <span class="st">"A2"</span>, <span class="st">"A3"</span>, <span class="st">"A4"</span>, <span class="st">"B1"</span>, <span class="st">"C1"</span>, <span class="st">"D1"</span>, <span class="st">"B2"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="the-adjacency-matrix" class="level2">
 <h2 class="anchored" data-anchor-id="the-adjacency-matrix">2. The Adjacency Matrix</h2>
@@ -435,20 +433,20 @@ window.Quarto = {
 <section id="example-construction" class="level3">
 <h3 class="anchored" data-anchor-id="example-construction">Example Construction</h3>
 <p>If you want to map a small graph where Node A is connected to B and C, it looks like this:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1"></a><span class="pp">|</span> Starting Node <span class="pp">|</span> Connected To <span class="pp">|</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="pp">|---------------|--------------|</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="pp">|</span> Node A        <span class="pp">|</span> Node B       <span class="pp">|</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="pp">|</span> Node A        <span class="pp">|</span> Node C       <span class="pp">|</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1"></a>| Starting Node | Connected To |</span>
+<span id="cb3-2"><a href="#cb3-2"></a>|---------------|--------------|</span>
+<span id="cb3-3"><a href="#cb3-3"></a>| Node A        | Node B       |</span>
+<span id="cb3-4"><a href="#cb3-4"></a>| Node A        | Node C       |</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="quick-tips" class="level3">
 <h3 class="anchored" data-anchor-id="quick-tips">Quick Tips</h3>
 <ul>
 <li><strong>Alignment</strong>: You don’t <em>have</em> to make the dashes match the length of the words, but it makes the “raw” text much easier for humans to read.</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1"></a><span class="pp">|</span> Starting Node <span class="pp">|</span> Connected To <span class="pp">|</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="pp">|</span> Node A        <span class="pp">|</span> Node B<span class="pp">|</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="pp">|</span> Node A <span class="pp">|</span> Node C       <span class="pp">|</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1"></a>| Starting Node | Connected To |</span>
+<span id="cb4-2"><a href="#cb4-2"></a>|-|-|</span>
+<span id="cb4-3"><a href="#cb4-3"></a>| Node A        | Node B|</span>
+<span id="cb4-4"><a href="#cb4-4"></a>| Node A | Node C       |</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><strong>Pipes</strong>: Every row must start and end with a pipe <code>|</code> to ensure the grid closes properly.</li>
 </ul>
@@ -461,8 +459,8 @@ window.Quarto = {
 <li><label><input type="checkbox">Create a code cell that defines the connections for the top-left <span class="math inline">\(2 \times 2\)</span> square.</label></li>
 <li><label><input type="checkbox">You may simply place a 4 lists each on their own line.</label></li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>[<span class="st">"A1"</span>, <span class="st">"A2"</span>, <span class="st">"A3"</span>, <span class="st">"A4"</span>, <span class="st">"B1"</span>, <span class="st">"C1"</span>, <span class="st">"D1"</span>, <span class="st">"B2"</span>]</span>
-<span id="cb5-2"><a href="#cb5-2"></a>[<span class="st">"A2"</span>, ...]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>[<span class="st">"A1"</span>, <span class="st">"A2"</span>, <span class="st">"A3"</span>, <span class="st">"A4"</span>, <span class="st">"B1"</span>, <span class="st">"C1"</span>, <span class="st">"D1"</span>, <span class="st">"B2"</span>]</span>
+<span id="cb5-2"><a href="#cb5-2"></a>[<span class="st">"A2"</span>, ...]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="bonus-lab-extension" class="level3">
 <h3 class="anchored" data-anchor-id="bonus-lab-extension">Bonus: Lab Extension</h3>
 <p><em>I expect graph representation to be appropriate challenging for students without a computing background, but not for students with one. I expect the following, hidden task to be an appropriately challenging task for students with a computing background.</em></p>
@@ -476,7 +474,7 @@ window.Quarto = {
 </ul></li>
 </ul>
 <p><a title="R. A. Nonenmacher, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:A_nonomino_sudoku.svg"><img width="256" alt="A nonomino sudoku" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/A_nonomino_sudoku.svg/256px-A_nonomino_sudoku.svg.png?20080914220546"></a></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># I used zero index tuples `(0,1)` rather than strings `A1` for nodes.</span></span>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># I used zero index tuples `(0,1)` rather than strings `A1` for nodes.</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a><span class="co"># I used a dictionary with keys as nodes/tuples and values as a list of nodes/tuples)</span></span>
 <span id="cb6-3"><a href="#cb6-3"></a><span class="co"># I placed either an int or `None` in each board position</span></span>
 <span id="cb6-4"><a href="#cb6-4"></a><span class="kw">def</span> is_legal(adj_dictionary: <span class="bu">dict</span>[<span class="bu">tuple</span>[<span class="bu">int</span>, <span class="bu">int</span>], <span class="bu">list</span>[<span class="bu">tuple</span>[<span class="bu">int</span>, <span class="bu">int</span>]]], board_state: <span class="bu">list</span>[<span class="bu">list</span>[Union[<span class="va">None</span>, <span class="bu">int</span>]]]) <span class="op">-&gt;</span> <span class="bu">bool</span>:</span>
@@ -487,7 +485,7 @@ window.Quarto = {
 <span id="cb6-9"><a href="#cb6-9"></a>adj <span class="op">=</span> [</span>
 <span id="cb6-10"><a href="#cb6-10"></a>    [(<span class="dv">0</span>,<span class="dv">0</span>), (<span class="dv">0</span>,<span class="dv">1</span>), (<span class="dv">0</span>,<span class="dv">2</span>), (<span class="dv">0</span>,<span class="dv">3</span>), (<span class="dv">1</span>,<span class="dv">0</span>), (<span class="dv">2</span>,<span class="dv">0</span>), (<span class="dv">3</span>,<span class="dv">0</span>), (<span class="dv">1</span>,<span class="dv">1</span>)],</span>
 <span id="cb6-11"><a href="#cb6-11"></a>    <span class="co"># ...</span></span>
-<span id="cb6-12"><a href="#cb6-12"></a>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-12"><a href="#cb6-12"></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </section>
 </section>
@@ -505,14 +503,14 @@ window.Quarto = {
 <p>We think of an <em>adjacency matrix</em> a lot like a table where a row refers to the starting node of an edge and a column refers to the ending edge of a node.</p>
 <p>We consider the example of <em>Amtrak Cascades</em>, specifically the 6x daily PDX&lt;-&gt;SEA route.</p>
 <p>There are 8 stations:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource email number-lines code-with-copy"><code class="sourceCode email"><span id="cb7-1"><a href="#cb7-1"></a>SEATTLE</span>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource email number-lines code-with-copy"><code class="sourceCode email"><span id="cb7-1"><a href="#cb7-1"></a>SEATTLE</span>
 <span id="cb7-2"><a href="#cb7-2"></a>TUKWILA</span>
 <span id="cb7-3"><a href="#cb7-3"></a>TACOMA</span>
 <span id="cb7-4"><a href="#cb7-4"></a>OLYMPIA/LACEY</span>
 <span id="cb7-5"><a href="#cb7-5"></a>CENTRALIA</span>
 <span id="cb7-6"><a href="#cb7-6"></a>KELSO/LONGVIEW</span>
 <span id="cb7-7"><a href="#cb7-7"></a>VANCOUVER WA</span>
-<span id="cb7-8"><a href="#cb7-8"></a>PORTLAND</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb7-8"><a href="#cb7-8"></a>PORTLAND</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>We can make a table showing edges from north-to-south, with the starting station on the right and the ending station on the top. We use <code>1</code> to denote an edge.</p>
 <table class="caption-top table">
 <thead>
@@ -790,16 +788,16 @@ window.Quarto = {
 <div class="code-with-filename-file">
 <pre><strong>Markdown text cell</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" data-filename="Markdown text cell"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1"></a><span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span></span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="pp">|</span>0<span class="pp">|</span>1<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span></span>
-<span id="cb8-4"><a href="#cb8-4"></a><span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>1<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span></span>
-<span id="cb8-5"><a href="#cb8-5"></a><span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>1<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span></span>
-<span id="cb8-6"><a href="#cb8-6"></a><span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>1<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span></span>
-<span id="cb8-7"><a href="#cb8-7"></a><span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>1<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span></span>
-<span id="cb8-8"><a href="#cb8-8"></a><span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>1<span class="pp">|</span>0<span class="pp">|</span></span>
-<span id="cb8-9"><a href="#cb8-9"></a><span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>1<span class="pp">|</span></span>
-<span id="cb8-10"><a href="#cb8-10"></a><span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode" id="cb8" data-filename="Markdown text cell"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1"></a>| | | | | | | | |</span>
+<span id="cb8-2"><a href="#cb8-2"></a>|-|-|-|-|-|-|-|-|</span>
+<span id="cb8-3"><a href="#cb8-3"></a>|0|1|0|0|0|0|0|0|</span>
+<span id="cb8-4"><a href="#cb8-4"></a>|0|0|1|0|0|0|0|0|</span>
+<span id="cb8-5"><a href="#cb8-5"></a>|0|0|0|1|0|0|0|0|</span>
+<span id="cb8-6"><a href="#cb8-6"></a>|0|0|0|0|1|0|0|0|</span>
+<span id="cb8-7"><a href="#cb8-7"></a>|0|0|0|0|0|1|0|0|</span>
+<span id="cb8-8"><a href="#cb8-8"></a>|0|0|0|0|0|0|1|0|</span>
+<span id="cb8-9"><a href="#cb8-9"></a>|0|0|0|0|0|0|0|1|</span>
+<span id="cb8-10"><a href="#cb8-10"></a>|0|0|0|0|0|0|0|0|</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>And we can also express as a list (<code>[]</code> enclose, <code>,</code> separated`) of lists <em>of adjacency</em>.</p>
 <ul>
@@ -814,7 +812,7 @@ window.Quarto = {
 <div class="code-with-filename-file">
 <pre><strong>Colab code cell</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" data-filename="Colab code cell"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>amtrak_cascades <span class="op">=</span> [</span>
+<div class="sourceCode" id="cb9" data-filename="Colab code cell"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>amtrak_cascades <span class="op">=</span> [</span>
 <span id="cb9-2"><a href="#cb9-2"></a>    [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</span>
 <span id="cb9-3"><a href="#cb9-3"></a>    [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</span>
 <span id="cb9-4"><a href="#cb9-4"></a>    [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</span>
@@ -823,7 +821,7 @@ window.Quarto = {
 <span id="cb9-7"><a href="#cb9-7"></a>    [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>],</span>
 <span id="cb9-8"><a href="#cb9-8"></a>    [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>],</span>
 <span id="cb9-9"><a href="#cb9-9"></a>    [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>]</span>
-<span id="cb9-10"><a href="#cb9-10"></a>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb9-10"><a href="#cb9-10"></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Take a moment and make sure you understand this.</p>
 <section id="your-task-1" class="level3">
@@ -847,294 +845,290 @@ window.Quarto = {
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
-    const isCodeAnnotation = (el) => {
-      for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
-          return true;
-        }
-      }
-      return false;
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
     }
-    const onCopySuccess = function(e) {
-      // button target
-      const button = e.trigger;
-      // don't keep focus
-      button.blur();
-      // flash "checked"
-      button.classList.add('code-copy-button-checked');
-      var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
-      let tooltip;
-      if (window.bootstrap) {
-        button.setAttribute("data-bs-toggle", "tooltip");
-        button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
-            customClass: "code-copy-button-tooltip",
-            offset: [0, -8]});
-        tooltip.show();    
-      }
-      setTimeout(function() {
-        if (tooltip) {
-          tooltip.hide();
-          button.removeAttribute("data-bs-title");
-          button.removeAttribute("data-bs-toggle");
-          button.removeAttribute("data-bs-placement");
-        }
-        button.setAttribute("title", currentTitle);
-        button.classList.remove('code-copy-button-checked');
-      }, 1000);
-      // clear code selection
-      e.clearSelection();
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
     }
-    const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
         }
       }
       return codeEl.innerText;
-    }
-    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-      text: getTextToCopy
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
-    clipboard.on('success', onCopySuccess);
-    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-        text: getTextToCopy,
-        container: window.document.getElementById('quarto-embedded-source-code-modal')
-      });
-      clipboardModal.on('success', onCopySuccess);
-    }
-    const viewSource = window.document.getElementById('quarto-view-source') ||
-                       window.document.getElementById('quarto-code-tools-source');
-    if (viewSource) {
-      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-      viewSource.addEventListener("click", function(e) {
-        if (sourceUrl) {
-          // rstudio viewer pane
-          if (/\bcapabilities=\b/.test(window.location)) {
-            window.open(sourceUrl);
-          } else {
-            window.location.href = sourceUrl;
-          }
+    clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
         } else {
-          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-          modal.show();
-        }
-        return false;
-      });
-    }
-    function toggleCodeHandler(show) {
-      return function(e) {
-        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-        for (let i=0; i<detailsSrc.length; i++) {
-          const details = detailsSrc[i].parentElement;
-          if (show) {
-            details.open = true;
-          } else {
-            details.removeAttribute("open");
-          }
-        }
-        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-        const fromCls = show ? "hidden" : "unhidden";
-        const toCls = show ? "unhidden" : "hidden";
-        for (let i=0; i<cellCodeDivs.length; i++) {
-          const codeDiv = cellCodeDivs[i];
-          if (codeDiv.classList.contains(fromCls)) {
-            codeDiv.classList.remove(fromCls);
-            codeDiv.classList.add(toCls);
-          } 
-        }
-        return false;
-      }
-    }
-    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-    if (hideAllCode) {
-      hideAllCode.addEventListener("click", toggleCodeHandler(false));
-    }
-    const showAllCode = window.document.getElementById("quarto-show-all-code");
-    if (showAllCode) {
-      showAllCode.addEventListener("click", toggleCodeHandler(true));
-    }
-      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
-      var isInternal = (href) => {
-          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-      }
-      // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-      for (var i=0; i<links.length; i++) {
-        const link = links[i];
-        if (!isInternal(link.href)) {
-          // undo the damage that might have been done by quarto-nav.js in the case of
-          // links that we want to consider external
-          if (link.dataset.originalHref !== undefined) {
-            link.href = link.dataset.originalHref;
-          }
-        }
-      }
-    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-      const config = {
-        allowHTML: true,
-        maxWidth: 500,
-        delay: 100,
-        arrow: false,
-        appendTo: function(el) {
-            return el.parentElement;
-        },
-        interactive: true,
-        interactiveBorder: 10,
-        theme: 'quarto',
-        placement: 'bottom-start',
-      };
-      if (contentFn) {
-        config.content = contentFn;
-      }
-      if (onTriggerFn) {
-        config.onTrigger = onTriggerFn;
-      }
-      if (onUntriggerFn) {
-        config.onUntrigger = onUntriggerFn;
-      }
-      window.tippy(el, config); 
-    }
-    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-    for (var i=0; i<noterefs.length; i++) {
-      const ref = noterefs[i];
-      tippyHover(ref, function() {
-        // use id or data attribute instead here
-        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-        try { href = new URL(href).hash; } catch {}
-        const id = href.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note) {
-          return note.innerHTML;
-        } else {
-          return "";
-        }
-      });
-    }
-    const xrefs = window.document.querySelectorAll('a.quarto-xref');
-    const processXRef = (id, note) => {
-      // Strip column container classes
-      const stripColumnClz = (el) => {
-        el.classList.remove("page-full", "page-columns");
-        if (el.children) {
-          for (const child of el.children) {
-            stripColumnClz(child);
-          }
-        }
-      }
-      stripColumnClz(note)
-      if (id === null || id.startsWith('sec-')) {
-        // Special case sections, only their first couple elements
-        const container = document.createElement("div");
-        if (note.children && note.children.length > 2) {
-          container.appendChild(note.children[0].cloneNode(true));
-          for (let i = 1; i < note.children.length; i++) {
-            const child = note.children[i];
-            if (child.tagName === "P" && child.innerText === "") {
-              continue;
-            } else {
-              container.appendChild(child.cloneNode(true));
-              break;
-            }
-          }
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(container);
-          }
-          return container.innerHTML
-        } else {
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(note);
-          }
-          return note.innerHTML;
+          window.location.href = sourceUrl;
         }
       } else {
-        // Remove any anchor links if they are present
-        const anchorLink = note.querySelector('a.anchorjs-link');
-        if (anchorLink) {
-          anchorLink.remove();
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
         }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        if (note.classList.contains("callout")) {
-          return note.outerHTML;
-        } else {
-          return note.innerHTML;
-        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
       }
     }
-    for (var i=0; i<xrefs.length; i++) {
-      const xref = xrefs[i];
-      tippyHover(xref, undefined, function(instance) {
-        instance.disable();
-        let url = xref.getAttribute('href');
-        let hash = undefined; 
-        if (url.startsWith('#')) {
-          hash = url;
-        } else {
-          try { hash = new URL(url).hash; } catch {}
-        }
-        if (hash) {
-          const id = hash.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note !== null) {
-            try {
-              const html = processXRef(id, note.cloneNode(true));
-              instance.setContent(html);
-            } finally {
-              instance.enable();
-              instance.show();
-            }
-          } else {
-            // See if we can fetch this
-            fetch(url.split('#')[0])
-            .then(res => res.text())
-            .then(html => {
-              const parser = new DOMParser();
-              const htmlDoc = parser.parseFromString(html, "text/html");
-              const note = htmlDoc.getElementById(id);
-              if (note !== null) {
-                const html = processXRef(id, note);
-                instance.setContent(html);
-              } 
-            }).finally(() => {
-              instance.enable();
-              instance.show();
-            });
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
           }
         } else {
-          // See if we can fetch a full url (with no hash to target)
-          // This is a special case and we should probably do some content thinning / targeting
-          fetch(url)
+          // See if we can fetch this
+          fetch(url.split('#')[0])
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.querySelector('main.content');
+            const note = htmlDoc.getElementById(id);
             if (note !== null) {
-              // This should only happen for chapter cross references
-              // (since there is no id in the URL)
-              // remove the first header
-              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-                note.children[0].remove();
-              }
-              const html = processXRef(null, note);
+              const html = processXRef(id, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1142,161 +1136,185 @@ window.Quarto = {
             instance.show();
           });
         }
-      }, function(instance) {
-      });
-    }
-        let selectedAnnoteEl;
-        const selectorForAnnotation = ( cell, annotation) => {
-          let cellAttr = 'data-code-cell="' + cell + '"';
-          let lineAttr = 'data-code-annotation="' +  annotation + '"';
-          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-          return selector;
-        }
-        const selectCodeLines = (annoteEl) => {
-          const doc = window.document;
-          const targetCell = annoteEl.getAttribute("data-target-cell");
-          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-          const lineIds = lines.map((line) => {
-            return targetCell + "-" + line;
-          })
-          let top = null;
-          let height = null;
-          let parent = null;
-          if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
-            }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
-            }
-            selectedAnnoteEl = annoteEl;
-          }
-        };
-        const unselectCodeLines = () => {
-          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-          elementsIds.forEach((elId) => {
-            const div = window.document.getElementById(elId);
-            if (div) {
-              div.remove();
-            }
-          });
-          selectedAnnoteEl = undefined;
-        };
-          // Handle positioning of the toggle
-      window.addEventListener(
-        "resize",
-        throttle(() => {
-          elRect = undefined;
-          if (selectedAnnoteEl) {
-            selectCodeLines(selectedAnnoteEl);
-          }
-        }, 10)
-      );
-      function throttle(fn, ms) {
-      let throttle = false;
-      let timer;
-        return (...args) => {
-          if(!throttle) { // first call gets through
-              fn.apply(this, args);
-              throttle = true;
-          } else { // all the others get throttled
-              if(timer) clearTimeout(timer); // cancel #2
-              timer = setTimeout(() => {
-                fn.apply(this, args);
-                timer = throttle = false;
-              }, ms);
-          }
-        };
-      }
-        // Attach click handler to the DT
-        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-        for (const annoteDlNode of annoteDls) {
-          annoteDlNode.addEventListener('click', (event) => {
-            const clickedEl = event.target;
-            if (clickedEl !== selectedAnnoteEl) {
-              unselectCodeLines();
-              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-              if (activeEl) {
-                activeEl.classList.remove('code-annotation-active');
-              }
-              selectCodeLines(clickedEl);
-              clickedEl.classList.add('code-annotation-active');
-            } else {
-              // Unselect the line
-              unselectCodeLines();
-              clickedEl.classList.remove('code-annotation-active');
-            }
-          });
-        }
-    const findCites = (el) => {
-      const parentEl = el.parentElement;
-      if (parentEl) {
-        const cites = parentEl.dataset.cites;
-        if (cites) {
-          return {
-            el,
-            cites: cites.split(' ')
-          };
-        } else {
-          return findCites(el.parentElement)
-        }
       } else {
-        return undefined;
-      }
-    };
-    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-    for (var i=0; i<bibliorefs.length; i++) {
-      const ref = bibliorefs[i];
-      const citeInfo = findCites(ref);
-      if (citeInfo) {
-        tippyHover(citeInfo.el, function() {
-          var popup = window.document.createElement('div');
-          citeInfo.cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
             }
-            popup.appendChild(citeDiv);
-          });
-          return popup.innerHTML;
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
         });
       }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
     }
-  });
-  </script>
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./50_graph.html" class="pagination-link" aria-label="Graphs">
@@ -1309,7 +1327,7 @@ window.Quarto = {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1"></a><span class="co">---</span></span>
+<div class="sourceCode" id="cb10" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1"></a><span class="co">---</span></span>
 <span id="cb10-2"><a href="#cb10-2"></a><span class="an">title:</span><span class="co"> Sudoku</span></span>
 <span id="cb10-3"><a href="#cb10-3"></a><span class="an">format:</span><span class="co"> html</span></span>
 <span id="cb10-4"><a href="#cb10-4"></a><span class="co">---</span></span>
@@ -1354,14 +1372,14 @@ window.Quarto = {
 <span id="cb10-43"><a href="#cb10-43"></a>In Colab we can specify a list as "comma separated values". We show that lists start and end with "boxy brackets" <span class="in">`[]`</span></span>
 <span id="cb10-44"><a href="#cb10-44"></a></span>
 <span id="cb10-45"><a href="#cb10-45"></a><span class="in">```{.py}</span></span>
-<span id="cb10-46"><a href="#cb10-46"></a>[<span class="st">"This"</span>, <span class="st">"is"</span>, <span class="st">"a"</span>, <span class="st">"list"</span>, <span class="st">"of"</span>, <span class="st">"words"</span>, <span class="st">"and"</span>, <span class="dv">1</span>, <span class="st">"number"</span>]</span>
+<span id="cb10-46"><a href="#cb10-46"></a><span class="in">["This", "is", "a", "list", "of", "words", "and", 1, "number"]</span></span>
 <span id="cb10-47"><a href="#cb10-47"></a><span class="in">```</span></span>
 <span id="cb10-48"><a href="#cb10-48"></a></span>
 <span id="cb10-49"><a href="#cb10-49"></a><span class="ss">- </span>We can make, for example, the edges from "A1" as a list!</span>
 <span id="cb10-50"><a href="#cb10-50"></a><span class="ss">    - </span>It is basically up to you whether you consider "A1" as having an edge to itself - same as whether there is a Salem-to-Salem Amtrak connection.</span>
 <span id="cb10-51"><a href="#cb10-51"></a></span>
 <span id="cb10-52"><a href="#cb10-52"></a><span class="in">```{.py}</span></span>
-<span id="cb10-53"><a href="#cb10-53"></a>[<span class="st">"A1"</span>, <span class="st">"A2"</span>, <span class="st">"A3"</span>, <span class="st">"A4"</span>, <span class="st">"B1"</span>, <span class="st">"C1"</span>, <span class="st">"D1"</span>, <span class="st">"B2"</span>]</span>
+<span id="cb10-53"><a href="#cb10-53"></a><span class="in">["A1", "A2", "A3", "A4", "B1", "C1", "D1", "B2"]</span></span>
 <span id="cb10-54"><a href="#cb10-54"></a><span class="in">```</span></span>
 <span id="cb10-55"><a href="#cb10-55"></a></span>
 <span id="cb10-56"><a href="#cb10-56"></a><span class="fu">## 2. The Adjacency Matrix</span></span>
@@ -1381,12 +1399,12 @@ window.Quarto = {
 <span id="cb10-70"><a href="#cb10-70"></a><span class="fu">## Part 1: The **Markdown** Table</span></span>
 <span id="cb10-71"><a href="#cb10-71"></a>In a text cell in Colab, create a table showing the neighbors for the first four cells. We've started the first one for you. </span>
 <span id="cb10-72"><a href="#cb10-72"></a></span>
-<span id="cb10-73"><a href="#cb10-73"></a><span class="pp">|</span> Node <span class="pp">|</span> Row Neighbors <span class="pp">|</span> Column Neighbors <span class="pp">|</span> Square Neighbors <span class="pp">|</span></span>
-<span id="cb10-74"><a href="#cb10-74"></a><span class="pp">|------|---------------|------------------|------------------|</span></span>
-<span id="cb10-75"><a href="#cb10-75"></a><span class="pp">|</span> A1   <span class="pp">|</span> A2, A3, A4    <span class="pp">|</span> B1, C1, D1       <span class="pp">|</span> B2               <span class="pp">|</span></span>
-<span id="cb10-76"><a href="#cb10-76"></a><span class="pp">|</span> A2   <span class="pp">|</span>               <span class="pp">|</span>                  <span class="pp">|</span>                  <span class="pp">|</span></span>
-<span id="cb10-77"><a href="#cb10-77"></a><span class="pp">|</span> B1   <span class="pp">|</span>               <span class="pp">|</span>                  <span class="pp">|</span>                  <span class="pp">|</span></span>
-<span id="cb10-78"><a href="#cb10-78"></a><span class="pp">|</span> B2   <span class="pp">|</span>               <span class="pp">|</span>                  <span class="pp">|</span>                  <span class="pp">|</span></span>
+<span id="cb10-73"><a href="#cb10-73"></a>| Node | Row Neighbors | Column Neighbors | Square Neighbors |</span>
+<span id="cb10-74"><a href="#cb10-74"></a>|------|---------------|------------------|------------------|</span>
+<span id="cb10-75"><a href="#cb10-75"></a>| A1   | A2, A3, A4    | B1, C1, D1       | B2               |</span>
+<span id="cb10-76"><a href="#cb10-76"></a>| A2   |               |                  |                  |</span>
+<span id="cb10-77"><a href="#cb10-77"></a>| B1   |               |                  |                  |</span>
+<span id="cb10-78"><a href="#cb10-78"></a>| B2   |               |                  |                  |</span>
 <span id="cb10-79"><a href="#cb10-79"></a></span>
 <span id="cb10-80"><a href="#cb10-80"></a><span class="fu">## Aside: Building Markdown Tables</span></span>
 <span id="cb10-81"><a href="#cb10-81"></a></span>
@@ -1403,10 +1421,10 @@ window.Quarto = {
 <span id="cb10-92"><a href="#cb10-92"></a>If you want to map a small graph where Node A is connected to B and C, it looks like this:</span>
 <span id="cb10-93"><a href="#cb10-93"></a></span>
 <span id="cb10-94"><a href="#cb10-94"></a><span class="in">```{.md}</span></span>
-<span id="cb10-95"><a href="#cb10-95"></a><span class="pp">|</span> Starting Node <span class="pp">|</span> Connected To <span class="pp">|</span></span>
-<span id="cb10-96"><a href="#cb10-96"></a><span class="pp">|---------------|--------------|</span></span>
-<span id="cb10-97"><a href="#cb10-97"></a><span class="pp">|</span> Node A        <span class="pp">|</span> Node B       <span class="pp">|</span></span>
-<span id="cb10-98"><a href="#cb10-98"></a><span class="pp">|</span> Node A        <span class="pp">|</span> Node C       <span class="pp">|</span></span>
+<span id="cb10-95"><a href="#cb10-95"></a><span class="in">| Starting Node | Connected To |</span></span>
+<span id="cb10-96"><a href="#cb10-96"></a><span class="in">|---------------|--------------|</span></span>
+<span id="cb10-97"><a href="#cb10-97"></a><span class="in">| Node A        | Node B       |</span></span>
+<span id="cb10-98"><a href="#cb10-98"></a><span class="in">| Node A        | Node C       |</span></span>
 <span id="cb10-99"><a href="#cb10-99"></a><span class="in">```</span></span>
 <span id="cb10-100"><a href="#cb10-100"></a></span>
 <span id="cb10-101"><a href="#cb10-101"></a></span>
@@ -1414,10 +1432,10 @@ window.Quarto = {
 <span id="cb10-103"><a href="#cb10-103"></a><span class="ss">* </span>**Alignment**: You don't *have* to make the dashes match the length of the words, but it makes the "raw" text much easier for humans to read.</span>
 <span id="cb10-104"><a href="#cb10-104"></a></span>
 <span id="cb10-105"><a href="#cb10-105"></a><span class="in">```{.md}</span></span>
-<span id="cb10-106"><a href="#cb10-106"></a><span class="pp">|</span> Starting Node <span class="pp">|</span> Connected To <span class="pp">|</span></span>
-<span id="cb10-107"><a href="#cb10-107"></a><span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span></span>
-<span id="cb10-108"><a href="#cb10-108"></a><span class="pp">|</span> Node A        <span class="pp">|</span> Node B<span class="pp">|</span></span>
-<span id="cb10-109"><a href="#cb10-109"></a><span class="pp">|</span> Node A <span class="pp">|</span> Node C       <span class="pp">|</span></span>
+<span id="cb10-106"><a href="#cb10-106"></a><span class="in">| Starting Node | Connected To |</span></span>
+<span id="cb10-107"><a href="#cb10-107"></a><span class="in">|-|-|</span></span>
+<span id="cb10-108"><a href="#cb10-108"></a><span class="in">| Node A        | Node B|</span></span>
+<span id="cb10-109"><a href="#cb10-109"></a><span class="in">| Node A | Node C       |</span></span>
 <span id="cb10-110"><a href="#cb10-110"></a><span class="in">```</span></span>
 <span id="cb10-111"><a href="#cb10-111"></a></span>
 <span id="cb10-112"><a href="#cb10-112"></a><span class="ss">* </span>**Pipes**: Every row must start and end with a pipe <span class="in">`|`</span> to ensure the grid closes properly.</span>
@@ -1429,41 +1447,41 @@ window.Quarto = {
 <span id="cb10-118"><a href="#cb10-118"></a><span class="ss">- </span><span class="va">[ ]</span> You may simply place a 4 lists each on their own line.</span>
 <span id="cb10-119"><a href="#cb10-119"></a></span>
 <span id="cb10-120"><a href="#cb10-120"></a><span class="in">```{.py}</span></span>
-<span id="cb10-121"><a href="#cb10-121"></a>[<span class="st">"A1"</span>, <span class="st">"A2"</span>, <span class="st">"A3"</span>, <span class="st">"A4"</span>, <span class="st">"B1"</span>, <span class="st">"C1"</span>, <span class="st">"D1"</span>, <span class="st">"B2"</span>]</span>
-<span id="cb10-122"><a href="#cb10-122"></a>[<span class="st">"A2"</span>, ...]</span>
+<span id="cb10-121"><a href="#cb10-121"></a><span class="in">["A1", "A2", "A3", "A4", "B1", "C1", "D1", "B2"]</span></span>
+<span id="cb10-122"><a href="#cb10-122"></a><span class="in">["A2", ...]</span></span>
 <span id="cb10-123"><a href="#cb10-123"></a><span class="in">```</span></span>
 <span id="cb10-124"><a href="#cb10-124"></a></span>
 <span id="cb10-125"><a href="#cb10-125"></a><span class="fu">### Bonus: Lab Extension</span></span>
 <span id="cb10-126"><a href="#cb10-126"></a></span>
 <span id="cb10-127"><a href="#cb10-127"></a>*I expect graph representation to be appropriate challenging for students without a computing background, but not for students with one. I expect the following, hidden task to be an appropriately challenging task for students with a computing background.*</span>
 <span id="cb10-128"><a href="#cb10-128"></a></span>
-<span id="cb10-129"><a href="#cb10-129"></a><span class="dt">&lt;</span><span class="kw">details</span><span class="dt">&gt;</span></span>
+<span id="cb10-129"><a href="#cb10-129"></a>&lt;details&gt;</span>
 <span id="cb10-130"><a href="#cb10-130"></a></span>
 <span id="cb10-131"><a href="#cb10-131"></a><span class="ss">- </span>Advanced students will wish to create a Python *function* which computes if a move is legal based on an existing board state (as a list of lists).</span>
 <span id="cb10-132"><a href="#cb10-132"></a><span class="ss">- </span>This function should accept an adjacency matrix (also a list of lists).</span>
 <span id="cb10-133"><a href="#cb10-133"></a><span class="ss">    - </span>While many Sudoku variations have predictable adjacencies, this is not always the case, and your *function* should generalize to other Sudoku variants.</span>
 <span id="cb10-134"><a href="#cb10-134"></a><span class="ss">    - </span><span class="co">[</span><span class="ot">Read more</span><span class="co">](https://en.wikipedia.org/wiki/Sudoku#Variations_of_grid_sizes_or_region_shapes)</span></span>
 <span id="cb10-135"><a href="#cb10-135"></a>    </span>
-<span id="cb10-136"><a href="#cb10-136"></a><span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> title</span><span class="op">=</span><span class="st">"R. A. Nonenmacher, CC BY-SA 4.0 </span><span class="dv">&amp;lt;</span><span class="st">https://creativecommons.org/licenses/by-sa/4.0</span><span class="dv">&amp;gt;</span><span class="st">, via Wikimedia Commons"</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://commons.wikimedia.org/wiki/File:A_nonomino_sudoku.svg"</span><span class="dt">&gt;&lt;</span><span class="kw">img</span><span class="ot"> width</span><span class="op">=</span><span class="st">"256"</span><span class="ot"> alt</span><span class="op">=</span><span class="st">"A nonomino sudoku"</span><span class="ot"> src</span><span class="op">=</span><span class="st">"https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/A_nonomino_sudoku.svg/256px-A_nonomino_sudoku.svg.png?20080914220546"</span><span class="dt">&gt;&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
+<span id="cb10-136"><a href="#cb10-136"></a>&lt;a title="R. A. Nonenmacher, CC BY-SA 4.0 <span class="dv">&amp;lt;</span>https://creativecommons.org/licenses/by-sa/4.0<span class="dv">&amp;gt;</span>, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:A_nonomino_sudoku.svg"&gt;&lt;img width="256" alt="A nonomino sudoku" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/A_nonomino_sudoku.svg/256px-A_nonomino_sudoku.svg.png?20080914220546"&gt;&lt;/a&gt;</span>
 <span id="cb10-137"><a href="#cb10-137"></a></span>
 <span id="cb10-138"><a href="#cb10-138"></a></span>
 <span id="cb10-139"><a href="#cb10-139"></a></span>
 <span id="cb10-140"><a href="#cb10-140"></a><span class="in">```{.py}</span></span>
-<span id="cb10-141"><a href="#cb10-141"></a><span class="co"># I used zero index tuples `(0,1)` rather than strings `A1` for nodes.</span></span>
-<span id="cb10-142"><a href="#cb10-142"></a><span class="co"># I used a dictionary with keys as nodes/tuples and values as a list of nodes/tuples)</span></span>
-<span id="cb10-143"><a href="#cb10-143"></a><span class="co"># I placed either an int or `None` in each board position</span></span>
-<span id="cb10-144"><a href="#cb10-144"></a><span class="kw">def</span> is_legal(adj_dictionary: <span class="bu">dict</span>[<span class="bu">tuple</span>[<span class="bu">int</span>, <span class="bu">int</span>], <span class="bu">list</span>[<span class="bu">tuple</span>[<span class="bu">int</span>, <span class="bu">int</span>]]], board_state: <span class="bu">list</span>[<span class="bu">list</span>[Union[<span class="va">None</span>, <span class="bu">int</span>]]]) <span class="op">-&gt;</span> <span class="bu">bool</span>:</span>
-<span id="cb10-145"><a href="#cb10-145"></a>    <span class="co"># your code here</span></span>
+<span id="cb10-141"><a href="#cb10-141"></a><span class="in"># I used zero index tuples `(0,1)` rather than strings `A1` for nodes.</span></span>
+<span id="cb10-142"><a href="#cb10-142"></a><span class="in"># I used a dictionary with keys as nodes/tuples and values as a list of nodes/tuples)</span></span>
+<span id="cb10-143"><a href="#cb10-143"></a><span class="in"># I placed either an int or `None` in each board position</span></span>
+<span id="cb10-144"><a href="#cb10-144"></a><span class="in">def is_legal(adj_dictionary: dict[tuple[int, int], list[tuple[int, int]]], board_state: list[list[Union[None, int]]]) -&gt; bool:</span></span>
+<span id="cb10-145"><a href="#cb10-145"></a><span class="in">    # your code here</span></span>
 <span id="cb10-146"><a href="#cb10-146"></a></span>
-<span id="cb10-147"><a href="#cb10-147"></a><span class="co"># Example</span></span>
-<span id="cb10-148"><a href="#cb10-148"></a><span class="co"># Write a helper function to generate this, of course.</span></span>
-<span id="cb10-149"><a href="#cb10-149"></a>adj <span class="op">=</span> [</span>
-<span id="cb10-150"><a href="#cb10-150"></a>    [(<span class="dv">0</span>,<span class="dv">0</span>), (<span class="dv">0</span>,<span class="dv">1</span>), (<span class="dv">0</span>,<span class="dv">2</span>), (<span class="dv">0</span>,<span class="dv">3</span>), (<span class="dv">1</span>,<span class="dv">0</span>), (<span class="dv">2</span>,<span class="dv">0</span>), (<span class="dv">3</span>,<span class="dv">0</span>), (<span class="dv">1</span>,<span class="dv">1</span>)],</span>
-<span id="cb10-151"><a href="#cb10-151"></a>    <span class="co"># ...</span></span>
-<span id="cb10-152"><a href="#cb10-152"></a>]</span>
+<span id="cb10-147"><a href="#cb10-147"></a><span class="in"># Example</span></span>
+<span id="cb10-148"><a href="#cb10-148"></a><span class="in"># Write a helper function to generate this, of course.</span></span>
+<span id="cb10-149"><a href="#cb10-149"></a><span class="in">adj = [</span></span>
+<span id="cb10-150"><a href="#cb10-150"></a><span class="in">    [(0,0), (0,1), (0,2), (0,3), (1,0), (2,0), (3,0), (1,1)],</span></span>
+<span id="cb10-151"><a href="#cb10-151"></a><span class="in">    # ...</span></span>
+<span id="cb10-152"><a href="#cb10-152"></a><span class="in">]</span></span>
 <span id="cb10-153"><a href="#cb10-153"></a><span class="in">```</span></span>
 <span id="cb10-154"><a href="#cb10-154"></a></span>
-<span id="cb10-155"><a href="#cb10-155"></a><span class="dt">&lt;/</span><span class="kw">details</span><span class="dt">&gt;</span></span>
+<span id="cb10-155"><a href="#cb10-155"></a>&lt;/details&gt;</span>
 <span id="cb10-156"><a href="#cb10-156"></a></span>
 <span id="cb10-157"><a href="#cb10-157"></a><span class="fu">## Part 3: The Adjacency Matrix</span></span>
 <span id="cb10-158"><a href="#cb10-158"></a></span>
@@ -1486,71 +1504,71 @@ window.Quarto = {
 <span id="cb10-175"><a href="#cb10-175"></a>There are 8 stations: </span>
 <span id="cb10-176"><a href="#cb10-176"></a></span>
 <span id="cb10-177"><a href="#cb10-177"></a><span class="in">```{.email}</span></span>
-<span id="cb10-178"><a href="#cb10-178"></a>SEATTLE</span>
-<span id="cb10-179"><a href="#cb10-179"></a>TUKWILA</span>
-<span id="cb10-180"><a href="#cb10-180"></a>TACOMA</span>
-<span id="cb10-181"><a href="#cb10-181"></a>OLYMPIA/LACEY</span>
-<span id="cb10-182"><a href="#cb10-182"></a>CENTRALIA</span>
-<span id="cb10-183"><a href="#cb10-183"></a>KELSO/LONGVIEW</span>
-<span id="cb10-184"><a href="#cb10-184"></a>VANCOUVER WA</span>
-<span id="cb10-185"><a href="#cb10-185"></a>PORTLAND</span>
+<span id="cb10-178"><a href="#cb10-178"></a><span class="in">SEATTLE</span></span>
+<span id="cb10-179"><a href="#cb10-179"></a><span class="in">TUKWILA</span></span>
+<span id="cb10-180"><a href="#cb10-180"></a><span class="in">TACOMA</span></span>
+<span id="cb10-181"><a href="#cb10-181"></a><span class="in">OLYMPIA/LACEY</span></span>
+<span id="cb10-182"><a href="#cb10-182"></a><span class="in">CENTRALIA</span></span>
+<span id="cb10-183"><a href="#cb10-183"></a><span class="in">KELSO/LONGVIEW</span></span>
+<span id="cb10-184"><a href="#cb10-184"></a><span class="in">VANCOUVER WA</span></span>
+<span id="cb10-185"><a href="#cb10-185"></a><span class="in">PORTLAND</span></span>
 <span id="cb10-186"><a href="#cb10-186"></a><span class="in">```</span></span>
 <span id="cb10-187"><a href="#cb10-187"></a> </span>
 <span id="cb10-188"><a href="#cb10-188"></a>We can make a table showing edges from north-to-south, with the starting station on the right and the ending station on the top. We use <span class="in">`1`</span> to denote an edge.</span>
 <span id="cb10-189"><a href="#cb10-189"></a></span>
-<span id="cb10-190"><a href="#cb10-190"></a><span class="pp">||</span>SEA<span class="pp">|</span>TUK<span class="pp">|</span>TAC<span class="pp">|</span>OLY<span class="pp">|</span>CEN<span class="pp">|</span>KEL<span class="pp">|</span>VAN<span class="pp">|</span>POR<span class="pp">|</span></span>
-<span id="cb10-191"><a href="#cb10-191"></a><span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span></span>
-<span id="cb10-192"><a href="#cb10-192"></a><span class="pp">|</span>SEATTLE<span class="pp">||</span>1<span class="pp">|||||||</span></span>
-<span id="cb10-193"><a href="#cb10-193"></a><span class="pp">|</span>TUKWILA<span class="pp">|||</span>1<span class="pp">||||||</span></span>
-<span id="cb10-194"><a href="#cb10-194"></a><span class="pp">|</span>TACOMA<span class="pp">||||</span>1<span class="pp">|||||</span></span>
-<span id="cb10-195"><a href="#cb10-195"></a><span class="pp">|</span>OLYMPIA/LACEY<span class="pp">|||||</span>1<span class="pp">||||</span></span>
-<span id="cb10-196"><a href="#cb10-196"></a><span class="pp">|</span>CENTRALIA<span class="pp">||||||</span>1<span class="pp">|||</span></span>
-<span id="cb10-197"><a href="#cb10-197"></a><span class="pp">|</span>KELSO/LONGVIEW<span class="pp">|||||||</span>1<span class="pp">||</span></span>
-<span id="cb10-198"><a href="#cb10-198"></a><span class="pp">|</span>VANCOUVER WA<span class="pp">||||||||</span>1<span class="pp">|</span></span>
-<span id="cb10-199"><a href="#cb10-199"></a><span class="pp">|</span>PORTLAND<span class="pp">|||||||||</span></span>
+<span id="cb10-190"><a href="#cb10-190"></a>||SEA|TUK|TAC|OLY|CEN|KEL|VAN|POR|</span>
+<span id="cb10-191"><a href="#cb10-191"></a>|-|-|-|-|-|-|-|-|-|</span>
+<span id="cb10-192"><a href="#cb10-192"></a>|SEATTLE||1|||||||</span>
+<span id="cb10-193"><a href="#cb10-193"></a>|TUKWILA|||1||||||</span>
+<span id="cb10-194"><a href="#cb10-194"></a>|TACOMA||||1|||||</span>
+<span id="cb10-195"><a href="#cb10-195"></a>|OLYMPIA/LACEY|||||1||||</span>
+<span id="cb10-196"><a href="#cb10-196"></a>|CENTRALIA||||||1|||</span>
+<span id="cb10-197"><a href="#cb10-197"></a>|KELSO/LONGVIEW|||||||1||</span>
+<span id="cb10-198"><a href="#cb10-198"></a>|VANCOUVER WA||||||||1|</span>
+<span id="cb10-199"><a href="#cb10-199"></a>|PORTLAND|||||||||</span>
 <span id="cb10-200"><a href="#cb10-200"></a></span>
 <span id="cb10-201"><a href="#cb10-201"></a>We note that *we do not have to label the sides* if we agree on some ordering.</span>
 <span id="cb10-202"><a href="#cb10-202"></a></span>
 <span id="cb10-203"><a href="#cb10-203"></a><span class="ss">- </span>Which we have! We ordered north-to-south.</span>
 <span id="cb10-204"><a href="#cb10-204"></a><span class="ss">- </span>Sudoku squares can similarly be ordered (left-to-right then top-to-bottom or "reading order")</span>
 <span id="cb10-205"><a href="#cb10-205"></a></span>
-<span id="cb10-206"><a href="#cb10-206"></a><span class="pp">|||||||||</span></span>
-<span id="cb10-207"><a href="#cb10-207"></a><span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span></span>
-<span id="cb10-208"><a href="#cb10-208"></a><span class="pp">||</span>1<span class="pp">|||||||</span></span>
-<span id="cb10-209"><a href="#cb10-209"></a><span class="pp">|||</span>1<span class="pp">||||||</span></span>
-<span id="cb10-210"><a href="#cb10-210"></a><span class="pp">||||</span>1<span class="pp">|||||</span></span>
-<span id="cb10-211"><a href="#cb10-211"></a><span class="pp">|||||</span>1<span class="pp">||||</span></span>
-<span id="cb10-212"><a href="#cb10-212"></a><span class="pp">||||||</span>1<span class="pp">|||</span></span>
-<span id="cb10-213"><a href="#cb10-213"></a><span class="pp">|||||||</span>1<span class="pp">||</span></span>
-<span id="cb10-214"><a href="#cb10-214"></a><span class="pp">||||||||</span>1<span class="pp">|</span></span>
-<span id="cb10-215"><a href="#cb10-215"></a><span class="pp">|||||||||</span></span>
+<span id="cb10-206"><a href="#cb10-206"></a>|||||||||</span>
+<span id="cb10-207"><a href="#cb10-207"></a>|-|-|-|-|-|-|-|</span>
+<span id="cb10-208"><a href="#cb10-208"></a>||1|||||||</span>
+<span id="cb10-209"><a href="#cb10-209"></a>|||1||||||</span>
+<span id="cb10-210"><a href="#cb10-210"></a>||||1|||||</span>
+<span id="cb10-211"><a href="#cb10-211"></a>|||||1||||</span>
+<span id="cb10-212"><a href="#cb10-212"></a>||||||1|||</span>
+<span id="cb10-213"><a href="#cb10-213"></a>|||||||1||</span>
+<span id="cb10-214"><a href="#cb10-214"></a>||||||||1|</span>
+<span id="cb10-215"><a href="#cb10-215"></a>|||||||||</span>
 <span id="cb10-216"><a href="#cb10-216"></a></span>
 <span id="cb10-217"><a href="#cb10-217"></a>We'd typically put zeroes everywhere without a one.</span>
 <span id="cb10-218"><a href="#cb10-218"></a></span>
-<span id="cb10-219"><a href="#cb10-219"></a><span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span></span>
-<span id="cb10-220"><a href="#cb10-220"></a><span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span></span>
-<span id="cb10-221"><a href="#cb10-221"></a><span class="pp">|</span>0<span class="pp">|</span>1<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span></span>
-<span id="cb10-222"><a href="#cb10-222"></a><span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>1<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span></span>
-<span id="cb10-223"><a href="#cb10-223"></a><span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>1<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span></span>
-<span id="cb10-224"><a href="#cb10-224"></a><span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>1<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span></span>
-<span id="cb10-225"><a href="#cb10-225"></a><span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>1<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span></span>
-<span id="cb10-226"><a href="#cb10-226"></a><span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>1<span class="pp">|</span>0<span class="pp">|</span></span>
-<span id="cb10-227"><a href="#cb10-227"></a><span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>1<span class="pp">|</span></span>
-<span id="cb10-228"><a href="#cb10-228"></a><span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span></span>
+<span id="cb10-219"><a href="#cb10-219"></a>| | | | | | | | |</span>
+<span id="cb10-220"><a href="#cb10-220"></a>|-|-|-|-|-|-|-|-|</span>
+<span id="cb10-221"><a href="#cb10-221"></a>|0|1|0|0|0|0|0|0|</span>
+<span id="cb10-222"><a href="#cb10-222"></a>|0|0|1|0|0|0|0|0|</span>
+<span id="cb10-223"><a href="#cb10-223"></a>|0|0|0|1|0|0|0|0|</span>
+<span id="cb10-224"><a href="#cb10-224"></a>|0|0|0|0|1|0|0|0|</span>
+<span id="cb10-225"><a href="#cb10-225"></a>|0|0|0|0|0|1|0|0|</span>
+<span id="cb10-226"><a href="#cb10-226"></a>|0|0|0|0|0|0|1|0|</span>
+<span id="cb10-227"><a href="#cb10-227"></a>|0|0|0|0|0|0|0|1|</span>
+<span id="cb10-228"><a href="#cb10-228"></a>|0|0|0|0|0|0|0|0|</span>
 <span id="cb10-229"><a href="#cb10-229"></a></span>
 <span id="cb10-230"><a href="#cb10-230"></a>We note this looks fairly even in Markdown table notation:</span>
 <span id="cb10-231"><a href="#cb10-231"></a></span>
 <span id="cb10-232"><a href="#cb10-232"></a><span class="in">```{.md filename="Markdown text cell"}</span></span>
-<span id="cb10-233"><a href="#cb10-233"></a><span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span></span>
-<span id="cb10-234"><a href="#cb10-234"></a><span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span>-<span class="pp">|</span></span>
-<span id="cb10-235"><a href="#cb10-235"></a><span class="pp">|</span>0<span class="pp">|</span>1<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span></span>
-<span id="cb10-236"><a href="#cb10-236"></a><span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>1<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span></span>
-<span id="cb10-237"><a href="#cb10-237"></a><span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>1<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span></span>
-<span id="cb10-238"><a href="#cb10-238"></a><span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>1<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span></span>
-<span id="cb10-239"><a href="#cb10-239"></a><span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>1<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span></span>
-<span id="cb10-240"><a href="#cb10-240"></a><span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>1<span class="pp">|</span>0<span class="pp">|</span></span>
-<span id="cb10-241"><a href="#cb10-241"></a><span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>1<span class="pp">|</span></span>
-<span id="cb10-242"><a href="#cb10-242"></a><span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span>0<span class="pp">|</span></span>
+<span id="cb10-233"><a href="#cb10-233"></a><span class="in">| | | | | | | | |</span></span>
+<span id="cb10-234"><a href="#cb10-234"></a><span class="in">|-|-|-|-|-|-|-|-|</span></span>
+<span id="cb10-235"><a href="#cb10-235"></a><span class="in">|0|1|0|0|0|0|0|0|</span></span>
+<span id="cb10-236"><a href="#cb10-236"></a><span class="in">|0|0|1|0|0|0|0|0|</span></span>
+<span id="cb10-237"><a href="#cb10-237"></a><span class="in">|0|0|0|1|0|0|0|0|</span></span>
+<span id="cb10-238"><a href="#cb10-238"></a><span class="in">|0|0|0|0|1|0|0|0|</span></span>
+<span id="cb10-239"><a href="#cb10-239"></a><span class="in">|0|0|0|0|0|1|0|0|</span></span>
+<span id="cb10-240"><a href="#cb10-240"></a><span class="in">|0|0|0|0|0|0|1|0|</span></span>
+<span id="cb10-241"><a href="#cb10-241"></a><span class="in">|0|0|0|0|0|0|0|1|</span></span>
+<span id="cb10-242"><a href="#cb10-242"></a><span class="in">|0|0|0|0|0|0|0|0|</span></span>
 <span id="cb10-243"><a href="#cb10-243"></a><span class="in">```</span></span>
 <span id="cb10-244"><a href="#cb10-244"></a></span>
 <span id="cb10-245"><a href="#cb10-245"></a>And we can also express as a list (<span class="in">`[]`</span> enclose, <span class="in">`,`</span> separated`) of lists *of adjacency*.</span>
@@ -1561,16 +1579,16 @@ window.Quarto = {
 <span id="cb10-250"><a href="#cb10-250"></a><span class="ss">    - </span>We can subtract <span class="in">`0`</span> from <span class="in">`1`</span> but not <span class="in">`KELSO`</span> from <span class="in">`ALBANY`</span></span>
 <span id="cb10-251"><a href="#cb10-251"></a></span>
 <span id="cb10-252"><a href="#cb10-252"></a><span class="in">```{.py filename="Colab code cell"}</span></span>
-<span id="cb10-253"><a href="#cb10-253"></a>amtrak_cascades <span class="op">=</span> [</span>
-<span id="cb10-254"><a href="#cb10-254"></a>    [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</span>
-<span id="cb10-255"><a href="#cb10-255"></a>    [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</span>
-<span id="cb10-256"><a href="#cb10-256"></a>    [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</span>
-<span id="cb10-257"><a href="#cb10-257"></a>    [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</span>
-<span id="cb10-258"><a href="#cb10-258"></a>    [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>],</span>
-<span id="cb10-259"><a href="#cb10-259"></a>    [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>],</span>
-<span id="cb10-260"><a href="#cb10-260"></a>    [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>],</span>
-<span id="cb10-261"><a href="#cb10-261"></a>    [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>]</span>
-<span id="cb10-262"><a href="#cb10-262"></a>]</span>
+<span id="cb10-253"><a href="#cb10-253"></a><span class="in">amtrak_cascades = [</span></span>
+<span id="cb10-254"><a href="#cb10-254"></a><span class="in">    [0,1,0,0,0,0,0,0],</span></span>
+<span id="cb10-255"><a href="#cb10-255"></a><span class="in">    [0,0,1,0,0,0,0,0],</span></span>
+<span id="cb10-256"><a href="#cb10-256"></a><span class="in">    [0,0,0,1,0,0,0,0],</span></span>
+<span id="cb10-257"><a href="#cb10-257"></a><span class="in">    [0,0,0,0,1,0,0,0],</span></span>
+<span id="cb10-258"><a href="#cb10-258"></a><span class="in">    [0,0,0,0,0,1,0,0],</span></span>
+<span id="cb10-259"><a href="#cb10-259"></a><span class="in">    [0,0,0,0,0,0,1,0],</span></span>
+<span id="cb10-260"><a href="#cb10-260"></a><span class="in">    [0,0,0,0,0,0,0,1],</span></span>
+<span id="cb10-261"><a href="#cb10-261"></a><span class="in">    [0,0,0,0,0,0,0,0]</span></span>
+<span id="cb10-262"><a href="#cb10-262"></a><span class="in">]</span></span>
 <span id="cb10-263"><a href="#cb10-263"></a><span class="in">```</span></span>
 <span id="cb10-264"><a href="#cb10-264"></a></span>
 <span id="cb10-265"><a href="#cb10-265"></a>Take a moment and make sure you understand this.</span>
@@ -1584,7 +1602,7 @@ window.Quarto = {
 <span id="cb10-273"><a href="#cb10-273"></a></span>
 <span id="cb10-274"><a href="#cb10-274"></a><span class="fu"># Fin</span></span>
 <span id="cb10-275"><a href="#cb10-275"></a></span>
-<span id="cb10-276"><a href="#cb10-276"></a>I expect making the matrix to be a whole thing, so there is no additional write-up today.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb10-276"><a href="#cb10-276"></a>I expect making the matrix to be a whole thing, so there is no additional write-up today.</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
