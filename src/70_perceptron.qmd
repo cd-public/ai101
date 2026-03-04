@@ -1,0 +1,636 @@
+---
+title: Perceptron 
+---
+
+## Recall
+
+- We've explored **Bipartite Graphs**.
+- We've seen how sensory inputs (fingers) can map to neurons (brain cells).
+- Today, we build our first functional model: **The Perceptron**.
+
+# To Perceive
+
+## Representing Reality
+
+- How does a computer "see" a simple object?
+- Let's take a standard six-sided die.
+- We can represent the face of a die as a **3x3 grid**.
+
+## A Die
+
+<a title="Dennis Hill from The OC, So. Cal., CC BY 2.0 &lt;https://creativecommons.org/licenses/by/2.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Snake_eyes_dice.jpg"><img width="512" alt="Snake eyes dice" src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Snake_eyes_dice.jpg"></a>
+
+## Too Complex
+
+- We imagine viewing (1) a single die (2) directly from above.
+
+<table>
+<td><a title="Mliu92, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Die_face_1b.svg"><img width="128" alt="Illustration of die face with 1 black dot" src="https://upload.wikimedia.org/wikipedia/commons/4/43/Die_face_1b.svg"></a>
+
+</td>
+<td>
+<a title="Mliu92, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Die_face_2b.svg"><img width="128" alt="Illustration of die face with 2 black dots" src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Die_face_2b.svg"></a>
+</td>
+<td>
+<a title="Mliu92, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Die_face_3b.svg"><img width="128" alt="Illustration of die face with 3 black dots"  src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Die_face_3b.svg"></a>
+</td>
+</table>
+
+## Helpful
+
+- Helpfully, most modern fonts include these!
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+1. &#9856; 
+2. &#9857;
+3. &#9858; 
+
+:::
+
+::: {.column width="50%"}
+
+4. &#9859; 
+5. &#9860; 
+6. &#9861; 
+:::
+
+
+::::
+ 
+
+## The 3x3 Grid
+
+- Each cell in the grid is either "on" (a dot is present) or "off" (empty space).
+- This is a **binary image**.
+
+| | | |
+|:-:|:-:|:-:|
+| (0,0) | (0,1) | (0,2) |
+| (1,0) | (1,1) | (1,2) |
+| (2,0) | (2,1) | (2,2) |
+
+
+
+## Encoding the Number 1
+
+- For a "1", only the center is filled.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+| | | |
+|:-:|:-:|:-:|
+| 0 | 0 | 0 |
+| 0 | **1** | 0 |
+| 0 | 0 | 0 |
+
+:::
+
+::: {.column width="50%"}
+
+<div style="width: 300px; height: 300px; background-color: white; display: flex; justify-content: center; align-items: center; border: 1px solid #ccc;">
+<div style="width: 100px; height: 100px; background-color: black;"></div>
+</div>
+
+:::
+
+
+::::
+
+
+## Encoding the Number 2
+
+- For a "2", we usually see top-right and bottom-left.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+
+| | | |
+|:-:|:-:|:-:|
+| 0 | 0 | **1** |
+| 0 | 0 | 0 |
+| **1** | 0 | 0 |
+
+:::
+
+::: {.column width="50%"}
+
+<div style="position: relative; width: 300px; height: 300px; background-color: white; border: 1px solid #ccc;">
+<div style="position: absolute; top: 0; right: 0; width: 100px; height: 100px; background-color: black;"></div>
+
+<div style="position: absolute; bottom: 0; left: 0; width: 100px; height: 100px; background-color: black;"></div>
+</div>
+
+:::
+
+
+::::
+
+
+## Encoding the Number 3
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+
+| | | |
+|:-:|:-:|:-:|
+| 0 | 0 | **1** |
+| 0 | **1** | 0 |
+| **1** | 0 | 0 |
+
+:::
+
+::: {.column width="50%"}
+
+<div style="position: relative; width: 300px; height: 300px; background-color: white; border: 1px solid #ccc;">
+<div style="position: absolute; top: 0; right: 0; width: 100px; height: 100px; background-color: black;"></div>
+
+<div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 100px; background-color: black;"></div>
+
+<div style="position: absolute; bottom: 0; left: 0; width: 100px; height: 100px; background-color: black;"></div>
+</div>
+
+:::
+
+
+::::
+
+
+## Flattening the Input
+
+- To feed this into a neuron, we "unroll" the grid into a list.
+- We go row by row.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+| | | |
+|:-:|:-:|:-:|
+| 0 | 0 | 0 |
+| 0 | **1** | 0 |
+| 0 | 0 | 0 |
+
+:::
+
+::: {.column width="50%"}
+
+```{.py}
+[0,0,0,0,1,0,0,0,0]
+```
+
+:::
+
+
+::::
+
+# The Neuron Structure
+
+## Sensory Neurons
+
+- Each of these 9 positions acts as a **sensory neuron**.
+- If there is a dot, the neuron fires (1).
+- If there is no dot, the neuron is silent (0).
+- This is *quite* similar to how the eye works - certainly similar enough to draw connections.
+
+## The Summation
+
+- All 9 signals travel down "axons" (edges) to a single destination.
+- This destination is the **Cell Body** (or the Perceptron).
+
+```{dot}
+graph PerceptronBase {
+    rankdir=TD;
+    bgcolor="transparent"  
+    node [shape=circle, fontcolor = "#ffffff", color = "#ffffff"]
+    edge [color = "#ffffff"]
+
+    subgraph cluster_input {
+        fontcolor="white";
+        node [style=filled, fillcolor="red"];
+        X0 [label="0,0"]; X1 [label="0,1"]; X2 [label="0,2"];
+        X3 [label="1,0"]; X4 [label="1,1"]; X5 [label="1,2"];
+        X6 [label="2,0"]; X7 [label="2,1"]; X8 [label="2,2"];
+    }
+
+    node [style=filled, fillcolor="blue"];
+    Neuron [label="∑"];
+
+    X0 -- Neuron; X1 -- Neuron; X2 -- Neuron;
+    X3 -- Neuron; X4 -- Neuron; X5 -- Neuron;
+    X6 -- Neuron; X7 -- Neuron; X8 -- Neuron;
+}
+```
+
+## Why Sigma ($\Sigma$)
+
+- We'll get to that, soon.
+- Hint: What is $\Sigma$ used for in mathematics.
+
+$$
+\sum_{i=1}^n i = \frac{n(n+1)}{2}
+$$
+
+# Decision Making
+
+## Weighting the Evidence
+
+- Not every pixel is equally important for every task.
+- We assign a **Weight** ($w$) to each edge.
+- If a pixel is very important, it has a high weight.
+- If it's irrelevant, the weight is 0.
+- We would allow "anti-important" pixels to have a *negative* weight.
+  	- For example, is the center dot is present, you are certainly *not* viewing a 2, 4, or 6.
+
+## Example: Odd vs. Even
+
+- Let's try to detect if a die roll is **Odd**.
+- Which pixels are always "on" for odd numbers (1, 3, 5)?
+- The center pixel! (1,1).
+
+## Edge Weights for "Odd"
+
+- We give the center pixel a weight of 1.
+- We give all other pixels a weight of 0.
+
+```{.py}
+weights = [0, 0, 0, 0, 1, 0, 0, 0, 0]
+```
+
+::: {.callout-note}
+
+This is superficially similar to the pixel values for a die showing 1, but it's *meaning* is distinct.
+
+Previously, we showed what dots are present on a die representing one.
+
+Here, we show what dots matter when determining is a die is even or odd.
+
+:::
+
+## The Calculation
+
+- The neuron calculates the **Weighted Sum**.
+- For Die "1": $(1 \times 1) + (0 \times \text{others}) = 1$.
+- For Die "2": $(0 \times 1) + (1 \times \text{others}) = 0$.
+
+# Digression: Classification
+
+## Binary Classifiers
+
+- The neuron we just built is a **Binary Classifier**.
+- It sorts inputs into two distinct buckets.
+- Bucket A: "Odd" (Sum > 0)
+- Bucket B: "Even" (Sum = 0)
+
+## Mutual Exclusion
+
+- In binary classification, something is usually one or the other.
+- **Mutual Exclusion**: If it is A, it cannot be B.
+
+
+## Example: US Senators
+
+- A US Senator's party affiliation is a classic (mostly) binary classification.
+- Excluding independents, a senator is either:
+    - **Democrat**
+    - **Republican**
+- Also independents aren't real and almost universally "caucus" with one of the two major parties.
+
+## Some Examples
+
+| Senator | Feature: State | Feature: Vote Record | Classifier Output |
+|---------|----------------|----------------------|-------------------|
+| Wyden   | OR             | Capitalist           | Democrat          |
+| Crapo   | ID             | Capitalist           | Republican        |
+
+If you will allow me to editorialize (you shouldn't), state determines party affiliation does not determine support for e.g. US military actions or tax breaks for the wealthy.
+
+
+## Why Classification Matters
+
+It is the foundation of all AI logic.
+- Is this email spam? (Yes/No)
+- Is this tumor malignant? (Yes/No)
+- Is this image a cat? (Yes/No)
+
+# Aside: Summation
+
+## Summation Notation
+
+- To calculate the signal reaching the cell body, we don't just add numbers.
+- We multiply each input ($x$) by its importance or **weight** ($w$).
+- We use the Greek letter Sigma $\sum$ to represent this "Total Sum."
+
+## LaTeX in Markdown
+
+- In tools like Google Colab (used for our labs) or Quarto (used to make these slides), we use a special typesettin language called $\LaTeX$ (la-tech) to show mathematical notation.
+
+## Example
+
+- The formula for a neuron's input is:
+
+$$\sum_{i=1}^{n} w_i x_i = w_1 x_1 + w_2 x_2 + \dots + w_n x_n$$
+
+- $n$ is the number of inputs (9 for our dice).
+- $w_i$ is the weight of the $i$-th pixel.
+- $x_i$ is the value (0 or 1) of the $i$-th pixel.
+
+
+## In LaTeX
+
+- You can write this out as follows:
+
+```{.tex}
+$$
+\sum_{i=1}^{n} w_i \times x_i 
+$$
+```
+
+- The two enclosing lines of `$$` means "this is a mathematical formula"
+
+## Some notes
+
+- Many common mathematical expressions are stylized using a backslash and a name or nickname.
+- Subscripts are denoted with `_` and enclosed in `{}`
+- Superscripts are denoted with `^` - and may be combined with subscripts!
+- `{}` are optional for single characters.
+
+# Differentiating Odds
+
+## The "Center Pixel" Strategy
+
+- We previously suggested that "Odd" numbers (1, 3, 5) all have a center dot.
+- **Problem:** What if we need to distinguish a **1** from a **3**?
+	- Those are different numbers!
+
+## Failed Weighting #1: Only the Center
+
+- Let's set $w_4 = 1$ (the center) and all other $w = 0$.
+  	- Why 4? Start at zero, count up.
+- **Result:** It correctly identifies 1, 3, and 5.
+- **The Failure:** It would also classify a 7 and 9, most likely, even though these are not valid "odd" die in the sense of, say, Yahtzee.
+
+## Failed Weighting #2: The Positive Diagonal
+
+- Let's weight the top-right, center, and bottom-left as $+\frac{1}{3}$.
+- **Result:** It perfectly identifies a "3".
+- **The Failure:** It fails to identify a "1" (the sum rounds down to zero) and it ignores the extra dots in a "5." It's too specific to the shape of a 3.
+- **The Failure:** What if the "3" is rotated by 90 degrees?
+
+# The Power of Negativity
+
+## Inhibitory Signals
+
+- In biology, some neurons tell others *not* to fire. These are "inhibitory."
+  	- For example, when I see a film that *isn't* directed by Ridley Scott.
+	- Did you know Ridly Scott directed *Kingdom of Heaven* 2005?
+- In our model, we use **Negative Weights**.
+- This allows us to "punish" the presence of certain dots that shouldn't be there for a specific classification.
+
+## Example: Detecting "1" but NOT "3"
+
+- Both have a center dot. How do we tell them apart?
+- We "reward" the center dot but "punish" the corners.
+	- Center (1,1)     = +1
+	- Top-Right (0,2)  = -1
+	- Bottom-Left (2,0) = -1
+
+```{.py}
+weights = [0, 0, -1, 0, 1, 0, -1, 0, 0]
+```
+
+## Why it works
+
+- **For Die "1":** Sum = $(1 \times 1) + (0 \times -1) + (0 \times -1) = 1$. (Success!)
+- **For Die "3":** Sum = $(1 \times 1) + (1 \times -1) + (1 \times -1) = -1$. 
+- The negative weights "cancelled out" the center dot. The neuron stays silent for the 3!
+
+# Introducing the Bias
+
+## The "Sensitivity" Problem
+
+- Even with negative weights, we have a problem: **The Threshold**.
+- We need a way to decide exactly when the sum is "enough" to trigger a fire.
+- We need to shift the "goalposts" without rewriting all our weights.
+
+## The Bias ($b$)
+
+- The **Bias** is a number we add to the sum *before* deciding to fire.
+- It represents how "easy" it is to make the neuron fire.
+- **High Bias:** The neuron is "trigger happy" and fires easily.
+  	- My "movie good" neuron is *highly biased* toward Ridley Scott films.
+- **Negative Bias:** The neuron is "stubborn" and needs a very high positive sum to fire.
+  	- My "movie good" neuron is *negatively biased* against *Predator* films.
+
+
+
+## The Completed Formula
+
+- We update our LaTeX formula to include the bias term $b$:
+
+$$\sum_{i=1}^{n} w_i x_i + b $$
+
+- If the result is $> 0$, the neuron fires (1).
+- If the result is $\le 0$, it stays silent (0).
+
+## Visualizing the Bias Node
+
+- In a graph, the bias is often shown as a special input node that is **always** 1, multiplied by its own weight $b$.
+
+```{dot}
+graph PerceptronWithBias {
+    rankdir=TD;
+    bgcolor="transparent"  
+    node [shape=circle, fontcolor = "#ffffff", color = "#ffffff"]
+    
+    subgraph cluster_input {
+        label="Inputs";
+        fontcolor="white";
+        node [style=filled, fillcolor="red"];
+        X1; X2; X3;
+    }
+
+    subgraph cluster_bias {
+        label="Bias";
+        fontcolor="white";
+        node [style=filled, fillcolor="green"];
+        B [label="1"];
+    }
+
+    node [style=filled, fillcolor="blue"];
+    Neuron [label="∑"];
+
+    X1 -- Neuron [label="w1"];
+    X2 -- Neuron [label="w2"];
+    X3 -- Neuron [label="w3"];
+    B  -- Neuron [label="b", color="yellow"];
+}
+```
+
+# The Full Perceptron 
+
+## Bias and Threshold
+
+- Sometimes, the sum isn't enough. We need a **Threshold**.
+- A neuron only "fires" if the sum exceeds a certain level.
+- This level is controlled by the **Bias**.
+
+$$f(x) = \begin{cases} 1 & \text{if } \sum w_i x_i + b > 0 \\ 0 & \text{otherwise} \end{cases}$$
+
+
+- We can use either a *piecewise* or *indicator* function here.
+
+## Piecewise Functions
+
+
+- In our Perceptron, the output changes abruptly from 0 to 1. 
+- This is a **Piecewise Function**: a function where the "rule" changes depending on the input value $x$.
+
+## Mathematical Notation
+
+- We use a large "curly bracket" to define the different rules. For a simple threshold at zero:
+
+$$
+f(x) = \begin{cases} 
+0 & x \leq 0 \\
+1 & x > 0 
+\end{cases}
+$$
+
+- This is exactly how our neuron decides to "fire" or "stay silent."
+
+## Real World: Tax Brackets
+
+- Most people encounter piecewise functions once a year: **Income Tax**. 
+- Tax rate isn't a single line; it's a series of "steps" or "brackets."
+
+| Income Range | Tax Rate |
+| :--- | :--- |
+| $0 – $10,000 | 10% |
+| $10,001 – $45,000 | 15% |
+| $45,001 – $95,000 | 25% |
+
+## The "Tax" Perceptron
+
+You can think of each tax bracket as a neuron with a different **Bias**.
+
+* The 10% neuron "fires" immediately (**Bias = 0**).
+* The 25% neuron only "fires" once your income (Input) exceeds $45,000 (**Bias = -45,000**).
+
+## Indicator Functions
+
+- An **Indicator Function** is a special piecewise function. 
+- It "indicates" whether an input belongs to a specific collection. 
+- We use the symbol $\mathbb{1}$ (a "blackboard bold" 1).
+  	- `$\mathbb{1}$` - start math, make blackboard bold, apply to 1, end math,
+
+## Binary Logic
+
+- If the condition is **True**, the output is 1.
+- If the condition is **False**, the output is 0.
+
+$$
+\mathbb{1}_{A}(x) = \begin{cases} 
+1 & x \in A \\
+0 & x \notin A 
+\end{cases}
+$$
+
+## Dice as Collections
+
+When we detect an "Odd" die face, we are running an Indicator Function.
+
+- **Input:** 3x3 Grid
+- **Collection $A$:** All grids representing 1, 3, or 5
+- **Output:** 1 if the grid is in the set, 0 otherwise.
+
+# Summary & Notation
+
+## Summation in Colab
+
+- When writing your lab reports in Markdown cells, you can use LaTeX. 
+	- Or $\LaTeX$ by writing `$\LaTeX`
+
+
+## Notation
+
+- To show the total input to a neuron, write:
+
+$$
+z = \sum_{i=1}^{n} w_i x_i + b
+$$
+
+```{.tex}
+z = \sum_{i=1}^{n} w_i x_i + b
+```
+
+This is the standard way to express the **"weighted sum plus bias."**
+
+## Visualizing the Weights
+
+- Let's look at the graph again, but with weights indicated by line thickness.
+
+```{dot}
+graph PerceptronWeights {
+    rankdir=TD;
+    bgcolor="transparent"  
+    node [shape=circle, fontcolor = "#ffffff", color = "#ffffff"]
+    
+    subgraph cluster_input {
+        node [style=filled, fillcolor="red"];
+        X0; X1; X2; X3; X4; X5; X6; X7; X8;
+    }
+
+    node [style=filled, fillcolor="blue"];
+    Neuron [label="Odd?"];
+
+    X0 -- Neuron [label="0", color="#444444"];
+    X1 -- Neuron [label="0", color="#444444"];
+    X2 -- Neuron [label="0", color="#444444"];
+    X3 -- Neuron [label="0", color="#444444"];
+    X4 -- Neuron [label="1", penwidth=5, color="white"]; 
+    X5 -- Neuron [label="0", color="#444444"];
+    X6 -- Neuron [label="0", color="#444444"];
+    X7 -- Neuron [label="0", color="#444444"];
+    X8 -- Neuron [label="0", color="#444444"];
+}
+```
+
+# History of the Perceptron
+
+## Predate Computers!
+
+## Use *Linear Algebra*
+
+## Now on GPUs!
+
+# Applications
+
+## MNIST Dataset
+
+- 70,000 handwritten digits.
+- Instead of a 3x3 grid, it is a **28x28 grid** (784 sensory neurons).
+- A single layer of neurons can achieve ~90% accuracy!
+
+## ImageNet
+
+- Millions of high-res images.
+- Hundreds of categories (Dog, Boat, Bird).
+- Uses the same core principles: **Weights, Sums, and Thresholds**.
+
+# Takeaways
+
+- **Inputs** are just flattened grids of numbers.
+- **Weights** determine which parts of the input matter.
+- **Classification** is the act of drawing a line between two sets of data.
+- **Graphs** allow us to visualize the flow of information from the eye to the decision.
+

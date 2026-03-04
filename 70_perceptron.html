@@ -1,0 +1,2554 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Perceptron – AI 101</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./61_weights.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-b86297dc19107d1c9b1952b0f8e15fd8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./70_perceptron.html">Perceptron</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00_turing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ada &amp; Alan</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Turing’s Test</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11_colab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Colab</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20_supervise.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">(Un)supervision</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21_key.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dichotomous Key</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./30_regress.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Regression</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./31_nd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="math inline">\(n\)</span>-D</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./40_class.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Classification</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./41_treetree.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tree Tree</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./50_graph.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Graphs</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./51_sudoku.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sudoku</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6__guest.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Guest</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6_1_doc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Thinking Game</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./60_neural.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Neural Networks</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./61_weights.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Weights</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./70_perceptron.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Perceptron</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#recall" id="toc-recall" class="nav-link active" data-scroll-target="#recall">Recall</a></li>
+  <li><a href="#to-perceive" id="toc-to-perceive" class="nav-link" data-scroll-target="#to-perceive">To Perceive</a>
+  <ul class="collapse">
+  <li><a href="#representing-reality" id="toc-representing-reality" class="nav-link" data-scroll-target="#representing-reality">Representing Reality</a></li>
+  <li><a href="#a-die" id="toc-a-die" class="nav-link" data-scroll-target="#a-die">A Die</a></li>
+  <li><a href="#too-complex" id="toc-too-complex" class="nav-link" data-scroll-target="#too-complex">Too Complex</a></li>
+  <li><a href="#helpful" id="toc-helpful" class="nav-link" data-scroll-target="#helpful">Helpful</a></li>
+  <li><a href="#the-3x3-grid" id="toc-the-3x3-grid" class="nav-link" data-scroll-target="#the-3x3-grid">The 3x3 Grid</a></li>
+  <li><a href="#encoding-the-number-1" id="toc-encoding-the-number-1" class="nav-link" data-scroll-target="#encoding-the-number-1">Encoding the Number 1</a></li>
+  <li><a href="#encoding-the-number-2" id="toc-encoding-the-number-2" class="nav-link" data-scroll-target="#encoding-the-number-2">Encoding the Number 2</a></li>
+  <li><a href="#encoding-the-number-3" id="toc-encoding-the-number-3" class="nav-link" data-scroll-target="#encoding-the-number-3">Encoding the Number 3</a></li>
+  <li><a href="#flattening-the-input" id="toc-flattening-the-input" class="nav-link" data-scroll-target="#flattening-the-input">Flattening the Input</a></li>
+  </ul></li>
+  <li><a href="#the-neuron-structure" id="toc-the-neuron-structure" class="nav-link" data-scroll-target="#the-neuron-structure">The Neuron Structure</a>
+  <ul class="collapse">
+  <li><a href="#sensory-neurons" id="toc-sensory-neurons" class="nav-link" data-scroll-target="#sensory-neurons">Sensory Neurons</a></li>
+  <li><a href="#the-summation" id="toc-the-summation" class="nav-link" data-scroll-target="#the-summation">The Summation</a></li>
+  <li><a href="#why-sigma-sigma" id="toc-why-sigma-sigma" class="nav-link" data-scroll-target="#why-sigma-sigma">Why Sigma (<span class="math inline">\(\Sigma\)</span>)</a></li>
+  </ul></li>
+  <li><a href="#decision-making" id="toc-decision-making" class="nav-link" data-scroll-target="#decision-making">Decision Making</a>
+  <ul class="collapse">
+  <li><a href="#weighting-the-evidence" id="toc-weighting-the-evidence" class="nav-link" data-scroll-target="#weighting-the-evidence">Weighting the Evidence</a></li>
+  <li><a href="#example-odd-vs.-even" id="toc-example-odd-vs.-even" class="nav-link" data-scroll-target="#example-odd-vs.-even">Example: Odd vs.&nbsp;Even</a></li>
+  <li><a href="#edge-weights-for-odd" id="toc-edge-weights-for-odd" class="nav-link" data-scroll-target="#edge-weights-for-odd">Edge Weights for “Odd”</a></li>
+  <li><a href="#the-calculation" id="toc-the-calculation" class="nav-link" data-scroll-target="#the-calculation">The Calculation</a></li>
+  </ul></li>
+  <li><a href="#digression-classification" id="toc-digression-classification" class="nav-link" data-scroll-target="#digression-classification">Digression: Classification</a>
+  <ul class="collapse">
+  <li><a href="#binary-classifiers" id="toc-binary-classifiers" class="nav-link" data-scroll-target="#binary-classifiers">Binary Classifiers</a></li>
+  <li><a href="#mutual-exclusion" id="toc-mutual-exclusion" class="nav-link" data-scroll-target="#mutual-exclusion">Mutual Exclusion</a></li>
+  <li><a href="#example-us-senators" id="toc-example-us-senators" class="nav-link" data-scroll-target="#example-us-senators">Example: US Senators</a></li>
+  <li><a href="#some-examples" id="toc-some-examples" class="nav-link" data-scroll-target="#some-examples">Some Examples</a></li>
+  <li><a href="#why-classification-matters" id="toc-why-classification-matters" class="nav-link" data-scroll-target="#why-classification-matters">Why Classification Matters</a></li>
+  </ul></li>
+  <li><a href="#aside-summation" id="toc-aside-summation" class="nav-link" data-scroll-target="#aside-summation">Aside: Summation</a>
+  <ul class="collapse">
+  <li><a href="#summation-notation" id="toc-summation-notation" class="nav-link" data-scroll-target="#summation-notation">Summation Notation</a></li>
+  <li><a href="#latex-in-markdown" id="toc-latex-in-markdown" class="nav-link" data-scroll-target="#latex-in-markdown">LaTeX in Markdown</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
+  <li><a href="#in-latex" id="toc-in-latex" class="nav-link" data-scroll-target="#in-latex">In LaTeX</a></li>
+  <li><a href="#some-notes" id="toc-some-notes" class="nav-link" data-scroll-target="#some-notes">Some notes</a></li>
+  </ul></li>
+  <li><a href="#differentiating-odds" id="toc-differentiating-odds" class="nav-link" data-scroll-target="#differentiating-odds">Differentiating Odds</a>
+  <ul class="collapse">
+  <li><a href="#the-center-pixel-strategy" id="toc-the-center-pixel-strategy" class="nav-link" data-scroll-target="#the-center-pixel-strategy">The “Center Pixel” Strategy</a></li>
+  <li><a href="#failed-weighting-1-only-the-center" id="toc-failed-weighting-1-only-the-center" class="nav-link" data-scroll-target="#failed-weighting-1-only-the-center">Failed Weighting #1: Only the Center</a></li>
+  <li><a href="#failed-weighting-2-the-positive-diagonal" id="toc-failed-weighting-2-the-positive-diagonal" class="nav-link" data-scroll-target="#failed-weighting-2-the-positive-diagonal">Failed Weighting #2: The Positive Diagonal</a></li>
+  </ul></li>
+  <li><a href="#the-power-of-negativity" id="toc-the-power-of-negativity" class="nav-link" data-scroll-target="#the-power-of-negativity">The Power of Negativity</a>
+  <ul class="collapse">
+  <li><a href="#inhibitory-signals" id="toc-inhibitory-signals" class="nav-link" data-scroll-target="#inhibitory-signals">Inhibitory Signals</a></li>
+  <li><a href="#example-detecting-1-but-not-3" id="toc-example-detecting-1-but-not-3" class="nav-link" data-scroll-target="#example-detecting-1-but-not-3">Example: Detecting “1” but NOT “3”</a></li>
+  <li><a href="#why-it-works" id="toc-why-it-works" class="nav-link" data-scroll-target="#why-it-works">Why it works</a></li>
+  </ul></li>
+  <li><a href="#introducing-the-bias" id="toc-introducing-the-bias" class="nav-link" data-scroll-target="#introducing-the-bias">Introducing the Bias</a>
+  <ul class="collapse">
+  <li><a href="#the-sensitivity-problem" id="toc-the-sensitivity-problem" class="nav-link" data-scroll-target="#the-sensitivity-problem">The “Sensitivity” Problem</a></li>
+  <li><a href="#the-bias-b" id="toc-the-bias-b" class="nav-link" data-scroll-target="#the-bias-b">The Bias (<span class="math inline">\(b\)</span>)</a></li>
+  <li><a href="#the-completed-formula" id="toc-the-completed-formula" class="nav-link" data-scroll-target="#the-completed-formula">The Completed Formula</a></li>
+  <li><a href="#visualizing-the-bias-node" id="toc-visualizing-the-bias-node" class="nav-link" data-scroll-target="#visualizing-the-bias-node">Visualizing the Bias Node</a></li>
+  </ul></li>
+  <li><a href="#the-full-perceptron" id="toc-the-full-perceptron" class="nav-link" data-scroll-target="#the-full-perceptron">The Full Perceptron</a>
+  <ul class="collapse">
+  <li><a href="#bias-and-threshold" id="toc-bias-and-threshold" class="nav-link" data-scroll-target="#bias-and-threshold">Bias and Threshold</a></li>
+  <li><a href="#piecewise-functions" id="toc-piecewise-functions" class="nav-link" data-scroll-target="#piecewise-functions">Piecewise Functions</a></li>
+  <li><a href="#mathematical-notation" id="toc-mathematical-notation" class="nav-link" data-scroll-target="#mathematical-notation">Mathematical Notation</a></li>
+  <li><a href="#real-world-tax-brackets" id="toc-real-world-tax-brackets" class="nav-link" data-scroll-target="#real-world-tax-brackets">Real World: Tax Brackets</a></li>
+  <li><a href="#the-tax-perceptron" id="toc-the-tax-perceptron" class="nav-link" data-scroll-target="#the-tax-perceptron">The “Tax” Perceptron</a></li>
+  <li><a href="#indicator-functions" id="toc-indicator-functions" class="nav-link" data-scroll-target="#indicator-functions">Indicator Functions</a></li>
+  <li><a href="#binary-logic" id="toc-binary-logic" class="nav-link" data-scroll-target="#binary-logic">Binary Logic</a></li>
+  <li><a href="#dice-as-collections" id="toc-dice-as-collections" class="nav-link" data-scroll-target="#dice-as-collections">Dice as Collections</a></li>
+  </ul></li>
+  <li><a href="#summary-notation" id="toc-summary-notation" class="nav-link" data-scroll-target="#summary-notation">Summary &amp; Notation</a>
+  <ul class="collapse">
+  <li><a href="#summation-in-colab" id="toc-summation-in-colab" class="nav-link" data-scroll-target="#summation-in-colab">Summation in Colab</a></li>
+  <li><a href="#notation" id="toc-notation" class="nav-link" data-scroll-target="#notation">Notation</a></li>
+  <li><a href="#visualizing-the-weights" id="toc-visualizing-the-weights" class="nav-link" data-scroll-target="#visualizing-the-weights">Visualizing the Weights</a></li>
+  </ul></li>
+  <li><a href="#history-of-the-perceptron" id="toc-history-of-the-perceptron" class="nav-link" data-scroll-target="#history-of-the-perceptron">History of the Perceptron</a>
+  <ul class="collapse">
+  <li><a href="#predate-computers" id="toc-predate-computers" class="nav-link" data-scroll-target="#predate-computers">Predate Computers!</a></li>
+  <li><a href="#use-linear-algebra" id="toc-use-linear-algebra" class="nav-link" data-scroll-target="#use-linear-algebra">Use <em>Linear Algebra</em></a></li>
+  <li><a href="#now-on-gpus" id="toc-now-on-gpus" class="nav-link" data-scroll-target="#now-on-gpus">Now on GPUs!</a></li>
+  </ul></li>
+  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications">Applications</a>
+  <ul class="collapse">
+  <li><a href="#mnist-dataset" id="toc-mnist-dataset" class="nav-link" data-scroll-target="#mnist-dataset">MNIST Dataset</a></li>
+  <li><a href="#imagenet" id="toc-imagenet" class="nav-link" data-scroll-target="#imagenet">ImageNet</a></li>
+  </ul></li>
+  <li><a href="#takeaways" id="toc-takeaways" class="nav-link" data-scroll-target="#takeaways">Takeaways</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="70_perceptron.rjs.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Perceptron</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i></button></div></div>
+<p class="subtitle lead">AI 101</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="recall" class="level2">
+<h2 class="anchored" data-anchor-id="recall">Recall</h2>
+<ul>
+<li>We’ve explored <strong>Bipartite Graphs</strong>.</li>
+<li>We’ve seen how sensory inputs (fingers) can map to neurons (brain cells).</li>
+<li>Today, we build our first functional model: <strong>The Perceptron</strong>.</li>
+</ul>
+</section>
+<section id="to-perceive" class="level1">
+<h1>To Perceive</h1>
+<section id="representing-reality" class="level2">
+<h2 class="anchored" data-anchor-id="representing-reality">Representing Reality</h2>
+<ul>
+<li>How does a computer “see” a simple object?</li>
+<li>Let’s take a standard six-sided die.</li>
+<li>We can represent the face of a die as a <strong>3x3 grid</strong>.</li>
+</ul>
+</section>
+<section id="a-die" class="level2">
+<h2 class="anchored" data-anchor-id="a-die">A Die</h2>
+<p><a title="Dennis Hill from The OC, So. Cal., CC BY 2.0 <https://creativecommons.org/licenses/by/2.0>, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Snake_eyes_dice.jpg"><img width="512" alt="Snake eyes dice" src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Snake_eyes_dice.jpg"></a></p>
+</section>
+<section id="too-complex" class="level2">
+<h2 class="anchored" data-anchor-id="too-complex">Too Complex</h2>
+<ul>
+<li>We imagine viewing (1) a single die (2) directly from above.</li>
+</ul>
+<table>
+<tbody><tr><td>
+<p><a title="Mliu92, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Die_face_1b.svg"><img width="128" alt="Illustration of die face with 1 black dot" src="https://upload.wikimedia.org/wikipedia/commons/4/43/Die_face_1b.svg"></a></p>
+</td>
+<td>
+<a title="Mliu92, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Die_face_2b.svg"><img width="128" alt="Illustration of die face with 2 black dots" src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Die_face_2b.svg"></a>
+</td>
+<td>
+<a title="Mliu92, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Die_face_3b.svg"><img width="128" alt="Illustration of die face with 3 black dots" src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Die_face_3b.svg"></a>
+</td>
+</tr></tbody></table>
+</section>
+<section id="helpful" class="level2">
+<h2 class="anchored" data-anchor-id="helpful">Helpful</h2>
+<ul>
+<li>Helpfully, most modern fonts include these!</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ol type="1">
+<li>⚀</li>
+<li>⚁</li>
+<li>⚂</li>
+</ol>
+</div><div class="column" style="width:50%;">
+<ol start="4" type="1">
+<li>⚃</li>
+<li>⚄</li>
+<li>⚅</li>
+</ol>
+</div>
+</div>
+</section>
+<section id="the-3x3-grid" class="level2">
+<h2 class="anchored" data-anchor-id="the-3x3-grid">The 3x3 Grid</h2>
+<ul>
+<li>Each cell in the grid is either “on” (a dot is present) or “off” (empty space).</li>
+<li>This is a <strong>binary image</strong>.</li>
+</ul>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">(0,0)</td>
+<td style="text-align: center;">(0,1)</td>
+<td style="text-align: center;">(0,2)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">(1,0)</td>
+<td style="text-align: center;">(1,1)</td>
+<td style="text-align: center;">(1,2)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">(2,0)</td>
+<td style="text-align: center;">(2,1)</td>
+<td style="text-align: center;">(2,2)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="encoding-the-number-1" class="level2">
+<h2 class="anchored" data-anchor-id="encoding-the-number-1">Encoding the Number 1</h2>
+<ul>
+<li>For a “1”, only the center is filled.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:50%;">
+<div style="width: 300px; height: 300px; background-color: white; display: flex; justify-content: center; align-items: center; border: 1px solid #ccc;">
+<div style="width: 100px; height: 100px; background-color: black;">
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="encoding-the-number-2" class="level2">
+<h2 class="anchored" data-anchor-id="encoding-the-number-2">Encoding the Number 2</h2>
+<ul>
+<li>For a “2”, we usually see top-right and bottom-left.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:50%;">
+<div style="position: relative; width: 300px; height: 300px; background-color: white; border: 1px solid #ccc;">
+<div style="position: absolute; top: 0; right: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+<div style="position: absolute; bottom: 0; left: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="encoding-the-number-3" class="level2">
+<h2 class="anchored" data-anchor-id="encoding-the-number-3">Encoding the Number 3</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:50%;">
+<div style="position: relative; width: 300px; height: 300px; background-color: white; border: 1px solid #ccc;">
+<div style="position: absolute; top: 0; right: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+<div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 100px; background-color: black;">
+
+</div>
+<div style="position: absolute; bottom: 0; left: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="flattening-the-input" class="level2">
+<h2 class="anchored" data-anchor-id="flattening-the-input">Flattening the Input</h2>
+<ul>
+<li>To feed this into a neuron, we “unroll” the grid into a list.</li>
+<li>We go row by row.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:50%;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>[<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section>
+</section>
+<section id="the-neuron-structure" class="level1">
+<h1>The Neuron Structure</h1>
+<section id="sensory-neurons" class="level2">
+<h2 class="anchored" data-anchor-id="sensory-neurons">Sensory Neurons</h2>
+<ul>
+<li>Each of these 9 positions acts as a <strong>sensory neuron</strong>.</li>
+<li>If there is a dot, the neuron fires (1).</li>
+<li>If there is no dot, the neuron is silent (0).</li>
+<li>This is <em>quite</em> similar to how the eye works - certainly similar enough to draw connections.</li>
+</ul>
+</section>
+<section id="the-summation" class="level2">
+<h2 class="anchored" data-anchor-id="the-summation">The Summation</h2>
+<ul>
+<li>All 9 signals travel down “axons” (edges) to a single destination.</li>
+<li>This destination is the <strong>Cell Body</strong> (or the Perceptron).</li>
+</ul>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 598.00 142.77" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 138.77)">
+<title>PerceptronBase</title>
+<g id="clust1" class="cluster">
+<title>cluster_input</title>
+<polygon fill="transparent" stroke="black" points="8,-64.56 8,-126.77 582,-126.77 582,-64.56 8,-64.56"></polygon>
+</g>
+<!-- X0 -->
+<g id="node1" class="node">
+<title>X0</title>
+<ellipse fill="red" stroke="#ffffff" cx="551" cy="-95.67" rx="23.22" ry="23.22"></ellipse>
+<text text-anchor="middle" x="551" y="-91.47" font-family="Times,serif" font-size="14.00" fill="#ffffff">0,0</text>
+</g>
+<!-- Neuron -->
+<g id="node10" class="node">
+<title>Neuron</title>
+<ellipse fill="blue" stroke="#ffffff" cx="295" cy="-18.28" rx="18.06" ry="18.06"></ellipse>
+<text text-anchor="middle" x="295" y="-14.08" font-family="Times,serif" font-size="14.00" fill="#ffffff">∑</text>
+</g>
+<!-- X0&#45;&#45;Neuron -->
+<g id="edge1" class="edge">
+<title>X0--Neuron</title>
+<path fill="none" stroke="#ffffff" d="M536.43,-77.71C531.38,-72.79 525.37,-67.85 519,-64.56 449.04,-28.39 352.9,-21.09 313.24,-19.63"></path>
+</g>
+<!-- X1 -->
+<g id="node2" class="node">
+<title>X1</title>
+<ellipse fill="red" stroke="#ffffff" cx="487" cy="-95.67" rx="23.22" ry="23.22"></ellipse>
+<text text-anchor="middle" x="487" y="-91.47" font-family="Times,serif" font-size="14.00" fill="#ffffff">0,1</text>
+</g>
+<!-- X1&#45;&#45;Neuron -->
+<g id="edge2" class="edge">
+<title>X1--Neuron</title>
+<path fill="none" stroke="#ffffff" d="M471.95,-77.69C466.96,-72.88 461.11,-68.02 455,-64.56 408.03,-37.95 344.31,-26.06 313.37,-21.58"></path>
+</g>
+<!-- X2 -->
+<g id="node3" class="node">
+<title>X2</title>
+<ellipse fill="red" stroke="#ffffff" cx="423" cy="-95.67" rx="23.22" ry="23.22"></ellipse>
+<text text-anchor="middle" x="423" y="-91.47" font-family="Times,serif" font-size="14.00" fill="#ffffff">0,2</text>
+</g>
+<!-- X2&#45;&#45;Neuron -->
+<g id="edge3" class="edge">
+<title>X2--Neuron</title>
+<path fill="none" stroke="#ffffff" d="M407.57,-78.29C402.56,-73.51 396.8,-68.51 391,-64.56 365.41,-47.13 332.06,-33.08 312.16,-25.48"></path>
+</g>
+<!-- X3 -->
+<g id="node4" class="node">
+<title>X3</title>
+<ellipse fill="red" stroke="#ffffff" cx="359" cy="-95.67" rx="23.22" ry="23.22"></ellipse>
+<text text-anchor="middle" x="359" y="-91.47" font-family="Times,serif" font-size="14.00" fill="#ffffff">1,0</text>
+</g>
+<!-- X3&#45;&#45;Neuron -->
+<g id="edge4" class="edge">
+<title>X3--Neuron</title>
+<path fill="none" stroke="#ffffff" d="M344.48,-77.56C332.97,-64.01 317.12,-45.33 306.48,-32.81"></path>
+</g>
+<!-- X4 -->
+<g id="node5" class="node">
+<title>X4</title>
+<ellipse fill="red" stroke="#ffffff" cx="295" cy="-95.67" rx="23.22" ry="23.22"></ellipse>
+<text text-anchor="middle" x="295" y="-91.47" font-family="Times,serif" font-size="14.00" fill="#ffffff">1,1</text>
+</g>
+<!-- X4&#45;&#45;Neuron -->
+<g id="edge5" class="edge">
+<title>X4--Neuron</title>
+<path fill="none" stroke="#ffffff" d="M295,-72.46C295,-61.16 295,-47.63 295,-37.04"></path>
+</g>
+<!-- X5 -->
+<g id="node6" class="node">
+<title>X5</title>
+<ellipse fill="red" stroke="#ffffff" cx="231" cy="-95.67" rx="23.22" ry="23.22"></ellipse>
+<text text-anchor="middle" x="231" y="-91.47" font-family="Times,serif" font-size="14.00" fill="#ffffff">1,2</text>
+</g>
+<!-- X5&#45;&#45;Neuron -->
+<g id="edge6" class="edge">
+<title>X5--Neuron</title>
+<path fill="none" stroke="#ffffff" d="M245.52,-77.56C257.03,-64.01 272.88,-45.33 283.52,-32.81"></path>
+</g>
+<!-- X6 -->
+<g id="node7" class="node">
+<title>X6</title>
+<ellipse fill="red" stroke="#ffffff" cx="167" cy="-95.67" rx="23.22" ry="23.22"></ellipse>
+<text text-anchor="middle" x="167" y="-91.47" font-family="Times,serif" font-size="14.00" fill="#ffffff">2,0</text>
+</g>
+<!-- X6&#45;&#45;Neuron -->
+<g id="edge7" class="edge">
+<title>X6--Neuron</title>
+<path fill="none" stroke="#ffffff" d="M182.43,-78.29C187.44,-73.51 193.2,-68.51 199,-64.56 224.59,-47.13 257.94,-33.08 277.84,-25.48"></path>
+</g>
+<!-- X7 -->
+<g id="node8" class="node">
+<title>X7</title>
+<ellipse fill="red" stroke="#ffffff" cx="103" cy="-95.67" rx="23.22" ry="23.22"></ellipse>
+<text text-anchor="middle" x="103" y="-91.47" font-family="Times,serif" font-size="14.00" fill="#ffffff">2,1</text>
+</g>
+<!-- X7&#45;&#45;Neuron -->
+<g id="edge8" class="edge">
+<title>X7--Neuron</title>
+<path fill="none" stroke="#ffffff" d="M118.05,-77.69C123.04,-72.88 128.89,-68.02 135,-64.56 181.97,-37.95 245.69,-26.06 276.63,-21.58"></path>
+</g>
+<!-- X8 -->
+<g id="node9" class="node">
+<title>X8</title>
+<ellipse fill="red" stroke="#ffffff" cx="39" cy="-95.67" rx="23.22" ry="23.22"></ellipse>
+<text text-anchor="middle" x="39" y="-91.47" font-family="Times,serif" font-size="14.00" fill="#ffffff">2,2</text>
+</g>
+<!-- X8&#45;&#45;Neuron -->
+<g id="edge9" class="edge">
+<title>X8--Neuron</title>
+<path fill="none" stroke="#ffffff" d="M53.57,-77.71C58.62,-72.79 64.63,-67.85 71,-64.56 140.96,-28.39 237.1,-21.09 276.76,-19.63"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="why-sigma-sigma" class="level2">
+<h2 class="anchored" data-anchor-id="why-sigma-sigma">Why Sigma (<span class="math inline">\(\Sigma\)</span>)</h2>
+<ul>
+<li>We’ll get to that, soon.</li>
+<li>Hint: What is <span class="math inline">\(\Sigma\)</span> used for in mathematics.</li>
+</ul>
+<p><span class="math display">\[
+\sum_{i=1}^n i = \frac{n(n+1)}{2}
+\]</span></p>
+</section>
+</section>
+<section id="decision-making" class="level1">
+<h1>Decision Making</h1>
+<section id="weighting-the-evidence" class="level2">
+<h2 class="anchored" data-anchor-id="weighting-the-evidence">Weighting the Evidence</h2>
+<ul>
+<li>Not every pixel is equally important for every task.</li>
+<li>We assign a <strong>Weight</strong> (<span class="math inline">\(w\)</span>) to each edge.</li>
+<li>If a pixel is very important, it has a high weight.</li>
+<li>If it’s irrelevant, the weight is 0.</li>
+<li>We would allow “anti-important” pixels to have a <em>negative</em> weight.
+<ul>
+<li>For example, is the center dot is present, you are certainly <em>not</em> viewing a 2, 4, or 6.</li>
+</ul></li>
+</ul>
+</section>
+<section id="example-odd-vs.-even" class="level2">
+<h2 class="anchored" data-anchor-id="example-odd-vs.-even">Example: Odd vs.&nbsp;Even</h2>
+<ul>
+<li>Let’s try to detect if a die roll is <strong>Odd</strong>.</li>
+<li>Which pixels are always “on” for odd numbers (1, 3, 5)?</li>
+<li>The center pixel! (1,1).</li>
+</ul>
+</section>
+<section id="edge-weights-for-odd" class="level2">
+<h2 class="anchored" data-anchor-id="edge-weights-for-odd">Edge Weights for “Odd”</h2>
+<ul>
+<li>We give the center pixel a weight of 1.</li>
+<li>We give all other pixels a weight of 0.</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>weights <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This is superficially similar to the pixel values for a die showing 1, but it’s <em>meaning</em> is distinct.</p>
+<p>Previously, we showed what dots are present on a die representing one.</p>
+<p>Here, we show what dots matter when determining is a die is even or odd.</p>
+</div>
+</div>
+</section>
+<section id="the-calculation" class="level2">
+<h2 class="anchored" data-anchor-id="the-calculation">The Calculation</h2>
+<ul>
+<li>The neuron calculates the <strong>Weighted Sum</strong>.</li>
+<li>For Die “1”: <span class="math inline">\((1 \times 1) + (0 \times \text{others}) = 1\)</span>.</li>
+<li>For Die “2”: <span class="math inline">\((0 \times 1) + (1 \times \text{others}) = 0\)</span>.</li>
+</ul>
+</section>
+</section>
+<section id="digression-classification" class="level1">
+<h1>Digression: Classification</h1>
+<section id="binary-classifiers" class="level2">
+<h2 class="anchored" data-anchor-id="binary-classifiers">Binary Classifiers</h2>
+<ul>
+<li>The neuron we just built is a <strong>Binary Classifier</strong>.</li>
+<li>It sorts inputs into two distinct buckets.</li>
+<li>Bucket A: “Odd” (Sum &gt; 0)</li>
+<li>Bucket B: “Even” (Sum = 0)</li>
+</ul>
+</section>
+<section id="mutual-exclusion" class="level2">
+<h2 class="anchored" data-anchor-id="mutual-exclusion">Mutual Exclusion</h2>
+<ul>
+<li>In binary classification, something is usually one or the other.</li>
+<li><strong>Mutual Exclusion</strong>: If it is A, it cannot be B.</li>
+</ul>
+</section>
+<section id="example-us-senators" class="level2">
+<h2 class="anchored" data-anchor-id="example-us-senators">Example: US Senators</h2>
+<ul>
+<li>A US Senator’s party affiliation is a classic (mostly) binary classification.</li>
+<li>Excluding independents, a senator is either:
+<ul>
+<li><strong>Democrat</strong></li>
+<li><strong>Republican</strong></li>
+</ul></li>
+<li>Also independents aren’t real and almost universally “caucus” with one of the two major parties.</li>
+</ul>
+</section>
+<section id="some-examples" class="level2">
+<h2 class="anchored" data-anchor-id="some-examples">Some Examples</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Senator</th>
+<th>Feature: State</th>
+<th>Feature: Vote Record</th>
+<th>Classifier Output</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Wyden</td>
+<td>OR</td>
+<td>Capitalist</td>
+<td>Democrat</td>
+</tr>
+<tr class="even">
+<td>Crapo</td>
+<td>ID</td>
+<td>Capitalist</td>
+<td>Republican</td>
+</tr>
+</tbody>
+</table>
+<p>If you will allow me to editorialize (you shouldn’t), state determines party affiliation does not determine support for e.g.&nbsp;US military actions or tax breaks for the wealthy.</p>
+</section>
+<section id="why-classification-matters" class="level2">
+<h2 class="anchored" data-anchor-id="why-classification-matters">Why Classification Matters</h2>
+<p>It is the foundation of all AI logic. - Is this email spam? (Yes/No) - Is this tumor malignant? (Yes/No) - Is this image a cat? (Yes/No)</p>
+</section>
+</section>
+<section id="aside-summation" class="level1">
+<h1>Aside: Summation</h1>
+<section id="summation-notation" class="level2">
+<h2 class="anchored" data-anchor-id="summation-notation">Summation Notation</h2>
+<ul>
+<li>To calculate the signal reaching the cell body, we don’t just add numbers.</li>
+<li>We multiply each input (<span class="math inline">\(x\)</span>) by its importance or <strong>weight</strong> (<span class="math inline">\(w\)</span>).</li>
+<li>We use the Greek letter Sigma <span class="math inline">\(\sum\)</span> to represent this “Total Sum.”</li>
+</ul>
+</section>
+<section id="latex-in-markdown" class="level2">
+<h2 class="anchored" data-anchor-id="latex-in-markdown">LaTeX in Markdown</h2>
+<ul>
+<li>In tools like Google Colab (used for our labs) or Quarto (used to make these slides), we use a special typesettin language called <span class="math inline">\(\LaTeX\)</span> (la-tech) to show mathematical notation.</li>
+</ul>
+</section>
+<section id="example" class="level2">
+<h2 class="anchored" data-anchor-id="example">Example</h2>
+<ul>
+<li>The formula for a neuron’s input is:</li>
+</ul>
+<p><span class="math display">\[\sum_{i=1}^{n} w_i x_i = w_1 x_1 + w_2 x_2 + \dots + w_n x_n\]</span></p>
+<ul>
+<li><span class="math inline">\(n\)</span> is the number of inputs (9 for our dice).</li>
+<li><span class="math inline">\(w_i\)</span> is the weight of the <span class="math inline">\(i\)</span>-th pixel.</li>
+<li><span class="math inline">\(x_i\)</span> is the value (0 or 1) of the <span class="math inline">\(i\)</span>-th pixel.</li>
+</ul>
+</section>
+<section id="in-latex" class="level2">
+<h2 class="anchored" data-anchor-id="in-latex">In LaTeX</h2>
+<ul>
+<li>You can write this out as follows:</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource tex number-lines code-with-copy"><code class="sourceCode latex"><span id="cb3-1"><a href="#cb3-1"></a><span class="ss">$$</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="sc">\sum</span><span class="ss">_{i=1}^{n} w_i </span><span class="sc">\times</span><span class="ss"> x_i </span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="ss">$$</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>The two enclosing lines of <code>$$</code> means “this is a mathematical formula”</li>
+</ul>
+</section>
+<section id="some-notes" class="level2">
+<h2 class="anchored" data-anchor-id="some-notes">Some notes</h2>
+<ul>
+<li>Many common mathematical expressions are stylized using a backslash and a name or nickname.</li>
+<li>Subscripts are denoted with <code>_</code> and enclosed in <code>{}</code></li>
+<li>Superscripts are denoted with <code>^</code> - and may be combined with subscripts!</li>
+<li><code>{}</code> are optional for single characters.</li>
+</ul>
+</section>
+</section>
+<section id="differentiating-odds" class="level1">
+<h1>Differentiating Odds</h1>
+<section id="the-center-pixel-strategy" class="level2">
+<h2 class="anchored" data-anchor-id="the-center-pixel-strategy">The “Center Pixel” Strategy</h2>
+<ul>
+<li>We previously suggested that “Odd” numbers (1, 3, 5) all have a center dot.</li>
+<li><strong>Problem:</strong> What if we need to distinguish a <strong>1</strong> from a <strong>3</strong>?
+<ul>
+<li>Those are different numbers!</li>
+</ul></li>
+</ul>
+</section>
+<section id="failed-weighting-1-only-the-center" class="level2">
+<h2 class="anchored" data-anchor-id="failed-weighting-1-only-the-center">Failed Weighting #1: Only the Center</h2>
+<ul>
+<li>Let’s set <span class="math inline">\(w_4 = 1\)</span> (the center) and all other <span class="math inline">\(w = 0\)</span>.
+<ul>
+<li>Why 4? Start at zero, count up.</li>
+</ul></li>
+<li><strong>Result:</strong> It correctly identifies 1, 3, and 5.</li>
+<li><strong>The Failure:</strong> It would also classify a 7 and 9, most likely, even though these are not valid “odd” die in the sense of, say, Yahtzee.</li>
+</ul>
+</section>
+<section id="failed-weighting-2-the-positive-diagonal" class="level2">
+<h2 class="anchored" data-anchor-id="failed-weighting-2-the-positive-diagonal">Failed Weighting #2: The Positive Diagonal</h2>
+<ul>
+<li>Let’s weight the top-right, center, and bottom-left as <span class="math inline">\(+\frac{1}{3}\)</span>.</li>
+<li><strong>Result:</strong> It perfectly identifies a “3”.</li>
+<li><strong>The Failure:</strong> It fails to identify a “1” (the sum rounds down to zero) and it ignores the extra dots in a “5.” It’s too specific to the shape of a 3.</li>
+<li><strong>The Failure:</strong> What if the “3” is rotated by 90 degrees?</li>
+</ul>
+</section>
+</section>
+<section id="the-power-of-negativity" class="level1">
+<h1>The Power of Negativity</h1>
+<section id="inhibitory-signals" class="level2">
+<h2 class="anchored" data-anchor-id="inhibitory-signals">Inhibitory Signals</h2>
+<ul>
+<li>In biology, some neurons tell others <em>not</em> to fire. These are “inhibitory.”
+<ul>
+<li>For example, when I see a film that <em>isn’t</em> directed by Ridley Scott.</li>
+<li>Did you know Ridly Scott directed <em>Kingdom of Heaven</em> 2005?</li>
+</ul></li>
+<li>In our model, we use <strong>Negative Weights</strong>.</li>
+<li>This allows us to “punish” the presence of certain dots that shouldn’t be there for a specific classification.</li>
+</ul>
+</section>
+<section id="example-detecting-1-but-not-3" class="level2">
+<h2 class="anchored" data-anchor-id="example-detecting-1-but-not-3">Example: Detecting “1” but NOT “3”</h2>
+<ul>
+<li>Both have a center dot. How do we tell them apart?</li>
+<li>We “reward” the center dot but “punish” the corners.
+<ul>
+<li>Center (1,1) = +1</li>
+<li>Top-Right (0,2) = -1</li>
+<li>Bottom-Left (2,0) = -1</li>
+</ul></li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>weights <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="why-it-works" class="level2">
+<h2 class="anchored" data-anchor-id="why-it-works">Why it works</h2>
+<ul>
+<li><strong>For Die “1”:</strong> Sum = <span class="math inline">\((1 \times 1) + (0 \times -1) + (0 \times -1) = 1\)</span>. (Success!)</li>
+<li><strong>For Die “3”:</strong> Sum = <span class="math inline">\((1 \times 1) + (1 \times -1) + (1 \times -1) = -1\)</span>.</li>
+<li>The negative weights “cancelled out” the center dot. The neuron stays silent for the 3!</li>
+</ul>
+</section>
+</section>
+<section id="introducing-the-bias" class="level1">
+<h1>Introducing the Bias</h1>
+<section id="the-sensitivity-problem" class="level2">
+<h2 class="anchored" data-anchor-id="the-sensitivity-problem">The “Sensitivity” Problem</h2>
+<ul>
+<li>Even with negative weights, we have a problem: <strong>The Threshold</strong>.</li>
+<li>We need a way to decide exactly when the sum is “enough” to trigger a fire.</li>
+<li>We need to shift the “goalposts” without rewriting all our weights.</li>
+</ul>
+</section>
+<section id="the-bias-b" class="level2">
+<h2 class="anchored" data-anchor-id="the-bias-b">The Bias (<span class="math inline">\(b\)</span>)</h2>
+<ul>
+<li>The <strong>Bias</strong> is a number we add to the sum <em>before</em> deciding to fire.</li>
+<li>It represents how “easy” it is to make the neuron fire.</li>
+<li><strong>High Bias:</strong> The neuron is “trigger happy” and fires easily.
+<ul>
+<li>My “movie good” neuron is <em>highly biased</em> toward Ridley Scott films.</li>
+</ul></li>
+<li><strong>Negative Bias:</strong> The neuron is “stubborn” and needs a very high positive sum to fire.
+<ul>
+<li>My “movie good” neuron is <em>negatively biased</em> against <em>Predator</em> films.</li>
+</ul></li>
+</ul>
+</section>
+<section id="the-completed-formula" class="level2">
+<h2 class="anchored" data-anchor-id="the-completed-formula">The Completed Formula</h2>
+<ul>
+<li>We update our LaTeX formula to include the bias term <span class="math inline">\(b\)</span>:</li>
+</ul>
+<p><span class="math display">\[\sum_{i=1}^{n} w_i x_i + b \]</span></p>
+<ul>
+<li>If the result is <span class="math inline">\(&gt; 0\)</span>, the neuron fires (1).</li>
+<li>If the result is <span class="math inline">\(\le 0\)</span>, it stays silent (0).</li>
+</ul>
+</section>
+<section id="visualizing-the-bias-node" class="level2">
+<h2 class="anchored" data-anchor-id="visualizing-the-bias-node">Visualizing the Bias Node</h2>
+<ul>
+<li>In a graph, the bias is often shown as a special input node that is <strong>always</strong> 1, multiplied by its own weight <span class="math inline">\(b\)</span>.</li>
+</ul>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 274.00 183.84" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 179.84)">
+<title>PerceptronWithBias</title>
+<g id="clust1" class="cluster">
+<title>cluster_input</title>
+<polygon fill="transparent" stroke="black" points="8,-81.36 8,-167.84 198,-167.84 198,-81.36 8,-81.36"></polygon>
+<text text-anchor="middle" x="103" y="-151.24" font-family="Times,serif" font-size="14.00" fill="white">Inputs</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_bias</title>
+<polygon fill="transparent" stroke="black" points="206,-86.2 206,-163 258,-163 258,-86.2 206,-86.2"></polygon>
+<text text-anchor="middle" x="232" y="-146.4" font-family="Times,serif" font-size="14.00" fill="white">Bias</text>
+</g>
+<!-- X1 -->
+<g id="node1" class="node">
+<title>X1</title>
+<ellipse fill="red" stroke="#ffffff" cx="39" cy="-112.2" rx="22.68" ry="22.68"></ellipse>
+<text text-anchor="middle" x="39" y="-108" font-family="Times,serif" font-size="14.00" fill="#ffffff">X1</text>
+</g>
+<!-- Neuron -->
+<g id="node5" class="node">
+<title>Neuron</title>
+<ellipse fill="blue" stroke="#ffffff" cx="135" cy="-18.28" rx="18.06" ry="18.06"></ellipse>
+<text text-anchor="middle" x="135" y="-14.08" font-family="Times,serif" font-size="14.00" fill="#ffffff">∑</text>
+</g>
+<!-- X1&#45;&#45;Neuron -->
+<g id="edge1" class="edge">
+<title>X1--Neuron</title>
+<path fill="none" stroke="black" d="M54.36,-95.03C65.43,-83.53 80.83,-67.84 94.89,-54.56 103.52,-46.41 113.55,-37.59 121.42,-30.81"></path>
+<text text-anchor="middle" x="102.56" y="-58.76" font-family="Times,serif" font-size="14.00">w1</text>
+</g>
+<!-- X2 -->
+<g id="node2" class="node">
+<title>X2</title>
+<ellipse fill="red" stroke="#ffffff" cx="103" cy="-112.2" rx="22.68" ry="22.68"></ellipse>
+<text text-anchor="middle" x="103" y="-108" font-family="Times,serif" font-size="14.00" fill="#ffffff">X2</text>
+</g>
+<!-- X2&#45;&#45;Neuron -->
+<g id="edge2" class="edge">
+<title>X2--Neuron</title>
+<path fill="none" stroke="black" d="M109.83,-90.16C113.35,-79.47 117.75,-66.29 121.89,-54.56 124.06,-48.4 126.54,-41.66 128.75,-35.75"></path>
+<text text-anchor="middle" x="129.56" y="-58.76" font-family="Times,serif" font-size="14.00">w2</text>
+</g>
+<!-- X3 -->
+<g id="node3" class="node">
+<title>X3</title>
+<ellipse fill="red" stroke="#ffffff" cx="167" cy="-112.2" rx="22.68" ry="22.68"></ellipse>
+<text text-anchor="middle" x="167" y="-108" font-family="Times,serif" font-size="14.00" fill="#ffffff">X3</text>
+</g>
+<!-- X3&#45;&#45;Neuron -->
+<g id="edge3" class="edge">
+<title>X3--Neuron</title>
+<path fill="none" stroke="black" d="M159.74,-90.34C153.99,-73.81 146.06,-51.04 140.74,-35.77"></path>
+<text text-anchor="middle" x="160.56" y="-58.76" font-family="Times,serif" font-size="14.00">w3</text>
+</g>
+<!-- B -->
+<g id="node4" class="node">
+<title>B</title>
+<ellipse fill="green" stroke="#ffffff" cx="232" cy="-112.2" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="232" y="-108" font-family="Times,serif" font-size="14.00" fill="#ffffff">1</text>
+</g>
+<!-- B&#45;&#45;Neuron -->
+<g id="edge4" class="edge">
+<title>B--Neuron</title>
+<path fill="none" stroke="yellow" d="M219.84,-98.9C214.42,-93.48 207.94,-87.06 202,-81.36 183.7,-63.79 162.1,-43.93 148.48,-31.51"></path>
+<text text-anchor="middle" x="194.5" y="-58.76" font-family="Times,serif" font-size="14.00">b</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="the-full-perceptron" class="level1">
+<h1>The Full Perceptron</h1>
+<section id="bias-and-threshold" class="level2">
+<h2 class="anchored" data-anchor-id="bias-and-threshold">Bias and Threshold</h2>
+<ul>
+<li>Sometimes, the sum isn’t enough. We need a <strong>Threshold</strong>.</li>
+<li>A neuron only “fires” if the sum exceeds a certain level.</li>
+<li>This level is controlled by the <strong>Bias</strong>.</li>
+</ul>
+<p><span class="math display">\[f(x) = \begin{cases} 1 &amp; \text{if } \sum w_i x_i + b &gt; 0 \\ 0 &amp; \text{otherwise} \end{cases}\]</span></p>
+<ul>
+<li>We can use either a <em>piecewise</em> or <em>indicator</em> function here.</li>
+</ul>
+</section>
+<section id="piecewise-functions" class="level2">
+<h2 class="anchored" data-anchor-id="piecewise-functions">Piecewise Functions</h2>
+<ul>
+<li>In our Perceptron, the output changes abruptly from 0 to 1.</li>
+<li>This is a <strong>Piecewise Function</strong>: a function where the “rule” changes depending on the input value <span class="math inline">\(x\)</span>.</li>
+</ul>
+</section>
+<section id="mathematical-notation" class="level2">
+<h2 class="anchored" data-anchor-id="mathematical-notation">Mathematical Notation</h2>
+<ul>
+<li>We use a large “curly bracket” to define the different rules. For a simple threshold at zero:</li>
+</ul>
+<p><span class="math display">\[
+f(x) = \begin{cases}
+0 &amp; x \leq 0 \\
+1 &amp; x &gt; 0
+\end{cases}
+\]</span></p>
+<ul>
+<li>This is exactly how our neuron decides to “fire” or “stay silent.”</li>
+</ul>
+</section>
+<section id="real-world-tax-brackets" class="level2">
+<h2 class="anchored" data-anchor-id="real-world-tax-brackets">Real World: Tax Brackets</h2>
+<ul>
+<li>Most people encounter piecewise functions once a year: <strong>Income Tax</strong>.</li>
+<li>Tax rate isn’t a single line; it’s a series of “steps” or “brackets.”</li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Income Range</th>
+<th style="text-align: left;">Tax Rate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">$0 – $10,000</td>
+<td style="text-align: left;">10%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">$10,001 – $45,000</td>
+<td style="text-align: left;">15%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">$45,001 – $95,000</td>
+<td style="text-align: left;">25%</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="the-tax-perceptron" class="level2">
+<h2 class="anchored" data-anchor-id="the-tax-perceptron">The “Tax” Perceptron</h2>
+<p>You can think of each tax bracket as a neuron with a different <strong>Bias</strong>.</p>
+<ul>
+<li>The 10% neuron “fires” immediately (<strong>Bias = 0</strong>).</li>
+<li>The 25% neuron only “fires” once your income (Input) exceeds $45,000 (<strong>Bias = -45,000</strong>).</li>
+</ul>
+</section>
+<section id="indicator-functions" class="level2">
+<h2 class="anchored" data-anchor-id="indicator-functions">Indicator Functions</h2>
+<ul>
+<li>An <strong>Indicator Function</strong> is a special piecewise function.</li>
+<li>It “indicates” whether an input belongs to a specific collection.</li>
+<li>We use the symbol <span class="math inline">\(\mathbb{1}\)</span> (a “blackboard bold” 1).
+<ul>
+<li><code>$\mathbb{1}$</code> - start math, make blackboard bold, apply to 1, end math,</li>
+</ul></li>
+</ul>
+</section>
+<section id="binary-logic" class="level2">
+<h2 class="anchored" data-anchor-id="binary-logic">Binary Logic</h2>
+<ul>
+<li>If the condition is <strong>True</strong>, the output is 1.</li>
+<li>If the condition is <strong>False</strong>, the output is 0.</li>
+</ul>
+<p><span class="math display">\[
+\mathbb{1}_{A}(x) = \begin{cases}
+1 &amp; x \in A \\
+0 &amp; x \notin A
+\end{cases}
+\]</span></p>
+</section>
+<section id="dice-as-collections" class="level2">
+<h2 class="anchored" data-anchor-id="dice-as-collections">Dice as Collections</h2>
+<p>When we detect an “Odd” die face, we are running an Indicator Function.</p>
+<ul>
+<li><strong>Input:</strong> 3x3 Grid</li>
+<li><strong>Collection <span class="math inline">\(A\)</span>:</strong> All grids representing 1, 3, or 5</li>
+<li><strong>Output:</strong> 1 if the grid is in the set, 0 otherwise.</li>
+</ul>
+</section>
+</section>
+<section id="summary-notation" class="level1">
+<h1>Summary &amp; Notation</h1>
+<section id="summation-in-colab" class="level2">
+<h2 class="anchored" data-anchor-id="summation-in-colab">Summation in Colab</h2>
+<ul>
+<li>When writing your lab reports in Markdown cells, you can use LaTeX.
+<ul>
+<li>Or <span class="math inline">\(\LaTeX\)</span> by writing <code>$\LaTeX</code></li>
+</ul></li>
+</ul>
+</section>
+<section id="notation" class="level2">
+<h2 class="anchored" data-anchor-id="notation">Notation</h2>
+<ul>
+<li>To show the total input to a neuron, write:</li>
+</ul>
+<p><span class="math display">\[
+z = \sum_{i=1}^{n} w_i x_i + b
+\]</span></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource tex number-lines code-with-copy"><code class="sourceCode latex"><span id="cb5-1"><a href="#cb5-1"></a>z = <span class="fu">\sum</span>_{i=1}^{n} w_i x_i + b</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This is the standard way to express the <strong>“weighted sum plus bias.”</strong></p>
+</section>
+<section id="visualizing-the-weights" class="level2">
+<h2 class="anchored" data-anchor-id="visualizing-the-weights">Visualizing the Weights</h2>
+<ul>
+<li>Let’s look at the graph again, but with weights indicated by line thickness.</li>
+</ul>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 598.00 186.39" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 182.39)">
+<title>PerceptronWeights</title>
+<g id="clust1" class="cluster">
+<title>cluster_input</title>
+<polygon fill="transparent" stroke="black" points="8,-108.71 8,-170.39 582,-170.39 582,-108.71 8,-108.71"></polygon>
+</g>
+<!-- X0 -->
+<g id="node1" class="node">
+<title>X0</title>
+<ellipse fill="red" stroke="#ffffff" cx="39" cy="-139.55" rx="22.68" ry="22.68"></ellipse>
+<text text-anchor="middle" x="39" y="-135.35" font-family="Times,serif" font-size="14.00" fill="#ffffff">X0</text>
+</g>
+<!-- Neuron -->
+<g id="node10" class="node">
+<title>Neuron</title>
+<ellipse fill="blue" stroke="#ffffff" cx="295" cy="-31.95" rx="31.91" ry="31.91"></ellipse>
+<text text-anchor="middle" x="295" y="-27.75" font-family="Times,serif" font-size="14.00" fill="#ffffff">Odd?</text>
+</g>
+<!-- X0&#45;&#45;Neuron -->
+<g id="edge1" class="edge">
+<title>X0--Neuron</title>
+<path fill="none" stroke="#444444" d="M54.28,-122.07C59.28,-117.32 65.08,-112.42 71,-108.71 133.42,-69.54 218.43,-48.05 263.67,-38.71"></path>
+<text text-anchor="middle" x="125.5" y="-86.11" font-family="Times,serif" font-size="14.00">0</text>
+</g>
+<!-- X1 -->
+<g id="node2" class="node">
+<title>X1</title>
+<ellipse fill="red" stroke="#ffffff" cx="103" cy="-139.55" rx="22.68" ry="22.68"></ellipse>
+<text text-anchor="middle" x="103" y="-135.35" font-family="Times,serif" font-size="14.00" fill="#ffffff">X1</text>
+</g>
+<!-- X1&#45;&#45;Neuron -->
+<g id="edge2" class="edge">
+<title>X1--Neuron</title>
+<path fill="none" stroke="#444444" d="M118.45,-122.33C123.46,-117.59 129.22,-112.63 135,-108.71 177.21,-80.05 231.96,-56.71 265.23,-43.83"></path>
+<text text-anchor="middle" x="179.5" y="-86.11" font-family="Times,serif" font-size="14.00">0</text>
+</g>
+<!-- X2 -->
+<g id="node3" class="node">
+<title>X2</title>
+<ellipse fill="red" stroke="#ffffff" cx="167" cy="-139.55" rx="22.68" ry="22.68"></ellipse>
+<text text-anchor="middle" x="167" y="-135.35" font-family="Times,serif" font-size="14.00" fill="#ffffff">X2</text>
+</g>
+<!-- X2&#45;&#45;Neuron -->
+<g id="edge3" class="edge">
+<title>X2--Neuron</title>
+<path fill="none" stroke="#444444" d="M183.04,-123.1C188.07,-118.39 193.7,-113.26 199,-108.71 222.36,-88.66 250.06,-67.02 269.68,-52.02"></path>
+<text text-anchor="middle" x="233.5" y="-86.11" font-family="Times,serif" font-size="14.00">0</text>
+</g>
+<!-- X3 -->
+<g id="node4" class="node">
+<title>X3</title>
+<ellipse fill="red" stroke="#ffffff" cx="231" cy="-139.55" rx="22.68" ry="22.68"></ellipse>
+<text text-anchor="middle" x="231" y="-135.35" font-family="Times,serif" font-size="14.00" fill="#ffffff">X3</text>
+</g>
+<!-- X3&#45;&#45;Neuron -->
+<g id="edge4" class="edge">
+<title>X3--Neuron</title>
+<path fill="none" stroke="#444444" d="M242.44,-119.67C252.58,-102.94 267.5,-78.33 278.85,-59.6"></path>
+<text text-anchor="middle" x="267.5" y="-86.11" font-family="Times,serif" font-size="14.00">0</text>
+</g>
+<!-- X4 -->
+<g id="node5" class="node">
+<title>X4</title>
+<ellipse fill="red" stroke="#ffffff" cx="295" cy="-139.55" rx="22.68" ry="22.68"></ellipse>
+<text text-anchor="middle" x="295" y="-135.35" font-family="Times,serif" font-size="14.00" fill="#ffffff">X4</text>
+</g>
+<!-- X4&#45;&#45;Neuron -->
+<g id="edge5" class="edge">
+<title>X4--Neuron</title>
+<path fill="none" stroke="white" stroke-width="5" d="M295,-116.67C295,-101.44 295,-80.93 295,-64.01"></path>
+<text text-anchor="middle" x="298.5" y="-86.11" font-family="Times,serif" font-size="14.00">1</text>
+</g>
+<!-- X5 -->
+<g id="node6" class="node">
+<title>X5</title>
+<ellipse fill="red" stroke="#ffffff" cx="359" cy="-139.55" rx="22.68" ry="22.68"></ellipse>
+<text text-anchor="middle" x="359" y="-135.35" font-family="Times,serif" font-size="14.00" fill="#ffffff">X5</text>
+</g>
+<!-- X5&#45;&#45;Neuron -->
+<g id="edge6" class="edge">
+<title>X5--Neuron</title>
+<path fill="none" stroke="#444444" d="M347.56,-119.67C337.42,-102.94 322.5,-78.33 311.15,-59.6"></path>
+<text text-anchor="middle" x="337.5" y="-86.11" font-family="Times,serif" font-size="14.00">0</text>
+</g>
+<!-- X6 -->
+<g id="node7" class="node">
+<title>X6</title>
+<ellipse fill="red" stroke="#ffffff" cx="423" cy="-139.55" rx="22.68" ry="22.68"></ellipse>
+<text text-anchor="middle" x="423" y="-135.35" font-family="Times,serif" font-size="14.00" fill="#ffffff">X6</text>
+</g>
+<!-- X6&#45;&#45;Neuron -->
+<g id="edge7" class="edge">
+<title>X6--Neuron</title>
+<path fill="none" stroke="#444444" d="M406.96,-123.1C401.93,-118.39 396.3,-113.26 391,-108.71 367.64,-88.66 339.94,-67.02 320.32,-52.02"></path>
+<text text-anchor="middle" x="381.5" y="-86.11" font-family="Times,serif" font-size="14.00">0</text>
+</g>
+<!-- X7 -->
+<g id="node8" class="node">
+<title>X7</title>
+<ellipse fill="red" stroke="#ffffff" cx="487" cy="-139.55" rx="22.68" ry="22.68"></ellipse>
+<text text-anchor="middle" x="487" y="-135.35" font-family="Times,serif" font-size="14.00" fill="#ffffff">X7</text>
+</g>
+<!-- X7&#45;&#45;Neuron -->
+<g id="edge8" class="edge">
+<title>X7--Neuron</title>
+<path fill="none" stroke="#444444" d="M471.55,-122.33C466.54,-117.59 460.78,-112.63 455,-108.71 412.79,-80.05 358.04,-56.71 324.77,-43.83"></path>
+<text text-anchor="middle" x="441.5" y="-86.11" font-family="Times,serif" font-size="14.00">0</text>
+</g>
+<!-- X8 -->
+<g id="node9" class="node">
+<title>X8</title>
+<ellipse fill="red" stroke="#ffffff" cx="551" cy="-139.55" rx="22.68" ry="22.68"></ellipse>
+<text text-anchor="middle" x="551" y="-135.35" font-family="Times,serif" font-size="14.00" fill="#ffffff">X8</text>
+</g>
+<!-- X8&#45;&#45;Neuron -->
+<g id="edge9" class="edge">
+<title>X8--Neuron</title>
+<path fill="none" stroke="#444444" d="M535.73,-122.05C530.73,-117.3 524.93,-112.41 519,-108.71 456.49,-69.69 371.51,-48.14 326.31,-38.75"></path>
+<text text-anchor="middle" x="499.5" y="-86.11" font-family="Times,serif" font-size="14.00">0</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="history-of-the-perceptron" class="level1">
+<h1>History of the Perceptron</h1>
+<section id="predate-computers" class="level2">
+<h2 class="anchored" data-anchor-id="predate-computers">Predate Computers!</h2>
+</section>
+<section id="use-linear-algebra" class="level2">
+<h2 class="anchored" data-anchor-id="use-linear-algebra">Use <em>Linear Algebra</em></h2>
+</section>
+<section id="now-on-gpus" class="level2">
+<h2 class="anchored" data-anchor-id="now-on-gpus">Now on GPUs!</h2>
+</section>
+</section>
+<section id="applications" class="level1">
+<h1>Applications</h1>
+<section id="mnist-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="mnist-dataset">MNIST Dataset</h2>
+<ul>
+<li>70,000 handwritten digits.</li>
+<li>Instead of a 3x3 grid, it is a <strong>28x28 grid</strong> (784 sensory neurons).</li>
+<li>A single layer of neurons can achieve ~90% accuracy!</li>
+</ul>
+</section>
+<section id="imagenet" class="level2">
+<h2 class="anchored" data-anchor-id="imagenet">ImageNet</h2>
+<ul>
+<li>Millions of high-res images.</li>
+<li>Hundreds of categories (Dog, Boat, Bird).</li>
+<li>Uses the same core principles: <strong>Weights, Sums, and Thresholds</strong>.</li>
+</ul>
+</section>
+</section>
+<section id="takeaways" class="level1">
+<h1>Takeaways</h1>
+<ul>
+<li><strong>Inputs</strong> are just flattened grids of numbers.</li>
+<li><strong>Weights</strong> determine which parts of the input matter.</li>
+<li><strong>Classification</strong> is the act of drawing a line between two sets of data.</li>
+<li><strong>Graphs</strong> allow us to visualize the flow of information from the eye to the decision.</li>
+</ul>
+
+
+<!-- -->
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./61_weights.html" class="pagination-link" aria-label="Weights">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Weights</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">---</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="an">title:</span><span class="co"> Perceptron </span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="co">---</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a></span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="fu">## Recall</span></span>
+<span id="cb6-6"><a href="#cb6-6"></a></span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="ss">- </span>We've explored **Bipartite Graphs**.</span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="ss">- </span>We've seen how sensory inputs (fingers) can map to neurons (brain cells).</span>
+<span id="cb6-9"><a href="#cb6-9"></a><span class="ss">- </span>Today, we build our first functional model: **The Perceptron**.</span>
+<span id="cb6-10"><a href="#cb6-10"></a></span>
+<span id="cb6-11"><a href="#cb6-11"></a><span class="fu"># To Perceive</span></span>
+<span id="cb6-12"><a href="#cb6-12"></a></span>
+<span id="cb6-13"><a href="#cb6-13"></a><span class="fu">## Representing Reality</span></span>
+<span id="cb6-14"><a href="#cb6-14"></a></span>
+<span id="cb6-15"><a href="#cb6-15"></a><span class="ss">- </span>How does a computer "see" a simple object?</span>
+<span id="cb6-16"><a href="#cb6-16"></a><span class="ss">- </span>Let's take a standard six-sided die.</span>
+<span id="cb6-17"><a href="#cb6-17"></a><span class="ss">- </span>We can represent the face of a die as a **3x3 grid**.</span>
+<span id="cb6-18"><a href="#cb6-18"></a></span>
+<span id="cb6-19"><a href="#cb6-19"></a><span class="fu">## A Die</span></span>
+<span id="cb6-20"><a href="#cb6-20"></a></span>
+<span id="cb6-21"><a href="#cb6-21"></a><span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> title</span><span class="op">=</span><span class="st">"Dennis Hill from The OC, So. Cal., CC BY 2.0 </span><span class="dv">&amp;lt;</span><span class="st">https://creativecommons.org/licenses/by/2.0</span><span class="dv">&amp;gt;</span><span class="st">, via Wikimedia Commons"</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://commons.wikimedia.org/wiki/File:Snake_eyes_dice.jpg"</span><span class="dt">&gt;&lt;</span><span class="kw">img</span><span class="ot"> width</span><span class="op">=</span><span class="st">"512"</span><span class="ot"> alt</span><span class="op">=</span><span class="st">"Snake eyes dice"</span><span class="ot"> src</span><span class="op">=</span><span class="st">"https://upload.wikimedia.org/wikipedia/commons/4/4a/Snake_eyes_dice.jpg"</span><span class="dt">&gt;&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
+<span id="cb6-22"><a href="#cb6-22"></a></span>
+<span id="cb6-23"><a href="#cb6-23"></a><span class="fu">## Too Complex</span></span>
+<span id="cb6-24"><a href="#cb6-24"></a></span>
+<span id="cb6-25"><a href="#cb6-25"></a><span class="ss">- </span>We imagine viewing (1) a single die (2) directly from above.</span>
+<span id="cb6-26"><a href="#cb6-26"></a></span>
+<span id="cb6-27"><a href="#cb6-27"></a><span class="dt">&lt;</span><span class="kw">table</span><span class="dt">&gt;</span></span>
+<span id="cb6-28"><a href="#cb6-28"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;&lt;</span><span class="kw">a</span><span class="ot"> title</span><span class="op">=</span><span class="st">"Mliu92, CC BY-SA 4.0 </span><span class="dv">&amp;lt;</span><span class="st">https://creativecommons.org/licenses/by-sa/4.0</span><span class="dv">&amp;gt;</span><span class="st">, via Wikimedia Commons"</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://commons.wikimedia.org/wiki/File:Die_face_1b.svg"</span><span class="dt">&gt;&lt;</span><span class="kw">img</span><span class="ot"> width</span><span class="op">=</span><span class="st">"128"</span><span class="ot"> alt</span><span class="op">=</span><span class="st">"Illustration of die face with 1 black dot"</span><span class="ot"> src</span><span class="op">=</span><span class="st">"https://upload.wikimedia.org/wikipedia/commons/4/43/Die_face_1b.svg"</span><span class="dt">&gt;&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
+<span id="cb6-29"><a href="#cb6-29"></a></span>
+<span id="cb6-30"><a href="#cb6-30"></a><span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb6-31"><a href="#cb6-31"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb6-32"><a href="#cb6-32"></a><span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> title</span><span class="op">=</span><span class="st">"Mliu92, CC BY-SA 4.0 </span><span class="dv">&amp;lt;</span><span class="st">https://creativecommons.org/licenses/by-sa/4.0</span><span class="dv">&amp;gt;</span><span class="st">, via Wikimedia Commons"</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://commons.wikimedia.org/wiki/File:Die_face_2b.svg"</span><span class="dt">&gt;&lt;</span><span class="kw">img</span><span class="ot"> width</span><span class="op">=</span><span class="st">"128"</span><span class="ot"> alt</span><span class="op">=</span><span class="st">"Illustration of die face with 2 black dots"</span><span class="ot"> src</span><span class="op">=</span><span class="st">"https://upload.wikimedia.org/wikipedia/commons/2/2f/Die_face_2b.svg"</span><span class="dt">&gt;&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
+<span id="cb6-33"><a href="#cb6-33"></a><span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb6-34"><a href="#cb6-34"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb6-35"><a href="#cb6-35"></a><span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> title</span><span class="op">=</span><span class="st">"Mliu92, CC BY-SA 4.0 </span><span class="dv">&amp;lt;</span><span class="st">https://creativecommons.org/licenses/by-sa/4.0</span><span class="dv">&amp;gt;</span><span class="st">, via Wikimedia Commons"</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://commons.wikimedia.org/wiki/File:Die_face_3b.svg"</span><span class="dt">&gt;&lt;</span><span class="kw">img</span><span class="ot"> width</span><span class="op">=</span><span class="st">"128"</span><span class="ot"> alt</span><span class="op">=</span><span class="st">"Illustration of die face with 3 black dots"</span><span class="ot">  src</span><span class="op">=</span><span class="st">"https://upload.wikimedia.org/wikipedia/commons/c/cb/Die_face_3b.svg"</span><span class="dt">&gt;&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
+<span id="cb6-36"><a href="#cb6-36"></a><span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb6-37"><a href="#cb6-37"></a><span class="dt">&lt;/</span><span class="kw">table</span><span class="dt">&gt;</span></span>
+<span id="cb6-38"><a href="#cb6-38"></a></span>
+<span id="cb6-39"><a href="#cb6-39"></a><span class="fu">## Helpful</span></span>
+<span id="cb6-40"><a href="#cb6-40"></a></span>
+<span id="cb6-41"><a href="#cb6-41"></a><span class="ss">- </span>Helpfully, most modern fonts include these!</span>
+<span id="cb6-42"><a href="#cb6-42"></a></span>
+<span id="cb6-43"><a href="#cb6-43"></a>:::: {.columns}</span>
+<span id="cb6-44"><a href="#cb6-44"></a></span>
+<span id="cb6-45"><a href="#cb6-45"></a>::: {.column width="50%"}</span>
+<span id="cb6-46"><a href="#cb6-46"></a></span>
+<span id="cb6-47"><a href="#cb6-47"></a><span class="ss">1. </span><span class="dv">&amp;#9856;</span> </span>
+<span id="cb6-48"><a href="#cb6-48"></a><span class="ss">2. </span><span class="dv">&amp;#9857;</span></span>
+<span id="cb6-49"><a href="#cb6-49"></a><span class="ss">3. </span><span class="dv">&amp;#9858;</span> </span>
+<span id="cb6-50"><a href="#cb6-50"></a></span>
+<span id="cb6-51"><a href="#cb6-51"></a>:::</span>
+<span id="cb6-52"><a href="#cb6-52"></a></span>
+<span id="cb6-53"><a href="#cb6-53"></a>::: {.column width="50%"}</span>
+<span id="cb6-54"><a href="#cb6-54"></a></span>
+<span id="cb6-55"><a href="#cb6-55"></a><span class="ss">4. </span><span class="dv">&amp;#9859;</span> </span>
+<span id="cb6-56"><a href="#cb6-56"></a><span class="ss">5. </span><span class="dv">&amp;#9860;</span> </span>
+<span id="cb6-57"><a href="#cb6-57"></a><span class="ss">6. </span><span class="dv">&amp;#9861;</span> </span>
+<span id="cb6-58"><a href="#cb6-58"></a>:::</span>
+<span id="cb6-59"><a href="#cb6-59"></a></span>
+<span id="cb6-60"><a href="#cb6-60"></a></span>
+<span id="cb6-61"><a href="#cb6-61"></a>::::</span>
+<span id="cb6-62"><a href="#cb6-62"></a> </span>
+<span id="cb6-63"><a href="#cb6-63"></a></span>
+<span id="cb6-64"><a href="#cb6-64"></a><span class="fu">## The 3x3 Grid</span></span>
+<span id="cb6-65"><a href="#cb6-65"></a></span>
+<span id="cb6-66"><a href="#cb6-66"></a><span class="ss">- </span>Each cell in the grid is either "on" (a dot is present) or "off" (empty space).</span>
+<span id="cb6-67"><a href="#cb6-67"></a><span class="ss">- </span>This is a **binary image**.</span>
+<span id="cb6-68"><a href="#cb6-68"></a></span>
+<span id="cb6-69"><a href="#cb6-69"></a><span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span></span>
+<span id="cb6-70"><a href="#cb6-70"></a><span class="pp">|</span>:-:<span class="pp">|</span>:-:<span class="pp">|</span>:-:<span class="pp">|</span></span>
+<span id="cb6-71"><a href="#cb6-71"></a><span class="pp">|</span> (0,0) <span class="pp">|</span> (0,1) <span class="pp">|</span> (0,2) <span class="pp">|</span></span>
+<span id="cb6-72"><a href="#cb6-72"></a><span class="pp">|</span> (1,0) <span class="pp">|</span> (1,1) <span class="pp">|</span> (1,2) <span class="pp">|</span></span>
+<span id="cb6-73"><a href="#cb6-73"></a><span class="pp">|</span> (2,0) <span class="pp">|</span> (2,1) <span class="pp">|</span> (2,2) <span class="pp">|</span></span>
+<span id="cb6-74"><a href="#cb6-74"></a></span>
+<span id="cb6-75"><a href="#cb6-75"></a></span>
+<span id="cb6-76"><a href="#cb6-76"></a></span>
+<span id="cb6-77"><a href="#cb6-77"></a><span class="fu">## Encoding the Number 1</span></span>
+<span id="cb6-78"><a href="#cb6-78"></a></span>
+<span id="cb6-79"><a href="#cb6-79"></a><span class="ss">- </span>For a "1", only the center is filled.</span>
+<span id="cb6-80"><a href="#cb6-80"></a></span>
+<span id="cb6-81"><a href="#cb6-81"></a>:::: {.columns}</span>
+<span id="cb6-82"><a href="#cb6-82"></a></span>
+<span id="cb6-83"><a href="#cb6-83"></a>::: {.column width="50%"}</span>
+<span id="cb6-84"><a href="#cb6-84"></a></span>
+<span id="cb6-85"><a href="#cb6-85"></a><span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span></span>
+<span id="cb6-86"><a href="#cb6-86"></a><span class="pp">|</span>:-:<span class="pp">|</span>:-:<span class="pp">|</span>:-:<span class="pp">|</span></span>
+<span id="cb6-87"><a href="#cb6-87"></a><span class="pp">|</span> 0 <span class="pp">|</span> 0 <span class="pp">|</span> 0 <span class="pp">|</span></span>
+<span id="cb6-88"><a href="#cb6-88"></a><span class="pp">|</span> 0 <span class="pp">|</span> **1** <span class="pp">|</span> 0 <span class="pp">|</span></span>
+<span id="cb6-89"><a href="#cb6-89"></a><span class="pp">|</span> 0 <span class="pp">|</span> 0 <span class="pp">|</span> 0 <span class="pp">|</span></span>
+<span id="cb6-90"><a href="#cb6-90"></a></span>
+<span id="cb6-91"><a href="#cb6-91"></a>:::</span>
+<span id="cb6-92"><a href="#cb6-92"></a></span>
+<span id="cb6-93"><a href="#cb6-93"></a>::: {.column width="50%"}</span>
+<span id="cb6-94"><a href="#cb6-94"></a></span>
+<span id="cb6-95"><a href="#cb6-95"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"width: 300px; height: 300px; background-color: white; display: flex; justify-content: center; align-items: center; border: 1px solid #ccc;"</span><span class="dt">&gt;</span></span>
+<span id="cb6-96"><a href="#cb6-96"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"width: 100px; height: 100px; background-color: black;"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb6-97"><a href="#cb6-97"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb6-98"><a href="#cb6-98"></a></span>
+<span id="cb6-99"><a href="#cb6-99"></a>:::</span>
+<span id="cb6-100"><a href="#cb6-100"></a></span>
+<span id="cb6-101"><a href="#cb6-101"></a></span>
+<span id="cb6-102"><a href="#cb6-102"></a>::::</span>
+<span id="cb6-103"><a href="#cb6-103"></a></span>
+<span id="cb6-104"><a href="#cb6-104"></a></span>
+<span id="cb6-105"><a href="#cb6-105"></a><span class="fu">## Encoding the Number 2</span></span>
+<span id="cb6-106"><a href="#cb6-106"></a></span>
+<span id="cb6-107"><a href="#cb6-107"></a><span class="ss">- </span>For a "2", we usually see top-right and bottom-left.</span>
+<span id="cb6-108"><a href="#cb6-108"></a></span>
+<span id="cb6-109"><a href="#cb6-109"></a>:::: {.columns}</span>
+<span id="cb6-110"><a href="#cb6-110"></a></span>
+<span id="cb6-111"><a href="#cb6-111"></a>::: {.column width="50%"}</span>
+<span id="cb6-112"><a href="#cb6-112"></a></span>
+<span id="cb6-113"><a href="#cb6-113"></a></span>
+<span id="cb6-114"><a href="#cb6-114"></a><span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span></span>
+<span id="cb6-115"><a href="#cb6-115"></a><span class="pp">|</span>:-:<span class="pp">|</span>:-:<span class="pp">|</span>:-:<span class="pp">|</span></span>
+<span id="cb6-116"><a href="#cb6-116"></a><span class="pp">|</span> 0 <span class="pp">|</span> 0 <span class="pp">|</span> **1** <span class="pp">|</span></span>
+<span id="cb6-117"><a href="#cb6-117"></a><span class="pp">|</span> 0 <span class="pp">|</span> 0 <span class="pp">|</span> 0 <span class="pp">|</span></span>
+<span id="cb6-118"><a href="#cb6-118"></a><span class="pp">|</span> **1** <span class="pp">|</span> 0 <span class="pp">|</span> 0 <span class="pp">|</span></span>
+<span id="cb6-119"><a href="#cb6-119"></a></span>
+<span id="cb6-120"><a href="#cb6-120"></a>:::</span>
+<span id="cb6-121"><a href="#cb6-121"></a></span>
+<span id="cb6-122"><a href="#cb6-122"></a>::: {.column width="50%"}</span>
+<span id="cb6-123"><a href="#cb6-123"></a></span>
+<span id="cb6-124"><a href="#cb6-124"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"position: relative; width: 300px; height: 300px; background-color: white; border: 1px solid #ccc;"</span><span class="dt">&gt;</span></span>
+<span id="cb6-125"><a href="#cb6-125"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"position: absolute; top: 0; right: 0; width: 100px; height: 100px; background-color: black;"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb6-126"><a href="#cb6-126"></a></span>
+<span id="cb6-127"><a href="#cb6-127"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"position: absolute; bottom: 0; left: 0; width: 100px; height: 100px; background-color: black;"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb6-128"><a href="#cb6-128"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb6-129"><a href="#cb6-129"></a></span>
+<span id="cb6-130"><a href="#cb6-130"></a>:::</span>
+<span id="cb6-131"><a href="#cb6-131"></a></span>
+<span id="cb6-132"><a href="#cb6-132"></a></span>
+<span id="cb6-133"><a href="#cb6-133"></a>::::</span>
+<span id="cb6-134"><a href="#cb6-134"></a></span>
+<span id="cb6-135"><a href="#cb6-135"></a></span>
+<span id="cb6-136"><a href="#cb6-136"></a><span class="fu">## Encoding the Number 3</span></span>
+<span id="cb6-137"><a href="#cb6-137"></a></span>
+<span id="cb6-138"><a href="#cb6-138"></a></span>
+<span id="cb6-139"><a href="#cb6-139"></a>:::: {.columns}</span>
+<span id="cb6-140"><a href="#cb6-140"></a></span>
+<span id="cb6-141"><a href="#cb6-141"></a>::: {.column width="50%"}</span>
+<span id="cb6-142"><a href="#cb6-142"></a></span>
+<span id="cb6-143"><a href="#cb6-143"></a></span>
+<span id="cb6-144"><a href="#cb6-144"></a><span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span></span>
+<span id="cb6-145"><a href="#cb6-145"></a><span class="pp">|</span>:-:<span class="pp">|</span>:-:<span class="pp">|</span>:-:<span class="pp">|</span></span>
+<span id="cb6-146"><a href="#cb6-146"></a><span class="pp">|</span> 0 <span class="pp">|</span> 0 <span class="pp">|</span> **1** <span class="pp">|</span></span>
+<span id="cb6-147"><a href="#cb6-147"></a><span class="pp">|</span> 0 <span class="pp">|</span> **1** <span class="pp">|</span> 0 <span class="pp">|</span></span>
+<span id="cb6-148"><a href="#cb6-148"></a><span class="pp">|</span> **1** <span class="pp">|</span> 0 <span class="pp">|</span> 0 <span class="pp">|</span></span>
+<span id="cb6-149"><a href="#cb6-149"></a></span>
+<span id="cb6-150"><a href="#cb6-150"></a>:::</span>
+<span id="cb6-151"><a href="#cb6-151"></a></span>
+<span id="cb6-152"><a href="#cb6-152"></a>::: {.column width="50%"}</span>
+<span id="cb6-153"><a href="#cb6-153"></a></span>
+<span id="cb6-154"><a href="#cb6-154"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"position: relative; width: 300px; height: 300px; background-color: white; border: 1px solid #ccc;"</span><span class="dt">&gt;</span></span>
+<span id="cb6-155"><a href="#cb6-155"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"position: absolute; top: 0; right: 0; width: 100px; height: 100px; background-color: black;"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb6-156"><a href="#cb6-156"></a></span>
+<span id="cb6-157"><a href="#cb6-157"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 100px; background-color: black;"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb6-158"><a href="#cb6-158"></a></span>
+<span id="cb6-159"><a href="#cb6-159"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"position: absolute; bottom: 0; left: 0; width: 100px; height: 100px; background-color: black;"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb6-160"><a href="#cb6-160"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb6-161"><a href="#cb6-161"></a></span>
+<span id="cb6-162"><a href="#cb6-162"></a>:::</span>
+<span id="cb6-163"><a href="#cb6-163"></a></span>
+<span id="cb6-164"><a href="#cb6-164"></a></span>
+<span id="cb6-165"><a href="#cb6-165"></a>::::</span>
+<span id="cb6-166"><a href="#cb6-166"></a></span>
+<span id="cb6-167"><a href="#cb6-167"></a></span>
+<span id="cb6-168"><a href="#cb6-168"></a><span class="fu">## Flattening the Input</span></span>
+<span id="cb6-169"><a href="#cb6-169"></a></span>
+<span id="cb6-170"><a href="#cb6-170"></a><span class="ss">- </span>To feed this into a neuron, we "unroll" the grid into a list.</span>
+<span id="cb6-171"><a href="#cb6-171"></a><span class="ss">- </span>We go row by row.</span>
+<span id="cb6-172"><a href="#cb6-172"></a></span>
+<span id="cb6-173"><a href="#cb6-173"></a>:::: {.columns}</span>
+<span id="cb6-174"><a href="#cb6-174"></a></span>
+<span id="cb6-175"><a href="#cb6-175"></a>::: {.column width="50%"}</span>
+<span id="cb6-176"><a href="#cb6-176"></a></span>
+<span id="cb6-177"><a href="#cb6-177"></a><span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span></span>
+<span id="cb6-178"><a href="#cb6-178"></a><span class="pp">|</span>:-:<span class="pp">|</span>:-:<span class="pp">|</span>:-:<span class="pp">|</span></span>
+<span id="cb6-179"><a href="#cb6-179"></a><span class="pp">|</span> 0 <span class="pp">|</span> 0 <span class="pp">|</span> 0 <span class="pp">|</span></span>
+<span id="cb6-180"><a href="#cb6-180"></a><span class="pp">|</span> 0 <span class="pp">|</span> **1** <span class="pp">|</span> 0 <span class="pp">|</span></span>
+<span id="cb6-181"><a href="#cb6-181"></a><span class="pp">|</span> 0 <span class="pp">|</span> 0 <span class="pp">|</span> 0 <span class="pp">|</span></span>
+<span id="cb6-182"><a href="#cb6-182"></a></span>
+<span id="cb6-183"><a href="#cb6-183"></a>:::</span>
+<span id="cb6-184"><a href="#cb6-184"></a></span>
+<span id="cb6-185"><a href="#cb6-185"></a>::: {.column width="50%"}</span>
+<span id="cb6-186"><a href="#cb6-186"></a></span>
+<span id="cb6-187"><a href="#cb6-187"></a><span class="in">```{.py}</span></span>
+<span id="cb6-188"><a href="#cb6-188"></a>[<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>]</span>
+<span id="cb6-189"><a href="#cb6-189"></a><span class="in">```</span></span>
+<span id="cb6-190"><a href="#cb6-190"></a></span>
+<span id="cb6-191"><a href="#cb6-191"></a>:::</span>
+<span id="cb6-192"><a href="#cb6-192"></a></span>
+<span id="cb6-193"><a href="#cb6-193"></a></span>
+<span id="cb6-194"><a href="#cb6-194"></a>::::</span>
+<span id="cb6-195"><a href="#cb6-195"></a></span>
+<span id="cb6-196"><a href="#cb6-196"></a><span class="fu"># The Neuron Structure</span></span>
+<span id="cb6-197"><a href="#cb6-197"></a></span>
+<span id="cb6-198"><a href="#cb6-198"></a><span class="fu">## Sensory Neurons</span></span>
+<span id="cb6-199"><a href="#cb6-199"></a></span>
+<span id="cb6-200"><a href="#cb6-200"></a><span class="ss">- </span>Each of these 9 positions acts as a **sensory neuron**.</span>
+<span id="cb6-201"><a href="#cb6-201"></a><span class="ss">- </span>If there is a dot, the neuron fires (1).</span>
+<span id="cb6-202"><a href="#cb6-202"></a><span class="ss">- </span>If there is no dot, the neuron is silent (0).</span>
+<span id="cb6-203"><a href="#cb6-203"></a><span class="ss">- </span>This is *quite* similar to how the eye works - certainly similar enough to draw connections.</span>
+<span id="cb6-204"><a href="#cb6-204"></a></span>
+<span id="cb6-205"><a href="#cb6-205"></a><span class="fu">## The Summation</span></span>
+<span id="cb6-206"><a href="#cb6-206"></a></span>
+<span id="cb6-207"><a href="#cb6-207"></a><span class="ss">- </span>All 9 signals travel down "axons" (edges) to a single destination.</span>
+<span id="cb6-208"><a href="#cb6-208"></a><span class="ss">- </span>This destination is the **Cell Body** (or the Perceptron).</span>
+<span id="cb6-209"><a href="#cb6-209"></a></span>
+<span id="cb6-212"><a href="#cb6-212"></a><span class="in">```{dot}</span></span>
+<span id="cb6-213"><a href="#cb6-213"></a><span class="va">graph</span> <span class="va">PerceptronBase</span> <span class="ot">{</span></span>
+<span id="cb6-214"><a href="#cb6-214"></a><span class="co">    </span><span class="at">rankdir</span><span class="ot">=</span><span class="va">TD</span><span class="ot">;</span></span>
+<span id="cb6-215"><a href="#cb6-215"></a><span class="co">    </span><span class="at">bgcolor</span><span class="ot">=</span><span class="st">"transparent"</span><span class="co">  </span></span>
+<span id="cb6-216"><a href="#cb6-216"></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">circle</span><span class="co">, </span><span class="at">fontcolor</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"#ffffff"</span><span class="co">, </span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"#ffffff"</span><span class="ot">]</span></span>
+<span id="cb6-217"><a href="#cb6-217"></a><span class="co">    </span><span class="kw">edge</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"#ffffff"</span><span class="ot">]</span></span>
+<span id="cb6-218"><a href="#cb6-218"></a></span>
+<span id="cb6-219"><a href="#cb6-219"></a><span class="co">    </span><span class="kw">subgraph</span><span class="co"> </span><span class="va">cluster_input</span><span class="co"> </span><span class="ot">{</span></span>
+<span id="cb6-220"><a href="#cb6-220"></a><span class="co">        </span><span class="at">fontcolor</span><span class="ot">=</span><span class="st">"white"</span><span class="ot">;</span></span>
+<span id="cb6-221"><a href="#cb6-221"></a><span class="co">        </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"red"</span><span class="ot">];</span></span>
+<span id="cb6-222"><a href="#cb6-222"></a><span class="co">        </span><span class="va">X0</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"0,0"</span><span class="ot">];</span><span class="co"> </span><span class="va">X1</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"0,1"</span><span class="ot">];</span><span class="co"> </span><span class="va">X2</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"0,2"</span><span class="ot">];</span></span>
+<span id="cb6-223"><a href="#cb6-223"></a><span class="co">        </span><span class="va">X3</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"1,0"</span><span class="ot">];</span><span class="co"> </span><span class="va">X4</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"1,1"</span><span class="ot">];</span><span class="co"> </span><span class="va">X5</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"1,2"</span><span class="ot">];</span></span>
+<span id="cb6-224"><a href="#cb6-224"></a><span class="co">        </span><span class="va">X6</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"2,0"</span><span class="ot">];</span><span class="co"> </span><span class="va">X7</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"2,1"</span><span class="ot">];</span><span class="co"> </span><span class="va">X8</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"2,2"</span><span class="ot">];</span></span>
+<span id="cb6-225"><a href="#cb6-225"></a><span class="co">    </span><span class="ot">}</span></span>
+<span id="cb6-226"><a href="#cb6-226"></a></span>
+<span id="cb6-227"><a href="#cb6-227"></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"blue"</span><span class="ot">];</span></span>
+<span id="cb6-228"><a href="#cb6-228"></a><span class="co">    </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"∑"</span><span class="ot">];</span></span>
+<span id="cb6-229"><a href="#cb6-229"></a></span>
+<span id="cb6-230"><a href="#cb6-230"></a><span class="co">    </span><span class="va">X0</span><span class="co"> -- </span><span class="va">Neuron</span><span class="ot">;</span><span class="co"> </span><span class="va">X1</span><span class="co"> -- </span><span class="va">Neuron</span><span class="ot">;</span><span class="co"> </span><span class="va">X2</span><span class="co"> -- </span><span class="va">Neuron</span><span class="ot">;</span></span>
+<span id="cb6-231"><a href="#cb6-231"></a><span class="co">    </span><span class="va">X3</span><span class="co"> -- </span><span class="va">Neuron</span><span class="ot">;</span><span class="co"> </span><span class="va">X4</span><span class="co"> -- </span><span class="va">Neuron</span><span class="ot">;</span><span class="co"> </span><span class="va">X5</span><span class="co"> -- </span><span class="va">Neuron</span><span class="ot">;</span></span>
+<span id="cb6-232"><a href="#cb6-232"></a><span class="co">    </span><span class="va">X6</span><span class="co"> -- </span><span class="va">Neuron</span><span class="ot">;</span><span class="co"> </span><span class="va">X7</span><span class="co"> -- </span><span class="va">Neuron</span><span class="ot">;</span><span class="co"> </span><span class="va">X8</span><span class="co"> -- </span><span class="va">Neuron</span><span class="ot">;</span></span>
+<span id="cb6-233"><a href="#cb6-233"></a><span class="ot">}</span></span>
+<span id="cb6-234"><a href="#cb6-234"></a><span class="in">```</span></span>
+<span id="cb6-235"><a href="#cb6-235"></a></span>
+<span id="cb6-236"><a href="#cb6-236"></a><span class="fu">## Why Sigma ($\Sigma$)</span></span>
+<span id="cb6-237"><a href="#cb6-237"></a></span>
+<span id="cb6-238"><a href="#cb6-238"></a><span class="ss">- </span>We'll get to that, soon.</span>
+<span id="cb6-239"><a href="#cb6-239"></a><span class="ss">- </span>Hint: What is $\Sigma$ used for in mathematics.</span>
+<span id="cb6-240"><a href="#cb6-240"></a></span>
+<span id="cb6-241"><a href="#cb6-241"></a>$$</span>
+<span id="cb6-242"><a href="#cb6-242"></a>\sum_{i=1}^n i = \frac{n(n+1)}{2}</span>
+<span id="cb6-243"><a href="#cb6-243"></a>$$</span>
+<span id="cb6-244"><a href="#cb6-244"></a></span>
+<span id="cb6-245"><a href="#cb6-245"></a><span class="fu"># Decision Making</span></span>
+<span id="cb6-246"><a href="#cb6-246"></a></span>
+<span id="cb6-247"><a href="#cb6-247"></a><span class="fu">## Weighting the Evidence</span></span>
+<span id="cb6-248"><a href="#cb6-248"></a></span>
+<span id="cb6-249"><a href="#cb6-249"></a><span class="ss">- </span>Not every pixel is equally important for every task.</span>
+<span id="cb6-250"><a href="#cb6-250"></a><span class="ss">- </span>We assign a **Weight** ($w$) to each edge.</span>
+<span id="cb6-251"><a href="#cb6-251"></a><span class="ss">- </span>If a pixel is very important, it has a high weight.</span>
+<span id="cb6-252"><a href="#cb6-252"></a><span class="ss">- </span>If it's irrelevant, the weight is 0.</span>
+<span id="cb6-253"><a href="#cb6-253"></a><span class="ss">- </span>We would allow "anti-important" pixels to have a *negative* weight.</span>
+<span id="cb6-254"><a href="#cb6-254"></a><span class="ss">    - </span>For example, is the center dot is present, you are certainly *not* viewing a 2, 4, or 6.</span>
+<span id="cb6-255"><a href="#cb6-255"></a></span>
+<span id="cb6-256"><a href="#cb6-256"></a><span class="fu">## Example: Odd vs. Even</span></span>
+<span id="cb6-257"><a href="#cb6-257"></a></span>
+<span id="cb6-258"><a href="#cb6-258"></a><span class="ss">- </span>Let's try to detect if a die roll is **Odd**.</span>
+<span id="cb6-259"><a href="#cb6-259"></a><span class="ss">- </span>Which pixels are always "on" for odd numbers (1, 3, 5)?</span>
+<span id="cb6-260"><a href="#cb6-260"></a><span class="ss">- </span>The center pixel! (1,1).</span>
+<span id="cb6-261"><a href="#cb6-261"></a></span>
+<span id="cb6-262"><a href="#cb6-262"></a><span class="fu">## Edge Weights for "Odd"</span></span>
+<span id="cb6-263"><a href="#cb6-263"></a></span>
+<span id="cb6-264"><a href="#cb6-264"></a><span class="ss">- </span>We give the center pixel a weight of 1.</span>
+<span id="cb6-265"><a href="#cb6-265"></a><span class="ss">- </span>We give all other pixels a weight of 0.</span>
+<span id="cb6-266"><a href="#cb6-266"></a></span>
+<span id="cb6-267"><a href="#cb6-267"></a><span class="in">```{.py}</span></span>
+<span id="cb6-268"><a href="#cb6-268"></a>weights <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>]</span>
+<span id="cb6-269"><a href="#cb6-269"></a><span class="in">```</span></span>
+<span id="cb6-270"><a href="#cb6-270"></a></span>
+<span id="cb6-271"><a href="#cb6-271"></a>::: {.callout-note}</span>
+<span id="cb6-272"><a href="#cb6-272"></a></span>
+<span id="cb6-273"><a href="#cb6-273"></a>This is superficially similar to the pixel values for a die showing 1, but it's *meaning* is distinct.</span>
+<span id="cb6-274"><a href="#cb6-274"></a></span>
+<span id="cb6-275"><a href="#cb6-275"></a>Previously, we showed what dots are present on a die representing one.</span>
+<span id="cb6-276"><a href="#cb6-276"></a></span>
+<span id="cb6-277"><a href="#cb6-277"></a>Here, we show what dots matter when determining is a die is even or odd.</span>
+<span id="cb6-278"><a href="#cb6-278"></a></span>
+<span id="cb6-279"><a href="#cb6-279"></a>:::</span>
+<span id="cb6-280"><a href="#cb6-280"></a></span>
+<span id="cb6-281"><a href="#cb6-281"></a><span class="fu">## The Calculation</span></span>
+<span id="cb6-282"><a href="#cb6-282"></a></span>
+<span id="cb6-283"><a href="#cb6-283"></a><span class="ss">- </span>The neuron calculates the **Weighted Sum**.</span>
+<span id="cb6-284"><a href="#cb6-284"></a><span class="ss">- </span>For Die "1": $(1 \times 1) + (0 \times \text{others}) = 1$.</span>
+<span id="cb6-285"><a href="#cb6-285"></a><span class="ss">- </span>For Die "2": $(0 \times 1) + (1 \times \text{others}) = 0$.</span>
+<span id="cb6-286"><a href="#cb6-286"></a></span>
+<span id="cb6-287"><a href="#cb6-287"></a><span class="fu"># Digression: Classification</span></span>
+<span id="cb6-288"><a href="#cb6-288"></a></span>
+<span id="cb6-289"><a href="#cb6-289"></a><span class="fu">## Binary Classifiers</span></span>
+<span id="cb6-290"><a href="#cb6-290"></a></span>
+<span id="cb6-291"><a href="#cb6-291"></a><span class="ss">- </span>The neuron we just built is a **Binary Classifier**.</span>
+<span id="cb6-292"><a href="#cb6-292"></a><span class="ss">- </span>It sorts inputs into two distinct buckets.</span>
+<span id="cb6-293"><a href="#cb6-293"></a><span class="ss">- </span>Bucket A: "Odd" (Sum &gt; 0)</span>
+<span id="cb6-294"><a href="#cb6-294"></a><span class="ss">- </span>Bucket B: "Even" (Sum = 0)</span>
+<span id="cb6-295"><a href="#cb6-295"></a></span>
+<span id="cb6-296"><a href="#cb6-296"></a><span class="fu">## Mutual Exclusion</span></span>
+<span id="cb6-297"><a href="#cb6-297"></a></span>
+<span id="cb6-298"><a href="#cb6-298"></a><span class="ss">- </span>In binary classification, something is usually one or the other.</span>
+<span id="cb6-299"><a href="#cb6-299"></a><span class="ss">- </span>**Mutual Exclusion**: If it is A, it cannot be B.</span>
+<span id="cb6-300"><a href="#cb6-300"></a></span>
+<span id="cb6-301"><a href="#cb6-301"></a></span>
+<span id="cb6-302"><a href="#cb6-302"></a><span class="fu">## Example: US Senators</span></span>
+<span id="cb6-303"><a href="#cb6-303"></a></span>
+<span id="cb6-304"><a href="#cb6-304"></a><span class="ss">- </span>A US Senator's party affiliation is a classic (mostly) binary classification.</span>
+<span id="cb6-305"><a href="#cb6-305"></a><span class="ss">- </span>Excluding independents, a senator is either:</span>
+<span id="cb6-306"><a href="#cb6-306"></a><span class="ss">    - </span>**Democrat**</span>
+<span id="cb6-307"><a href="#cb6-307"></a><span class="ss">    - </span>**Republican**</span>
+<span id="cb6-308"><a href="#cb6-308"></a><span class="ss">- </span>Also independents aren't real and almost universally "caucus" with one of the two major parties.</span>
+<span id="cb6-309"><a href="#cb6-309"></a></span>
+<span id="cb6-310"><a href="#cb6-310"></a><span class="fu">## Some Examples</span></span>
+<span id="cb6-311"><a href="#cb6-311"></a></span>
+<span id="cb6-312"><a href="#cb6-312"></a><span class="pp">|</span> Senator <span class="pp">|</span> Feature: State <span class="pp">|</span> Feature: Vote Record <span class="pp">|</span> Classifier Output <span class="pp">|</span></span>
+<span id="cb6-313"><a href="#cb6-313"></a><span class="pp">|---------|----------------|----------------------|-------------------|</span></span>
+<span id="cb6-314"><a href="#cb6-314"></a><span class="pp">|</span> Wyden   <span class="pp">|</span> OR             <span class="pp">|</span> Capitalist           <span class="pp">|</span> Democrat          <span class="pp">|</span></span>
+<span id="cb6-315"><a href="#cb6-315"></a><span class="pp">|</span> Crapo   <span class="pp">|</span> ID             <span class="pp">|</span> Capitalist           <span class="pp">|</span> Republican        <span class="pp">|</span></span>
+<span id="cb6-316"><a href="#cb6-316"></a></span>
+<span id="cb6-317"><a href="#cb6-317"></a>If you will allow me to editorialize (you shouldn't), state determines party affiliation does not determine support for e.g. US military actions or tax breaks for the wealthy.</span>
+<span id="cb6-318"><a href="#cb6-318"></a></span>
+<span id="cb6-319"><a href="#cb6-319"></a></span>
+<span id="cb6-320"><a href="#cb6-320"></a><span class="fu">## Why Classification Matters</span></span>
+<span id="cb6-321"><a href="#cb6-321"></a></span>
+<span id="cb6-322"><a href="#cb6-322"></a>It is the foundation of all AI logic.</span>
+<span id="cb6-323"><a href="#cb6-323"></a><span class="ss">- </span>Is this email spam? (Yes/No)</span>
+<span id="cb6-324"><a href="#cb6-324"></a><span class="ss">- </span>Is this tumor malignant? (Yes/No)</span>
+<span id="cb6-325"><a href="#cb6-325"></a><span class="ss">- </span>Is this image a cat? (Yes/No)</span>
+<span id="cb6-326"><a href="#cb6-326"></a></span>
+<span id="cb6-327"><a href="#cb6-327"></a><span class="fu"># Aside: Summation</span></span>
+<span id="cb6-328"><a href="#cb6-328"></a></span>
+<span id="cb6-329"><a href="#cb6-329"></a><span class="fu">## Summation Notation</span></span>
+<span id="cb6-330"><a href="#cb6-330"></a></span>
+<span id="cb6-331"><a href="#cb6-331"></a><span class="ss">- </span>To calculate the signal reaching the cell body, we don't just add numbers.</span>
+<span id="cb6-332"><a href="#cb6-332"></a><span class="ss">- </span>We multiply each input ($x$) by its importance or **weight** ($w$).</span>
+<span id="cb6-333"><a href="#cb6-333"></a><span class="ss">- </span>We use the Greek letter Sigma $\sum$ to represent this "Total Sum."</span>
+<span id="cb6-334"><a href="#cb6-334"></a></span>
+<span id="cb6-335"><a href="#cb6-335"></a><span class="fu">## LaTeX in Markdown</span></span>
+<span id="cb6-336"><a href="#cb6-336"></a></span>
+<span id="cb6-337"><a href="#cb6-337"></a><span class="ss">- </span>In tools like Google Colab (used for our labs) or Quarto (used to make these slides), we use a special typesettin language called $\LaTeX$ (la-tech) to show mathematical notation.</span>
+<span id="cb6-338"><a href="#cb6-338"></a></span>
+<span id="cb6-339"><a href="#cb6-339"></a><span class="fu">## Example</span></span>
+<span id="cb6-340"><a href="#cb6-340"></a></span>
+<span id="cb6-341"><a href="#cb6-341"></a><span class="ss">- </span>The formula for a neuron's input is:</span>
+<span id="cb6-342"><a href="#cb6-342"></a></span>
+<span id="cb6-343"><a href="#cb6-343"></a>$$\sum_{i=1}^{n} w_i x_i = w_1 x_1 + w_2 x_2 + \dots + w_n x_n$$</span>
+<span id="cb6-344"><a href="#cb6-344"></a></span>
+<span id="cb6-345"><a href="#cb6-345"></a><span class="ss">- </span>$n$ is the number of inputs (9 for our dice).</span>
+<span id="cb6-346"><a href="#cb6-346"></a><span class="ss">- </span>$w_i$ is the weight of the $i$-th pixel.</span>
+<span id="cb6-347"><a href="#cb6-347"></a><span class="ss">- </span>$x_i$ is the value (0 or 1) of the $i$-th pixel.</span>
+<span id="cb6-348"><a href="#cb6-348"></a></span>
+<span id="cb6-349"><a href="#cb6-349"></a></span>
+<span id="cb6-350"><a href="#cb6-350"></a><span class="fu">## In LaTeX</span></span>
+<span id="cb6-351"><a href="#cb6-351"></a></span>
+<span id="cb6-352"><a href="#cb6-352"></a><span class="ss">- </span>You can write this out as follows:</span>
+<span id="cb6-353"><a href="#cb6-353"></a></span>
+<span id="cb6-354"><a href="#cb6-354"></a><span class="in">```{.tex}</span></span>
+<span id="cb6-355"><a href="#cb6-355"></a><span class="in">$$</span></span>
+<span id="cb6-356"><a href="#cb6-356"></a><span class="in">\sum_{i=1}^{n} w_i \times x_i </span></span>
+<span id="cb6-357"><a href="#cb6-357"></a><span class="in">$$</span></span>
+<span id="cb6-358"><a href="#cb6-358"></a><span class="in">```</span></span>
+<span id="cb6-359"><a href="#cb6-359"></a></span>
+<span id="cb6-360"><a href="#cb6-360"></a><span class="ss">- </span>The two enclosing lines of <span class="in">`$$`</span> means "this is a mathematical formula"</span>
+<span id="cb6-361"><a href="#cb6-361"></a></span>
+<span id="cb6-362"><a href="#cb6-362"></a><span class="fu">## Some notes</span></span>
+<span id="cb6-363"><a href="#cb6-363"></a></span>
+<span id="cb6-364"><a href="#cb6-364"></a><span class="ss">- </span>Many common mathematical expressions are stylized using a backslash and a name or nickname.</span>
+<span id="cb6-365"><a href="#cb6-365"></a><span class="ss">- </span>Subscripts are denoted with <span class="in">`_`</span> and enclosed in <span class="in">`{}`</span></span>
+<span id="cb6-366"><a href="#cb6-366"></a><span class="ss">- </span>Superscripts are denoted with <span class="in">`^`</span> - and may be combined with subscripts!</span>
+<span id="cb6-367"><a href="#cb6-367"></a><span class="ss">- </span><span class="in">`{}`</span> are optional for single characters.</span>
+<span id="cb6-368"><a href="#cb6-368"></a></span>
+<span id="cb6-369"><a href="#cb6-369"></a><span class="fu"># Differentiating Odds</span></span>
+<span id="cb6-370"><a href="#cb6-370"></a></span>
+<span id="cb6-371"><a href="#cb6-371"></a><span class="fu">## The "Center Pixel" Strategy</span></span>
+<span id="cb6-372"><a href="#cb6-372"></a></span>
+<span id="cb6-373"><a href="#cb6-373"></a><span class="ss">- </span>We previously suggested that "Odd" numbers (1, 3, 5) all have a center dot.</span>
+<span id="cb6-374"><a href="#cb6-374"></a><span class="ss">- </span>**Problem:** What if we need to distinguish a **1** from a **3**?</span>
+<span id="cb6-375"><a href="#cb6-375"></a><span class="ss">    - </span>Those are different numbers!</span>
+<span id="cb6-376"><a href="#cb6-376"></a></span>
+<span id="cb6-377"><a href="#cb6-377"></a><span class="fu">## Failed Weighting #1: Only the Center</span></span>
+<span id="cb6-378"><a href="#cb6-378"></a></span>
+<span id="cb6-379"><a href="#cb6-379"></a><span class="ss">- </span>Let's set $w_4 = 1$ (the center) and all other $w = 0$.</span>
+<span id="cb6-380"><a href="#cb6-380"></a><span class="ss">    - </span>Why 4? Start at zero, count up.</span>
+<span id="cb6-381"><a href="#cb6-381"></a><span class="ss">- </span>**Result:** It correctly identifies 1, 3, and 5.</span>
+<span id="cb6-382"><a href="#cb6-382"></a><span class="ss">- </span>**The Failure:** It would also classify a 7 and 9, most likely, even though these are not valid "odd" die in the sense of, say, Yahtzee.</span>
+<span id="cb6-383"><a href="#cb6-383"></a></span>
+<span id="cb6-384"><a href="#cb6-384"></a><span class="fu">## Failed Weighting #2: The Positive Diagonal</span></span>
+<span id="cb6-385"><a href="#cb6-385"></a></span>
+<span id="cb6-386"><a href="#cb6-386"></a><span class="ss">- </span>Let's weight the top-right, center, and bottom-left as $+\frac{1}{3}$.</span>
+<span id="cb6-387"><a href="#cb6-387"></a><span class="ss">- </span>**Result:** It perfectly identifies a "3".</span>
+<span id="cb6-388"><a href="#cb6-388"></a><span class="ss">- </span>**The Failure:** It fails to identify a "1" (the sum rounds down to zero) and it ignores the extra dots in a "5." It's too specific to the shape of a 3.</span>
+<span id="cb6-389"><a href="#cb6-389"></a><span class="ss">- </span>**The Failure:** What if the "3" is rotated by 90 degrees?</span>
+<span id="cb6-390"><a href="#cb6-390"></a></span>
+<span id="cb6-391"><a href="#cb6-391"></a><span class="fu"># The Power of Negativity</span></span>
+<span id="cb6-392"><a href="#cb6-392"></a></span>
+<span id="cb6-393"><a href="#cb6-393"></a><span class="fu">## Inhibitory Signals</span></span>
+<span id="cb6-394"><a href="#cb6-394"></a></span>
+<span id="cb6-395"><a href="#cb6-395"></a><span class="ss">- </span>In biology, some neurons tell others *not* to fire. These are "inhibitory."</span>
+<span id="cb6-396"><a href="#cb6-396"></a><span class="ss">    - </span>For example, when I see a film that *isn't* directed by Ridley Scott.</span>
+<span id="cb6-397"><a href="#cb6-397"></a><span class="ss">    - </span>Did you know Ridly Scott directed *Kingdom of Heaven* 2005?</span>
+<span id="cb6-398"><a href="#cb6-398"></a><span class="ss">- </span>In our model, we use **Negative Weights**.</span>
+<span id="cb6-399"><a href="#cb6-399"></a><span class="ss">- </span>This allows us to "punish" the presence of certain dots that shouldn't be there for a specific classification.</span>
+<span id="cb6-400"><a href="#cb6-400"></a></span>
+<span id="cb6-401"><a href="#cb6-401"></a><span class="fu">## Example: Detecting "1" but NOT "3"</span></span>
+<span id="cb6-402"><a href="#cb6-402"></a></span>
+<span id="cb6-403"><a href="#cb6-403"></a><span class="ss">- </span>Both have a center dot. How do we tell them apart?</span>
+<span id="cb6-404"><a href="#cb6-404"></a><span class="ss">- </span>We "reward" the center dot but "punish" the corners.</span>
+<span id="cb6-405"><a href="#cb6-405"></a><span class="ss">    - </span>Center (1,1)     = +1</span>
+<span id="cb6-406"><a href="#cb6-406"></a><span class="ss">    - </span>Top-Right (0,2)  = -1</span>
+<span id="cb6-407"><a href="#cb6-407"></a><span class="ss">    - </span>Bottom-Left (2,0) = -1</span>
+<span id="cb6-408"><a href="#cb6-408"></a></span>
+<span id="cb6-409"><a href="#cb6-409"></a><span class="in">```{.py}</span></span>
+<span id="cb6-410"><a href="#cb6-410"></a>weights <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>]</span>
+<span id="cb6-411"><a href="#cb6-411"></a><span class="in">```</span></span>
+<span id="cb6-412"><a href="#cb6-412"></a></span>
+<span id="cb6-413"><a href="#cb6-413"></a><span class="fu">## Why it works</span></span>
+<span id="cb6-414"><a href="#cb6-414"></a></span>
+<span id="cb6-415"><a href="#cb6-415"></a><span class="ss">- </span>**For Die "1":** Sum = $(1 \times 1) + (0 \times -1) + (0 \times -1) = 1$. (Success!)</span>
+<span id="cb6-416"><a href="#cb6-416"></a><span class="ss">- </span>**For Die "3":** Sum = $(1 \times 1) + (1 \times -1) + (1 \times -1) = -1$. </span>
+<span id="cb6-417"><a href="#cb6-417"></a><span class="ss">- </span>The negative weights "cancelled out" the center dot. The neuron stays silent for the 3!</span>
+<span id="cb6-418"><a href="#cb6-418"></a></span>
+<span id="cb6-419"><a href="#cb6-419"></a><span class="fu"># Introducing the Bias</span></span>
+<span id="cb6-420"><a href="#cb6-420"></a></span>
+<span id="cb6-421"><a href="#cb6-421"></a><span class="fu">## The "Sensitivity" Problem</span></span>
+<span id="cb6-422"><a href="#cb6-422"></a></span>
+<span id="cb6-423"><a href="#cb6-423"></a><span class="ss">- </span>Even with negative weights, we have a problem: **The Threshold**.</span>
+<span id="cb6-424"><a href="#cb6-424"></a><span class="ss">- </span>We need a way to decide exactly when the sum is "enough" to trigger a fire.</span>
+<span id="cb6-425"><a href="#cb6-425"></a><span class="ss">- </span>We need to shift the "goalposts" without rewriting all our weights.</span>
+<span id="cb6-426"><a href="#cb6-426"></a></span>
+<span id="cb6-427"><a href="#cb6-427"></a><span class="fu">## The Bias ($b$)</span></span>
+<span id="cb6-428"><a href="#cb6-428"></a></span>
+<span id="cb6-429"><a href="#cb6-429"></a><span class="ss">- </span>The **Bias** is a number we add to the sum *before* deciding to fire.</span>
+<span id="cb6-430"><a href="#cb6-430"></a><span class="ss">- </span>It represents how "easy" it is to make the neuron fire.</span>
+<span id="cb6-431"><a href="#cb6-431"></a><span class="ss">- </span>**High Bias:** The neuron is "trigger happy" and fires easily.</span>
+<span id="cb6-432"><a href="#cb6-432"></a><span class="ss">    - </span>My "movie good" neuron is *highly biased* toward Ridley Scott films.</span>
+<span id="cb6-433"><a href="#cb6-433"></a><span class="ss">- </span>**Negative Bias:** The neuron is "stubborn" and needs a very high positive sum to fire.</span>
+<span id="cb6-434"><a href="#cb6-434"></a><span class="ss">    - </span>My "movie good" neuron is *negatively biased* against *Predator* films.</span>
+<span id="cb6-435"><a href="#cb6-435"></a></span>
+<span id="cb6-436"><a href="#cb6-436"></a></span>
+<span id="cb6-437"><a href="#cb6-437"></a></span>
+<span id="cb6-438"><a href="#cb6-438"></a><span class="fu">## The Completed Formula</span></span>
+<span id="cb6-439"><a href="#cb6-439"></a></span>
+<span id="cb6-440"><a href="#cb6-440"></a><span class="ss">- </span>We update our LaTeX formula to include the bias term $b$:</span>
+<span id="cb6-441"><a href="#cb6-441"></a></span>
+<span id="cb6-442"><a href="#cb6-442"></a>$$\sum_{i=1}^{n} w_i x_i + b $$</span>
+<span id="cb6-443"><a href="#cb6-443"></a></span>
+<span id="cb6-444"><a href="#cb6-444"></a><span class="ss">- </span>If the result is $&gt; 0$, the neuron fires (1).</span>
+<span id="cb6-445"><a href="#cb6-445"></a><span class="ss">- </span>If the result is $\le 0$, it stays silent (0).</span>
+<span id="cb6-446"><a href="#cb6-446"></a></span>
+<span id="cb6-447"><a href="#cb6-447"></a><span class="fu">## Visualizing the Bias Node</span></span>
+<span id="cb6-448"><a href="#cb6-448"></a></span>
+<span id="cb6-449"><a href="#cb6-449"></a><span class="ss">- </span>In a graph, the bias is often shown as a special input node that is **always** 1, multiplied by its own weight $b$.</span>
+<span id="cb6-450"><a href="#cb6-450"></a></span>
+<span id="cb6-453"><a href="#cb6-453"></a><span class="in">```{dot}</span></span>
+<span id="cb6-454"><a href="#cb6-454"></a><span class="va">graph</span> <span class="va">PerceptronWithBias</span> <span class="ot">{</span></span>
+<span id="cb6-455"><a href="#cb6-455"></a><span class="co">    </span><span class="at">rankdir</span><span class="ot">=</span><span class="va">TD</span><span class="ot">;</span></span>
+<span id="cb6-456"><a href="#cb6-456"></a><span class="co">    </span><span class="at">bgcolor</span><span class="ot">=</span><span class="st">"transparent"</span><span class="co">  </span></span>
+<span id="cb6-457"><a href="#cb6-457"></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">circle</span><span class="co">, </span><span class="at">fontcolor</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"#ffffff"</span><span class="co">, </span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"#ffffff"</span><span class="ot">]</span></span>
+<span id="cb6-458"><a href="#cb6-458"></a><span class="co">    </span></span>
+<span id="cb6-459"><a href="#cb6-459"></a><span class="co">    </span><span class="kw">subgraph</span><span class="co"> </span><span class="va">cluster_input</span><span class="co"> </span><span class="ot">{</span></span>
+<span id="cb6-460"><a href="#cb6-460"></a><span class="co">        </span><span class="at">label</span><span class="ot">=</span><span class="st">"Inputs"</span><span class="ot">;</span></span>
+<span id="cb6-461"><a href="#cb6-461"></a><span class="co">        </span><span class="at">fontcolor</span><span class="ot">=</span><span class="st">"white"</span><span class="ot">;</span></span>
+<span id="cb6-462"><a href="#cb6-462"></a><span class="co">        </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"red"</span><span class="ot">];</span></span>
+<span id="cb6-463"><a href="#cb6-463"></a><span class="co">        </span><span class="va">X1</span><span class="ot">;</span><span class="co"> </span><span class="va">X2</span><span class="ot">;</span><span class="co"> </span><span class="va">X3</span><span class="ot">;</span></span>
+<span id="cb6-464"><a href="#cb6-464"></a><span class="co">    </span><span class="ot">}</span></span>
+<span id="cb6-465"><a href="#cb6-465"></a></span>
+<span id="cb6-466"><a href="#cb6-466"></a><span class="co">    </span><span class="kw">subgraph</span><span class="co"> </span><span class="va">cluster_bias</span><span class="co"> </span><span class="ot">{</span></span>
+<span id="cb6-467"><a href="#cb6-467"></a><span class="co">        </span><span class="at">label</span><span class="ot">=</span><span class="st">"Bias"</span><span class="ot">;</span></span>
+<span id="cb6-468"><a href="#cb6-468"></a><span class="co">        </span><span class="at">fontcolor</span><span class="ot">=</span><span class="st">"white"</span><span class="ot">;</span></span>
+<span id="cb6-469"><a href="#cb6-469"></a><span class="co">        </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"green"</span><span class="ot">];</span></span>
+<span id="cb6-470"><a href="#cb6-470"></a><span class="co">        </span><span class="va">B</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"1"</span><span class="ot">];</span></span>
+<span id="cb6-471"><a href="#cb6-471"></a><span class="co">    </span><span class="ot">}</span></span>
+<span id="cb6-472"><a href="#cb6-472"></a></span>
+<span id="cb6-473"><a href="#cb6-473"></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"blue"</span><span class="ot">];</span></span>
+<span id="cb6-474"><a href="#cb6-474"></a><span class="co">    </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"∑"</span><span class="ot">];</span></span>
+<span id="cb6-475"><a href="#cb6-475"></a></span>
+<span id="cb6-476"><a href="#cb6-476"></a><span class="co">    </span><span class="va">X1</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"w1"</span><span class="ot">];</span></span>
+<span id="cb6-477"><a href="#cb6-477"></a><span class="co">    </span><span class="va">X2</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"w2"</span><span class="ot">];</span></span>
+<span id="cb6-478"><a href="#cb6-478"></a><span class="co">    </span><span class="va">X3</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"w3"</span><span class="ot">];</span></span>
+<span id="cb6-479"><a href="#cb6-479"></a><span class="co">    </span><span class="va">B</span><span class="co">  -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"b"</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"yellow"</span><span class="ot">];</span></span>
+<span id="cb6-480"><a href="#cb6-480"></a><span class="ot">}</span></span>
+<span id="cb6-481"><a href="#cb6-481"></a><span class="in">```</span></span>
+<span id="cb6-482"><a href="#cb6-482"></a></span>
+<span id="cb6-483"><a href="#cb6-483"></a><span class="fu"># The Full Perceptron </span></span>
+<span id="cb6-484"><a href="#cb6-484"></a></span>
+<span id="cb6-485"><a href="#cb6-485"></a><span class="fu">## Bias and Threshold</span></span>
+<span id="cb6-486"><a href="#cb6-486"></a></span>
+<span id="cb6-487"><a href="#cb6-487"></a><span class="ss">- </span>Sometimes, the sum isn't enough. We need a **Threshold**.</span>
+<span id="cb6-488"><a href="#cb6-488"></a><span class="ss">- </span>A neuron only "fires" if the sum exceeds a certain level.</span>
+<span id="cb6-489"><a href="#cb6-489"></a><span class="ss">- </span>This level is controlled by the **Bias**.</span>
+<span id="cb6-490"><a href="#cb6-490"></a></span>
+<span id="cb6-491"><a href="#cb6-491"></a>$$f(x) = \begin{cases} 1 &amp; \text{if } \sum w_i x_i + b &gt; 0 <span class="sc">\\</span> 0 &amp; \text{otherwise} \end{cases}$$</span>
+<span id="cb6-492"><a href="#cb6-492"></a></span>
+<span id="cb6-493"><a href="#cb6-493"></a></span>
+<span id="cb6-494"><a href="#cb6-494"></a><span class="ss">- </span>We can use either a *piecewise* or *indicator* function here.</span>
+<span id="cb6-495"><a href="#cb6-495"></a></span>
+<span id="cb6-496"><a href="#cb6-496"></a><span class="fu">## Piecewise Functions</span></span>
+<span id="cb6-497"><a href="#cb6-497"></a></span>
+<span id="cb6-498"><a href="#cb6-498"></a></span>
+<span id="cb6-499"><a href="#cb6-499"></a><span class="ss">- </span>In our Perceptron, the output changes abruptly from 0 to 1. </span>
+<span id="cb6-500"><a href="#cb6-500"></a><span class="ss">- </span>This is a **Piecewise Function**: a function where the "rule" changes depending on the input value $x$.</span>
+<span id="cb6-501"><a href="#cb6-501"></a></span>
+<span id="cb6-502"><a href="#cb6-502"></a><span class="fu">## Mathematical Notation</span></span>
+<span id="cb6-503"><a href="#cb6-503"></a></span>
+<span id="cb6-504"><a href="#cb6-504"></a><span class="ss">- </span>We use a large "curly bracket" to define the different rules. For a simple threshold at zero:</span>
+<span id="cb6-505"><a href="#cb6-505"></a></span>
+<span id="cb6-506"><a href="#cb6-506"></a>$$</span>
+<span id="cb6-507"><a href="#cb6-507"></a>f(x) = \begin{cases} </span>
+<span id="cb6-508"><a href="#cb6-508"></a>0 &amp; x \leq 0 <span class="sc">\\</span></span>
+<span id="cb6-509"><a href="#cb6-509"></a>1 &amp; x &gt; 0 </span>
+<span id="cb6-510"><a href="#cb6-510"></a>\end{cases}</span>
+<span id="cb6-511"><a href="#cb6-511"></a>$$</span>
+<span id="cb6-512"><a href="#cb6-512"></a></span>
+<span id="cb6-513"><a href="#cb6-513"></a><span class="ss">- </span>This is exactly how our neuron decides to "fire" or "stay silent."</span>
+<span id="cb6-514"><a href="#cb6-514"></a></span>
+<span id="cb6-515"><a href="#cb6-515"></a><span class="fu">## Real World: Tax Brackets</span></span>
+<span id="cb6-516"><a href="#cb6-516"></a></span>
+<span id="cb6-517"><a href="#cb6-517"></a><span class="ss">- </span>Most people encounter piecewise functions once a year: **Income Tax**. </span>
+<span id="cb6-518"><a href="#cb6-518"></a><span class="ss">- </span>Tax rate isn't a single line; it's a series of "steps" or "brackets."</span>
+<span id="cb6-519"><a href="#cb6-519"></a></span>
+<span id="cb6-520"><a href="#cb6-520"></a><span class="pp">|</span> Income Range <span class="pp">|</span> Tax Rate <span class="pp">|</span></span>
+<span id="cb6-521"><a href="#cb6-521"></a><span class="pp">| :---</span> <span class="pp">| :---</span> <span class="pp">|</span></span>
+<span id="cb6-522"><a href="#cb6-522"></a><span class="pp">|</span> $0 – $10,000 <span class="pp">|</span> 10% <span class="pp">|</span></span>
+<span id="cb6-523"><a href="#cb6-523"></a><span class="pp">|</span> $10,001 – $45,000 <span class="pp">|</span> 15% <span class="pp">|</span></span>
+<span id="cb6-524"><a href="#cb6-524"></a><span class="pp">|</span> $45,001 – $95,000 <span class="pp">|</span> 25% <span class="pp">|</span></span>
+<span id="cb6-525"><a href="#cb6-525"></a></span>
+<span id="cb6-526"><a href="#cb6-526"></a><span class="fu">## The "Tax" Perceptron</span></span>
+<span id="cb6-527"><a href="#cb6-527"></a></span>
+<span id="cb6-528"><a href="#cb6-528"></a>You can think of each tax bracket as a neuron with a different **Bias**.</span>
+<span id="cb6-529"><a href="#cb6-529"></a></span>
+<span id="cb6-530"><a href="#cb6-530"></a><span class="ss">* </span>The 10% neuron "fires" immediately (**Bias = 0**).</span>
+<span id="cb6-531"><a href="#cb6-531"></a><span class="ss">* </span>The 25% neuron only "fires" once your income (Input) exceeds $45,000 (**Bias = -45,000**).</span>
+<span id="cb6-532"><a href="#cb6-532"></a></span>
+<span id="cb6-533"><a href="#cb6-533"></a><span class="fu">## Indicator Functions</span></span>
+<span id="cb6-534"><a href="#cb6-534"></a></span>
+<span id="cb6-535"><a href="#cb6-535"></a><span class="ss">- </span>An **Indicator Function** is a special piecewise function. </span>
+<span id="cb6-536"><a href="#cb6-536"></a><span class="ss">- </span>It "indicates" whether an input belongs to a specific collection. </span>
+<span id="cb6-537"><a href="#cb6-537"></a><span class="ss">- </span>We use the symbol $\mathbb{1}$ (a "blackboard bold" 1).</span>
+<span id="cb6-538"><a href="#cb6-538"></a><span class="ss">    - </span><span class="in">`$\mathbb{1}$`</span> - start math, make blackboard bold, apply to 1, end math,</span>
+<span id="cb6-539"><a href="#cb6-539"></a></span>
+<span id="cb6-540"><a href="#cb6-540"></a><span class="fu">## Binary Logic</span></span>
+<span id="cb6-541"><a href="#cb6-541"></a></span>
+<span id="cb6-542"><a href="#cb6-542"></a><span class="ss">- </span>If the condition is **True**, the output is 1.</span>
+<span id="cb6-543"><a href="#cb6-543"></a><span class="ss">- </span>If the condition is **False**, the output is 0.</span>
+<span id="cb6-544"><a href="#cb6-544"></a></span>
+<span id="cb6-545"><a href="#cb6-545"></a>$$</span>
+<span id="cb6-546"><a href="#cb6-546"></a>\mathbb{1}_{A}(x) = \begin{cases} </span>
+<span id="cb6-547"><a href="#cb6-547"></a>1 &amp; x \in A <span class="sc">\\</span></span>
+<span id="cb6-548"><a href="#cb6-548"></a>0 &amp; x \notin A </span>
+<span id="cb6-549"><a href="#cb6-549"></a>\end{cases}</span>
+<span id="cb6-550"><a href="#cb6-550"></a>$$</span>
+<span id="cb6-551"><a href="#cb6-551"></a></span>
+<span id="cb6-552"><a href="#cb6-552"></a><span class="fu">## Dice as Collections</span></span>
+<span id="cb6-553"><a href="#cb6-553"></a></span>
+<span id="cb6-554"><a href="#cb6-554"></a>When we detect an "Odd" die face, we are running an Indicator Function.</span>
+<span id="cb6-555"><a href="#cb6-555"></a></span>
+<span id="cb6-556"><a href="#cb6-556"></a><span class="ss">- </span>**Input:** 3x3 Grid</span>
+<span id="cb6-557"><a href="#cb6-557"></a><span class="ss">- </span>**Collection $A$:** All grids representing 1, 3, or 5</span>
+<span id="cb6-558"><a href="#cb6-558"></a><span class="ss">- </span>**Output:** 1 if the grid is in the set, 0 otherwise.</span>
+<span id="cb6-559"><a href="#cb6-559"></a></span>
+<span id="cb6-560"><a href="#cb6-560"></a><span class="fu"># Summary &amp; Notation</span></span>
+<span id="cb6-561"><a href="#cb6-561"></a></span>
+<span id="cb6-562"><a href="#cb6-562"></a><span class="fu">## Summation in Colab</span></span>
+<span id="cb6-563"><a href="#cb6-563"></a></span>
+<span id="cb6-564"><a href="#cb6-564"></a><span class="ss">- </span>When writing your lab reports in Markdown cells, you can use LaTeX. </span>
+<span id="cb6-565"><a href="#cb6-565"></a><span class="ss">    - </span>Or $\LaTeX$ by writing <span class="in">`$\LaTeX`</span></span>
+<span id="cb6-566"><a href="#cb6-566"></a></span>
+<span id="cb6-567"><a href="#cb6-567"></a></span>
+<span id="cb6-568"><a href="#cb6-568"></a><span class="fu">## Notation</span></span>
+<span id="cb6-569"><a href="#cb6-569"></a></span>
+<span id="cb6-570"><a href="#cb6-570"></a><span class="ss">- </span>To show the total input to a neuron, write:</span>
+<span id="cb6-571"><a href="#cb6-571"></a></span>
+<span id="cb6-572"><a href="#cb6-572"></a>$$</span>
+<span id="cb6-573"><a href="#cb6-573"></a>z = \sum_{i=1}^{n} w_i x_i + b</span>
+<span id="cb6-574"><a href="#cb6-574"></a>$$</span>
+<span id="cb6-575"><a href="#cb6-575"></a></span>
+<span id="cb6-576"><a href="#cb6-576"></a><span class="in">```{.tex}</span></span>
+<span id="cb6-577"><a href="#cb6-577"></a><span class="in">z = \sum_{i=1}^{n} w_i x_i + b</span></span>
+<span id="cb6-578"><a href="#cb6-578"></a><span class="in">```</span></span>
+<span id="cb6-579"><a href="#cb6-579"></a></span>
+<span id="cb6-580"><a href="#cb6-580"></a>This is the standard way to express the **"weighted sum plus bias."**</span>
+<span id="cb6-581"><a href="#cb6-581"></a></span>
+<span id="cb6-582"><a href="#cb6-582"></a><span class="fu">## Visualizing the Weights</span></span>
+<span id="cb6-583"><a href="#cb6-583"></a></span>
+<span id="cb6-584"><a href="#cb6-584"></a><span class="ss">- </span>Let's look at the graph again, but with weights indicated by line thickness.</span>
+<span id="cb6-585"><a href="#cb6-585"></a></span>
+<span id="cb6-588"><a href="#cb6-588"></a><span class="in">```{dot}</span></span>
+<span id="cb6-589"><a href="#cb6-589"></a><span class="va">graph</span> <span class="va">PerceptronWeights</span> <span class="ot">{</span></span>
+<span id="cb6-590"><a href="#cb6-590"></a><span class="co">    </span><span class="at">rankdir</span><span class="ot">=</span><span class="va">TD</span><span class="ot">;</span></span>
+<span id="cb6-591"><a href="#cb6-591"></a><span class="co">    </span><span class="at">bgcolor</span><span class="ot">=</span><span class="st">"transparent"</span><span class="co">  </span></span>
+<span id="cb6-592"><a href="#cb6-592"></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">circle</span><span class="co">, </span><span class="at">fontcolor</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"#ffffff"</span><span class="co">, </span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"#ffffff"</span><span class="ot">]</span></span>
+<span id="cb6-593"><a href="#cb6-593"></a><span class="co">    </span></span>
+<span id="cb6-594"><a href="#cb6-594"></a><span class="co">    </span><span class="kw">subgraph</span><span class="co"> </span><span class="va">cluster_input</span><span class="co"> </span><span class="ot">{</span></span>
+<span id="cb6-595"><a href="#cb6-595"></a><span class="co">        </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"red"</span><span class="ot">];</span></span>
+<span id="cb6-596"><a href="#cb6-596"></a><span class="co">        </span><span class="va">X0</span><span class="ot">;</span><span class="co"> </span><span class="va">X1</span><span class="ot">;</span><span class="co"> </span><span class="va">X2</span><span class="ot">;</span><span class="co"> </span><span class="va">X3</span><span class="ot">;</span><span class="co"> </span><span class="va">X4</span><span class="ot">;</span><span class="co"> </span><span class="va">X5</span><span class="ot">;</span><span class="co"> </span><span class="va">X6</span><span class="ot">;</span><span class="co"> </span><span class="va">X7</span><span class="ot">;</span><span class="co"> </span><span class="va">X8</span><span class="ot">;</span></span>
+<span id="cb6-597"><a href="#cb6-597"></a><span class="co">    </span><span class="ot">}</span></span>
+<span id="cb6-598"><a href="#cb6-598"></a></span>
+<span id="cb6-599"><a href="#cb6-599"></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"blue"</span><span class="ot">];</span></span>
+<span id="cb6-600"><a href="#cb6-600"></a><span class="co">    </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Odd?"</span><span class="ot">];</span></span>
+<span id="cb6-601"><a href="#cb6-601"></a></span>
+<span id="cb6-602"><a href="#cb6-602"></a><span class="co">    </span><span class="va">X0</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"0"</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"#444444"</span><span class="ot">];</span></span>
+<span id="cb6-603"><a href="#cb6-603"></a><span class="co">    </span><span class="va">X1</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"0"</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"#444444"</span><span class="ot">];</span></span>
+<span id="cb6-604"><a href="#cb6-604"></a><span class="co">    </span><span class="va">X2</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"0"</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"#444444"</span><span class="ot">];</span></span>
+<span id="cb6-605"><a href="#cb6-605"></a><span class="co">    </span><span class="va">X3</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"0"</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"#444444"</span><span class="ot">];</span></span>
+<span id="cb6-606"><a href="#cb6-606"></a><span class="co">    </span><span class="va">X4</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"1"</span><span class="co">, </span><span class="va">penwidth</span><span class="ot">=</span><span class="dv">5</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"white"</span><span class="ot">];</span><span class="co"> </span></span>
+<span id="cb6-607"><a href="#cb6-607"></a><span class="co">    </span><span class="va">X5</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"0"</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"#444444"</span><span class="ot">];</span></span>
+<span id="cb6-608"><a href="#cb6-608"></a><span class="co">    </span><span class="va">X6</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"0"</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"#444444"</span><span class="ot">];</span></span>
+<span id="cb6-609"><a href="#cb6-609"></a><span class="co">    </span><span class="va">X7</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"0"</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"#444444"</span><span class="ot">];</span></span>
+<span id="cb6-610"><a href="#cb6-610"></a><span class="co">    </span><span class="va">X8</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"0"</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"#444444"</span><span class="ot">];</span></span>
+<span id="cb6-611"><a href="#cb6-611"></a><span class="ot">}</span></span>
+<span id="cb6-612"><a href="#cb6-612"></a><span class="in">```</span></span>
+<span id="cb6-613"><a href="#cb6-613"></a></span>
+<span id="cb6-614"><a href="#cb6-614"></a><span class="fu"># History of the Perceptron</span></span>
+<span id="cb6-615"><a href="#cb6-615"></a></span>
+<span id="cb6-616"><a href="#cb6-616"></a><span class="fu">## Predate Computers!</span></span>
+<span id="cb6-617"><a href="#cb6-617"></a></span>
+<span id="cb6-618"><a href="#cb6-618"></a><span class="fu">## Use *Linear Algebra*</span></span>
+<span id="cb6-619"><a href="#cb6-619"></a></span>
+<span id="cb6-620"><a href="#cb6-620"></a><span class="fu">## Now on GPUs!</span></span>
+<span id="cb6-621"><a href="#cb6-621"></a></span>
+<span id="cb6-622"><a href="#cb6-622"></a><span class="fu"># Applications</span></span>
+<span id="cb6-623"><a href="#cb6-623"></a></span>
+<span id="cb6-624"><a href="#cb6-624"></a><span class="fu">## MNIST Dataset</span></span>
+<span id="cb6-625"><a href="#cb6-625"></a></span>
+<span id="cb6-626"><a href="#cb6-626"></a><span class="ss">- </span>70,000 handwritten digits.</span>
+<span id="cb6-627"><a href="#cb6-627"></a><span class="ss">- </span>Instead of a 3x3 grid, it is a **28x28 grid** (784 sensory neurons).</span>
+<span id="cb6-628"><a href="#cb6-628"></a><span class="ss">- </span>A single layer of neurons can achieve ~90% accuracy!</span>
+<span id="cb6-629"><a href="#cb6-629"></a></span>
+<span id="cb6-630"><a href="#cb6-630"></a><span class="fu">## ImageNet</span></span>
+<span id="cb6-631"><a href="#cb6-631"></a></span>
+<span id="cb6-632"><a href="#cb6-632"></a><span class="ss">- </span>Millions of high-res images.</span>
+<span id="cb6-633"><a href="#cb6-633"></a><span class="ss">- </span>Hundreds of categories (Dog, Boat, Bird).</span>
+<span id="cb6-634"><a href="#cb6-634"></a><span class="ss">- </span>Uses the same core principles: **Weights, Sums, and Thresholds**.</span>
+<span id="cb6-635"><a href="#cb6-635"></a></span>
+<span id="cb6-636"><a href="#cb6-636"></a><span class="fu"># Takeaways</span></span>
+<span id="cb6-637"><a href="#cb6-637"></a></span>
+<span id="cb6-638"><a href="#cb6-638"></a><span class="ss">- </span>**Inputs** are just flattened grids of numbers.</span>
+<span id="cb6-639"><a href="#cb6-639"></a><span class="ss">- </span>**Weights** determine which parts of the input matter.</span>
+<span id="cb6-640"><a href="#cb6-640"></a><span class="ss">- </span>**Classification** is the act of drawing a line between two sets of data.</span>
+<span id="cb6-641"><a href="#cb6-641"></a><span class="ss">- </span>**Graphs** allow us to visualize the flow of information from the eye to the decision.</span>
+</code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
