@@ -312,7 +312,7 @@ Here, we show what dots matter when determining is a die is even or odd.
 | Wyden   | OR             | Capitalist           | Democrat          |
 | Crapo   | ID             | Capitalist           | Republican        |
 
-If you will allow me to editorialize (you shouldn't), state determines party affiliation does not determine support for e.g. US military actions or tax breaks for the wealthy.
+If you will allow me to editorialize (you shouldn't), state determines party affiliation but nothing determines support for e.g. US military actions or tax breaks for the wealthy.
 
 
 ## Why Classification Matters

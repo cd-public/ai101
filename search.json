@@ -221,7 +221,7 @@
     "href": "70_perceptron.html#some-examples",
     "title": "Perceptron",
     "section": "Some Examples",
-    "text": "Some Examples\n\n\n\nSenator\nFeature: State\nFeature: Vote Record\nClassifier Output\n\n\n\n\nWyden\nOR\nCapitalist\nDemocrat\n\n\nCrapo\nID\nCapitalist\nRepublican\n\n\n\nIf you will allow me to editorialize (you shouldn’t), state determines party affiliation does not determine support for e.g. US military actions or tax breaks for the wealthy.",
+    "text": "Some Examples\n\n\n\nSenator\nFeature: State\nFeature: Vote Record\nClassifier Output\n\n\n\n\nWyden\nOR\nCapitalist\nDemocrat\n\n\nCrapo\nID\nCapitalist\nRepublican\n\n\n\nIf you will allow me to editorialize (you shouldn’t), state determines party affiliation but nothing determines support for e.g. US military actions or tax breaks for the wealthy.",
     "crumbs": [
       "Perceptron"
     ]
@@ -721,7 +721,7 @@
     "href": "70_perceptron.rjs.html#some-examples",
     "title": "Perceptron",
     "section": "Some Examples",
-    "text": "Some Examples\n\n\n\nSenator\nFeature: State\nFeature: Vote Record\nClassifier Output\n\n\n\n\nWyden\nOR\nCapitalist\nDemocrat\n\n\nCrapo\nID\nCapitalist\nRepublican\n\n\n\nIf you will allow me to editorialize (you shouldn’t), state determines party affiliation does not determine support for e.g. US military actions or tax breaks for the wealthy."
+    "text": "Some Examples\n\n\n\nSenator\nFeature: State\nFeature: Vote Record\nClassifier Output\n\n\n\n\nWyden\nOR\nCapitalist\nDemocrat\n\n\nCrapo\nID\nCapitalist\nRepublican\n\n\n\nIf you will allow me to editorialize (you shouldn’t), state determines party affiliation but nothing determines support for e.g. US military actions or tax breaks for the wealthy."
   },
   {
     "objectID": "70_perceptron.rjs.html#why-classification-matters",
