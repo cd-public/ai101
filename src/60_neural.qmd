@@ -808,10 +808,16 @@ graph SudokuBipartite {
 <a title="Onlinetyping.org, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Finger_position_on_a_keyboard.png"><img alt="Finger position on a keyboard"  style="filter:invert(.9)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Finger_position_on_a_keyboard.png/512px-Finger_position_on_a_keyboard.png?20200324110252"></a>
 </center>
 
-## Notes
+## Think, Pair, Share
 
-https://en.wikipedia.org/wiki/Bipartite_graph
-https://www.geeksforgeeks.org/deep-learning/what-is-fully-connected-layer-in-deep-learning/
-https://en.wikipedia.org/wiki/Neural_network_(machine_learning)
-https://www.geeksforgeeks.org/deep-learning/neural-networks-a-beginners-guide/
-https://en.wikipedia.org/wiki/Perceptron
+- When you want to type something.
+    - What is the first "layer" in the process?
+        - Spelling? Sound? Meaning?
+    - What is the last "layer" - the thing that happens.
+        - Consider the case of a [*motor neuron*](https://en.wikipedia.org/wiki/Motor_neuron)
+    - How does this correspond to a graph
+    
+# Fin
+
+- I will see you Wednesday for lab: Weights.
+

@@ -318,6 +318,7 @@ If you will allow me to editorialize (you shouldn't), state determines party aff
 ## Why Classification Matters
 
 It is the foundation of all AI logic.
+
 - Is this email spam? (Yes/No)
 - Is this tumor malignant? (Yes/No)
 - Is this image a cat? (Yes/No)
