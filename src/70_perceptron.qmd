@@ -393,7 +393,7 @@ $$
 
 - In biology, some neurons tell others *not* to fire. These are "inhibitory."
   	- For example, when I see a film that *isn't* directed by Ridley Scott.
-	- Did you know Ridly Scott directed *Kingdom of Heaven* 2005?
+	- Did you know Ridley Scott directed *Kingdom of Heaven* 2005?
 - In our model, we use **Negative Weights**.
 - This allows us to "punish" the presence of certain dots that shouldn't be there for a specific classification.
 

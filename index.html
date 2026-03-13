@@ -272,6 +272,12 @@ window.Quarto = {
  <span class="menu-text">Multi-class</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./80_matrix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Matrix</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -289,7 +295,6 @@ window.Quarto = {
   <li><a href="#syllabus" id="toc-syllabus" class="nav-link" data-scroll-target="#syllabus">Syllabus</a></li>
   </ul></li>
   <li><a href="#calendar" id="toc-calendar" class="nav-link" data-scroll-target="#calendar">Calendar</a></li>
-  <li><a href="#lecture-recordings" id="toc-lecture-recordings" class="nav-link" data-scroll-target="#lecture-recordings">Lecture Recordings</a></li>
   </ul>
 </nav>
     </div>
@@ -441,8 +446,8 @@ window.Quarto = {
 <tr class="even">
 <td style="text-align: center;">0x9</td>
 <td style="text-align: left;">03/16</td>
-<td style="text-align: left;">Tensors</td>
-<td style="text-align: left;">Tensorflow</td>
+<td style="text-align: left;"><a href="./80_matrix.html">Matrix</a></td>
+<td style="text-align: left;"><!-- compression or prey --></td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">0bX</td>
@@ -476,17 +481,13 @@ window.Quarto = {
 </tr>
 <tr class="even">
 <td style="text-align: center;">0xE</td>
-<td style="text-align: left;">04/29</td>
+<td style="text-align: left;">04/27</td>
 <td style="text-align: left;">Perspectives</td>
 <td style="text-align: left;">Peer Review</td>
 </tr>
 </tbody>
 </table>
 <p><em>Final course reflection (“Perspectives”) due whenever the final exam would finish, TBA</em></p>
-</section>
-<section id="lecture-recordings" class="level1">
-<h1>Lecture Recordings</h1>
-<p><em>Forthcoming</em></p>
 
 
 <!-- -->
@@ -1031,21 +1032,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-64"><a href="#cb1-64"></a>|0x5|02/16|<span class="co">[</span><span class="ot">Graphs</span><span class="co">](50_graph.qmd)</span>|<span class="co">[</span><span class="ot">Sudoku</span><span class="co">](51_sudoku.qmd)</span>|</span>
 <span id="cb1-65"><a href="#cb1-65"></a>|0x6|02/23|<span class="co">[</span><span class="ot">Guest</span><span class="co">](6__guest.md)</span>|<span class="co">[</span><span class="ot">Thinking Game</span><span class="co">](6_1_doc.qmd)</span>|<span class="co">&lt;!--Perceptron|Dice|--&gt;</span></span>
 <span id="cb1-66"><a href="#cb1-66"></a>|0x7|03/02|<span class="co">[</span><span class="ot">Neural</span><span class="co">](60_neural.qmd)</span>|<span class="co">[</span><span class="ot">Weights</span><span class="co">](61_weights.qmd)</span>|</span>
-<span id="cb1-67"><a href="#cb1-67"></a>|0x8|03/09|<span class="co">[</span><span class="ot">Perceptron</span><span class="co">](70_perceptron.qmd)</span>|<span class="co">[</span><span class="ot">Multi-class</span><span class="co">](71_multi.qmd)</span>|<span class="co">&lt;!--Error|Plotly| &lt;!-- incl. back propagation --&gt;</span> <span class="co">&lt;!-- Connectivity|| &lt;!-- fully connected networks, https://docs.nvidia.com/deeplearning/performance/dl-performance-fully-connected/index.html Latent Space|Models| --&gt;</span></span>
-<span id="cb1-68"><a href="#cb1-68"></a>|0x9|03/16|Tensors|Tensorflow|</span>
+<span id="cb1-67"><a href="#cb1-67"></a>|0x8|03/09|<span class="co">[</span><span class="ot">Perceptron</span><span class="co">](70_perceptron.qmd)</span>|<span class="co">[</span><span class="ot">Multi-class</span><span class="co">](71_multi.qmd)</span>|<span class="co">&lt;!--Error|Plotly| &lt;!-- incl. back propagation --&gt;</span> <span class="co">&lt;!-- Connectivity|| &lt;!-- fully connected networks, https://docs.nvidia.com/deeplearning/performance/dl-performance-fully-connected/index.html Latent Space|Models| Tensors|Tensorflow| --&gt;</span></span>
+<span id="cb1-68"><a href="#cb1-68"></a>|0x9|03/16|<span class="co">[</span><span class="ot">Matrix</span><span class="co">](80_matrix.qmd)</span>| <span class="co">&lt;!-- compression or prey --&gt;</span></span>
 <span id="cb1-69"><a href="#cb1-69"></a>|0bX|03/23|<span class="in">`None`</span>|<span class="in">`None`</span>|</span>
-<span id="cb1-70"><a href="#cb1-70"></a>|0xA|03/30|Text Rep.|Tokens|</span>
+<span id="cb1-70"><a href="#cb1-70"></a>|0xA|03/30|Text Rep.|Tokens| <span class="co">&lt;!-- XOR --&gt;</span></span>
 <span id="cb1-71"><a href="#cb1-71"></a>|0xB|03/06|Transformers| <span class="co">&lt;!-- Weight matrices (K, Q, V), and Multiple Heads--&gt;</span></span>
 <span id="cb1-72"><a href="#cb1-72"></a>|0xC|04/13|GenAI|<span class="co">[</span><span class="ot">`None`</span><span class="co">](https://my.willamette.edu/site/ssrd)</span>|| <span class="co">&lt;!-- Fine tuning, prompt injection, chat bots --&gt;</span></span>
 <span id="cb1-73"><a href="#cb1-73"></a>|0xD|04/20|Prompts|</span>
-<span id="cb1-74"><a href="#cb1-74"></a>|0xE|04/29|Perspectives|Peer Review|</span>
+<span id="cb1-74"><a href="#cb1-74"></a>|0xE|04/27|Perspectives|Peer Review|</span>
 <span id="cb1-75"><a href="#cb1-75"></a></span>
-<span id="cb1-76"><a href="#cb1-76"></a>*Final course reflection ("Perspectives") due whenever the final exam would finish, TBA*</span>
-<span id="cb1-77"><a href="#cb1-77"></a></span>
-<span id="cb1-78"><a href="#cb1-78"></a></span>
-<span id="cb1-79"><a href="#cb1-79"></a><span class="fu"># Lecture Recordings</span></span>
-<span id="cb1-80"><a href="#cb1-80"></a></span>
-<span id="cb1-81"><a href="#cb1-81"></a>*Forthcoming*</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb1-76"><a href="#cb1-76"></a>*Final course reflection ("Perspectives") due whenever the final exam would finish, TBA*</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

@@ -64,18 +64,14 @@ format: html
 |0x5|02/16|[Graphs](50_graph.qmd)|[Sudoku](51_sudoku.qmd)|
 |0x6|02/23|[Guest](6__guest.md)|[Thinking Game](6_1_doc.qmd)|<!--Perceptron|Dice|-->
 |0x7|03/02|[Neural](60_neural.qmd)|[Weights](61_weights.qmd)|
-|0x8|03/09|[Perceptron](70_perceptron.qmd)|[Multi-class](71_multi.qmd)|<!--Error|Plotly| <!-- incl. back propagation --> <!-- Connectivity|| <!-- fully connected networks, https://docs.nvidia.com/deeplearning/performance/dl-performance-fully-connected/index.html Latent Space|Models| -->
-|0x9|03/16|Tensors|Tensorflow|
+|0x8|03/09|[Perceptron](70_perceptron.qmd)|[Multi-class](71_multi.qmd)|<!--Error|Plotly| <!-- incl. back propagation --> <!-- Connectivity|| <!-- fully connected networks, https://docs.nvidia.com/deeplearning/performance/dl-performance-fully-connected/index.html Latent Space|Models| Tensors|Tensorflow| -->
+|0x9|03/16|[Matrix](80_matrix.qmd)| <!-- compression or prey -->
 |0bX|03/23|`None`|`None`|
-|0xA|03/30|Text Rep.|Tokens|
+|0xA|03/30|Text Rep.|Tokens| <!-- XOR -->
 |0xB|03/06|Transformers| <!-- Weight matrices (K, Q, V), and Multiple Heads-->
 |0xC|04/13|GenAI|[`None`](https://my.willamette.edu/site/ssrd)|| <!-- Fine tuning, prompt injection, chat bots -->
 |0xD|04/20|Prompts|
-|0xE|04/29|Perspectives|Peer Review|
+|0xE|04/27|Perspectives|Peer Review|
 
 *Final course reflection ("Perspectives") due whenever the final exam would finish, TBA*
 
-
-# Lecture Recordings
-
-*Forthcoming*
