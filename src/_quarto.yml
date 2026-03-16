@@ -30,5 +30,6 @@ format:
         output-ext: rjs.html        
         
 execute:
+    echo: true
     cache: true
     freeze: auto 

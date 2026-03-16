@@ -6732,119 +6732,119 @@
     "href": "80_matrix.rjs.html#is-one-vector",
     "title": "Matrix",
     "section": "Is One Vector",
-    "text": "Is One Vector\n\nWe used, perhaps, this “is one?” vector.\n\nRecall, we cannot include spaces in our names of things in Colab.\nWe use “single equals assignment” to assign a variable to some name.\nIn this case, the variable is the “is one?” vector."
+    "text": "Is One Vector\n\nWe used, perhaps, this “is one?” vector.\n\nRecall, we cannot include spaces in our names of things in Colab.\nWe use “single equals assignment” to assign a variable to some name.\nIn this case, the variable is the “is one?” vector.\n\n\n\nis_one_vector = [-1,-1,-1,-1,1,-1,-1,-1,-1]"
   },
   {
     "objectID": "80_matrix.rjs.html#explanation",
     "href": "80_matrix.rjs.html#explanation",
     "title": "Matrix",
     "section": "Explanation",
-    "text": "Explanation\n\nIf we are checking if some die represents the value 1, the only thing we care about is the center dot.\nWell, that’s not entirely true - we care a lot that nothing other than the center dot is set.\nSo we apply a positive weight to the center dot, and negative weights to all other dots."
+    "text": "Explanation\n\nIf we are checking if some die represents the value 1, the only thing we care about is the center dot.\nWell, that’s not entirely true - we care a lot that nothing other than the center dot is set.\nSo we apply a positive weight to the center dot, and negative weights to all other dots.\n\n\nis_one_vector = [-1,-1,-1,-1,1,-1,-1,-1,-1]"
   },
   {
     "objectID": "80_matrix.rjs.html#test-it",
     "href": "80_matrix.rjs.html#test-it",
     "title": "Matrix",
     "section": "Test it",
-    "text": "Test it\n\nIn the lab, we were helpfully furnished with vectors representing all die.\nWe can check what happens when we multiply any of these - or all of these - by is_one_vector."
+    "text": "Test it\n\nIn the lab, we were helpfully furnished with vectors representing all die.\n\n\none = [0,0,0,0,1,0,0,0,0]\ntwo = [0,0,1,0,0,0,1,0,0]\nthr = [0,0,1,0,1,0,1,0,0]\nfou = [1,0,1,0,0,0,1,0,1]\nfiv = [1,0,1,0,1,0,1,0,1]\nsix = [1,0,1,1,0,1,1,0,1]\n\n\nWe can check what happens when we multiply any of these - or all of these - by is_one_vector."
   },
   {
     "objectID": "80_matrix.rjs.html#pack-it-up",
     "href": "80_matrix.rjs.html#pack-it-up",
     "title": "Matrix",
     "section": "Pack it up",
-    "text": "Pack it up\n\nI quickly make another vector - a vector of vectors - that contains one through six\nWe can take a look at it:\n\n\n\n[[0, 0, 0, 0, 1, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 1, 0, 0], [0, 0, 1, 0, 1, 0, 1, 0, 0], [1, 0, 1, 0, 0, 0, 1, 0, 1], [1, 0, 1, 0, 1, 0, 1, 0, 1], [1, 0, 1, 1, 0, 1, 1, 0, 1]]"
+    "text": "Pack it up\n\nI quickly make another vector - a vector of vectors - that contains one through six\n\n\ndice = [one, two, thr, fou, fiv, six]\n\n\nWe can take a look at it:\n\n\nprint(dice)\n\n[[0, 0, 0, 0, 1, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 1, 0, 0], [0, 0, 1, 0, 1, 0, 1, 0, 0], [1, 0, 1, 0, 0, 0, 1, 0, 1], [1, 0, 1, 0, 1, 0, 1, 0, 1], [1, 0, 1, 1, 0, 1, 1, 0, 1]]"
   },
   {
     "objectID": "80_matrix.rjs.html#look-at-it",
     "href": "80_matrix.rjs.html#look-at-it",
     "title": "Matrix",
     "section": "Look at it",
-    "text": "Look at it\n\nWe could use a for loop to multiply each die by is_one_vector\n\nWe need NumPy for this!\n\n\n\n\n[0 0 0 0 1 0 0 0 0]\n[ 0  0 -1  0  0  0 -1  0  0]\n[ 0  0 -1  0  1  0 -1  0  0]\n[-1  0 -1  0  0  0 -1  0 -1]\n[-1  0 -1  0  1  0 -1  0 -1]\n[-1  0 -1 -1  0 -1 -1  0 -1]"
+    "text": "Look at it\n\nWe could use a for loop to multiply each die by is_one_vector\n\nWe need NumPy for this!\n\n\n\nimport numpy as np\n\nfor die in dice:\n    print(np.array(die) * np.array(is_one_vector))\n\n[0 0 0 0 1 0 0 0 0]\n[ 0  0 -1  0  0  0 -1  0  0]\n[ 0  0 -1  0  1  0 -1  0  0]\n[-1  0 -1  0  0  0 -1  0 -1]\n[-1  0 -1  0  1  0 -1  0 -1]\n[-1  0 -1 -1  0 -1 -1  0 -1]"
   },
   {
     "objectID": "80_matrix.rjs.html#sum-it-up",
     "href": "80_matrix.rjs.html#sum-it-up",
     "title": "Matrix",
     "section": "Sum it up",
-    "text": "Sum it up\n\nWe can also take the sum over all values in a vector using sum\n\nWe already did import numpy as np so we don’t need to repeat that.\n\n\n\n\n1\n-2\n-1\n-4\n-3\n-6"
+    "text": "Sum it up\n\nWe can also take the sum over all values in a vector using sum\n\nWe already did import numpy as np so we don’t need to repeat that.\n\n\n\nfor die in dice:\n    print(sum(np.array(die) * np.array(is_one_vector)))\n\n1\n-2\n-1\n-4\n-3\n-6"
   },
   {
     "objectID": "80_matrix.rjs.html#piecewiseindicator",
     "href": "80_matrix.rjs.html#piecewiseindicator",
     "title": "Matrix",
     "section": "Piecewise/Indicator",
-    "text": "Piecewise/Indicator\n\nRemember, neurons can only (1) fire or (2) not fire.\n\nThey cannot “-6”.\n\nSo we check if the sum is positive, or not.\n\n\n\nTrue\nFalse\nFalse\nFalse\nFalse\nFalse"
+    "text": "Piecewise/Indicator\n\nRemember, neurons can only (1) fire or (2) not fire.\n\nThey cannot “-6”.\n\nSo we check if the sum is positive, or not.\n\n\nfor die in dice:\n    print(0 &lt; sum(np.array(die) * np.array(is_one_vector)))\n\nTrue\nFalse\nFalse\nFalse\nFalse\nFalse"
   },
   {
     "objectID": "80_matrix.rjs.html#for-what",
     "href": "80_matrix.rjs.html#for-what",
     "title": "Matrix",
     "section": "For What?",
-    "text": "For What?\n\nPerhaps we regard that for loop as confusing.\n\nI expect, for example, novice programmers to expect that e.g. name the for variable die might matter.\n\n\n\n\nTrue\nFalse\nFalse\nFalse\nFalse\nFalse"
+    "text": "For What?\n\nPerhaps we regard that for loop as confusing.\n\nI expect, for example, novice programmers to expect that e.g. name the for variable die might matter.\n\n\n\nfor definitely_not_a_die in dice:\n    print(0 &lt; sum(np.array(definitely_not_a_die) * np.array(is_one_vector)))\n\nTrue\nFalse\nFalse\nFalse\nFalse\nFalse"
   },
   {
     "objectID": "80_matrix.rjs.html#instead",
     "href": "80_matrix.rjs.html#instead",
     "title": "Matrix",
     "section": "Instead",
-    "text": "Instead\n\nInstead we recognize that we have something that looks an awful lot like a matrix.\n\n\n\narray([[0, 0, 0, 0, 1, 0, 0, 0, 0],\n       [0, 0, 1, 0, 0, 0, 1, 0, 0],\n       [0, 0, 1, 0, 1, 0, 1, 0, 0],\n       [1, 0, 1, 0, 0, 0, 1, 0, 1],\n       [1, 0, 1, 0, 1, 0, 1, 0, 1],\n       [1, 0, 1, 1, 0, 1, 1, 0, 1]])"
+    "text": "Instead\n\nInstead we recognize that we have something that looks an awful lot like a matrix.\n\n\nnp.array(dice)\n\narray([[0, 0, 0, 0, 1, 0, 0, 0, 0],\n       [0, 0, 1, 0, 0, 0, 1, 0, 0],\n       [0, 0, 1, 0, 1, 0, 1, 0, 0],\n       [1, 0, 1, 0, 0, 0, 1, 0, 1],\n       [1, 0, 1, 0, 1, 0, 1, 0, 1],\n       [1, 0, 1, 1, 0, 1, 1, 0, 1]])"
   },
   {
     "objectID": "80_matrix.rjs.html#numpy-away",
     "href": "80_matrix.rjs.html#numpy-away",
     "title": "Matrix",
     "section": "NumPy Away!",
-    "text": "NumPy Away!\n\nAnd NumPy can multiple matrices by vectors.\n\n\n\narray([[ 0,  0,  0,  0,  1,  0,  0,  0,  0],\n       [ 0,  0, -1,  0,  0,  0, -1,  0,  0],\n       [ 0,  0, -1,  0,  1,  0, -1,  0,  0],\n       [-1,  0, -1,  0,  0,  0, -1,  0, -1],\n       [-1,  0, -1,  0,  1,  0, -1,  0, -1],\n       [-1,  0, -1, -1,  0, -1, -1,  0, -1]])"
+    "text": "NumPy Away!\n\nAnd NumPy can multiple matrices by vectors.\n\n\nnp.array(dice) * np.array(is_one_vector)\n\narray([[ 0,  0,  0,  0,  1,  0,  0,  0,  0],\n       [ 0,  0, -1,  0,  0,  0, -1,  0,  0],\n       [ 0,  0, -1,  0,  1,  0, -1,  0,  0],\n       [-1,  0, -1,  0,  0,  0, -1,  0, -1],\n       [-1,  0, -1,  0,  1,  0, -1,  0, -1],\n       [-1,  0, -1, -1,  0, -1, -1,  0, -1]])"
   },
   {
     "objectID": "80_matrix.rjs.html#and-sum",
     "href": "80_matrix.rjs.html#and-sum",
     "title": "Matrix",
     "section": "And sum",
-    "text": "And sum\n\nAnd NumPy can sum across either the rows or columns of a matrix…\n\n\n\nnp.int64(-15)\n\n\n\nWe can specify the axis (vertical or horizontal) upon which we want to sum.\n\n\n\narray([ 1, -2, -1, -4, -3, -6])\n\n\n\nOh wow - that’s what we wanted!"
+    "text": "And sum\n\nAnd NumPy can sum across either the rows or columns of a matrix…\n\n\nnp.sum(np.array(dice) * np.array(is_one_vector))\n\n-15\n\n\n\nWe can specify the axis (vertical or horizontal) upon which we want to sum.\n\n\nnp.sum(np.array(dice) * np.array(is_one_vector), 1)\n\narray([ 1, -2, -1, -4, -3, -6])\n\n\n\nOh wow - that’s what we wanted!"
   },
   {
     "objectID": "80_matrix.rjs.html#elementwise",
     "href": "80_matrix.rjs.html#elementwise",
     "title": "Matrix",
     "section": "Elementwise",
-    "text": "Elementwise\n\nWe can even use &lt; or &gt; on NumPy vectors.\n\n\n\narray([ True, False, False, False, False, False])\n\n\n\n“Wow that is so cool” - Everyone"
+    "text": "Elementwise\n\nWe can even use &lt; or &gt; on NumPy vectors.\n\n\nnp.sum(np.array(dice) * np.array(is_one_vector), 1) &gt; 0\n\narray([ True, False, False, False, False, False])\n\n\n\n“Wow that is so cool” - Everyone"
   },
   {
     "objectID": "80_matrix.rjs.html#mechanics",
     "href": "80_matrix.rjs.html#mechanics",
     "title": "Matrix",
     "section": "Mechanics",
-    "text": "Mechanics\n\nWhat is happening here, internally.\n\n\n\narray([[ 0,  0,  0,  0,  1,  0,  0,  0,  0],\n       [ 0,  0, -1,  0,  0,  0, -1,  0,  0],\n       [ 0,  0, -1,  0,  1,  0, -1,  0,  0],\n       [-1,  0, -1,  0,  0,  0, -1,  0, -1],\n       [-1,  0, -1,  0,  1,  0, -1,  0, -1],\n       [-1,  0, -1, -1,  0, -1, -1,  0, -1]])\n\n\n\nLet’s take it apart."
+    "text": "Mechanics\n\nWhat is happening here, internally.\n\n\nnp.array(dice) * np.array(is_one_vector)\n\narray([[ 0,  0,  0,  0,  1,  0,  0,  0,  0],\n       [ 0,  0, -1,  0,  0,  0, -1,  0,  0],\n       [ 0,  0, -1,  0,  1,  0, -1,  0,  0],\n       [-1,  0, -1,  0,  0,  0, -1,  0, -1],\n       [-1,  0, -1,  0,  1,  0, -1,  0, -1],\n       [-1,  0, -1, -1,  0, -1, -1,  0, -1]])\n\n\n\nLet’s take it apart."
   },
   {
     "objectID": "80_matrix.rjs.html#dice",
     "href": "80_matrix.rjs.html#dice",
     "title": "Matrix",
     "section": "Dice",
-    "text": "Dice\n\nFirst, look at dice\n\nI’ll convert it to a NumPy array so it looks the same.\n\n\n\n\narray([[0, 0, 0, 0, 1, 0, 0, 0, 0],\n       [0, 0, 1, 0, 0, 0, 1, 0, 0],\n       [0, 0, 1, 0, 1, 0, 1, 0, 0],\n       [1, 0, 1, 0, 0, 0, 1, 0, 1],\n       [1, 0, 1, 0, 1, 0, 1, 0, 1],\n       [1, 0, 1, 1, 0, 1, 1, 0, 1]])\n\n\n\nWe note that this is a 6 by 9 two-dimensional array, or matrix.\n\n\n\n(6, 9)"
+    "text": "Dice\n\nFirst, look at dice\n\nI’ll convert it to a NumPy array so it looks the same.\n\n\n\nnp.array(dice)\n\narray([[0, 0, 0, 0, 1, 0, 0, 0, 0],\n       [0, 0, 1, 0, 0, 0, 1, 0, 0],\n       [0, 0, 1, 0, 1, 0, 1, 0, 0],\n       [1, 0, 1, 0, 0, 0, 1, 0, 1],\n       [1, 0, 1, 0, 1, 0, 1, 0, 1],\n       [1, 0, 1, 1, 0, 1, 1, 0, 1]])\n\n\n\nWe note that this is a 6 by 9 two-dimensional array, or matrix.\n\n\nnp.array(dice).shape\n\n(6, 9)"
   },
   {
     "objectID": "80_matrix.rjs.html#is-one-1",
     "href": "80_matrix.rjs.html#is-one-1",
     "title": "Matrix",
     "section": "Is One?",
-    "text": "Is One?\n\nThen at is_one_vector\n\n\n\narray([-1, -1, -1, -1,  1, -1, -1, -1, -1])\n\n\n\nWe note this is a length 9 one-dimensional array, or vector.\n\n\n\n(9,)"
+    "text": "Is One?\n\nThen at is_one_vector\n\n\nnp.array(is_one_vector)\n\narray([-1, -1, -1, -1,  1, -1, -1, -1, -1])\n\n\n\nWe note this is a length 9 one-dimensional array, or vector.\n\n\nnp.array(is_one_vector).shape\n\n(9,)"
   },
   {
     "objectID": "80_matrix.rjs.html#annoyance",
     "href": "80_matrix.rjs.html#annoyance",
     "title": "Matrix",
     "section": "Annoyance",
-    "text": "Annoyance\n\nIt is annoying to keep typing this:\n\n\n\narray([-1, -1, -1, -1,  1, -1, -1, -1, -1])\n\n\n\nI use “single equals assignment” to change to always use the NumPy version.\n\n\n\narray([ True, False, False, False, False, False])"
+    "text": "Annoyance\n\nIt is annoying to keep typing this:\n\n\nnp.array(is_one_vector)\n\narray([-1, -1, -1, -1,  1, -1, -1, -1, -1])\n\n\n\nI use “single equals assignment” to change to always use the NumPy version.\n\n\ndice = np.array(dice)\nis_one_vector = np.array(is_one_vector)\n0 &lt; np.sum(dice * is_one_vector, 1)\n\narray([ True, False, False, False, False, False])"
   },
   {
     "objectID": "80_matrix.rjs.html#result",
     "href": "80_matrix.rjs.html#result",
     "title": "Matrix",
     "section": "Result",
-    "text": "Result\n\nWe note that when we multiply, we get back a length 6 one-dimensional array, or vector.\n\n\n\n(6,)"
+    "text": "Result\n\nWe note that when we multiply, we get back a length 6 one-dimensional array, or vector.\n\n\nnp.sum(dice * is_one_vector, 1).shape\n\n(6,)"
   },
   {
     "objectID": "80_matrix.rjs.html#so",
@@ -6865,7 +6865,7 @@
     "href": "80_matrix.rjs.html#for-example",
     "title": "Matrix",
     "section": "For example",
-    "text": "For example\n\nWe wish to find out what “class” (what number) fiv belongs to.\nWe would start with fiv\n\n\n\narray([1, 0, 1, 0, 1, 0, 1, 0, 1])\n\n\n\nWe would want to get back something with a 1 in the fiveth position, and zeroes elsewhere.\n\n\n\n[0, 0, 0, 0, 1, 0]"
+    "text": "For example\n\nWe wish to find out what “class” (what number) fiv belongs to.\nWe would start with fiv\n\n\nfiv = np.array(fiv)\nfiv\n\narray([1, 0, 1, 0, 1, 0, 1, 0, 1])\n\n\n\nWe would want to get back something with a 1 in the fiveth position, and zeroes elsewhere.\n\n\n[0, 0, 0, 0, 1, 0,]\n\n[0, 0, 0, 0, 1, 0]"
   },
   {
     "objectID": "80_matrix.rjs.html#emphasis",
@@ -6879,56 +6879,56 @@
     "href": "80_matrix.rjs.html#that-matrix",
     "title": "Matrix",
     "section": "That matrix",
-    "text": "That matrix\n\nThis matrix is the precise matrix made in the lab."
+    "text": "That matrix\n\nThis matrix is the precise matrix made in the lab.\n\n\nmulti = np.array([\n    [-1/1, -1/1, -1/1, -1/1,  1/1, -1/1, -1/1, -1/1, -1/1],\n    [-1/2, -1/2,  1/2, -1/2, -1/2, -1/2,  1/2, -1/2, -1/2],\n    [-1/3, -1/3,  1/3, -1/3,  1/3, -1/3,  1/3, -1/3, -1/3],\n    [ 1/4, -1/4,  1/4, -1/4, -1/4, -1/4,  1/4, -1/4,  1/4],\n    [ 1/5, -1/5,  1/5, -1/5,  1/5, -1/5,  1/5, -1/5,  1/5],\n    [ 0/6,  3/6,  0/6,  3/6, -6/6,  3/6,  0/6,  3/6,  0/6],\n])"
   },
   {
     "objectID": "80_matrix.rjs.html#test-it-1",
     "href": "80_matrix.rjs.html#test-it-1",
     "title": "Matrix",
     "section": "Test it",
-    "text": "Test it\n\nWe can try fiv…\n\n\n\narray([[-1.        , -0.        , -1.        , -0.        ,  1.        ,\n        -0.        , -1.        , -0.        , -1.        ],\n       [-0.5       , -0.        ,  0.5       , -0.        , -0.5       ,\n        -0.        ,  0.5       , -0.        , -0.5       ],\n       [-0.33333333, -0.        ,  0.33333333, -0.        ,  0.33333333,\n        -0.        ,  0.33333333, -0.        , -0.33333333],\n       [ 0.25      , -0.        ,  0.25      , -0.        , -0.25      ,\n        -0.        ,  0.25      , -0.        ,  0.25      ],\n       [ 0.2       , -0.        ,  0.2       , -0.        ,  0.2       ,\n        -0.        ,  0.2       , -0.        ,  0.2       ],\n       [ 0.        ,  0.        ,  0.        ,  0.        , -1.        ,\n         0.        ,  0.        ,  0.        ,  0.        ]])\n\n\n\nWhat a mess!"
+    "text": "Test it\n\nWe can try fiv…\n\n\nfiv * multi\n\narray([[-1.        , -0.        , -1.        , -0.        ,  1.        ,\n        -0.        , -1.        , -0.        , -1.        ],\n       [-0.5       , -0.        ,  0.5       , -0.        , -0.5       ,\n        -0.        ,  0.5       , -0.        , -0.5       ],\n       [-0.33333333, -0.        ,  0.33333333, -0.        ,  0.33333333,\n        -0.        ,  0.33333333, -0.        , -0.33333333],\n       [ 0.25      , -0.        ,  0.25      , -0.        , -0.25      ,\n        -0.        ,  0.25      , -0.        ,  0.25      ],\n       [ 0.2       , -0.        ,  0.2       , -0.        ,  0.2       ,\n        -0.        ,  0.2       , -0.        ,  0.2       ],\n       [ 0.        ,  0.        ,  0.        ,  0.        , -1.        ,\n         0.        ,  0.        ,  0.        ,  0.        ]])\n\n\n\nWhat a mess!"
   },
   {
     "objectID": "80_matrix.rjs.html#sum-it-up-1",
     "href": "80_matrix.rjs.html#sum-it-up-1",
     "title": "Matrix",
     "section": "Sum it up",
-    "text": "Sum it up\n\nIt’s hard for me to wrap my head around that many numbers!\n\nEspecially when they aren’t nice round numbers, since I was using fractions.\n\nWe’ll sum things up, as before.\n\n\n\narray([-3.        , -0.5       ,  0.33333333,  0.75      ,  1.        ,\n       -1.        ])"
+    "text": "Sum it up\n\nIt’s hard for me to wrap my head around that many numbers!\n\nEspecially when they aren’t nice round numbers, since I was using fractions.\n\nWe’ll sum things up, as before.\n\n\nnp.sum(fiv * multi,1)\n\narray([-3.        , -0.5       ,  0.33333333,  0.75      ,  1.        ,\n       -1.        ])"
   },
   {
     "objectID": "80_matrix.rjs.html#compare-now-to-1",
     "href": "80_matrix.rjs.html#compare-now-to-1",
     "title": "Matrix",
     "section": "Compare, now to 1",
-    "text": "Compare, now to 1\n\nOnce again, we can simply by just seeing if there’s enough “weight” to make a neuron fire, or not.\n\n\n\narray([False, False, False, False,  True, False])\n\n\n\nOnly the neuron representing “five” will fire!"
+    "text": "Compare, now to 1\n\nOnce again, we can simply by just seeing if there’s enough “weight” to make a neuron fire, or not.\n\n\n1 &lt;= np.sum(fiv * multi,1)\n\narray([False, False, False, False,  True, False])\n\n\n\nOnly the neuron representing “five” will fire!"
   },
   {
     "objectID": "80_matrix.rjs.html#all-at-once",
     "href": "80_matrix.rjs.html#all-at-once",
     "title": "Matrix",
     "section": "All at once",
-    "text": "All at once\n\nWe can check all of the dice.\n\n\n\n[[-0.         -0.         -0.         -0.          1.         -0.\n  -0.         -0.         -0.        ]\n [-0.         -0.          0.         -0.         -0.5        -0.\n   0.         -0.         -0.        ]\n [-0.         -0.          0.         -0.          0.33333333 -0.\n   0.         -0.         -0.        ]\n [ 0.         -0.          0.         -0.         -0.25       -0.\n   0.         -0.          0.        ]\n [ 0.         -0.          0.         -0.          0.2        -0.\n   0.         -0.          0.        ]\n [ 0.          0.          0.          0.         -1.          0.\n   0.          0.          0.        ]]\n[[-0.         -0.         -1.         -0.          0.         -0.\n  -1.         -0.         -0.        ]\n [-0.         -0.          0.5        -0.         -0.         -0.\n   0.5        -0.         -0.        ]\n [-0.         -0.          0.33333333 -0.          0.         -0.\n   0.33333333 -0.         -0.        ]\n [ 0.         -0.          0.25       -0.         -0.         -0.\n   0.25       -0.          0.        ]\n [ 0.         -0.          0.2        -0.          0.         -0.\n   0.2        -0.          0.        ]\n [ 0.          0.          0.          0.         -0.          0.\n   0.          0.          0.        ]]\n[[-0.         -0.         -1.         -0.          1.         -0.\n  -1.         -0.         -0.        ]\n [-0.         -0.          0.5        -0.         -0.5        -0.\n   0.5        -0.         -0.        ]\n [-0.         -0.          0.33333333 -0.          0.33333333 -0.\n   0.33333333 -0.         -0.        ]\n [ 0.         -0.          0.25       -0.         -0.25       -0.\n   0.25       -0.          0.        ]\n [ 0.         -0.          0.2        -0.          0.2        -0.\n   0.2        -0.          0.        ]\n [ 0.          0.          0.          0.         -1.          0.\n   0.          0.          0.        ]]\n[[-1.         -0.         -1.         -0.          0.         -0.\n  -1.         -0.         -1.        ]\n [-0.5        -0.          0.5        -0.         -0.         -0.\n   0.5        -0.         -0.5       ]\n [-0.33333333 -0.          0.33333333 -0.          0.         -0.\n   0.33333333 -0.         -0.33333333]\n [ 0.25       -0.          0.25       -0.         -0.         -0.\n   0.25       -0.          0.25      ]\n [ 0.2        -0.          0.2        -0.          0.         -0.\n   0.2        -0.          0.2       ]\n [ 0.          0.          0.          0.         -0.          0.\n   0.          0.          0.        ]]\n[[-1.         -0.         -1.         -0.          1.         -0.\n  -1.         -0.         -1.        ]\n [-0.5        -0.          0.5        -0.         -0.5        -0.\n   0.5        -0.         -0.5       ]\n [-0.33333333 -0.          0.33333333 -0.          0.33333333 -0.\n   0.33333333 -0.         -0.33333333]\n [ 0.25       -0.          0.25       -0.         -0.25       -0.\n   0.25       -0.          0.25      ]\n [ 0.2        -0.          0.2        -0.          0.2        -0.\n   0.2        -0.          0.2       ]\n [ 0.          0.          0.          0.         -1.          0.\n   0.          0.          0.        ]]\n[[-1.         -0.         -1.         -1.          0.         -1.\n  -1.         -0.         -1.        ]\n [-0.5        -0.          0.5        -0.5        -0.         -0.5\n   0.5        -0.         -0.5       ]\n [-0.33333333 -0.          0.33333333 -0.33333333  0.         -0.33333333\n   0.33333333 -0.         -0.33333333]\n [ 0.25       -0.          0.25       -0.25       -0.         -0.25\n   0.25       -0.          0.25      ]\n [ 0.2        -0.          0.2        -0.2         0.         -0.2\n   0.2        -0.          0.2       ]\n [ 0.          0.          0.          0.5        -0.          0.5\n   0.          0.          0.        ]]"
+    "text": "All at once\n\nWe can check all of the dice.\n\n\nfor die in dice:\n    print(die * multi)\n\n[[-0.         -0.         -0.         -0.          1.         -0.\n  -0.         -0.         -0.        ]\n [-0.         -0.          0.         -0.         -0.5        -0.\n   0.         -0.         -0.        ]\n [-0.         -0.          0.         -0.          0.33333333 -0.\n   0.         -0.         -0.        ]\n [ 0.         -0.          0.         -0.         -0.25       -0.\n   0.         -0.          0.        ]\n [ 0.         -0.          0.         -0.          0.2        -0.\n   0.         -0.          0.        ]\n [ 0.          0.          0.          0.         -1.          0.\n   0.          0.          0.        ]]\n[[-0.         -0.         -1.         -0.          0.         -0.\n  -1.         -0.         -0.        ]\n [-0.         -0.          0.5        -0.         -0.         -0.\n   0.5        -0.         -0.        ]\n [-0.         -0.          0.33333333 -0.          0.         -0.\n   0.33333333 -0.         -0.        ]\n [ 0.         -0.          0.25       -0.         -0.         -0.\n   0.25       -0.          0.        ]\n [ 0.         -0.          0.2        -0.          0.         -0.\n   0.2        -0.          0.        ]\n [ 0.          0.          0.          0.         -0.          0.\n   0.          0.          0.        ]]\n[[-0.         -0.         -1.         -0.          1.         -0.\n  -1.         -0.         -0.        ]\n [-0.         -0.          0.5        -0.         -0.5        -0.\n   0.5        -0.         -0.        ]\n [-0.         -0.          0.33333333 -0.          0.33333333 -0.\n   0.33333333 -0.         -0.        ]\n [ 0.         -0.          0.25       -0.         -0.25       -0.\n   0.25       -0.          0.        ]\n [ 0.         -0.          0.2        -0.          0.2        -0.\n   0.2        -0.          0.        ]\n [ 0.          0.          0.          0.         -1.          0.\n   0.          0.          0.        ]]\n[[-1.         -0.         -1.         -0.          0.         -0.\n  -1.         -0.         -1.        ]\n [-0.5        -0.          0.5        -0.         -0.         -0.\n   0.5        -0.         -0.5       ]\n [-0.33333333 -0.          0.33333333 -0.          0.         -0.\n   0.33333333 -0.         -0.33333333]\n [ 0.25       -0.          0.25       -0.         -0.         -0.\n   0.25       -0.          0.25      ]\n [ 0.2        -0.          0.2        -0.          0.         -0.\n   0.2        -0.          0.2       ]\n [ 0.          0.          0.          0.         -0.          0.\n   0.          0.          0.        ]]\n[[-1.         -0.         -1.         -0.          1.         -0.\n  -1.         -0.         -1.        ]\n [-0.5        -0.          0.5        -0.         -0.5        -0.\n   0.5        -0.         -0.5       ]\n [-0.33333333 -0.          0.33333333 -0.          0.33333333 -0.\n   0.33333333 -0.         -0.33333333]\n [ 0.25       -0.          0.25       -0.         -0.25       -0.\n   0.25       -0.          0.25      ]\n [ 0.2        -0.          0.2        -0.          0.2        -0.\n   0.2        -0.          0.2       ]\n [ 0.          0.          0.          0.         -1.          0.\n   0.          0.          0.        ]]\n[[-1.         -0.         -1.         -1.          0.         -1.\n  -1.         -0.         -1.        ]\n [-0.5        -0.          0.5        -0.5        -0.         -0.5\n   0.5        -0.         -0.5       ]\n [-0.33333333 -0.          0.33333333 -0.33333333  0.         -0.33333333\n   0.33333333 -0.         -0.33333333]\n [ 0.25       -0.          0.25       -0.25       -0.         -0.25\n   0.25       -0.          0.25      ]\n [ 0.2        -0.          0.2        -0.2         0.         -0.2\n   0.2        -0.          0.2       ]\n [ 0.          0.          0.          0.5        -0.          0.5\n   0.          0.          0.        ]]"
   },
   {
     "objectID": "80_matrix.rjs.html#sum-it-up-2",
     "href": "80_matrix.rjs.html#sum-it-up-2",
     "title": "Matrix",
     "section": "Sum it up",
-    "text": "Sum it up\n\nWe can sum again.\n\n\n\n[ 1.         -0.5         0.33333333 -0.25        0.2        -1.        ]\n[-2.          1.          0.66666667  0.5         0.4         0.        ]\n[-1.    0.5   1.    0.25  0.6  -1.  ]\n[-4.   0.   0.   1.   0.8  0. ]\n[-3.         -0.5         0.33333333  0.75        1.         -1.        ]\n[-6.         -1.         -0.66666667  0.5         0.4         1.        ]"
+    "text": "Sum it up\n\nWe can sum again.\n\n\nfor die in dice:\n    print(np.sum(die * multi,1))\n\n[ 1.         -0.5         0.33333333 -0.25        0.2        -1.        ]\n[-2.          1.          0.66666667  0.5         0.4         0.        ]\n[-1.    0.5   1.    0.25  0.6  -1.  ]\n[-4.   0.   0.   1.   0.8  0. ]\n[-3.         -0.5         0.33333333  0.75        1.         -1.        ]\n[-6.         -1.         -0.66666667  0.5         0.4         1.        ]"
   },
   {
     "objectID": "80_matrix.rjs.html#compare",
     "href": "80_matrix.rjs.html#compare",
     "title": "Matrix",
     "section": "Compare",
-    "text": "Compare\n\nCompare versus… probably 1?\n\n\n\n[ True False False False False False]\n[False  True False False False False]\n[False False  True False False False]\n[False False False  True False False]\n[False False False False  True False]\n[False False False False False  True]\n\n\n\nThat looks like a diagonal of True to me.\n\nWhich should be just what we want, since our dice were in order."
+    "text": "Compare\n\nCompare versus… probably 1?\n\n\nfor die in dice:\n    print(1 &lt;= np.sum(die * multi,1))\n\n[ True False False False False False]\n[False  True False False False False]\n[False False  True False False False]\n[False False False  True False False]\n[False False False False  True False]\n[False False False False False  True]\n\n\n\nThat looks like a diagonal of True to me.\n\nWhich should be just what we want, since our dice were in order."
   },
   {
     "objectID": "80_matrix.rjs.html#collect-our-thoughts",
     "href": "80_matrix.rjs.html#collect-our-thoughts",
     "title": "Matrix",
     "section": "Collect Our Thoughts",
-    "text": "Collect Our Thoughts\n\nIs this intelligent:\n\n\n\n[[-1.         -1.         -1.         -1.          1.         -1.\n  -1.         -1.         -1.        ]\n [-0.5        -0.5         0.5        -0.5        -0.5        -0.5\n   0.5        -0.5        -0.5       ]\n [-0.33333333 -0.33333333  0.33333333 -0.33333333  0.33333333 -0.33333333\n   0.33333333 -0.33333333 -0.33333333]\n [ 0.25       -0.25        0.25       -0.25       -0.25       -0.25\n   0.25       -0.25        0.25      ]\n [ 0.2        -0.2         0.2        -0.2         0.2        -0.2\n   0.2        -0.2         0.2       ]\n [ 0.          0.5         0.          0.5        -1.          0.5\n   0.          0.5         0.        ]]"
+    "text": "Collect Our Thoughts\n\nIs this intelligent:\n\n\nprint(multi)\n\n[[-1.         -1.         -1.         -1.          1.         -1.\n  -1.         -1.         -1.        ]\n [-0.5        -0.5         0.5        -0.5        -0.5        -0.5\n   0.5        -0.5        -0.5       ]\n [-0.33333333 -0.33333333  0.33333333 -0.33333333  0.33333333 -0.33333333\n   0.33333333 -0.33333333 -0.33333333]\n [ 0.25       -0.25        0.25       -0.25       -0.25       -0.25\n   0.25       -0.25        0.25      ]\n [ 0.2        -0.2         0.2        -0.2         0.2        -0.2\n   0.2        -0.2         0.2       ]\n [ 0.          0.5         0.          0.5        -1.          0.5\n   0.          0.5         0.        ]]"
   },
   {
     "objectID": "80_matrix.rjs.html#our-task",
@@ -6977,7 +6977,7 @@
     "href": "80_matrix.rjs.html#matrices-2",
     "title": "Matrix",
     "section": "Matrices",
-    "text": "Matrices\n\nThen, we note that we can express these weights in a matrix."
+    "text": "Matrices\n\nThen, we note that we can express these weights in a matrix.\n\n\nmulti = np.array([\n    [-1/1, -1/1, -1/1, -1/1,  1/1, -1/1, -1/1, -1/1, -1/1],\n    [-1/2, -1/2,  1/2, -1/2, -1/2, -1/2,  1/2, -1/2, -1/2],\n    [-1/3, -1/3,  1/3, -1/3,  1/3, -1/3,  1/3, -1/3, -1/3],\n    [ 1/4, -1/4,  1/4, -1/4, -1/4, -1/4,  1/4, -1/4,  1/4],\n    [ 1/5, -1/5,  1/5, -1/5,  1/5, -1/5,  1/5, -1/5,  1/5],\n    [ 0/6,  3/6,  0/6,  3/6, -6/6,  3/6,  0/6,  3/6,  0/6],\n])"
   },
   {
     "objectID": "80_matrix.rjs.html#simpler",
@@ -7148,7 +7148,7 @@
     "href": "80_matrix.html#is-one-vector",
     "title": "Matrix",
     "section": "Is One Vector",
-    "text": "Is One Vector\n\nWe used, perhaps, this “is one?” vector.\n\nRecall, we cannot include spaces in our names of things in Colab.\nWe use “single equals assignment” to assign a variable to some name.\nIn this case, the variable is the “is one?” vector.",
+    "text": "Is One Vector\n\nWe used, perhaps, this “is one?” vector.\n\nRecall, we cannot include spaces in our names of things in Colab.\nWe use “single equals assignment” to assign a variable to some name.\nIn this case, the variable is the “is one?” vector.\n\n\n\nis_one_vector = [-1,-1,-1,-1,1,-1,-1,-1,-1]",
     "crumbs": [
       "Matrix"
     ]
@@ -7158,7 +7158,7 @@
     "href": "80_matrix.html#explanation",
     "title": "Matrix",
     "section": "Explanation",
-    "text": "Explanation\n\nIf we are checking if some die represents the value 1, the only thing we care about is the center dot.\nWell, that’s not entirely true - we care a lot that nothing other than the center dot is set.\nSo we apply a positive weight to the center dot, and negative weights to all other dots.",
+    "text": "Explanation\n\nIf we are checking if some die represents the value 1, the only thing we care about is the center dot.\nWell, that’s not entirely true - we care a lot that nothing other than the center dot is set.\nSo we apply a positive weight to the center dot, and negative weights to all other dots.\n\n\nis_one_vector = [-1,-1,-1,-1,1,-1,-1,-1,-1]",
     "crumbs": [
       "Matrix"
     ]
@@ -7168,7 +7168,7 @@
     "href": "80_matrix.html#test-it",
     "title": "Matrix",
     "section": "Test it",
-    "text": "Test it\n\nIn the lab, we were helpfully furnished with vectors representing all die.\nWe can check what happens when we multiply any of these - or all of these - by is_one_vector.",
+    "text": "Test it\n\nIn the lab, we were helpfully furnished with vectors representing all die.\n\n\none = [0,0,0,0,1,0,0,0,0]\ntwo = [0,0,1,0,0,0,1,0,0]\nthr = [0,0,1,0,1,0,1,0,0]\nfou = [1,0,1,0,0,0,1,0,1]\nfiv = [1,0,1,0,1,0,1,0,1]\nsix = [1,0,1,1,0,1,1,0,1]\n\n\nWe can check what happens when we multiply any of these - or all of these - by is_one_vector.",
     "crumbs": [
       "Matrix"
     ]
@@ -7178,7 +7178,7 @@
     "href": "80_matrix.html#pack-it-up",
     "title": "Matrix",
     "section": "Pack it up",
-    "text": "Pack it up\n\nI quickly make another vector - a vector of vectors - that contains one through six\nWe can take a look at it:\n\n\n\n[[0, 0, 0, 0, 1, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 1, 0, 0], [0, 0, 1, 0, 1, 0, 1, 0, 0], [1, 0, 1, 0, 0, 0, 1, 0, 1], [1, 0, 1, 0, 1, 0, 1, 0, 1], [1, 0, 1, 1, 0, 1, 1, 0, 1]]",
+    "text": "Pack it up\n\nI quickly make another vector - a vector of vectors - that contains one through six\n\n\ndice = [one, two, thr, fou, fiv, six]\n\n\nWe can take a look at it:\n\n\nprint(dice)\n\n[[0, 0, 0, 0, 1, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 1, 0, 0], [0, 0, 1, 0, 1, 0, 1, 0, 0], [1, 0, 1, 0, 0, 0, 1, 0, 1], [1, 0, 1, 0, 1, 0, 1, 0, 1], [1, 0, 1, 1, 0, 1, 1, 0, 1]]",
     "crumbs": [
       "Matrix"
     ]
@@ -7188,7 +7188,7 @@
     "href": "80_matrix.html#look-at-it",
     "title": "Matrix",
     "section": "Look at it",
-    "text": "Look at it\n\nWe could use a for loop to multiply each die by is_one_vector\n\nWe need NumPy for this!\n\n\n\n\n[0 0 0 0 1 0 0 0 0]\n[ 0  0 -1  0  0  0 -1  0  0]\n[ 0  0 -1  0  1  0 -1  0  0]\n[-1  0 -1  0  0  0 -1  0 -1]\n[-1  0 -1  0  1  0 -1  0 -1]\n[-1  0 -1 -1  0 -1 -1  0 -1]",
+    "text": "Look at it\n\nWe could use a for loop to multiply each die by is_one_vector\n\nWe need NumPy for this!\n\n\n\nimport numpy as np\n\nfor die in dice:\n    print(np.array(die) * np.array(is_one_vector))\n\n[0 0 0 0 1 0 0 0 0]\n[ 0  0 -1  0  0  0 -1  0  0]\n[ 0  0 -1  0  1  0 -1  0  0]\n[-1  0 -1  0  0  0 -1  0 -1]\n[-1  0 -1  0  1  0 -1  0 -1]\n[-1  0 -1 -1  0 -1 -1  0 -1]",
     "crumbs": [
       "Matrix"
     ]
@@ -7198,7 +7198,7 @@
     "href": "80_matrix.html#sum-it-up",
     "title": "Matrix",
     "section": "Sum it up",
-    "text": "Sum it up\n\nWe can also take the sum over all values in a vector using sum\n\nWe already did import numpy as np so we don’t need to repeat that.\n\n\n\n\n1\n-2\n-1\n-4\n-3\n-6",
+    "text": "Sum it up\n\nWe can also take the sum over all values in a vector using sum\n\nWe already did import numpy as np so we don’t need to repeat that.\n\n\n\nfor die in dice:\n    print(sum(np.array(die) * np.array(is_one_vector)))\n\n1\n-2\n-1\n-4\n-3\n-6",
     "crumbs": [
       "Matrix"
     ]
@@ -7208,7 +7208,7 @@
     "href": "80_matrix.html#piecewiseindicator",
     "title": "Matrix",
     "section": "Piecewise/Indicator",
-    "text": "Piecewise/Indicator\n\nRemember, neurons can only (1) fire or (2) not fire.\n\nThey cannot “-6”.\n\nSo we check if the sum is positive, or not.\n\n\n\nTrue\nFalse\nFalse\nFalse\nFalse\nFalse",
+    "text": "Piecewise/Indicator\n\nRemember, neurons can only (1) fire or (2) not fire.\n\nThey cannot “-6”.\n\nSo we check if the sum is positive, or not.\n\n\nfor die in dice:\n    print(0 &lt; sum(np.array(die) * np.array(is_one_vector)))\n\nTrue\nFalse\nFalse\nFalse\nFalse\nFalse",
     "crumbs": [
       "Matrix"
     ]
@@ -7218,7 +7218,7 @@
     "href": "80_matrix.html#for-what",
     "title": "Matrix",
     "section": "For What?",
-    "text": "For What?\n\nPerhaps we regard that for loop as confusing.\n\nI expect, for example, novice programmers to expect that e.g. name the for variable die might matter.\n\n\n\n\nTrue\nFalse\nFalse\nFalse\nFalse\nFalse",
+    "text": "For What?\n\nPerhaps we regard that for loop as confusing.\n\nI expect, for example, novice programmers to expect that e.g. name the for variable die might matter.\n\n\n\nfor definitely_not_a_die in dice:\n    print(0 &lt; sum(np.array(definitely_not_a_die) * np.array(is_one_vector)))\n\nTrue\nFalse\nFalse\nFalse\nFalse\nFalse",
     "crumbs": [
       "Matrix"
     ]
@@ -7228,7 +7228,7 @@
     "href": "80_matrix.html#instead",
     "title": "Matrix",
     "section": "Instead",
-    "text": "Instead\n\nInstead we recognize that we have something that looks an awful lot like a matrix.\n\n\n\narray([[0, 0, 0, 0, 1, 0, 0, 0, 0],\n       [0, 0, 1, 0, 0, 0, 1, 0, 0],\n       [0, 0, 1, 0, 1, 0, 1, 0, 0],\n       [1, 0, 1, 0, 0, 0, 1, 0, 1],\n       [1, 0, 1, 0, 1, 0, 1, 0, 1],\n       [1, 0, 1, 1, 0, 1, 1, 0, 1]])",
+    "text": "Instead\n\nInstead we recognize that we have something that looks an awful lot like a matrix.\n\n\nnp.array(dice)\n\narray([[0, 0, 0, 0, 1, 0, 0, 0, 0],\n       [0, 0, 1, 0, 0, 0, 1, 0, 0],\n       [0, 0, 1, 0, 1, 0, 1, 0, 0],\n       [1, 0, 1, 0, 0, 0, 1, 0, 1],\n       [1, 0, 1, 0, 1, 0, 1, 0, 1],\n       [1, 0, 1, 1, 0, 1, 1, 0, 1]])",
     "crumbs": [
       "Matrix"
     ]
@@ -7238,7 +7238,7 @@
     "href": "80_matrix.html#numpy-away",
     "title": "Matrix",
     "section": "NumPy Away!",
-    "text": "NumPy Away!\n\nAnd NumPy can multiple matrices by vectors.\n\n\n\narray([[ 0,  0,  0,  0,  1,  0,  0,  0,  0],\n       [ 0,  0, -1,  0,  0,  0, -1,  0,  0],\n       [ 0,  0, -1,  0,  1,  0, -1,  0,  0],\n       [-1,  0, -1,  0,  0,  0, -1,  0, -1],\n       [-1,  0, -1,  0,  1,  0, -1,  0, -1],\n       [-1,  0, -1, -1,  0, -1, -1,  0, -1]])",
+    "text": "NumPy Away!\n\nAnd NumPy can multiple matrices by vectors.\n\n\nnp.array(dice) * np.array(is_one_vector)\n\narray([[ 0,  0,  0,  0,  1,  0,  0,  0,  0],\n       [ 0,  0, -1,  0,  0,  0, -1,  0,  0],\n       [ 0,  0, -1,  0,  1,  0, -1,  0,  0],\n       [-1,  0, -1,  0,  0,  0, -1,  0, -1],\n       [-1,  0, -1,  0,  1,  0, -1,  0, -1],\n       [-1,  0, -1, -1,  0, -1, -1,  0, -1]])",
     "crumbs": [
       "Matrix"
     ]
@@ -7248,7 +7248,7 @@
     "href": "80_matrix.html#and-sum",
     "title": "Matrix",
     "section": "And sum",
-    "text": "And sum\n\nAnd NumPy can sum across either the rows or columns of a matrix…\n\n\n\nnp.int64(-15)\n\n\n\nWe can specify the axis (vertical or horizontal) upon which we want to sum.\n\n\n\narray([ 1, -2, -1, -4, -3, -6])\n\n\n\nOh wow - that’s what we wanted!",
+    "text": "And sum\n\nAnd NumPy can sum across either the rows or columns of a matrix…\n\n\nnp.sum(np.array(dice) * np.array(is_one_vector))\n\n-15\n\n\n\nWe can specify the axis (vertical or horizontal) upon which we want to sum.\n\n\nnp.sum(np.array(dice) * np.array(is_one_vector), 1)\n\narray([ 1, -2, -1, -4, -3, -6])\n\n\n\nOh wow - that’s what we wanted!",
     "crumbs": [
       "Matrix"
     ]
@@ -7258,7 +7258,7 @@
     "href": "80_matrix.html#elementwise",
     "title": "Matrix",
     "section": "Elementwise",
-    "text": "Elementwise\n\nWe can even use &lt; or &gt; on NumPy vectors.\n\n\n\narray([ True, False, False, False, False, False])\n\n\n\n“Wow that is so cool” - Everyone",
+    "text": "Elementwise\n\nWe can even use &lt; or &gt; on NumPy vectors.\n\n\nnp.sum(np.array(dice) * np.array(is_one_vector), 1) &gt; 0\n\narray([ True, False, False, False, False, False])\n\n\n\n“Wow that is so cool” - Everyone",
     "crumbs": [
       "Matrix"
     ]
@@ -7268,7 +7268,7 @@
     "href": "80_matrix.html#mechanics",
     "title": "Matrix",
     "section": "Mechanics",
-    "text": "Mechanics\n\nWhat is happening here, internally.\n\n\n\narray([[ 0,  0,  0,  0,  1,  0,  0,  0,  0],\n       [ 0,  0, -1,  0,  0,  0, -1,  0,  0],\n       [ 0,  0, -1,  0,  1,  0, -1,  0,  0],\n       [-1,  0, -1,  0,  0,  0, -1,  0, -1],\n       [-1,  0, -1,  0,  1,  0, -1,  0, -1],\n       [-1,  0, -1, -1,  0, -1, -1,  0, -1]])\n\n\n\nLet’s take it apart.",
+    "text": "Mechanics\n\nWhat is happening here, internally.\n\n\nnp.array(dice) * np.array(is_one_vector)\n\narray([[ 0,  0,  0,  0,  1,  0,  0,  0,  0],\n       [ 0,  0, -1,  0,  0,  0, -1,  0,  0],\n       [ 0,  0, -1,  0,  1,  0, -1,  0,  0],\n       [-1,  0, -1,  0,  0,  0, -1,  0, -1],\n       [-1,  0, -1,  0,  1,  0, -1,  0, -1],\n       [-1,  0, -1, -1,  0, -1, -1,  0, -1]])\n\n\n\nLet’s take it apart.",
     "crumbs": [
       "Matrix"
     ]
@@ -7278,7 +7278,7 @@
     "href": "80_matrix.html#dice",
     "title": "Matrix",
     "section": "Dice",
-    "text": "Dice\n\nFirst, look at dice\n\nI’ll convert it to a NumPy array so it looks the same.\n\n\n\n\narray([[0, 0, 0, 0, 1, 0, 0, 0, 0],\n       [0, 0, 1, 0, 0, 0, 1, 0, 0],\n       [0, 0, 1, 0, 1, 0, 1, 0, 0],\n       [1, 0, 1, 0, 0, 0, 1, 0, 1],\n       [1, 0, 1, 0, 1, 0, 1, 0, 1],\n       [1, 0, 1, 1, 0, 1, 1, 0, 1]])\n\n\n\nWe note that this is a 6 by 9 two-dimensional array, or matrix.\n\n\n\n(6, 9)",
+    "text": "Dice\n\nFirst, look at dice\n\nI’ll convert it to a NumPy array so it looks the same.\n\n\n\nnp.array(dice)\n\narray([[0, 0, 0, 0, 1, 0, 0, 0, 0],\n       [0, 0, 1, 0, 0, 0, 1, 0, 0],\n       [0, 0, 1, 0, 1, 0, 1, 0, 0],\n       [1, 0, 1, 0, 0, 0, 1, 0, 1],\n       [1, 0, 1, 0, 1, 0, 1, 0, 1],\n       [1, 0, 1, 1, 0, 1, 1, 0, 1]])\n\n\n\nWe note that this is a 6 by 9 two-dimensional array, or matrix.\n\n\nnp.array(dice).shape\n\n(6, 9)",
     "crumbs": [
       "Matrix"
     ]
@@ -7288,7 +7288,7 @@
     "href": "80_matrix.html#is-one-1",
     "title": "Matrix",
     "section": "Is One?",
-    "text": "Is One?\n\nThen at is_one_vector\n\n\n\narray([-1, -1, -1, -1,  1, -1, -1, -1, -1])\n\n\n\nWe note this is a length 9 one-dimensional array, or vector.\n\n\n\n(9,)",
+    "text": "Is One?\n\nThen at is_one_vector\n\n\nnp.array(is_one_vector)\n\narray([-1, -1, -1, -1,  1, -1, -1, -1, -1])\n\n\n\nWe note this is a length 9 one-dimensional array, or vector.\n\n\nnp.array(is_one_vector).shape\n\n(9,)",
     "crumbs": [
       "Matrix"
     ]
@@ -7298,7 +7298,7 @@
     "href": "80_matrix.html#annoyance",
     "title": "Matrix",
     "section": "Annoyance",
-    "text": "Annoyance\n\nIt is annoying to keep typing this:\n\n\n\narray([-1, -1, -1, -1,  1, -1, -1, -1, -1])\n\n\n\nI use “single equals assignment” to change to always use the NumPy version.\n\n\n\narray([ True, False, False, False, False, False])",
+    "text": "Annoyance\n\nIt is annoying to keep typing this:\n\n\nnp.array(is_one_vector)\n\narray([-1, -1, -1, -1,  1, -1, -1, -1, -1])\n\n\n\nI use “single equals assignment” to change to always use the NumPy version.\n\n\ndice = np.array(dice)\nis_one_vector = np.array(is_one_vector)\n0 &lt; np.sum(dice * is_one_vector, 1)\n\narray([ True, False, False, False, False, False])",
     "crumbs": [
       "Matrix"
     ]
@@ -7308,7 +7308,7 @@
     "href": "80_matrix.html#result",
     "title": "Matrix",
     "section": "Result",
-    "text": "Result\n\nWe note that when we multiply, we get back a length 6 one-dimensional array, or vector.\n\n\n\n(6,)",
+    "text": "Result\n\nWe note that when we multiply, we get back a length 6 one-dimensional array, or vector.\n\n\nnp.sum(dice * is_one_vector, 1).shape\n\n(6,)",
     "crumbs": [
       "Matrix"
     ]
@@ -7338,7 +7338,7 @@
     "href": "80_matrix.html#for-example",
     "title": "Matrix",
     "section": "For example",
-    "text": "For example\n\nWe wish to find out what “class” (what number) fiv belongs to.\nWe would start with fiv\n\n\n\narray([1, 0, 1, 0, 1, 0, 1, 0, 1])\n\n\n\nWe would want to get back something with a 1 in the fiveth position, and zeroes elsewhere.\n\n\n\n[0, 0, 0, 0, 1, 0]",
+    "text": "For example\n\nWe wish to find out what “class” (what number) fiv belongs to.\nWe would start with fiv\n\n\nfiv = np.array(fiv)\nfiv\n\narray([1, 0, 1, 0, 1, 0, 1, 0, 1])\n\n\n\nWe would want to get back something with a 1 in the fiveth position, and zeroes elsewhere.\n\n\n[0, 0, 0, 0, 1, 0,]\n\n[0, 0, 0, 0, 1, 0]",
     "crumbs": [
       "Matrix"
     ]
@@ -7358,7 +7358,7 @@
     "href": "80_matrix.html#that-matrix",
     "title": "Matrix",
     "section": "That matrix",
-    "text": "That matrix\n\nThis matrix is the precise matrix made in the lab.",
+    "text": "That matrix\n\nThis matrix is the precise matrix made in the lab.\n\n\nmulti = np.array([\n    [-1/1, -1/1, -1/1, -1/1,  1/1, -1/1, -1/1, -1/1, -1/1],\n    [-1/2, -1/2,  1/2, -1/2, -1/2, -1/2,  1/2, -1/2, -1/2],\n    [-1/3, -1/3,  1/3, -1/3,  1/3, -1/3,  1/3, -1/3, -1/3],\n    [ 1/4, -1/4,  1/4, -1/4, -1/4, -1/4,  1/4, -1/4,  1/4],\n    [ 1/5, -1/5,  1/5, -1/5,  1/5, -1/5,  1/5, -1/5,  1/5],\n    [ 0/6,  3/6,  0/6,  3/6, -6/6,  3/6,  0/6,  3/6,  0/6],\n])",
     "crumbs": [
       "Matrix"
     ]
@@ -7368,7 +7368,7 @@
     "href": "80_matrix.html#test-it-1",
     "title": "Matrix",
     "section": "Test it",
-    "text": "Test it\n\nWe can try fiv…\n\n\n\narray([[-1.        , -0.        , -1.        , -0.        ,  1.        ,\n        -0.        , -1.        , -0.        , -1.        ],\n       [-0.5       , -0.        ,  0.5       , -0.        , -0.5       ,\n        -0.        ,  0.5       , -0.        , -0.5       ],\n       [-0.33333333, -0.        ,  0.33333333, -0.        ,  0.33333333,\n        -0.        ,  0.33333333, -0.        , -0.33333333],\n       [ 0.25      , -0.        ,  0.25      , -0.        , -0.25      ,\n        -0.        ,  0.25      , -0.        ,  0.25      ],\n       [ 0.2       , -0.        ,  0.2       , -0.        ,  0.2       ,\n        -0.        ,  0.2       , -0.        ,  0.2       ],\n       [ 0.        ,  0.        ,  0.        ,  0.        , -1.        ,\n         0.        ,  0.        ,  0.        ,  0.        ]])\n\n\n\nWhat a mess!",
+    "text": "Test it\n\nWe can try fiv…\n\n\nfiv * multi\n\narray([[-1.        , -0.        , -1.        , -0.        ,  1.        ,\n        -0.        , -1.        , -0.        , -1.        ],\n       [-0.5       , -0.        ,  0.5       , -0.        , -0.5       ,\n        -0.        ,  0.5       , -0.        , -0.5       ],\n       [-0.33333333, -0.        ,  0.33333333, -0.        ,  0.33333333,\n        -0.        ,  0.33333333, -0.        , -0.33333333],\n       [ 0.25      , -0.        ,  0.25      , -0.        , -0.25      ,\n        -0.        ,  0.25      , -0.        ,  0.25      ],\n       [ 0.2       , -0.        ,  0.2       , -0.        ,  0.2       ,\n        -0.        ,  0.2       , -0.        ,  0.2       ],\n       [ 0.        ,  0.        ,  0.        ,  0.        , -1.        ,\n         0.        ,  0.        ,  0.        ,  0.        ]])\n\n\n\nWhat a mess!",
     "crumbs": [
       "Matrix"
     ]
@@ -7378,7 +7378,7 @@
     "href": "80_matrix.html#sum-it-up-1",
     "title": "Matrix",
     "section": "Sum it up",
-    "text": "Sum it up\n\nIt’s hard for me to wrap my head around that many numbers!\n\nEspecially when they aren’t nice round numbers, since I was using fractions.\n\nWe’ll sum things up, as before.\n\n\n\narray([-3.        , -0.5       ,  0.33333333,  0.75      ,  1.        ,\n       -1.        ])",
+    "text": "Sum it up\n\nIt’s hard for me to wrap my head around that many numbers!\n\nEspecially when they aren’t nice round numbers, since I was using fractions.\n\nWe’ll sum things up, as before.\n\n\nnp.sum(fiv * multi,1)\n\narray([-3.        , -0.5       ,  0.33333333,  0.75      ,  1.        ,\n       -1.        ])",
     "crumbs": [
       "Matrix"
     ]
@@ -7388,7 +7388,7 @@
     "href": "80_matrix.html#compare-now-to-1",
     "title": "Matrix",
     "section": "Compare, now to 1",
-    "text": "Compare, now to 1\n\nOnce again, we can simply by just seeing if there’s enough “weight” to make a neuron fire, or not.\n\n\n\narray([False, False, False, False,  True, False])\n\n\n\nOnly the neuron representing “five” will fire!",
+    "text": "Compare, now to 1\n\nOnce again, we can simply by just seeing if there’s enough “weight” to make a neuron fire, or not.\n\n\n1 &lt;= np.sum(fiv * multi,1)\n\narray([False, False, False, False,  True, False])\n\n\n\nOnly the neuron representing “five” will fire!",
     "crumbs": [
       "Matrix"
     ]
@@ -7398,7 +7398,7 @@
     "href": "80_matrix.html#all-at-once",
     "title": "Matrix",
     "section": "All at once",
-    "text": "All at once\n\nWe can check all of the dice.\n\n\n\n[[-0.         -0.         -0.         -0.          1.         -0.\n  -0.         -0.         -0.        ]\n [-0.         -0.          0.         -0.         -0.5        -0.\n   0.         -0.         -0.        ]\n [-0.         -0.          0.         -0.          0.33333333 -0.\n   0.         -0.         -0.        ]\n [ 0.         -0.          0.         -0.         -0.25       -0.\n   0.         -0.          0.        ]\n [ 0.         -0.          0.         -0.          0.2        -0.\n   0.         -0.          0.        ]\n [ 0.          0.          0.          0.         -1.          0.\n   0.          0.          0.        ]]\n[[-0.         -0.         -1.         -0.          0.         -0.\n  -1.         -0.         -0.        ]\n [-0.         -0.          0.5        -0.         -0.         -0.\n   0.5        -0.         -0.        ]\n [-0.         -0.          0.33333333 -0.          0.         -0.\n   0.33333333 -0.         -0.        ]\n [ 0.         -0.          0.25       -0.         -0.         -0.\n   0.25       -0.          0.        ]\n [ 0.         -0.          0.2        -0.          0.         -0.\n   0.2        -0.          0.        ]\n [ 0.          0.          0.          0.         -0.          0.\n   0.          0.          0.        ]]\n[[-0.         -0.         -1.         -0.          1.         -0.\n  -1.         -0.         -0.        ]\n [-0.         -0.          0.5        -0.         -0.5        -0.\n   0.5        -0.         -0.        ]\n [-0.         -0.          0.33333333 -0.          0.33333333 -0.\n   0.33333333 -0.         -0.        ]\n [ 0.         -0.          0.25       -0.         -0.25       -0.\n   0.25       -0.          0.        ]\n [ 0.         -0.          0.2        -0.          0.2        -0.\n   0.2        -0.          0.        ]\n [ 0.          0.          0.          0.         -1.          0.\n   0.          0.          0.        ]]\n[[-1.         -0.         -1.         -0.          0.         -0.\n  -1.         -0.         -1.        ]\n [-0.5        -0.          0.5        -0.         -0.         -0.\n   0.5        -0.         -0.5       ]\n [-0.33333333 -0.          0.33333333 -0.          0.         -0.\n   0.33333333 -0.         -0.33333333]\n [ 0.25       -0.          0.25       -0.         -0.         -0.\n   0.25       -0.          0.25      ]\n [ 0.2        -0.          0.2        -0.          0.         -0.\n   0.2        -0.          0.2       ]\n [ 0.          0.          0.          0.         -0.          0.\n   0.          0.          0.        ]]\n[[-1.         -0.         -1.         -0.          1.         -0.\n  -1.         -0.         -1.        ]\n [-0.5        -0.          0.5        -0.         -0.5        -0.\n   0.5        -0.         -0.5       ]\n [-0.33333333 -0.          0.33333333 -0.          0.33333333 -0.\n   0.33333333 -0.         -0.33333333]\n [ 0.25       -0.          0.25       -0.         -0.25       -0.\n   0.25       -0.          0.25      ]\n [ 0.2        -0.          0.2        -0.          0.2        -0.\n   0.2        -0.          0.2       ]\n [ 0.          0.          0.          0.         -1.          0.\n   0.          0.          0.        ]]\n[[-1.         -0.         -1.         -1.          0.         -1.\n  -1.         -0.         -1.        ]\n [-0.5        -0.          0.5        -0.5        -0.         -0.5\n   0.5        -0.         -0.5       ]\n [-0.33333333 -0.          0.33333333 -0.33333333  0.         -0.33333333\n   0.33333333 -0.         -0.33333333]\n [ 0.25       -0.          0.25       -0.25       -0.         -0.25\n   0.25       -0.          0.25      ]\n [ 0.2        -0.          0.2        -0.2         0.         -0.2\n   0.2        -0.          0.2       ]\n [ 0.          0.          0.          0.5        -0.          0.5\n   0.          0.          0.        ]]",
+    "text": "All at once\n\nWe can check all of the dice.\n\n\nfor die in dice:\n    print(die * multi)\n\n[[-0.         -0.         -0.         -0.          1.         -0.\n  -0.         -0.         -0.        ]\n [-0.         -0.          0.         -0.         -0.5        -0.\n   0.         -0.         -0.        ]\n [-0.         -0.          0.         -0.          0.33333333 -0.\n   0.         -0.         -0.        ]\n [ 0.         -0.          0.         -0.         -0.25       -0.\n   0.         -0.          0.        ]\n [ 0.         -0.          0.         -0.          0.2        -0.\n   0.         -0.          0.        ]\n [ 0.          0.          0.          0.         -1.          0.\n   0.          0.          0.        ]]\n[[-0.         -0.         -1.         -0.          0.         -0.\n  -1.         -0.         -0.        ]\n [-0.         -0.          0.5        -0.         -0.         -0.\n   0.5        -0.         -0.        ]\n [-0.         -0.          0.33333333 -0.          0.         -0.\n   0.33333333 -0.         -0.        ]\n [ 0.         -0.          0.25       -0.         -0.         -0.\n   0.25       -0.          0.        ]\n [ 0.         -0.          0.2        -0.          0.         -0.\n   0.2        -0.          0.        ]\n [ 0.          0.          0.          0.         -0.          0.\n   0.          0.          0.        ]]\n[[-0.         -0.         -1.         -0.          1.         -0.\n  -1.         -0.         -0.        ]\n [-0.         -0.          0.5        -0.         -0.5        -0.\n   0.5        -0.         -0.        ]\n [-0.         -0.          0.33333333 -0.          0.33333333 -0.\n   0.33333333 -0.         -0.        ]\n [ 0.         -0.          0.25       -0.         -0.25       -0.\n   0.25       -0.          0.        ]\n [ 0.         -0.          0.2        -0.          0.2        -0.\n   0.2        -0.          0.        ]\n [ 0.          0.          0.          0.         -1.          0.\n   0.          0.          0.        ]]\n[[-1.         -0.         -1.         -0.          0.         -0.\n  -1.         -0.         -1.        ]\n [-0.5        -0.          0.5        -0.         -0.         -0.\n   0.5        -0.         -0.5       ]\n [-0.33333333 -0.          0.33333333 -0.          0.         -0.\n   0.33333333 -0.         -0.33333333]\n [ 0.25       -0.          0.25       -0.         -0.         -0.\n   0.25       -0.          0.25      ]\n [ 0.2        -0.          0.2        -0.          0.         -0.\n   0.2        -0.          0.2       ]\n [ 0.          0.          0.          0.         -0.          0.\n   0.          0.          0.        ]]\n[[-1.         -0.         -1.         -0.          1.         -0.\n  -1.         -0.         -1.        ]\n [-0.5        -0.          0.5        -0.         -0.5        -0.\n   0.5        -0.         -0.5       ]\n [-0.33333333 -0.          0.33333333 -0.          0.33333333 -0.\n   0.33333333 -0.         -0.33333333]\n [ 0.25       -0.          0.25       -0.         -0.25       -0.\n   0.25       -0.          0.25      ]\n [ 0.2        -0.          0.2        -0.          0.2        -0.\n   0.2        -0.          0.2       ]\n [ 0.          0.          0.          0.         -1.          0.\n   0.          0.          0.        ]]\n[[-1.         -0.         -1.         -1.          0.         -1.\n  -1.         -0.         -1.        ]\n [-0.5        -0.          0.5        -0.5        -0.         -0.5\n   0.5        -0.         -0.5       ]\n [-0.33333333 -0.          0.33333333 -0.33333333  0.         -0.33333333\n   0.33333333 -0.         -0.33333333]\n [ 0.25       -0.          0.25       -0.25       -0.         -0.25\n   0.25       -0.          0.25      ]\n [ 0.2        -0.          0.2        -0.2         0.         -0.2\n   0.2        -0.          0.2       ]\n [ 0.          0.          0.          0.5        -0.          0.5\n   0.          0.          0.        ]]",
     "crumbs": [
       "Matrix"
     ]
@@ -7408,7 +7408,7 @@
     "href": "80_matrix.html#sum-it-up-2",
     "title": "Matrix",
     "section": "Sum it up",
-    "text": "Sum it up\n\nWe can sum again.\n\n\n\n[ 1.         -0.5         0.33333333 -0.25        0.2        -1.        ]\n[-2.          1.          0.66666667  0.5         0.4         0.        ]\n[-1.    0.5   1.    0.25  0.6  -1.  ]\n[-4.   0.   0.   1.   0.8  0. ]\n[-3.         -0.5         0.33333333  0.75        1.         -1.        ]\n[-6.         -1.         -0.66666667  0.5         0.4         1.        ]",
+    "text": "Sum it up\n\nWe can sum again.\n\n\nfor die in dice:\n    print(np.sum(die * multi,1))\n\n[ 1.         -0.5         0.33333333 -0.25        0.2        -1.        ]\n[-2.          1.          0.66666667  0.5         0.4         0.        ]\n[-1.    0.5   1.    0.25  0.6  -1.  ]\n[-4.   0.   0.   1.   0.8  0. ]\n[-3.         -0.5         0.33333333  0.75        1.         -1.        ]\n[-6.         -1.         -0.66666667  0.5         0.4         1.        ]",
     "crumbs": [
       "Matrix"
     ]
@@ -7418,7 +7418,7 @@
     "href": "80_matrix.html#compare",
     "title": "Matrix",
     "section": "Compare",
-    "text": "Compare\n\nCompare versus… probably 1?\n\n\n\n[ True False False False False False]\n[False  True False False False False]\n[False False  True False False False]\n[False False False  True False False]\n[False False False False  True False]\n[False False False False False  True]\n\n\n\nThat looks like a diagonal of True to me.\n\nWhich should be just what we want, since our dice were in order.",
+    "text": "Compare\n\nCompare versus… probably 1?\n\n\nfor die in dice:\n    print(1 &lt;= np.sum(die * multi,1))\n\n[ True False False False False False]\n[False  True False False False False]\n[False False  True False False False]\n[False False False  True False False]\n[False False False False  True False]\n[False False False False False  True]\n\n\n\nThat looks like a diagonal of True to me.\n\nWhich should be just what we want, since our dice were in order.",
     "crumbs": [
       "Matrix"
     ]
@@ -7428,7 +7428,7 @@
     "href": "80_matrix.html#collect-our-thoughts",
     "title": "Matrix",
     "section": "Collect Our Thoughts",
-    "text": "Collect Our Thoughts\n\nIs this intelligent:\n\n\n\n[[-1.         -1.         -1.         -1.          1.         -1.\n  -1.         -1.         -1.        ]\n [-0.5        -0.5         0.5        -0.5        -0.5        -0.5\n   0.5        -0.5        -0.5       ]\n [-0.33333333 -0.33333333  0.33333333 -0.33333333  0.33333333 -0.33333333\n   0.33333333 -0.33333333 -0.33333333]\n [ 0.25       -0.25        0.25       -0.25       -0.25       -0.25\n   0.25       -0.25        0.25      ]\n [ 0.2        -0.2         0.2        -0.2         0.2        -0.2\n   0.2        -0.2         0.2       ]\n [ 0.          0.5         0.          0.5        -1.          0.5\n   0.          0.5         0.        ]]",
+    "text": "Collect Our Thoughts\n\nIs this intelligent:\n\n\nprint(multi)\n\n[[-1.         -1.         -1.         -1.          1.         -1.\n  -1.         -1.         -1.        ]\n [-0.5        -0.5         0.5        -0.5        -0.5        -0.5\n   0.5        -0.5        -0.5       ]\n [-0.33333333 -0.33333333  0.33333333 -0.33333333  0.33333333 -0.33333333\n   0.33333333 -0.33333333 -0.33333333]\n [ 0.25       -0.25        0.25       -0.25       -0.25       -0.25\n   0.25       -0.25        0.25      ]\n [ 0.2        -0.2         0.2        -0.2         0.2        -0.2\n   0.2        -0.2         0.2       ]\n [ 0.          0.5         0.          0.5        -1.          0.5\n   0.          0.5         0.        ]]",
     "crumbs": [
       "Matrix"
     ]
@@ -7498,7 +7498,7 @@
     "href": "80_matrix.html#matrices-2",
     "title": "Matrix",
     "section": "Matrices",
-    "text": "Matrices\n\nThen, we note that we can express these weights in a matrix.",
+    "text": "Matrices\n\nThen, we note that we can express these weights in a matrix.\n\n\nmulti = np.array([\n    [-1/1, -1/1, -1/1, -1/1,  1/1, -1/1, -1/1, -1/1, -1/1],\n    [-1/2, -1/2,  1/2, -1/2, -1/2, -1/2,  1/2, -1/2, -1/2],\n    [-1/3, -1/3,  1/3, -1/3,  1/3, -1/3,  1/3, -1/3, -1/3],\n    [ 1/4, -1/4,  1/4, -1/4, -1/4, -1/4,  1/4, -1/4,  1/4],\n    [ 1/5, -1/5,  1/5, -1/5,  1/5, -1/5,  1/5, -1/5,  1/5],\n    [ 0/6,  3/6,  0/6,  3/6, -6/6,  3/6,  0/6,  3/6,  0/6],\n])",
     "crumbs": [
       "Matrix"
     ]
