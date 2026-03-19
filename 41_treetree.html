@@ -419,6 +419,52 @@ Features
 </ul></li>
 </ul>
 <div class="cell" data-layout-align="default">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource dot number-lines code-with-copy"><code class="sourceCode dot"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">digraph</span> <span class="va">OakKey</span> <span class="ot">{</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="co">    </span><span class="at">bgcolor</span><span class="ot">=</span><span class="st">"transparent"</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">box</span><span class="co">,  </span><span class="at">fontcolor</span><span class="ot">=</span><span class="st">"white"</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"white"</span><span class="ot">];</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="co">    </span><span class="kw">edge</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="ot">=</span><span class="st">"white"</span><span class="co">, </span><span class="at">fontcolor</span><span class="ot">=</span><span class="st">"white"</span><span class="ot">];</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="co">    </span></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="co">    // Questions/Nodes</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="co">    </span><span class="va">Start</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Leaves are smooth with no teeth or lobes?"</span><span class="ot">];</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="co">    </span><span class="va">Evergreen</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Laves evergreen?"</span><span class="ot">];</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="co">    </span><span class="va">GrowthHabit</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Large Tree (not shrub)?"</span><span class="ot">];</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="co">    </span><span class="va">LeafShape</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Leaves more than 3x long as wide"</span><span class="ot">];</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a><span class="co">    </span><span class="va">Bristles</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Lobes/teeth bristle-tipped?"</span><span class="ot">];</span></span>
+<span id="cb2-12"><a href="#cb2-12"></a><span class="co">    </span><span class="va">LobeCount6</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"3 or fewer lobes?"</span><span class="ot">];</span></span>
+<span id="cb2-13"><a href="#cb2-13"></a><span class="co">    </span><span class="va">LobeCount7</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"9 or fewer lobes?"</span><span class="ot">];</span></span>
+<span id="cb2-14"><a href="#cb2-14"></a></span>
+<span id="cb2-15"><a href="#cb2-15"></a><span class="co">    // Species (Leaf nodes)</span></span>
+<span id="cb2-16"><a href="#cb2-16"></a><span class="co">    </span><span class="va">LiveOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Southern live oak"</span><span class="ot">];</span></span>
+<span id="cb2-17"><a href="#cb2-17"></a><span class="co">    </span><span class="va">DwarfOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Dwarf live oak"</span><span class="ot">];</span></span>
+<span id="cb2-18"><a href="#cb2-18"></a><span class="co">    </span><span class="va">WillowOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Willow oak"</span><span class="ot">];</span></span>
+<span id="cb2-19"><a href="#cb2-19"></a><span class="co">    </span><span class="va">ShingleOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Shingle oak"</span><span class="ot">];</span></span>
+<span id="cb2-20"><a href="#cb2-20"></a><span class="co">    </span><span class="va">BlackjackOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Blackjack oak"</span><span class="ot">];</span></span>
+<span id="cb2-21"><a href="#cb2-21"></a><span class="co">    </span><span class="va">RedOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Northern red oak"</span><span class="ot">];</span></span>
+<span id="cb2-22"><a href="#cb2-22"></a><span class="co">    </span><span class="va">WhiteOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"White oak"</span><span class="ot">];</span></span>
+<span id="cb2-23"><a href="#cb2-23"></a><span class="co">    </span><span class="va">SwampOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Swamp chestnut oak"</span><span class="ot">];</span></span>
+<span id="cb2-24"><a href="#cb2-24"></a></span>
+<span id="cb2-25"><a href="#cb2-25"></a><span class="co">    // Relationships</span></span>
+<span id="cb2-26"><a href="#cb2-26"></a><span class="co">    </span><span class="va">Start</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">Evergreen</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"True"</span><span class="ot">];</span></span>
+<span id="cb2-27"><a href="#cb2-27"></a><span class="co">    </span><span class="va">Start</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">Bristles</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"False"</span><span class="ot">];</span></span>
+<span id="cb2-28"><a href="#cb2-28"></a></span>
+<span id="cb2-29"><a href="#cb2-29"></a><span class="co">    </span><span class="va">Evergreen</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">GrowthHabit</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"True"</span><span class="ot">];</span></span>
+<span id="cb2-30"><a href="#cb2-30"></a><span class="co">    </span><span class="va">Evergreen</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">LeafShape</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"False"</span><span class="ot">];</span></span>
+<span id="cb2-31"><a href="#cb2-31"></a></span>
+<span id="cb2-32"><a href="#cb2-32"></a><span class="co">    </span><span class="va">GrowthHabit</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">LiveOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"True"</span><span class="ot">];</span></span>
+<span id="cb2-33"><a href="#cb2-33"></a><span class="co">    </span><span class="va">GrowthHabit</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">DwarfOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"False"</span><span class="ot">];</span></span>
+<span id="cb2-34"><a href="#cb2-34"></a></span>
+<span id="cb2-35"><a href="#cb2-35"></a><span class="co">    </span><span class="va">LeafShape</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">WillowOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"True"</span><span class="ot">];</span></span>
+<span id="cb2-36"><a href="#cb2-36"></a><span class="co">    </span><span class="va">LeafShape</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">ShingleOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"False"</span><span class="ot">];</span></span>
+<span id="cb2-37"><a href="#cb2-37"></a></span>
+<span id="cb2-38"><a href="#cb2-38"></a><span class="co">    </span><span class="va">Bristles</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">LobeCount6</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"True"</span><span class="ot">];</span></span>
+<span id="cb2-39"><a href="#cb2-39"></a><span class="co">    </span><span class="va">Bristles</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">LobeCount7</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"False"</span><span class="ot">];</span></span>
+<span id="cb2-40"><a href="#cb2-40"></a></span>
+<span id="cb2-41"><a href="#cb2-41"></a><span class="co">    </span><span class="va">LobeCount6</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">BlackjackOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"True"</span><span class="ot">];</span></span>
+<span id="cb2-42"><a href="#cb2-42"></a><span class="co">    </span><span class="va">LobeCount6</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">RedOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"False"</span><span class="ot">];</span></span>
+<span id="cb2-43"><a href="#cb2-43"></a></span>
+<span id="cb2-44"><a href="#cb2-44"></a><span class="co">    </span><span class="va">LobeCount7</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">WhiteOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"True"</span><span class="ot">];</span></span>
+<span id="cb2-45"><a href="#cb2-45"></a><span class="co">    </span><span class="va">LobeCount7</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">SwampOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"False"</span><span class="ot">];</span></span>
+<span id="cb2-46"><a href="#cb2-46"></a><span class="ot">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
@@ -665,8 +711,8 @@ Features
 <li>I have the best luck with prompting Gemini when I provide images as a URL.</li>
 <li>Here are the URLs for the leaf and tree of Oak A, the others are similar.</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource email number-lines code-with-copy"><code class="sourceCode email"><span id="cb2-1"><a href="#cb2-1"></a>https://cd-public.github.io/ai101/images/oaks/a_leaf.jpg</span>
-<span id="cb2-2"><a href="#cb2-2"></a>https://cd-public.github.io/ai101/images/oaks/a_tree.jpg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource email number-lines code-with-copy"><code class="sourceCode email"><span id="cb3-1"><a href="#cb3-1"></a>https://cd-public.github.io/ai101/images/oaks/a_leaf.jpg</span>
+<span id="cb3-2"><a href="#cb3-2"></a>https://cd-public.github.io/ai101/images/oaks/a_tree.jpg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="requirements" class="level2">
@@ -675,7 +721,7 @@ Features
 <li><label><input type="checkbox">Create a “Lab04” Colab notebook (NOT a Google Document) in your AI Folder.</label></li>
 <li><label><input type="checkbox">The very first cell must be a <em>code cell</em> containing exactly the following text:</label></li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>tree_letter <span class="op">=</span> <span class="st">"a"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>tree_letter <span class="op">=</span> <span class="st">"a"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul class="task-list">
 <li><label><input type="checkbox">You must be able to change this letter to “b” or “c” and receive a correct classification when using “Run all”</label></li>
 <li><label><input type="checkbox">You may use any number of intermediate code or text blocks, but the final block <em>must</em> print out the name of the tree.</label></li>
@@ -726,11 +772,11 @@ Features
 <li>I used <code>+</code> to combine them - usually before asking a question from the key.</li>
 <li>Here is an example:</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>from google.colab <span class="im">import</span> ai</span>
-<span id="cb4-2"><a href="#cb4-2"></a>prefix <span class="op">=</span> <span class="st">"I'm a Colab notebook, and I cannot read! Reply only yes/no with no capitals or punctuation!"</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a>question <span class="op">=</span> <span class="st">"Is four an even number"</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a>answer <span class="op">=</span> ai.generate_text(prefix <span class="op">+</span> question)</span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="bu">print</span>(answer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>from google.colab <span class="im">import</span> ai</span>
+<span id="cb5-2"><a href="#cb5-2"></a>prefix <span class="op">=</span> <span class="st">"I'm a Colab notebook, and I cannot read! Reply only yes/no with no capitals or punctuation!"</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a>question <span class="op">=</span> <span class="st">"Is four an even number"</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a>answer <span class="op">=</span> ai.generate_text(prefix <span class="op">+</span> question)</span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="bu">print</span>(answer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="ifelse-syntax" class="level3">
 <h3 class="anchored" data-anchor-id="ifelse-syntax">If/else Syntax</h3>
@@ -744,10 +790,10 @@ Features
 </ul></li>
 <li>Here is an example:</li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="cf">if</span> answer <span class="op">==</span> <span class="st">"yes"</span>:</span>
-<span id="cb5-2"><a href="#cb5-2"></a>  <span class="bu">print</span>(<span class="st">"Four is an even number"</span>)</span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="cf">else</span>:</span>
-<span id="cb5-4"><a href="#cb5-4"></a>  <span class="bu">print</span>(<span class="st">"Four is not an even number"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="cf">if</span> answer <span class="op">==</span> <span class="st">"yes"</span>:</span>
+<span id="cb6-2"><a href="#cb6-2"></a>  <span class="bu">print</span>(<span class="st">"Four is an even number"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="cf">else</span>:</span>
+<span id="cb6-4"><a href="#cb6-4"></a>  <span class="bu">print</span>(<span class="st">"Four is not an even number"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -763,8 +809,8 @@ Double equals? What’s that!
 <li>I call <code>=</code> “single equals assignment”. It assigns a nickname to something longer or more complicated. It gets its own line.</li>
 <li>I call <code>==</code> “double equals equality”. It checks to see if two things are equal, usually with an <code>if</code>.</li>
 </ol>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="cf">if</span> <span class="dv">1</span> <span class="op">==</span> <span class="dv">1</span>:</span>
-<span id="cb6-2"><a href="#cb6-2"></a>    <span class="bu">print</span>(<span class="st">"Hi!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="cf">if</span> <span class="dv">1</span> <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb7-2"><a href="#cb7-2"></a>    <span class="bu">print</span>(<span class="st">"Hi!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -776,16 +822,16 @@ Double equals? What’s that!
 <li>Term this “nesting”.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>even <span class="op">=</span> ai.generate_text(prefix <span class="op">+</span> <span class="st">"Is four an even number"</span>)</span>
-<span id="cb7-2"><a href="#cb7-2"></a>positive <span class="op">=</span> ai.generate_text(prefix <span class="op">+</span> <span class="st">"Is four a positive number"</span>)</span>
-<span id="cb7-3"><a href="#cb7-3"></a></span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="cf">if</span> even <span class="op">==</span> <span class="st">"yes"</span>:</span>
-<span id="cb7-5"><a href="#cb7-5"></a>  <span class="cf">if</span> positive <span class="op">==</span> <span class="st">"yes"</span>:</span>
-<span id="cb7-6"><a href="#cb7-6"></a>    <span class="bu">print</span>(<span class="st">"Even positive number."</span>)</span>
-<span id="cb7-7"><a href="#cb7-7"></a>  <span class="cf">else</span>:</span>
-<span id="cb7-8"><a href="#cb7-8"></a>    <span class="bu">print</span>(<span class="st">"Even negative number."</span>)</span>
-<span id="cb7-9"><a href="#cb7-9"></a><span class="cf">else</span>:</span>
-<span id="cb7-10"><a href="#cb7-10"></a>  <span class="bu">print</span>(<span class="st">"Odd number."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>even <span class="op">=</span> ai.generate_text(prefix <span class="op">+</span> <span class="st">"Is four an even number"</span>)</span>
+<span id="cb8-2"><a href="#cb8-2"></a>positive <span class="op">=</span> ai.generate_text(prefix <span class="op">+</span> <span class="st">"Is four a positive number"</span>)</span>
+<span id="cb8-3"><a href="#cb8-3"></a></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="cf">if</span> even <span class="op">==</span> <span class="st">"yes"</span>:</span>
+<span id="cb8-5"><a href="#cb8-5"></a>  <span class="cf">if</span> positive <span class="op">==</span> <span class="st">"yes"</span>:</span>
+<span id="cb8-6"><a href="#cb8-6"></a>    <span class="bu">print</span>(<span class="st">"Even positive number."</span>)</span>
+<span id="cb8-7"><a href="#cb8-7"></a>  <span class="cf">else</span>:</span>
+<span id="cb8-8"><a href="#cb8-8"></a>    <span class="bu">print</span>(<span class="st">"Even negative number."</span>)</span>
+<span id="cb8-9"><a href="#cb8-9"></a><span class="cf">else</span>:</span>
+<span id="cb8-10"><a href="#cb8-10"></a>  <span class="bu">print</span>(<span class="st">"Odd number."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 </section>
@@ -1289,254 +1335,254 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb8" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">---</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="an">title:</span><span class="co"> Tree Tree </span></span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="an">format:</span><span class="co"> html</span></span>
-<span id="cb8-4"><a href="#cb8-4"></a><span class="co">---</span></span>
-<span id="cb8-5"><a href="#cb8-5"></a></span>
-<span id="cb8-6"><a href="#cb8-6"></a>::: {.callout-note appearance="simple"}</span>
-<span id="cb8-7"><a href="#cb8-7"></a></span>
-<span id="cb8-8"><a href="#cb8-8"></a><span class="fu">## Trees and Keys</span></span>
-<span id="cb8-9"><a href="#cb8-9"></a></span>
-<span id="cb8-10"><a href="#cb8-10"></a>We return to the question of oaks with:</span>
-<span id="cb8-11"><a href="#cb8-11"></a></span>
-<span id="cb8-12"><a href="#cb8-12"></a><span class="ss">1. </span>More understanding of Colab, and...</span>
-<span id="cb8-13"><a href="#cb8-13"></a><span class="ss">2. </span>More understanding of classification.</span>
-<span id="cb8-14"><a href="#cb8-14"></a></span>
-<span id="cb8-15"><a href="#cb8-15"></a>:::</span>
-<span id="cb8-16"><a href="#cb8-16"></a></span>
-<span id="cb8-17"><a href="#cb8-17"></a></span>
-<span id="cb8-18"><a href="#cb8-18"></a><span class="fu"># What is a Decision tree?</span></span>
-<span id="cb8-19"><a href="#cb8-19"></a></span>
-<span id="cb8-20"><a href="#cb8-20"></a><span class="ss">- </span>A decision tree is a flowchart-like structure in which each internal step represents a feature, and each end point node represents a label. </span>
-<span id="cb8-21"><a href="#cb8-21"></a><span class="ss">- </span>The paths from root to leaf represent classification rules.</span>
-<span id="cb8-22"><a href="#cb8-22"></a><span class="ss">- </span>A dichotomous key is a decision tree that can be used for classification.</span>
-<span id="cb8-23"><a href="#cb8-23"></a><span class="ss">    - </span>In our case with oaks, a "tree tree" - or an "oak decision tree".</span>
-<span id="cb8-24"><a href="#cb8-24"></a></span>
-<span id="cb8-25"><a href="#cb8-25"></a><span class="fu">### The Key</span></span>
-<span id="cb8-26"><a href="#cb8-26"></a></span>
-<span id="cb8-27"><a href="#cb8-27"></a><span class="ss">- </span>Recall, a key is a branching series of yes/no questions.</span>
-<span id="cb8-28"><a href="#cb8-28"></a><span class="ss">    - </span>The dichotomous key gets its name from having two ("di") possibilities for any case</span>
-<span id="cb8-29"><a href="#cb8-29"></a><span class="ss">    - </span>"yes" and "no" or "true" and "false" or etc. etc.</span>
-<span id="cb8-30"><a href="#cb8-30"></a><span class="ss">- </span>To classify an oak, there are a series of questions that a non-expert can answer by inspecting the tree, such as being looking at the whole tree or looking at its leaves.</span>
-<span id="cb8-31"><a href="#cb8-31"></a><span class="ss">- </span>After answer a question, there is either a reference to a new question, usually by number, or a note that you have determined what the type of tree is.</span>
-<span id="cb8-32"><a href="#cb8-32"></a></span>
-<span id="cb8-33"><a href="#cb8-33"></a>::: {.callout-note appearance="simple"}</span>
-<span id="cb8-34"><a href="#cb8-34"></a></span>
-<span id="cb8-35"><a href="#cb8-35"></a><span class="fu">## Features</span></span>
-<span id="cb8-36"><a href="#cb8-36"></a></span>
-<span id="cb8-37"><a href="#cb8-37"></a>We now recognize these "yes"/"no" questions as *features*.</span>
-<span id="cb8-38"><a href="#cb8-38"></a></span>
-<span id="cb8-39"><a href="#cb8-39"></a>We recall:</span>
-<span id="cb8-40"><a href="#cb8-40"></a></span>
-<span id="cb8-41"><a href="#cb8-41"></a><span class="at">&gt; </span><span class="co">[</span><span class="ot">In machine learning and pattern recognition, a feature is an individual measurable property or characteristic of a data set.</span><span class="co">]</span><span class="at">(https://en.wikipedia.org/wiki/Feature_(machine_learning))</span></span>
-<span id="cb8-42"><a href="#cb8-42"></a></span>
-<span id="cb8-43"><a href="#cb8-43"></a>:::</span>
-<span id="cb8-44"><a href="#cb8-44"></a></span>
-<span id="cb8-45"><a href="#cb8-45"></a><span class="fu">### Example</span></span>
-<span id="cb8-46"><a href="#cb8-46"></a></span>
-<span id="cb8-47"><a href="#cb8-47"></a><span class="in">    1. Leaves usually without teeth or lobes: 2</span></span>
-<span id="cb8-48"><a href="#cb8-48"></a><span class="in">    1. Leaves usually with teeth or lobes: 5</span></span>
-<span id="cb8-49"><a href="#cb8-49"></a></span>
-<span id="cb8-50"><a href="#cb8-50"></a><span class="in">        2. Leaves evergreen: 3</span></span>
-<span id="cb8-51"><a href="#cb8-51"></a><span class="in">        2. Leaves not evergreen: 4</span></span>
-<span id="cb8-52"><a href="#cb8-52"></a></span>
-<span id="cb8-53"><a href="#cb8-53"></a><span class="in">    3. Mature plant a large tree — Southern live oak Quercus virginiana</span></span>
-<span id="cb8-54"><a href="#cb8-54"></a><span class="in">    3. Mature plant a small shrub — Dwarf live oak Quercus minima</span></span>
-<span id="cb8-55"><a href="#cb8-55"></a></span>
-<span id="cb8-56"><a href="#cb8-56"></a><span class="in">        4. Leaf narrow, about 4-6 times as long as broad — Willow oak Quercus phellos</span></span>
-<span id="cb8-57"><a href="#cb8-57"></a><span class="in">        4. Leaf broad, about 2-3 times as long as broad — Shingle oak Quercus imbricaria</span></span>
-<span id="cb8-58"><a href="#cb8-58"></a></span>
-<span id="cb8-59"><a href="#cb8-59"></a><span class="in">    5. Lobes or teeth bristle-tipped: 6</span></span>
-<span id="cb8-60"><a href="#cb8-60"></a><span class="in">    5. Lobes or teeth rounded or blunt-pointed, no bristles: 7</span></span>
-<span id="cb8-61"><a href="#cb8-61"></a></span>
-<span id="cb8-62"><a href="#cb8-62"></a><span class="in">        6. Leaves mostly with 3 lobes — Blackjack oak Quercus marilandica</span></span>
-<span id="cb8-63"><a href="#cb8-63"></a><span class="in">        6. Leaves mostly with 7-9 lobes — Northern red oak Quercus rubra</span></span>
-<span id="cb8-64"><a href="#cb8-64"></a></span>
-<span id="cb8-65"><a href="#cb8-65"></a><span class="in">    7. Leaves with 5-9 deep lobes — White oak Quercus alba</span></span>
-<span id="cb8-66"><a href="#cb8-66"></a><span class="in">    7. Leaves with 21-27 shallow lobes — Swamp chestnut oak Quercus prinus</span></span>
-<span id="cb8-67"><a href="#cb8-67"></a></span>
-<span id="cb8-68"><a href="#cb8-68"></a><span class="fu">### Visually</span></span>
-<span id="cb8-69"><a href="#cb8-69"></a></span>
-<span id="cb8-70"><a href="#cb8-70"></a><span class="ss">- </span>You may have to zoom in...</span>
-<span id="cb8-71"><a href="#cb8-71"></a><span class="ss">    - </span>If you turn it upside down, it somewhat looks like a tree (hence the name).</span>
-<span id="cb8-72"><a href="#cb8-72"></a></span>
-<span id="cb8-75"><a href="#cb8-75"></a><span class="in">```{dot}</span></span>
-<span id="cb8-76"><a href="#cb8-76"></a><span class="in">digraph OakKey {</span></span>
-<span id="cb8-77"><a href="#cb8-77"></a><span class="in">    bgcolor="transparent"</span></span>
-<span id="cb8-78"><a href="#cb8-78"></a><span class="in">    node [shape=box,  fontcolor="white", color="white"];</span></span>
-<span id="cb8-79"><a href="#cb8-79"></a><span class="in">    edge [color="white", fontcolor="white"];</span></span>
-<span id="cb8-80"><a href="#cb8-80"></a><span class="in">    </span></span>
-<span id="cb8-81"><a href="#cb8-81"></a><span class="in">    // Questions/Nodes</span></span>
-<span id="cb8-82"><a href="#cb8-82"></a><span class="in">    Start [label="Leaves are smooth with no teeth or lobes?"];</span></span>
-<span id="cb8-83"><a href="#cb8-83"></a><span class="in">    Evergreen [label="Laves evergreen?"];</span></span>
-<span id="cb8-84"><a href="#cb8-84"></a><span class="in">    GrowthHabit [label="Large Tree (not shrub)?"];</span></span>
-<span id="cb8-85"><a href="#cb8-85"></a><span class="in">    LeafShape [label="Leaves more than 3x long as wide"];</span></span>
-<span id="cb8-86"><a href="#cb8-86"></a><span class="in">    Bristles [label="Lobes/teeth bristle-tipped?"];</span></span>
-<span id="cb8-87"><a href="#cb8-87"></a><span class="in">    LobeCount6 [label="3 or fewer lobes?"];</span></span>
-<span id="cb8-88"><a href="#cb8-88"></a><span class="in">    LobeCount7 [label="9 or fewer lobes?"];</span></span>
-<span id="cb8-89"><a href="#cb8-89"></a></span>
-<span id="cb8-90"><a href="#cb8-90"></a><span class="in">    // Species (Leaf nodes)</span></span>
-<span id="cb8-91"><a href="#cb8-91"></a><span class="in">    LiveOak [label="Southern live oak"];</span></span>
-<span id="cb8-92"><a href="#cb8-92"></a><span class="in">    DwarfOak [label="Dwarf live oak"];</span></span>
-<span id="cb8-93"><a href="#cb8-93"></a><span class="in">    WillowOak [label="Willow oak"];</span></span>
-<span id="cb8-94"><a href="#cb8-94"></a><span class="in">    ShingleOak [label="Shingle oak"];</span></span>
-<span id="cb8-95"><a href="#cb8-95"></a><span class="in">    BlackjackOak [label="Blackjack oak"];</span></span>
-<span id="cb8-96"><a href="#cb8-96"></a><span class="in">    RedOak [label="Northern red oak"];</span></span>
-<span id="cb8-97"><a href="#cb8-97"></a><span class="in">    WhiteOak [label="White oak"];</span></span>
-<span id="cb8-98"><a href="#cb8-98"></a><span class="in">    SwampOak [label="Swamp chestnut oak"];</span></span>
-<span id="cb8-99"><a href="#cb8-99"></a></span>
-<span id="cb8-100"><a href="#cb8-100"></a><span class="in">    // Relationships</span></span>
-<span id="cb8-101"><a href="#cb8-101"></a><span class="in">    Start -&gt; Evergreen [label="True"];</span></span>
-<span id="cb8-102"><a href="#cb8-102"></a><span class="in">    Start -&gt; Bristles [label="False"];</span></span>
-<span id="cb8-103"><a href="#cb8-103"></a></span>
-<span id="cb8-104"><a href="#cb8-104"></a><span class="in">    Evergreen -&gt; GrowthHabit [label="True"];</span></span>
-<span id="cb8-105"><a href="#cb8-105"></a><span class="in">    Evergreen -&gt; LeafShape [label="False"];</span></span>
-<span id="cb8-106"><a href="#cb8-106"></a></span>
-<span id="cb8-107"><a href="#cb8-107"></a><span class="in">    GrowthHabit -&gt; LiveOak [label="True"];</span></span>
-<span id="cb8-108"><a href="#cb8-108"></a><span class="in">    GrowthHabit -&gt; DwarfOak [label="False"];</span></span>
-<span id="cb8-109"><a href="#cb8-109"></a></span>
-<span id="cb8-110"><a href="#cb8-110"></a><span class="in">    LeafShape -&gt; WillowOak [label="True"];</span></span>
-<span id="cb8-111"><a href="#cb8-111"></a><span class="in">    LeafShape -&gt; ShingleOak [label="False"];</span></span>
-<span id="cb8-112"><a href="#cb8-112"></a></span>
-<span id="cb8-113"><a href="#cb8-113"></a><span class="in">    Bristles -&gt; LobeCount6 [label="True"];</span></span>
-<span id="cb8-114"><a href="#cb8-114"></a><span class="in">    Bristles -&gt; LobeCount7 [label="False"];</span></span>
-<span id="cb8-115"><a href="#cb8-115"></a></span>
-<span id="cb8-116"><a href="#cb8-116"></a><span class="in">    LobeCount6 -&gt; BlackjackOak [label="True"];</span></span>
-<span id="cb8-117"><a href="#cb8-117"></a><span class="in">    LobeCount6 -&gt; RedOak [label="False"];</span></span>
-<span id="cb8-118"><a href="#cb8-118"></a></span>
-<span id="cb8-119"><a href="#cb8-119"></a><span class="in">    LobeCount7 -&gt; WhiteOak [label="True"];</span></span>
-<span id="cb8-120"><a href="#cb8-120"></a><span class="in">    LobeCount7 -&gt; SwampOak [label="False"];</span></span>
-<span id="cb8-121"><a href="#cb8-121"></a><span class="in">}</span></span>
-<span id="cb8-122"><a href="#cb8-122"></a><span class="in">```</span></span>
-<span id="cb8-123"><a href="#cb8-123"></a></span>
-<span id="cb8-124"><a href="#cb8-124"></a><span class="fu">## Some oaks</span></span>
-<span id="cb8-125"><a href="#cb8-125"></a></span>
-<span id="cb8-126"><a href="#cb8-126"></a><span class="ss">- </span>All are sourced from Wikipedia and appropriately licensed, with the links to the host page in the key.</span>
-<span id="cb8-127"><a href="#cb8-127"></a></span>
-<span id="cb8-128"><a href="#cb8-128"></a><span class="fu">### Key</span></span>
-<span id="cb8-129"><a href="#cb8-129"></a></span>
-<span id="cb8-130"><a href="#cb8-130"></a>*Click "Details" to expand*</span>
-<span id="cb8-131"><a href="#cb8-131"></a></span>
-<span id="cb8-132"><a href="#cb8-132"></a>&lt;details&gt;</span>
-<span id="cb8-133"><a href="#cb8-133"></a></span>
-<span id="cb8-134"><a href="#cb8-134"></a>|Nickname|Common Name|Scientific Name|</span>
-<span id="cb8-135"><a href="#cb8-135"></a>|-|-|-|</span>
-<span id="cb8-136"><a href="#cb8-136"></a>| A | <span class="co">[</span><span class="ot">Blackjack oak</span><span class="co">](https://en.wikipedia.org/wiki/Quercus_marilandica)</span> | Quercus marilandica |</span>
-<span id="cb8-137"><a href="#cb8-137"></a>| B | <span class="co">[</span><span class="ot">Dwarf live oak</span><span class="co">](https://en.wikipedia.org/wiki/Dwarf_live_oak)</span> | Quercus minima |</span>
-<span id="cb8-138"><a href="#cb8-138"></a>| C | <span class="co">[</span><span class="ot">Northern red oak</span><span class="co">](https://en.wikipedia.org/wiki/Quercus_rubra)</span> | Quercus rubra | </span>
-<span id="cb8-139"><a href="#cb8-139"></a></span>
-<span id="cb8-140"><a href="#cb8-140"></a>&lt;/details&gt;</span>
-<span id="cb8-141"><a href="#cb8-141"></a></span>
-<span id="cb8-142"><a href="#cb8-142"></a><span class="fu">### URLs</span></span>
-<span id="cb8-143"><a href="#cb8-143"></a></span>
-<span id="cb8-144"><a href="#cb8-144"></a><span class="ss">- </span>I have the best luck with prompting Gemini when I provide images as a URL.</span>
-<span id="cb8-145"><a href="#cb8-145"></a><span class="ss">- </span>Here are the URLs for the leaf and tree of Oak A, the others are similar.</span>
-<span id="cb8-146"><a href="#cb8-146"></a></span>
-<span id="cb8-147"><a href="#cb8-147"></a><span class="in">```email</span></span>
-<span id="cb8-148"><a href="#cb8-148"></a>https://cd-public.github.io/ai101/images/oaks/a_leaf.jpg</span>
-<span id="cb8-149"><a href="#cb8-149"></a>https://cd-public.github.io/ai101/images/oaks/a_tree.jpg</span>
-<span id="cb8-150"><a href="#cb8-150"></a><span class="in">```</span></span>
-<span id="cb8-151"><a href="#cb8-151"></a></span>
-<span id="cb8-152"><a href="#cb8-152"></a></span>
-<span id="cb8-153"><a href="#cb8-153"></a><span class="fu">## Requirements </span></span>
-<span id="cb8-154"><a href="#cb8-154"></a></span>
-<span id="cb8-155"><a href="#cb8-155"></a><span class="ss">- </span><span class="va">[ ]</span> Create a "Lab04" Colab notebook (NOT a Google Document) in your AI Folder.</span>
-<span id="cb8-156"><a href="#cb8-156"></a><span class="ss">- </span><span class="va">[ ]</span> The very first cell must be a *code cell* containing exactly the following text:</span>
-<span id="cb8-157"><a href="#cb8-157"></a><span class="in">```{.py}</span></span>
-<span id="cb8-158"><a href="#cb8-158"></a><span class="in">tree_letter = "a"</span></span>
-<span id="cb8-159"><a href="#cb8-159"></a><span class="in">```</span></span>
-<span id="cb8-160"><a href="#cb8-160"></a><span class="ss">- </span><span class="va">[ ]</span> You must be able to change this letter to "b" or "c" and receive a correct classification when using "Run all"</span>
-<span id="cb8-161"><a href="#cb8-161"></a><span class="ss">- </span><span class="va">[ ]</span> You may use any number of intermediate code or text blocks, but the final block *must* print out the name of the tree.</span>
-<span id="cb8-162"><a href="#cb8-162"></a></span>
-<span id="cb8-163"><a href="#cb8-163"></a>|Letter|Common Name|Scientific Name|</span>
-<span id="cb8-164"><a href="#cb8-164"></a>|-|-|-|</span>
-<span id="cb8-165"><a href="#cb8-165"></a>| 'a' | <span class="co">[</span><span class="ot">Blackjack oak</span><span class="co">](https://en.wikipedia.org/wiki/Quercus_marilandica)</span> | Quercus marilandica |</span>
-<span id="cb8-166"><a href="#cb8-166"></a>| 'b' | <span class="co">[</span><span class="ot">Dwarf live oak</span><span class="co">](https://en.wikipedia.org/wiki/Dwarf_live_oak)</span> | Quercus minima |</span>
-<span id="cb8-167"><a href="#cb8-167"></a>| 'c' | <span class="co">[</span><span class="ot">Northern red oak</span><span class="co">](https://en.wikipedia.org/wiki/Quercus_rubra)</span> | Quercus rubra | </span>
-<span id="cb8-168"><a href="#cb8-168"></a></span>
-<span id="cb8-169"><a href="#cb8-169"></a></span>
-<span id="cb8-170"><a href="#cb8-170"></a>You should use the following:</span>
-<span id="cb8-171"><a href="#cb8-171"></a></span>
-<span id="cb8-172"><a href="#cb8-172"></a><span class="ss">- </span><span class="va">[ ]</span> Use <span class="in">`+`</span> to combine strings</span>
-<span id="cb8-173"><a href="#cb8-173"></a><span class="ss">- </span><span class="va">[ ]</span> Use <span class="in">`ai.generate_text`</span> to ask questions, and </span>
-<span id="cb8-174"><a href="#cb8-174"></a><span class="ss">- </span><span class="va">[ ]</span> Use <span class="in">`=`</span> to store the results of queries to Gemini</span>
-<span id="cb8-175"><a href="#cb8-175"></a><span class="ss">- </span><span class="va">[ ]</span> **NEW**:  <span class="in">`if`</span> and <span class="in">`else`</span> to determine which questions to ask.</span>
-<span id="cb8-176"><a href="#cb8-176"></a></span>
-<span id="cb8-177"><a href="#cb8-177"></a><span class="fu">### Plus/Equals</span></span>
-<span id="cb8-178"><a href="#cb8-178"></a></span>
-<span id="cb8-179"><a href="#cb8-179"></a><span class="ss">- </span>I found it very helpful in this lab to add many helpful tidbits to Gemini together.</span>
-<span id="cb8-180"><a href="#cb8-180"></a><span class="ss">    - </span>"Hey we are classifying trees!"</span>
-<span id="cb8-181"><a href="#cb8-181"></a><span class="ss">    - </span>"Hey here's some images by URL!"</span>
-<span id="cb8-182"><a href="#cb8-182"></a><span class="ss">    - </span>"I'm a Python script, reply only yes/no with no capitals or punctuation!"</span>
-<span id="cb8-183"><a href="#cb8-183"></a><span class="ss">- </span>I used <span class="in">`=`</span> to give short nicknames to longer messages.</span>
-<span id="cb8-184"><a href="#cb8-184"></a><span class="ss">- </span>I used <span class="in">`+`</span> to combine them - usually before asking a question from the key.</span>
-<span id="cb8-185"><a href="#cb8-185"></a><span class="ss">- </span>Here is an example:</span>
-<span id="cb8-186"><a href="#cb8-186"></a></span>
-<span id="cb8-187"><a href="#cb8-187"></a><span class="in">```{.py}</span></span>
-<span id="cb8-188"><a href="#cb8-188"></a><span class="in">from google.colab import ai</span></span>
-<span id="cb8-189"><a href="#cb8-189"></a><span class="in">prefix = "I'm a Colab notebook, and I cannot read! Reply only yes/no with no capitals or punctuation!"</span></span>
-<span id="cb8-190"><a href="#cb8-190"></a><span class="in">question = "Is four an even number"</span></span>
-<span id="cb8-191"><a href="#cb8-191"></a><span class="in">answer = ai.generate_text(prefix + question)</span></span>
-<span id="cb8-192"><a href="#cb8-192"></a><span class="in">print(answer)</span></span>
-<span id="cb8-193"><a href="#cb8-193"></a><span class="in">```</span></span>
-<span id="cb8-194"><a href="#cb8-194"></a></span>
-<span id="cb8-195"><a href="#cb8-195"></a><span class="fu">### If/else Syntax</span></span>
-<span id="cb8-196"><a href="#cb8-196"></a></span>
-<span id="cb8-197"><a href="#cb8-197"></a><span class="ss">- </span>Like <span class="in">`while`</span> which we learned in the "Colab" lab, we can use <span class="in">`if`</span> and <span class="in">`else`</span> to ask Gemini questions depending on some **condition**.</span>
-<span id="cb8-198"><a href="#cb8-198"></a><span class="ss">    - </span>For example, we can ask if leaves are "smooth" or "lobed".</span>
-<span id="cb8-199"><a href="#cb8-199"></a><span class="ss">    - </span><span class="in">`if`</span> Gemini says "smooth", we can then ask if the leaves are evergreen.</span>
-<span id="cb8-200"><a href="#cb8-200"></a><span class="ss">    - </span><span class="in">`else`</span> we can ask if the lobes (or teeth) are bristle-tipped.</span>
-<span id="cb8-201"><a href="#cb8-201"></a><span class="ss">    - </span>Far more easily, we ask yes or no questions.</span>
-<span id="cb8-202"><a href="#cb8-202"></a><span class="ss">- </span>Here is an example:</span>
-<span id="cb8-203"><a href="#cb8-203"></a></span>
-<span id="cb8-204"><a href="#cb8-204"></a><span class="in">```{.py}</span></span>
-<span id="cb8-205"><a href="#cb8-205"></a><span class="in">if answer == "yes":</span></span>
-<span id="cb8-206"><a href="#cb8-206"></a><span class="in">  print("Four is an even number")</span></span>
-<span id="cb8-207"><a href="#cb8-207"></a><span class="in">else:</span></span>
-<span id="cb8-208"><a href="#cb8-208"></a><span class="in">  print("Four is not an even number")</span></span>
-<span id="cb8-209"><a href="#cb8-209"></a><span class="in">```</span></span>
-<span id="cb8-210"><a href="#cb8-210"></a></span>
-<span id="cb8-211"><a href="#cb8-211"></a>::: {.callout-note appearance="simple"}</span>
-<span id="cb8-212"><a href="#cb8-212"></a></span>
-<span id="cb8-213"><a href="#cb8-213"></a><span class="fu">## Double equals? What's that!</span></span>
-<span id="cb8-214"><a href="#cb8-214"></a></span>
-<span id="cb8-215"><a href="#cb8-215"></a>In Colab, both <span class="in">`=`</span> and <span class="in">`==`</span> mean something.</span>
-<span id="cb8-216"><a href="#cb8-216"></a></span>
-<span id="cb8-217"><a href="#cb8-217"></a><span class="ss">1. </span>I call <span class="in">`=`</span> "single equals assignment". It assigns a nickname to something longer or more complicated. It gets its own line.</span>
-<span id="cb8-218"><a href="#cb8-218"></a><span class="ss">2. </span>I call <span class="in">`==`</span> "double equals equality". It checks to see if two things are equal, usually with an <span class="in">`if`</span>.</span>
-<span id="cb8-219"><a href="#cb8-219"></a></span>
-<span id="cb8-220"><a href="#cb8-220"></a><span class="in">```{.py}</span></span>
-<span id="cb8-221"><a href="#cb8-221"></a><span class="in">if 1 == 1:</span></span>
-<span id="cb8-222"><a href="#cb8-222"></a><span class="in">    print("Hi!")</span></span>
-<span id="cb8-223"><a href="#cb8-223"></a><span class="in">```</span></span>
-<span id="cb8-224"><a href="#cb8-224"></a></span>
-<span id="cb8-225"><a href="#cb8-225"></a>:::</span>
-<span id="cb8-226"><a href="#cb8-226"></a></span>
-<span id="cb8-227"><a href="#cb8-227"></a><span class="fu">### Nesting</span></span>
-<span id="cb8-228"><a href="#cb8-228"></a></span>
-<span id="cb8-229"><a href="#cb8-229"></a><span class="ss">- </span>It is possible to place one <span class="in">`if`</span> statement inside another with indentation.</span>
-<span id="cb8-230"><a href="#cb8-230"></a><span class="ss">    - </span>Term this "nesting".</span>
-<span id="cb8-231"><a href="#cb8-231"></a></span>
-<span id="cb8-232"><a href="#cb8-232"></a><span class="in">```{.py}</span></span>
-<span id="cb8-233"><a href="#cb8-233"></a><span class="in">even = ai.generate_text(prefix + "Is four an even number")</span></span>
-<span id="cb8-234"><a href="#cb8-234"></a><span class="in">positive = ai.generate_text(prefix + "Is four a positive number")</span></span>
-<span id="cb8-235"><a href="#cb8-235"></a></span>
-<span id="cb8-236"><a href="#cb8-236"></a><span class="in">if even == "yes":</span></span>
-<span id="cb8-237"><a href="#cb8-237"></a><span class="in">  if positive == "yes":</span></span>
-<span id="cb8-238"><a href="#cb8-238"></a><span class="in">    print("Even positive number.")</span></span>
-<span id="cb8-239"><a href="#cb8-239"></a><span class="in">  else:</span></span>
-<span id="cb8-240"><a href="#cb8-240"></a><span class="in">    print("Even negative number.")</span></span>
-<span id="cb8-241"><a href="#cb8-241"></a><span class="in">else:</span></span>
-<span id="cb8-242"><a href="#cb8-242"></a><span class="in">  print("Odd number.")</span></span>
-<span id="cb8-243"><a href="#cb8-243"></a><span class="in">```</span></span>
-<span id="cb8-244"><a href="#cb8-244"></a>     </span>
-<span id="cb8-245"><a href="#cb8-245"></a><span class="fu"># Your Task</span></span>
-<span id="cb8-246"><a href="#cb8-246"></a></span>
-<span id="cb8-247"><a href="#cb8-247"></a><span class="ss">- </span>Try to get this to work such when you run a cell, it gives the name of a tree.</span>
-<span id="cb8-248"><a href="#cb8-248"></a><span class="ss">- </span>No write-up today, just try to get this working.</span>
-<span id="cb8-249"><a href="#cb8-249"></a><span class="ss">- </span>Big hint:</span>
-<span id="cb8-250"><a href="#cb8-250"></a><span class="ss">    - </span>The shape of the "Visually" graphic - of a question with branching questions below - is the same shape you should for with <span class="in">`if`</span> statements and indentation.</span>
+<div class="sourceCode" id="cb9" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1"></a><span class="co">---</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="an">title:</span><span class="co"> Tree Tree </span></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="an">format:</span><span class="co"> html</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="co">---</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a></span>
+<span id="cb9-6"><a href="#cb9-6"></a>::: {.callout-note appearance="simple"}</span>
+<span id="cb9-7"><a href="#cb9-7"></a></span>
+<span id="cb9-8"><a href="#cb9-8"></a><span class="fu">## Trees and Keys</span></span>
+<span id="cb9-9"><a href="#cb9-9"></a></span>
+<span id="cb9-10"><a href="#cb9-10"></a>We return to the question of oaks with:</span>
+<span id="cb9-11"><a href="#cb9-11"></a></span>
+<span id="cb9-12"><a href="#cb9-12"></a><span class="ss">1. </span>More understanding of Colab, and...</span>
+<span id="cb9-13"><a href="#cb9-13"></a><span class="ss">2. </span>More understanding of classification.</span>
+<span id="cb9-14"><a href="#cb9-14"></a></span>
+<span id="cb9-15"><a href="#cb9-15"></a>:::</span>
+<span id="cb9-16"><a href="#cb9-16"></a></span>
+<span id="cb9-17"><a href="#cb9-17"></a></span>
+<span id="cb9-18"><a href="#cb9-18"></a><span class="fu"># What is a Decision tree?</span></span>
+<span id="cb9-19"><a href="#cb9-19"></a></span>
+<span id="cb9-20"><a href="#cb9-20"></a><span class="ss">- </span>A decision tree is a flowchart-like structure in which each internal step represents a feature, and each end point node represents a label. </span>
+<span id="cb9-21"><a href="#cb9-21"></a><span class="ss">- </span>The paths from root to leaf represent classification rules.</span>
+<span id="cb9-22"><a href="#cb9-22"></a><span class="ss">- </span>A dichotomous key is a decision tree that can be used for classification.</span>
+<span id="cb9-23"><a href="#cb9-23"></a><span class="ss">    - </span>In our case with oaks, a "tree tree" - or an "oak decision tree".</span>
+<span id="cb9-24"><a href="#cb9-24"></a></span>
+<span id="cb9-25"><a href="#cb9-25"></a><span class="fu">### The Key</span></span>
+<span id="cb9-26"><a href="#cb9-26"></a></span>
+<span id="cb9-27"><a href="#cb9-27"></a><span class="ss">- </span>Recall, a key is a branching series of yes/no questions.</span>
+<span id="cb9-28"><a href="#cb9-28"></a><span class="ss">    - </span>The dichotomous key gets its name from having two ("di") possibilities for any case</span>
+<span id="cb9-29"><a href="#cb9-29"></a><span class="ss">    - </span>"yes" and "no" or "true" and "false" or etc. etc.</span>
+<span id="cb9-30"><a href="#cb9-30"></a><span class="ss">- </span>To classify an oak, there are a series of questions that a non-expert can answer by inspecting the tree, such as being looking at the whole tree or looking at its leaves.</span>
+<span id="cb9-31"><a href="#cb9-31"></a><span class="ss">- </span>After answer a question, there is either a reference to a new question, usually by number, or a note that you have determined what the type of tree is.</span>
+<span id="cb9-32"><a href="#cb9-32"></a></span>
+<span id="cb9-33"><a href="#cb9-33"></a>::: {.callout-note appearance="simple"}</span>
+<span id="cb9-34"><a href="#cb9-34"></a></span>
+<span id="cb9-35"><a href="#cb9-35"></a><span class="fu">## Features</span></span>
+<span id="cb9-36"><a href="#cb9-36"></a></span>
+<span id="cb9-37"><a href="#cb9-37"></a>We now recognize these "yes"/"no" questions as *features*.</span>
+<span id="cb9-38"><a href="#cb9-38"></a></span>
+<span id="cb9-39"><a href="#cb9-39"></a>We recall:</span>
+<span id="cb9-40"><a href="#cb9-40"></a></span>
+<span id="cb9-41"><a href="#cb9-41"></a><span class="at">&gt; </span><span class="co">[</span><span class="ot">In machine learning and pattern recognition, a feature is an individual measurable property or characteristic of a data set.</span><span class="co">]</span><span class="at">(https://en.wikipedia.org/wiki/Feature_(machine_learning))</span></span>
+<span id="cb9-42"><a href="#cb9-42"></a></span>
+<span id="cb9-43"><a href="#cb9-43"></a>:::</span>
+<span id="cb9-44"><a href="#cb9-44"></a></span>
+<span id="cb9-45"><a href="#cb9-45"></a><span class="fu">### Example</span></span>
+<span id="cb9-46"><a href="#cb9-46"></a></span>
+<span id="cb9-47"><a href="#cb9-47"></a><span class="in">    1. Leaves usually without teeth or lobes: 2</span></span>
+<span id="cb9-48"><a href="#cb9-48"></a><span class="in">    1. Leaves usually with teeth or lobes: 5</span></span>
+<span id="cb9-49"><a href="#cb9-49"></a></span>
+<span id="cb9-50"><a href="#cb9-50"></a><span class="in">        2. Leaves evergreen: 3</span></span>
+<span id="cb9-51"><a href="#cb9-51"></a><span class="in">        2. Leaves not evergreen: 4</span></span>
+<span id="cb9-52"><a href="#cb9-52"></a></span>
+<span id="cb9-53"><a href="#cb9-53"></a><span class="in">    3. Mature plant a large tree — Southern live oak Quercus virginiana</span></span>
+<span id="cb9-54"><a href="#cb9-54"></a><span class="in">    3. Mature plant a small shrub — Dwarf live oak Quercus minima</span></span>
+<span id="cb9-55"><a href="#cb9-55"></a></span>
+<span id="cb9-56"><a href="#cb9-56"></a><span class="in">        4. Leaf narrow, about 4-6 times as long as broad — Willow oak Quercus phellos</span></span>
+<span id="cb9-57"><a href="#cb9-57"></a><span class="in">        4. Leaf broad, about 2-3 times as long as broad — Shingle oak Quercus imbricaria</span></span>
+<span id="cb9-58"><a href="#cb9-58"></a></span>
+<span id="cb9-59"><a href="#cb9-59"></a><span class="in">    5. Lobes or teeth bristle-tipped: 6</span></span>
+<span id="cb9-60"><a href="#cb9-60"></a><span class="in">    5. Lobes or teeth rounded or blunt-pointed, no bristles: 7</span></span>
+<span id="cb9-61"><a href="#cb9-61"></a></span>
+<span id="cb9-62"><a href="#cb9-62"></a><span class="in">        6. Leaves mostly with 3 lobes — Blackjack oak Quercus marilandica</span></span>
+<span id="cb9-63"><a href="#cb9-63"></a><span class="in">        6. Leaves mostly with 7-9 lobes — Northern red oak Quercus rubra</span></span>
+<span id="cb9-64"><a href="#cb9-64"></a></span>
+<span id="cb9-65"><a href="#cb9-65"></a><span class="in">    7. Leaves with 5-9 deep lobes — White oak Quercus alba</span></span>
+<span id="cb9-66"><a href="#cb9-66"></a><span class="in">    7. Leaves with 21-27 shallow lobes — Swamp chestnut oak Quercus prinus</span></span>
+<span id="cb9-67"><a href="#cb9-67"></a></span>
+<span id="cb9-68"><a href="#cb9-68"></a><span class="fu">### Visually</span></span>
+<span id="cb9-69"><a href="#cb9-69"></a></span>
+<span id="cb9-70"><a href="#cb9-70"></a><span class="ss">- </span>You may have to zoom in...</span>
+<span id="cb9-71"><a href="#cb9-71"></a><span class="ss">    - </span>If you turn it upside down, it somewhat looks like a tree (hence the name).</span>
+<span id="cb9-72"><a href="#cb9-72"></a></span>
+<span id="cb9-75"><a href="#cb9-75"></a><span class="in">```{dot}</span></span>
+<span id="cb9-76"><a href="#cb9-76"></a><span class="in">digraph OakKey {</span></span>
+<span id="cb9-77"><a href="#cb9-77"></a><span class="in">    bgcolor="transparent"</span></span>
+<span id="cb9-78"><a href="#cb9-78"></a><span class="in">    node [shape=box,  fontcolor="white", color="white"];</span></span>
+<span id="cb9-79"><a href="#cb9-79"></a><span class="in">    edge [color="white", fontcolor="white"];</span></span>
+<span id="cb9-80"><a href="#cb9-80"></a><span class="in">    </span></span>
+<span id="cb9-81"><a href="#cb9-81"></a><span class="in">    // Questions/Nodes</span></span>
+<span id="cb9-82"><a href="#cb9-82"></a><span class="in">    Start [label="Leaves are smooth with no teeth or lobes?"];</span></span>
+<span id="cb9-83"><a href="#cb9-83"></a><span class="in">    Evergreen [label="Laves evergreen?"];</span></span>
+<span id="cb9-84"><a href="#cb9-84"></a><span class="in">    GrowthHabit [label="Large Tree (not shrub)?"];</span></span>
+<span id="cb9-85"><a href="#cb9-85"></a><span class="in">    LeafShape [label="Leaves more than 3x long as wide"];</span></span>
+<span id="cb9-86"><a href="#cb9-86"></a><span class="in">    Bristles [label="Lobes/teeth bristle-tipped?"];</span></span>
+<span id="cb9-87"><a href="#cb9-87"></a><span class="in">    LobeCount6 [label="3 or fewer lobes?"];</span></span>
+<span id="cb9-88"><a href="#cb9-88"></a><span class="in">    LobeCount7 [label="9 or fewer lobes?"];</span></span>
+<span id="cb9-89"><a href="#cb9-89"></a></span>
+<span id="cb9-90"><a href="#cb9-90"></a><span class="in">    // Species (Leaf nodes)</span></span>
+<span id="cb9-91"><a href="#cb9-91"></a><span class="in">    LiveOak [label="Southern live oak"];</span></span>
+<span id="cb9-92"><a href="#cb9-92"></a><span class="in">    DwarfOak [label="Dwarf live oak"];</span></span>
+<span id="cb9-93"><a href="#cb9-93"></a><span class="in">    WillowOak [label="Willow oak"];</span></span>
+<span id="cb9-94"><a href="#cb9-94"></a><span class="in">    ShingleOak [label="Shingle oak"];</span></span>
+<span id="cb9-95"><a href="#cb9-95"></a><span class="in">    BlackjackOak [label="Blackjack oak"];</span></span>
+<span id="cb9-96"><a href="#cb9-96"></a><span class="in">    RedOak [label="Northern red oak"];</span></span>
+<span id="cb9-97"><a href="#cb9-97"></a><span class="in">    WhiteOak [label="White oak"];</span></span>
+<span id="cb9-98"><a href="#cb9-98"></a><span class="in">    SwampOak [label="Swamp chestnut oak"];</span></span>
+<span id="cb9-99"><a href="#cb9-99"></a></span>
+<span id="cb9-100"><a href="#cb9-100"></a><span class="in">    // Relationships</span></span>
+<span id="cb9-101"><a href="#cb9-101"></a><span class="in">    Start -&gt; Evergreen [label="True"];</span></span>
+<span id="cb9-102"><a href="#cb9-102"></a><span class="in">    Start -&gt; Bristles [label="False"];</span></span>
+<span id="cb9-103"><a href="#cb9-103"></a></span>
+<span id="cb9-104"><a href="#cb9-104"></a><span class="in">    Evergreen -&gt; GrowthHabit [label="True"];</span></span>
+<span id="cb9-105"><a href="#cb9-105"></a><span class="in">    Evergreen -&gt; LeafShape [label="False"];</span></span>
+<span id="cb9-106"><a href="#cb9-106"></a></span>
+<span id="cb9-107"><a href="#cb9-107"></a><span class="in">    GrowthHabit -&gt; LiveOak [label="True"];</span></span>
+<span id="cb9-108"><a href="#cb9-108"></a><span class="in">    GrowthHabit -&gt; DwarfOak [label="False"];</span></span>
+<span id="cb9-109"><a href="#cb9-109"></a></span>
+<span id="cb9-110"><a href="#cb9-110"></a><span class="in">    LeafShape -&gt; WillowOak [label="True"];</span></span>
+<span id="cb9-111"><a href="#cb9-111"></a><span class="in">    LeafShape -&gt; ShingleOak [label="False"];</span></span>
+<span id="cb9-112"><a href="#cb9-112"></a></span>
+<span id="cb9-113"><a href="#cb9-113"></a><span class="in">    Bristles -&gt; LobeCount6 [label="True"];</span></span>
+<span id="cb9-114"><a href="#cb9-114"></a><span class="in">    Bristles -&gt; LobeCount7 [label="False"];</span></span>
+<span id="cb9-115"><a href="#cb9-115"></a></span>
+<span id="cb9-116"><a href="#cb9-116"></a><span class="in">    LobeCount6 -&gt; BlackjackOak [label="True"];</span></span>
+<span id="cb9-117"><a href="#cb9-117"></a><span class="in">    LobeCount6 -&gt; RedOak [label="False"];</span></span>
+<span id="cb9-118"><a href="#cb9-118"></a></span>
+<span id="cb9-119"><a href="#cb9-119"></a><span class="in">    LobeCount7 -&gt; WhiteOak [label="True"];</span></span>
+<span id="cb9-120"><a href="#cb9-120"></a><span class="in">    LobeCount7 -&gt; SwampOak [label="False"];</span></span>
+<span id="cb9-121"><a href="#cb9-121"></a><span class="in">}</span></span>
+<span id="cb9-122"><a href="#cb9-122"></a><span class="in">```</span></span>
+<span id="cb9-123"><a href="#cb9-123"></a></span>
+<span id="cb9-124"><a href="#cb9-124"></a><span class="fu">## Some oaks</span></span>
+<span id="cb9-125"><a href="#cb9-125"></a></span>
+<span id="cb9-126"><a href="#cb9-126"></a><span class="ss">- </span>All are sourced from Wikipedia and appropriately licensed, with the links to the host page in the key.</span>
+<span id="cb9-127"><a href="#cb9-127"></a></span>
+<span id="cb9-128"><a href="#cb9-128"></a><span class="fu">### Key</span></span>
+<span id="cb9-129"><a href="#cb9-129"></a></span>
+<span id="cb9-130"><a href="#cb9-130"></a>*Click "Details" to expand*</span>
+<span id="cb9-131"><a href="#cb9-131"></a></span>
+<span id="cb9-132"><a href="#cb9-132"></a>&lt;details&gt;</span>
+<span id="cb9-133"><a href="#cb9-133"></a></span>
+<span id="cb9-134"><a href="#cb9-134"></a>|Nickname|Common Name|Scientific Name|</span>
+<span id="cb9-135"><a href="#cb9-135"></a>|-|-|-|</span>
+<span id="cb9-136"><a href="#cb9-136"></a>| A | <span class="co">[</span><span class="ot">Blackjack oak</span><span class="co">](https://en.wikipedia.org/wiki/Quercus_marilandica)</span> | Quercus marilandica |</span>
+<span id="cb9-137"><a href="#cb9-137"></a>| B | <span class="co">[</span><span class="ot">Dwarf live oak</span><span class="co">](https://en.wikipedia.org/wiki/Dwarf_live_oak)</span> | Quercus minima |</span>
+<span id="cb9-138"><a href="#cb9-138"></a>| C | <span class="co">[</span><span class="ot">Northern red oak</span><span class="co">](https://en.wikipedia.org/wiki/Quercus_rubra)</span> | Quercus rubra | </span>
+<span id="cb9-139"><a href="#cb9-139"></a></span>
+<span id="cb9-140"><a href="#cb9-140"></a>&lt;/details&gt;</span>
+<span id="cb9-141"><a href="#cb9-141"></a></span>
+<span id="cb9-142"><a href="#cb9-142"></a><span class="fu">### URLs</span></span>
+<span id="cb9-143"><a href="#cb9-143"></a></span>
+<span id="cb9-144"><a href="#cb9-144"></a><span class="ss">- </span>I have the best luck with prompting Gemini when I provide images as a URL.</span>
+<span id="cb9-145"><a href="#cb9-145"></a><span class="ss">- </span>Here are the URLs for the leaf and tree of Oak A, the others are similar.</span>
+<span id="cb9-146"><a href="#cb9-146"></a></span>
+<span id="cb9-147"><a href="#cb9-147"></a><span class="in">```email</span></span>
+<span id="cb9-148"><a href="#cb9-148"></a>https://cd-public.github.io/ai101/images/oaks/a_leaf.jpg</span>
+<span id="cb9-149"><a href="#cb9-149"></a>https://cd-public.github.io/ai101/images/oaks/a_tree.jpg</span>
+<span id="cb9-150"><a href="#cb9-150"></a><span class="in">```</span></span>
+<span id="cb9-151"><a href="#cb9-151"></a></span>
+<span id="cb9-152"><a href="#cb9-152"></a></span>
+<span id="cb9-153"><a href="#cb9-153"></a><span class="fu">## Requirements </span></span>
+<span id="cb9-154"><a href="#cb9-154"></a></span>
+<span id="cb9-155"><a href="#cb9-155"></a><span class="ss">- </span><span class="va">[ ]</span> Create a "Lab04" Colab notebook (NOT a Google Document) in your AI Folder.</span>
+<span id="cb9-156"><a href="#cb9-156"></a><span class="ss">- </span><span class="va">[ ]</span> The very first cell must be a *code cell* containing exactly the following text:</span>
+<span id="cb9-157"><a href="#cb9-157"></a><span class="in">```{.py}</span></span>
+<span id="cb9-158"><a href="#cb9-158"></a><span class="in">tree_letter = "a"</span></span>
+<span id="cb9-159"><a href="#cb9-159"></a><span class="in">```</span></span>
+<span id="cb9-160"><a href="#cb9-160"></a><span class="ss">- </span><span class="va">[ ]</span> You must be able to change this letter to "b" or "c" and receive a correct classification when using "Run all"</span>
+<span id="cb9-161"><a href="#cb9-161"></a><span class="ss">- </span><span class="va">[ ]</span> You may use any number of intermediate code or text blocks, but the final block *must* print out the name of the tree.</span>
+<span id="cb9-162"><a href="#cb9-162"></a></span>
+<span id="cb9-163"><a href="#cb9-163"></a>|Letter|Common Name|Scientific Name|</span>
+<span id="cb9-164"><a href="#cb9-164"></a>|-|-|-|</span>
+<span id="cb9-165"><a href="#cb9-165"></a>| 'a' | <span class="co">[</span><span class="ot">Blackjack oak</span><span class="co">](https://en.wikipedia.org/wiki/Quercus_marilandica)</span> | Quercus marilandica |</span>
+<span id="cb9-166"><a href="#cb9-166"></a>| 'b' | <span class="co">[</span><span class="ot">Dwarf live oak</span><span class="co">](https://en.wikipedia.org/wiki/Dwarf_live_oak)</span> | Quercus minima |</span>
+<span id="cb9-167"><a href="#cb9-167"></a>| 'c' | <span class="co">[</span><span class="ot">Northern red oak</span><span class="co">](https://en.wikipedia.org/wiki/Quercus_rubra)</span> | Quercus rubra | </span>
+<span id="cb9-168"><a href="#cb9-168"></a></span>
+<span id="cb9-169"><a href="#cb9-169"></a></span>
+<span id="cb9-170"><a href="#cb9-170"></a>You should use the following:</span>
+<span id="cb9-171"><a href="#cb9-171"></a></span>
+<span id="cb9-172"><a href="#cb9-172"></a><span class="ss">- </span><span class="va">[ ]</span> Use <span class="in">`+`</span> to combine strings</span>
+<span id="cb9-173"><a href="#cb9-173"></a><span class="ss">- </span><span class="va">[ ]</span> Use <span class="in">`ai.generate_text`</span> to ask questions, and </span>
+<span id="cb9-174"><a href="#cb9-174"></a><span class="ss">- </span><span class="va">[ ]</span> Use <span class="in">`=`</span> to store the results of queries to Gemini</span>
+<span id="cb9-175"><a href="#cb9-175"></a><span class="ss">- </span><span class="va">[ ]</span> **NEW**:  <span class="in">`if`</span> and <span class="in">`else`</span> to determine which questions to ask.</span>
+<span id="cb9-176"><a href="#cb9-176"></a></span>
+<span id="cb9-177"><a href="#cb9-177"></a><span class="fu">### Plus/Equals</span></span>
+<span id="cb9-178"><a href="#cb9-178"></a></span>
+<span id="cb9-179"><a href="#cb9-179"></a><span class="ss">- </span>I found it very helpful in this lab to add many helpful tidbits to Gemini together.</span>
+<span id="cb9-180"><a href="#cb9-180"></a><span class="ss">    - </span>"Hey we are classifying trees!"</span>
+<span id="cb9-181"><a href="#cb9-181"></a><span class="ss">    - </span>"Hey here's some images by URL!"</span>
+<span id="cb9-182"><a href="#cb9-182"></a><span class="ss">    - </span>"I'm a Python script, reply only yes/no with no capitals or punctuation!"</span>
+<span id="cb9-183"><a href="#cb9-183"></a><span class="ss">- </span>I used <span class="in">`=`</span> to give short nicknames to longer messages.</span>
+<span id="cb9-184"><a href="#cb9-184"></a><span class="ss">- </span>I used <span class="in">`+`</span> to combine them - usually before asking a question from the key.</span>
+<span id="cb9-185"><a href="#cb9-185"></a><span class="ss">- </span>Here is an example:</span>
+<span id="cb9-186"><a href="#cb9-186"></a></span>
+<span id="cb9-187"><a href="#cb9-187"></a><span class="in">```{.py}</span></span>
+<span id="cb9-188"><a href="#cb9-188"></a><span class="in">from google.colab import ai</span></span>
+<span id="cb9-189"><a href="#cb9-189"></a><span class="in">prefix = "I'm a Colab notebook, and I cannot read! Reply only yes/no with no capitals or punctuation!"</span></span>
+<span id="cb9-190"><a href="#cb9-190"></a><span class="in">question = "Is four an even number"</span></span>
+<span id="cb9-191"><a href="#cb9-191"></a><span class="in">answer = ai.generate_text(prefix + question)</span></span>
+<span id="cb9-192"><a href="#cb9-192"></a><span class="in">print(answer)</span></span>
+<span id="cb9-193"><a href="#cb9-193"></a><span class="in">```</span></span>
+<span id="cb9-194"><a href="#cb9-194"></a></span>
+<span id="cb9-195"><a href="#cb9-195"></a><span class="fu">### If/else Syntax</span></span>
+<span id="cb9-196"><a href="#cb9-196"></a></span>
+<span id="cb9-197"><a href="#cb9-197"></a><span class="ss">- </span>Like <span class="in">`while`</span> which we learned in the "Colab" lab, we can use <span class="in">`if`</span> and <span class="in">`else`</span> to ask Gemini questions depending on some **condition**.</span>
+<span id="cb9-198"><a href="#cb9-198"></a><span class="ss">    - </span>For example, we can ask if leaves are "smooth" or "lobed".</span>
+<span id="cb9-199"><a href="#cb9-199"></a><span class="ss">    - </span><span class="in">`if`</span> Gemini says "smooth", we can then ask if the leaves are evergreen.</span>
+<span id="cb9-200"><a href="#cb9-200"></a><span class="ss">    - </span><span class="in">`else`</span> we can ask if the lobes (or teeth) are bristle-tipped.</span>
+<span id="cb9-201"><a href="#cb9-201"></a><span class="ss">    - </span>Far more easily, we ask yes or no questions.</span>
+<span id="cb9-202"><a href="#cb9-202"></a><span class="ss">- </span>Here is an example:</span>
+<span id="cb9-203"><a href="#cb9-203"></a></span>
+<span id="cb9-204"><a href="#cb9-204"></a><span class="in">```{.py}</span></span>
+<span id="cb9-205"><a href="#cb9-205"></a><span class="in">if answer == "yes":</span></span>
+<span id="cb9-206"><a href="#cb9-206"></a><span class="in">  print("Four is an even number")</span></span>
+<span id="cb9-207"><a href="#cb9-207"></a><span class="in">else:</span></span>
+<span id="cb9-208"><a href="#cb9-208"></a><span class="in">  print("Four is not an even number")</span></span>
+<span id="cb9-209"><a href="#cb9-209"></a><span class="in">```</span></span>
+<span id="cb9-210"><a href="#cb9-210"></a></span>
+<span id="cb9-211"><a href="#cb9-211"></a>::: {.callout-note appearance="simple"}</span>
+<span id="cb9-212"><a href="#cb9-212"></a></span>
+<span id="cb9-213"><a href="#cb9-213"></a><span class="fu">## Double equals? What's that!</span></span>
+<span id="cb9-214"><a href="#cb9-214"></a></span>
+<span id="cb9-215"><a href="#cb9-215"></a>In Colab, both <span class="in">`=`</span> and <span class="in">`==`</span> mean something.</span>
+<span id="cb9-216"><a href="#cb9-216"></a></span>
+<span id="cb9-217"><a href="#cb9-217"></a><span class="ss">1. </span>I call <span class="in">`=`</span> "single equals assignment". It assigns a nickname to something longer or more complicated. It gets its own line.</span>
+<span id="cb9-218"><a href="#cb9-218"></a><span class="ss">2. </span>I call <span class="in">`==`</span> "double equals equality". It checks to see if two things are equal, usually with an <span class="in">`if`</span>.</span>
+<span id="cb9-219"><a href="#cb9-219"></a></span>
+<span id="cb9-220"><a href="#cb9-220"></a><span class="in">```{.py}</span></span>
+<span id="cb9-221"><a href="#cb9-221"></a><span class="in">if 1 == 1:</span></span>
+<span id="cb9-222"><a href="#cb9-222"></a><span class="in">    print("Hi!")</span></span>
+<span id="cb9-223"><a href="#cb9-223"></a><span class="in">```</span></span>
+<span id="cb9-224"><a href="#cb9-224"></a></span>
+<span id="cb9-225"><a href="#cb9-225"></a>:::</span>
+<span id="cb9-226"><a href="#cb9-226"></a></span>
+<span id="cb9-227"><a href="#cb9-227"></a><span class="fu">### Nesting</span></span>
+<span id="cb9-228"><a href="#cb9-228"></a></span>
+<span id="cb9-229"><a href="#cb9-229"></a><span class="ss">- </span>It is possible to place one <span class="in">`if`</span> statement inside another with indentation.</span>
+<span id="cb9-230"><a href="#cb9-230"></a><span class="ss">    - </span>Term this "nesting".</span>
+<span id="cb9-231"><a href="#cb9-231"></a></span>
+<span id="cb9-232"><a href="#cb9-232"></a><span class="in">```{.py}</span></span>
+<span id="cb9-233"><a href="#cb9-233"></a><span class="in">even = ai.generate_text(prefix + "Is four an even number")</span></span>
+<span id="cb9-234"><a href="#cb9-234"></a><span class="in">positive = ai.generate_text(prefix + "Is four a positive number")</span></span>
+<span id="cb9-235"><a href="#cb9-235"></a></span>
+<span id="cb9-236"><a href="#cb9-236"></a><span class="in">if even == "yes":</span></span>
+<span id="cb9-237"><a href="#cb9-237"></a><span class="in">  if positive == "yes":</span></span>
+<span id="cb9-238"><a href="#cb9-238"></a><span class="in">    print("Even positive number.")</span></span>
+<span id="cb9-239"><a href="#cb9-239"></a><span class="in">  else:</span></span>
+<span id="cb9-240"><a href="#cb9-240"></a><span class="in">    print("Even negative number.")</span></span>
+<span id="cb9-241"><a href="#cb9-241"></a><span class="in">else:</span></span>
+<span id="cb9-242"><a href="#cb9-242"></a><span class="in">  print("Odd number.")</span></span>
+<span id="cb9-243"><a href="#cb9-243"></a><span class="in">```</span></span>
+<span id="cb9-244"><a href="#cb9-244"></a>     </span>
+<span id="cb9-245"><a href="#cb9-245"></a><span class="fu"># Your Task</span></span>
+<span id="cb9-246"><a href="#cb9-246"></a></span>
+<span id="cb9-247"><a href="#cb9-247"></a><span class="ss">- </span>Try to get this to work such when you run a cell, it gives the name of a tree.</span>
+<span id="cb9-248"><a href="#cb9-248"></a><span class="ss">- </span>No write-up today, just try to get this working.</span>
+<span id="cb9-249"><a href="#cb9-249"></a><span class="ss">- </span>Big hint:</span>
+<span id="cb9-250"><a href="#cb9-250"></a><span class="ss">    - </span>The shape of the "Visually" graphic - of a question with branching questions below - is the same shape you should for with <span class="in">`if`</span> statements and indentation.</span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

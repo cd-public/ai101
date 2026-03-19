@@ -654,6 +654,27 @@ window.Quarto = {
 <li>This destination is the <strong>Cell Body</strong> (or the Perceptron).</li>
 </ul>
 <div class="cell" data-layout-align="default">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource dot number-lines code-with-copy"><code class="sourceCode dot"><span id="cb2-1"><a href="#cb2-1"></a><span class="va">graph</span> <span class="va">PerceptronBase</span> <span class="ot">{</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="co">    </span><span class="at">rankdir</span><span class="ot">=</span><span class="va">TD</span><span class="ot">;</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="co">    </span><span class="at">bgcolor</span><span class="ot">=</span><span class="st">"transparent"</span><span class="co">  </span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">circle</span><span class="co">, </span><span class="at">fontcolor</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"#ffffff"</span><span class="co">, </span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"#ffffff"</span><span class="ot">]</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="co">    </span><span class="kw">edge</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"#ffffff"</span><span class="ot">]</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="co">    </span><span class="kw">subgraph</span><span class="co"> </span><span class="va">cluster_input</span><span class="co"> </span><span class="ot">{</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="co">        </span><span class="at">fontcolor</span><span class="ot">=</span><span class="st">"white"</span><span class="ot">;</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="co">        </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"red"</span><span class="ot">];</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="co">        </span><span class="va">X0</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"0,0"</span><span class="ot">];</span><span class="co"> </span><span class="va">X1</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"0,1"</span><span class="ot">];</span><span class="co"> </span><span class="va">X2</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"0,2"</span><span class="ot">];</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a><span class="co">        </span><span class="va">X3</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"1,0"</span><span class="ot">];</span><span class="co"> </span><span class="va">X4</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"1,1"</span><span class="ot">];</span><span class="co"> </span><span class="va">X5</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"1,2"</span><span class="ot">];</span></span>
+<span id="cb2-12"><a href="#cb2-12"></a><span class="co">        </span><span class="va">X6</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"2,0"</span><span class="ot">];</span><span class="co"> </span><span class="va">X7</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"2,1"</span><span class="ot">];</span><span class="co"> </span><span class="va">X8</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"2,2"</span><span class="ot">];</span></span>
+<span id="cb2-13"><a href="#cb2-13"></a><span class="co">    </span><span class="ot">}</span></span>
+<span id="cb2-14"><a href="#cb2-14"></a></span>
+<span id="cb2-15"><a href="#cb2-15"></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"blue"</span><span class="ot">];</span></span>
+<span id="cb2-16"><a href="#cb2-16"></a><span class="co">    </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"∑"</span><span class="ot">];</span></span>
+<span id="cb2-17"><a href="#cb2-17"></a></span>
+<span id="cb2-18"><a href="#cb2-18"></a><span class="co">    </span><span class="va">X0</span><span class="co"> -- </span><span class="va">Neuron</span><span class="ot">;</span><span class="co"> </span><span class="va">X1</span><span class="co"> -- </span><span class="va">Neuron</span><span class="ot">;</span><span class="co"> </span><span class="va">X2</span><span class="co"> -- </span><span class="va">Neuron</span><span class="ot">;</span></span>
+<span id="cb2-19"><a href="#cb2-19"></a><span class="co">    </span><span class="va">X3</span><span class="co"> -- </span><span class="va">Neuron</span><span class="ot">;</span><span class="co"> </span><span class="va">X4</span><span class="co"> -- </span><span class="va">Neuron</span><span class="ot">;</span><span class="co"> </span><span class="va">X5</span><span class="co"> -- </span><span class="va">Neuron</span><span class="ot">;</span></span>
+<span id="cb2-20"><a href="#cb2-20"></a><span class="co">    </span><span class="va">X6</span><span class="co"> -- </span><span class="va">Neuron</span><span class="ot">;</span><span class="co"> </span><span class="va">X7</span><span class="co"> -- </span><span class="va">Neuron</span><span class="ot">;</span><span class="co"> </span><span class="va">X8</span><span class="co"> -- </span><span class="va">Neuron</span><span class="ot">;</span></span>
+<span id="cb2-21"><a href="#cb2-21"></a><span class="ot">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
@@ -818,7 +839,7 @@ window.Quarto = {
 <li>We give the center pixel a weight of 1.</li>
 <li>We give all other pixels a weight of 0.</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>weights <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>weights <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -945,9 +966,9 @@ Note
 <ul>
 <li>You can write this out as follows:</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource tex number-lines code-with-copy"><code class="sourceCode latex"><span id="cb3-1"><a href="#cb3-1"></a><span class="ss">$$</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="sc">\sum</span><span class="ss">_{i=1}^{n} w_i </span><span class="sc">\times</span><span class="ss"> x_i </span></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="ss">$$</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource tex number-lines code-with-copy"><code class="sourceCode latex"><span id="cb4-1"><a href="#cb4-1"></a><span class="ss">$$</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="sc">\sum</span><span class="ss">_{i=1}^{n} w_i </span><span class="sc">\times</span><span class="ss"> x_i </span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="ss">$$</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>The two enclosing lines of <code>$$</code> means “this is a mathematical formula”</li>
 </ul>
@@ -1020,7 +1041,7 @@ Note
 <li>Bottom-Left (2,0) = -1</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>weights <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>weights <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="why-it-works" class="level2">
 <h2 class="anchored" data-anchor-id="why-it-works">Why it works</h2>
@@ -1073,6 +1094,33 @@ Note
 <li>In a graph, the bias is often shown as a special input node that is <strong>always</strong> 1, multiplied by its own weight <span class="math inline">\(b\)</span>.</li>
 </ul>
 <div class="cell" data-layout-align="default">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource dot number-lines code-with-copy"><code class="sourceCode dot"><span id="cb6-1"><a href="#cb6-1"></a><span class="va">graph</span> <span class="va">PerceptronWithBias</span> <span class="ot">{</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="co">    </span><span class="at">rankdir</span><span class="ot">=</span><span class="va">TD</span><span class="ot">;</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="co">    </span><span class="at">bgcolor</span><span class="ot">=</span><span class="st">"transparent"</span><span class="co">  </span></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">circle</span><span class="co">, </span><span class="at">fontcolor</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"#ffffff"</span><span class="co">, </span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"#ffffff"</span><span class="ot">]</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="co">    </span></span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="co">    </span><span class="kw">subgraph</span><span class="co"> </span><span class="va">cluster_input</span><span class="co"> </span><span class="ot">{</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="co">        </span><span class="at">label</span><span class="ot">=</span><span class="st">"Inputs"</span><span class="ot">;</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="co">        </span><span class="at">fontcolor</span><span class="ot">=</span><span class="st">"white"</span><span class="ot">;</span></span>
+<span id="cb6-9"><a href="#cb6-9"></a><span class="co">        </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"red"</span><span class="ot">];</span></span>
+<span id="cb6-10"><a href="#cb6-10"></a><span class="co">        </span><span class="va">X1</span><span class="ot">;</span><span class="co"> </span><span class="va">X2</span><span class="ot">;</span><span class="co"> </span><span class="va">X3</span><span class="ot">;</span></span>
+<span id="cb6-11"><a href="#cb6-11"></a><span class="co">    </span><span class="ot">}</span></span>
+<span id="cb6-12"><a href="#cb6-12"></a></span>
+<span id="cb6-13"><a href="#cb6-13"></a><span class="co">    </span><span class="kw">subgraph</span><span class="co"> </span><span class="va">cluster_bias</span><span class="co"> </span><span class="ot">{</span></span>
+<span id="cb6-14"><a href="#cb6-14"></a><span class="co">        </span><span class="at">label</span><span class="ot">=</span><span class="st">"Bias"</span><span class="ot">;</span></span>
+<span id="cb6-15"><a href="#cb6-15"></a><span class="co">        </span><span class="at">fontcolor</span><span class="ot">=</span><span class="st">"white"</span><span class="ot">;</span></span>
+<span id="cb6-16"><a href="#cb6-16"></a><span class="co">        </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"green"</span><span class="ot">];</span></span>
+<span id="cb6-17"><a href="#cb6-17"></a><span class="co">        </span><span class="va">B</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"1"</span><span class="ot">];</span></span>
+<span id="cb6-18"><a href="#cb6-18"></a><span class="co">    </span><span class="ot">}</span></span>
+<span id="cb6-19"><a href="#cb6-19"></a></span>
+<span id="cb6-20"><a href="#cb6-20"></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"blue"</span><span class="ot">];</span></span>
+<span id="cb6-21"><a href="#cb6-21"></a><span class="co">    </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"∑"</span><span class="ot">];</span></span>
+<span id="cb6-22"><a href="#cb6-22"></a></span>
+<span id="cb6-23"><a href="#cb6-23"></a><span class="co">    </span><span class="va">X1</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"w1"</span><span class="ot">];</span></span>
+<span id="cb6-24"><a href="#cb6-24"></a><span class="co">    </span><span class="va">X2</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"w2"</span><span class="ot">];</span></span>
+<span id="cb6-25"><a href="#cb6-25"></a><span class="co">    </span><span class="va">X3</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"w3"</span><span class="ot">];</span></span>
+<span id="cb6-26"><a href="#cb6-26"></a><span class="co">    </span><span class="va">B</span><span class="co">  -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"b"</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"yellow"</span><span class="ot">];</span></span>
+<span id="cb6-27"><a href="#cb6-27"></a><span class="ot">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
@@ -1279,7 +1327,7 @@ f(x) = \begin{cases}
 <p><span class="math display">\[
 z = \sum_{i=1}^{n} w_i x_i + b
 \]</span></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource tex number-lines code-with-copy"><code class="sourceCode latex"><span id="cb5-1"><a href="#cb5-1"></a>z = <span class="fu">\sum</span>_{i=1}^{n} w_i x_i + b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource tex number-lines code-with-copy"><code class="sourceCode latex"><span id="cb7-1"><a href="#cb7-1"></a>z = <span class="fu">\sum</span>_{i=1}^{n} w_i x_i + b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This is the standard way to express the <strong>“weighted sum plus bias.”</strong></p>
 </section>
 <section id="visualizing-the-weights" class="level2">
@@ -1288,6 +1336,29 @@ z = \sum_{i=1}^{n} w_i x_i + b
 <li>Let’s look at the graph again, but with weights indicated by line thickness.</li>
 </ul>
 <div class="cell" data-layout-align="default">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource dot number-lines code-with-copy"><code class="sourceCode dot"><span id="cb8-1"><a href="#cb8-1"></a><span class="va">graph</span> <span class="va">PerceptronWeights</span> <span class="ot">{</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="co">    </span><span class="at">rankdir</span><span class="ot">=</span><span class="va">TD</span><span class="ot">;</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="co">    </span><span class="at">bgcolor</span><span class="ot">=</span><span class="st">"transparent"</span><span class="co">  </span></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">circle</span><span class="co">, </span><span class="at">fontcolor</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"#ffffff"</span><span class="co">, </span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"#ffffff"</span><span class="ot">]</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="co">    </span></span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="co">    </span><span class="kw">subgraph</span><span class="co"> </span><span class="va">cluster_input</span><span class="co"> </span><span class="ot">{</span></span>
+<span id="cb8-7"><a href="#cb8-7"></a><span class="co">        </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"red"</span><span class="ot">];</span></span>
+<span id="cb8-8"><a href="#cb8-8"></a><span class="co">        </span><span class="va">X0</span><span class="ot">;</span><span class="co"> </span><span class="va">X1</span><span class="ot">;</span><span class="co"> </span><span class="va">X2</span><span class="ot">;</span><span class="co"> </span><span class="va">X3</span><span class="ot">;</span><span class="co"> </span><span class="va">X4</span><span class="ot">;</span><span class="co"> </span><span class="va">X5</span><span class="ot">;</span><span class="co"> </span><span class="va">X6</span><span class="ot">;</span><span class="co"> </span><span class="va">X7</span><span class="ot">;</span><span class="co"> </span><span class="va">X8</span><span class="ot">;</span></span>
+<span id="cb8-9"><a href="#cb8-9"></a><span class="co">    </span><span class="ot">}</span></span>
+<span id="cb8-10"><a href="#cb8-10"></a></span>
+<span id="cb8-11"><a href="#cb8-11"></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"blue"</span><span class="ot">];</span></span>
+<span id="cb8-12"><a href="#cb8-12"></a><span class="co">    </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Odd?"</span><span class="ot">];</span></span>
+<span id="cb8-13"><a href="#cb8-13"></a></span>
+<span id="cb8-14"><a href="#cb8-14"></a><span class="co">    </span><span class="va">X0</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"0"</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"#444444"</span><span class="ot">];</span></span>
+<span id="cb8-15"><a href="#cb8-15"></a><span class="co">    </span><span class="va">X1</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"0"</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"#444444"</span><span class="ot">];</span></span>
+<span id="cb8-16"><a href="#cb8-16"></a><span class="co">    </span><span class="va">X2</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"0"</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"#444444"</span><span class="ot">];</span></span>
+<span id="cb8-17"><a href="#cb8-17"></a><span class="co">    </span><span class="va">X3</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"0"</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"#444444"</span><span class="ot">];</span></span>
+<span id="cb8-18"><a href="#cb8-18"></a><span class="co">    </span><span class="va">X4</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"1"</span><span class="co">, </span><span class="va">penwidth</span><span class="ot">=</span><span class="dv">5</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"white"</span><span class="ot">];</span><span class="co"> </span></span>
+<span id="cb8-19"><a href="#cb8-19"></a><span class="co">    </span><span class="va">X5</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"0"</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"#444444"</span><span class="ot">];</span></span>
+<span id="cb8-20"><a href="#cb8-20"></a><span class="co">    </span><span class="va">X6</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"0"</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"#444444"</span><span class="ot">];</span></span>
+<span id="cb8-21"><a href="#cb8-21"></a><span class="co">    </span><span class="va">X7</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"0"</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"#444444"</span><span class="ot">];</span></span>
+<span id="cb8-22"><a href="#cb8-22"></a><span class="co">    </span><span class="va">X8</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"0"</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"#444444"</span><span class="ot">];</span></span>
+<span id="cb8-23"><a href="#cb8-23"></a><span class="ot">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
@@ -2020,687 +2091,687 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb6" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">---</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="an">title:</span><span class="co"> Perceptron </span></span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="co">---</span></span>
-<span id="cb6-4"><a href="#cb6-4"></a></span>
-<span id="cb6-5"><a href="#cb6-5"></a><span class="fu">## Recall</span></span>
-<span id="cb6-6"><a href="#cb6-6"></a></span>
-<span id="cb6-7"><a href="#cb6-7"></a><span class="ss">- </span>We've explored **Bipartite Graphs**.</span>
-<span id="cb6-8"><a href="#cb6-8"></a><span class="ss">- </span>We've seen how sensory inputs (fingers) can map to neurons (brain cells).</span>
-<span id="cb6-9"><a href="#cb6-9"></a><span class="ss">- </span>Today, we build our first functional model: **The Perceptron**.</span>
-<span id="cb6-10"><a href="#cb6-10"></a></span>
-<span id="cb6-11"><a href="#cb6-11"></a><span class="fu"># To Perceive</span></span>
-<span id="cb6-12"><a href="#cb6-12"></a></span>
-<span id="cb6-13"><a href="#cb6-13"></a><span class="fu">## Representing Reality</span></span>
-<span id="cb6-14"><a href="#cb6-14"></a></span>
-<span id="cb6-15"><a href="#cb6-15"></a><span class="ss">- </span>How does a computer "see" a simple object?</span>
-<span id="cb6-16"><a href="#cb6-16"></a><span class="ss">- </span>Let's take a standard six-sided die.</span>
-<span id="cb6-17"><a href="#cb6-17"></a><span class="ss">- </span>We can represent the face of a die as a **3x3 grid**.</span>
-<span id="cb6-18"><a href="#cb6-18"></a></span>
-<span id="cb6-19"><a href="#cb6-19"></a><span class="fu">## A Die</span></span>
-<span id="cb6-20"><a href="#cb6-20"></a></span>
-<span id="cb6-21"><a href="#cb6-21"></a>&lt;a title="Dennis Hill from The OC, So. Cal., CC BY 2.0 <span class="dv">&amp;lt;</span>https://creativecommons.org/licenses/by/2.0<span class="dv">&amp;gt;</span>, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Snake_eyes_dice.jpg"&gt;&lt;img width="512" alt="Snake eyes dice" src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Snake_eyes_dice.jpg"&gt;&lt;/a&gt;</span>
-<span id="cb6-22"><a href="#cb6-22"></a></span>
-<span id="cb6-23"><a href="#cb6-23"></a><span class="fu">## Too Complex</span></span>
-<span id="cb6-24"><a href="#cb6-24"></a></span>
-<span id="cb6-25"><a href="#cb6-25"></a><span class="ss">- </span>We imagine viewing (1) a single die (2) directly from above.</span>
-<span id="cb6-26"><a href="#cb6-26"></a></span>
-<span id="cb6-27"><a href="#cb6-27"></a>&lt;table&gt;</span>
-<span id="cb6-28"><a href="#cb6-28"></a>&lt;td&gt;&lt;a title="Mliu92, CC BY-SA 4.0 <span class="dv">&amp;lt;</span>https://creativecommons.org/licenses/by-sa/4.0<span class="dv">&amp;gt;</span>, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Die_face_1b.svg"&gt;&lt;img width="128" alt="Illustration of die face with 1 black dot" src="https://upload.wikimedia.org/wikipedia/commons/4/43/Die_face_1b.svg"&gt;&lt;/a&gt;</span>
-<span id="cb6-29"><a href="#cb6-29"></a></span>
-<span id="cb6-30"><a href="#cb6-30"></a>&lt;/td&gt;</span>
-<span id="cb6-31"><a href="#cb6-31"></a>&lt;td&gt;</span>
-<span id="cb6-32"><a href="#cb6-32"></a>&lt;a title="Mliu92, CC BY-SA 4.0 <span class="dv">&amp;lt;</span>https://creativecommons.org/licenses/by-sa/4.0<span class="dv">&amp;gt;</span>, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Die_face_2b.svg"&gt;&lt;img width="128" alt="Illustration of die face with 2 black dots" src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Die_face_2b.svg"&gt;&lt;/a&gt;</span>
-<span id="cb6-33"><a href="#cb6-33"></a>&lt;/td&gt;</span>
-<span id="cb6-34"><a href="#cb6-34"></a>&lt;td&gt;</span>
-<span id="cb6-35"><a href="#cb6-35"></a>&lt;a title="Mliu92, CC BY-SA 4.0 <span class="dv">&amp;lt;</span>https://creativecommons.org/licenses/by-sa/4.0<span class="dv">&amp;gt;</span>, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Die_face_3b.svg"&gt;&lt;img width="128" alt="Illustration of die face with 3 black dots"  src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Die_face_3b.svg"&gt;&lt;/a&gt;</span>
-<span id="cb6-36"><a href="#cb6-36"></a>&lt;/td&gt;</span>
-<span id="cb6-37"><a href="#cb6-37"></a>&lt;/table&gt;</span>
-<span id="cb6-38"><a href="#cb6-38"></a></span>
-<span id="cb6-39"><a href="#cb6-39"></a><span class="fu">## Helpful</span></span>
-<span id="cb6-40"><a href="#cb6-40"></a></span>
-<span id="cb6-41"><a href="#cb6-41"></a><span class="ss">- </span>Helpfully, most modern fonts include these!</span>
-<span id="cb6-42"><a href="#cb6-42"></a></span>
-<span id="cb6-43"><a href="#cb6-43"></a>:::: {.columns}</span>
-<span id="cb6-44"><a href="#cb6-44"></a></span>
-<span id="cb6-45"><a href="#cb6-45"></a>::: {.column width="50%"}</span>
-<span id="cb6-46"><a href="#cb6-46"></a></span>
-<span id="cb6-47"><a href="#cb6-47"></a><span class="ss">1. </span><span class="dv">&amp;#9856;</span> </span>
-<span id="cb6-48"><a href="#cb6-48"></a><span class="ss">2. </span><span class="dv">&amp;#9857;</span></span>
-<span id="cb6-49"><a href="#cb6-49"></a><span class="ss">3. </span><span class="dv">&amp;#9858;</span> </span>
-<span id="cb6-50"><a href="#cb6-50"></a></span>
-<span id="cb6-51"><a href="#cb6-51"></a>:::</span>
-<span id="cb6-52"><a href="#cb6-52"></a></span>
-<span id="cb6-53"><a href="#cb6-53"></a>::: {.column width="50%"}</span>
-<span id="cb6-54"><a href="#cb6-54"></a></span>
-<span id="cb6-55"><a href="#cb6-55"></a><span class="ss">4. </span><span class="dv">&amp;#9859;</span> </span>
-<span id="cb6-56"><a href="#cb6-56"></a><span class="ss">5. </span><span class="dv">&amp;#9860;</span> </span>
-<span id="cb6-57"><a href="#cb6-57"></a><span class="ss">6. </span><span class="dv">&amp;#9861;</span> </span>
-<span id="cb6-58"><a href="#cb6-58"></a>:::</span>
-<span id="cb6-59"><a href="#cb6-59"></a></span>
-<span id="cb6-60"><a href="#cb6-60"></a></span>
-<span id="cb6-61"><a href="#cb6-61"></a>::::</span>
-<span id="cb6-62"><a href="#cb6-62"></a> </span>
-<span id="cb6-63"><a href="#cb6-63"></a></span>
-<span id="cb6-64"><a href="#cb6-64"></a><span class="fu">## The 3x3 Grid</span></span>
-<span id="cb6-65"><a href="#cb6-65"></a></span>
-<span id="cb6-66"><a href="#cb6-66"></a><span class="ss">- </span>Each cell in the grid is either "on" (a dot is present) or "off" (empty space).</span>
-<span id="cb6-67"><a href="#cb6-67"></a><span class="ss">- </span>This is a **binary image**.</span>
-<span id="cb6-68"><a href="#cb6-68"></a></span>
-<span id="cb6-69"><a href="#cb6-69"></a>| | | |</span>
-<span id="cb6-70"><a href="#cb6-70"></a>|:-:|:-:|:-:|</span>
-<span id="cb6-71"><a href="#cb6-71"></a>| (0,0) | (0,1) | (0,2) |</span>
-<span id="cb6-72"><a href="#cb6-72"></a>| (1,0) | (1,1) | (1,2) |</span>
-<span id="cb6-73"><a href="#cb6-73"></a>| (2,0) | (2,1) | (2,2) |</span>
-<span id="cb6-74"><a href="#cb6-74"></a></span>
-<span id="cb6-75"><a href="#cb6-75"></a></span>
-<span id="cb6-76"><a href="#cb6-76"></a></span>
-<span id="cb6-77"><a href="#cb6-77"></a><span class="fu">## Encoding the Number 1</span></span>
-<span id="cb6-78"><a href="#cb6-78"></a></span>
-<span id="cb6-79"><a href="#cb6-79"></a><span class="ss">- </span>For a "1", only the center is filled.</span>
-<span id="cb6-80"><a href="#cb6-80"></a></span>
-<span id="cb6-81"><a href="#cb6-81"></a>:::: {.columns}</span>
-<span id="cb6-82"><a href="#cb6-82"></a></span>
-<span id="cb6-83"><a href="#cb6-83"></a>::: {.column width="50%"}</span>
-<span id="cb6-84"><a href="#cb6-84"></a></span>
-<span id="cb6-85"><a href="#cb6-85"></a>| | | |</span>
-<span id="cb6-86"><a href="#cb6-86"></a>|:-:|:-:|:-:|</span>
-<span id="cb6-87"><a href="#cb6-87"></a>| 0 | 0 | 0 |</span>
-<span id="cb6-88"><a href="#cb6-88"></a>| 0 | **1** | 0 |</span>
-<span id="cb6-89"><a href="#cb6-89"></a>| 0 | 0 | 0 |</span>
-<span id="cb6-90"><a href="#cb6-90"></a></span>
-<span id="cb6-91"><a href="#cb6-91"></a>:::</span>
-<span id="cb6-92"><a href="#cb6-92"></a></span>
-<span id="cb6-93"><a href="#cb6-93"></a>::: {.column width="50%"}</span>
-<span id="cb6-94"><a href="#cb6-94"></a></span>
-<span id="cb6-95"><a href="#cb6-95"></a>&lt;div style="width: 300px; height: 300px; background-color: white; display: flex; justify-content: center; align-items: center; border: 1px solid #ccc;"&gt;</span>
-<span id="cb6-96"><a href="#cb6-96"></a>&lt;div style="width: 100px; height: 100px; background-color: black;"&gt;&lt;/div&gt;</span>
-<span id="cb6-97"><a href="#cb6-97"></a>&lt;/div&gt;</span>
-<span id="cb6-98"><a href="#cb6-98"></a></span>
-<span id="cb6-99"><a href="#cb6-99"></a>:::</span>
-<span id="cb6-100"><a href="#cb6-100"></a></span>
-<span id="cb6-101"><a href="#cb6-101"></a></span>
-<span id="cb6-102"><a href="#cb6-102"></a>::::</span>
-<span id="cb6-103"><a href="#cb6-103"></a></span>
-<span id="cb6-104"><a href="#cb6-104"></a></span>
-<span id="cb6-105"><a href="#cb6-105"></a><span class="fu">## Encoding the Number 2</span></span>
-<span id="cb6-106"><a href="#cb6-106"></a></span>
-<span id="cb6-107"><a href="#cb6-107"></a><span class="ss">- </span>For a "2", we usually see top-right and bottom-left.</span>
-<span id="cb6-108"><a href="#cb6-108"></a></span>
-<span id="cb6-109"><a href="#cb6-109"></a>:::: {.columns}</span>
-<span id="cb6-110"><a href="#cb6-110"></a></span>
-<span id="cb6-111"><a href="#cb6-111"></a>::: {.column width="50%"}</span>
-<span id="cb6-112"><a href="#cb6-112"></a></span>
-<span id="cb6-113"><a href="#cb6-113"></a></span>
-<span id="cb6-114"><a href="#cb6-114"></a>| | | |</span>
-<span id="cb6-115"><a href="#cb6-115"></a>|:-:|:-:|:-:|</span>
-<span id="cb6-116"><a href="#cb6-116"></a>| 0 | 0 | **1** |</span>
-<span id="cb6-117"><a href="#cb6-117"></a>| 0 | 0 | 0 |</span>
-<span id="cb6-118"><a href="#cb6-118"></a>| **1** | 0 | 0 |</span>
-<span id="cb6-119"><a href="#cb6-119"></a></span>
-<span id="cb6-120"><a href="#cb6-120"></a>:::</span>
-<span id="cb6-121"><a href="#cb6-121"></a></span>
-<span id="cb6-122"><a href="#cb6-122"></a>::: {.column width="50%"}</span>
-<span id="cb6-123"><a href="#cb6-123"></a></span>
-<span id="cb6-124"><a href="#cb6-124"></a>&lt;div style="position: relative; width: 300px; height: 300px; background-color: white; border: 1px solid #ccc;"&gt;</span>
-<span id="cb6-125"><a href="#cb6-125"></a>&lt;div style="position: absolute; top: 0; right: 0; width: 100px; height: 100px; background-color: black;"&gt;&lt;/div&gt;</span>
-<span id="cb6-126"><a href="#cb6-126"></a></span>
-<span id="cb6-127"><a href="#cb6-127"></a>&lt;div style="position: absolute; bottom: 0; left: 0; width: 100px; height: 100px; background-color: black;"&gt;&lt;/div&gt;</span>
-<span id="cb6-128"><a href="#cb6-128"></a>&lt;/div&gt;</span>
-<span id="cb6-129"><a href="#cb6-129"></a></span>
-<span id="cb6-130"><a href="#cb6-130"></a>:::</span>
-<span id="cb6-131"><a href="#cb6-131"></a></span>
-<span id="cb6-132"><a href="#cb6-132"></a></span>
-<span id="cb6-133"><a href="#cb6-133"></a>::::</span>
-<span id="cb6-134"><a href="#cb6-134"></a></span>
-<span id="cb6-135"><a href="#cb6-135"></a></span>
-<span id="cb6-136"><a href="#cb6-136"></a><span class="fu">## Encoding the Number 3</span></span>
-<span id="cb6-137"><a href="#cb6-137"></a></span>
-<span id="cb6-138"><a href="#cb6-138"></a></span>
-<span id="cb6-139"><a href="#cb6-139"></a>:::: {.columns}</span>
-<span id="cb6-140"><a href="#cb6-140"></a></span>
-<span id="cb6-141"><a href="#cb6-141"></a>::: {.column width="50%"}</span>
-<span id="cb6-142"><a href="#cb6-142"></a></span>
-<span id="cb6-143"><a href="#cb6-143"></a></span>
-<span id="cb6-144"><a href="#cb6-144"></a>| | | |</span>
-<span id="cb6-145"><a href="#cb6-145"></a>|:-:|:-:|:-:|</span>
-<span id="cb6-146"><a href="#cb6-146"></a>| 0 | 0 | **1** |</span>
-<span id="cb6-147"><a href="#cb6-147"></a>| 0 | **1** | 0 |</span>
-<span id="cb6-148"><a href="#cb6-148"></a>| **1** | 0 | 0 |</span>
-<span id="cb6-149"><a href="#cb6-149"></a></span>
-<span id="cb6-150"><a href="#cb6-150"></a>:::</span>
-<span id="cb6-151"><a href="#cb6-151"></a></span>
-<span id="cb6-152"><a href="#cb6-152"></a>::: {.column width="50%"}</span>
-<span id="cb6-153"><a href="#cb6-153"></a></span>
-<span id="cb6-154"><a href="#cb6-154"></a>&lt;div style="position: relative; width: 300px; height: 300px; background-color: white; border: 1px solid #ccc;"&gt;</span>
-<span id="cb6-155"><a href="#cb6-155"></a>&lt;div style="position: absolute; top: 0; right: 0; width: 100px; height: 100px; background-color: black;"&gt;&lt;/div&gt;</span>
-<span id="cb6-156"><a href="#cb6-156"></a></span>
-<span id="cb6-157"><a href="#cb6-157"></a>&lt;div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 100px; background-color: black;"&gt;&lt;/div&gt;</span>
-<span id="cb6-158"><a href="#cb6-158"></a></span>
-<span id="cb6-159"><a href="#cb6-159"></a>&lt;div style="position: absolute; bottom: 0; left: 0; width: 100px; height: 100px; background-color: black;"&gt;&lt;/div&gt;</span>
-<span id="cb6-160"><a href="#cb6-160"></a>&lt;/div&gt;</span>
-<span id="cb6-161"><a href="#cb6-161"></a></span>
-<span id="cb6-162"><a href="#cb6-162"></a>:::</span>
-<span id="cb6-163"><a href="#cb6-163"></a></span>
-<span id="cb6-164"><a href="#cb6-164"></a></span>
-<span id="cb6-165"><a href="#cb6-165"></a>::::</span>
-<span id="cb6-166"><a href="#cb6-166"></a></span>
-<span id="cb6-167"><a href="#cb6-167"></a></span>
-<span id="cb6-168"><a href="#cb6-168"></a><span class="fu">## Flattening the Input</span></span>
-<span id="cb6-169"><a href="#cb6-169"></a></span>
-<span id="cb6-170"><a href="#cb6-170"></a><span class="ss">- </span>To feed this into a neuron, we "unroll" the grid into a list.</span>
-<span id="cb6-171"><a href="#cb6-171"></a><span class="ss">- </span>We go row by row.</span>
-<span id="cb6-172"><a href="#cb6-172"></a></span>
-<span id="cb6-173"><a href="#cb6-173"></a>:::: {.columns}</span>
-<span id="cb6-174"><a href="#cb6-174"></a></span>
-<span id="cb6-175"><a href="#cb6-175"></a>::: {.column width="50%"}</span>
-<span id="cb6-176"><a href="#cb6-176"></a></span>
-<span id="cb6-177"><a href="#cb6-177"></a>| | | |</span>
-<span id="cb6-178"><a href="#cb6-178"></a>|:-:|:-:|:-:|</span>
-<span id="cb6-179"><a href="#cb6-179"></a>| 0 | 0 | 0 |</span>
-<span id="cb6-180"><a href="#cb6-180"></a>| 0 | **1** | 0 |</span>
-<span id="cb6-181"><a href="#cb6-181"></a>| 0 | 0 | 0 |</span>
-<span id="cb6-182"><a href="#cb6-182"></a></span>
-<span id="cb6-183"><a href="#cb6-183"></a>:::</span>
-<span id="cb6-184"><a href="#cb6-184"></a></span>
-<span id="cb6-185"><a href="#cb6-185"></a>::: {.column width="50%"}</span>
-<span id="cb6-186"><a href="#cb6-186"></a></span>
-<span id="cb6-187"><a href="#cb6-187"></a><span class="in">```{.py}</span></span>
-<span id="cb6-188"><a href="#cb6-188"></a><span class="in">[0,0,0,0,1,0,0,0,0]</span></span>
-<span id="cb6-189"><a href="#cb6-189"></a><span class="in">```</span></span>
-<span id="cb6-190"><a href="#cb6-190"></a></span>
-<span id="cb6-191"><a href="#cb6-191"></a>:::</span>
-<span id="cb6-192"><a href="#cb6-192"></a></span>
-<span id="cb6-193"><a href="#cb6-193"></a></span>
-<span id="cb6-194"><a href="#cb6-194"></a>::::</span>
-<span id="cb6-195"><a href="#cb6-195"></a></span>
-<span id="cb6-196"><a href="#cb6-196"></a><span class="fu"># The Neuron Structure</span></span>
-<span id="cb6-197"><a href="#cb6-197"></a></span>
-<span id="cb6-198"><a href="#cb6-198"></a><span class="fu">## Sensory Neurons</span></span>
-<span id="cb6-199"><a href="#cb6-199"></a></span>
-<span id="cb6-200"><a href="#cb6-200"></a><span class="ss">- </span>Each of these 9 positions acts as a **sensory neuron**.</span>
-<span id="cb6-201"><a href="#cb6-201"></a><span class="ss">- </span>If there is a dot, the neuron fires (1).</span>
-<span id="cb6-202"><a href="#cb6-202"></a><span class="ss">- </span>If there is no dot, the neuron is silent (0).</span>
-<span id="cb6-203"><a href="#cb6-203"></a><span class="ss">- </span>This is *quite* similar to how the eye works - certainly similar enough to draw connections.</span>
-<span id="cb6-204"><a href="#cb6-204"></a></span>
-<span id="cb6-205"><a href="#cb6-205"></a><span class="fu">## The Summation</span></span>
-<span id="cb6-206"><a href="#cb6-206"></a></span>
-<span id="cb6-207"><a href="#cb6-207"></a><span class="ss">- </span>All 9 signals travel down "axons" (edges) to a single destination.</span>
-<span id="cb6-208"><a href="#cb6-208"></a><span class="ss">- </span>This destination is the **Cell Body** (or the Perceptron).</span>
-<span id="cb6-209"><a href="#cb6-209"></a></span>
-<span id="cb6-212"><a href="#cb6-212"></a><span class="in">```{dot}</span></span>
-<span id="cb6-213"><a href="#cb6-213"></a><span class="in">graph PerceptronBase {</span></span>
-<span id="cb6-214"><a href="#cb6-214"></a><span class="in">    rankdir=TD;</span></span>
-<span id="cb6-215"><a href="#cb6-215"></a><span class="in">    bgcolor="transparent"  </span></span>
-<span id="cb6-216"><a href="#cb6-216"></a><span class="in">    node [shape=circle, fontcolor = "#ffffff", color = "#ffffff"]</span></span>
-<span id="cb6-217"><a href="#cb6-217"></a><span class="in">    edge [color = "#ffffff"]</span></span>
-<span id="cb6-218"><a href="#cb6-218"></a></span>
-<span id="cb6-219"><a href="#cb6-219"></a><span class="in">    subgraph cluster_input {</span></span>
-<span id="cb6-220"><a href="#cb6-220"></a><span class="in">        fontcolor="white";</span></span>
-<span id="cb6-221"><a href="#cb6-221"></a><span class="in">        node [style=filled, fillcolor="red"];</span></span>
-<span id="cb6-222"><a href="#cb6-222"></a><span class="in">        X0 [label="0,0"]; X1 [label="0,1"]; X2 [label="0,2"];</span></span>
-<span id="cb6-223"><a href="#cb6-223"></a><span class="in">        X3 [label="1,0"]; X4 [label="1,1"]; X5 [label="1,2"];</span></span>
-<span id="cb6-224"><a href="#cb6-224"></a><span class="in">        X6 [label="2,0"]; X7 [label="2,1"]; X8 [label="2,2"];</span></span>
-<span id="cb6-225"><a href="#cb6-225"></a><span class="in">    }</span></span>
-<span id="cb6-226"><a href="#cb6-226"></a></span>
-<span id="cb6-227"><a href="#cb6-227"></a><span class="in">    node [style=filled, fillcolor="blue"];</span></span>
-<span id="cb6-228"><a href="#cb6-228"></a><span class="in">    Neuron [label="∑"];</span></span>
-<span id="cb6-229"><a href="#cb6-229"></a></span>
-<span id="cb6-230"><a href="#cb6-230"></a><span class="in">    X0 -- Neuron; X1 -- Neuron; X2 -- Neuron;</span></span>
-<span id="cb6-231"><a href="#cb6-231"></a><span class="in">    X3 -- Neuron; X4 -- Neuron; X5 -- Neuron;</span></span>
-<span id="cb6-232"><a href="#cb6-232"></a><span class="in">    X6 -- Neuron; X7 -- Neuron; X8 -- Neuron;</span></span>
-<span id="cb6-233"><a href="#cb6-233"></a><span class="in">}</span></span>
-<span id="cb6-234"><a href="#cb6-234"></a><span class="in">```</span></span>
-<span id="cb6-235"><a href="#cb6-235"></a></span>
-<span id="cb6-236"><a href="#cb6-236"></a><span class="fu">## Why Sigma ($\Sigma$)</span></span>
-<span id="cb6-237"><a href="#cb6-237"></a></span>
-<span id="cb6-238"><a href="#cb6-238"></a><span class="ss">- </span>We'll get to that, soon.</span>
-<span id="cb6-239"><a href="#cb6-239"></a><span class="ss">- </span>Hint: What is $\Sigma$ used for in mathematics.</span>
-<span id="cb6-240"><a href="#cb6-240"></a></span>
-<span id="cb6-241"><a href="#cb6-241"></a>$$</span>
-<span id="cb6-242"><a href="#cb6-242"></a>\sum_{i=1}^n i = \frac{n(n+1)}{2}</span>
-<span id="cb6-243"><a href="#cb6-243"></a>$$</span>
-<span id="cb6-244"><a href="#cb6-244"></a></span>
-<span id="cb6-245"><a href="#cb6-245"></a><span class="fu"># Decision Making</span></span>
-<span id="cb6-246"><a href="#cb6-246"></a></span>
-<span id="cb6-247"><a href="#cb6-247"></a><span class="fu">## Weighting the Evidence</span></span>
-<span id="cb6-248"><a href="#cb6-248"></a></span>
-<span id="cb6-249"><a href="#cb6-249"></a><span class="ss">- </span>Not every pixel is equally important for every task.</span>
-<span id="cb6-250"><a href="#cb6-250"></a><span class="ss">- </span>We assign a **Weight** ($w$) to each edge.</span>
-<span id="cb6-251"><a href="#cb6-251"></a><span class="ss">- </span>If a pixel is very important, it has a high weight.</span>
-<span id="cb6-252"><a href="#cb6-252"></a><span class="ss">- </span>If it's irrelevant, the weight is 0.</span>
-<span id="cb6-253"><a href="#cb6-253"></a><span class="ss">- </span>We would allow "anti-important" pixels to have a *negative* weight.</span>
-<span id="cb6-254"><a href="#cb6-254"></a><span class="ss">    - </span>For example, is the center dot is present, you are certainly *not* viewing a 2, 4, or 6.</span>
-<span id="cb6-255"><a href="#cb6-255"></a></span>
-<span id="cb6-256"><a href="#cb6-256"></a><span class="fu">## Example: Odd vs. Even</span></span>
-<span id="cb6-257"><a href="#cb6-257"></a></span>
-<span id="cb6-258"><a href="#cb6-258"></a><span class="ss">- </span>Let's try to detect if a die roll is **Odd**.</span>
-<span id="cb6-259"><a href="#cb6-259"></a><span class="ss">- </span>Which pixels are always "on" for odd numbers (1, 3, 5)?</span>
-<span id="cb6-260"><a href="#cb6-260"></a><span class="ss">- </span>The center pixel! (1,1).</span>
-<span id="cb6-261"><a href="#cb6-261"></a></span>
-<span id="cb6-262"><a href="#cb6-262"></a><span class="fu">## Edge Weights for "Odd"</span></span>
-<span id="cb6-263"><a href="#cb6-263"></a></span>
-<span id="cb6-264"><a href="#cb6-264"></a><span class="ss">- </span>We give the center pixel a weight of 1.</span>
-<span id="cb6-265"><a href="#cb6-265"></a><span class="ss">- </span>We give all other pixels a weight of 0.</span>
-<span id="cb6-266"><a href="#cb6-266"></a></span>
-<span id="cb6-267"><a href="#cb6-267"></a><span class="in">```{.py}</span></span>
-<span id="cb6-268"><a href="#cb6-268"></a><span class="in">weights = [0, 0, 0, 0, 1, 0, 0, 0, 0]</span></span>
-<span id="cb6-269"><a href="#cb6-269"></a><span class="in">```</span></span>
-<span id="cb6-270"><a href="#cb6-270"></a></span>
-<span id="cb6-271"><a href="#cb6-271"></a>::: {.callout-note}</span>
-<span id="cb6-272"><a href="#cb6-272"></a></span>
-<span id="cb6-273"><a href="#cb6-273"></a>This is superficially similar to the pixel values for a die showing 1, but it's *meaning* is distinct.</span>
-<span id="cb6-274"><a href="#cb6-274"></a></span>
-<span id="cb6-275"><a href="#cb6-275"></a>Previously, we showed what dots are present on a die representing one.</span>
-<span id="cb6-276"><a href="#cb6-276"></a></span>
-<span id="cb6-277"><a href="#cb6-277"></a>Here, we show what dots matter when determining is a die is even or odd.</span>
-<span id="cb6-278"><a href="#cb6-278"></a></span>
-<span id="cb6-279"><a href="#cb6-279"></a>:::</span>
-<span id="cb6-280"><a href="#cb6-280"></a></span>
-<span id="cb6-281"><a href="#cb6-281"></a><span class="fu">## The Calculation</span></span>
-<span id="cb6-282"><a href="#cb6-282"></a></span>
-<span id="cb6-283"><a href="#cb6-283"></a><span class="ss">- </span>The neuron calculates the **Weighted Sum**.</span>
-<span id="cb6-284"><a href="#cb6-284"></a><span class="ss">- </span>For Die "1": $(1 \times 1) + (0 \times \text{others}) = 1$.</span>
-<span id="cb6-285"><a href="#cb6-285"></a><span class="ss">- </span>For Die "2": $(0 \times 1) + (1 \times \text{others}) = 0$.</span>
-<span id="cb6-286"><a href="#cb6-286"></a></span>
-<span id="cb6-287"><a href="#cb6-287"></a><span class="fu"># Digression: Classification</span></span>
-<span id="cb6-288"><a href="#cb6-288"></a></span>
-<span id="cb6-289"><a href="#cb6-289"></a><span class="fu">## Binary Classifiers</span></span>
-<span id="cb6-290"><a href="#cb6-290"></a></span>
-<span id="cb6-291"><a href="#cb6-291"></a><span class="ss">- </span>The neuron we just built is a **Binary Classifier**.</span>
-<span id="cb6-292"><a href="#cb6-292"></a><span class="ss">- </span>It sorts inputs into two distinct buckets.</span>
-<span id="cb6-293"><a href="#cb6-293"></a><span class="ss">- </span>Bucket A: "Odd" (Sum &gt; 0)</span>
-<span id="cb6-294"><a href="#cb6-294"></a><span class="ss">- </span>Bucket B: "Even" (Sum = 0)</span>
-<span id="cb6-295"><a href="#cb6-295"></a></span>
-<span id="cb6-296"><a href="#cb6-296"></a><span class="fu">## Mutual Exclusion</span></span>
-<span id="cb6-297"><a href="#cb6-297"></a></span>
-<span id="cb6-298"><a href="#cb6-298"></a><span class="ss">- </span>In binary classification, something is usually one or the other.</span>
-<span id="cb6-299"><a href="#cb6-299"></a><span class="ss">- </span>**Mutual Exclusion**: If it is A, it cannot be B.</span>
-<span id="cb6-300"><a href="#cb6-300"></a></span>
-<span id="cb6-301"><a href="#cb6-301"></a></span>
-<span id="cb6-302"><a href="#cb6-302"></a><span class="fu">## Example: US Senators</span></span>
-<span id="cb6-303"><a href="#cb6-303"></a></span>
-<span id="cb6-304"><a href="#cb6-304"></a><span class="ss">- </span>A US Senator's party affiliation is a classic (mostly) binary classification.</span>
-<span id="cb6-305"><a href="#cb6-305"></a><span class="ss">- </span>Excluding independents, a senator is either:</span>
-<span id="cb6-306"><a href="#cb6-306"></a><span class="ss">    - </span>**Democrat**</span>
-<span id="cb6-307"><a href="#cb6-307"></a><span class="ss">    - </span>**Republican**</span>
-<span id="cb6-308"><a href="#cb6-308"></a><span class="ss">- </span>Also independents aren't real and almost universally "caucus" with one of the two major parties.</span>
-<span id="cb6-309"><a href="#cb6-309"></a></span>
-<span id="cb6-310"><a href="#cb6-310"></a><span class="fu">## Some Examples</span></span>
-<span id="cb6-311"><a href="#cb6-311"></a></span>
-<span id="cb6-312"><a href="#cb6-312"></a>| Senator | Feature: State | Feature: Vote Record | Classifier Output |</span>
-<span id="cb6-313"><a href="#cb6-313"></a>|---------|----------------|----------------------|-------------------|</span>
-<span id="cb6-314"><a href="#cb6-314"></a>| Wyden   | OR             | Capitalist           | Democrat          |</span>
-<span id="cb6-315"><a href="#cb6-315"></a>| Crapo   | ID             | Capitalist           | Republican        |</span>
-<span id="cb6-316"><a href="#cb6-316"></a></span>
-<span id="cb6-317"><a href="#cb6-317"></a>If you will allow me to editorialize (you shouldn't), state determines party affiliation but nothing determines support for e.g. US military actions or tax breaks for the wealthy.</span>
-<span id="cb6-318"><a href="#cb6-318"></a></span>
-<span id="cb6-319"><a href="#cb6-319"></a></span>
-<span id="cb6-320"><a href="#cb6-320"></a><span class="fu">## Why Classification Matters</span></span>
-<span id="cb6-321"><a href="#cb6-321"></a></span>
-<span id="cb6-322"><a href="#cb6-322"></a>It is the foundation of all AI logic.</span>
-<span id="cb6-323"><a href="#cb6-323"></a></span>
-<span id="cb6-324"><a href="#cb6-324"></a><span class="ss">- </span>Is this email spam? (Yes/No)</span>
-<span id="cb6-325"><a href="#cb6-325"></a><span class="ss">- </span>Is this tumor malignant? (Yes/No)</span>
-<span id="cb6-326"><a href="#cb6-326"></a><span class="ss">- </span>Is this image a cat? (Yes/No)</span>
-<span id="cb6-327"><a href="#cb6-327"></a></span>
-<span id="cb6-328"><a href="#cb6-328"></a><span class="fu"># Aside: Summation</span></span>
-<span id="cb6-329"><a href="#cb6-329"></a></span>
-<span id="cb6-330"><a href="#cb6-330"></a><span class="fu">## Summation Notation</span></span>
-<span id="cb6-331"><a href="#cb6-331"></a></span>
-<span id="cb6-332"><a href="#cb6-332"></a><span class="ss">- </span>To calculate the signal reaching the cell body, we don't just add numbers.</span>
-<span id="cb6-333"><a href="#cb6-333"></a><span class="ss">- </span>We multiply each input ($x$) by its importance or **weight** ($w$).</span>
-<span id="cb6-334"><a href="#cb6-334"></a><span class="ss">- </span>We use the Greek letter Sigma $\sum$ to represent this "Total Sum."</span>
-<span id="cb6-335"><a href="#cb6-335"></a></span>
-<span id="cb6-336"><a href="#cb6-336"></a><span class="fu">## LaTeX in Markdown</span></span>
-<span id="cb6-337"><a href="#cb6-337"></a></span>
-<span id="cb6-338"><a href="#cb6-338"></a><span class="ss">- </span>In tools like Google Colab (used for our labs) or Quarto (used to make these slides), we use a special typesettin language called $\LaTeX$ (la-tech) to show mathematical notation.</span>
-<span id="cb6-339"><a href="#cb6-339"></a></span>
-<span id="cb6-340"><a href="#cb6-340"></a><span class="fu">## Example</span></span>
-<span id="cb6-341"><a href="#cb6-341"></a></span>
-<span id="cb6-342"><a href="#cb6-342"></a><span class="ss">- </span>The formula for a neuron's input is:</span>
-<span id="cb6-343"><a href="#cb6-343"></a></span>
-<span id="cb6-344"><a href="#cb6-344"></a>$$\sum_{i=1}^{n} w_i x_i = w_1 x_1 + w_2 x_2 + \dots + w_n x_n$$</span>
-<span id="cb6-345"><a href="#cb6-345"></a></span>
-<span id="cb6-346"><a href="#cb6-346"></a><span class="ss">- </span>$n$ is the number of inputs (9 for our dice).</span>
-<span id="cb6-347"><a href="#cb6-347"></a><span class="ss">- </span>$w_i$ is the weight of the $i$-th pixel.</span>
-<span id="cb6-348"><a href="#cb6-348"></a><span class="ss">- </span>$x_i$ is the value (0 or 1) of the $i$-th pixel.</span>
-<span id="cb6-349"><a href="#cb6-349"></a></span>
-<span id="cb6-350"><a href="#cb6-350"></a></span>
-<span id="cb6-351"><a href="#cb6-351"></a><span class="fu">## In LaTeX</span></span>
-<span id="cb6-352"><a href="#cb6-352"></a></span>
-<span id="cb6-353"><a href="#cb6-353"></a><span class="ss">- </span>You can write this out as follows:</span>
-<span id="cb6-354"><a href="#cb6-354"></a></span>
-<span id="cb6-355"><a href="#cb6-355"></a><span class="in">```{.tex}</span></span>
-<span id="cb6-356"><a href="#cb6-356"></a><span class="in">$$</span></span>
-<span id="cb6-357"><a href="#cb6-357"></a><span class="in">\sum_{i=1}^{n} w_i \times x_i </span></span>
-<span id="cb6-358"><a href="#cb6-358"></a><span class="in">$$</span></span>
-<span id="cb6-359"><a href="#cb6-359"></a><span class="in">```</span></span>
-<span id="cb6-360"><a href="#cb6-360"></a></span>
-<span id="cb6-361"><a href="#cb6-361"></a><span class="ss">- </span>The two enclosing lines of <span class="in">`$$`</span> means "this is a mathematical formula"</span>
-<span id="cb6-362"><a href="#cb6-362"></a></span>
-<span id="cb6-363"><a href="#cb6-363"></a><span class="fu">## Some notes</span></span>
-<span id="cb6-364"><a href="#cb6-364"></a></span>
-<span id="cb6-365"><a href="#cb6-365"></a><span class="ss">- </span>Many common mathematical expressions are stylized using a backslash and a name or nickname.</span>
-<span id="cb6-366"><a href="#cb6-366"></a><span class="ss">- </span>Subscripts are denoted with <span class="in">`_`</span> and enclosed in <span class="in">`{}`</span></span>
-<span id="cb6-367"><a href="#cb6-367"></a><span class="ss">- </span>Superscripts are denoted with <span class="in">`^`</span> - and may be combined with subscripts!</span>
-<span id="cb6-368"><a href="#cb6-368"></a><span class="ss">- </span><span class="in">`{}`</span> are optional for single characters.</span>
-<span id="cb6-369"><a href="#cb6-369"></a></span>
-<span id="cb6-370"><a href="#cb6-370"></a><span class="fu"># Differentiating Odds</span></span>
-<span id="cb6-371"><a href="#cb6-371"></a></span>
-<span id="cb6-372"><a href="#cb6-372"></a><span class="fu">## The "Center Pixel" Strategy</span></span>
-<span id="cb6-373"><a href="#cb6-373"></a></span>
-<span id="cb6-374"><a href="#cb6-374"></a><span class="ss">- </span>We previously suggested that "Odd" numbers (1, 3, 5) all have a center dot.</span>
-<span id="cb6-375"><a href="#cb6-375"></a><span class="ss">- </span>**Problem:** What if we need to distinguish a **1** from a **3**?</span>
-<span id="cb6-376"><a href="#cb6-376"></a><span class="ss">    - </span>Those are different numbers!</span>
-<span id="cb6-377"><a href="#cb6-377"></a></span>
-<span id="cb6-378"><a href="#cb6-378"></a><span class="fu">## Failed Weighting #1: Only the Center</span></span>
-<span id="cb6-379"><a href="#cb6-379"></a></span>
-<span id="cb6-380"><a href="#cb6-380"></a><span class="ss">- </span>Let's set $w_4 = 1$ (the center) and all other $w = 0$.</span>
-<span id="cb6-381"><a href="#cb6-381"></a><span class="ss">    - </span>Why 4? Start at zero, count up.</span>
-<span id="cb6-382"><a href="#cb6-382"></a><span class="ss">- </span>**Result:** It correctly identifies 1, 3, and 5.</span>
-<span id="cb6-383"><a href="#cb6-383"></a><span class="ss">- </span>**The Failure:** It would also classify a 7 and 9, most likely, even though these are not valid "odd" die in the sense of, say, Yahtzee.</span>
-<span id="cb6-384"><a href="#cb6-384"></a></span>
-<span id="cb6-385"><a href="#cb6-385"></a><span class="fu">## Failed Weighting #2: The Positive Diagonal</span></span>
-<span id="cb6-386"><a href="#cb6-386"></a></span>
-<span id="cb6-387"><a href="#cb6-387"></a><span class="ss">- </span>Let's weight the top-right, center, and bottom-left as $+\frac{1}{3}$.</span>
-<span id="cb6-388"><a href="#cb6-388"></a><span class="ss">- </span>**Result:** It perfectly identifies a "3".</span>
-<span id="cb6-389"><a href="#cb6-389"></a><span class="ss">- </span>**The Failure:** It fails to identify a "1" (the sum rounds down to zero) and it ignores the extra dots in a "5." It's too specific to the shape of a 3.</span>
-<span id="cb6-390"><a href="#cb6-390"></a><span class="ss">- </span>**The Failure:** What if the "3" is rotated by 90 degrees?</span>
-<span id="cb6-391"><a href="#cb6-391"></a></span>
-<span id="cb6-392"><a href="#cb6-392"></a><span class="fu"># The Power of Negativity</span></span>
-<span id="cb6-393"><a href="#cb6-393"></a></span>
-<span id="cb6-394"><a href="#cb6-394"></a><span class="fu">## Inhibitory Signals</span></span>
-<span id="cb6-395"><a href="#cb6-395"></a></span>
-<span id="cb6-396"><a href="#cb6-396"></a><span class="ss">- </span>In biology, some neurons tell others *not* to fire. These are "inhibitory."</span>
-<span id="cb6-397"><a href="#cb6-397"></a><span class="ss">    - </span>For example, when I see a film that *isn't* directed by Ridley Scott.</span>
-<span id="cb6-398"><a href="#cb6-398"></a><span class="ss">    - </span>Did you know Ridley Scott directed *Kingdom of Heaven* 2005?</span>
-<span id="cb6-399"><a href="#cb6-399"></a><span class="ss">- </span>In our model, we use **Negative Weights**.</span>
-<span id="cb6-400"><a href="#cb6-400"></a><span class="ss">- </span>This allows us to "punish" the presence of certain dots that shouldn't be there for a specific classification.</span>
-<span id="cb6-401"><a href="#cb6-401"></a></span>
-<span id="cb6-402"><a href="#cb6-402"></a><span class="fu">## Example: Detecting "1" but NOT "3"</span></span>
-<span id="cb6-403"><a href="#cb6-403"></a></span>
-<span id="cb6-404"><a href="#cb6-404"></a><span class="ss">- </span>Both have a center dot. How do we tell them apart?</span>
-<span id="cb6-405"><a href="#cb6-405"></a><span class="ss">- </span>We "reward" the center dot but "punish" the corners.</span>
-<span id="cb6-406"><a href="#cb6-406"></a><span class="ss">    - </span>Center (1,1)     = +1</span>
-<span id="cb6-407"><a href="#cb6-407"></a><span class="ss">    - </span>Top-Right (0,2)  = -1</span>
-<span id="cb6-408"><a href="#cb6-408"></a><span class="ss">    - </span>Bottom-Left (2,0) = -1</span>
-<span id="cb6-409"><a href="#cb6-409"></a></span>
-<span id="cb6-410"><a href="#cb6-410"></a><span class="in">```{.py}</span></span>
-<span id="cb6-411"><a href="#cb6-411"></a><span class="in">weights = [0, 0, -1, 0, 1, 0, -1, 0, 0]</span></span>
-<span id="cb6-412"><a href="#cb6-412"></a><span class="in">```</span></span>
-<span id="cb6-413"><a href="#cb6-413"></a></span>
-<span id="cb6-414"><a href="#cb6-414"></a><span class="fu">## Why it works</span></span>
-<span id="cb6-415"><a href="#cb6-415"></a></span>
-<span id="cb6-416"><a href="#cb6-416"></a><span class="ss">- </span>**For Die "1":** Sum = $(1 \times 1) + (0 \times -1) + (0 \times -1) = 1$. (Success!)</span>
-<span id="cb6-417"><a href="#cb6-417"></a><span class="ss">- </span>**For Die "3":** Sum = $(1 \times 1) + (1 \times -1) + (1 \times -1) = -1$. </span>
-<span id="cb6-418"><a href="#cb6-418"></a><span class="ss">- </span>The negative weights "cancelled out" the center dot. The neuron stays silent for the 3!</span>
-<span id="cb6-419"><a href="#cb6-419"></a></span>
-<span id="cb6-420"><a href="#cb6-420"></a><span class="fu"># Introducing the Bias</span></span>
-<span id="cb6-421"><a href="#cb6-421"></a></span>
-<span id="cb6-422"><a href="#cb6-422"></a><span class="fu">## The "Sensitivity" Problem</span></span>
-<span id="cb6-423"><a href="#cb6-423"></a></span>
-<span id="cb6-424"><a href="#cb6-424"></a><span class="ss">- </span>Even with negative weights, we have a problem: **The Threshold**.</span>
-<span id="cb6-425"><a href="#cb6-425"></a><span class="ss">- </span>We need a way to decide exactly when the sum is "enough" to trigger a fire.</span>
-<span id="cb6-426"><a href="#cb6-426"></a><span class="ss">- </span>We need to shift the "goalposts" without rewriting all our weights.</span>
-<span id="cb6-427"><a href="#cb6-427"></a></span>
-<span id="cb6-428"><a href="#cb6-428"></a><span class="fu">## The Bias ($b$)</span></span>
-<span id="cb6-429"><a href="#cb6-429"></a></span>
-<span id="cb6-430"><a href="#cb6-430"></a><span class="ss">- </span>The **Bias** is a number we add to the sum *before* deciding to fire.</span>
-<span id="cb6-431"><a href="#cb6-431"></a><span class="ss">- </span>It represents how "easy" it is to make the neuron fire.</span>
-<span id="cb6-432"><a href="#cb6-432"></a><span class="ss">- </span>**High Bias:** The neuron is "trigger happy" and fires easily.</span>
-<span id="cb6-433"><a href="#cb6-433"></a><span class="ss">    - </span>My "movie good" neuron is *highly biased* toward Ridley Scott films.</span>
-<span id="cb6-434"><a href="#cb6-434"></a><span class="ss">- </span>**Negative Bias:** The neuron is "stubborn" and needs a very high positive sum to fire.</span>
-<span id="cb6-435"><a href="#cb6-435"></a><span class="ss">    - </span>My "movie good" neuron is *negatively biased* against *Predator* films.</span>
-<span id="cb6-436"><a href="#cb6-436"></a></span>
-<span id="cb6-437"><a href="#cb6-437"></a></span>
-<span id="cb6-438"><a href="#cb6-438"></a></span>
-<span id="cb6-439"><a href="#cb6-439"></a><span class="fu">## The Completed Formula</span></span>
-<span id="cb6-440"><a href="#cb6-440"></a></span>
-<span id="cb6-441"><a href="#cb6-441"></a><span class="ss">- </span>We update our LaTeX formula to include the bias term $b$:</span>
-<span id="cb6-442"><a href="#cb6-442"></a></span>
-<span id="cb6-443"><a href="#cb6-443"></a>$$\sum_{i=1}^{n} w_i x_i + b $$</span>
-<span id="cb6-444"><a href="#cb6-444"></a></span>
-<span id="cb6-445"><a href="#cb6-445"></a><span class="ss">- </span>If the result is $&gt; 0$, the neuron fires (1).</span>
-<span id="cb6-446"><a href="#cb6-446"></a><span class="ss">- </span>If the result is $\le 0$, it stays silent (0).</span>
-<span id="cb6-447"><a href="#cb6-447"></a></span>
-<span id="cb6-448"><a href="#cb6-448"></a><span class="fu">## Visualizing the Bias Node</span></span>
-<span id="cb6-449"><a href="#cb6-449"></a></span>
-<span id="cb6-450"><a href="#cb6-450"></a><span class="ss">- </span>In a graph, the bias is often shown as a special input node that is **always** 1, multiplied by its own weight $b$.</span>
-<span id="cb6-451"><a href="#cb6-451"></a></span>
-<span id="cb6-454"><a href="#cb6-454"></a><span class="in">```{dot}</span></span>
-<span id="cb6-455"><a href="#cb6-455"></a><span class="in">graph PerceptronWithBias {</span></span>
-<span id="cb6-456"><a href="#cb6-456"></a><span class="in">    rankdir=TD;</span></span>
-<span id="cb6-457"><a href="#cb6-457"></a><span class="in">    bgcolor="transparent"  </span></span>
-<span id="cb6-458"><a href="#cb6-458"></a><span class="in">    node [shape=circle, fontcolor = "#ffffff", color = "#ffffff"]</span></span>
-<span id="cb6-459"><a href="#cb6-459"></a><span class="in">    </span></span>
-<span id="cb6-460"><a href="#cb6-460"></a><span class="in">    subgraph cluster_input {</span></span>
-<span id="cb6-461"><a href="#cb6-461"></a><span class="in">        label="Inputs";</span></span>
-<span id="cb6-462"><a href="#cb6-462"></a><span class="in">        fontcolor="white";</span></span>
-<span id="cb6-463"><a href="#cb6-463"></a><span class="in">        node [style=filled, fillcolor="red"];</span></span>
-<span id="cb6-464"><a href="#cb6-464"></a><span class="in">        X1; X2; X3;</span></span>
-<span id="cb6-465"><a href="#cb6-465"></a><span class="in">    }</span></span>
-<span id="cb6-466"><a href="#cb6-466"></a></span>
-<span id="cb6-467"><a href="#cb6-467"></a><span class="in">    subgraph cluster_bias {</span></span>
-<span id="cb6-468"><a href="#cb6-468"></a><span class="in">        label="Bias";</span></span>
-<span id="cb6-469"><a href="#cb6-469"></a><span class="in">        fontcolor="white";</span></span>
-<span id="cb6-470"><a href="#cb6-470"></a><span class="in">        node [style=filled, fillcolor="green"];</span></span>
-<span id="cb6-471"><a href="#cb6-471"></a><span class="in">        B [label="1"];</span></span>
-<span id="cb6-472"><a href="#cb6-472"></a><span class="in">    }</span></span>
-<span id="cb6-473"><a href="#cb6-473"></a></span>
-<span id="cb6-474"><a href="#cb6-474"></a><span class="in">    node [style=filled, fillcolor="blue"];</span></span>
-<span id="cb6-475"><a href="#cb6-475"></a><span class="in">    Neuron [label="∑"];</span></span>
-<span id="cb6-476"><a href="#cb6-476"></a></span>
-<span id="cb6-477"><a href="#cb6-477"></a><span class="in">    X1 -- Neuron [label="w1"];</span></span>
-<span id="cb6-478"><a href="#cb6-478"></a><span class="in">    X2 -- Neuron [label="w2"];</span></span>
-<span id="cb6-479"><a href="#cb6-479"></a><span class="in">    X3 -- Neuron [label="w3"];</span></span>
-<span id="cb6-480"><a href="#cb6-480"></a><span class="in">    B  -- Neuron [label="b", color="yellow"];</span></span>
-<span id="cb6-481"><a href="#cb6-481"></a><span class="in">}</span></span>
-<span id="cb6-482"><a href="#cb6-482"></a><span class="in">```</span></span>
-<span id="cb6-483"><a href="#cb6-483"></a></span>
-<span id="cb6-484"><a href="#cb6-484"></a><span class="fu"># The Full Perceptron </span></span>
-<span id="cb6-485"><a href="#cb6-485"></a></span>
-<span id="cb6-486"><a href="#cb6-486"></a><span class="fu">## Bias and Threshold</span></span>
-<span id="cb6-487"><a href="#cb6-487"></a></span>
-<span id="cb6-488"><a href="#cb6-488"></a><span class="ss">- </span>Sometimes, the sum isn't enough. We need a **Threshold**.</span>
-<span id="cb6-489"><a href="#cb6-489"></a><span class="ss">- </span>A neuron only "fires" if the sum exceeds a certain level.</span>
-<span id="cb6-490"><a href="#cb6-490"></a><span class="ss">- </span>This level is controlled by the **Bias**.</span>
-<span id="cb6-491"><a href="#cb6-491"></a></span>
-<span id="cb6-492"><a href="#cb6-492"></a>$$f(x) = \begin{cases} 1 &amp; \text{if } \sum w_i x_i + b &gt; 0 <span class="sc">\\</span> 0 &amp; \text{otherwise} \end{cases}$$</span>
-<span id="cb6-493"><a href="#cb6-493"></a></span>
-<span id="cb6-494"><a href="#cb6-494"></a></span>
-<span id="cb6-495"><a href="#cb6-495"></a><span class="ss">- </span>We can use either a *piecewise* or *indicator* function here.</span>
-<span id="cb6-496"><a href="#cb6-496"></a></span>
-<span id="cb6-497"><a href="#cb6-497"></a><span class="fu">## Piecewise Functions</span></span>
-<span id="cb6-498"><a href="#cb6-498"></a></span>
-<span id="cb6-499"><a href="#cb6-499"></a></span>
-<span id="cb6-500"><a href="#cb6-500"></a><span class="ss">- </span>In our Perceptron, the output changes abruptly from 0 to 1. </span>
-<span id="cb6-501"><a href="#cb6-501"></a><span class="ss">- </span>This is a **Piecewise Function**: a function where the "rule" changes depending on the input value $x$.</span>
-<span id="cb6-502"><a href="#cb6-502"></a></span>
-<span id="cb6-503"><a href="#cb6-503"></a><span class="fu">## Mathematical Notation</span></span>
-<span id="cb6-504"><a href="#cb6-504"></a></span>
-<span id="cb6-505"><a href="#cb6-505"></a><span class="ss">- </span>We use a large "curly bracket" to define the different rules. For a simple threshold at zero:</span>
-<span id="cb6-506"><a href="#cb6-506"></a></span>
-<span id="cb6-507"><a href="#cb6-507"></a>$$</span>
-<span id="cb6-508"><a href="#cb6-508"></a>f(x) = \begin{cases} </span>
-<span id="cb6-509"><a href="#cb6-509"></a>0 &amp; x \leq 0 <span class="sc">\\</span></span>
-<span id="cb6-510"><a href="#cb6-510"></a>1 &amp; x &gt; 0 </span>
-<span id="cb6-511"><a href="#cb6-511"></a>\end{cases}</span>
-<span id="cb6-512"><a href="#cb6-512"></a>$$</span>
-<span id="cb6-513"><a href="#cb6-513"></a></span>
-<span id="cb6-514"><a href="#cb6-514"></a><span class="ss">- </span>This is exactly how our neuron decides to "fire" or "stay silent."</span>
-<span id="cb6-515"><a href="#cb6-515"></a></span>
-<span id="cb6-516"><a href="#cb6-516"></a><span class="fu">## Real World: Tax Brackets</span></span>
-<span id="cb6-517"><a href="#cb6-517"></a></span>
-<span id="cb6-518"><a href="#cb6-518"></a><span class="ss">- </span>Most people encounter piecewise functions once a year: **Income Tax**. </span>
-<span id="cb6-519"><a href="#cb6-519"></a><span class="ss">- </span>Tax rate isn't a single line; it's a series of "steps" or "brackets."</span>
-<span id="cb6-520"><a href="#cb6-520"></a></span>
-<span id="cb6-521"><a href="#cb6-521"></a>| Income Range | Tax Rate |</span>
-<span id="cb6-522"><a href="#cb6-522"></a>| :--- | :--- |</span>
-<span id="cb6-523"><a href="#cb6-523"></a>| $0 – $10,000 | 10% |</span>
-<span id="cb6-524"><a href="#cb6-524"></a>| $10,001 – $45,000 | 15% |</span>
-<span id="cb6-525"><a href="#cb6-525"></a>| $45,001 – $95,000 | 25% |</span>
-<span id="cb6-526"><a href="#cb6-526"></a></span>
-<span id="cb6-527"><a href="#cb6-527"></a><span class="fu">## The "Tax" Perceptron</span></span>
-<span id="cb6-528"><a href="#cb6-528"></a></span>
-<span id="cb6-529"><a href="#cb6-529"></a>You can think of each tax bracket as a neuron with a different **Bias**.</span>
-<span id="cb6-530"><a href="#cb6-530"></a></span>
-<span id="cb6-531"><a href="#cb6-531"></a><span class="ss">* </span>The 10% neuron "fires" immediately (**Bias = 0**).</span>
-<span id="cb6-532"><a href="#cb6-532"></a><span class="ss">* </span>The 25% neuron only "fires" once your income (Input) exceeds $45,000 (**Bias = -45,000**).</span>
-<span id="cb6-533"><a href="#cb6-533"></a></span>
-<span id="cb6-534"><a href="#cb6-534"></a><span class="fu">## Indicator Functions</span></span>
-<span id="cb6-535"><a href="#cb6-535"></a></span>
-<span id="cb6-536"><a href="#cb6-536"></a><span class="ss">- </span>An **Indicator Function** is a special piecewise function. </span>
-<span id="cb6-537"><a href="#cb6-537"></a><span class="ss">- </span>It "indicates" whether an input belongs to a specific collection. </span>
-<span id="cb6-538"><a href="#cb6-538"></a><span class="ss">- </span>We use the symbol $\mathbb{1}$ (a "blackboard bold" 1).</span>
-<span id="cb6-539"><a href="#cb6-539"></a><span class="ss">    - </span><span class="in">`$\mathbb{1}$`</span> - start math, make blackboard bold, apply to 1, end math,</span>
-<span id="cb6-540"><a href="#cb6-540"></a></span>
-<span id="cb6-541"><a href="#cb6-541"></a><span class="fu">## Binary Logic</span></span>
-<span id="cb6-542"><a href="#cb6-542"></a></span>
-<span id="cb6-543"><a href="#cb6-543"></a><span class="ss">- </span>If the condition is **True**, the output is 1.</span>
-<span id="cb6-544"><a href="#cb6-544"></a><span class="ss">- </span>If the condition is **False**, the output is 0.</span>
-<span id="cb6-545"><a href="#cb6-545"></a></span>
-<span id="cb6-546"><a href="#cb6-546"></a>$$</span>
-<span id="cb6-547"><a href="#cb6-547"></a>\mathbb{1}_{A}(x) = \begin{cases} </span>
-<span id="cb6-548"><a href="#cb6-548"></a>1 &amp; x \in A <span class="sc">\\</span></span>
-<span id="cb6-549"><a href="#cb6-549"></a>0 &amp; x \notin A </span>
-<span id="cb6-550"><a href="#cb6-550"></a>\end{cases}</span>
-<span id="cb6-551"><a href="#cb6-551"></a>$$</span>
-<span id="cb6-552"><a href="#cb6-552"></a></span>
-<span id="cb6-553"><a href="#cb6-553"></a><span class="fu">## Dice as Collections</span></span>
-<span id="cb6-554"><a href="#cb6-554"></a></span>
-<span id="cb6-555"><a href="#cb6-555"></a>When we detect an "Odd" die face, we are running an Indicator Function.</span>
-<span id="cb6-556"><a href="#cb6-556"></a></span>
-<span id="cb6-557"><a href="#cb6-557"></a><span class="ss">- </span>**Input:** 3x3 Grid</span>
-<span id="cb6-558"><a href="#cb6-558"></a><span class="ss">- </span>**Collection $A$:** All grids representing 1, 3, or 5</span>
-<span id="cb6-559"><a href="#cb6-559"></a><span class="ss">- </span>**Output:** 1 if the grid is in the set, 0 otherwise.</span>
-<span id="cb6-560"><a href="#cb6-560"></a></span>
-<span id="cb6-561"><a href="#cb6-561"></a><span class="fu"># Summary &amp; Notation</span></span>
-<span id="cb6-562"><a href="#cb6-562"></a></span>
-<span id="cb6-563"><a href="#cb6-563"></a><span class="fu">## Summation in Colab</span></span>
-<span id="cb6-564"><a href="#cb6-564"></a></span>
-<span id="cb6-565"><a href="#cb6-565"></a><span class="ss">- </span>When writing your lab reports in Markdown cells, you can use LaTeX. </span>
-<span id="cb6-566"><a href="#cb6-566"></a><span class="ss">    - </span>Or $\LaTeX$ by writing <span class="in">`$\LaTeX`</span></span>
-<span id="cb6-567"><a href="#cb6-567"></a></span>
-<span id="cb6-568"><a href="#cb6-568"></a></span>
-<span id="cb6-569"><a href="#cb6-569"></a><span class="fu">## Notation</span></span>
-<span id="cb6-570"><a href="#cb6-570"></a></span>
-<span id="cb6-571"><a href="#cb6-571"></a><span class="ss">- </span>To show the total input to a neuron, write:</span>
-<span id="cb6-572"><a href="#cb6-572"></a></span>
-<span id="cb6-573"><a href="#cb6-573"></a>$$</span>
-<span id="cb6-574"><a href="#cb6-574"></a>z = \sum_{i=1}^{n} w_i x_i + b</span>
-<span id="cb6-575"><a href="#cb6-575"></a>$$</span>
-<span id="cb6-576"><a href="#cb6-576"></a></span>
-<span id="cb6-577"><a href="#cb6-577"></a><span class="in">```{.tex}</span></span>
-<span id="cb6-578"><a href="#cb6-578"></a><span class="in">z = \sum_{i=1}^{n} w_i x_i + b</span></span>
-<span id="cb6-579"><a href="#cb6-579"></a><span class="in">```</span></span>
-<span id="cb6-580"><a href="#cb6-580"></a></span>
-<span id="cb6-581"><a href="#cb6-581"></a>This is the standard way to express the **"weighted sum plus bias."**</span>
-<span id="cb6-582"><a href="#cb6-582"></a></span>
-<span id="cb6-583"><a href="#cb6-583"></a><span class="fu">## Visualizing the Weights</span></span>
-<span id="cb6-584"><a href="#cb6-584"></a></span>
-<span id="cb6-585"><a href="#cb6-585"></a><span class="ss">- </span>Let's look at the graph again, but with weights indicated by line thickness.</span>
-<span id="cb6-586"><a href="#cb6-586"></a></span>
-<span id="cb6-589"><a href="#cb6-589"></a><span class="in">```{dot}</span></span>
-<span id="cb6-590"><a href="#cb6-590"></a><span class="in">graph PerceptronWeights {</span></span>
-<span id="cb6-591"><a href="#cb6-591"></a><span class="in">    rankdir=TD;</span></span>
-<span id="cb6-592"><a href="#cb6-592"></a><span class="in">    bgcolor="transparent"  </span></span>
-<span id="cb6-593"><a href="#cb6-593"></a><span class="in">    node [shape=circle, fontcolor = "#ffffff", color = "#ffffff"]</span></span>
-<span id="cb6-594"><a href="#cb6-594"></a><span class="in">    </span></span>
-<span id="cb6-595"><a href="#cb6-595"></a><span class="in">    subgraph cluster_input {</span></span>
-<span id="cb6-596"><a href="#cb6-596"></a><span class="in">        node [style=filled, fillcolor="red"];</span></span>
-<span id="cb6-597"><a href="#cb6-597"></a><span class="in">        X0; X1; X2; X3; X4; X5; X6; X7; X8;</span></span>
-<span id="cb6-598"><a href="#cb6-598"></a><span class="in">    }</span></span>
-<span id="cb6-599"><a href="#cb6-599"></a></span>
-<span id="cb6-600"><a href="#cb6-600"></a><span class="in">    node [style=filled, fillcolor="blue"];</span></span>
-<span id="cb6-601"><a href="#cb6-601"></a><span class="in">    Neuron [label="Odd?"];</span></span>
-<span id="cb6-602"><a href="#cb6-602"></a></span>
-<span id="cb6-603"><a href="#cb6-603"></a><span class="in">    X0 -- Neuron [label="0", color="#444444"];</span></span>
-<span id="cb6-604"><a href="#cb6-604"></a><span class="in">    X1 -- Neuron [label="0", color="#444444"];</span></span>
-<span id="cb6-605"><a href="#cb6-605"></a><span class="in">    X2 -- Neuron [label="0", color="#444444"];</span></span>
-<span id="cb6-606"><a href="#cb6-606"></a><span class="in">    X3 -- Neuron [label="0", color="#444444"];</span></span>
-<span id="cb6-607"><a href="#cb6-607"></a><span class="in">    X4 -- Neuron [label="1", penwidth=5, color="white"]; </span></span>
-<span id="cb6-608"><a href="#cb6-608"></a><span class="in">    X5 -- Neuron [label="0", color="#444444"];</span></span>
-<span id="cb6-609"><a href="#cb6-609"></a><span class="in">    X6 -- Neuron [label="0", color="#444444"];</span></span>
-<span id="cb6-610"><a href="#cb6-610"></a><span class="in">    X7 -- Neuron [label="0", color="#444444"];</span></span>
-<span id="cb6-611"><a href="#cb6-611"></a><span class="in">    X8 -- Neuron [label="0", color="#444444"];</span></span>
-<span id="cb6-612"><a href="#cb6-612"></a><span class="in">}</span></span>
-<span id="cb6-613"><a href="#cb6-613"></a><span class="in">```</span></span>
-<span id="cb6-614"><a href="#cb6-614"></a></span>
-<span id="cb6-615"><a href="#cb6-615"></a><span class="fu"># History of the Perceptron</span></span>
-<span id="cb6-616"><a href="#cb6-616"></a></span>
-<span id="cb6-617"><a href="#cb6-617"></a><span class="fu">## Predate Computers!</span></span>
-<span id="cb6-618"><a href="#cb6-618"></a></span>
-<span id="cb6-619"><a href="#cb6-619"></a><span class="ss">- </span>Earliest known/recognizable modern form in 1943</span>
-<span id="cb6-620"><a href="#cb6-620"></a><span class="ss">    - </span>During the last World War.</span>
-<span id="cb6-621"><a href="#cb6-621"></a><span class="ss">    - </span>Lots of research at that time.</span>
-<span id="cb6-622"><a href="#cb6-622"></a><span class="ss">- </span>Computers at that time referred to humans that performed calculations.</span>
-<span id="cb6-623"><a href="#cb6-623"></a></span>
-<span id="cb6-624"><a href="#cb6-624"></a></span>
-<span id="cb6-625"><a href="#cb6-625"></a><span class="fu">## Quiz</span></span>
-<span id="cb6-626"><a href="#cb6-626"></a></span>
-<span id="cb6-627"><a href="#cb6-627"></a><span class="ss">- </span>Is 1943</span>
-<span id="cb6-628"><a href="#cb6-628"></a><span class="ss">    - </span>Before or US entry to WWII</span>
-<span id="cb6-629"><a href="#cb6-629"></a><span class="ss">    - </span>Before or after the inauguration of Truman</span>
-<span id="cb6-630"><a href="#cb6-630"></a><span class="ss">    - </span>Before or after the first demonstration of electronic color TV</span>
-<span id="cb6-631"><a href="#cb6-631"></a><span class="ss">    - </span>Before or after the founding of Republi of Egypt</span>
-<span id="cb6-632"><a href="#cb6-632"></a></span>
-<span id="cb6-633"><a href="#cb6-633"></a><span class="fu">## First Simulation</span></span>
-<span id="cb6-634"><a href="#cb6-634"></a></span>
-<span id="cb6-635"><a href="#cb6-635"></a><span class="ss">- </span>First simulated on something recognizable as a computer, an IMB 704, in 1957</span>
-<span id="cb6-636"><a href="#cb6-636"></a><span class="ss">  - </span>Room-sized "digitial mainframe" computer.</span>
-<span id="cb6-637"><a href="#cb6-637"></a><span class="ss">  - </span>First computer to use decimal values (e.g. not just round numbers).</span>
-<span id="cb6-638"><a href="#cb6-638"></a><span class="ss">  - </span>Vacuum tubes, not semiconductors.</span>
-<span id="cb6-639"><a href="#cb6-639"></a></span>
-<span id="cb6-640"><a href="#cb6-640"></a></span>
-<span id="cb6-641"><a href="#cb6-641"></a><span class="fu">## Quiz</span></span>
-<span id="cb6-642"><a href="#cb6-642"></a></span>
-<span id="cb6-643"><a href="#cb6-643"></a><span class="ss">- </span>Is 1957</span>
-<span id="cb6-644"><a href="#cb6-644"></a><span class="ss">    - </span>Before or after the *Brown v. Board* decision</span>
-<span id="cb6-645"><a href="#cb6-645"></a><span class="ss">    - </span>Before or after the passage of the Civil Rights Act</span>
-<span id="cb6-646"><a href="#cb6-646"></a><span class="ss">    - </span>Before or after the election of Kennedy</span>
-<span id="cb6-647"><a href="#cb6-647"></a><span class="ss">    - </span>Before or after the release of Elvis Presley's first single</span>
-<span id="cb6-648"><a href="#cb6-648"></a><span class="ss">        - </span>(Heartbreak Hotel)</span>
-<span id="cb6-649"><a href="#cb6-649"></a></span>
-<span id="cb6-650"><a href="#cb6-650"></a></span>
-<span id="cb6-651"><a href="#cb6-651"></a><span class="fu">## Uses *Linear Algebra*</span></span>
-<span id="cb6-652"><a href="#cb6-652"></a></span>
-<span id="cb6-653"><a href="#cb6-653"></a><span class="ss">- </span>At some point (I'm not sure when) someone noticed modelling perceptrons using "linear algebra" rather than neurons was:</span>
-<span id="cb6-654"><a href="#cb6-654"></a><span class="ss">    - </span>Logically equivalent</span>
-<span id="cb6-655"><a href="#cb6-655"></a><span class="ss">    - </span>Easier to write down.</span>
-<span id="cb6-656"><a href="#cb6-656"></a><span class="ss">- </span>I have followed this convention by specifying edge weights as ordered collections of values.</span>
-<span id="cb6-657"><a href="#cb6-657"></a><span class="ss">    - </span>This can seem understandably confusing.</span>
-<span id="cb6-658"><a href="#cb6-658"></a></span>
-<span id="cb6-659"><a href="#cb6-659"></a><span class="fu">## Now on GPUs!</span></span>
-<span id="cb6-660"><a href="#cb6-660"></a></span>
-<span id="cb6-661"><a href="#cb6-661"></a><span class="ss">- </span>GPUs, graphics processing units, now often called AI chips, are incidentally very good at linear algebra.</span>
-<span id="cb6-662"><a href="#cb6-662"></a><span class="ss">- </span>They are also very good at interpreting images as data.</span>
-<span id="cb6-663"><a href="#cb6-663"></a><span class="ss">- </span>It should be at least a little but unsurprising that GPUs and neural networks gained popularity around the same time.</span>
-<span id="cb6-664"><a href="#cb6-664"></a></span>
-<span id="cb6-665"><a href="#cb6-665"></a><span class="fu"># Applications</span></span>
-<span id="cb6-666"><a href="#cb6-666"></a></span>
-<span id="cb6-667"><a href="#cb6-667"></a><span class="fu">## MNIST Dataset</span></span>
-<span id="cb6-668"><a href="#cb6-668"></a></span>
-<span id="cb6-669"><a href="#cb6-669"></a><span class="ss">- </span>70,000 handwritten digits.</span>
-<span id="cb6-670"><a href="#cb6-670"></a><span class="ss">- </span>Instead of a 3x3 grid, it is a **28x28 grid** (784 sensory neurons).</span>
-<span id="cb6-671"><a href="#cb6-671"></a><span class="ss">- </span>A single layer of neurons can achieve ~90% accuracy!</span>
-<span id="cb6-672"><a href="#cb6-672"></a><span class="ss">- </span>Common first project for in-major AI courses.</span>
-<span id="cb6-673"><a href="#cb6-673"></a><span class="ss">    - </span>A bit heavyweight for us, hence dice.</span>
-<span id="cb6-674"><a href="#cb6-674"></a></span>
-<span id="cb6-675"><a href="#cb6-675"></a><span class="fu">## ImageNet</span></span>
-<span id="cb6-676"><a href="#cb6-676"></a></span>
-<span id="cb6-677"><a href="#cb6-677"></a><span class="ss">- </span>Millions of high-res images.</span>
-<span id="cb6-678"><a href="#cb6-678"></a><span class="ss">- </span>Hundreds of categories (Dog, Boat, Bird).</span>
-<span id="cb6-679"><a href="#cb6-679"></a><span class="ss">- </span>Uses the same core principles: **Weights, Sums, and Thresholds**.</span>
-<span id="cb6-680"><a href="#cb6-680"></a><span class="ss">    - </span>That's right, the big AI boom was basically just perceptrons!</span>
-<span id="cb6-681"><a href="#cb6-681"></a></span>
-<span id="cb6-682"><a href="#cb6-682"></a><span class="fu"># Takeaways</span></span>
-<span id="cb6-683"><a href="#cb6-683"></a></span>
-<span id="cb6-684"><a href="#cb6-684"></a><span class="ss">- </span>**Inputs** are just flattened grids of numbers.</span>
-<span id="cb6-685"><a href="#cb6-685"></a><span class="ss">- </span>**Weights** determine which parts of the input matter.</span>
-<span id="cb6-686"><a href="#cb6-686"></a><span class="ss">- </span>**Classification** is the act of drawing a line between two sets of data.</span>
-<span id="cb6-687"><a href="#cb6-687"></a><span class="ss">- </span>**Graphs** allow us to visualize the flow of information from the eye to the decision.</span>
+<div class="sourceCode" id="cb9" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1"></a><span class="co">---</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="an">title:</span><span class="co"> Perceptron </span></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="co">---</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a></span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="fu">## Recall</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a></span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="ss">- </span>We've explored **Bipartite Graphs**.</span>
+<span id="cb9-8"><a href="#cb9-8"></a><span class="ss">- </span>We've seen how sensory inputs (fingers) can map to neurons (brain cells).</span>
+<span id="cb9-9"><a href="#cb9-9"></a><span class="ss">- </span>Today, we build our first functional model: **The Perceptron**.</span>
+<span id="cb9-10"><a href="#cb9-10"></a></span>
+<span id="cb9-11"><a href="#cb9-11"></a><span class="fu"># To Perceive</span></span>
+<span id="cb9-12"><a href="#cb9-12"></a></span>
+<span id="cb9-13"><a href="#cb9-13"></a><span class="fu">## Representing Reality</span></span>
+<span id="cb9-14"><a href="#cb9-14"></a></span>
+<span id="cb9-15"><a href="#cb9-15"></a><span class="ss">- </span>How does a computer "see" a simple object?</span>
+<span id="cb9-16"><a href="#cb9-16"></a><span class="ss">- </span>Let's take a standard six-sided die.</span>
+<span id="cb9-17"><a href="#cb9-17"></a><span class="ss">- </span>We can represent the face of a die as a **3x3 grid**.</span>
+<span id="cb9-18"><a href="#cb9-18"></a></span>
+<span id="cb9-19"><a href="#cb9-19"></a><span class="fu">## A Die</span></span>
+<span id="cb9-20"><a href="#cb9-20"></a></span>
+<span id="cb9-21"><a href="#cb9-21"></a>&lt;a title="Dennis Hill from The OC, So. Cal., CC BY 2.0 <span class="dv">&amp;lt;</span>https://creativecommons.org/licenses/by/2.0<span class="dv">&amp;gt;</span>, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Snake_eyes_dice.jpg"&gt;&lt;img width="512" alt="Snake eyes dice" src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Snake_eyes_dice.jpg"&gt;&lt;/a&gt;</span>
+<span id="cb9-22"><a href="#cb9-22"></a></span>
+<span id="cb9-23"><a href="#cb9-23"></a><span class="fu">## Too Complex</span></span>
+<span id="cb9-24"><a href="#cb9-24"></a></span>
+<span id="cb9-25"><a href="#cb9-25"></a><span class="ss">- </span>We imagine viewing (1) a single die (2) directly from above.</span>
+<span id="cb9-26"><a href="#cb9-26"></a></span>
+<span id="cb9-27"><a href="#cb9-27"></a>&lt;table&gt;</span>
+<span id="cb9-28"><a href="#cb9-28"></a>&lt;td&gt;&lt;a title="Mliu92, CC BY-SA 4.0 <span class="dv">&amp;lt;</span>https://creativecommons.org/licenses/by-sa/4.0<span class="dv">&amp;gt;</span>, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Die_face_1b.svg"&gt;&lt;img width="128" alt="Illustration of die face with 1 black dot" src="https://upload.wikimedia.org/wikipedia/commons/4/43/Die_face_1b.svg"&gt;&lt;/a&gt;</span>
+<span id="cb9-29"><a href="#cb9-29"></a></span>
+<span id="cb9-30"><a href="#cb9-30"></a>&lt;/td&gt;</span>
+<span id="cb9-31"><a href="#cb9-31"></a>&lt;td&gt;</span>
+<span id="cb9-32"><a href="#cb9-32"></a>&lt;a title="Mliu92, CC BY-SA 4.0 <span class="dv">&amp;lt;</span>https://creativecommons.org/licenses/by-sa/4.0<span class="dv">&amp;gt;</span>, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Die_face_2b.svg"&gt;&lt;img width="128" alt="Illustration of die face with 2 black dots" src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Die_face_2b.svg"&gt;&lt;/a&gt;</span>
+<span id="cb9-33"><a href="#cb9-33"></a>&lt;/td&gt;</span>
+<span id="cb9-34"><a href="#cb9-34"></a>&lt;td&gt;</span>
+<span id="cb9-35"><a href="#cb9-35"></a>&lt;a title="Mliu92, CC BY-SA 4.0 <span class="dv">&amp;lt;</span>https://creativecommons.org/licenses/by-sa/4.0<span class="dv">&amp;gt;</span>, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Die_face_3b.svg"&gt;&lt;img width="128" alt="Illustration of die face with 3 black dots"  src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Die_face_3b.svg"&gt;&lt;/a&gt;</span>
+<span id="cb9-36"><a href="#cb9-36"></a>&lt;/td&gt;</span>
+<span id="cb9-37"><a href="#cb9-37"></a>&lt;/table&gt;</span>
+<span id="cb9-38"><a href="#cb9-38"></a></span>
+<span id="cb9-39"><a href="#cb9-39"></a><span class="fu">## Helpful</span></span>
+<span id="cb9-40"><a href="#cb9-40"></a></span>
+<span id="cb9-41"><a href="#cb9-41"></a><span class="ss">- </span>Helpfully, most modern fonts include these!</span>
+<span id="cb9-42"><a href="#cb9-42"></a></span>
+<span id="cb9-43"><a href="#cb9-43"></a>:::: {.columns}</span>
+<span id="cb9-44"><a href="#cb9-44"></a></span>
+<span id="cb9-45"><a href="#cb9-45"></a>::: {.column width="50%"}</span>
+<span id="cb9-46"><a href="#cb9-46"></a></span>
+<span id="cb9-47"><a href="#cb9-47"></a><span class="ss">1. </span><span class="dv">&amp;#9856;</span> </span>
+<span id="cb9-48"><a href="#cb9-48"></a><span class="ss">2. </span><span class="dv">&amp;#9857;</span></span>
+<span id="cb9-49"><a href="#cb9-49"></a><span class="ss">3. </span><span class="dv">&amp;#9858;</span> </span>
+<span id="cb9-50"><a href="#cb9-50"></a></span>
+<span id="cb9-51"><a href="#cb9-51"></a>:::</span>
+<span id="cb9-52"><a href="#cb9-52"></a></span>
+<span id="cb9-53"><a href="#cb9-53"></a>::: {.column width="50%"}</span>
+<span id="cb9-54"><a href="#cb9-54"></a></span>
+<span id="cb9-55"><a href="#cb9-55"></a><span class="ss">4. </span><span class="dv">&amp;#9859;</span> </span>
+<span id="cb9-56"><a href="#cb9-56"></a><span class="ss">5. </span><span class="dv">&amp;#9860;</span> </span>
+<span id="cb9-57"><a href="#cb9-57"></a><span class="ss">6. </span><span class="dv">&amp;#9861;</span> </span>
+<span id="cb9-58"><a href="#cb9-58"></a>:::</span>
+<span id="cb9-59"><a href="#cb9-59"></a></span>
+<span id="cb9-60"><a href="#cb9-60"></a></span>
+<span id="cb9-61"><a href="#cb9-61"></a>::::</span>
+<span id="cb9-62"><a href="#cb9-62"></a> </span>
+<span id="cb9-63"><a href="#cb9-63"></a></span>
+<span id="cb9-64"><a href="#cb9-64"></a><span class="fu">## The 3x3 Grid</span></span>
+<span id="cb9-65"><a href="#cb9-65"></a></span>
+<span id="cb9-66"><a href="#cb9-66"></a><span class="ss">- </span>Each cell in the grid is either "on" (a dot is present) or "off" (empty space).</span>
+<span id="cb9-67"><a href="#cb9-67"></a><span class="ss">- </span>This is a **binary image**.</span>
+<span id="cb9-68"><a href="#cb9-68"></a></span>
+<span id="cb9-69"><a href="#cb9-69"></a>| | | |</span>
+<span id="cb9-70"><a href="#cb9-70"></a>|:-:|:-:|:-:|</span>
+<span id="cb9-71"><a href="#cb9-71"></a>| (0,0) | (0,1) | (0,2) |</span>
+<span id="cb9-72"><a href="#cb9-72"></a>| (1,0) | (1,1) | (1,2) |</span>
+<span id="cb9-73"><a href="#cb9-73"></a>| (2,0) | (2,1) | (2,2) |</span>
+<span id="cb9-74"><a href="#cb9-74"></a></span>
+<span id="cb9-75"><a href="#cb9-75"></a></span>
+<span id="cb9-76"><a href="#cb9-76"></a></span>
+<span id="cb9-77"><a href="#cb9-77"></a><span class="fu">## Encoding the Number 1</span></span>
+<span id="cb9-78"><a href="#cb9-78"></a></span>
+<span id="cb9-79"><a href="#cb9-79"></a><span class="ss">- </span>For a "1", only the center is filled.</span>
+<span id="cb9-80"><a href="#cb9-80"></a></span>
+<span id="cb9-81"><a href="#cb9-81"></a>:::: {.columns}</span>
+<span id="cb9-82"><a href="#cb9-82"></a></span>
+<span id="cb9-83"><a href="#cb9-83"></a>::: {.column width="50%"}</span>
+<span id="cb9-84"><a href="#cb9-84"></a></span>
+<span id="cb9-85"><a href="#cb9-85"></a>| | | |</span>
+<span id="cb9-86"><a href="#cb9-86"></a>|:-:|:-:|:-:|</span>
+<span id="cb9-87"><a href="#cb9-87"></a>| 0 | 0 | 0 |</span>
+<span id="cb9-88"><a href="#cb9-88"></a>| 0 | **1** | 0 |</span>
+<span id="cb9-89"><a href="#cb9-89"></a>| 0 | 0 | 0 |</span>
+<span id="cb9-90"><a href="#cb9-90"></a></span>
+<span id="cb9-91"><a href="#cb9-91"></a>:::</span>
+<span id="cb9-92"><a href="#cb9-92"></a></span>
+<span id="cb9-93"><a href="#cb9-93"></a>::: {.column width="50%"}</span>
+<span id="cb9-94"><a href="#cb9-94"></a></span>
+<span id="cb9-95"><a href="#cb9-95"></a>&lt;div style="width: 300px; height: 300px; background-color: white; display: flex; justify-content: center; align-items: center; border: 1px solid #ccc;"&gt;</span>
+<span id="cb9-96"><a href="#cb9-96"></a>&lt;div style="width: 100px; height: 100px; background-color: black;"&gt;&lt;/div&gt;</span>
+<span id="cb9-97"><a href="#cb9-97"></a>&lt;/div&gt;</span>
+<span id="cb9-98"><a href="#cb9-98"></a></span>
+<span id="cb9-99"><a href="#cb9-99"></a>:::</span>
+<span id="cb9-100"><a href="#cb9-100"></a></span>
+<span id="cb9-101"><a href="#cb9-101"></a></span>
+<span id="cb9-102"><a href="#cb9-102"></a>::::</span>
+<span id="cb9-103"><a href="#cb9-103"></a></span>
+<span id="cb9-104"><a href="#cb9-104"></a></span>
+<span id="cb9-105"><a href="#cb9-105"></a><span class="fu">## Encoding the Number 2</span></span>
+<span id="cb9-106"><a href="#cb9-106"></a></span>
+<span id="cb9-107"><a href="#cb9-107"></a><span class="ss">- </span>For a "2", we usually see top-right and bottom-left.</span>
+<span id="cb9-108"><a href="#cb9-108"></a></span>
+<span id="cb9-109"><a href="#cb9-109"></a>:::: {.columns}</span>
+<span id="cb9-110"><a href="#cb9-110"></a></span>
+<span id="cb9-111"><a href="#cb9-111"></a>::: {.column width="50%"}</span>
+<span id="cb9-112"><a href="#cb9-112"></a></span>
+<span id="cb9-113"><a href="#cb9-113"></a></span>
+<span id="cb9-114"><a href="#cb9-114"></a>| | | |</span>
+<span id="cb9-115"><a href="#cb9-115"></a>|:-:|:-:|:-:|</span>
+<span id="cb9-116"><a href="#cb9-116"></a>| 0 | 0 | **1** |</span>
+<span id="cb9-117"><a href="#cb9-117"></a>| 0 | 0 | 0 |</span>
+<span id="cb9-118"><a href="#cb9-118"></a>| **1** | 0 | 0 |</span>
+<span id="cb9-119"><a href="#cb9-119"></a></span>
+<span id="cb9-120"><a href="#cb9-120"></a>:::</span>
+<span id="cb9-121"><a href="#cb9-121"></a></span>
+<span id="cb9-122"><a href="#cb9-122"></a>::: {.column width="50%"}</span>
+<span id="cb9-123"><a href="#cb9-123"></a></span>
+<span id="cb9-124"><a href="#cb9-124"></a>&lt;div style="position: relative; width: 300px; height: 300px; background-color: white; border: 1px solid #ccc;"&gt;</span>
+<span id="cb9-125"><a href="#cb9-125"></a>&lt;div style="position: absolute; top: 0; right: 0; width: 100px; height: 100px; background-color: black;"&gt;&lt;/div&gt;</span>
+<span id="cb9-126"><a href="#cb9-126"></a></span>
+<span id="cb9-127"><a href="#cb9-127"></a>&lt;div style="position: absolute; bottom: 0; left: 0; width: 100px; height: 100px; background-color: black;"&gt;&lt;/div&gt;</span>
+<span id="cb9-128"><a href="#cb9-128"></a>&lt;/div&gt;</span>
+<span id="cb9-129"><a href="#cb9-129"></a></span>
+<span id="cb9-130"><a href="#cb9-130"></a>:::</span>
+<span id="cb9-131"><a href="#cb9-131"></a></span>
+<span id="cb9-132"><a href="#cb9-132"></a></span>
+<span id="cb9-133"><a href="#cb9-133"></a>::::</span>
+<span id="cb9-134"><a href="#cb9-134"></a></span>
+<span id="cb9-135"><a href="#cb9-135"></a></span>
+<span id="cb9-136"><a href="#cb9-136"></a><span class="fu">## Encoding the Number 3</span></span>
+<span id="cb9-137"><a href="#cb9-137"></a></span>
+<span id="cb9-138"><a href="#cb9-138"></a></span>
+<span id="cb9-139"><a href="#cb9-139"></a>:::: {.columns}</span>
+<span id="cb9-140"><a href="#cb9-140"></a></span>
+<span id="cb9-141"><a href="#cb9-141"></a>::: {.column width="50%"}</span>
+<span id="cb9-142"><a href="#cb9-142"></a></span>
+<span id="cb9-143"><a href="#cb9-143"></a></span>
+<span id="cb9-144"><a href="#cb9-144"></a>| | | |</span>
+<span id="cb9-145"><a href="#cb9-145"></a>|:-:|:-:|:-:|</span>
+<span id="cb9-146"><a href="#cb9-146"></a>| 0 | 0 | **1** |</span>
+<span id="cb9-147"><a href="#cb9-147"></a>| 0 | **1** | 0 |</span>
+<span id="cb9-148"><a href="#cb9-148"></a>| **1** | 0 | 0 |</span>
+<span id="cb9-149"><a href="#cb9-149"></a></span>
+<span id="cb9-150"><a href="#cb9-150"></a>:::</span>
+<span id="cb9-151"><a href="#cb9-151"></a></span>
+<span id="cb9-152"><a href="#cb9-152"></a>::: {.column width="50%"}</span>
+<span id="cb9-153"><a href="#cb9-153"></a></span>
+<span id="cb9-154"><a href="#cb9-154"></a>&lt;div style="position: relative; width: 300px; height: 300px; background-color: white; border: 1px solid #ccc;"&gt;</span>
+<span id="cb9-155"><a href="#cb9-155"></a>&lt;div style="position: absolute; top: 0; right: 0; width: 100px; height: 100px; background-color: black;"&gt;&lt;/div&gt;</span>
+<span id="cb9-156"><a href="#cb9-156"></a></span>
+<span id="cb9-157"><a href="#cb9-157"></a>&lt;div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 100px; background-color: black;"&gt;&lt;/div&gt;</span>
+<span id="cb9-158"><a href="#cb9-158"></a></span>
+<span id="cb9-159"><a href="#cb9-159"></a>&lt;div style="position: absolute; bottom: 0; left: 0; width: 100px; height: 100px; background-color: black;"&gt;&lt;/div&gt;</span>
+<span id="cb9-160"><a href="#cb9-160"></a>&lt;/div&gt;</span>
+<span id="cb9-161"><a href="#cb9-161"></a></span>
+<span id="cb9-162"><a href="#cb9-162"></a>:::</span>
+<span id="cb9-163"><a href="#cb9-163"></a></span>
+<span id="cb9-164"><a href="#cb9-164"></a></span>
+<span id="cb9-165"><a href="#cb9-165"></a>::::</span>
+<span id="cb9-166"><a href="#cb9-166"></a></span>
+<span id="cb9-167"><a href="#cb9-167"></a></span>
+<span id="cb9-168"><a href="#cb9-168"></a><span class="fu">## Flattening the Input</span></span>
+<span id="cb9-169"><a href="#cb9-169"></a></span>
+<span id="cb9-170"><a href="#cb9-170"></a><span class="ss">- </span>To feed this into a neuron, we "unroll" the grid into a list.</span>
+<span id="cb9-171"><a href="#cb9-171"></a><span class="ss">- </span>We go row by row.</span>
+<span id="cb9-172"><a href="#cb9-172"></a></span>
+<span id="cb9-173"><a href="#cb9-173"></a>:::: {.columns}</span>
+<span id="cb9-174"><a href="#cb9-174"></a></span>
+<span id="cb9-175"><a href="#cb9-175"></a>::: {.column width="50%"}</span>
+<span id="cb9-176"><a href="#cb9-176"></a></span>
+<span id="cb9-177"><a href="#cb9-177"></a>| | | |</span>
+<span id="cb9-178"><a href="#cb9-178"></a>|:-:|:-:|:-:|</span>
+<span id="cb9-179"><a href="#cb9-179"></a>| 0 | 0 | 0 |</span>
+<span id="cb9-180"><a href="#cb9-180"></a>| 0 | **1** | 0 |</span>
+<span id="cb9-181"><a href="#cb9-181"></a>| 0 | 0 | 0 |</span>
+<span id="cb9-182"><a href="#cb9-182"></a></span>
+<span id="cb9-183"><a href="#cb9-183"></a>:::</span>
+<span id="cb9-184"><a href="#cb9-184"></a></span>
+<span id="cb9-185"><a href="#cb9-185"></a>::: {.column width="50%"}</span>
+<span id="cb9-186"><a href="#cb9-186"></a></span>
+<span id="cb9-187"><a href="#cb9-187"></a><span class="in">```{.py}</span></span>
+<span id="cb9-188"><a href="#cb9-188"></a><span class="in">[0,0,0,0,1,0,0,0,0]</span></span>
+<span id="cb9-189"><a href="#cb9-189"></a><span class="in">```</span></span>
+<span id="cb9-190"><a href="#cb9-190"></a></span>
+<span id="cb9-191"><a href="#cb9-191"></a>:::</span>
+<span id="cb9-192"><a href="#cb9-192"></a></span>
+<span id="cb9-193"><a href="#cb9-193"></a></span>
+<span id="cb9-194"><a href="#cb9-194"></a>::::</span>
+<span id="cb9-195"><a href="#cb9-195"></a></span>
+<span id="cb9-196"><a href="#cb9-196"></a><span class="fu"># The Neuron Structure</span></span>
+<span id="cb9-197"><a href="#cb9-197"></a></span>
+<span id="cb9-198"><a href="#cb9-198"></a><span class="fu">## Sensory Neurons</span></span>
+<span id="cb9-199"><a href="#cb9-199"></a></span>
+<span id="cb9-200"><a href="#cb9-200"></a><span class="ss">- </span>Each of these 9 positions acts as a **sensory neuron**.</span>
+<span id="cb9-201"><a href="#cb9-201"></a><span class="ss">- </span>If there is a dot, the neuron fires (1).</span>
+<span id="cb9-202"><a href="#cb9-202"></a><span class="ss">- </span>If there is no dot, the neuron is silent (0).</span>
+<span id="cb9-203"><a href="#cb9-203"></a><span class="ss">- </span>This is *quite* similar to how the eye works - certainly similar enough to draw connections.</span>
+<span id="cb9-204"><a href="#cb9-204"></a></span>
+<span id="cb9-205"><a href="#cb9-205"></a><span class="fu">## The Summation</span></span>
+<span id="cb9-206"><a href="#cb9-206"></a></span>
+<span id="cb9-207"><a href="#cb9-207"></a><span class="ss">- </span>All 9 signals travel down "axons" (edges) to a single destination.</span>
+<span id="cb9-208"><a href="#cb9-208"></a><span class="ss">- </span>This destination is the **Cell Body** (or the Perceptron).</span>
+<span id="cb9-209"><a href="#cb9-209"></a></span>
+<span id="cb9-212"><a href="#cb9-212"></a><span class="in">```{dot}</span></span>
+<span id="cb9-213"><a href="#cb9-213"></a><span class="in">graph PerceptronBase {</span></span>
+<span id="cb9-214"><a href="#cb9-214"></a><span class="in">    rankdir=TD;</span></span>
+<span id="cb9-215"><a href="#cb9-215"></a><span class="in">    bgcolor="transparent"  </span></span>
+<span id="cb9-216"><a href="#cb9-216"></a><span class="in">    node [shape=circle, fontcolor = "#ffffff", color = "#ffffff"]</span></span>
+<span id="cb9-217"><a href="#cb9-217"></a><span class="in">    edge [color = "#ffffff"]</span></span>
+<span id="cb9-218"><a href="#cb9-218"></a></span>
+<span id="cb9-219"><a href="#cb9-219"></a><span class="in">    subgraph cluster_input {</span></span>
+<span id="cb9-220"><a href="#cb9-220"></a><span class="in">        fontcolor="white";</span></span>
+<span id="cb9-221"><a href="#cb9-221"></a><span class="in">        node [style=filled, fillcolor="red"];</span></span>
+<span id="cb9-222"><a href="#cb9-222"></a><span class="in">        X0 [label="0,0"]; X1 [label="0,1"]; X2 [label="0,2"];</span></span>
+<span id="cb9-223"><a href="#cb9-223"></a><span class="in">        X3 [label="1,0"]; X4 [label="1,1"]; X5 [label="1,2"];</span></span>
+<span id="cb9-224"><a href="#cb9-224"></a><span class="in">        X6 [label="2,0"]; X7 [label="2,1"]; X8 [label="2,2"];</span></span>
+<span id="cb9-225"><a href="#cb9-225"></a><span class="in">    }</span></span>
+<span id="cb9-226"><a href="#cb9-226"></a></span>
+<span id="cb9-227"><a href="#cb9-227"></a><span class="in">    node [style=filled, fillcolor="blue"];</span></span>
+<span id="cb9-228"><a href="#cb9-228"></a><span class="in">    Neuron [label="∑"];</span></span>
+<span id="cb9-229"><a href="#cb9-229"></a></span>
+<span id="cb9-230"><a href="#cb9-230"></a><span class="in">    X0 -- Neuron; X1 -- Neuron; X2 -- Neuron;</span></span>
+<span id="cb9-231"><a href="#cb9-231"></a><span class="in">    X3 -- Neuron; X4 -- Neuron; X5 -- Neuron;</span></span>
+<span id="cb9-232"><a href="#cb9-232"></a><span class="in">    X6 -- Neuron; X7 -- Neuron; X8 -- Neuron;</span></span>
+<span id="cb9-233"><a href="#cb9-233"></a><span class="in">}</span></span>
+<span id="cb9-234"><a href="#cb9-234"></a><span class="in">```</span></span>
+<span id="cb9-235"><a href="#cb9-235"></a></span>
+<span id="cb9-236"><a href="#cb9-236"></a><span class="fu">## Why Sigma ($\Sigma$)</span></span>
+<span id="cb9-237"><a href="#cb9-237"></a></span>
+<span id="cb9-238"><a href="#cb9-238"></a><span class="ss">- </span>We'll get to that, soon.</span>
+<span id="cb9-239"><a href="#cb9-239"></a><span class="ss">- </span>Hint: What is $\Sigma$ used for in mathematics.</span>
+<span id="cb9-240"><a href="#cb9-240"></a></span>
+<span id="cb9-241"><a href="#cb9-241"></a>$$</span>
+<span id="cb9-242"><a href="#cb9-242"></a>\sum_{i=1}^n i = \frac{n(n+1)}{2}</span>
+<span id="cb9-243"><a href="#cb9-243"></a>$$</span>
+<span id="cb9-244"><a href="#cb9-244"></a></span>
+<span id="cb9-245"><a href="#cb9-245"></a><span class="fu"># Decision Making</span></span>
+<span id="cb9-246"><a href="#cb9-246"></a></span>
+<span id="cb9-247"><a href="#cb9-247"></a><span class="fu">## Weighting the Evidence</span></span>
+<span id="cb9-248"><a href="#cb9-248"></a></span>
+<span id="cb9-249"><a href="#cb9-249"></a><span class="ss">- </span>Not every pixel is equally important for every task.</span>
+<span id="cb9-250"><a href="#cb9-250"></a><span class="ss">- </span>We assign a **Weight** ($w$) to each edge.</span>
+<span id="cb9-251"><a href="#cb9-251"></a><span class="ss">- </span>If a pixel is very important, it has a high weight.</span>
+<span id="cb9-252"><a href="#cb9-252"></a><span class="ss">- </span>If it's irrelevant, the weight is 0.</span>
+<span id="cb9-253"><a href="#cb9-253"></a><span class="ss">- </span>We would allow "anti-important" pixels to have a *negative* weight.</span>
+<span id="cb9-254"><a href="#cb9-254"></a><span class="ss">    - </span>For example, is the center dot is present, you are certainly *not* viewing a 2, 4, or 6.</span>
+<span id="cb9-255"><a href="#cb9-255"></a></span>
+<span id="cb9-256"><a href="#cb9-256"></a><span class="fu">## Example: Odd vs. Even</span></span>
+<span id="cb9-257"><a href="#cb9-257"></a></span>
+<span id="cb9-258"><a href="#cb9-258"></a><span class="ss">- </span>Let's try to detect if a die roll is **Odd**.</span>
+<span id="cb9-259"><a href="#cb9-259"></a><span class="ss">- </span>Which pixels are always "on" for odd numbers (1, 3, 5)?</span>
+<span id="cb9-260"><a href="#cb9-260"></a><span class="ss">- </span>The center pixel! (1,1).</span>
+<span id="cb9-261"><a href="#cb9-261"></a></span>
+<span id="cb9-262"><a href="#cb9-262"></a><span class="fu">## Edge Weights for "Odd"</span></span>
+<span id="cb9-263"><a href="#cb9-263"></a></span>
+<span id="cb9-264"><a href="#cb9-264"></a><span class="ss">- </span>We give the center pixel a weight of 1.</span>
+<span id="cb9-265"><a href="#cb9-265"></a><span class="ss">- </span>We give all other pixels a weight of 0.</span>
+<span id="cb9-266"><a href="#cb9-266"></a></span>
+<span id="cb9-267"><a href="#cb9-267"></a><span class="in">```{.py}</span></span>
+<span id="cb9-268"><a href="#cb9-268"></a><span class="in">weights = [0, 0, 0, 0, 1, 0, 0, 0, 0]</span></span>
+<span id="cb9-269"><a href="#cb9-269"></a><span class="in">```</span></span>
+<span id="cb9-270"><a href="#cb9-270"></a></span>
+<span id="cb9-271"><a href="#cb9-271"></a>::: {.callout-note}</span>
+<span id="cb9-272"><a href="#cb9-272"></a></span>
+<span id="cb9-273"><a href="#cb9-273"></a>This is superficially similar to the pixel values for a die showing 1, but it's *meaning* is distinct.</span>
+<span id="cb9-274"><a href="#cb9-274"></a></span>
+<span id="cb9-275"><a href="#cb9-275"></a>Previously, we showed what dots are present on a die representing one.</span>
+<span id="cb9-276"><a href="#cb9-276"></a></span>
+<span id="cb9-277"><a href="#cb9-277"></a>Here, we show what dots matter when determining is a die is even or odd.</span>
+<span id="cb9-278"><a href="#cb9-278"></a></span>
+<span id="cb9-279"><a href="#cb9-279"></a>:::</span>
+<span id="cb9-280"><a href="#cb9-280"></a></span>
+<span id="cb9-281"><a href="#cb9-281"></a><span class="fu">## The Calculation</span></span>
+<span id="cb9-282"><a href="#cb9-282"></a></span>
+<span id="cb9-283"><a href="#cb9-283"></a><span class="ss">- </span>The neuron calculates the **Weighted Sum**.</span>
+<span id="cb9-284"><a href="#cb9-284"></a><span class="ss">- </span>For Die "1": $(1 \times 1) + (0 \times \text{others}) = 1$.</span>
+<span id="cb9-285"><a href="#cb9-285"></a><span class="ss">- </span>For Die "2": $(0 \times 1) + (1 \times \text{others}) = 0$.</span>
+<span id="cb9-286"><a href="#cb9-286"></a></span>
+<span id="cb9-287"><a href="#cb9-287"></a><span class="fu"># Digression: Classification</span></span>
+<span id="cb9-288"><a href="#cb9-288"></a></span>
+<span id="cb9-289"><a href="#cb9-289"></a><span class="fu">## Binary Classifiers</span></span>
+<span id="cb9-290"><a href="#cb9-290"></a></span>
+<span id="cb9-291"><a href="#cb9-291"></a><span class="ss">- </span>The neuron we just built is a **Binary Classifier**.</span>
+<span id="cb9-292"><a href="#cb9-292"></a><span class="ss">- </span>It sorts inputs into two distinct buckets.</span>
+<span id="cb9-293"><a href="#cb9-293"></a><span class="ss">- </span>Bucket A: "Odd" (Sum &gt; 0)</span>
+<span id="cb9-294"><a href="#cb9-294"></a><span class="ss">- </span>Bucket B: "Even" (Sum = 0)</span>
+<span id="cb9-295"><a href="#cb9-295"></a></span>
+<span id="cb9-296"><a href="#cb9-296"></a><span class="fu">## Mutual Exclusion</span></span>
+<span id="cb9-297"><a href="#cb9-297"></a></span>
+<span id="cb9-298"><a href="#cb9-298"></a><span class="ss">- </span>In binary classification, something is usually one or the other.</span>
+<span id="cb9-299"><a href="#cb9-299"></a><span class="ss">- </span>**Mutual Exclusion**: If it is A, it cannot be B.</span>
+<span id="cb9-300"><a href="#cb9-300"></a></span>
+<span id="cb9-301"><a href="#cb9-301"></a></span>
+<span id="cb9-302"><a href="#cb9-302"></a><span class="fu">## Example: US Senators</span></span>
+<span id="cb9-303"><a href="#cb9-303"></a></span>
+<span id="cb9-304"><a href="#cb9-304"></a><span class="ss">- </span>A US Senator's party affiliation is a classic (mostly) binary classification.</span>
+<span id="cb9-305"><a href="#cb9-305"></a><span class="ss">- </span>Excluding independents, a senator is either:</span>
+<span id="cb9-306"><a href="#cb9-306"></a><span class="ss">    - </span>**Democrat**</span>
+<span id="cb9-307"><a href="#cb9-307"></a><span class="ss">    - </span>**Republican**</span>
+<span id="cb9-308"><a href="#cb9-308"></a><span class="ss">- </span>Also independents aren't real and almost universally "caucus" with one of the two major parties.</span>
+<span id="cb9-309"><a href="#cb9-309"></a></span>
+<span id="cb9-310"><a href="#cb9-310"></a><span class="fu">## Some Examples</span></span>
+<span id="cb9-311"><a href="#cb9-311"></a></span>
+<span id="cb9-312"><a href="#cb9-312"></a>| Senator | Feature: State | Feature: Vote Record | Classifier Output |</span>
+<span id="cb9-313"><a href="#cb9-313"></a>|---------|----------------|----------------------|-------------------|</span>
+<span id="cb9-314"><a href="#cb9-314"></a>| Wyden   | OR             | Capitalist           | Democrat          |</span>
+<span id="cb9-315"><a href="#cb9-315"></a>| Crapo   | ID             | Capitalist           | Republican        |</span>
+<span id="cb9-316"><a href="#cb9-316"></a></span>
+<span id="cb9-317"><a href="#cb9-317"></a>If you will allow me to editorialize (you shouldn't), state determines party affiliation but nothing determines support for e.g. US military actions or tax breaks for the wealthy.</span>
+<span id="cb9-318"><a href="#cb9-318"></a></span>
+<span id="cb9-319"><a href="#cb9-319"></a></span>
+<span id="cb9-320"><a href="#cb9-320"></a><span class="fu">## Why Classification Matters</span></span>
+<span id="cb9-321"><a href="#cb9-321"></a></span>
+<span id="cb9-322"><a href="#cb9-322"></a>It is the foundation of all AI logic.</span>
+<span id="cb9-323"><a href="#cb9-323"></a></span>
+<span id="cb9-324"><a href="#cb9-324"></a><span class="ss">- </span>Is this email spam? (Yes/No)</span>
+<span id="cb9-325"><a href="#cb9-325"></a><span class="ss">- </span>Is this tumor malignant? (Yes/No)</span>
+<span id="cb9-326"><a href="#cb9-326"></a><span class="ss">- </span>Is this image a cat? (Yes/No)</span>
+<span id="cb9-327"><a href="#cb9-327"></a></span>
+<span id="cb9-328"><a href="#cb9-328"></a><span class="fu"># Aside: Summation</span></span>
+<span id="cb9-329"><a href="#cb9-329"></a></span>
+<span id="cb9-330"><a href="#cb9-330"></a><span class="fu">## Summation Notation</span></span>
+<span id="cb9-331"><a href="#cb9-331"></a></span>
+<span id="cb9-332"><a href="#cb9-332"></a><span class="ss">- </span>To calculate the signal reaching the cell body, we don't just add numbers.</span>
+<span id="cb9-333"><a href="#cb9-333"></a><span class="ss">- </span>We multiply each input ($x$) by its importance or **weight** ($w$).</span>
+<span id="cb9-334"><a href="#cb9-334"></a><span class="ss">- </span>We use the Greek letter Sigma $\sum$ to represent this "Total Sum."</span>
+<span id="cb9-335"><a href="#cb9-335"></a></span>
+<span id="cb9-336"><a href="#cb9-336"></a><span class="fu">## LaTeX in Markdown</span></span>
+<span id="cb9-337"><a href="#cb9-337"></a></span>
+<span id="cb9-338"><a href="#cb9-338"></a><span class="ss">- </span>In tools like Google Colab (used for our labs) or Quarto (used to make these slides), we use a special typesettin language called $\LaTeX$ (la-tech) to show mathematical notation.</span>
+<span id="cb9-339"><a href="#cb9-339"></a></span>
+<span id="cb9-340"><a href="#cb9-340"></a><span class="fu">## Example</span></span>
+<span id="cb9-341"><a href="#cb9-341"></a></span>
+<span id="cb9-342"><a href="#cb9-342"></a><span class="ss">- </span>The formula for a neuron's input is:</span>
+<span id="cb9-343"><a href="#cb9-343"></a></span>
+<span id="cb9-344"><a href="#cb9-344"></a>$$\sum_{i=1}^{n} w_i x_i = w_1 x_1 + w_2 x_2 + \dots + w_n x_n$$</span>
+<span id="cb9-345"><a href="#cb9-345"></a></span>
+<span id="cb9-346"><a href="#cb9-346"></a><span class="ss">- </span>$n$ is the number of inputs (9 for our dice).</span>
+<span id="cb9-347"><a href="#cb9-347"></a><span class="ss">- </span>$w_i$ is the weight of the $i$-th pixel.</span>
+<span id="cb9-348"><a href="#cb9-348"></a><span class="ss">- </span>$x_i$ is the value (0 or 1) of the $i$-th pixel.</span>
+<span id="cb9-349"><a href="#cb9-349"></a></span>
+<span id="cb9-350"><a href="#cb9-350"></a></span>
+<span id="cb9-351"><a href="#cb9-351"></a><span class="fu">## In LaTeX</span></span>
+<span id="cb9-352"><a href="#cb9-352"></a></span>
+<span id="cb9-353"><a href="#cb9-353"></a><span class="ss">- </span>You can write this out as follows:</span>
+<span id="cb9-354"><a href="#cb9-354"></a></span>
+<span id="cb9-355"><a href="#cb9-355"></a><span class="in">```{.tex}</span></span>
+<span id="cb9-356"><a href="#cb9-356"></a><span class="in">$$</span></span>
+<span id="cb9-357"><a href="#cb9-357"></a><span class="in">\sum_{i=1}^{n} w_i \times x_i </span></span>
+<span id="cb9-358"><a href="#cb9-358"></a><span class="in">$$</span></span>
+<span id="cb9-359"><a href="#cb9-359"></a><span class="in">```</span></span>
+<span id="cb9-360"><a href="#cb9-360"></a></span>
+<span id="cb9-361"><a href="#cb9-361"></a><span class="ss">- </span>The two enclosing lines of <span class="in">`$$`</span> means "this is a mathematical formula"</span>
+<span id="cb9-362"><a href="#cb9-362"></a></span>
+<span id="cb9-363"><a href="#cb9-363"></a><span class="fu">## Some notes</span></span>
+<span id="cb9-364"><a href="#cb9-364"></a></span>
+<span id="cb9-365"><a href="#cb9-365"></a><span class="ss">- </span>Many common mathematical expressions are stylized using a backslash and a name or nickname.</span>
+<span id="cb9-366"><a href="#cb9-366"></a><span class="ss">- </span>Subscripts are denoted with <span class="in">`_`</span> and enclosed in <span class="in">`{}`</span></span>
+<span id="cb9-367"><a href="#cb9-367"></a><span class="ss">- </span>Superscripts are denoted with <span class="in">`^`</span> - and may be combined with subscripts!</span>
+<span id="cb9-368"><a href="#cb9-368"></a><span class="ss">- </span><span class="in">`{}`</span> are optional for single characters.</span>
+<span id="cb9-369"><a href="#cb9-369"></a></span>
+<span id="cb9-370"><a href="#cb9-370"></a><span class="fu"># Differentiating Odds</span></span>
+<span id="cb9-371"><a href="#cb9-371"></a></span>
+<span id="cb9-372"><a href="#cb9-372"></a><span class="fu">## The "Center Pixel" Strategy</span></span>
+<span id="cb9-373"><a href="#cb9-373"></a></span>
+<span id="cb9-374"><a href="#cb9-374"></a><span class="ss">- </span>We previously suggested that "Odd" numbers (1, 3, 5) all have a center dot.</span>
+<span id="cb9-375"><a href="#cb9-375"></a><span class="ss">- </span>**Problem:** What if we need to distinguish a **1** from a **3**?</span>
+<span id="cb9-376"><a href="#cb9-376"></a><span class="ss">    - </span>Those are different numbers!</span>
+<span id="cb9-377"><a href="#cb9-377"></a></span>
+<span id="cb9-378"><a href="#cb9-378"></a><span class="fu">## Failed Weighting #1: Only the Center</span></span>
+<span id="cb9-379"><a href="#cb9-379"></a></span>
+<span id="cb9-380"><a href="#cb9-380"></a><span class="ss">- </span>Let's set $w_4 = 1$ (the center) and all other $w = 0$.</span>
+<span id="cb9-381"><a href="#cb9-381"></a><span class="ss">    - </span>Why 4? Start at zero, count up.</span>
+<span id="cb9-382"><a href="#cb9-382"></a><span class="ss">- </span>**Result:** It correctly identifies 1, 3, and 5.</span>
+<span id="cb9-383"><a href="#cb9-383"></a><span class="ss">- </span>**The Failure:** It would also classify a 7 and 9, most likely, even though these are not valid "odd" die in the sense of, say, Yahtzee.</span>
+<span id="cb9-384"><a href="#cb9-384"></a></span>
+<span id="cb9-385"><a href="#cb9-385"></a><span class="fu">## Failed Weighting #2: The Positive Diagonal</span></span>
+<span id="cb9-386"><a href="#cb9-386"></a></span>
+<span id="cb9-387"><a href="#cb9-387"></a><span class="ss">- </span>Let's weight the top-right, center, and bottom-left as $+\frac{1}{3}$.</span>
+<span id="cb9-388"><a href="#cb9-388"></a><span class="ss">- </span>**Result:** It perfectly identifies a "3".</span>
+<span id="cb9-389"><a href="#cb9-389"></a><span class="ss">- </span>**The Failure:** It fails to identify a "1" (the sum rounds down to zero) and it ignores the extra dots in a "5." It's too specific to the shape of a 3.</span>
+<span id="cb9-390"><a href="#cb9-390"></a><span class="ss">- </span>**The Failure:** What if the "3" is rotated by 90 degrees?</span>
+<span id="cb9-391"><a href="#cb9-391"></a></span>
+<span id="cb9-392"><a href="#cb9-392"></a><span class="fu"># The Power of Negativity</span></span>
+<span id="cb9-393"><a href="#cb9-393"></a></span>
+<span id="cb9-394"><a href="#cb9-394"></a><span class="fu">## Inhibitory Signals</span></span>
+<span id="cb9-395"><a href="#cb9-395"></a></span>
+<span id="cb9-396"><a href="#cb9-396"></a><span class="ss">- </span>In biology, some neurons tell others *not* to fire. These are "inhibitory."</span>
+<span id="cb9-397"><a href="#cb9-397"></a><span class="ss">    - </span>For example, when I see a film that *isn't* directed by Ridley Scott.</span>
+<span id="cb9-398"><a href="#cb9-398"></a><span class="ss">    - </span>Did you know Ridley Scott directed *Kingdom of Heaven* 2005?</span>
+<span id="cb9-399"><a href="#cb9-399"></a><span class="ss">- </span>In our model, we use **Negative Weights**.</span>
+<span id="cb9-400"><a href="#cb9-400"></a><span class="ss">- </span>This allows us to "punish" the presence of certain dots that shouldn't be there for a specific classification.</span>
+<span id="cb9-401"><a href="#cb9-401"></a></span>
+<span id="cb9-402"><a href="#cb9-402"></a><span class="fu">## Example: Detecting "1" but NOT "3"</span></span>
+<span id="cb9-403"><a href="#cb9-403"></a></span>
+<span id="cb9-404"><a href="#cb9-404"></a><span class="ss">- </span>Both have a center dot. How do we tell them apart?</span>
+<span id="cb9-405"><a href="#cb9-405"></a><span class="ss">- </span>We "reward" the center dot but "punish" the corners.</span>
+<span id="cb9-406"><a href="#cb9-406"></a><span class="ss">    - </span>Center (1,1)     = +1</span>
+<span id="cb9-407"><a href="#cb9-407"></a><span class="ss">    - </span>Top-Right (0,2)  = -1</span>
+<span id="cb9-408"><a href="#cb9-408"></a><span class="ss">    - </span>Bottom-Left (2,0) = -1</span>
+<span id="cb9-409"><a href="#cb9-409"></a></span>
+<span id="cb9-410"><a href="#cb9-410"></a><span class="in">```{.py}</span></span>
+<span id="cb9-411"><a href="#cb9-411"></a><span class="in">weights = [0, 0, -1, 0, 1, 0, -1, 0, 0]</span></span>
+<span id="cb9-412"><a href="#cb9-412"></a><span class="in">```</span></span>
+<span id="cb9-413"><a href="#cb9-413"></a></span>
+<span id="cb9-414"><a href="#cb9-414"></a><span class="fu">## Why it works</span></span>
+<span id="cb9-415"><a href="#cb9-415"></a></span>
+<span id="cb9-416"><a href="#cb9-416"></a><span class="ss">- </span>**For Die "1":** Sum = $(1 \times 1) + (0 \times -1) + (0 \times -1) = 1$. (Success!)</span>
+<span id="cb9-417"><a href="#cb9-417"></a><span class="ss">- </span>**For Die "3":** Sum = $(1 \times 1) + (1 \times -1) + (1 \times -1) = -1$. </span>
+<span id="cb9-418"><a href="#cb9-418"></a><span class="ss">- </span>The negative weights "cancelled out" the center dot. The neuron stays silent for the 3!</span>
+<span id="cb9-419"><a href="#cb9-419"></a></span>
+<span id="cb9-420"><a href="#cb9-420"></a><span class="fu"># Introducing the Bias</span></span>
+<span id="cb9-421"><a href="#cb9-421"></a></span>
+<span id="cb9-422"><a href="#cb9-422"></a><span class="fu">## The "Sensitivity" Problem</span></span>
+<span id="cb9-423"><a href="#cb9-423"></a></span>
+<span id="cb9-424"><a href="#cb9-424"></a><span class="ss">- </span>Even with negative weights, we have a problem: **The Threshold**.</span>
+<span id="cb9-425"><a href="#cb9-425"></a><span class="ss">- </span>We need a way to decide exactly when the sum is "enough" to trigger a fire.</span>
+<span id="cb9-426"><a href="#cb9-426"></a><span class="ss">- </span>We need to shift the "goalposts" without rewriting all our weights.</span>
+<span id="cb9-427"><a href="#cb9-427"></a></span>
+<span id="cb9-428"><a href="#cb9-428"></a><span class="fu">## The Bias ($b$)</span></span>
+<span id="cb9-429"><a href="#cb9-429"></a></span>
+<span id="cb9-430"><a href="#cb9-430"></a><span class="ss">- </span>The **Bias** is a number we add to the sum *before* deciding to fire.</span>
+<span id="cb9-431"><a href="#cb9-431"></a><span class="ss">- </span>It represents how "easy" it is to make the neuron fire.</span>
+<span id="cb9-432"><a href="#cb9-432"></a><span class="ss">- </span>**High Bias:** The neuron is "trigger happy" and fires easily.</span>
+<span id="cb9-433"><a href="#cb9-433"></a><span class="ss">    - </span>My "movie good" neuron is *highly biased* toward Ridley Scott films.</span>
+<span id="cb9-434"><a href="#cb9-434"></a><span class="ss">- </span>**Negative Bias:** The neuron is "stubborn" and needs a very high positive sum to fire.</span>
+<span id="cb9-435"><a href="#cb9-435"></a><span class="ss">    - </span>My "movie good" neuron is *negatively biased* against *Predator* films.</span>
+<span id="cb9-436"><a href="#cb9-436"></a></span>
+<span id="cb9-437"><a href="#cb9-437"></a></span>
+<span id="cb9-438"><a href="#cb9-438"></a></span>
+<span id="cb9-439"><a href="#cb9-439"></a><span class="fu">## The Completed Formula</span></span>
+<span id="cb9-440"><a href="#cb9-440"></a></span>
+<span id="cb9-441"><a href="#cb9-441"></a><span class="ss">- </span>We update our LaTeX formula to include the bias term $b$:</span>
+<span id="cb9-442"><a href="#cb9-442"></a></span>
+<span id="cb9-443"><a href="#cb9-443"></a>$$\sum_{i=1}^{n} w_i x_i + b $$</span>
+<span id="cb9-444"><a href="#cb9-444"></a></span>
+<span id="cb9-445"><a href="#cb9-445"></a><span class="ss">- </span>If the result is $&gt; 0$, the neuron fires (1).</span>
+<span id="cb9-446"><a href="#cb9-446"></a><span class="ss">- </span>If the result is $\le 0$, it stays silent (0).</span>
+<span id="cb9-447"><a href="#cb9-447"></a></span>
+<span id="cb9-448"><a href="#cb9-448"></a><span class="fu">## Visualizing the Bias Node</span></span>
+<span id="cb9-449"><a href="#cb9-449"></a></span>
+<span id="cb9-450"><a href="#cb9-450"></a><span class="ss">- </span>In a graph, the bias is often shown as a special input node that is **always** 1, multiplied by its own weight $b$.</span>
+<span id="cb9-451"><a href="#cb9-451"></a></span>
+<span id="cb9-454"><a href="#cb9-454"></a><span class="in">```{dot}</span></span>
+<span id="cb9-455"><a href="#cb9-455"></a><span class="in">graph PerceptronWithBias {</span></span>
+<span id="cb9-456"><a href="#cb9-456"></a><span class="in">    rankdir=TD;</span></span>
+<span id="cb9-457"><a href="#cb9-457"></a><span class="in">    bgcolor="transparent"  </span></span>
+<span id="cb9-458"><a href="#cb9-458"></a><span class="in">    node [shape=circle, fontcolor = "#ffffff", color = "#ffffff"]</span></span>
+<span id="cb9-459"><a href="#cb9-459"></a><span class="in">    </span></span>
+<span id="cb9-460"><a href="#cb9-460"></a><span class="in">    subgraph cluster_input {</span></span>
+<span id="cb9-461"><a href="#cb9-461"></a><span class="in">        label="Inputs";</span></span>
+<span id="cb9-462"><a href="#cb9-462"></a><span class="in">        fontcolor="white";</span></span>
+<span id="cb9-463"><a href="#cb9-463"></a><span class="in">        node [style=filled, fillcolor="red"];</span></span>
+<span id="cb9-464"><a href="#cb9-464"></a><span class="in">        X1; X2; X3;</span></span>
+<span id="cb9-465"><a href="#cb9-465"></a><span class="in">    }</span></span>
+<span id="cb9-466"><a href="#cb9-466"></a></span>
+<span id="cb9-467"><a href="#cb9-467"></a><span class="in">    subgraph cluster_bias {</span></span>
+<span id="cb9-468"><a href="#cb9-468"></a><span class="in">        label="Bias";</span></span>
+<span id="cb9-469"><a href="#cb9-469"></a><span class="in">        fontcolor="white";</span></span>
+<span id="cb9-470"><a href="#cb9-470"></a><span class="in">        node [style=filled, fillcolor="green"];</span></span>
+<span id="cb9-471"><a href="#cb9-471"></a><span class="in">        B [label="1"];</span></span>
+<span id="cb9-472"><a href="#cb9-472"></a><span class="in">    }</span></span>
+<span id="cb9-473"><a href="#cb9-473"></a></span>
+<span id="cb9-474"><a href="#cb9-474"></a><span class="in">    node [style=filled, fillcolor="blue"];</span></span>
+<span id="cb9-475"><a href="#cb9-475"></a><span class="in">    Neuron [label="∑"];</span></span>
+<span id="cb9-476"><a href="#cb9-476"></a></span>
+<span id="cb9-477"><a href="#cb9-477"></a><span class="in">    X1 -- Neuron [label="w1"];</span></span>
+<span id="cb9-478"><a href="#cb9-478"></a><span class="in">    X2 -- Neuron [label="w2"];</span></span>
+<span id="cb9-479"><a href="#cb9-479"></a><span class="in">    X3 -- Neuron [label="w3"];</span></span>
+<span id="cb9-480"><a href="#cb9-480"></a><span class="in">    B  -- Neuron [label="b", color="yellow"];</span></span>
+<span id="cb9-481"><a href="#cb9-481"></a><span class="in">}</span></span>
+<span id="cb9-482"><a href="#cb9-482"></a><span class="in">```</span></span>
+<span id="cb9-483"><a href="#cb9-483"></a></span>
+<span id="cb9-484"><a href="#cb9-484"></a><span class="fu"># The Full Perceptron </span></span>
+<span id="cb9-485"><a href="#cb9-485"></a></span>
+<span id="cb9-486"><a href="#cb9-486"></a><span class="fu">## Bias and Threshold</span></span>
+<span id="cb9-487"><a href="#cb9-487"></a></span>
+<span id="cb9-488"><a href="#cb9-488"></a><span class="ss">- </span>Sometimes, the sum isn't enough. We need a **Threshold**.</span>
+<span id="cb9-489"><a href="#cb9-489"></a><span class="ss">- </span>A neuron only "fires" if the sum exceeds a certain level.</span>
+<span id="cb9-490"><a href="#cb9-490"></a><span class="ss">- </span>This level is controlled by the **Bias**.</span>
+<span id="cb9-491"><a href="#cb9-491"></a></span>
+<span id="cb9-492"><a href="#cb9-492"></a>$$f(x) = \begin{cases} 1 &amp; \text{if } \sum w_i x_i + b &gt; 0 <span class="sc">\\</span> 0 &amp; \text{otherwise} \end{cases}$$</span>
+<span id="cb9-493"><a href="#cb9-493"></a></span>
+<span id="cb9-494"><a href="#cb9-494"></a></span>
+<span id="cb9-495"><a href="#cb9-495"></a><span class="ss">- </span>We can use either a *piecewise* or *indicator* function here.</span>
+<span id="cb9-496"><a href="#cb9-496"></a></span>
+<span id="cb9-497"><a href="#cb9-497"></a><span class="fu">## Piecewise Functions</span></span>
+<span id="cb9-498"><a href="#cb9-498"></a></span>
+<span id="cb9-499"><a href="#cb9-499"></a></span>
+<span id="cb9-500"><a href="#cb9-500"></a><span class="ss">- </span>In our Perceptron, the output changes abruptly from 0 to 1. </span>
+<span id="cb9-501"><a href="#cb9-501"></a><span class="ss">- </span>This is a **Piecewise Function**: a function where the "rule" changes depending on the input value $x$.</span>
+<span id="cb9-502"><a href="#cb9-502"></a></span>
+<span id="cb9-503"><a href="#cb9-503"></a><span class="fu">## Mathematical Notation</span></span>
+<span id="cb9-504"><a href="#cb9-504"></a></span>
+<span id="cb9-505"><a href="#cb9-505"></a><span class="ss">- </span>We use a large "curly bracket" to define the different rules. For a simple threshold at zero:</span>
+<span id="cb9-506"><a href="#cb9-506"></a></span>
+<span id="cb9-507"><a href="#cb9-507"></a>$$</span>
+<span id="cb9-508"><a href="#cb9-508"></a>f(x) = \begin{cases} </span>
+<span id="cb9-509"><a href="#cb9-509"></a>0 &amp; x \leq 0 <span class="sc">\\</span></span>
+<span id="cb9-510"><a href="#cb9-510"></a>1 &amp; x &gt; 0 </span>
+<span id="cb9-511"><a href="#cb9-511"></a>\end{cases}</span>
+<span id="cb9-512"><a href="#cb9-512"></a>$$</span>
+<span id="cb9-513"><a href="#cb9-513"></a></span>
+<span id="cb9-514"><a href="#cb9-514"></a><span class="ss">- </span>This is exactly how our neuron decides to "fire" or "stay silent."</span>
+<span id="cb9-515"><a href="#cb9-515"></a></span>
+<span id="cb9-516"><a href="#cb9-516"></a><span class="fu">## Real World: Tax Brackets</span></span>
+<span id="cb9-517"><a href="#cb9-517"></a></span>
+<span id="cb9-518"><a href="#cb9-518"></a><span class="ss">- </span>Most people encounter piecewise functions once a year: **Income Tax**. </span>
+<span id="cb9-519"><a href="#cb9-519"></a><span class="ss">- </span>Tax rate isn't a single line; it's a series of "steps" or "brackets."</span>
+<span id="cb9-520"><a href="#cb9-520"></a></span>
+<span id="cb9-521"><a href="#cb9-521"></a>| Income Range | Tax Rate |</span>
+<span id="cb9-522"><a href="#cb9-522"></a>| :--- | :--- |</span>
+<span id="cb9-523"><a href="#cb9-523"></a>| $0 – $10,000 | 10% |</span>
+<span id="cb9-524"><a href="#cb9-524"></a>| $10,001 – $45,000 | 15% |</span>
+<span id="cb9-525"><a href="#cb9-525"></a>| $45,001 – $95,000 | 25% |</span>
+<span id="cb9-526"><a href="#cb9-526"></a></span>
+<span id="cb9-527"><a href="#cb9-527"></a><span class="fu">## The "Tax" Perceptron</span></span>
+<span id="cb9-528"><a href="#cb9-528"></a></span>
+<span id="cb9-529"><a href="#cb9-529"></a>You can think of each tax bracket as a neuron with a different **Bias**.</span>
+<span id="cb9-530"><a href="#cb9-530"></a></span>
+<span id="cb9-531"><a href="#cb9-531"></a><span class="ss">* </span>The 10% neuron "fires" immediately (**Bias = 0**).</span>
+<span id="cb9-532"><a href="#cb9-532"></a><span class="ss">* </span>The 25% neuron only "fires" once your income (Input) exceeds $45,000 (**Bias = -45,000**).</span>
+<span id="cb9-533"><a href="#cb9-533"></a></span>
+<span id="cb9-534"><a href="#cb9-534"></a><span class="fu">## Indicator Functions</span></span>
+<span id="cb9-535"><a href="#cb9-535"></a></span>
+<span id="cb9-536"><a href="#cb9-536"></a><span class="ss">- </span>An **Indicator Function** is a special piecewise function. </span>
+<span id="cb9-537"><a href="#cb9-537"></a><span class="ss">- </span>It "indicates" whether an input belongs to a specific collection. </span>
+<span id="cb9-538"><a href="#cb9-538"></a><span class="ss">- </span>We use the symbol $\mathbb{1}$ (a "blackboard bold" 1).</span>
+<span id="cb9-539"><a href="#cb9-539"></a><span class="ss">    - </span><span class="in">`$\mathbb{1}$`</span> - start math, make blackboard bold, apply to 1, end math,</span>
+<span id="cb9-540"><a href="#cb9-540"></a></span>
+<span id="cb9-541"><a href="#cb9-541"></a><span class="fu">## Binary Logic</span></span>
+<span id="cb9-542"><a href="#cb9-542"></a></span>
+<span id="cb9-543"><a href="#cb9-543"></a><span class="ss">- </span>If the condition is **True**, the output is 1.</span>
+<span id="cb9-544"><a href="#cb9-544"></a><span class="ss">- </span>If the condition is **False**, the output is 0.</span>
+<span id="cb9-545"><a href="#cb9-545"></a></span>
+<span id="cb9-546"><a href="#cb9-546"></a>$$</span>
+<span id="cb9-547"><a href="#cb9-547"></a>\mathbb{1}_{A}(x) = \begin{cases} </span>
+<span id="cb9-548"><a href="#cb9-548"></a>1 &amp; x \in A <span class="sc">\\</span></span>
+<span id="cb9-549"><a href="#cb9-549"></a>0 &amp; x \notin A </span>
+<span id="cb9-550"><a href="#cb9-550"></a>\end{cases}</span>
+<span id="cb9-551"><a href="#cb9-551"></a>$$</span>
+<span id="cb9-552"><a href="#cb9-552"></a></span>
+<span id="cb9-553"><a href="#cb9-553"></a><span class="fu">## Dice as Collections</span></span>
+<span id="cb9-554"><a href="#cb9-554"></a></span>
+<span id="cb9-555"><a href="#cb9-555"></a>When we detect an "Odd" die face, we are running an Indicator Function.</span>
+<span id="cb9-556"><a href="#cb9-556"></a></span>
+<span id="cb9-557"><a href="#cb9-557"></a><span class="ss">- </span>**Input:** 3x3 Grid</span>
+<span id="cb9-558"><a href="#cb9-558"></a><span class="ss">- </span>**Collection $A$:** All grids representing 1, 3, or 5</span>
+<span id="cb9-559"><a href="#cb9-559"></a><span class="ss">- </span>**Output:** 1 if the grid is in the set, 0 otherwise.</span>
+<span id="cb9-560"><a href="#cb9-560"></a></span>
+<span id="cb9-561"><a href="#cb9-561"></a><span class="fu"># Summary &amp; Notation</span></span>
+<span id="cb9-562"><a href="#cb9-562"></a></span>
+<span id="cb9-563"><a href="#cb9-563"></a><span class="fu">## Summation in Colab</span></span>
+<span id="cb9-564"><a href="#cb9-564"></a></span>
+<span id="cb9-565"><a href="#cb9-565"></a><span class="ss">- </span>When writing your lab reports in Markdown cells, you can use LaTeX. </span>
+<span id="cb9-566"><a href="#cb9-566"></a><span class="ss">    - </span>Or $\LaTeX$ by writing <span class="in">`$\LaTeX`</span></span>
+<span id="cb9-567"><a href="#cb9-567"></a></span>
+<span id="cb9-568"><a href="#cb9-568"></a></span>
+<span id="cb9-569"><a href="#cb9-569"></a><span class="fu">## Notation</span></span>
+<span id="cb9-570"><a href="#cb9-570"></a></span>
+<span id="cb9-571"><a href="#cb9-571"></a><span class="ss">- </span>To show the total input to a neuron, write:</span>
+<span id="cb9-572"><a href="#cb9-572"></a></span>
+<span id="cb9-573"><a href="#cb9-573"></a>$$</span>
+<span id="cb9-574"><a href="#cb9-574"></a>z = \sum_{i=1}^{n} w_i x_i + b</span>
+<span id="cb9-575"><a href="#cb9-575"></a>$$</span>
+<span id="cb9-576"><a href="#cb9-576"></a></span>
+<span id="cb9-577"><a href="#cb9-577"></a><span class="in">```{.tex}</span></span>
+<span id="cb9-578"><a href="#cb9-578"></a><span class="in">z = \sum_{i=1}^{n} w_i x_i + b</span></span>
+<span id="cb9-579"><a href="#cb9-579"></a><span class="in">```</span></span>
+<span id="cb9-580"><a href="#cb9-580"></a></span>
+<span id="cb9-581"><a href="#cb9-581"></a>This is the standard way to express the **"weighted sum plus bias."**</span>
+<span id="cb9-582"><a href="#cb9-582"></a></span>
+<span id="cb9-583"><a href="#cb9-583"></a><span class="fu">## Visualizing the Weights</span></span>
+<span id="cb9-584"><a href="#cb9-584"></a></span>
+<span id="cb9-585"><a href="#cb9-585"></a><span class="ss">- </span>Let's look at the graph again, but with weights indicated by line thickness.</span>
+<span id="cb9-586"><a href="#cb9-586"></a></span>
+<span id="cb9-589"><a href="#cb9-589"></a><span class="in">```{dot}</span></span>
+<span id="cb9-590"><a href="#cb9-590"></a><span class="in">graph PerceptronWeights {</span></span>
+<span id="cb9-591"><a href="#cb9-591"></a><span class="in">    rankdir=TD;</span></span>
+<span id="cb9-592"><a href="#cb9-592"></a><span class="in">    bgcolor="transparent"  </span></span>
+<span id="cb9-593"><a href="#cb9-593"></a><span class="in">    node [shape=circle, fontcolor = "#ffffff", color = "#ffffff"]</span></span>
+<span id="cb9-594"><a href="#cb9-594"></a><span class="in">    </span></span>
+<span id="cb9-595"><a href="#cb9-595"></a><span class="in">    subgraph cluster_input {</span></span>
+<span id="cb9-596"><a href="#cb9-596"></a><span class="in">        node [style=filled, fillcolor="red"];</span></span>
+<span id="cb9-597"><a href="#cb9-597"></a><span class="in">        X0; X1; X2; X3; X4; X5; X6; X7; X8;</span></span>
+<span id="cb9-598"><a href="#cb9-598"></a><span class="in">    }</span></span>
+<span id="cb9-599"><a href="#cb9-599"></a></span>
+<span id="cb9-600"><a href="#cb9-600"></a><span class="in">    node [style=filled, fillcolor="blue"];</span></span>
+<span id="cb9-601"><a href="#cb9-601"></a><span class="in">    Neuron [label="Odd?"];</span></span>
+<span id="cb9-602"><a href="#cb9-602"></a></span>
+<span id="cb9-603"><a href="#cb9-603"></a><span class="in">    X0 -- Neuron [label="0", color="#444444"];</span></span>
+<span id="cb9-604"><a href="#cb9-604"></a><span class="in">    X1 -- Neuron [label="0", color="#444444"];</span></span>
+<span id="cb9-605"><a href="#cb9-605"></a><span class="in">    X2 -- Neuron [label="0", color="#444444"];</span></span>
+<span id="cb9-606"><a href="#cb9-606"></a><span class="in">    X3 -- Neuron [label="0", color="#444444"];</span></span>
+<span id="cb9-607"><a href="#cb9-607"></a><span class="in">    X4 -- Neuron [label="1", penwidth=5, color="white"]; </span></span>
+<span id="cb9-608"><a href="#cb9-608"></a><span class="in">    X5 -- Neuron [label="0", color="#444444"];</span></span>
+<span id="cb9-609"><a href="#cb9-609"></a><span class="in">    X6 -- Neuron [label="0", color="#444444"];</span></span>
+<span id="cb9-610"><a href="#cb9-610"></a><span class="in">    X7 -- Neuron [label="0", color="#444444"];</span></span>
+<span id="cb9-611"><a href="#cb9-611"></a><span class="in">    X8 -- Neuron [label="0", color="#444444"];</span></span>
+<span id="cb9-612"><a href="#cb9-612"></a><span class="in">}</span></span>
+<span id="cb9-613"><a href="#cb9-613"></a><span class="in">```</span></span>
+<span id="cb9-614"><a href="#cb9-614"></a></span>
+<span id="cb9-615"><a href="#cb9-615"></a><span class="fu"># History of the Perceptron</span></span>
+<span id="cb9-616"><a href="#cb9-616"></a></span>
+<span id="cb9-617"><a href="#cb9-617"></a><span class="fu">## Predate Computers!</span></span>
+<span id="cb9-618"><a href="#cb9-618"></a></span>
+<span id="cb9-619"><a href="#cb9-619"></a><span class="ss">- </span>Earliest known/recognizable modern form in 1943</span>
+<span id="cb9-620"><a href="#cb9-620"></a><span class="ss">    - </span>During the last World War.</span>
+<span id="cb9-621"><a href="#cb9-621"></a><span class="ss">    - </span>Lots of research at that time.</span>
+<span id="cb9-622"><a href="#cb9-622"></a><span class="ss">- </span>Computers at that time referred to humans that performed calculations.</span>
+<span id="cb9-623"><a href="#cb9-623"></a></span>
+<span id="cb9-624"><a href="#cb9-624"></a></span>
+<span id="cb9-625"><a href="#cb9-625"></a><span class="fu">## Quiz</span></span>
+<span id="cb9-626"><a href="#cb9-626"></a></span>
+<span id="cb9-627"><a href="#cb9-627"></a><span class="ss">- </span>Is 1943</span>
+<span id="cb9-628"><a href="#cb9-628"></a><span class="ss">    - </span>Before or US entry to WWII</span>
+<span id="cb9-629"><a href="#cb9-629"></a><span class="ss">    - </span>Before or after the inauguration of Truman</span>
+<span id="cb9-630"><a href="#cb9-630"></a><span class="ss">    - </span>Before or after the first demonstration of electronic color TV</span>
+<span id="cb9-631"><a href="#cb9-631"></a><span class="ss">    - </span>Before or after the founding of Republi of Egypt</span>
+<span id="cb9-632"><a href="#cb9-632"></a></span>
+<span id="cb9-633"><a href="#cb9-633"></a><span class="fu">## First Simulation</span></span>
+<span id="cb9-634"><a href="#cb9-634"></a></span>
+<span id="cb9-635"><a href="#cb9-635"></a><span class="ss">- </span>First simulated on something recognizable as a computer, an IMB 704, in 1957</span>
+<span id="cb9-636"><a href="#cb9-636"></a><span class="ss">  - </span>Room-sized "digitial mainframe" computer.</span>
+<span id="cb9-637"><a href="#cb9-637"></a><span class="ss">  - </span>First computer to use decimal values (e.g. not just round numbers).</span>
+<span id="cb9-638"><a href="#cb9-638"></a><span class="ss">  - </span>Vacuum tubes, not semiconductors.</span>
+<span id="cb9-639"><a href="#cb9-639"></a></span>
+<span id="cb9-640"><a href="#cb9-640"></a></span>
+<span id="cb9-641"><a href="#cb9-641"></a><span class="fu">## Quiz</span></span>
+<span id="cb9-642"><a href="#cb9-642"></a></span>
+<span id="cb9-643"><a href="#cb9-643"></a><span class="ss">- </span>Is 1957</span>
+<span id="cb9-644"><a href="#cb9-644"></a><span class="ss">    - </span>Before or after the *Brown v. Board* decision</span>
+<span id="cb9-645"><a href="#cb9-645"></a><span class="ss">    - </span>Before or after the passage of the Civil Rights Act</span>
+<span id="cb9-646"><a href="#cb9-646"></a><span class="ss">    - </span>Before or after the election of Kennedy</span>
+<span id="cb9-647"><a href="#cb9-647"></a><span class="ss">    - </span>Before or after the release of Elvis Presley's first single</span>
+<span id="cb9-648"><a href="#cb9-648"></a><span class="ss">        - </span>(Heartbreak Hotel)</span>
+<span id="cb9-649"><a href="#cb9-649"></a></span>
+<span id="cb9-650"><a href="#cb9-650"></a></span>
+<span id="cb9-651"><a href="#cb9-651"></a><span class="fu">## Uses *Linear Algebra*</span></span>
+<span id="cb9-652"><a href="#cb9-652"></a></span>
+<span id="cb9-653"><a href="#cb9-653"></a><span class="ss">- </span>At some point (I'm not sure when) someone noticed modelling perceptrons using "linear algebra" rather than neurons was:</span>
+<span id="cb9-654"><a href="#cb9-654"></a><span class="ss">    - </span>Logically equivalent</span>
+<span id="cb9-655"><a href="#cb9-655"></a><span class="ss">    - </span>Easier to write down.</span>
+<span id="cb9-656"><a href="#cb9-656"></a><span class="ss">- </span>I have followed this convention by specifying edge weights as ordered collections of values.</span>
+<span id="cb9-657"><a href="#cb9-657"></a><span class="ss">    - </span>This can seem understandably confusing.</span>
+<span id="cb9-658"><a href="#cb9-658"></a></span>
+<span id="cb9-659"><a href="#cb9-659"></a><span class="fu">## Now on GPUs!</span></span>
+<span id="cb9-660"><a href="#cb9-660"></a></span>
+<span id="cb9-661"><a href="#cb9-661"></a><span class="ss">- </span>GPUs, graphics processing units, now often called AI chips, are incidentally very good at linear algebra.</span>
+<span id="cb9-662"><a href="#cb9-662"></a><span class="ss">- </span>They are also very good at interpreting images as data.</span>
+<span id="cb9-663"><a href="#cb9-663"></a><span class="ss">- </span>It should be at least a little but unsurprising that GPUs and neural networks gained popularity around the same time.</span>
+<span id="cb9-664"><a href="#cb9-664"></a></span>
+<span id="cb9-665"><a href="#cb9-665"></a><span class="fu"># Applications</span></span>
+<span id="cb9-666"><a href="#cb9-666"></a></span>
+<span id="cb9-667"><a href="#cb9-667"></a><span class="fu">## MNIST Dataset</span></span>
+<span id="cb9-668"><a href="#cb9-668"></a></span>
+<span id="cb9-669"><a href="#cb9-669"></a><span class="ss">- </span>70,000 handwritten digits.</span>
+<span id="cb9-670"><a href="#cb9-670"></a><span class="ss">- </span>Instead of a 3x3 grid, it is a **28x28 grid** (784 sensory neurons).</span>
+<span id="cb9-671"><a href="#cb9-671"></a><span class="ss">- </span>A single layer of neurons can achieve ~90% accuracy!</span>
+<span id="cb9-672"><a href="#cb9-672"></a><span class="ss">- </span>Common first project for in-major AI courses.</span>
+<span id="cb9-673"><a href="#cb9-673"></a><span class="ss">    - </span>A bit heavyweight for us, hence dice.</span>
+<span id="cb9-674"><a href="#cb9-674"></a></span>
+<span id="cb9-675"><a href="#cb9-675"></a><span class="fu">## ImageNet</span></span>
+<span id="cb9-676"><a href="#cb9-676"></a></span>
+<span id="cb9-677"><a href="#cb9-677"></a><span class="ss">- </span>Millions of high-res images.</span>
+<span id="cb9-678"><a href="#cb9-678"></a><span class="ss">- </span>Hundreds of categories (Dog, Boat, Bird).</span>
+<span id="cb9-679"><a href="#cb9-679"></a><span class="ss">- </span>Uses the same core principles: **Weights, Sums, and Thresholds**.</span>
+<span id="cb9-680"><a href="#cb9-680"></a><span class="ss">    - </span>That's right, the big AI boom was basically just perceptrons!</span>
+<span id="cb9-681"><a href="#cb9-681"></a></span>
+<span id="cb9-682"><a href="#cb9-682"></a><span class="fu"># Takeaways</span></span>
+<span id="cb9-683"><a href="#cb9-683"></a></span>
+<span id="cb9-684"><a href="#cb9-684"></a><span class="ss">- </span>**Inputs** are just flattened grids of numbers.</span>
+<span id="cb9-685"><a href="#cb9-685"></a><span class="ss">- </span>**Weights** determine which parts of the input matter.</span>
+<span id="cb9-686"><a href="#cb9-686"></a><span class="ss">- </span>**Classification** is the act of drawing a line between two sets of data.</span>
+<span id="cb9-687"><a href="#cb9-687"></a><span class="ss">- </span>**Graphs** allow us to visualize the flow of information from the eye to the decision.</span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

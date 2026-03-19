@@ -1193,6 +1193,52 @@ G = (V, E)
 </ul></li>
 </ul>
 <div class="cell" data-layout-align="default">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource dot number-lines code-with-copy"><code class="sourceCode dot"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">digraph</span> <span class="va">OakKey</span> <span class="ot">{</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="co">    </span><span class="at">bgcolor</span><span class="ot">=</span><span class="st">"transparent"</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">box</span><span class="co">,  </span><span class="at">fontcolor</span><span class="ot">=</span><span class="st">"white"</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"white"</span><span class="ot">];</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="co">    </span><span class="kw">edge</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="ot">=</span><span class="st">"white"</span><span class="co">, </span><span class="at">fontcolor</span><span class="ot">=</span><span class="st">"white"</span><span class="ot">];</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="co">    </span></span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="co">    // Questions/Nodes</span></span>
+<span id="cb8-7"><a href="#cb8-7"></a><span class="co">    </span><span class="va">Start</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Leaves are smooth with no teeth or lobes?"</span><span class="ot">];</span></span>
+<span id="cb8-8"><a href="#cb8-8"></a><span class="co">    </span><span class="va">Evergreen</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Laves evergreen?"</span><span class="ot">];</span></span>
+<span id="cb8-9"><a href="#cb8-9"></a><span class="co">    </span><span class="va">GrowthHabit</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Large Tree (not shrub)?"</span><span class="ot">];</span></span>
+<span id="cb8-10"><a href="#cb8-10"></a><span class="co">    </span><span class="va">LeafShape</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Leaves more than 3x long as wide"</span><span class="ot">];</span></span>
+<span id="cb8-11"><a href="#cb8-11"></a><span class="co">    </span><span class="va">Bristles</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Lobes/teeth bristle-tipped?"</span><span class="ot">];</span></span>
+<span id="cb8-12"><a href="#cb8-12"></a><span class="co">    </span><span class="va">LobeCount6</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"3 or fewer lobes?"</span><span class="ot">];</span></span>
+<span id="cb8-13"><a href="#cb8-13"></a><span class="co">    </span><span class="va">LobeCount7</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"9 or fewer lobes?"</span><span class="ot">];</span></span>
+<span id="cb8-14"><a href="#cb8-14"></a></span>
+<span id="cb8-15"><a href="#cb8-15"></a><span class="co">    // Species (Leaf nodes)</span></span>
+<span id="cb8-16"><a href="#cb8-16"></a><span class="co">    </span><span class="va">LiveOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Southern live oak"</span><span class="ot">];</span></span>
+<span id="cb8-17"><a href="#cb8-17"></a><span class="co">    </span><span class="va">DwarfOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Dwarf live oak"</span><span class="ot">];</span></span>
+<span id="cb8-18"><a href="#cb8-18"></a><span class="co">    </span><span class="va">WillowOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Willow oak"</span><span class="ot">];</span></span>
+<span id="cb8-19"><a href="#cb8-19"></a><span class="co">    </span><span class="va">ShingleOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Shingle oak"</span><span class="ot">];</span></span>
+<span id="cb8-20"><a href="#cb8-20"></a><span class="co">    </span><span class="va">BlackjackOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Blackjack oak"</span><span class="ot">];</span></span>
+<span id="cb8-21"><a href="#cb8-21"></a><span class="co">    </span><span class="va">RedOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Northern red oak"</span><span class="ot">];</span></span>
+<span id="cb8-22"><a href="#cb8-22"></a><span class="co">    </span><span class="va">WhiteOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"White oak"</span><span class="ot">];</span></span>
+<span id="cb8-23"><a href="#cb8-23"></a><span class="co">    </span><span class="va">SwampOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Swamp chestnut oak"</span><span class="ot">];</span></span>
+<span id="cb8-24"><a href="#cb8-24"></a></span>
+<span id="cb8-25"><a href="#cb8-25"></a><span class="co">    // Relationships</span></span>
+<span id="cb8-26"><a href="#cb8-26"></a><span class="co">    </span><span class="va">Start</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">Evergreen</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"True"</span><span class="ot">];</span></span>
+<span id="cb8-27"><a href="#cb8-27"></a><span class="co">    </span><span class="va">Start</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">Bristles</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"False"</span><span class="ot">];</span></span>
+<span id="cb8-28"><a href="#cb8-28"></a></span>
+<span id="cb8-29"><a href="#cb8-29"></a><span class="co">    </span><span class="va">Evergreen</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">GrowthHabit</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"True"</span><span class="ot">];</span></span>
+<span id="cb8-30"><a href="#cb8-30"></a><span class="co">    </span><span class="va">Evergreen</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">LeafShape</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"False"</span><span class="ot">];</span></span>
+<span id="cb8-31"><a href="#cb8-31"></a></span>
+<span id="cb8-32"><a href="#cb8-32"></a><span class="co">    </span><span class="va">GrowthHabit</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">LiveOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"True"</span><span class="ot">];</span></span>
+<span id="cb8-33"><a href="#cb8-33"></a><span class="co">    </span><span class="va">GrowthHabit</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">DwarfOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"False"</span><span class="ot">];</span></span>
+<span id="cb8-34"><a href="#cb8-34"></a></span>
+<span id="cb8-35"><a href="#cb8-35"></a><span class="co">    </span><span class="va">LeafShape</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">WillowOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"True"</span><span class="ot">];</span></span>
+<span id="cb8-36"><a href="#cb8-36"></a><span class="co">    </span><span class="va">LeafShape</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">ShingleOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"False"</span><span class="ot">];</span></span>
+<span id="cb8-37"><a href="#cb8-37"></a></span>
+<span id="cb8-38"><a href="#cb8-38"></a><span class="co">    </span><span class="va">Bristles</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">LobeCount6</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"True"</span><span class="ot">];</span></span>
+<span id="cb8-39"><a href="#cb8-39"></a><span class="co">    </span><span class="va">Bristles</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">LobeCount7</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"False"</span><span class="ot">];</span></span>
+<span id="cb8-40"><a href="#cb8-40"></a></span>
+<span id="cb8-41"><a href="#cb8-41"></a><span class="co">    </span><span class="va">LobeCount6</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">BlackjackOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"True"</span><span class="ot">];</span></span>
+<span id="cb8-42"><a href="#cb8-42"></a><span class="co">    </span><span class="va">LobeCount6</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">RedOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"False"</span><span class="ot">];</span></span>
+<span id="cb8-43"><a href="#cb8-43"></a></span>
+<span id="cb8-44"><a href="#cb8-44"></a><span class="co">    </span><span class="va">LobeCount7</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">WhiteOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"True"</span><span class="ot">];</span></span>
+<span id="cb8-45"><a href="#cb8-45"></a><span class="co">    </span><span class="va">LobeCount7</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">SwampOak</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"False"</span><span class="ot">];</span></span>
+<span id="cb8-46"><a href="#cb8-46"></a><span class="ot">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
@@ -1953,712 +1999,712 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb8" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">---</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="an">title:</span><span class="co"> Graphs </span></span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="co">---</span></span>
-<span id="cb8-4"><a href="#cb8-4"></a></span>
-<span id="cb8-5"><a href="#cb8-5"></a><span class="fu"># Context</span></span>
-<span id="cb8-6"><a href="#cb8-6"></a></span>
-<span id="cb8-7"><a href="#cb8-7"></a><span class="ss">- </span>What graphs aren't.</span>
-<span id="cb8-8"><a href="#cb8-8"></a><span class="ss">- </span>Why they matter.</span>
-<span id="cb8-9"><a href="#cb8-9"></a><span class="ss">- </span>What they are.</span>
-<span id="cb8-10"><a href="#cb8-10"></a></span>
-<span id="cb8-11"><a href="#cb8-11"></a><span class="fu"># What They Aren't</span></span>
-<span id="cb8-12"><a href="#cb8-12"></a></span>
-<span id="cb8-13"><a href="#cb8-13"></a><span class="fu">## Visualizations </span></span>
-<span id="cb8-14"><a href="#cb8-14"></a></span>
-<span id="cb8-15"><a href="#cb8-15"></a><span class="ss">- </span>We recall the $n$-D lab were we made visualization representing information in multiple dimensions.</span>
-<span id="cb8-16"><a href="#cb8-16"></a><span class="ss">- </span>We may have referred to these visuals, perhaps these *graphics* as graphs.</span>
-<span id="cb8-17"><a href="#cb8-17"></a></span>
-<span id="cb8-18"><a href="#cb8-18"></a><span class="fu">## Information</span></span>
-<span id="cb8-19"><a href="#cb8-19"></a></span>
-<span id="cb8-20"><a href="#cb8-20"></a><span class="ss">- </span>We took *Star Wars* release dates.</span>
-<span id="cb8-21"><a href="#cb8-21"></a></span>
-<span id="cb8-24"><a href="#cb8-24"></a><span class="in">```{python}</span></span>
-<span id="cb8-25"><a href="#cb8-25"></a><span class="co">#| echo: true</span></span>
-<span id="cb8-26"><a href="#cb8-26"></a>eps <span class="op">=</span> [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]</span>
-<span id="cb8-27"><a href="#cb8-27"></a>yrs <span class="op">=</span> [<span class="dv">1977</span>, <span class="dv">1980</span>, <span class="dv">1983</span>, <span class="dv">1999</span>, <span class="dv">2002</span>, <span class="dv">2005</span>, <span class="dv">2015</span>, <span class="dv">2017</span>, <span class="dv">2019</span>]</span>
-<span id="cb8-28"><a href="#cb8-28"></a><span class="in">```</span></span>
-<span id="cb8-29"><a href="#cb8-29"></a></span>
-<span id="cb8-30"><a href="#cb8-30"></a><span class="fu">## Representation</span></span>
-<span id="cb8-31"><a href="#cb8-31"></a></span>
-<span id="cb8-32"><a href="#cb8-32"></a><span class="ss">- </span>I naively make a *scatterplot* to view the data...</span>
-<span id="cb8-33"><a href="#cb8-33"></a></span>
-<span id="cb8-36"><a href="#cb8-36"></a><span class="in">```{python}</span></span>
-<span id="cb8-37"><a href="#cb8-37"></a><span class="co">#| echo: true</span></span>
-<span id="cb8-38"><a href="#cb8-38"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
-<span id="cb8-39"><a href="#cb8-39"></a></span>
-<span id="cb8-40"><a href="#cb8-40"></a>plt.scatter(eps,yrs)</span>
-<span id="cb8-41"><a href="#cb8-41"></a><span class="in">```</span></span>
-<span id="cb8-42"><a href="#cb8-42"></a></span>
-<span id="cb8-43"><a href="#cb8-43"></a><span class="fu">## By Convention</span></span>
-<span id="cb8-44"><a href="#cb8-44"></a></span>
-<span id="cb8-45"><a href="#cb8-45"></a><span class="ss">- </span>Historically, I recall always thinking of a *graph* as something like these plots.</span>
-<span id="cb8-46"><a href="#cb8-46"></a><span class="ss">  - </span>A $x$ axis on the botton.</span>
-<span id="cb8-47"><a href="#cb8-47"></a><span class="ss">  - </span>A $y$ axis on the left.</span>
-<span id="cb8-48"><a href="#cb8-48"></a><span class="ss">  - </span>Some points throughout the space between them.</span>
-<span id="cb8-49"><a href="#cb8-49"></a><span class="ss">- </span>I will not use *graph* to refer to data visualizations of this form in this class.</span>
-<span id="cb8-50"><a href="#cb8-50"></a></span>
-<span id="cb8-51"><a href="#cb8-51"></a><span class="fu"># Why They Matter</span></span>
-<span id="cb8-52"><a href="#cb8-52"></a></span>
-<span id="cb8-53"><a href="#cb8-53"></a><span class="fu">## Oh no, math!</span></span>
-<span id="cb8-54"><a href="#cb8-54"></a></span>
-<span id="cb8-55"><a href="#cb8-55"></a><span class="ss">- </span>In a moment, we will introduce the mathematical notion of a *graph*.</span>
-<span id="cb8-56"><a href="#cb8-56"></a><span class="ss">  - </span>Mathematics as in college mathematics</span>
-<span id="cb8-57"><a href="#cb8-57"></a><span class="ss">    - </span>Logic not arithmetic.</span>
-<span id="cb8-58"><a href="#cb8-58"></a><span class="ss">- </span>This is a formalism and may seem heavyweight.</span>
-<span id="cb8-59"><a href="#cb8-59"></a><span class="ss">- </span>Why bother?</span>
-<span id="cb8-60"><a href="#cb8-60"></a></span>
-<span id="cb8-61"><a href="#cb8-61"></a><span class="fu">## Precision</span></span>
-<span id="cb8-62"><a href="#cb8-62"></a></span>
-<span id="cb8-63"><a href="#cb8-63"></a><span class="ss">- </span>One recurring topic throughout this term is *precision*.</span>
-<span id="cb8-64"><a href="#cb8-64"></a><span class="ss">- </span>When we ask e.g. Gemini to do something, we must be precise about things like spelling and grammar or the AI may not correctly infer what we want.</span>
-<span id="cb8-65"><a href="#cb8-65"></a><span class="ss">- </span>When we try to run e.g. Gemini in Colab, we must be precise about the names of nicknames and of commands or Colab will not function properly.</span>
-<span id="cb8-66"><a href="#cb8-66"></a><span class="ss">- </span>I asked you, for example, to name your class folder with a specific name scheme.</span>
-<span id="cb8-67"><a href="#cb8-67"></a></span>
-<span id="cb8-68"><a href="#cb8-68"></a><span class="fu">## Specific</span></span>
-<span id="cb8-69"><a href="#cb8-69"></a></span>
-<span id="cb8-70"><a href="#cb8-70"></a><span class="ss">- </span>One recurring topic through this term is *specificity*.</span>
-<span id="cb8-71"><a href="#cb8-71"></a><span class="ss">- </span>In addition to being precise (e.g. not wrong) we want to be clear (e.g. provide sufficient information).</span>
-<span id="cb8-72"><a href="#cb8-72"></a><span class="ss">- </span>We can debate the merits of my approach, but I try to be specific with, for example, lab instructions.</span>
-<span id="cb8-73"><a href="#cb8-73"></a><span class="ss">    - </span>How am I doing? Form your own opinion!</span>
-<span id="cb8-74"><a href="#cb8-74"></a><span class="ss">- </span>I do not necessarily strive for percision with think-pair-share (can be better to see what happens.</span>
-<span id="cb8-75"><a href="#cb8-75"></a></span>
-<span id="cb8-76"><a href="#cb8-76"></a><span class="fu">## Motivation</span></span>
-<span id="cb8-77"><a href="#cb8-77"></a></span>
-<span id="cb8-78"><a href="#cb8-78"></a><span class="ss">- </span>We want to be *precise* and *specific* when speaking about how an artifical intelligence technology</span>
-<span id="cb8-79"><a href="#cb8-79"></a><span class="ss">    - </span>Is designed.</span>
-<span id="cb8-80"><a href="#cb8-80"></a><span class="ss">    - </span>Is made.</span>
-<span id="cb8-81"><a href="#cb8-81"></a><span class="ss">    - </span>Is run.</span>
-<span id="cb8-82"><a href="#cb8-82"></a><span class="ss">    - </span>Is evaluated.</span>
-<span id="cb8-83"><a href="#cb8-83"></a><span class="ss">- </span>A mathematical formalism achieves all these goals.</span>
-<span id="cb8-84"><a href="#cb8-84"></a></span>
-<span id="cb8-85"><a href="#cb8-85"></a><span class="fu"># Aside</span></span>
-<span id="cb8-86"><a href="#cb8-86"></a></span>
-<span id="cb8-87"><a href="#cb8-87"></a><span class="fu">## Precision-recall tradeoff</span></span>
-<span id="cb8-88"><a href="#cb8-88"></a></span>
-<span id="cb8-89"><a href="#cb8-89"></a><span class="ss">- </span>We can perhaps better understand at least precision via the *precision-recall trade-off*, a classic topic in machine learning.</span>
-<span id="cb8-90"><a href="#cb8-90"></a><span class="ss">- </span>I will apply this to the "Alien Movie Good" problem.</span>
-<span id="cb8-91"><a href="#cb8-91"></a></span>
-<span id="cb8-92"><a href="#cb8-92"></a><span class="fu">## Set Up</span></span>
-<span id="cb8-93"><a href="#cb8-93"></a></span>
-<span id="cb8-94"><a href="#cb8-94"></a><span class="ss">- </span>To begin, we will consider:</span>
-<span id="cb8-95"><a href="#cb8-95"></a><span class="ss">    - </span>A data set.</span>
-<span id="cb8-96"><a href="#cb8-96"></a><span class="ss">    - </span>A model.</span>
-<span id="cb8-97"><a href="#cb8-97"></a><span class="ss">    - </span>The predictions made by a model.</span>
-<span id="cb8-98"><a href="#cb8-98"></a></span>
-<span id="cb8-99"><a href="#cb8-99"></a><span class="fu">## Model </span></span>
-<span id="cb8-100"><a href="#cb8-100"></a></span>
-<span id="cb8-101"><a href="#cb8-101"></a><span class="ss">- </span>Imagine we use "Directed by Ridley Scott" as our model for a good film.</span>
-<span id="cb8-102"><a href="#cb8-102"></a><span class="ss">- </span>Hits in red, mispredicts in blue, missed predicts in purple, correct omits in green.</span>
-<span id="cb8-103"><a href="#cb8-103"></a></span>
-<span id="cb8-104"><a href="#cb8-104"></a></span>
-<span id="cb8-107"><a href="#cb8-107"></a><span class="in">```{python}</span></span>
-<span id="cb8-108"><a href="#cb8-108"></a><span class="co">#| code-fold: true </span></span>
-<span id="cb8-109"><a href="#cb8-109"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb8-110"><a href="#cb8-110"></a></span>
-<span id="cb8-111"><a href="#cb8-111"></a><span class="kw">def</span> plot(films):</span>
-<span id="cb8-112"><a href="#cb8-112"></a></span>
-<span id="cb8-113"><a href="#cb8-113"></a>    years <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1976</span>, <span class="dv">2027</span>))  <span class="co"># Create a list of years from 1976 to 2024</span></span>
-<span id="cb8-114"><a href="#cb8-114"></a></span>
-<span id="cb8-115"><a href="#cb8-115"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">9</span>,<span class="dv">1</span>)) <span class="co"># Adjust figure size for better visualization</span></span>
-<span id="cb8-116"><a href="#cb8-116"></a>    plt.plot(years, [<span class="dv">0</span>] <span class="op">*</span> <span class="bu">len</span>(years), color<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="dv">2</span>) <span class="co"># Plot a horizontal line</span></span>
-<span id="cb8-117"><a href="#cb8-117"></a></span>
-<span id="cb8-118"><a href="#cb8-118"></a>    <span class="kw">def</span> add_film(name, year, color<span class="op">=</span><span class="st">"green"</span>):</span>
-<span id="cb8-119"><a href="#cb8-119"></a>      plt.annotate(</span>
-<span id="cb8-120"><a href="#cb8-120"></a>          name,</span>
-<span id="cb8-121"><a href="#cb8-121"></a>          xy<span class="op">=</span>(year, <span class="fl">0.0</span>),</span>
-<span id="cb8-122"><a href="#cb8-122"></a>          xytext<span class="op">=</span>(year, <span class="fl">0.2</span>),</span>
-<span id="cb8-123"><a href="#cb8-123"></a>          arrowprops<span class="op">=</span><span class="bu">dict</span>(color<span class="op">=</span>color, shrink<span class="op">=</span><span class="fl">0.05</span>, width<span class="op">=</span><span class="dv">1</span>, headwidth<span class="op">=</span><span class="dv">8</span>),</span>
-<span id="cb8-124"><a href="#cb8-124"></a>          horizontalalignment<span class="op">=</span><span class="st">'center'</span>,</span>
-<span id="cb8-125"><a href="#cb8-125"></a>          verticalalignment<span class="op">=</span><span class="st">'bottom'</span>,</span>
-<span id="cb8-126"><a href="#cb8-126"></a>          fontsize<span class="op">=</span><span class="dv">10</span>,</span>
-<span id="cb8-127"><a href="#cb8-127"></a>          color<span class="op">=</span>color</span>
-<span id="cb8-128"><a href="#cb8-128"></a>      )</span>
-<span id="cb8-129"><a href="#cb8-129"></a>    </span>
-<span id="cb8-130"><a href="#cb8-130"></a>    [add_film(<span class="op">*</span>film) <span class="cf">for</span> film <span class="kw">in</span> films]</span>
-<span id="cb8-131"><a href="#cb8-131"></a>    </span>
-<span id="cb8-132"><a href="#cb8-132"></a>    plt.yticks([]) <span class="co"># Remove y-axis ticks as they are not relevant for a horizontal line</span></span>
-<span id="cb8-133"><a href="#cb8-133"></a>    plt.grid(<span class="va">True</span>, axis<span class="op">=</span><span class="st">'x'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
-<span id="cb8-134"><a href="#cb8-134"></a>    plt.xlim(<span class="dv">1976</span>, <span class="dv">2027</span>) <span class="co"># Set x-axis limits slightly beyond the data range</span></span>
-<span id="cb8-135"><a href="#cb8-135"></a>    plt.show()</span>
-<span id="cb8-136"><a href="#cb8-136"></a></span>
-<span id="cb8-137"><a href="#cb8-137"></a></span>
-<span id="cb8-138"><a href="#cb8-138"></a>films <span class="op">=</span> [</span>
-<span id="cb8-139"><a href="#cb8-139"></a>    [<span class="st">"Alien"</span>, <span class="dv">1979</span>,<span class="st">"red"</span>],</span>
-<span id="cb8-140"><a href="#cb8-140"></a>    [<span class="st">"A's"</span>, <span class="dv">1986</span>],</span>
-<span id="cb8-141"><a href="#cb8-141"></a>    [<span class="st">"A3"</span>, <span class="dv">1992</span>],</span>
-<span id="cb8-142"><a href="#cb8-142"></a>    [<span class="st">"Res."</span>, <span class="dv">1997</span>],</span>
-<span id="cb8-143"><a href="#cb8-143"></a>    [<span class="st">"Prom."</span>, <span class="dv">2012</span>,<span class="st">"red"</span>],</span>
-<span id="cb8-144"><a href="#cb8-144"></a>    [<span class="st">"Cov."</span>, <span class="dv">2017</span>,<span class="st">"blue"</span>],</span>
-<span id="cb8-145"><a href="#cb8-145"></a>    [<span class="st">"Rom."</span>, <span class="dv">2024</span>,<span class="st">"purple"</span>],</span>
-<span id="cb8-146"><a href="#cb8-146"></a>    [<span class="st">"AVP"</span>, <span class="dv">2004</span>],</span>
-<span id="cb8-147"><a href="#cb8-147"></a>    [<span class="st">"AVPR"</span>, <span class="dv">2007</span>],</span>
-<span id="cb8-148"><a href="#cb8-148"></a>    [<span class="st">"P"</span>, <span class="dv">1987</span>],</span>
-<span id="cb8-149"><a href="#cb8-149"></a>    [<span class="st">"P2"</span>, <span class="dv">1990</span>],</span>
-<span id="cb8-150"><a href="#cb8-150"></a>    [<span class="st">"P's"</span>, <span class="dv">2010</span>],</span>
-<span id="cb8-151"><a href="#cb8-151"></a>    [<span class="st">"The"</span>, <span class="dv">2018</span>],</span>
-<span id="cb8-152"><a href="#cb8-152"></a>    [<span class="st">"Prey"</span>, <span class="dv">2022</span>,<span class="st">"purple"</span>],</span>
-<span id="cb8-153"><a href="#cb8-153"></a>]</span>
-<span id="cb8-154"><a href="#cb8-154"></a></span>
-<span id="cb8-155"><a href="#cb8-155"></a>plot(films)</span>
-<span id="cb8-156"><a href="#cb8-156"></a><span class="in">```</span></span>
-<span id="cb8-157"><a href="#cb8-157"></a></span>
-<span id="cb8-158"><a href="#cb8-158"></a><span class="fu">## Last Time</span></span>
-<span id="cb8-159"><a href="#cb8-159"></a></span>
-<span id="cb8-160"><a href="#cb8-160"></a><span class="ss">- </span>Last time we naively looked at this and went no further.</span>
-<span id="cb8-161"><a href="#cb8-161"></a><span class="ss">- </span>Now, we introduce a formalism, the *confusion matrix*.</span>
-<span id="cb8-162"><a href="#cb8-162"></a><span class="ss">    - </span>A 2-by-2 grid</span>
-<span id="cb8-163"><a href="#cb8-163"></a><span class="ss">    - </span>Horizontally, whether films are *predicted by the model* to be good.</span>
-<span id="cb8-164"><a href="#cb8-164"></a><span class="ss">    - </span>Vertically, whether films are *held to actually* be good.</span>
-<span id="cb8-165"><a href="#cb8-165"></a><span class="ss">        - </span>In this case, by me, but usually you actually just have something that is true or not.</span>
-<span id="cb8-166"><a href="#cb8-166"></a></span>
-<span id="cb8-167"><a href="#cb8-167"></a><span class="fu">## Terminology</span></span>
-<span id="cb8-168"><a href="#cb8-168"></a></span>
-<span id="cb8-169"><a href="#cb8-169"></a><span class="ss">- </span>We further introduce the terminology of true/false positive/negatives.</span>
-<span id="cb8-170"><a href="#cb8-170"></a><span class="ss">    - </span>I *believe* from medicine, where e.g. a false positive is a flu test coming back positive in a healthy patient.</span>
-<span id="cb8-171"><a href="#cb8-171"></a><span class="ss">    - </span>We can regard "film good" as the test.</span>
-<span id="cb8-172"><a href="#cb8-172"></a></span>
-<span id="cb8-173"><a href="#cb8-173"></a><span class="fu">## Specifically</span></span>
-<span id="cb8-174"><a href="#cb8-174"></a></span>
-<span id="cb8-175"><a href="#cb8-175"></a></span>
-<span id="cb8-176"><a href="#cb8-176"></a><span class="ss">- </span>A **true positive** is a film predicted to be good which is good.</span>
-<span id="cb8-177"><a href="#cb8-177"></a><span class="ss">- </span>A **false positive** is a film predicted to be good which is not good.</span>
-<span id="cb8-178"><a href="#cb8-178"></a><span class="ss">- </span>A **false negative** is a film predicted to be not good which is good.</span>
-<span id="cb8-179"><a href="#cb8-179"></a><span class="ss">- </span>A **true negative** is a filme predicted to be not good which is not good.</span>
-<span id="cb8-180"><a href="#cb8-180"></a></span>
-<span id="cb8-181"><a href="#cb8-181"></a><span class="fu">## Visually</span></span>
-<span id="cb8-182"><a href="#cb8-182"></a></span>
-<span id="cb8-183"><a href="#cb8-183"></a>&lt;table style="border: none; background: inherit; color: inherit; text-align: center; margin-left: auto; margin-right: auto; border-collapse: collapse;"&gt;</span>
-<span id="cb8-184"><a href="#cb8-184"></a>  &lt;tbody&gt;</span>
-<span id="cb8-185"><a href="#cb8-185"></a>    &lt;tr&gt;</span>
-<span id="cb8-186"><a href="#cb8-186"></a>      &lt;td rowspan="2" style="border: none;"&gt;&lt;/td&gt;</span>
-<span id="cb8-187"><a href="#cb8-187"></a>      &lt;td style="border: none;"&gt;&lt;/td&gt;</span>
-<span id="cb8-188"><a href="#cb8-188"></a>      &lt;th colspan="2" style="background: rgba(74, 210, 210, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
-<span id="cb8-189"><a href="#cb8-189"></a>        &lt;strong&gt;Predicted condition&lt;/strong&gt;</span>
-<span id="cb8-190"><a href="#cb8-190"></a>      &lt;/th&gt;</span>
-<span id="cb8-191"><a href="#cb8-191"></a>    &lt;/tr&gt;</span>
-<span id="cb8-192"><a href="#cb8-192"></a>    &lt;tr&gt;</span>
-<span id="cb8-193"><a href="#cb8-193"></a>      &lt;td style=""&gt;</span>
-<span id="cb8-194"><a href="#cb8-194"></a>      &lt;/td&gt;</span>
-<span id="cb8-195"><a href="#cb8-195"></a>      &lt;td style="background: rgba(120, 255, 255, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
-<span id="cb8-196"><a href="#cb8-196"></a>        &lt;strong&gt;Positive (PP)&lt;/strong&gt;</span>
-<span id="cb8-197"><a href="#cb8-197"></a>      &lt;/td&gt;</span>
-<span id="cb8-198"><a href="#cb8-198"></a>      &lt;td style="background: rgba(29, 165, 165, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
-<span id="cb8-199"><a href="#cb8-199"></a>        &lt;strong&gt;Negative (PN)&lt;/strong&gt;</span>
-<span id="cb8-200"><a href="#cb8-200"></a>      &lt;/td&gt;</span>
-<span id="cb8-201"><a href="#cb8-201"></a>    &lt;/tr&gt;</span>
-<span id="cb8-202"><a href="#cb8-202"></a>    &lt;tr&gt;</span>
-<span id="cb8-203"><a href="#cb8-203"></a>      &lt;th rowspan="2" style="background: rgba(210, 210, 61, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px; writing-mode: vertical-rl; transform: rotate(180deg);"&gt;</span>
-<span id="cb8-204"><a href="#cb8-204"></a>        &lt;strong&gt;Actual&lt;/strong&gt;</span>
-<span id="cb8-205"><a href="#cb8-205"></a>      &lt;/th&gt;</span>
-<span id="cb8-206"><a href="#cb8-206"></a>      &lt;td style="background: rgba(255, 255, 120, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
-<span id="cb8-207"><a href="#cb8-207"></a>        &lt;strong&gt;Positive (P)&lt;/strong&gt;</span>
-<span id="cb8-208"><a href="#cb8-208"></a>      &lt;/td&gt;</span>
-<span id="cb8-209"><a href="#cb8-209"></a>      &lt;td style="background: rgba(120, 255, 120, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
-<span id="cb8-210"><a href="#cb8-210"></a>        &lt;strong&gt;True positive (TP)&lt;/strong&gt;</span>
-<span id="cb8-211"><a href="#cb8-211"></a>      &lt;/td&gt;</span>
-<span id="cb8-212"><a href="#cb8-212"></a>      &lt;td style="background: rgba(255, 165, 165, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
-<span id="cb8-213"><a href="#cb8-213"></a>        &lt;strong&gt;False negative (FN)&lt;/strong&gt;</span>
-<span id="cb8-214"><a href="#cb8-214"></a>      &lt;/td&gt;</span>
-<span id="cb8-215"><a href="#cb8-215"></a>    &lt;/tr&gt;</span>
-<span id="cb8-216"><a href="#cb8-216"></a>    &lt;tr&gt;</span>
-<span id="cb8-217"><a href="#cb8-217"></a>      &lt;td style="background: rgba(165, 165, 29, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
-<span id="cb8-218"><a href="#cb8-218"></a>        &lt;strong&gt;Negative (N)&lt;/strong&gt;</span>
-<span id="cb8-219"><a href="#cb8-219"></a>      &lt;/td&gt;</span>
-<span id="cb8-220"><a href="#cb8-220"></a>      &lt;td style="background: rgba(255, 120, 120, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
-<span id="cb8-221"><a href="#cb8-221"></a>        &lt;strong&gt;False positive (FP)&lt;/strong&gt;</span>
-<span id="cb8-222"><a href="#cb8-222"></a>      &lt;/td&gt;</span>
-<span id="cb8-223"><a href="#cb8-223"></a>      &lt;td style="background: rgba(61, 210, 61, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
-<span id="cb8-224"><a href="#cb8-224"></a>        &lt;strong&gt;True negative (TN)&lt;/strong&gt;</span>
-<span id="cb8-225"><a href="#cb8-225"></a>      &lt;/td&gt;</span>
-<span id="cb8-226"><a href="#cb8-226"></a>    &lt;/tr&gt;</span>
-<span id="cb8-227"><a href="#cb8-227"></a>    &lt;tr&gt;</span>
-<span id="cb8-228"><a href="#cb8-228"></a>      &lt;td colspan="4" style="border: none; padding: 5px;"&gt;&lt;/td&gt;</span>
-<span id="cb8-229"><a href="#cb8-229"></a>    &lt;/tr&gt;</span>
-<span id="cb8-230"><a href="#cb8-230"></a>  &lt;/tbody&gt;</span>
-<span id="cb8-231"><a href="#cb8-231"></a>&lt;/table&gt;</span>
-<span id="cb8-232"><a href="#cb8-232"></a></span>
-<span id="cb8-233"><a href="#cb8-233"></a></span>
-<span id="cb8-234"><a href="#cb8-234"></a><span class="fu">## Examples</span></span>
-<span id="cb8-235"><a href="#cb8-235"></a></span>
-<span id="cb8-236"><a href="#cb8-236"></a>&lt;table style="border: none; background: inherit; color: inherit; text-align: center; margin-left: auto; margin-right: auto; border-collapse: collapse;"&gt;</span>
-<span id="cb8-237"><a href="#cb8-237"></a>  &lt;tbody&gt;</span>
-<span id="cb8-238"><a href="#cb8-238"></a>    &lt;tr&gt;</span>
-<span id="cb8-239"><a href="#cb8-239"></a>      &lt;td rowspan="2" style="border: none;"&gt;&lt;/td&gt;</span>
-<span id="cb8-240"><a href="#cb8-240"></a>      &lt;td style="border: none;"&gt;&lt;/td&gt;</span>
-<span id="cb8-241"><a href="#cb8-241"></a>      &lt;th colspan="2" style="background: rgba(74, 210, 210, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
-<span id="cb8-242"><a href="#cb8-242"></a>        &lt;strong&gt;Predicted condition&lt;/strong&gt;</span>
-<span id="cb8-243"><a href="#cb8-243"></a>      &lt;/th&gt;</span>
-<span id="cb8-244"><a href="#cb8-244"></a>    &lt;/tr&gt;</span>
-<span id="cb8-245"><a href="#cb8-245"></a>    &lt;tr&gt;</span>
-<span id="cb8-246"><a href="#cb8-246"></a>      &lt;td&gt; </span>
-<span id="cb8-247"><a href="#cb8-247"></a>      &lt;/td&gt;</span>
-<span id="cb8-248"><a href="#cb8-248"></a>      &lt;td style="background: rgba(120, 255, 255, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
-<span id="cb8-249"><a href="#cb8-249"></a>        &lt;strong&gt;Positive (PP)&lt;/strong&gt;</span>
-<span id="cb8-250"><a href="#cb8-250"></a>      &lt;/td&gt;</span>
-<span id="cb8-251"><a href="#cb8-251"></a>      &lt;td style="background: rgba(29, 165, 165, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
-<span id="cb8-252"><a href="#cb8-252"></a>        &lt;strong&gt;Negative (PN)&lt;/strong&gt;</span>
-<span id="cb8-253"><a href="#cb8-253"></a>      &lt;/td&gt;</span>
-<span id="cb8-254"><a href="#cb8-254"></a>    &lt;/tr&gt;</span>
-<span id="cb8-255"><a href="#cb8-255"></a>    &lt;tr&gt;</span>
-<span id="cb8-256"><a href="#cb8-256"></a>      &lt;th rowspan="2" style="background: rgba(210, 210, 61, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px; writing-mode: vertical-rl; transform: rotate(180deg);"&gt;</span>
-<span id="cb8-257"><a href="#cb8-257"></a>        &lt;strong&gt;Actual&lt;/strong&gt;</span>
-<span id="cb8-258"><a href="#cb8-258"></a>      &lt;/th&gt;</span>
-<span id="cb8-259"><a href="#cb8-259"></a>      &lt;td style="background: rgba(255, 255, 120, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
-<span id="cb8-260"><a href="#cb8-260"></a>        &lt;strong&gt;Positive (P)&lt;/strong&gt;</span>
-<span id="cb8-261"><a href="#cb8-261"></a>      &lt;/td&gt;</span>
-<span id="cb8-262"><a href="#cb8-262"></a>      &lt;td style="background: rgba(120, 255, 120, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
-<span id="cb8-263"><a href="#cb8-263"></a>        &lt;strong&gt;*Alien* (1979)&lt;/strong&gt;</span>
-<span id="cb8-264"><a href="#cb8-264"></a>      &lt;/td&gt;</span>
-<span id="cb8-265"><a href="#cb8-265"></a>      &lt;td style="background: rgba(255, 165, 165, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
-<span id="cb8-266"><a href="#cb8-266"></a>        &lt;strong&gt;*Prey* (2022)&lt;/strong&gt;</span>
-<span id="cb8-267"><a href="#cb8-267"></a>      &lt;/td&gt;</span>
-<span id="cb8-268"><a href="#cb8-268"></a>    &lt;/tr&gt;</span>
-<span id="cb8-269"><a href="#cb8-269"></a>    &lt;tr&gt;</span>
-<span id="cb8-270"><a href="#cb8-270"></a>      &lt;td style="background: rgba(165, 165, 29, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
-<span id="cb8-271"><a href="#cb8-271"></a>        &lt;strong&gt;Negative (N)&lt;/strong&gt;</span>
-<span id="cb8-272"><a href="#cb8-272"></a>      &lt;/td&gt;</span>
-<span id="cb8-273"><a href="#cb8-273"></a>      &lt;td style="background: rgba(255, 120, 120, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
-<span id="cb8-274"><a href="#cb8-274"></a>        &lt;strong&gt;*Covenant* (2017)&lt;/strong&gt;</span>
-<span id="cb8-275"><a href="#cb8-275"></a>      &lt;/td&gt;</span>
-<span id="cb8-276"><a href="#cb8-276"></a>      &lt;td style="background: rgba(61, 210, 61, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
-<span id="cb8-277"><a href="#cb8-277"></a>        &lt;strong&gt;*Aliens* (1986)&lt;/strong&gt;</span>
-<span id="cb8-278"><a href="#cb8-278"></a>      &lt;/td&gt;</span>
-<span id="cb8-279"><a href="#cb8-279"></a>    &lt;/tr&gt;</span>
-<span id="cb8-280"><a href="#cb8-280"></a>    &lt;tr&gt;</span>
-<span id="cb8-281"><a href="#cb8-281"></a>      &lt;td colspan="4" style="border: none; padding: 5px;"&gt;&lt;/td&gt;</span>
-<span id="cb8-282"><a href="#cb8-282"></a>    &lt;/tr&gt;</span>
-<span id="cb8-283"><a href="#cb8-283"></a>  &lt;/tbody&gt;</span>
-<span id="cb8-284"><a href="#cb8-284"></a>&lt;/table&gt;</span>
-<span id="cb8-285"><a href="#cb8-285"></a></span>
-<span id="cb8-286"><a href="#cb8-286"></a></span>
-<span id="cb8-287"><a href="#cb8-287"></a><span class="fu">## Populations</span></span>
-<span id="cb8-288"><a href="#cb8-288"></a></span>
-<span id="cb8-289"><a href="#cb8-289"></a><span class="ss">- </span>Often, when assess a model, it is dramatically *more* interesting to include the population within each "bin".</span>
-<span id="cb8-290"><a href="#cb8-290"></a><span class="ss">- </span>Then, a confusion matrix becomes a summary of the goodness of a model.</span>
-<span id="cb8-291"><a href="#cb8-291"></a><span class="ss">- </span>So the "directed by Ridley Scott" model of goodness yields:</span>
-<span id="cb8-292"><a href="#cb8-292"></a></span>
-<span id="cb8-293"><a href="#cb8-293"></a></span>
-<span id="cb8-294"><a href="#cb8-294"></a><span class="fu">## Populations</span></span>
-<span id="cb8-295"><a href="#cb8-295"></a></span>
-<span id="cb8-296"><a href="#cb8-296"></a>&lt;table style="border: none; background: inherit; color: inherit; text-align: center; margin-left: auto; margin-right: auto; border-collapse: collapse;"&gt;</span>
-<span id="cb8-297"><a href="#cb8-297"></a>  &lt;tbody&gt;</span>
-<span id="cb8-298"><a href="#cb8-298"></a>    &lt;tr&gt;</span>
-<span id="cb8-299"><a href="#cb8-299"></a>      &lt;td rowspan="2" style="border: none;"&gt;&lt;/td&gt;</span>
-<span id="cb8-300"><a href="#cb8-300"></a>      &lt;td style="border: none;"&gt;&lt;/td&gt;</span>
-<span id="cb8-301"><a href="#cb8-301"></a>      &lt;th colspan="2" style="background: rgba(74, 210, 210, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
-<span id="cb8-302"><a href="#cb8-302"></a>        &lt;strong&gt;Predicted condition&lt;/strong&gt;</span>
-<span id="cb8-303"><a href="#cb8-303"></a>      &lt;/th&gt;</span>
-<span id="cb8-304"><a href="#cb8-304"></a>    &lt;/tr&gt;</span>
-<span id="cb8-305"><a href="#cb8-305"></a>    &lt;tr&gt;</span>
-<span id="cb8-306"><a href="#cb8-306"></a>      &lt;td&gt;</span>
-<span id="cb8-307"><a href="#cb8-307"></a>      &lt;/td&gt;</span>
-<span id="cb8-308"><a href="#cb8-308"></a>      &lt;td style="background: rgba(120, 255, 255, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
-<span id="cb8-309"><a href="#cb8-309"></a>        &lt;strong&gt;Positive (PP)&lt;/strong&gt;</span>
-<span id="cb8-310"><a href="#cb8-310"></a>      &lt;/td&gt;</span>
-<span id="cb8-311"><a href="#cb8-311"></a>      &lt;td style="background: rgba(29, 165, 165, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
-<span id="cb8-312"><a href="#cb8-312"></a>        &lt;strong&gt;Negative (PN)&lt;/strong&gt;</span>
-<span id="cb8-313"><a href="#cb8-313"></a>      &lt;/td&gt;</span>
-<span id="cb8-314"><a href="#cb8-314"></a>    &lt;/tr&gt;</span>
-<span id="cb8-315"><a href="#cb8-315"></a>    &lt;tr&gt;</span>
-<span id="cb8-316"><a href="#cb8-316"></a>      &lt;th rowspan="2" style="background: rgba(210, 210, 61, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px; writing-mode: vertical-rl; transform: rotate(180deg);"&gt;</span>
-<span id="cb8-317"><a href="#cb8-317"></a>        &lt;strong&gt;Actual&lt;/strong&gt;</span>
-<span id="cb8-318"><a href="#cb8-318"></a>      &lt;/th&gt;</span>
-<span id="cb8-319"><a href="#cb8-319"></a>      &lt;td style="background: rgba(255, 255, 120, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
-<span id="cb8-320"><a href="#cb8-320"></a>        &lt;strong&gt;Positive (P)&lt;/strong&gt;</span>
-<span id="cb8-321"><a href="#cb8-321"></a>      &lt;/td&gt;</span>
-<span id="cb8-322"><a href="#cb8-322"></a>      &lt;td style="background: rgba(120, 255, 120, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
-<span id="cb8-323"><a href="#cb8-323"></a>        &lt;strong&gt;2&lt;/strong&gt;</span>
-<span id="cb8-324"><a href="#cb8-324"></a>      &lt;/td&gt;</span>
-<span id="cb8-325"><a href="#cb8-325"></a>      &lt;td style="background: rgba(255, 165, 165, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
-<span id="cb8-326"><a href="#cb8-326"></a>        &lt;strong&gt;2&lt;/strong&gt;</span>
-<span id="cb8-327"><a href="#cb8-327"></a>      &lt;/td&gt;</span>
-<span id="cb8-328"><a href="#cb8-328"></a>    &lt;/tr&gt;</span>
-<span id="cb8-329"><a href="#cb8-329"></a>    &lt;tr&gt;</span>
-<span id="cb8-330"><a href="#cb8-330"></a>      &lt;td style="background: rgba(165, 165, 29, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
-<span id="cb8-331"><a href="#cb8-331"></a>        &lt;strong&gt;Negative (N)&lt;/strong&gt;</span>
-<span id="cb8-332"><a href="#cb8-332"></a>      &lt;/td&gt;</span>
-<span id="cb8-333"><a href="#cb8-333"></a>      &lt;td style="background: rgba(255, 120, 120, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
-<span id="cb8-334"><a href="#cb8-334"></a>        &lt;strong&gt;1&lt;/strong&gt;</span>
-<span id="cb8-335"><a href="#cb8-335"></a>      &lt;/td&gt;</span>
-<span id="cb8-336"><a href="#cb8-336"></a>      &lt;td style="background: rgba(61, 210, 61, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
-<span id="cb8-337"><a href="#cb8-337"></a>        &lt;strong&gt;9&lt;/strong&gt;</span>
-<span id="cb8-338"><a href="#cb8-338"></a>      &lt;/td&gt;</span>
-<span id="cb8-339"><a href="#cb8-339"></a>    &lt;/tr&gt;</span>
-<span id="cb8-340"><a href="#cb8-340"></a>    &lt;tr&gt;</span>
-<span id="cb8-341"><a href="#cb8-341"></a>      &lt;td colspan="4" style="border: none; padding: 5px;"&gt;&lt;/td&gt;</span>
-<span id="cb8-342"><a href="#cb8-342"></a>    &lt;/tr&gt;</span>
-<span id="cb8-343"><a href="#cb8-343"></a>  &lt;/tbody&gt;</span>
-<span id="cb8-344"><a href="#cb8-344"></a>&lt;/table&gt;</span>
-<span id="cb8-345"><a href="#cb8-345"></a></span>
-<span id="cb8-346"><a href="#cb8-346"></a><span class="ss">- </span>TP: 2 (*Alien*, *Prometheus*)</span>
-<span id="cb8-347"><a href="#cb8-347"></a><span class="ss">- </span>FN: 2 (*Prey*, *Alien: Romulus*)</span>
-<span id="cb8-348"><a href="#cb8-348"></a><span class="ss">- </span>FP: 1 (*Alien: Covenant*)</span>
-<span id="cb8-349"><a href="#cb8-349"></a><span class="ss">- </span>The remaining films are true negatives (TN)</span>
-<span id="cb8-350"><a href="#cb8-350"></a></span>
-<span id="cb8-351"><a href="#cb8-351"></a></span>
-<span id="cb8-352"><a href="#cb8-352"></a><span class="fu">## Precision and Recall</span></span>
-<span id="cb8-353"><a href="#cb8-353"></a></span>
-<span id="cb8-354"><a href="#cb8-354"></a><span class="ss">- </span>Precision and recall are then defined as:</span>
-<span id="cb8-355"><a href="#cb8-355"></a></span>
-<span id="cb8-356"><a href="#cb8-356"></a>$$</span>
-<span id="cb8-357"><a href="#cb8-357"></a>\begin{align}</span>
-<span id="cb8-358"><a href="#cb8-358"></a>  \text{Precision} &amp;= \frac{tp}{tp + fp} <span class="sc">\\</span></span>
-<span id="cb8-359"><a href="#cb8-359"></a>     \text{Recall} &amp;= \frac{tp}{tp + fn} \,</span>
-<span id="cb8-360"><a href="#cb8-360"></a>\end{align}</span>
-<span id="cb8-361"><a href="#cb8-361"></a>$$</span>
-<span id="cb8-362"><a href="#cb8-362"></a></span>
-<span id="cb8-363"><a href="#cb8-363"></a><span class="ss">- </span>*Precision* is the number of true positives among the predicted positives.</span>
-<span id="cb8-364"><a href="#cb8-364"></a><span class="ss">- </span>*Recall* is the number of true positives among the actual positives.</span>
-<span id="cb8-365"><a href="#cb8-365"></a></span>
-<span id="cb8-366"><a href="#cb8-366"></a><span class="fu">## Calculate</span></span>
-<span id="cb8-367"><a href="#cb8-367"></a></span>
-<span id="cb8-368"><a href="#cb8-368"></a><span class="ss">- </span>For "directed by Ridley Scott":</span>
-<span id="cb8-369"><a href="#cb8-369"></a><span class="ss">    - </span>Precision is $\frac{2}{3}$</span>
-<span id="cb8-370"><a href="#cb8-370"></a><span class="ss">        - </span>*Alien* and *Prometheus* divided by them and *Covenant*</span>
-<span id="cb8-371"><a href="#cb8-371"></a><span class="ss">    - </span>Recall is $\frac{2}{4}$ or  $\frac{1}{2}$</span>
-<span id="cb8-372"><a href="#cb8-372"></a><span class="ss">        - </span>*Alien* and *Prometheus* divided by them, *Prey*, and *Romulus*</span>
-<span id="cb8-373"><a href="#cb8-373"></a></span>
-<span id="cb8-374"><a href="#cb8-374"></a><span class="fu">## The Trade-off</span></span>
-<span id="cb8-375"><a href="#cb8-375"></a></span>
-<span id="cb8-376"><a href="#cb8-376"></a><span class="ss">- </span>Suppose you only care about precision.</span>
-<span id="cb8-377"><a href="#cb8-377"></a><span class="ss">    - </span>Try a new model: "every film is bad"</span>
-<span id="cb8-378"><a href="#cb8-378"></a><span class="ss">    - </span>Precision is arguably a perfect 100% if regard "zero out of zero" as 100%.</span>
-<span id="cb8-379"><a href="#cb8-379"></a><span class="ss">        - </span>Is undefined in practice, but we do what we can.</span>
-<span id="cb8-380"><a href="#cb8-380"></a></span>
-<span id="cb8-381"><a href="#cb8-381"></a><span class="fu">## The Trade-off</span></span>
-<span id="cb8-382"><a href="#cb8-382"></a></span>
-<span id="cb8-383"><a href="#cb8-383"></a><span class="ss">- </span>Suppose you only care about recall.</span>
-<span id="cb8-384"><a href="#cb8-384"></a><span class="ss">    - </span>Try a new model: "every film is good"</span>
-<span id="cb8-385"><a href="#cb8-385"></a><span class="ss">    - </span>Recall is a perfect 100% as all good films are predicted to be good.</span>
-<span id="cb8-386"><a href="#cb8-386"></a></span>
-<span id="cb8-387"><a href="#cb8-387"></a><span class="fu">## The Trade-off</span></span>
-<span id="cb8-388"><a href="#cb8-388"></a></span>
-<span id="cb8-389"><a href="#cb8-389"></a><span class="ss">- </span>When crafting a model to predict film goodness, it should be clear that "all good" and "all bad" are not useful models.</span>
-<span id="cb8-390"><a href="#cb8-390"></a><span class="ss">- </span>However, both individual succeed under an individual naive metric of either *precision* or *recall*.</span>
-<span id="cb8-391"><a href="#cb8-391"></a><span class="ss">- </span>When making models, we try to find a meaningful *trade-off* between the two.</span>
-<span id="cb8-392"><a href="#cb8-392"></a></span>
-<span id="cb8-393"><a href="#cb8-393"></a><span class="fu">## Takeaways</span></span>
-<span id="cb8-394"><a href="#cb8-394"></a></span>
-<span id="cb8-395"><a href="#cb8-395"></a><span class="ss">- </span>Models are hard.</span>
-<span id="cb8-396"><a href="#cb8-396"></a><span class="ss">- </span>Intelligence is:</span>
-<span id="cb8-397"><a href="#cb8-397"></a><span class="ss">    - </span>Hard to do, and</span>
-<span id="cb8-398"><a href="#cb8-398"></a><span class="ss">    - </span>Hard to measure.</span>
-<span id="cb8-399"><a href="#cb8-399"></a><span class="ss">- </span>Precision corresponds to some notion of goodness of a model.</span>
-<span id="cb8-400"><a href="#cb8-400"></a><span class="ss">    - </span>We will now aim to be precise with language.</span>
-<span id="cb8-401"><a href="#cb8-401"></a></span>
-<span id="cb8-402"><a href="#cb8-402"></a><span class="fu"># Graphs</span></span>
-<span id="cb8-403"><a href="#cb8-403"></a></span>
-<span id="cb8-404"><a href="#cb8-404"></a><span class="fu">## Defintion</span></span>
-<span id="cb8-405"><a href="#cb8-405"></a></span>
-<span id="cb8-406"><a href="#cb8-406"></a><span class="ss">- </span>We will start with a definition which we gradually expand.</span>
-<span id="cb8-407"><a href="#cb8-407"></a><span class="ss">    - </span>We recall (haha - recall) what a graph is not.</span>
-<span id="cb8-408"><a href="#cb8-408"></a></span>
-<span id="cb8-409"><a href="#cb8-409"></a><span class="fu">## Graphs</span></span>
-<span id="cb8-410"><a href="#cb8-410"></a></span>
-<span id="cb8-411"><a href="#cb8-411"></a><span class="ss">- </span>There are many ways to understand graphs, but I actually think graph theory is quite accessible.</span>
-<span id="cb8-412"><a href="#cb8-412"></a><span class="ss">- </span>I think it's also easier when using a running example.</span>
-<span id="cb8-413"><a href="#cb8-413"></a><span class="ss">- </span>I will also use a running example, Amtrak 🚄</span>
-<span id="cb8-414"><a href="#cb8-414"></a><span class="ss">    - </span>Or perhaps... a training example?</span>
-<span id="cb8-415"><a href="#cb8-415"></a><span class="ss">    - </span>I am running... a train??????</span>
-<span id="cb8-416"><a href="#cb8-416"></a><span class="ss">    - </span>I am training... to run?????</span>
-<span id="cb8-417"><a href="#cb8-417"></a>    </span>
-<span id="cb8-418"><a href="#cb8-418"></a><span class="fu">## Amtrak 🚄</span></span>
-<span id="cb8-419"><a href="#cb8-419"></a></span>
-<span id="cb8-420"><a href="#cb8-420"></a>&lt;center&gt;</span>
-<span id="cb8-421"><a href="#cb8-421"></a>&lt;img style="border-radius: 50%;height:100%" src="https://www.amtrak.com/content/dam/projects/dotcom/english/public/images/Carousel/Landing_Feature_03.gif"&gt;</span>
-<span id="cb8-422"><a href="#cb8-422"></a>&lt;/center&gt;</span>
-<span id="cb8-423"><a href="#cb8-423"></a></span>
-<span id="cb8-424"><a href="#cb8-424"></a><span class="fu">## Graph: Definition</span></span>
-<span id="cb8-425"><a href="#cb8-425"></a></span>
-<span id="cb8-426"><a href="#cb8-426"></a><span class="ss">- </span>A graph is an **ordered pair** $G$</span>
-<span id="cb8-427"><a href="#cb8-427"></a><span class="ss">- </span>We denote the two elements of the pair as:</span>
-<span id="cb8-428"><a href="#cb8-428"></a><span class="ss">    - </span>$V$ for vertices</span>
-<span id="cb8-429"><a href="#cb8-429"></a><span class="ss">    - </span>$E$ for edges</span>
-<span id="cb8-430"><a href="#cb8-430"></a>$$</span>
-<span id="cb8-431"><a href="#cb8-431"></a>G = (V, E)</span>
-<span id="cb8-432"><a href="#cb8-432"></a>$$</span>
-<span id="cb8-433"><a href="#cb8-433"></a></span>
-<span id="cb8-434"><a href="#cb8-434"></a><span class="fu">## In Amtrak</span></span>
-<span id="cb8-435"><a href="#cb8-435"></a></span>
-<span id="cb8-436"><a href="#cb8-436"></a><span class="ss">- </span>$V$, the vertices or nodes, stations or stops or cities,</span>
-<span id="cb8-437"><a href="#cb8-437"></a><span class="ss">    - </span>like Portland and Seattle, or</span>
-<span id="cb8-438"><a href="#cb8-438"></a><span class="ss">    - </span>like Kings St Station and Central Station</span>
-<span id="cb8-439"><a href="#cb8-439"></a><span class="ss">- </span>$E$, the edges, are the connections to adjacent stations</span>
-<span id="cb8-440"><a href="#cb8-440"></a><span class="ss">    - </span>like Portland and Oregon City, or Portland and Vancouver, WA.</span>
-<span id="cb8-441"><a href="#cb8-441"></a></span>
-<span id="cb8-442"><a href="#cb8-442"></a><span class="fu">## Graph: Definition</span></span>
-<span id="cb8-443"><a href="#cb8-443"></a></span>
-<span id="cb8-444"><a href="#cb8-444"></a><span class="ss">- </span>An <span class="in">`Amtrak`</span> is an **ordered pair**</span>
-<span id="cb8-445"><a href="#cb8-445"></a><span class="ss">- </span>We denote the two elements of the pair as:</span>
-<span id="cb8-446"><a href="#cb8-446"></a><span class="ss">    - </span>Stations for train stations used by Amtrak passengers, and</span>
-<span id="cb8-447"><a href="#cb8-447"></a><span class="ss">    - </span>Trains which Amtrak passengers ride between stations.</span>
-<span id="cb8-448"><a href="#cb8-448"></a></span>
-<span id="cb8-449"><a href="#cb8-449"></a>Amtrak = (Stations, Trains)</span>
-<span id="cb8-450"><a href="#cb8-450"></a></span>
-<span id="cb8-451"><a href="#cb8-451"></a><span class="fu">## Nodes, Vertices, or $V$</span></span>
-<span id="cb8-452"><a href="#cb8-452"></a></span>
-<span id="cb8-453"><a href="#cb8-453"></a><span class="ss">- </span>Let us consider the "Amtrak Cascades"</span>
-<span id="cb8-454"><a href="#cb8-454"></a><span class="ss">- </span>The set of vertices is the set of stations:</span>
-<span id="cb8-455"><a href="#cb8-455"></a></span>
-<span id="cb8-456"><a href="#cb8-456"></a>||||||</span>
-<span id="cb8-457"><a href="#cb8-457"></a>| --------------- | --------------- | --------------- | ------------ | ---|</span>
-<span id="cb8-458"><a href="#cb8-458"></a>| ALBANY        | EVERETT         | PORTLAND        | TUKWILA      | EUGENE          |</span>
-<span id="cb8-459"><a href="#cb8-459"></a>| BELLINGHAM      | KELSO/LONGVIEW  | SALEM           | VANCOUVER BC | OREGON CITY     |</span>
-<span id="cb8-460"><a href="#cb8-460"></a>| CENTRALIA       | MOUNT VERNON    | SEATTLE         | VANCOUVER WA | TACOMA          |  </span>
-<span id="cb8-461"><a href="#cb8-461"></a>| EDMONDS         | OLYMPIA/LACEY   | STANWOOD        |</span>
-<span id="cb8-462"><a href="#cb8-462"></a></span>
-<span id="cb8-463"><a href="#cb8-463"></a><span class="fu">## Nodes, Vertices, or $V$</span></span>
-<span id="cb8-464"><a href="#cb8-464"></a></span>
-<span id="cb8-465"><a href="#cb8-465"></a><span class="ss">- </span>Restrict our example to the PDX&lt;-&gt;SEA 6x daily trains:</span>
-<span id="cb8-466"><a href="#cb8-466"></a></span>
-<span id="cb8-467"><a href="#cb8-467"></a>|||||</span>
-<span id="cb8-468"><a href="#cb8-468"></a>| -------------- | ------------- | --------- | ---------- |</span>
-<span id="cb8-469"><a href="#cb8-469"></a>| CENTRALIA      | OLYMPIA/LACEY | SEATTLE   | TUKWILA    |</span>
-<span id="cb8-470"><a href="#cb8-470"></a>| KELSO/LONGVIEW | PORTLAND      | TACOMA    | VANCOUVER WA |</span>
-<span id="cb8-471"><a href="#cb8-471"></a></span>
-<span id="cb8-472"><a href="#cb8-472"></a><span class="fu">## Edges or $E$</span></span>
-<span id="cb8-473"><a href="#cb8-473"></a></span>
-<span id="cb8-474"><a href="#cb8-474"></a><span class="ss">- </span>$E$ is a set of elements termed 'edges', 'links', or 'lines'</span>
-<span id="cb8-475"><a href="#cb8-475"></a><span class="ss">    - </span>The edges are pairs of vertices</span>
-<span id="cb8-476"><a href="#cb8-476"></a><span class="ss">    - </span>In an *undirected graph*, edges are unordered pairs </span>
-<span id="cb8-477"><a href="#cb8-477"></a><span class="ss">    - </span>In an *directed graph*, edges are ordered pairs </span>
-<span id="cb8-478"><a href="#cb8-478"></a><span class="ss">    - </span>Amtrak is undirected, trains are directed.</span>
-<span id="cb8-479"><a href="#cb8-479"></a></span>
-<span id="cb8-480"><a href="#cb8-480"></a><span class="fu">## Directionality</span></span>
-<span id="cb8-481"><a href="#cb8-481"></a></span>
-<span id="cb8-482"><a href="#cb8-482"></a><span class="ss">- </span>The internet is directed.</span>
-<span id="cb8-483"><a href="#cb8-483"></a><span class="ss">    - </span>We may use Firefox or an inferior browser like Chrome to visit a url, but going the other way (creating files at a url) is highly nontrivial.</span>
-<span id="cb8-484"><a href="#cb8-484"></a></span>
-<span id="cb8-485"><a href="#cb8-485"></a><span class="fu">## Route</span></span>
-<span id="cb8-486"><a href="#cb8-486"></a></span>
-<span id="cb8-487"><a href="#cb8-487"></a><span class="ss">- </span>Order north-to-south:</span>
-<span id="cb8-488"><a href="#cb8-488"></a>    </span>
-<span id="cb8-489"><a href="#cb8-489"></a>    <span class="in">```{.email}</span></span>
-<span id="cb8-490"><a href="#cb8-490"></a><span class="in">    SEATTLE</span></span>
-<span id="cb8-491"><a href="#cb8-491"></a><span class="in">    TUKWILA</span></span>
-<span id="cb8-492"><a href="#cb8-492"></a><span class="in">    TACOMA</span></span>
-<span id="cb8-493"><a href="#cb8-493"></a><span class="in">    OLYMPIA/LACEY</span></span>
-<span id="cb8-494"><a href="#cb8-494"></a><span class="in">    CENTRALIA</span></span>
-<span id="cb8-495"><a href="#cb8-495"></a><span class="in">    KELSO/LONGVIEW</span></span>
-<span id="cb8-496"><a href="#cb8-496"></a><span class="in">    VANCOUVER WA</span></span>
-<span id="cb8-497"><a href="#cb8-497"></a><span class="in">    PORTLAND</span></span>
-<span id="cb8-498"><a href="#cb8-498"></a><span class="in">    ```</span></span>
-<span id="cb8-499"><a href="#cb8-499"></a>    </span>
-<span id="cb8-500"><a href="#cb8-500"></a><span class="ss">- </span>Centralia and Keslo/Longview is an edge.</span>
-<span id="cb8-501"><a href="#cb8-501"></a><span class="ss">- </span>The others, like Seattle and Tacoma, are not edges.</span>
-<span id="cb8-502"><a href="#cb8-502"></a></span>
-<span id="cb8-503"><a href="#cb8-503"></a><span class="fu">## Edges or $E$</span></span>
-<span id="cb8-504"><a href="#cb8-504"></a></span>
-<span id="cb8-505"><a href="#cb8-505"></a><span class="ss">- </span>Our edges are pairs of *adjacent* stations</span>
-<span id="cb8-506"><a href="#cb8-506"></a><span class="ss">- </span>There are 8 stations so there are 7 edges</span>
-<span id="cb8-507"><a href="#cb8-507"></a></span>
-<span id="cb8-508"><a href="#cb8-508"></a>|||</span>
-<span id="cb8-509"><a href="#cb8-509"></a>| ----------------- | ------------------- |</span>
-<span id="cb8-510"><a href="#cb8-510"></a>| (SEATTLE,         TUKWILA)       | (CENTRALIA,       KELSO) |</span>
-<span id="cb8-511"><a href="#cb8-511"></a>| (TUKWILA,         TACOMA)        | (KELSO, VANCOUVER) |</span>
-<span id="cb8-512"><a href="#cb8-512"></a>| (TACOMA,          OLYMPIA) | (VANCOUVER,   PORTLAND)      |</span>
-<span id="cb8-513"><a href="#cb8-513"></a>| (OLYMPIA,   CENTRALIA)   |                     |</span>
-<span id="cb8-514"><a href="#cb8-514"></a></span>
-<span id="cb8-515"><a href="#cb8-515"></a></span>
-<span id="cb8-516"><a href="#cb8-516"></a><span class="fu">## Graph: Definition</span></span>
-<span id="cb8-517"><a href="#cb8-517"></a></span>
-<span id="cb8-518"><a href="#cb8-518"></a><span class="ss">- </span>We can express G using only sets over elements of stations:</span>
-<span id="cb8-519"><a href="#cb8-519"></a>    </span>
-<span id="cb8-520"><a href="#cb8-520"></a><span class="in">```{.py}</span></span>
-<span id="cb8-521"><a href="#cb8-521"></a><span class="in">v = [</span></span>
-<span id="cb8-522"><a href="#cb8-522"></a><span class="in">      "SEATTLE",</span></span>
-<span id="cb8-523"><a href="#cb8-523"></a><span class="in">      "TUKWILA",</span></span>
-<span id="cb8-524"><a href="#cb8-524"></a><span class="in">      "TACOMA",</span></span>
-<span id="cb8-525"><a href="#cb8-525"></a><span class="in">      "OLYMPIA/LACEY",</span></span>
-<span id="cb8-526"><a href="#cb8-526"></a><span class="in">      "CENTRALIA",</span></span>
-<span id="cb8-527"><a href="#cb8-527"></a><span class="in">      "KELSO/LONGVIEW",</span></span>
-<span id="cb8-528"><a href="#cb8-528"></a><span class="in">      "VANCOUVER WA",</span></span>
-<span id="cb8-529"><a href="#cb8-529"></a><span class="in">      "PORTLAND"</span></span>
-<span id="cb8-530"><a href="#cb8-530"></a><span class="in">]</span></span>
-<span id="cb8-531"><a href="#cb8-531"></a><span class="in">e = [</span></span>
-<span id="cb8-532"><a href="#cb8-532"></a><span class="in">      ["TUKWILA","TACOMA"],</span></span>
-<span id="cb8-533"><a href="#cb8-533"></a><span class="in">      ["TACOMA","OLYMPIA/LACEY"],</span></span>
-<span id="cb8-534"><a href="#cb8-534"></a><span class="in">      ["OLYMPIA/LACEY","CENTRALIA"],</span></span>
-<span id="cb8-535"><a href="#cb8-535"></a><span class="in">      ["CENTRALIA","KELSO/LONGVIEW"],</span></span>
-<span id="cb8-536"><a href="#cb8-536"></a><span class="in">      ["KELSO/LONGVIEW","VANCOUVER WA"],</span></span>
-<span id="cb8-537"><a href="#cb8-537"></a><span class="in">      ["VANCOUVER WA","PORTLAND"]</span></span>
-<span id="cb8-538"><a href="#cb8-538"></a><span class="in">]</span></span>
-<span id="cb8-539"><a href="#cb8-539"></a><span class="in">```</span></span>
-<span id="cb8-540"><a href="#cb8-540"></a></span>
-<span id="cb8-541"><a href="#cb8-541"></a><span class="fu">## Graph: Exercise</span></span>
-<span id="cb8-542"><a href="#cb8-542"></a></span>
-<span id="cb8-543"><a href="#cb8-543"></a><span class="ss">- </span>Amtrak recently added lines, including the Hiawatha, with service from Milwaukee to the world's greatest city, Chicago.</span>
-<span id="cb8-544"><a href="#cb8-544"></a>    </span>
-<span id="cb8-545"><a href="#cb8-545"></a><span class="at">    &gt; From the grandeur of Grant Park’s Buckingham Fountain to iconic museums and skyscrapers, see for yourself why Chicago was once dubbed “Paris on the Prairie.” Engage in retail therapy on the Magnificent Mile or root for the home team within the friendly confines of famed Wrigley Field.</span></span>
-<span id="cb8-546"><a href="#cb8-546"></a>    </span>
-<span id="cb8-547"><a href="#cb8-547"></a><span class="fu">## Graph: Exercise</span></span>
-<span id="cb8-548"><a href="#cb8-548"></a></span>
-<span id="cb8-549"><a href="#cb8-549"></a><span class="ss">- </span>As an exercise, construct the graph of the Hiawatha.</span>
-<span id="cb8-550"><a href="#cb8-550"></a><span class="ss">- </span>The route is described <span class="co">[</span><span class="ot">here</span><span class="co">](https://www.amtrak.com/routes/hiawatha-train.html)</span> and contains five stations.</span>
-<span id="cb8-551"><a href="#cb8-551"></a><span class="ss">- </span>You may use the three letter codes like "MKE" and "CHI".</span>
-<span id="cb8-552"><a href="#cb8-552"></a><span class="ss">    - </span>Make a <span class="in">`v`</span></span>
-<span id="cb8-553"><a href="#cb8-553"></a><span class="ss">        - </span>Names of stations enclosed in quotes</span>
-<span id="cb8-554"><a href="#cb8-554"></a><span class="ss">        - </span>Separated by commas exclosed in boxy brackets <span class="in">`[]`</span></span>
-<span id="cb8-555"><a href="#cb8-555"></a><span class="ss">    - </span>Make an <span class="in">`e`</span></span>
-<span id="cb8-556"><a href="#cb8-556"></a><span class="ss">        - </span>As above, but over pairs (in boxy brackets)</span>
-<span id="cb8-557"><a href="#cb8-557"></a></span>
-<span id="cb8-558"><a href="#cb8-558"></a></span>
-<span id="cb8-559"><a href="#cb8-559"></a><span class="fu">## Trust but Verify</span></span>
-<span id="cb8-560"><a href="#cb8-560"></a></span>
-<span id="cb8-561"><a href="#cb8-561"></a><span class="ss">- </span>You will be able to tell if your <span class="in">`e`</span> and <span class="in">`v`</span> are "well-formed" if they may be used within a Colab code cell.</span>
-<span id="cb8-562"><a href="#cb8-562"></a><span class="ss">- </span>You can try, for example, to print them.</span>
-<span id="cb8-563"><a href="#cb8-563"></a><span class="in">```{.py}</span></span>
-<span id="cb8-564"><a href="#cb8-564"></a><span class="in">print("v is " + v)</span></span>
-<span id="cb8-565"><a href="#cb8-565"></a><span class="in">print("e is " + e)</span></span>
-<span id="cb8-566"><a href="#cb8-566"></a><span class="in">```</span></span>
-<span id="cb8-567"><a href="#cb8-567"></a></span>
-<span id="cb8-568"><a href="#cb8-568"></a></span>
-<span id="cb8-569"><a href="#cb8-569"></a><span class="fu"># What's next?</span></span>
-<span id="cb8-570"><a href="#cb8-570"></a></span>
-<span id="cb8-571"><a href="#cb8-571"></a><span class="fu">## For what?</span></span>
-<span id="cb8-572"><a href="#cb8-572"></a></span>
-<span id="cb8-573"><a href="#cb8-573"></a><span class="ss">- </span>Next week, we will use graphs to describe a model that conceptualizes a thinking brain:</span>
-<span id="cb8-574"><a href="#cb8-574"></a><span class="ss">    - </span>The *neural network*</span>
-<span id="cb8-575"><a href="#cb8-575"></a><span class="ss">- </span>A neural network is a *weighted* and *directed* graph.</span>
-<span id="cb8-576"><a href="#cb8-576"></a></span>
-<span id="cb8-577"><a href="#cb8-577"></a></span>
-<span id="cb8-578"><a href="#cb8-578"></a><span class="fu">## Edge Weights</span></span>
-<span id="cb8-579"><a href="#cb8-579"></a></span>
-<span id="cb8-580"><a href="#cb8-580"></a><span class="ss">- </span>Thus far, we have thought of graphs as connections - either *Amtrak* connects two stations, or it does not.</span>
-<span id="cb8-581"><a href="#cb8-581"></a><span class="ss">- </span>In practice, we often care about something else, like, how long a connection will take.</span>
-<span id="cb8-582"><a href="#cb8-582"></a><span class="ss">- </span>In practice, we can *also* often omit the vertices.</span>
-<span id="cb8-583"><a href="#cb8-583"></a><span class="ss">    - </span>Unless there is a station with no connections that we still care about.</span>
-<span id="cb8-584"><a href="#cb8-584"></a><span class="ss">    - </span>E.g. interstate highway system and state capitals (no edge to Honolulu).</span>
-<span id="cb8-585"><a href="#cb8-585"></a></span>
-<span id="cb8-586"><a href="#cb8-586"></a></span>
-<span id="cb8-587"><a href="#cb8-587"></a><span class="fu">## World's Greatest</span></span>
-<span id="cb8-588"><a href="#cb8-588"></a></span>
-<span id="cb8-589"><a href="#cb8-589"></a><span class="ss">- </span>Chicago is only minutes from, uh, "Glenview, IL"</span>
-<span id="cb8-590"><a href="#cb8-590"></a><span class="ss">    - </span><span class="co">[</span><span class="ot">Times</span><span class="co">](https://content.amtrak.com/content/timetable/Hiawatha%20Service.pdf)</span></span>
-<span id="cb8-591"><a href="#cb8-591"></a></span>
-<span id="cb8-592"><a href="#cb8-592"></a><span class="in">```{.py}</span></span>
-<span id="cb8-593"><a href="#cb8-593"></a><span class="in">e = [</span></span>
-<span id="cb8-594"><a href="#cb8-594"></a><span class="in">    ["CHI","GLN",22],</span></span>
-<span id="cb8-595"><a href="#cb8-595"></a><span class="in">    ["GLN","SVT",38],</span></span>
-<span id="cb8-596"><a href="#cb8-596"></a><span class="in">    ["SVT","MKA",14],</span></span>
-<span id="cb8-597"><a href="#cb8-597"></a><span class="in">    ["MKA","MKE",15]</span></span>
-<span id="cb8-598"><a href="#cb8-598"></a><span class="in">]</span></span>
-<span id="cb8-599"><a href="#cb8-599"></a><span class="in">```</span></span>
-<span id="cb8-600"><a href="#cb8-600"></a></span>
-<span id="cb8-601"><a href="#cb8-601"></a><span class="ss">- </span>This means "MKA" is 15 minutes away from "MKE".</span>
-<span id="cb8-602"><a href="#cb8-602"></a><span class="ss">    - </span>It says *nothing* about how far "MKE" is from "MKA".</span>
-<span id="cb8-603"><a href="#cb8-603"></a><span class="ss">    - </span>We would need to find a different train that goes the other way.</span>
-<span id="cb8-604"><a href="#cb8-604"></a></span>
-<span id="cb8-605"><a href="#cb8-605"></a><span class="fu"># Examples</span></span>
-<span id="cb8-606"><a href="#cb8-606"></a></span>
-<span id="cb8-607"><a href="#cb8-607"></a><span class="fu">## Decision Tree</span></span>
-<span id="cb8-608"><a href="#cb8-608"></a></span>
-<span id="cb8-609"><a href="#cb8-609"></a><span class="ss">- </span>The decision tree/dichotomous key from labs is a graph.</span>
-<span id="cb8-610"><a href="#cb8-610"></a><span class="ss">    - </span>Nodes are questions.</span>
-<span id="cb8-611"><a href="#cb8-611"></a><span class="ss">    - </span>Answers are edges.</span>
-<span id="cb8-614"><a href="#cb8-614"></a><span class="in">```{dot}</span></span>
-<span id="cb8-615"><a href="#cb8-615"></a><span class="in">digraph OakKey {</span></span>
-<span id="cb8-616"><a href="#cb8-616"></a><span class="in">    bgcolor="transparent"</span></span>
-<span id="cb8-617"><a href="#cb8-617"></a><span class="in">    node [shape=box,  fontcolor="white", color="white"];</span></span>
-<span id="cb8-618"><a href="#cb8-618"></a><span class="in">    edge [color="white", fontcolor="white"];</span></span>
-<span id="cb8-619"><a href="#cb8-619"></a><span class="in">    </span></span>
-<span id="cb8-620"><a href="#cb8-620"></a><span class="in">    // Questions/Nodes</span></span>
-<span id="cb8-621"><a href="#cb8-621"></a><span class="in">    Start [label="Leaves are smooth with no teeth or lobes?"];</span></span>
-<span id="cb8-622"><a href="#cb8-622"></a><span class="in">    Evergreen [label="Laves evergreen?"];</span></span>
-<span id="cb8-623"><a href="#cb8-623"></a><span class="in">    GrowthHabit [label="Large Tree (not shrub)?"];</span></span>
-<span id="cb8-624"><a href="#cb8-624"></a><span class="in">    LeafShape [label="Leaves more than 3x long as wide"];</span></span>
-<span id="cb8-625"><a href="#cb8-625"></a><span class="in">    Bristles [label="Lobes/teeth bristle-tipped?"];</span></span>
-<span id="cb8-626"><a href="#cb8-626"></a><span class="in">    LobeCount6 [label="3 or fewer lobes?"];</span></span>
-<span id="cb8-627"><a href="#cb8-627"></a><span class="in">    LobeCount7 [label="9 or fewer lobes?"];</span></span>
-<span id="cb8-628"><a href="#cb8-628"></a></span>
-<span id="cb8-629"><a href="#cb8-629"></a><span class="in">    // Species (Leaf nodes)</span></span>
-<span id="cb8-630"><a href="#cb8-630"></a><span class="in">    LiveOak [label="Southern live oak"];</span></span>
-<span id="cb8-631"><a href="#cb8-631"></a><span class="in">    DwarfOak [label="Dwarf live oak"];</span></span>
-<span id="cb8-632"><a href="#cb8-632"></a><span class="in">    WillowOak [label="Willow oak"];</span></span>
-<span id="cb8-633"><a href="#cb8-633"></a><span class="in">    ShingleOak [label="Shingle oak"];</span></span>
-<span id="cb8-634"><a href="#cb8-634"></a><span class="in">    BlackjackOak [label="Blackjack oak"];</span></span>
-<span id="cb8-635"><a href="#cb8-635"></a><span class="in">    RedOak [label="Northern red oak"];</span></span>
-<span id="cb8-636"><a href="#cb8-636"></a><span class="in">    WhiteOak [label="White oak"];</span></span>
-<span id="cb8-637"><a href="#cb8-637"></a><span class="in">    SwampOak [label="Swamp chestnut oak"];</span></span>
-<span id="cb8-638"><a href="#cb8-638"></a></span>
-<span id="cb8-639"><a href="#cb8-639"></a><span class="in">    // Relationships</span></span>
-<span id="cb8-640"><a href="#cb8-640"></a><span class="in">    Start -&gt; Evergreen [label="True"];</span></span>
-<span id="cb8-641"><a href="#cb8-641"></a><span class="in">    Start -&gt; Bristles [label="False"];</span></span>
-<span id="cb8-642"><a href="#cb8-642"></a></span>
-<span id="cb8-643"><a href="#cb8-643"></a><span class="in">    Evergreen -&gt; GrowthHabit [label="True"];</span></span>
-<span id="cb8-644"><a href="#cb8-644"></a><span class="in">    Evergreen -&gt; LeafShape [label="False"];</span></span>
-<span id="cb8-645"><a href="#cb8-645"></a></span>
-<span id="cb8-646"><a href="#cb8-646"></a><span class="in">    GrowthHabit -&gt; LiveOak [label="True"];</span></span>
-<span id="cb8-647"><a href="#cb8-647"></a><span class="in">    GrowthHabit -&gt; DwarfOak [label="False"];</span></span>
-<span id="cb8-648"><a href="#cb8-648"></a></span>
-<span id="cb8-649"><a href="#cb8-649"></a><span class="in">    LeafShape -&gt; WillowOak [label="True"];</span></span>
-<span id="cb8-650"><a href="#cb8-650"></a><span class="in">    LeafShape -&gt; ShingleOak [label="False"];</span></span>
-<span id="cb8-651"><a href="#cb8-651"></a></span>
-<span id="cb8-652"><a href="#cb8-652"></a><span class="in">    Bristles -&gt; LobeCount6 [label="True"];</span></span>
-<span id="cb8-653"><a href="#cb8-653"></a><span class="in">    Bristles -&gt; LobeCount7 [label="False"];</span></span>
-<span id="cb8-654"><a href="#cb8-654"></a></span>
-<span id="cb8-655"><a href="#cb8-655"></a><span class="in">    LobeCount6 -&gt; BlackjackOak [label="True"];</span></span>
-<span id="cb8-656"><a href="#cb8-656"></a><span class="in">    LobeCount6 -&gt; RedOak [label="False"];</span></span>
-<span id="cb8-657"><a href="#cb8-657"></a></span>
-<span id="cb8-658"><a href="#cb8-658"></a><span class="in">    LobeCount7 -&gt; WhiteOak [label="True"];</span></span>
-<span id="cb8-659"><a href="#cb8-659"></a><span class="in">    LobeCount7 -&gt; SwampOak [label="False"];</span></span>
-<span id="cb8-660"><a href="#cb8-660"></a><span class="in">}</span></span>
-<span id="cb8-661"><a href="#cb8-661"></a><span class="in">```</span></span>
-<span id="cb8-662"><a href="#cb8-662"></a></span>
-<span id="cb8-663"><a href="#cb8-663"></a><span class="fu">## The gram</span></span>
-<span id="cb8-664"><a href="#cb8-664"></a></span>
-<span id="cb8-665"><a href="#cb8-665"></a><span class="al">![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*82qRohVmpVHmRzjd31GG_g.png)</span></span>
-<span id="cb8-666"><a href="#cb8-666"></a></span>
-<span id="cb8-667"><a href="#cb8-667"></a><span class="co">[</span><span class="ot">src</span><span class="co">](https://medium.com/@maximpiessen/how-i-visualised-my-instagram-network-and-what-i-learned-from-it-d7cc125ef297)</span></span>
-<span id="cb8-668"><a href="#cb8-668"></a></span>
-<span id="cb8-669"><a href="#cb8-669"></a><span class="fu">## Explainer</span></span>
-<span id="cb8-670"><a href="#cb8-670"></a></span>
-<span id="cb8-671"><a href="#cb8-671"></a><span class="ss">- </span>Accounts are nodes.</span>
-<span id="cb8-672"><a href="#cb8-672"></a><span class="ss">- </span>Follows are edges.</span>
-<span id="cb8-673"><a href="#cb8-673"></a><span class="ss">  - </span>You can regard edge weight as amount of following, ranging from block/mute/restrict up to like, stories and posts or whatever.</span>
-<span id="cb8-674"><a href="#cb8-674"></a><span class="ss">  - </span>I don't know how the gram works.</span>
-<span id="cb8-675"><a href="#cb8-675"></a></span>
-<span id="cb8-676"><a href="#cb8-676"></a><span class="fu">## Molecule</span></span>
-<span id="cb8-677"><a href="#cb8-677"></a></span>
-<span id="cb8-678"><a href="#cb8-678"></a><span class="al">![](https://cdn.britannica.com/28/105428-050-8EA3E600/Caffeine-molecule.jpg)</span></span>
-<span id="cb8-679"><a href="#cb8-679"></a></span>
-<span id="cb8-680"><a href="#cb8-680"></a><span class="co">[</span><span class="ot">src</span><span class="co">](https://www.britannica.com/science/molecule)</span></span>
-<span id="cb8-681"><a href="#cb8-681"></a></span>
-<span id="cb8-682"><a href="#cb8-682"></a><span class="fu">## Explainer</span></span>
-<span id="cb8-683"><a href="#cb8-683"></a></span>
-<span id="cb8-684"><a href="#cb8-684"></a><span class="ss">- </span>Atoms are nodes</span>
-<span id="cb8-685"><a href="#cb8-685"></a><span class="ss">- </span>Bonds are edges</span>
-<span id="cb8-686"><a href="#cb8-686"></a><span class="ss">    - </span>May be weighted!</span>
-<span id="cb8-687"><a href="#cb8-687"></a><span class="ss">- </span>This captures many *materials* as well</span>
-<span id="cb8-688"><a href="#cb8-688"></a></span>
-<span id="cb8-689"><a href="#cb8-689"></a><span class="fu">## River system</span></span>
-<span id="cb8-690"><a href="#cb8-690"></a></span>
-<span id="cb8-691"><a href="#cb8-691"></a><span class="al">![](https://upload.wikimedia.org/wikipedia/commons/e/e4/Columbiarivermap.png)</span></span>
-<span id="cb8-692"><a href="#cb8-692"></a></span>
-<span id="cb8-693"><a href="#cb8-693"></a><span class="co">[</span><span class="ot">src</span><span class="co">](https://en.wikipedia.org/wiki/Columbia_River_drainage_basin)</span></span>
-<span id="cb8-694"><a href="#cb8-694"></a></span>
-<span id="cb8-695"><a href="#cb8-695"></a><span class="fu">## Explainer</span></span>
-<span id="cb8-696"><a href="#cb8-696"></a></span>
-<span id="cb8-697"><a href="#cb8-697"></a><span class="ss">- </span>E.g. the Columbia River Valley is a graph where</span>
-<span id="cb8-698"><a href="#cb8-698"></a><span class="ss">    - </span>Edges are rivers</span>
-<span id="cb8-699"><a href="#cb8-699"></a><span class="ss">    - </span>Nodes are confluences (where two rivers merge).</span>
-<span id="cb8-700"><a href="#cb8-700"></a><span class="ss">- </span>This is a neat case where every node has two incoming and one outgoing edge.</span>
-<span id="cb8-701"><a href="#cb8-701"></a><span class="ss">    - </span>Opposite of a decision tree.</span>
-<span id="cb8-702"><a href="#cb8-702"></a></span>
-<span id="cb8-703"><a href="#cb8-703"></a><span class="fu">## The Brain?</span></span>
-<span id="cb8-704"><a href="#cb8-704"></a></span>
-<span id="cb8-705"><a href="#cb8-705"></a><span class="al">![](https://upload.wikimedia.org/wikipedia/commons/c/c6/PET-image.jpg)</span></span>
-<span id="cb8-706"><a href="#cb8-706"></a></span>
-<span id="cb8-707"><a href="#cb8-707"></a><span class="co">[</span><span class="ot">src</span><span class="co">](https://en.wikipedia.org/wiki/Human_brain)</span></span>
-<span id="cb8-708"><a href="#cb8-708"></a></span>
-<span id="cb8-709"><a href="#cb8-709"></a><span class="fu">## Explainer</span></span>
-<span id="cb8-710"><a href="#cb8-710"></a></span>
-<span id="cb8-711"><a href="#cb8-711"></a><span class="ss">- </span>Perhaps.</span>
-<span id="cb8-712"><a href="#cb8-712"></a><span class="ss">    - </span>Neurons are nodes.</span>
-<span id="cb8-713"><a href="#cb8-713"></a><span class="ss">    - </span>Axons are edges.</span>
-<span id="cb8-714"><a href="#cb8-714"></a><span class="ss">    - </span>There are both directions and weights!</span>
+<div class="sourceCode" id="cb9" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1"></a><span class="co">---</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="an">title:</span><span class="co"> Graphs </span></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="co">---</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a></span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="fu"># Context</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a></span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="ss">- </span>What graphs aren't.</span>
+<span id="cb9-8"><a href="#cb9-8"></a><span class="ss">- </span>Why they matter.</span>
+<span id="cb9-9"><a href="#cb9-9"></a><span class="ss">- </span>What they are.</span>
+<span id="cb9-10"><a href="#cb9-10"></a></span>
+<span id="cb9-11"><a href="#cb9-11"></a><span class="fu"># What They Aren't</span></span>
+<span id="cb9-12"><a href="#cb9-12"></a></span>
+<span id="cb9-13"><a href="#cb9-13"></a><span class="fu">## Visualizations </span></span>
+<span id="cb9-14"><a href="#cb9-14"></a></span>
+<span id="cb9-15"><a href="#cb9-15"></a><span class="ss">- </span>We recall the $n$-D lab were we made visualization representing information in multiple dimensions.</span>
+<span id="cb9-16"><a href="#cb9-16"></a><span class="ss">- </span>We may have referred to these visuals, perhaps these *graphics* as graphs.</span>
+<span id="cb9-17"><a href="#cb9-17"></a></span>
+<span id="cb9-18"><a href="#cb9-18"></a><span class="fu">## Information</span></span>
+<span id="cb9-19"><a href="#cb9-19"></a></span>
+<span id="cb9-20"><a href="#cb9-20"></a><span class="ss">- </span>We took *Star Wars* release dates.</span>
+<span id="cb9-21"><a href="#cb9-21"></a></span>
+<span id="cb9-24"><a href="#cb9-24"></a><span class="in">```{python}</span></span>
+<span id="cb9-25"><a href="#cb9-25"></a><span class="co">#| echo: true</span></span>
+<span id="cb9-26"><a href="#cb9-26"></a>eps <span class="op">=</span> [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]</span>
+<span id="cb9-27"><a href="#cb9-27"></a>yrs <span class="op">=</span> [<span class="dv">1977</span>, <span class="dv">1980</span>, <span class="dv">1983</span>, <span class="dv">1999</span>, <span class="dv">2002</span>, <span class="dv">2005</span>, <span class="dv">2015</span>, <span class="dv">2017</span>, <span class="dv">2019</span>]</span>
+<span id="cb9-28"><a href="#cb9-28"></a><span class="in">```</span></span>
+<span id="cb9-29"><a href="#cb9-29"></a></span>
+<span id="cb9-30"><a href="#cb9-30"></a><span class="fu">## Representation</span></span>
+<span id="cb9-31"><a href="#cb9-31"></a></span>
+<span id="cb9-32"><a href="#cb9-32"></a><span class="ss">- </span>I naively make a *scatterplot* to view the data...</span>
+<span id="cb9-33"><a href="#cb9-33"></a></span>
+<span id="cb9-36"><a href="#cb9-36"></a><span class="in">```{python}</span></span>
+<span id="cb9-37"><a href="#cb9-37"></a><span class="co">#| echo: true</span></span>
+<span id="cb9-38"><a href="#cb9-38"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb9-39"><a href="#cb9-39"></a></span>
+<span id="cb9-40"><a href="#cb9-40"></a>plt.scatter(eps,yrs)</span>
+<span id="cb9-41"><a href="#cb9-41"></a><span class="in">```</span></span>
+<span id="cb9-42"><a href="#cb9-42"></a></span>
+<span id="cb9-43"><a href="#cb9-43"></a><span class="fu">## By Convention</span></span>
+<span id="cb9-44"><a href="#cb9-44"></a></span>
+<span id="cb9-45"><a href="#cb9-45"></a><span class="ss">- </span>Historically, I recall always thinking of a *graph* as something like these plots.</span>
+<span id="cb9-46"><a href="#cb9-46"></a><span class="ss">  - </span>A $x$ axis on the botton.</span>
+<span id="cb9-47"><a href="#cb9-47"></a><span class="ss">  - </span>A $y$ axis on the left.</span>
+<span id="cb9-48"><a href="#cb9-48"></a><span class="ss">  - </span>Some points throughout the space between them.</span>
+<span id="cb9-49"><a href="#cb9-49"></a><span class="ss">- </span>I will not use *graph* to refer to data visualizations of this form in this class.</span>
+<span id="cb9-50"><a href="#cb9-50"></a></span>
+<span id="cb9-51"><a href="#cb9-51"></a><span class="fu"># Why They Matter</span></span>
+<span id="cb9-52"><a href="#cb9-52"></a></span>
+<span id="cb9-53"><a href="#cb9-53"></a><span class="fu">## Oh no, math!</span></span>
+<span id="cb9-54"><a href="#cb9-54"></a></span>
+<span id="cb9-55"><a href="#cb9-55"></a><span class="ss">- </span>In a moment, we will introduce the mathematical notion of a *graph*.</span>
+<span id="cb9-56"><a href="#cb9-56"></a><span class="ss">  - </span>Mathematics as in college mathematics</span>
+<span id="cb9-57"><a href="#cb9-57"></a><span class="ss">    - </span>Logic not arithmetic.</span>
+<span id="cb9-58"><a href="#cb9-58"></a><span class="ss">- </span>This is a formalism and may seem heavyweight.</span>
+<span id="cb9-59"><a href="#cb9-59"></a><span class="ss">- </span>Why bother?</span>
+<span id="cb9-60"><a href="#cb9-60"></a></span>
+<span id="cb9-61"><a href="#cb9-61"></a><span class="fu">## Precision</span></span>
+<span id="cb9-62"><a href="#cb9-62"></a></span>
+<span id="cb9-63"><a href="#cb9-63"></a><span class="ss">- </span>One recurring topic throughout this term is *precision*.</span>
+<span id="cb9-64"><a href="#cb9-64"></a><span class="ss">- </span>When we ask e.g. Gemini to do something, we must be precise about things like spelling and grammar or the AI may not correctly infer what we want.</span>
+<span id="cb9-65"><a href="#cb9-65"></a><span class="ss">- </span>When we try to run e.g. Gemini in Colab, we must be precise about the names of nicknames and of commands or Colab will not function properly.</span>
+<span id="cb9-66"><a href="#cb9-66"></a><span class="ss">- </span>I asked you, for example, to name your class folder with a specific name scheme.</span>
+<span id="cb9-67"><a href="#cb9-67"></a></span>
+<span id="cb9-68"><a href="#cb9-68"></a><span class="fu">## Specific</span></span>
+<span id="cb9-69"><a href="#cb9-69"></a></span>
+<span id="cb9-70"><a href="#cb9-70"></a><span class="ss">- </span>One recurring topic through this term is *specificity*.</span>
+<span id="cb9-71"><a href="#cb9-71"></a><span class="ss">- </span>In addition to being precise (e.g. not wrong) we want to be clear (e.g. provide sufficient information).</span>
+<span id="cb9-72"><a href="#cb9-72"></a><span class="ss">- </span>We can debate the merits of my approach, but I try to be specific with, for example, lab instructions.</span>
+<span id="cb9-73"><a href="#cb9-73"></a><span class="ss">    - </span>How am I doing? Form your own opinion!</span>
+<span id="cb9-74"><a href="#cb9-74"></a><span class="ss">- </span>I do not necessarily strive for percision with think-pair-share (can be better to see what happens.</span>
+<span id="cb9-75"><a href="#cb9-75"></a></span>
+<span id="cb9-76"><a href="#cb9-76"></a><span class="fu">## Motivation</span></span>
+<span id="cb9-77"><a href="#cb9-77"></a></span>
+<span id="cb9-78"><a href="#cb9-78"></a><span class="ss">- </span>We want to be *precise* and *specific* when speaking about how an artifical intelligence technology</span>
+<span id="cb9-79"><a href="#cb9-79"></a><span class="ss">    - </span>Is designed.</span>
+<span id="cb9-80"><a href="#cb9-80"></a><span class="ss">    - </span>Is made.</span>
+<span id="cb9-81"><a href="#cb9-81"></a><span class="ss">    - </span>Is run.</span>
+<span id="cb9-82"><a href="#cb9-82"></a><span class="ss">    - </span>Is evaluated.</span>
+<span id="cb9-83"><a href="#cb9-83"></a><span class="ss">- </span>A mathematical formalism achieves all these goals.</span>
+<span id="cb9-84"><a href="#cb9-84"></a></span>
+<span id="cb9-85"><a href="#cb9-85"></a><span class="fu"># Aside</span></span>
+<span id="cb9-86"><a href="#cb9-86"></a></span>
+<span id="cb9-87"><a href="#cb9-87"></a><span class="fu">## Precision-recall tradeoff</span></span>
+<span id="cb9-88"><a href="#cb9-88"></a></span>
+<span id="cb9-89"><a href="#cb9-89"></a><span class="ss">- </span>We can perhaps better understand at least precision via the *precision-recall trade-off*, a classic topic in machine learning.</span>
+<span id="cb9-90"><a href="#cb9-90"></a><span class="ss">- </span>I will apply this to the "Alien Movie Good" problem.</span>
+<span id="cb9-91"><a href="#cb9-91"></a></span>
+<span id="cb9-92"><a href="#cb9-92"></a><span class="fu">## Set Up</span></span>
+<span id="cb9-93"><a href="#cb9-93"></a></span>
+<span id="cb9-94"><a href="#cb9-94"></a><span class="ss">- </span>To begin, we will consider:</span>
+<span id="cb9-95"><a href="#cb9-95"></a><span class="ss">    - </span>A data set.</span>
+<span id="cb9-96"><a href="#cb9-96"></a><span class="ss">    - </span>A model.</span>
+<span id="cb9-97"><a href="#cb9-97"></a><span class="ss">    - </span>The predictions made by a model.</span>
+<span id="cb9-98"><a href="#cb9-98"></a></span>
+<span id="cb9-99"><a href="#cb9-99"></a><span class="fu">## Model </span></span>
+<span id="cb9-100"><a href="#cb9-100"></a></span>
+<span id="cb9-101"><a href="#cb9-101"></a><span class="ss">- </span>Imagine we use "Directed by Ridley Scott" as our model for a good film.</span>
+<span id="cb9-102"><a href="#cb9-102"></a><span class="ss">- </span>Hits in red, mispredicts in blue, missed predicts in purple, correct omits in green.</span>
+<span id="cb9-103"><a href="#cb9-103"></a></span>
+<span id="cb9-104"><a href="#cb9-104"></a></span>
+<span id="cb9-107"><a href="#cb9-107"></a><span class="in">```{python}</span></span>
+<span id="cb9-108"><a href="#cb9-108"></a><span class="co">#| code-fold: true </span></span>
+<span id="cb9-109"><a href="#cb9-109"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb9-110"><a href="#cb9-110"></a></span>
+<span id="cb9-111"><a href="#cb9-111"></a><span class="kw">def</span> plot(films):</span>
+<span id="cb9-112"><a href="#cb9-112"></a></span>
+<span id="cb9-113"><a href="#cb9-113"></a>    years <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1976</span>, <span class="dv">2027</span>))  <span class="co"># Create a list of years from 1976 to 2024</span></span>
+<span id="cb9-114"><a href="#cb9-114"></a></span>
+<span id="cb9-115"><a href="#cb9-115"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">9</span>,<span class="dv">1</span>)) <span class="co"># Adjust figure size for better visualization</span></span>
+<span id="cb9-116"><a href="#cb9-116"></a>    plt.plot(years, [<span class="dv">0</span>] <span class="op">*</span> <span class="bu">len</span>(years), color<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="dv">2</span>) <span class="co"># Plot a horizontal line</span></span>
+<span id="cb9-117"><a href="#cb9-117"></a></span>
+<span id="cb9-118"><a href="#cb9-118"></a>    <span class="kw">def</span> add_film(name, year, color<span class="op">=</span><span class="st">"green"</span>):</span>
+<span id="cb9-119"><a href="#cb9-119"></a>      plt.annotate(</span>
+<span id="cb9-120"><a href="#cb9-120"></a>          name,</span>
+<span id="cb9-121"><a href="#cb9-121"></a>          xy<span class="op">=</span>(year, <span class="fl">0.0</span>),</span>
+<span id="cb9-122"><a href="#cb9-122"></a>          xytext<span class="op">=</span>(year, <span class="fl">0.2</span>),</span>
+<span id="cb9-123"><a href="#cb9-123"></a>          arrowprops<span class="op">=</span><span class="bu">dict</span>(color<span class="op">=</span>color, shrink<span class="op">=</span><span class="fl">0.05</span>, width<span class="op">=</span><span class="dv">1</span>, headwidth<span class="op">=</span><span class="dv">8</span>),</span>
+<span id="cb9-124"><a href="#cb9-124"></a>          horizontalalignment<span class="op">=</span><span class="st">'center'</span>,</span>
+<span id="cb9-125"><a href="#cb9-125"></a>          verticalalignment<span class="op">=</span><span class="st">'bottom'</span>,</span>
+<span id="cb9-126"><a href="#cb9-126"></a>          fontsize<span class="op">=</span><span class="dv">10</span>,</span>
+<span id="cb9-127"><a href="#cb9-127"></a>          color<span class="op">=</span>color</span>
+<span id="cb9-128"><a href="#cb9-128"></a>      )</span>
+<span id="cb9-129"><a href="#cb9-129"></a>    </span>
+<span id="cb9-130"><a href="#cb9-130"></a>    [add_film(<span class="op">*</span>film) <span class="cf">for</span> film <span class="kw">in</span> films]</span>
+<span id="cb9-131"><a href="#cb9-131"></a>    </span>
+<span id="cb9-132"><a href="#cb9-132"></a>    plt.yticks([]) <span class="co"># Remove y-axis ticks as they are not relevant for a horizontal line</span></span>
+<span id="cb9-133"><a href="#cb9-133"></a>    plt.grid(<span class="va">True</span>, axis<span class="op">=</span><span class="st">'x'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb9-134"><a href="#cb9-134"></a>    plt.xlim(<span class="dv">1976</span>, <span class="dv">2027</span>) <span class="co"># Set x-axis limits slightly beyond the data range</span></span>
+<span id="cb9-135"><a href="#cb9-135"></a>    plt.show()</span>
+<span id="cb9-136"><a href="#cb9-136"></a></span>
+<span id="cb9-137"><a href="#cb9-137"></a></span>
+<span id="cb9-138"><a href="#cb9-138"></a>films <span class="op">=</span> [</span>
+<span id="cb9-139"><a href="#cb9-139"></a>    [<span class="st">"Alien"</span>, <span class="dv">1979</span>,<span class="st">"red"</span>],</span>
+<span id="cb9-140"><a href="#cb9-140"></a>    [<span class="st">"A's"</span>, <span class="dv">1986</span>],</span>
+<span id="cb9-141"><a href="#cb9-141"></a>    [<span class="st">"A3"</span>, <span class="dv">1992</span>],</span>
+<span id="cb9-142"><a href="#cb9-142"></a>    [<span class="st">"Res."</span>, <span class="dv">1997</span>],</span>
+<span id="cb9-143"><a href="#cb9-143"></a>    [<span class="st">"Prom."</span>, <span class="dv">2012</span>,<span class="st">"red"</span>],</span>
+<span id="cb9-144"><a href="#cb9-144"></a>    [<span class="st">"Cov."</span>, <span class="dv">2017</span>,<span class="st">"blue"</span>],</span>
+<span id="cb9-145"><a href="#cb9-145"></a>    [<span class="st">"Rom."</span>, <span class="dv">2024</span>,<span class="st">"purple"</span>],</span>
+<span id="cb9-146"><a href="#cb9-146"></a>    [<span class="st">"AVP"</span>, <span class="dv">2004</span>],</span>
+<span id="cb9-147"><a href="#cb9-147"></a>    [<span class="st">"AVPR"</span>, <span class="dv">2007</span>],</span>
+<span id="cb9-148"><a href="#cb9-148"></a>    [<span class="st">"P"</span>, <span class="dv">1987</span>],</span>
+<span id="cb9-149"><a href="#cb9-149"></a>    [<span class="st">"P2"</span>, <span class="dv">1990</span>],</span>
+<span id="cb9-150"><a href="#cb9-150"></a>    [<span class="st">"P's"</span>, <span class="dv">2010</span>],</span>
+<span id="cb9-151"><a href="#cb9-151"></a>    [<span class="st">"The"</span>, <span class="dv">2018</span>],</span>
+<span id="cb9-152"><a href="#cb9-152"></a>    [<span class="st">"Prey"</span>, <span class="dv">2022</span>,<span class="st">"purple"</span>],</span>
+<span id="cb9-153"><a href="#cb9-153"></a>]</span>
+<span id="cb9-154"><a href="#cb9-154"></a></span>
+<span id="cb9-155"><a href="#cb9-155"></a>plot(films)</span>
+<span id="cb9-156"><a href="#cb9-156"></a><span class="in">```</span></span>
+<span id="cb9-157"><a href="#cb9-157"></a></span>
+<span id="cb9-158"><a href="#cb9-158"></a><span class="fu">## Last Time</span></span>
+<span id="cb9-159"><a href="#cb9-159"></a></span>
+<span id="cb9-160"><a href="#cb9-160"></a><span class="ss">- </span>Last time we naively looked at this and went no further.</span>
+<span id="cb9-161"><a href="#cb9-161"></a><span class="ss">- </span>Now, we introduce a formalism, the *confusion matrix*.</span>
+<span id="cb9-162"><a href="#cb9-162"></a><span class="ss">    - </span>A 2-by-2 grid</span>
+<span id="cb9-163"><a href="#cb9-163"></a><span class="ss">    - </span>Horizontally, whether films are *predicted by the model* to be good.</span>
+<span id="cb9-164"><a href="#cb9-164"></a><span class="ss">    - </span>Vertically, whether films are *held to actually* be good.</span>
+<span id="cb9-165"><a href="#cb9-165"></a><span class="ss">        - </span>In this case, by me, but usually you actually just have something that is true or not.</span>
+<span id="cb9-166"><a href="#cb9-166"></a></span>
+<span id="cb9-167"><a href="#cb9-167"></a><span class="fu">## Terminology</span></span>
+<span id="cb9-168"><a href="#cb9-168"></a></span>
+<span id="cb9-169"><a href="#cb9-169"></a><span class="ss">- </span>We further introduce the terminology of true/false positive/negatives.</span>
+<span id="cb9-170"><a href="#cb9-170"></a><span class="ss">    - </span>I *believe* from medicine, where e.g. a false positive is a flu test coming back positive in a healthy patient.</span>
+<span id="cb9-171"><a href="#cb9-171"></a><span class="ss">    - </span>We can regard "film good" as the test.</span>
+<span id="cb9-172"><a href="#cb9-172"></a></span>
+<span id="cb9-173"><a href="#cb9-173"></a><span class="fu">## Specifically</span></span>
+<span id="cb9-174"><a href="#cb9-174"></a></span>
+<span id="cb9-175"><a href="#cb9-175"></a></span>
+<span id="cb9-176"><a href="#cb9-176"></a><span class="ss">- </span>A **true positive** is a film predicted to be good which is good.</span>
+<span id="cb9-177"><a href="#cb9-177"></a><span class="ss">- </span>A **false positive** is a film predicted to be good which is not good.</span>
+<span id="cb9-178"><a href="#cb9-178"></a><span class="ss">- </span>A **false negative** is a film predicted to be not good which is good.</span>
+<span id="cb9-179"><a href="#cb9-179"></a><span class="ss">- </span>A **true negative** is a filme predicted to be not good which is not good.</span>
+<span id="cb9-180"><a href="#cb9-180"></a></span>
+<span id="cb9-181"><a href="#cb9-181"></a><span class="fu">## Visually</span></span>
+<span id="cb9-182"><a href="#cb9-182"></a></span>
+<span id="cb9-183"><a href="#cb9-183"></a>&lt;table style="border: none; background: inherit; color: inherit; text-align: center; margin-left: auto; margin-right: auto; border-collapse: collapse;"&gt;</span>
+<span id="cb9-184"><a href="#cb9-184"></a>  &lt;tbody&gt;</span>
+<span id="cb9-185"><a href="#cb9-185"></a>    &lt;tr&gt;</span>
+<span id="cb9-186"><a href="#cb9-186"></a>      &lt;td rowspan="2" style="border: none;"&gt;&lt;/td&gt;</span>
+<span id="cb9-187"><a href="#cb9-187"></a>      &lt;td style="border: none;"&gt;&lt;/td&gt;</span>
+<span id="cb9-188"><a href="#cb9-188"></a>      &lt;th colspan="2" style="background: rgba(74, 210, 210, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
+<span id="cb9-189"><a href="#cb9-189"></a>        &lt;strong&gt;Predicted condition&lt;/strong&gt;</span>
+<span id="cb9-190"><a href="#cb9-190"></a>      &lt;/th&gt;</span>
+<span id="cb9-191"><a href="#cb9-191"></a>    &lt;/tr&gt;</span>
+<span id="cb9-192"><a href="#cb9-192"></a>    &lt;tr&gt;</span>
+<span id="cb9-193"><a href="#cb9-193"></a>      &lt;td style=""&gt;</span>
+<span id="cb9-194"><a href="#cb9-194"></a>      &lt;/td&gt;</span>
+<span id="cb9-195"><a href="#cb9-195"></a>      &lt;td style="background: rgba(120, 255, 255, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
+<span id="cb9-196"><a href="#cb9-196"></a>        &lt;strong&gt;Positive (PP)&lt;/strong&gt;</span>
+<span id="cb9-197"><a href="#cb9-197"></a>      &lt;/td&gt;</span>
+<span id="cb9-198"><a href="#cb9-198"></a>      &lt;td style="background: rgba(29, 165, 165, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
+<span id="cb9-199"><a href="#cb9-199"></a>        &lt;strong&gt;Negative (PN)&lt;/strong&gt;</span>
+<span id="cb9-200"><a href="#cb9-200"></a>      &lt;/td&gt;</span>
+<span id="cb9-201"><a href="#cb9-201"></a>    &lt;/tr&gt;</span>
+<span id="cb9-202"><a href="#cb9-202"></a>    &lt;tr&gt;</span>
+<span id="cb9-203"><a href="#cb9-203"></a>      &lt;th rowspan="2" style="background: rgba(210, 210, 61, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px; writing-mode: vertical-rl; transform: rotate(180deg);"&gt;</span>
+<span id="cb9-204"><a href="#cb9-204"></a>        &lt;strong&gt;Actual&lt;/strong&gt;</span>
+<span id="cb9-205"><a href="#cb9-205"></a>      &lt;/th&gt;</span>
+<span id="cb9-206"><a href="#cb9-206"></a>      &lt;td style="background: rgba(255, 255, 120, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
+<span id="cb9-207"><a href="#cb9-207"></a>        &lt;strong&gt;Positive (P)&lt;/strong&gt;</span>
+<span id="cb9-208"><a href="#cb9-208"></a>      &lt;/td&gt;</span>
+<span id="cb9-209"><a href="#cb9-209"></a>      &lt;td style="background: rgba(120, 255, 120, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
+<span id="cb9-210"><a href="#cb9-210"></a>        &lt;strong&gt;True positive (TP)&lt;/strong&gt;</span>
+<span id="cb9-211"><a href="#cb9-211"></a>      &lt;/td&gt;</span>
+<span id="cb9-212"><a href="#cb9-212"></a>      &lt;td style="background: rgba(255, 165, 165, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
+<span id="cb9-213"><a href="#cb9-213"></a>        &lt;strong&gt;False negative (FN)&lt;/strong&gt;</span>
+<span id="cb9-214"><a href="#cb9-214"></a>      &lt;/td&gt;</span>
+<span id="cb9-215"><a href="#cb9-215"></a>    &lt;/tr&gt;</span>
+<span id="cb9-216"><a href="#cb9-216"></a>    &lt;tr&gt;</span>
+<span id="cb9-217"><a href="#cb9-217"></a>      &lt;td style="background: rgba(165, 165, 29, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
+<span id="cb9-218"><a href="#cb9-218"></a>        &lt;strong&gt;Negative (N)&lt;/strong&gt;</span>
+<span id="cb9-219"><a href="#cb9-219"></a>      &lt;/td&gt;</span>
+<span id="cb9-220"><a href="#cb9-220"></a>      &lt;td style="background: rgba(255, 120, 120, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
+<span id="cb9-221"><a href="#cb9-221"></a>        &lt;strong&gt;False positive (FP)&lt;/strong&gt;</span>
+<span id="cb9-222"><a href="#cb9-222"></a>      &lt;/td&gt;</span>
+<span id="cb9-223"><a href="#cb9-223"></a>      &lt;td style="background: rgba(61, 210, 61, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
+<span id="cb9-224"><a href="#cb9-224"></a>        &lt;strong&gt;True negative (TN)&lt;/strong&gt;</span>
+<span id="cb9-225"><a href="#cb9-225"></a>      &lt;/td&gt;</span>
+<span id="cb9-226"><a href="#cb9-226"></a>    &lt;/tr&gt;</span>
+<span id="cb9-227"><a href="#cb9-227"></a>    &lt;tr&gt;</span>
+<span id="cb9-228"><a href="#cb9-228"></a>      &lt;td colspan="4" style="border: none; padding: 5px;"&gt;&lt;/td&gt;</span>
+<span id="cb9-229"><a href="#cb9-229"></a>    &lt;/tr&gt;</span>
+<span id="cb9-230"><a href="#cb9-230"></a>  &lt;/tbody&gt;</span>
+<span id="cb9-231"><a href="#cb9-231"></a>&lt;/table&gt;</span>
+<span id="cb9-232"><a href="#cb9-232"></a></span>
+<span id="cb9-233"><a href="#cb9-233"></a></span>
+<span id="cb9-234"><a href="#cb9-234"></a><span class="fu">## Examples</span></span>
+<span id="cb9-235"><a href="#cb9-235"></a></span>
+<span id="cb9-236"><a href="#cb9-236"></a>&lt;table style="border: none; background: inherit; color: inherit; text-align: center; margin-left: auto; margin-right: auto; border-collapse: collapse;"&gt;</span>
+<span id="cb9-237"><a href="#cb9-237"></a>  &lt;tbody&gt;</span>
+<span id="cb9-238"><a href="#cb9-238"></a>    &lt;tr&gt;</span>
+<span id="cb9-239"><a href="#cb9-239"></a>      &lt;td rowspan="2" style="border: none;"&gt;&lt;/td&gt;</span>
+<span id="cb9-240"><a href="#cb9-240"></a>      &lt;td style="border: none;"&gt;&lt;/td&gt;</span>
+<span id="cb9-241"><a href="#cb9-241"></a>      &lt;th colspan="2" style="background: rgba(74, 210, 210, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
+<span id="cb9-242"><a href="#cb9-242"></a>        &lt;strong&gt;Predicted condition&lt;/strong&gt;</span>
+<span id="cb9-243"><a href="#cb9-243"></a>      &lt;/th&gt;</span>
+<span id="cb9-244"><a href="#cb9-244"></a>    &lt;/tr&gt;</span>
+<span id="cb9-245"><a href="#cb9-245"></a>    &lt;tr&gt;</span>
+<span id="cb9-246"><a href="#cb9-246"></a>      &lt;td&gt; </span>
+<span id="cb9-247"><a href="#cb9-247"></a>      &lt;/td&gt;</span>
+<span id="cb9-248"><a href="#cb9-248"></a>      &lt;td style="background: rgba(120, 255, 255, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
+<span id="cb9-249"><a href="#cb9-249"></a>        &lt;strong&gt;Positive (PP)&lt;/strong&gt;</span>
+<span id="cb9-250"><a href="#cb9-250"></a>      &lt;/td&gt;</span>
+<span id="cb9-251"><a href="#cb9-251"></a>      &lt;td style="background: rgba(29, 165, 165, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
+<span id="cb9-252"><a href="#cb9-252"></a>        &lt;strong&gt;Negative (PN)&lt;/strong&gt;</span>
+<span id="cb9-253"><a href="#cb9-253"></a>      &lt;/td&gt;</span>
+<span id="cb9-254"><a href="#cb9-254"></a>    &lt;/tr&gt;</span>
+<span id="cb9-255"><a href="#cb9-255"></a>    &lt;tr&gt;</span>
+<span id="cb9-256"><a href="#cb9-256"></a>      &lt;th rowspan="2" style="background: rgba(210, 210, 61, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px; writing-mode: vertical-rl; transform: rotate(180deg);"&gt;</span>
+<span id="cb9-257"><a href="#cb9-257"></a>        &lt;strong&gt;Actual&lt;/strong&gt;</span>
+<span id="cb9-258"><a href="#cb9-258"></a>      &lt;/th&gt;</span>
+<span id="cb9-259"><a href="#cb9-259"></a>      &lt;td style="background: rgba(255, 255, 120, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
+<span id="cb9-260"><a href="#cb9-260"></a>        &lt;strong&gt;Positive (P)&lt;/strong&gt;</span>
+<span id="cb9-261"><a href="#cb9-261"></a>      &lt;/td&gt;</span>
+<span id="cb9-262"><a href="#cb9-262"></a>      &lt;td style="background: rgba(120, 255, 120, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
+<span id="cb9-263"><a href="#cb9-263"></a>        &lt;strong&gt;*Alien* (1979)&lt;/strong&gt;</span>
+<span id="cb9-264"><a href="#cb9-264"></a>      &lt;/td&gt;</span>
+<span id="cb9-265"><a href="#cb9-265"></a>      &lt;td style="background: rgba(255, 165, 165, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
+<span id="cb9-266"><a href="#cb9-266"></a>        &lt;strong&gt;*Prey* (2022)&lt;/strong&gt;</span>
+<span id="cb9-267"><a href="#cb9-267"></a>      &lt;/td&gt;</span>
+<span id="cb9-268"><a href="#cb9-268"></a>    &lt;/tr&gt;</span>
+<span id="cb9-269"><a href="#cb9-269"></a>    &lt;tr&gt;</span>
+<span id="cb9-270"><a href="#cb9-270"></a>      &lt;td style="background: rgba(165, 165, 29, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
+<span id="cb9-271"><a href="#cb9-271"></a>        &lt;strong&gt;Negative (N)&lt;/strong&gt;</span>
+<span id="cb9-272"><a href="#cb9-272"></a>      &lt;/td&gt;</span>
+<span id="cb9-273"><a href="#cb9-273"></a>      &lt;td style="background: rgba(255, 120, 120, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
+<span id="cb9-274"><a href="#cb9-274"></a>        &lt;strong&gt;*Covenant* (2017)&lt;/strong&gt;</span>
+<span id="cb9-275"><a href="#cb9-275"></a>      &lt;/td&gt;</span>
+<span id="cb9-276"><a href="#cb9-276"></a>      &lt;td style="background: rgba(61, 210, 61, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
+<span id="cb9-277"><a href="#cb9-277"></a>        &lt;strong&gt;*Aliens* (1986)&lt;/strong&gt;</span>
+<span id="cb9-278"><a href="#cb9-278"></a>      &lt;/td&gt;</span>
+<span id="cb9-279"><a href="#cb9-279"></a>    &lt;/tr&gt;</span>
+<span id="cb9-280"><a href="#cb9-280"></a>    &lt;tr&gt;</span>
+<span id="cb9-281"><a href="#cb9-281"></a>      &lt;td colspan="4" style="border: none; padding: 5px;"&gt;&lt;/td&gt;</span>
+<span id="cb9-282"><a href="#cb9-282"></a>    &lt;/tr&gt;</span>
+<span id="cb9-283"><a href="#cb9-283"></a>  &lt;/tbody&gt;</span>
+<span id="cb9-284"><a href="#cb9-284"></a>&lt;/table&gt;</span>
+<span id="cb9-285"><a href="#cb9-285"></a></span>
+<span id="cb9-286"><a href="#cb9-286"></a></span>
+<span id="cb9-287"><a href="#cb9-287"></a><span class="fu">## Populations</span></span>
+<span id="cb9-288"><a href="#cb9-288"></a></span>
+<span id="cb9-289"><a href="#cb9-289"></a><span class="ss">- </span>Often, when assess a model, it is dramatically *more* interesting to include the population within each "bin".</span>
+<span id="cb9-290"><a href="#cb9-290"></a><span class="ss">- </span>Then, a confusion matrix becomes a summary of the goodness of a model.</span>
+<span id="cb9-291"><a href="#cb9-291"></a><span class="ss">- </span>So the "directed by Ridley Scott" model of goodness yields:</span>
+<span id="cb9-292"><a href="#cb9-292"></a></span>
+<span id="cb9-293"><a href="#cb9-293"></a></span>
+<span id="cb9-294"><a href="#cb9-294"></a><span class="fu">## Populations</span></span>
+<span id="cb9-295"><a href="#cb9-295"></a></span>
+<span id="cb9-296"><a href="#cb9-296"></a>&lt;table style="border: none; background: inherit; color: inherit; text-align: center; margin-left: auto; margin-right: auto; border-collapse: collapse;"&gt;</span>
+<span id="cb9-297"><a href="#cb9-297"></a>  &lt;tbody&gt;</span>
+<span id="cb9-298"><a href="#cb9-298"></a>    &lt;tr&gt;</span>
+<span id="cb9-299"><a href="#cb9-299"></a>      &lt;td rowspan="2" style="border: none;"&gt;&lt;/td&gt;</span>
+<span id="cb9-300"><a href="#cb9-300"></a>      &lt;td style="border: none;"&gt;&lt;/td&gt;</span>
+<span id="cb9-301"><a href="#cb9-301"></a>      &lt;th colspan="2" style="background: rgba(74, 210, 210, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
+<span id="cb9-302"><a href="#cb9-302"></a>        &lt;strong&gt;Predicted condition&lt;/strong&gt;</span>
+<span id="cb9-303"><a href="#cb9-303"></a>      &lt;/th&gt;</span>
+<span id="cb9-304"><a href="#cb9-304"></a>    &lt;/tr&gt;</span>
+<span id="cb9-305"><a href="#cb9-305"></a>    &lt;tr&gt;</span>
+<span id="cb9-306"><a href="#cb9-306"></a>      &lt;td&gt;</span>
+<span id="cb9-307"><a href="#cb9-307"></a>      &lt;/td&gt;</span>
+<span id="cb9-308"><a href="#cb9-308"></a>      &lt;td style="background: rgba(120, 255, 255, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
+<span id="cb9-309"><a href="#cb9-309"></a>        &lt;strong&gt;Positive (PP)&lt;/strong&gt;</span>
+<span id="cb9-310"><a href="#cb9-310"></a>      &lt;/td&gt;</span>
+<span id="cb9-311"><a href="#cb9-311"></a>      &lt;td style="background: rgba(29, 165, 165, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
+<span id="cb9-312"><a href="#cb9-312"></a>        &lt;strong&gt;Negative (PN)&lt;/strong&gt;</span>
+<span id="cb9-313"><a href="#cb9-313"></a>      &lt;/td&gt;</span>
+<span id="cb9-314"><a href="#cb9-314"></a>    &lt;/tr&gt;</span>
+<span id="cb9-315"><a href="#cb9-315"></a>    &lt;tr&gt;</span>
+<span id="cb9-316"><a href="#cb9-316"></a>      &lt;th rowspan="2" style="background: rgba(210, 210, 61, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px; writing-mode: vertical-rl; transform: rotate(180deg);"&gt;</span>
+<span id="cb9-317"><a href="#cb9-317"></a>        &lt;strong&gt;Actual&lt;/strong&gt;</span>
+<span id="cb9-318"><a href="#cb9-318"></a>      &lt;/th&gt;</span>
+<span id="cb9-319"><a href="#cb9-319"></a>      &lt;td style="background: rgba(255, 255, 120, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
+<span id="cb9-320"><a href="#cb9-320"></a>        &lt;strong&gt;Positive (P)&lt;/strong&gt;</span>
+<span id="cb9-321"><a href="#cb9-321"></a>      &lt;/td&gt;</span>
+<span id="cb9-322"><a href="#cb9-322"></a>      &lt;td style="background: rgba(120, 255, 120, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
+<span id="cb9-323"><a href="#cb9-323"></a>        &lt;strong&gt;2&lt;/strong&gt;</span>
+<span id="cb9-324"><a href="#cb9-324"></a>      &lt;/td&gt;</span>
+<span id="cb9-325"><a href="#cb9-325"></a>      &lt;td style="background: rgba(255, 165, 165, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
+<span id="cb9-326"><a href="#cb9-326"></a>        &lt;strong&gt;2&lt;/strong&gt;</span>
+<span id="cb9-327"><a href="#cb9-327"></a>      &lt;/td&gt;</span>
+<span id="cb9-328"><a href="#cb9-328"></a>    &lt;/tr&gt;</span>
+<span id="cb9-329"><a href="#cb9-329"></a>    &lt;tr&gt;</span>
+<span id="cb9-330"><a href="#cb9-330"></a>      &lt;td style="background: rgba(165, 165, 29, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
+<span id="cb9-331"><a href="#cb9-331"></a>        &lt;strong&gt;Negative (N)&lt;/strong&gt;</span>
+<span id="cb9-332"><a href="#cb9-332"></a>      &lt;/td&gt;</span>
+<span id="cb9-333"><a href="#cb9-333"></a>      &lt;td style="background: rgba(255, 120, 120, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
+<span id="cb9-334"><a href="#cb9-334"></a>        &lt;strong&gt;1&lt;/strong&gt;</span>
+<span id="cb9-335"><a href="#cb9-335"></a>      &lt;/td&gt;</span>
+<span id="cb9-336"><a href="#cb9-336"></a>      &lt;td style="background: rgba(61, 210, 61, 0.38); color: inherit; border: 1px solid #ccc; padding: 10px;"&gt;</span>
+<span id="cb9-337"><a href="#cb9-337"></a>        &lt;strong&gt;9&lt;/strong&gt;</span>
+<span id="cb9-338"><a href="#cb9-338"></a>      &lt;/td&gt;</span>
+<span id="cb9-339"><a href="#cb9-339"></a>    &lt;/tr&gt;</span>
+<span id="cb9-340"><a href="#cb9-340"></a>    &lt;tr&gt;</span>
+<span id="cb9-341"><a href="#cb9-341"></a>      &lt;td colspan="4" style="border: none; padding: 5px;"&gt;&lt;/td&gt;</span>
+<span id="cb9-342"><a href="#cb9-342"></a>    &lt;/tr&gt;</span>
+<span id="cb9-343"><a href="#cb9-343"></a>  &lt;/tbody&gt;</span>
+<span id="cb9-344"><a href="#cb9-344"></a>&lt;/table&gt;</span>
+<span id="cb9-345"><a href="#cb9-345"></a></span>
+<span id="cb9-346"><a href="#cb9-346"></a><span class="ss">- </span>TP: 2 (*Alien*, *Prometheus*)</span>
+<span id="cb9-347"><a href="#cb9-347"></a><span class="ss">- </span>FN: 2 (*Prey*, *Alien: Romulus*)</span>
+<span id="cb9-348"><a href="#cb9-348"></a><span class="ss">- </span>FP: 1 (*Alien: Covenant*)</span>
+<span id="cb9-349"><a href="#cb9-349"></a><span class="ss">- </span>The remaining films are true negatives (TN)</span>
+<span id="cb9-350"><a href="#cb9-350"></a></span>
+<span id="cb9-351"><a href="#cb9-351"></a></span>
+<span id="cb9-352"><a href="#cb9-352"></a><span class="fu">## Precision and Recall</span></span>
+<span id="cb9-353"><a href="#cb9-353"></a></span>
+<span id="cb9-354"><a href="#cb9-354"></a><span class="ss">- </span>Precision and recall are then defined as:</span>
+<span id="cb9-355"><a href="#cb9-355"></a></span>
+<span id="cb9-356"><a href="#cb9-356"></a>$$</span>
+<span id="cb9-357"><a href="#cb9-357"></a>\begin{align}</span>
+<span id="cb9-358"><a href="#cb9-358"></a>  \text{Precision} &amp;= \frac{tp}{tp + fp} <span class="sc">\\</span></span>
+<span id="cb9-359"><a href="#cb9-359"></a>     \text{Recall} &amp;= \frac{tp}{tp + fn} \,</span>
+<span id="cb9-360"><a href="#cb9-360"></a>\end{align}</span>
+<span id="cb9-361"><a href="#cb9-361"></a>$$</span>
+<span id="cb9-362"><a href="#cb9-362"></a></span>
+<span id="cb9-363"><a href="#cb9-363"></a><span class="ss">- </span>*Precision* is the number of true positives among the predicted positives.</span>
+<span id="cb9-364"><a href="#cb9-364"></a><span class="ss">- </span>*Recall* is the number of true positives among the actual positives.</span>
+<span id="cb9-365"><a href="#cb9-365"></a></span>
+<span id="cb9-366"><a href="#cb9-366"></a><span class="fu">## Calculate</span></span>
+<span id="cb9-367"><a href="#cb9-367"></a></span>
+<span id="cb9-368"><a href="#cb9-368"></a><span class="ss">- </span>For "directed by Ridley Scott":</span>
+<span id="cb9-369"><a href="#cb9-369"></a><span class="ss">    - </span>Precision is $\frac{2}{3}$</span>
+<span id="cb9-370"><a href="#cb9-370"></a><span class="ss">        - </span>*Alien* and *Prometheus* divided by them and *Covenant*</span>
+<span id="cb9-371"><a href="#cb9-371"></a><span class="ss">    - </span>Recall is $\frac{2}{4}$ or  $\frac{1}{2}$</span>
+<span id="cb9-372"><a href="#cb9-372"></a><span class="ss">        - </span>*Alien* and *Prometheus* divided by them, *Prey*, and *Romulus*</span>
+<span id="cb9-373"><a href="#cb9-373"></a></span>
+<span id="cb9-374"><a href="#cb9-374"></a><span class="fu">## The Trade-off</span></span>
+<span id="cb9-375"><a href="#cb9-375"></a></span>
+<span id="cb9-376"><a href="#cb9-376"></a><span class="ss">- </span>Suppose you only care about precision.</span>
+<span id="cb9-377"><a href="#cb9-377"></a><span class="ss">    - </span>Try a new model: "every film is bad"</span>
+<span id="cb9-378"><a href="#cb9-378"></a><span class="ss">    - </span>Precision is arguably a perfect 100% if regard "zero out of zero" as 100%.</span>
+<span id="cb9-379"><a href="#cb9-379"></a><span class="ss">        - </span>Is undefined in practice, but we do what we can.</span>
+<span id="cb9-380"><a href="#cb9-380"></a></span>
+<span id="cb9-381"><a href="#cb9-381"></a><span class="fu">## The Trade-off</span></span>
+<span id="cb9-382"><a href="#cb9-382"></a></span>
+<span id="cb9-383"><a href="#cb9-383"></a><span class="ss">- </span>Suppose you only care about recall.</span>
+<span id="cb9-384"><a href="#cb9-384"></a><span class="ss">    - </span>Try a new model: "every film is good"</span>
+<span id="cb9-385"><a href="#cb9-385"></a><span class="ss">    - </span>Recall is a perfect 100% as all good films are predicted to be good.</span>
+<span id="cb9-386"><a href="#cb9-386"></a></span>
+<span id="cb9-387"><a href="#cb9-387"></a><span class="fu">## The Trade-off</span></span>
+<span id="cb9-388"><a href="#cb9-388"></a></span>
+<span id="cb9-389"><a href="#cb9-389"></a><span class="ss">- </span>When crafting a model to predict film goodness, it should be clear that "all good" and "all bad" are not useful models.</span>
+<span id="cb9-390"><a href="#cb9-390"></a><span class="ss">- </span>However, both individual succeed under an individual naive metric of either *precision* or *recall*.</span>
+<span id="cb9-391"><a href="#cb9-391"></a><span class="ss">- </span>When making models, we try to find a meaningful *trade-off* between the two.</span>
+<span id="cb9-392"><a href="#cb9-392"></a></span>
+<span id="cb9-393"><a href="#cb9-393"></a><span class="fu">## Takeaways</span></span>
+<span id="cb9-394"><a href="#cb9-394"></a></span>
+<span id="cb9-395"><a href="#cb9-395"></a><span class="ss">- </span>Models are hard.</span>
+<span id="cb9-396"><a href="#cb9-396"></a><span class="ss">- </span>Intelligence is:</span>
+<span id="cb9-397"><a href="#cb9-397"></a><span class="ss">    - </span>Hard to do, and</span>
+<span id="cb9-398"><a href="#cb9-398"></a><span class="ss">    - </span>Hard to measure.</span>
+<span id="cb9-399"><a href="#cb9-399"></a><span class="ss">- </span>Precision corresponds to some notion of goodness of a model.</span>
+<span id="cb9-400"><a href="#cb9-400"></a><span class="ss">    - </span>We will now aim to be precise with language.</span>
+<span id="cb9-401"><a href="#cb9-401"></a></span>
+<span id="cb9-402"><a href="#cb9-402"></a><span class="fu"># Graphs</span></span>
+<span id="cb9-403"><a href="#cb9-403"></a></span>
+<span id="cb9-404"><a href="#cb9-404"></a><span class="fu">## Defintion</span></span>
+<span id="cb9-405"><a href="#cb9-405"></a></span>
+<span id="cb9-406"><a href="#cb9-406"></a><span class="ss">- </span>We will start with a definition which we gradually expand.</span>
+<span id="cb9-407"><a href="#cb9-407"></a><span class="ss">    - </span>We recall (haha - recall) what a graph is not.</span>
+<span id="cb9-408"><a href="#cb9-408"></a></span>
+<span id="cb9-409"><a href="#cb9-409"></a><span class="fu">## Graphs</span></span>
+<span id="cb9-410"><a href="#cb9-410"></a></span>
+<span id="cb9-411"><a href="#cb9-411"></a><span class="ss">- </span>There are many ways to understand graphs, but I actually think graph theory is quite accessible.</span>
+<span id="cb9-412"><a href="#cb9-412"></a><span class="ss">- </span>I think it's also easier when using a running example.</span>
+<span id="cb9-413"><a href="#cb9-413"></a><span class="ss">- </span>I will also use a running example, Amtrak 🚄</span>
+<span id="cb9-414"><a href="#cb9-414"></a><span class="ss">    - </span>Or perhaps... a training example?</span>
+<span id="cb9-415"><a href="#cb9-415"></a><span class="ss">    - </span>I am running... a train??????</span>
+<span id="cb9-416"><a href="#cb9-416"></a><span class="ss">    - </span>I am training... to run?????</span>
+<span id="cb9-417"><a href="#cb9-417"></a>    </span>
+<span id="cb9-418"><a href="#cb9-418"></a><span class="fu">## Amtrak 🚄</span></span>
+<span id="cb9-419"><a href="#cb9-419"></a></span>
+<span id="cb9-420"><a href="#cb9-420"></a>&lt;center&gt;</span>
+<span id="cb9-421"><a href="#cb9-421"></a>&lt;img style="border-radius: 50%;height:100%" src="https://www.amtrak.com/content/dam/projects/dotcom/english/public/images/Carousel/Landing_Feature_03.gif"&gt;</span>
+<span id="cb9-422"><a href="#cb9-422"></a>&lt;/center&gt;</span>
+<span id="cb9-423"><a href="#cb9-423"></a></span>
+<span id="cb9-424"><a href="#cb9-424"></a><span class="fu">## Graph: Definition</span></span>
+<span id="cb9-425"><a href="#cb9-425"></a></span>
+<span id="cb9-426"><a href="#cb9-426"></a><span class="ss">- </span>A graph is an **ordered pair** $G$</span>
+<span id="cb9-427"><a href="#cb9-427"></a><span class="ss">- </span>We denote the two elements of the pair as:</span>
+<span id="cb9-428"><a href="#cb9-428"></a><span class="ss">    - </span>$V$ for vertices</span>
+<span id="cb9-429"><a href="#cb9-429"></a><span class="ss">    - </span>$E$ for edges</span>
+<span id="cb9-430"><a href="#cb9-430"></a>$$</span>
+<span id="cb9-431"><a href="#cb9-431"></a>G = (V, E)</span>
+<span id="cb9-432"><a href="#cb9-432"></a>$$</span>
+<span id="cb9-433"><a href="#cb9-433"></a></span>
+<span id="cb9-434"><a href="#cb9-434"></a><span class="fu">## In Amtrak</span></span>
+<span id="cb9-435"><a href="#cb9-435"></a></span>
+<span id="cb9-436"><a href="#cb9-436"></a><span class="ss">- </span>$V$, the vertices or nodes, stations or stops or cities,</span>
+<span id="cb9-437"><a href="#cb9-437"></a><span class="ss">    - </span>like Portland and Seattle, or</span>
+<span id="cb9-438"><a href="#cb9-438"></a><span class="ss">    - </span>like Kings St Station and Central Station</span>
+<span id="cb9-439"><a href="#cb9-439"></a><span class="ss">- </span>$E$, the edges, are the connections to adjacent stations</span>
+<span id="cb9-440"><a href="#cb9-440"></a><span class="ss">    - </span>like Portland and Oregon City, or Portland and Vancouver, WA.</span>
+<span id="cb9-441"><a href="#cb9-441"></a></span>
+<span id="cb9-442"><a href="#cb9-442"></a><span class="fu">## Graph: Definition</span></span>
+<span id="cb9-443"><a href="#cb9-443"></a></span>
+<span id="cb9-444"><a href="#cb9-444"></a><span class="ss">- </span>An <span class="in">`Amtrak`</span> is an **ordered pair**</span>
+<span id="cb9-445"><a href="#cb9-445"></a><span class="ss">- </span>We denote the two elements of the pair as:</span>
+<span id="cb9-446"><a href="#cb9-446"></a><span class="ss">    - </span>Stations for train stations used by Amtrak passengers, and</span>
+<span id="cb9-447"><a href="#cb9-447"></a><span class="ss">    - </span>Trains which Amtrak passengers ride between stations.</span>
+<span id="cb9-448"><a href="#cb9-448"></a></span>
+<span id="cb9-449"><a href="#cb9-449"></a>Amtrak = (Stations, Trains)</span>
+<span id="cb9-450"><a href="#cb9-450"></a></span>
+<span id="cb9-451"><a href="#cb9-451"></a><span class="fu">## Nodes, Vertices, or $V$</span></span>
+<span id="cb9-452"><a href="#cb9-452"></a></span>
+<span id="cb9-453"><a href="#cb9-453"></a><span class="ss">- </span>Let us consider the "Amtrak Cascades"</span>
+<span id="cb9-454"><a href="#cb9-454"></a><span class="ss">- </span>The set of vertices is the set of stations:</span>
+<span id="cb9-455"><a href="#cb9-455"></a></span>
+<span id="cb9-456"><a href="#cb9-456"></a>||||||</span>
+<span id="cb9-457"><a href="#cb9-457"></a>| --------------- | --------------- | --------------- | ------------ | ---|</span>
+<span id="cb9-458"><a href="#cb9-458"></a>| ALBANY        | EVERETT         | PORTLAND        | TUKWILA      | EUGENE          |</span>
+<span id="cb9-459"><a href="#cb9-459"></a>| BELLINGHAM      | KELSO/LONGVIEW  | SALEM           | VANCOUVER BC | OREGON CITY     |</span>
+<span id="cb9-460"><a href="#cb9-460"></a>| CENTRALIA       | MOUNT VERNON    | SEATTLE         | VANCOUVER WA | TACOMA          |  </span>
+<span id="cb9-461"><a href="#cb9-461"></a>| EDMONDS         | OLYMPIA/LACEY   | STANWOOD        |</span>
+<span id="cb9-462"><a href="#cb9-462"></a></span>
+<span id="cb9-463"><a href="#cb9-463"></a><span class="fu">## Nodes, Vertices, or $V$</span></span>
+<span id="cb9-464"><a href="#cb9-464"></a></span>
+<span id="cb9-465"><a href="#cb9-465"></a><span class="ss">- </span>Restrict our example to the PDX&lt;-&gt;SEA 6x daily trains:</span>
+<span id="cb9-466"><a href="#cb9-466"></a></span>
+<span id="cb9-467"><a href="#cb9-467"></a>|||||</span>
+<span id="cb9-468"><a href="#cb9-468"></a>| -------------- | ------------- | --------- | ---------- |</span>
+<span id="cb9-469"><a href="#cb9-469"></a>| CENTRALIA      | OLYMPIA/LACEY | SEATTLE   | TUKWILA    |</span>
+<span id="cb9-470"><a href="#cb9-470"></a>| KELSO/LONGVIEW | PORTLAND      | TACOMA    | VANCOUVER WA |</span>
+<span id="cb9-471"><a href="#cb9-471"></a></span>
+<span id="cb9-472"><a href="#cb9-472"></a><span class="fu">## Edges or $E$</span></span>
+<span id="cb9-473"><a href="#cb9-473"></a></span>
+<span id="cb9-474"><a href="#cb9-474"></a><span class="ss">- </span>$E$ is a set of elements termed 'edges', 'links', or 'lines'</span>
+<span id="cb9-475"><a href="#cb9-475"></a><span class="ss">    - </span>The edges are pairs of vertices</span>
+<span id="cb9-476"><a href="#cb9-476"></a><span class="ss">    - </span>In an *undirected graph*, edges are unordered pairs </span>
+<span id="cb9-477"><a href="#cb9-477"></a><span class="ss">    - </span>In an *directed graph*, edges are ordered pairs </span>
+<span id="cb9-478"><a href="#cb9-478"></a><span class="ss">    - </span>Amtrak is undirected, trains are directed.</span>
+<span id="cb9-479"><a href="#cb9-479"></a></span>
+<span id="cb9-480"><a href="#cb9-480"></a><span class="fu">## Directionality</span></span>
+<span id="cb9-481"><a href="#cb9-481"></a></span>
+<span id="cb9-482"><a href="#cb9-482"></a><span class="ss">- </span>The internet is directed.</span>
+<span id="cb9-483"><a href="#cb9-483"></a><span class="ss">    - </span>We may use Firefox or an inferior browser like Chrome to visit a url, but going the other way (creating files at a url) is highly nontrivial.</span>
+<span id="cb9-484"><a href="#cb9-484"></a></span>
+<span id="cb9-485"><a href="#cb9-485"></a><span class="fu">## Route</span></span>
+<span id="cb9-486"><a href="#cb9-486"></a></span>
+<span id="cb9-487"><a href="#cb9-487"></a><span class="ss">- </span>Order north-to-south:</span>
+<span id="cb9-488"><a href="#cb9-488"></a>    </span>
+<span id="cb9-489"><a href="#cb9-489"></a>    <span class="in">```{.email}</span></span>
+<span id="cb9-490"><a href="#cb9-490"></a><span class="in">    SEATTLE</span></span>
+<span id="cb9-491"><a href="#cb9-491"></a><span class="in">    TUKWILA</span></span>
+<span id="cb9-492"><a href="#cb9-492"></a><span class="in">    TACOMA</span></span>
+<span id="cb9-493"><a href="#cb9-493"></a><span class="in">    OLYMPIA/LACEY</span></span>
+<span id="cb9-494"><a href="#cb9-494"></a><span class="in">    CENTRALIA</span></span>
+<span id="cb9-495"><a href="#cb9-495"></a><span class="in">    KELSO/LONGVIEW</span></span>
+<span id="cb9-496"><a href="#cb9-496"></a><span class="in">    VANCOUVER WA</span></span>
+<span id="cb9-497"><a href="#cb9-497"></a><span class="in">    PORTLAND</span></span>
+<span id="cb9-498"><a href="#cb9-498"></a><span class="in">    ```</span></span>
+<span id="cb9-499"><a href="#cb9-499"></a>    </span>
+<span id="cb9-500"><a href="#cb9-500"></a><span class="ss">- </span>Centralia and Keslo/Longview is an edge.</span>
+<span id="cb9-501"><a href="#cb9-501"></a><span class="ss">- </span>The others, like Seattle and Tacoma, are not edges.</span>
+<span id="cb9-502"><a href="#cb9-502"></a></span>
+<span id="cb9-503"><a href="#cb9-503"></a><span class="fu">## Edges or $E$</span></span>
+<span id="cb9-504"><a href="#cb9-504"></a></span>
+<span id="cb9-505"><a href="#cb9-505"></a><span class="ss">- </span>Our edges are pairs of *adjacent* stations</span>
+<span id="cb9-506"><a href="#cb9-506"></a><span class="ss">- </span>There are 8 stations so there are 7 edges</span>
+<span id="cb9-507"><a href="#cb9-507"></a></span>
+<span id="cb9-508"><a href="#cb9-508"></a>|||</span>
+<span id="cb9-509"><a href="#cb9-509"></a>| ----------------- | ------------------- |</span>
+<span id="cb9-510"><a href="#cb9-510"></a>| (SEATTLE,         TUKWILA)       | (CENTRALIA,       KELSO) |</span>
+<span id="cb9-511"><a href="#cb9-511"></a>| (TUKWILA,         TACOMA)        | (KELSO, VANCOUVER) |</span>
+<span id="cb9-512"><a href="#cb9-512"></a>| (TACOMA,          OLYMPIA) | (VANCOUVER,   PORTLAND)      |</span>
+<span id="cb9-513"><a href="#cb9-513"></a>| (OLYMPIA,   CENTRALIA)   |                     |</span>
+<span id="cb9-514"><a href="#cb9-514"></a></span>
+<span id="cb9-515"><a href="#cb9-515"></a></span>
+<span id="cb9-516"><a href="#cb9-516"></a><span class="fu">## Graph: Definition</span></span>
+<span id="cb9-517"><a href="#cb9-517"></a></span>
+<span id="cb9-518"><a href="#cb9-518"></a><span class="ss">- </span>We can express G using only sets over elements of stations:</span>
+<span id="cb9-519"><a href="#cb9-519"></a>    </span>
+<span id="cb9-520"><a href="#cb9-520"></a><span class="in">```{.py}</span></span>
+<span id="cb9-521"><a href="#cb9-521"></a><span class="in">v = [</span></span>
+<span id="cb9-522"><a href="#cb9-522"></a><span class="in">      "SEATTLE",</span></span>
+<span id="cb9-523"><a href="#cb9-523"></a><span class="in">      "TUKWILA",</span></span>
+<span id="cb9-524"><a href="#cb9-524"></a><span class="in">      "TACOMA",</span></span>
+<span id="cb9-525"><a href="#cb9-525"></a><span class="in">      "OLYMPIA/LACEY",</span></span>
+<span id="cb9-526"><a href="#cb9-526"></a><span class="in">      "CENTRALIA",</span></span>
+<span id="cb9-527"><a href="#cb9-527"></a><span class="in">      "KELSO/LONGVIEW",</span></span>
+<span id="cb9-528"><a href="#cb9-528"></a><span class="in">      "VANCOUVER WA",</span></span>
+<span id="cb9-529"><a href="#cb9-529"></a><span class="in">      "PORTLAND"</span></span>
+<span id="cb9-530"><a href="#cb9-530"></a><span class="in">]</span></span>
+<span id="cb9-531"><a href="#cb9-531"></a><span class="in">e = [</span></span>
+<span id="cb9-532"><a href="#cb9-532"></a><span class="in">      ["TUKWILA","TACOMA"],</span></span>
+<span id="cb9-533"><a href="#cb9-533"></a><span class="in">      ["TACOMA","OLYMPIA/LACEY"],</span></span>
+<span id="cb9-534"><a href="#cb9-534"></a><span class="in">      ["OLYMPIA/LACEY","CENTRALIA"],</span></span>
+<span id="cb9-535"><a href="#cb9-535"></a><span class="in">      ["CENTRALIA","KELSO/LONGVIEW"],</span></span>
+<span id="cb9-536"><a href="#cb9-536"></a><span class="in">      ["KELSO/LONGVIEW","VANCOUVER WA"],</span></span>
+<span id="cb9-537"><a href="#cb9-537"></a><span class="in">      ["VANCOUVER WA","PORTLAND"]</span></span>
+<span id="cb9-538"><a href="#cb9-538"></a><span class="in">]</span></span>
+<span id="cb9-539"><a href="#cb9-539"></a><span class="in">```</span></span>
+<span id="cb9-540"><a href="#cb9-540"></a></span>
+<span id="cb9-541"><a href="#cb9-541"></a><span class="fu">## Graph: Exercise</span></span>
+<span id="cb9-542"><a href="#cb9-542"></a></span>
+<span id="cb9-543"><a href="#cb9-543"></a><span class="ss">- </span>Amtrak recently added lines, including the Hiawatha, with service from Milwaukee to the world's greatest city, Chicago.</span>
+<span id="cb9-544"><a href="#cb9-544"></a>    </span>
+<span id="cb9-545"><a href="#cb9-545"></a><span class="at">    &gt; From the grandeur of Grant Park’s Buckingham Fountain to iconic museums and skyscrapers, see for yourself why Chicago was once dubbed “Paris on the Prairie.” Engage in retail therapy on the Magnificent Mile or root for the home team within the friendly confines of famed Wrigley Field.</span></span>
+<span id="cb9-546"><a href="#cb9-546"></a>    </span>
+<span id="cb9-547"><a href="#cb9-547"></a><span class="fu">## Graph: Exercise</span></span>
+<span id="cb9-548"><a href="#cb9-548"></a></span>
+<span id="cb9-549"><a href="#cb9-549"></a><span class="ss">- </span>As an exercise, construct the graph of the Hiawatha.</span>
+<span id="cb9-550"><a href="#cb9-550"></a><span class="ss">- </span>The route is described <span class="co">[</span><span class="ot">here</span><span class="co">](https://www.amtrak.com/routes/hiawatha-train.html)</span> and contains five stations.</span>
+<span id="cb9-551"><a href="#cb9-551"></a><span class="ss">- </span>You may use the three letter codes like "MKE" and "CHI".</span>
+<span id="cb9-552"><a href="#cb9-552"></a><span class="ss">    - </span>Make a <span class="in">`v`</span></span>
+<span id="cb9-553"><a href="#cb9-553"></a><span class="ss">        - </span>Names of stations enclosed in quotes</span>
+<span id="cb9-554"><a href="#cb9-554"></a><span class="ss">        - </span>Separated by commas exclosed in boxy brackets <span class="in">`[]`</span></span>
+<span id="cb9-555"><a href="#cb9-555"></a><span class="ss">    - </span>Make an <span class="in">`e`</span></span>
+<span id="cb9-556"><a href="#cb9-556"></a><span class="ss">        - </span>As above, but over pairs (in boxy brackets)</span>
+<span id="cb9-557"><a href="#cb9-557"></a></span>
+<span id="cb9-558"><a href="#cb9-558"></a></span>
+<span id="cb9-559"><a href="#cb9-559"></a><span class="fu">## Trust but Verify</span></span>
+<span id="cb9-560"><a href="#cb9-560"></a></span>
+<span id="cb9-561"><a href="#cb9-561"></a><span class="ss">- </span>You will be able to tell if your <span class="in">`e`</span> and <span class="in">`v`</span> are "well-formed" if they may be used within a Colab code cell.</span>
+<span id="cb9-562"><a href="#cb9-562"></a><span class="ss">- </span>You can try, for example, to print them.</span>
+<span id="cb9-563"><a href="#cb9-563"></a><span class="in">```{.py}</span></span>
+<span id="cb9-564"><a href="#cb9-564"></a><span class="in">print("v is " + v)</span></span>
+<span id="cb9-565"><a href="#cb9-565"></a><span class="in">print("e is " + e)</span></span>
+<span id="cb9-566"><a href="#cb9-566"></a><span class="in">```</span></span>
+<span id="cb9-567"><a href="#cb9-567"></a></span>
+<span id="cb9-568"><a href="#cb9-568"></a></span>
+<span id="cb9-569"><a href="#cb9-569"></a><span class="fu"># What's next?</span></span>
+<span id="cb9-570"><a href="#cb9-570"></a></span>
+<span id="cb9-571"><a href="#cb9-571"></a><span class="fu">## For what?</span></span>
+<span id="cb9-572"><a href="#cb9-572"></a></span>
+<span id="cb9-573"><a href="#cb9-573"></a><span class="ss">- </span>Next week, we will use graphs to describe a model that conceptualizes a thinking brain:</span>
+<span id="cb9-574"><a href="#cb9-574"></a><span class="ss">    - </span>The *neural network*</span>
+<span id="cb9-575"><a href="#cb9-575"></a><span class="ss">- </span>A neural network is a *weighted* and *directed* graph.</span>
+<span id="cb9-576"><a href="#cb9-576"></a></span>
+<span id="cb9-577"><a href="#cb9-577"></a></span>
+<span id="cb9-578"><a href="#cb9-578"></a><span class="fu">## Edge Weights</span></span>
+<span id="cb9-579"><a href="#cb9-579"></a></span>
+<span id="cb9-580"><a href="#cb9-580"></a><span class="ss">- </span>Thus far, we have thought of graphs as connections - either *Amtrak* connects two stations, or it does not.</span>
+<span id="cb9-581"><a href="#cb9-581"></a><span class="ss">- </span>In practice, we often care about something else, like, how long a connection will take.</span>
+<span id="cb9-582"><a href="#cb9-582"></a><span class="ss">- </span>In practice, we can *also* often omit the vertices.</span>
+<span id="cb9-583"><a href="#cb9-583"></a><span class="ss">    - </span>Unless there is a station with no connections that we still care about.</span>
+<span id="cb9-584"><a href="#cb9-584"></a><span class="ss">    - </span>E.g. interstate highway system and state capitals (no edge to Honolulu).</span>
+<span id="cb9-585"><a href="#cb9-585"></a></span>
+<span id="cb9-586"><a href="#cb9-586"></a></span>
+<span id="cb9-587"><a href="#cb9-587"></a><span class="fu">## World's Greatest</span></span>
+<span id="cb9-588"><a href="#cb9-588"></a></span>
+<span id="cb9-589"><a href="#cb9-589"></a><span class="ss">- </span>Chicago is only minutes from, uh, "Glenview, IL"</span>
+<span id="cb9-590"><a href="#cb9-590"></a><span class="ss">    - </span><span class="co">[</span><span class="ot">Times</span><span class="co">](https://content.amtrak.com/content/timetable/Hiawatha%20Service.pdf)</span></span>
+<span id="cb9-591"><a href="#cb9-591"></a></span>
+<span id="cb9-592"><a href="#cb9-592"></a><span class="in">```{.py}</span></span>
+<span id="cb9-593"><a href="#cb9-593"></a><span class="in">e = [</span></span>
+<span id="cb9-594"><a href="#cb9-594"></a><span class="in">    ["CHI","GLN",22],</span></span>
+<span id="cb9-595"><a href="#cb9-595"></a><span class="in">    ["GLN","SVT",38],</span></span>
+<span id="cb9-596"><a href="#cb9-596"></a><span class="in">    ["SVT","MKA",14],</span></span>
+<span id="cb9-597"><a href="#cb9-597"></a><span class="in">    ["MKA","MKE",15]</span></span>
+<span id="cb9-598"><a href="#cb9-598"></a><span class="in">]</span></span>
+<span id="cb9-599"><a href="#cb9-599"></a><span class="in">```</span></span>
+<span id="cb9-600"><a href="#cb9-600"></a></span>
+<span id="cb9-601"><a href="#cb9-601"></a><span class="ss">- </span>This means "MKA" is 15 minutes away from "MKE".</span>
+<span id="cb9-602"><a href="#cb9-602"></a><span class="ss">    - </span>It says *nothing* about how far "MKE" is from "MKA".</span>
+<span id="cb9-603"><a href="#cb9-603"></a><span class="ss">    - </span>We would need to find a different train that goes the other way.</span>
+<span id="cb9-604"><a href="#cb9-604"></a></span>
+<span id="cb9-605"><a href="#cb9-605"></a><span class="fu"># Examples</span></span>
+<span id="cb9-606"><a href="#cb9-606"></a></span>
+<span id="cb9-607"><a href="#cb9-607"></a><span class="fu">## Decision Tree</span></span>
+<span id="cb9-608"><a href="#cb9-608"></a></span>
+<span id="cb9-609"><a href="#cb9-609"></a><span class="ss">- </span>The decision tree/dichotomous key from labs is a graph.</span>
+<span id="cb9-610"><a href="#cb9-610"></a><span class="ss">    - </span>Nodes are questions.</span>
+<span id="cb9-611"><a href="#cb9-611"></a><span class="ss">    - </span>Answers are edges.</span>
+<span id="cb9-614"><a href="#cb9-614"></a><span class="in">```{dot}</span></span>
+<span id="cb9-615"><a href="#cb9-615"></a><span class="in">digraph OakKey {</span></span>
+<span id="cb9-616"><a href="#cb9-616"></a><span class="in">    bgcolor="transparent"</span></span>
+<span id="cb9-617"><a href="#cb9-617"></a><span class="in">    node [shape=box,  fontcolor="white", color="white"];</span></span>
+<span id="cb9-618"><a href="#cb9-618"></a><span class="in">    edge [color="white", fontcolor="white"];</span></span>
+<span id="cb9-619"><a href="#cb9-619"></a><span class="in">    </span></span>
+<span id="cb9-620"><a href="#cb9-620"></a><span class="in">    // Questions/Nodes</span></span>
+<span id="cb9-621"><a href="#cb9-621"></a><span class="in">    Start [label="Leaves are smooth with no teeth or lobes?"];</span></span>
+<span id="cb9-622"><a href="#cb9-622"></a><span class="in">    Evergreen [label="Laves evergreen?"];</span></span>
+<span id="cb9-623"><a href="#cb9-623"></a><span class="in">    GrowthHabit [label="Large Tree (not shrub)?"];</span></span>
+<span id="cb9-624"><a href="#cb9-624"></a><span class="in">    LeafShape [label="Leaves more than 3x long as wide"];</span></span>
+<span id="cb9-625"><a href="#cb9-625"></a><span class="in">    Bristles [label="Lobes/teeth bristle-tipped?"];</span></span>
+<span id="cb9-626"><a href="#cb9-626"></a><span class="in">    LobeCount6 [label="3 or fewer lobes?"];</span></span>
+<span id="cb9-627"><a href="#cb9-627"></a><span class="in">    LobeCount7 [label="9 or fewer lobes?"];</span></span>
+<span id="cb9-628"><a href="#cb9-628"></a></span>
+<span id="cb9-629"><a href="#cb9-629"></a><span class="in">    // Species (Leaf nodes)</span></span>
+<span id="cb9-630"><a href="#cb9-630"></a><span class="in">    LiveOak [label="Southern live oak"];</span></span>
+<span id="cb9-631"><a href="#cb9-631"></a><span class="in">    DwarfOak [label="Dwarf live oak"];</span></span>
+<span id="cb9-632"><a href="#cb9-632"></a><span class="in">    WillowOak [label="Willow oak"];</span></span>
+<span id="cb9-633"><a href="#cb9-633"></a><span class="in">    ShingleOak [label="Shingle oak"];</span></span>
+<span id="cb9-634"><a href="#cb9-634"></a><span class="in">    BlackjackOak [label="Blackjack oak"];</span></span>
+<span id="cb9-635"><a href="#cb9-635"></a><span class="in">    RedOak [label="Northern red oak"];</span></span>
+<span id="cb9-636"><a href="#cb9-636"></a><span class="in">    WhiteOak [label="White oak"];</span></span>
+<span id="cb9-637"><a href="#cb9-637"></a><span class="in">    SwampOak [label="Swamp chestnut oak"];</span></span>
+<span id="cb9-638"><a href="#cb9-638"></a></span>
+<span id="cb9-639"><a href="#cb9-639"></a><span class="in">    // Relationships</span></span>
+<span id="cb9-640"><a href="#cb9-640"></a><span class="in">    Start -&gt; Evergreen [label="True"];</span></span>
+<span id="cb9-641"><a href="#cb9-641"></a><span class="in">    Start -&gt; Bristles [label="False"];</span></span>
+<span id="cb9-642"><a href="#cb9-642"></a></span>
+<span id="cb9-643"><a href="#cb9-643"></a><span class="in">    Evergreen -&gt; GrowthHabit [label="True"];</span></span>
+<span id="cb9-644"><a href="#cb9-644"></a><span class="in">    Evergreen -&gt; LeafShape [label="False"];</span></span>
+<span id="cb9-645"><a href="#cb9-645"></a></span>
+<span id="cb9-646"><a href="#cb9-646"></a><span class="in">    GrowthHabit -&gt; LiveOak [label="True"];</span></span>
+<span id="cb9-647"><a href="#cb9-647"></a><span class="in">    GrowthHabit -&gt; DwarfOak [label="False"];</span></span>
+<span id="cb9-648"><a href="#cb9-648"></a></span>
+<span id="cb9-649"><a href="#cb9-649"></a><span class="in">    LeafShape -&gt; WillowOak [label="True"];</span></span>
+<span id="cb9-650"><a href="#cb9-650"></a><span class="in">    LeafShape -&gt; ShingleOak [label="False"];</span></span>
+<span id="cb9-651"><a href="#cb9-651"></a></span>
+<span id="cb9-652"><a href="#cb9-652"></a><span class="in">    Bristles -&gt; LobeCount6 [label="True"];</span></span>
+<span id="cb9-653"><a href="#cb9-653"></a><span class="in">    Bristles -&gt; LobeCount7 [label="False"];</span></span>
+<span id="cb9-654"><a href="#cb9-654"></a></span>
+<span id="cb9-655"><a href="#cb9-655"></a><span class="in">    LobeCount6 -&gt; BlackjackOak [label="True"];</span></span>
+<span id="cb9-656"><a href="#cb9-656"></a><span class="in">    LobeCount6 -&gt; RedOak [label="False"];</span></span>
+<span id="cb9-657"><a href="#cb9-657"></a></span>
+<span id="cb9-658"><a href="#cb9-658"></a><span class="in">    LobeCount7 -&gt; WhiteOak [label="True"];</span></span>
+<span id="cb9-659"><a href="#cb9-659"></a><span class="in">    LobeCount7 -&gt; SwampOak [label="False"];</span></span>
+<span id="cb9-660"><a href="#cb9-660"></a><span class="in">}</span></span>
+<span id="cb9-661"><a href="#cb9-661"></a><span class="in">```</span></span>
+<span id="cb9-662"><a href="#cb9-662"></a></span>
+<span id="cb9-663"><a href="#cb9-663"></a><span class="fu">## The gram</span></span>
+<span id="cb9-664"><a href="#cb9-664"></a></span>
+<span id="cb9-665"><a href="#cb9-665"></a><span class="al">![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*82qRohVmpVHmRzjd31GG_g.png)</span></span>
+<span id="cb9-666"><a href="#cb9-666"></a></span>
+<span id="cb9-667"><a href="#cb9-667"></a><span class="co">[</span><span class="ot">src</span><span class="co">](https://medium.com/@maximpiessen/how-i-visualised-my-instagram-network-and-what-i-learned-from-it-d7cc125ef297)</span></span>
+<span id="cb9-668"><a href="#cb9-668"></a></span>
+<span id="cb9-669"><a href="#cb9-669"></a><span class="fu">## Explainer</span></span>
+<span id="cb9-670"><a href="#cb9-670"></a></span>
+<span id="cb9-671"><a href="#cb9-671"></a><span class="ss">- </span>Accounts are nodes.</span>
+<span id="cb9-672"><a href="#cb9-672"></a><span class="ss">- </span>Follows are edges.</span>
+<span id="cb9-673"><a href="#cb9-673"></a><span class="ss">  - </span>You can regard edge weight as amount of following, ranging from block/mute/restrict up to like, stories and posts or whatever.</span>
+<span id="cb9-674"><a href="#cb9-674"></a><span class="ss">  - </span>I don't know how the gram works.</span>
+<span id="cb9-675"><a href="#cb9-675"></a></span>
+<span id="cb9-676"><a href="#cb9-676"></a><span class="fu">## Molecule</span></span>
+<span id="cb9-677"><a href="#cb9-677"></a></span>
+<span id="cb9-678"><a href="#cb9-678"></a><span class="al">![](https://cdn.britannica.com/28/105428-050-8EA3E600/Caffeine-molecule.jpg)</span></span>
+<span id="cb9-679"><a href="#cb9-679"></a></span>
+<span id="cb9-680"><a href="#cb9-680"></a><span class="co">[</span><span class="ot">src</span><span class="co">](https://www.britannica.com/science/molecule)</span></span>
+<span id="cb9-681"><a href="#cb9-681"></a></span>
+<span id="cb9-682"><a href="#cb9-682"></a><span class="fu">## Explainer</span></span>
+<span id="cb9-683"><a href="#cb9-683"></a></span>
+<span id="cb9-684"><a href="#cb9-684"></a><span class="ss">- </span>Atoms are nodes</span>
+<span id="cb9-685"><a href="#cb9-685"></a><span class="ss">- </span>Bonds are edges</span>
+<span id="cb9-686"><a href="#cb9-686"></a><span class="ss">    - </span>May be weighted!</span>
+<span id="cb9-687"><a href="#cb9-687"></a><span class="ss">- </span>This captures many *materials* as well</span>
+<span id="cb9-688"><a href="#cb9-688"></a></span>
+<span id="cb9-689"><a href="#cb9-689"></a><span class="fu">## River system</span></span>
+<span id="cb9-690"><a href="#cb9-690"></a></span>
+<span id="cb9-691"><a href="#cb9-691"></a><span class="al">![](https://upload.wikimedia.org/wikipedia/commons/e/e4/Columbiarivermap.png)</span></span>
+<span id="cb9-692"><a href="#cb9-692"></a></span>
+<span id="cb9-693"><a href="#cb9-693"></a><span class="co">[</span><span class="ot">src</span><span class="co">](https://en.wikipedia.org/wiki/Columbia_River_drainage_basin)</span></span>
+<span id="cb9-694"><a href="#cb9-694"></a></span>
+<span id="cb9-695"><a href="#cb9-695"></a><span class="fu">## Explainer</span></span>
+<span id="cb9-696"><a href="#cb9-696"></a></span>
+<span id="cb9-697"><a href="#cb9-697"></a><span class="ss">- </span>E.g. the Columbia River Valley is a graph where</span>
+<span id="cb9-698"><a href="#cb9-698"></a><span class="ss">    - </span>Edges are rivers</span>
+<span id="cb9-699"><a href="#cb9-699"></a><span class="ss">    - </span>Nodes are confluences (where two rivers merge).</span>
+<span id="cb9-700"><a href="#cb9-700"></a><span class="ss">- </span>This is a neat case where every node has two incoming and one outgoing edge.</span>
+<span id="cb9-701"><a href="#cb9-701"></a><span class="ss">    - </span>Opposite of a decision tree.</span>
+<span id="cb9-702"><a href="#cb9-702"></a></span>
+<span id="cb9-703"><a href="#cb9-703"></a><span class="fu">## The Brain?</span></span>
+<span id="cb9-704"><a href="#cb9-704"></a></span>
+<span id="cb9-705"><a href="#cb9-705"></a><span class="al">![](https://upload.wikimedia.org/wikipedia/commons/c/c6/PET-image.jpg)</span></span>
+<span id="cb9-706"><a href="#cb9-706"></a></span>
+<span id="cb9-707"><a href="#cb9-707"></a><span class="co">[</span><span class="ot">src</span><span class="co">](https://en.wikipedia.org/wiki/Human_brain)</span></span>
+<span id="cb9-708"><a href="#cb9-708"></a></span>
+<span id="cb9-709"><a href="#cb9-709"></a><span class="fu">## Explainer</span></span>
+<span id="cb9-710"><a href="#cb9-710"></a></span>
+<span id="cb9-711"><a href="#cb9-711"></a><span class="ss">- </span>Perhaps.</span>
+<span id="cb9-712"><a href="#cb9-712"></a><span class="ss">    - </span>Neurons are nodes.</span>
+<span id="cb9-713"><a href="#cb9-713"></a><span class="ss">    - </span>Axons are edges.</span>
+<span id="cb9-714"><a href="#cb9-714"></a><span class="ss">    - </span>There are both directions and weights!</span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
