@@ -1,0 +1,1647 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.30">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Falsify – AI 101</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./90_learning.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-a4a11d514c7d463668e07712114998e6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-70c9a4798e5f6abb0636bcdc3eed0e90.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./91_false.html">Falsify</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">AI 101</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00_turing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ada &amp; Alan</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Turing’s Test</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11_colab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Colab</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20_supervise.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">(Un)supervision</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21_key.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dichotomous Key</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./30_regress.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Regression</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./31_nd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="math inline">\(n\)</span>-D</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./40_class.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Classification</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./41_treetree.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tree Tree</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./50_graph.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Graphs</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./51_sudoku.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sudoku</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6__guest.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Guest</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6_1_doc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Thinking Game</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./60_neural.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Neural Networks</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./61_weights.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Weights</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./70_perceptron.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Perceptron</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./71_multi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Multi-class</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./80_matrix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Matrix</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./90_learning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Learning</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./91_false.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Falsify</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#background" id="toc-background" class="nav-link active" data-scroll-target="#background">Background</a>
+  <ul class="collapse">
+  <li><a href="#connections" id="toc-connections" class="nav-link" data-scroll-target="#connections">Connections</a></li>
+  <li><a href="#definitions" id="toc-definitions" class="nav-link" data-scroll-target="#definitions">Definitions</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
+  <li><a href="#the-dice" id="toc-the-dice" class="nav-link" data-scroll-target="#the-dice">The Dice</a>
+  <ul class="collapse">
+  <li><a href="#the-neural-network" id="toc-the-neural-network" class="nav-link" data-scroll-target="#the-neural-network">The Neural Network</a></li>
+  <li><a href="#supervision" id="toc-supervision" class="nav-link" data-scroll-target="#supervision">Supervision</a></li>
+  <li><a href="#learning" id="toc-learning" class="nav-link" data-scroll-target="#learning">Learning</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#the-problem" id="toc-the-problem" class="nav-link" data-scroll-target="#the-problem">The Problem</a>
+  <ul class="collapse">
+  <li><a href="#in-lecture" id="toc-in-lecture" class="nav-link" data-scroll-target="#in-lecture">In Lecture</a>
+  <ul class="collapse">
+  <li><a href="#the-bias" id="toc-the-bias" class="nav-link" data-scroll-target="#the-bias">The “Bias”</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#the-solution" id="toc-the-solution" class="nav-link" data-scroll-target="#the-solution">The Solution</a>
+  <ul class="collapse">
+  <li><a href="#previously" id="toc-previously" class="nav-link" data-scroll-target="#previously">Previously…</a>
+  <ul class="collapse">
+  <li><a href="#mathematically" id="toc-mathematically" class="nav-link" data-scroll-target="#mathematically">Mathematically</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#your-task" id="toc-your-task" class="nav-link" data-scroll-target="#your-task">Your Task</a>
+  <ul class="collapse">
+  <li><a href="#steps" id="toc-steps" class="nav-link" data-scroll-target="#steps">Steps</a></li>
+  <li><a href="#final-product" id="toc-final-product" class="nav-link" data-scroll-target="#final-product">Final Product</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Falsify</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i></button></div></div>
+<p class="subtitle lead">AI 101</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="background" class="level1">
+<h1>Background</h1>
+<section id="connections" class="level2">
+<h2 class="anchored" data-anchor-id="connections">Connections</h2>
+<p>In our lecture, we introduced the <em>learning</em> within our martrix framework. I think there was a lot of content in the lecture and would like for you to be able to go over it a bit, and try things out yourself.</p>
+</section>
+<section id="definitions" class="level2">
+<h2 class="anchored" data-anchor-id="definitions">Definitions</h2>
+<ul>
+<li>Today, we will work with <em>code cells</em> of Colab to create a multi-class perceptron than can correctly classify dice when run.</li>
+</ul>
+</section>
+<section id="setup" class="level2">
+<h2 class="anchored" data-anchor-id="setup">Setup</h2>
+</section>
+<section id="the-dice" class="level2">
+<h2 class="anchored" data-anchor-id="the-dice">The Dice</h2>
+<ul>
+<li>You will need a code cell that includes at least the following:</li>
+</ul>
+<div id="88e65f7b" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2"></a>one <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>]</span>
+<span id="cb1-3"><a href="#cb1-3"></a>two <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>]</span>
+<span id="cb1-4"><a href="#cb1-4"></a>thr <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>]</span>
+<span id="cb1-5"><a href="#cb1-5"></a>fou <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>]</span>
+<span id="cb1-6"><a href="#cb1-6"></a>fiv <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>]</span>
+<span id="cb1-7"><a href="#cb1-7"></a>six <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>]</span>
+<span id="cb1-8"><a href="#cb1-8"></a>dice <span class="op">=</span> np.array([one, two, thr, fou, fiv, six])</span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="bu">print</span>(dice)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[0 0 0 0 1 0 0 0 0]
+ [0 0 1 0 0 0 1 0 0]
+ [0 0 1 0 1 0 1 0 0]
+ [1 0 1 0 0 0 1 0 1]
+ [1 0 1 0 1 0 1 0 1]
+ [1 0 1 1 0 1 1 0 1]]</code></pre>
+</div>
+</div>
+<ul>
+<li>You will probably also want “fair” dice.
+<ul>
+<li>Each row sums to one, even though…</li>
+<li>Each row has a different number of non-zero values.</li>
+</ul></li>
+</ul>
+<div id="b058ce3b" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>divider <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]).reshape(<span class="dv">1</span>,<span class="dv">6</span>)</span>
+<span id="cb3-2"><a href="#cb3-2"></a>fair_dice <span class="op">=</span> (dice.transpose() <span class="op">/</span> divider).transpose()</span>
+<span id="cb3-3"><a href="#cb3-3"></a>fair_dice</span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="bu">print</span>(fair_dice)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[0.         0.         0.         0.         1.         0.
+  0.         0.         0.        ]
+ [0.         0.         0.5        0.         0.         0.
+  0.5        0.         0.        ]
+ [0.         0.         0.33333333 0.         0.33333333 0.
+  0.33333333 0.         0.        ]
+ [0.25       0.         0.25       0.         0.         0.
+  0.25       0.         0.25      ]
+ [0.2        0.         0.2        0.         0.2        0.
+  0.2        0.         0.2       ]
+ [0.16666667 0.         0.16666667 0.16666667 0.         0.16666667
+  0.16666667 0.         0.16666667]]</code></pre>
+</div>
+</div>
+<ul>
+<li>You should have some familiarity with what these code blocks do, even if you wouldn’t have written them yourself without them being provided.
+<ul>
+<li>Run them a few times.</li>
+<li>Try to make some minor edits and predict what will change.</li>
+<li>See if your are correct.</li>
+<li>Get them working again.</li>
+</ul></li>
+</ul>
+<section id="the-neural-network" class="level3">
+<h3 class="anchored" data-anchor-id="the-neural-network">The Neural Network</h3>
+<ul>
+<li>We made a neural network with random “edge weights”.</li>
+</ul>
+<div id="d5b36839" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>learn <span class="op">=</span> np.random.rand(<span class="dv">6</span>,<span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>We also made a backup copy so we could start over, easily, at any time.</li>
+</ul>
+<div id="5dbe7d0e" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>backup <span class="op">=</span> learn.copy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>It should look like this:</li>
+</ul>
+<div id="aa2f84e5" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="bu">print</span>(learn)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[0.79905459 0.90807795 0.64882604 0.2891742  0.08023946 0.40492137
+  0.68131149 0.29313589 0.43091928]
+ [0.08478128 0.81795651 0.23087639 0.65886414 0.97435858 0.98247183
+  0.59866117 0.29200513 0.76870662]
+ [0.37112311 0.96460858 0.79185725 0.60330096 0.13559981 0.93244911
+  0.67072557 0.07258409 0.89131832]
+ [0.26224806 0.32607417 0.87612109 0.37124917 0.189376   0.11007376
+  0.88541619 0.12534034 0.36361595]
+ [0.21851785 0.30719779 0.30366815 0.37589443 0.12214581 0.68600188
+  0.8202339  0.72848908 0.09124466]
+ [0.27977661 0.36640022 0.54602639 0.49274091 0.22379799 0.72878082
+  0.27838677 0.82448433 0.07645653]]</code></pre>
+</div>
+</div>
+</section>
+<section id="supervision" class="level3">
+<h3 class="anchored" data-anchor-id="supervision">Supervision</h3>
+<ul>
+<li>We compared against an answer key, which was just a diagonal.
+<ul>
+<li>This is the superviser in supervised learning.
+<ul>
+<li>It knows the answers.</li>
+<li>It can provide feedback to the learning framework.</li>
+</ul></li>
+</ul></li>
+</ul>
+<div id="2516c161" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>key <span class="op">=</span> np.array([</span>
+<span id="cb9-2"><a href="#cb9-2"></a>       [ <span class="va">True</span>, <span class="va">False</span>, <span class="va">False</span>, <span class="va">False</span>, <span class="va">False</span>, <span class="va">False</span>],</span>
+<span id="cb9-3"><a href="#cb9-3"></a>       [<span class="va">False</span>,  <span class="va">True</span>, <span class="va">False</span>, <span class="va">False</span>, <span class="va">False</span>, <span class="va">False</span>],</span>
+<span id="cb9-4"><a href="#cb9-4"></a>       [<span class="va">False</span>, <span class="va">False</span>,  <span class="va">True</span>, <span class="va">False</span>, <span class="va">False</span>, <span class="va">False</span>],</span>
+<span id="cb9-5"><a href="#cb9-5"></a>       [<span class="va">False</span>, <span class="va">False</span>, <span class="va">False</span>,  <span class="va">True</span>, <span class="va">False</span>, <span class="va">False</span>],</span>
+<span id="cb9-6"><a href="#cb9-6"></a>       [<span class="va">False</span>, <span class="va">False</span>, <span class="va">False</span>, <span class="va">False</span>,  <span class="va">True</span>, <span class="va">False</span>],</span>
+<span id="cb9-7"><a href="#cb9-7"></a>       [<span class="va">False</span>, <span class="va">False</span>, <span class="va">False</span>, <span class="va">False</span>, <span class="va">False</span>,  <span class="va">True</span>]</span>
+<span id="cb9-8"><a href="#cb9-8"></a>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="learning" class="level3">
+<h3 class="anchored" data-anchor-id="learning">Learning</h3>
+<ul>
+<li>Learning occured in a few stages.</li>
+<li>First, we also made sure to start with a fresh “<code>learn</code>” matrix, by copying from the backup.</li>
+</ul>
+<div id="db1e6b5d" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>learn <span class="op">=</span> backup.copy()</span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="bu">print</span>(learn)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[0.79905459 0.90807795 0.64882604 0.2891742  0.08023946 0.40492137
+  0.68131149 0.29313589 0.43091928]
+ [0.08478128 0.81795651 0.23087639 0.65886414 0.97435858 0.98247183
+  0.59866117 0.29200513 0.76870662]
+ [0.37112311 0.96460858 0.79185725 0.60330096 0.13559981 0.93244911
+  0.67072557 0.07258409 0.89131832]
+ [0.26224806 0.32607417 0.87612109 0.37124917 0.189376   0.11007376
+  0.88541619 0.12534034 0.36361595]
+ [0.21851785 0.30719779 0.30366815 0.37589443 0.12214581 0.68600188
+  0.8202339  0.72848908 0.09124466]
+ [0.27977661 0.36640022 0.54602639 0.49274091 0.22379799 0.72878082
+  0.27838677 0.82448433 0.07645653]]</code></pre>
+</div>
+</div>
+<ul>
+<li>Then, we would compare against the answer key to see how accurate the current neural network was at predicting dice.</li>
+</ul>
+<div id="1f265ed3" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>grade <span class="op">=</span> np.equal(key, <span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose())</span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="bu">print</span>(grade)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[False  True  True  True  True  True]
+ [ True False  True  True  True  True]
+ [ True  True False  True  True  True]
+ [ True  True  True False  True  True]
+ [ True  True  True  True False  True]
+ [ True  True  True  True  True False]]</code></pre>
+</div>
+</div>
+<ul>
+<li>Then, we used a loop.
+<ul>
+<li>For every dice,
+<ul>
+<li>For every value it could predict, correct or otherwise.
+<ul>
+<li>If correct, reward the row with increased weight.</li>
+<li>Else, penalize the row with reduced weight.</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<div id="ca23e65f" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="cf">for</span> loc, row <span class="kw">in</span> <span class="bu">enumerate</span>(grade):</span>
+<span id="cb14-2"><a href="#cb14-2"></a>    <span class="cf">for</span> correct <span class="kw">in</span> row:</span>
+<span id="cb14-3"><a href="#cb14-3"></a>        <span class="cf">if</span> correct:</span>
+<span id="cb14-4"><a href="#cb14-4"></a>            learn[loc] <span class="op">=</span> learn[loc] <span class="op">+</span> dice[loc]</span>
+<span id="cb14-5"><a href="#cb14-5"></a>        <span class="cf">else</span>: </span>
+<span id="cb14-6"><a href="#cb14-6"></a>            learn[loc] <span class="op">=</span> learn[loc] <span class="op">-</span> dice[loc]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Finally, we can see how well we did.
+<ul>
+<li>Recall, we want a diagonal here.</li>
+</ul></li>
+</ul>
+<div id="43b06841" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>(<span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose()) <span class="op">+</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="88">
+<pre><code>array([[1, 0, 1, 0, 1, 0],
+       [0, 1, 1, 1, 1, 1],
+       [1, 1, 1, 1, 1, 1],
+       [0, 1, 1, 1, 1, 1],
+       [1, 1, 1, 1, 1, 1],
+       [0, 1, 1, 1, 1, 1]])</code></pre>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="the-problem" class="level1">
+<h1>The Problem</h1>
+<section id="in-lecture" class="level2">
+<h2 class="anchored" data-anchor-id="in-lecture">In Lecture</h2>
+<ul>
+<li>In lecture we dealt with the following problem:
+<ul>
+<li>We could predict “no” for all die to be any number.</li>
+<li>This was highly accurate (83%).</li>
+<li>This was highly useless (captured 0% of true positives).</li>
+<li>Any learning attempt was complicated somehow.</li>
+</ul></li>
+</ul>
+<section id="the-bias" class="level3">
+<h3 class="anchored" data-anchor-id="the-bias">The “Bias”</h3>
+<ul>
+<li>Even with negative weights, we have a problem: <strong>The Threshold</strong>.</li>
+<li>We need a way to decide exactly when the sum is “enough” to trigger a fire.</li>
+<li>We need to shift the “goalposts” without rewriting all our weights.</li>
+</ul>
+<section id="b" class="level4">
+<h4 class="anchored" data-anchor-id="b"><span class="math inline">\(b\)</span></h4>
+<ul>
+<li>The <strong>Bias</strong> is a number we add to the sum <em>before</em> deciding to fire.</li>
+<li>It represents how “easy” it is to make the neuron fire.</li>
+<li><strong>High Bias:</strong> The neuron is “trigger happy” and fires easily.
+<ul>
+<li>My “movie good” neuron is <em>highly biased</em> toward Ridley Scott films.</li>
+</ul></li>
+<li><strong>Negative Bias:</strong> The neuron is “stubborn” and needs a very high positive sum to fire.
+<ul>
+<li>My “movie good” neuron is <em>negatively biased</em> against <em>Predator</em> films.</li>
+</ul></li>
+</ul>
+</section>
+<section id="the-completed-formula" class="level4">
+<h4 class="anchored" data-anchor-id="the-completed-formula">The Completed Formula</h4>
+<ul>
+<li>Include the bias term <span class="math inline">\(b\)</span>:</li>
+</ul>
+<p><span class="math display">\[\sum_{i=1}^{n} w_i x_i + b \]</span></p>
+<ul>
+<li>If the result is <span class="math inline">\(&gt; 0\)</span>, the neuron fires (1).</li>
+<li>If the result is <span class="math inline">\(\le 0\)</span>, it stays silent (0).</li>
+</ul>
+</section>
+<section id="visualizing-the-bias" class="level4">
+<h4 class="anchored" data-anchor-id="visualizing-the-bias">Visualizing the Bias</h4>
+<ul>
+<li>In a graph, the bias is often shown as a special input node that is <strong>always</strong> 1, multiplied by its own weight <span class="math inline">\(b\)</span>.</li>
+</ul>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 274.00 183.84" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 179.84)">
+<title>PerceptronWithBias</title>
+<g id="clust2" class="cluster">
+<title>cluster_bias</title>
+<polygon fill="transparent" stroke="white" points="206,-86.2 206,-163 258,-163 258,-86.2 206,-86.2"></polygon>
+<text text-anchor="middle" x="232" y="-146.4" font-family="Times,serif" font-size="14.00" fill="white">Bias</text>
+</g>
+<g id="clust1" class="cluster">
+<title>cluster_input</title>
+<polygon fill="transparent" stroke="white" points="8,-81.36 8,-167.84 198,-167.84 198,-81.36 8,-81.36"></polygon>
+<text text-anchor="middle" x="103" y="-151.24" font-family="Times,serif" font-size="14.00" fill="white">Inputs</text>
+</g>
+<!-- X1 -->
+<g id="node1" class="node">
+<title>X1</title>
+<ellipse fill="red" stroke="#ffffff" cx="39" cy="-112.2" rx="22.68" ry="22.68"></ellipse>
+<text text-anchor="middle" x="39" y="-108" font-family="Times,serif" font-size="14.00" fill="#ffffff">X1</text>
+</g>
+<!-- Neuron -->
+<g id="node5" class="node">
+<title>Neuron</title>
+<ellipse fill="blue" stroke="#ffffff" cx="135" cy="-18.28" rx="18.06" ry="18.06"></ellipse>
+<text text-anchor="middle" x="135" y="-14.08" font-family="Times,serif" font-size="14.00" fill="#ffffff">∑</text>
+</g>
+<!-- X1&#45;&#45;Neuron -->
+<g id="edge1" class="edge">
+<title>X1--Neuron</title>
+<path fill="none" stroke="white" d="M54.36,-95.03C65.43,-83.53 80.83,-67.84 94.89,-54.56 103.52,-46.41 113.55,-37.59 121.42,-30.81"></path>
+<text text-anchor="middle" x="102.56" y="-58.76" font-family="Times,serif" font-size="14.00" fill="white">w1</text>
+</g>
+<!-- X2 -->
+<g id="node2" class="node">
+<title>X2</title>
+<ellipse fill="red" stroke="#ffffff" cx="103" cy="-112.2" rx="22.68" ry="22.68"></ellipse>
+<text text-anchor="middle" x="103" y="-108" font-family="Times,serif" font-size="14.00" fill="#ffffff">X2</text>
+</g>
+<!-- X2&#45;&#45;Neuron -->
+<g id="edge2" class="edge">
+<title>X2--Neuron</title>
+<path fill="none" stroke="white" d="M109.83,-90.16C113.35,-79.47 117.75,-66.29 121.89,-54.56 124.06,-48.4 126.54,-41.66 128.75,-35.75"></path>
+<text text-anchor="middle" x="129.56" y="-58.76" font-family="Times,serif" font-size="14.00" fill="white">w2</text>
+</g>
+<!-- X3 -->
+<g id="node3" class="node">
+<title>X3</title>
+<ellipse fill="red" stroke="#ffffff" cx="167" cy="-112.2" rx="22.68" ry="22.68"></ellipse>
+<text text-anchor="middle" x="167" y="-108" font-family="Times,serif" font-size="14.00" fill="#ffffff">X3</text>
+</g>
+<!-- X3&#45;&#45;Neuron -->
+<g id="edge3" class="edge">
+<title>X3--Neuron</title>
+<path fill="none" stroke="white" d="M159.74,-90.34C153.99,-73.81 146.06,-51.04 140.74,-35.77"></path>
+<text text-anchor="middle" x="160.56" y="-58.76" font-family="Times,serif" font-size="14.00" fill="white">w3</text>
+</g>
+<!-- B -->
+<g id="node4" class="node">
+<title>B</title>
+<ellipse fill="green" stroke="#ffffff" cx="232" cy="-112.2" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="232" y="-108" font-family="Times,serif" font-size="14.00" fill="#ffffff">1</text>
+</g>
+<!-- B&#45;&#45;Neuron -->
+<g id="edge4" class="edge">
+<title>B--Neuron</title>
+<path fill="none" stroke="yellow" d="M219.84,-98.9C214.42,-93.48 207.94,-87.06 202,-81.36 183.7,-63.79 162.1,-43.93 148.48,-31.51"></path>
+<text text-anchor="middle" x="194.5" y="-58.76" font-family="Times,serif" font-size="14.00" fill="white">b</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="trying-it-out" class="level4">
+<h4 class="anchored" data-anchor-id="trying-it-out">Trying it out</h4>
+<ul>
+<li>We tried different <em>biases</em> with our learning framework.</li>
+</ul>
+<div id="3b03102b" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="cf">for</span> bias <span class="kw">in</span> [<span class="fl">3.5</span>,<span class="dv">4</span>,<span class="fl">4.5</span>]:</span>
+<span id="cb17-2"><a href="#cb17-2"></a>    <span class="bu">print</span>(<span class="st">"Bias of "</span>, bias)</span>
+<span id="cb17-3"><a href="#cb17-3"></a>    <span class="bu">print</span>((bias <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose()) <span class="op">+</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Bias of  3.5
+[[1 0 1 0 1 0]
+ [0 1 1 1 1 1]
+ [0 0 1 0 1 0]
+ [0 0 0 1 1 1]
+ [0 0 0 1 1 0]
+ [0 0 0 0 0 1]]
+Bias of  4
+[[1 0 1 0 1 0]
+ [0 1 1 1 1 1]
+ [0 0 1 0 1 0]
+ [0 0 0 1 1 1]
+ [0 0 0 0 1 0]
+ [0 0 0 0 0 1]]
+Bias of  4.5
+[[0 0 0 0 0 0]
+ [0 0 1 1 1 0]
+ [0 0 1 0 0 0]
+ [0 0 0 1 0 0]
+ [0 0 0 0 0 0]
+ [0 0 0 0 0 0]]</code></pre>
+</div>
+</div>
+</section>
+</section>
+</section>
+</section>
+<section id="the-solution" class="level1">
+<h1>The Solution</h1>
+<ul>
+<li>Or part of it.</li>
+</ul>
+<section id="previously" class="level2">
+<h2 class="anchored" data-anchor-id="previously">Previously…</h2>
+<ul>
+<li>Before we messed with the bias, we modified how learning took place at all.</li>
+<li>Specifically, we increased or decreased <em>all</em> values in a row by some fixed number.
+<ul>
+<li>Versus adding or subtracting from the relevant edges.</li>
+</ul></li>
+<li>It looked like this.</li>
+</ul>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="cf">for</span> loc, row <span class="kw">in</span> <span class="bu">enumerate</span>(grade):</span>
+<span id="cb19-2"><a href="#cb19-2"></a>    <span class="cf">for</span> correct <span class="kw">in</span> row:</span>
+<span id="cb19-3"><a href="#cb19-3"></a>        <span class="cf">if</span> correct:</span>
+<span id="cb19-4"><a href="#cb19-4"></a>            learn[loc] <span class="op">=</span> learn[loc] <span class="op">*</span> <span class="fl">1.1</span></span>
+<span id="cb19-5"><a href="#cb19-5"></a>        <span class="cf">else</span>: </span>
+<span id="cb19-6"><a href="#cb19-6"></a>            learn[loc] <span class="op">=</span> learn[loc] <span class="op">*</span> <span class="fl">.9</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Instead of this:</li>
+</ul>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="cf">for</span> loc, row <span class="kw">in</span> <span class="bu">enumerate</span>(grade):</span>
+<span id="cb20-2"><a href="#cb20-2"></a>    <span class="cf">for</span> correct <span class="kw">in</span> row:</span>
+<span id="cb20-3"><a href="#cb20-3"></a>        <span class="cf">if</span> correct:</span>
+<span id="cb20-4"><a href="#cb20-4"></a>            learn[loc] <span class="op">=</span> learn[loc] <span class="op">+</span> dice[loc]</span>
+<span id="cb20-5"><a href="#cb20-5"></a>        <span class="cf">else</span>: </span>
+<span id="cb20-6"><a href="#cb20-6"></a>            learn[loc] <span class="op">=</span> learn[loc] <span class="op">-</span> dice[loc]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="mathematically" class="level3">
+<h3 class="anchored" data-anchor-id="mathematically">Mathematically</h3>
+<ul>
+<li>We can express this mathematically by considering:
+<ul>
+<li>Old weights <span class="math inline">\(w\)</span></li>
+<li>New weights <span class="math inline">\(w`\)</span> (w “prime”)</li>
+<li>Dice value <span class="math inline">\(d\)</span></li>
+</ul></li>
+<li>Initially, we multiplied:</li>
+</ul>
+<p><span class="math display">\[
+w` = n \times w
+\]</span></p>
+<ul>
+<li>Later, we added:</li>
+</ul>
+<p><span class="math display">\[
+w` = w + d
+\]</span></p>
+<ul>
+<li>We note these are both linear transformations.
+<ul>
+<li>They create lines.</li>
+<li>Say, imagine <span class="math inline">\(n = 2\)</span> and <span class="math inline">\(d = 5\)</span></li>
+</ul></li>
+</ul>
+<div id="901012f8" class="cell" data-execution_count="13">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="91_false_files/figure-html/cell-13-output-1.png" width="579" height="411" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="your-task" class="level1">
+<h1>Your Task</h1>
+<section id="steps" class="level2">
+<h2 class="anchored" data-anchor-id="steps">Steps</h2>
+<ul>
+<li>Construct a series of additions or multiplications.</li>
+<li>They may be by <em>scalars</em>
+<ul>
+<li>Like <code>1.1</code> or <code>2</code></li>
+</ul></li>
+<li>They may be by <em>vectors</em>
+<ul>
+<li>Like <code>[0,0,0,0,1,0,0,0,0]</code></li>
+</ul></li>
+<li>You do not have to do the same kind of transfer for correct or incorrect.
+<ul>
+<li>You could scalar add in one place and vector multiply in another.</li>
+</ul></li>
+<li>As a bonus, you may also change the bias however you like.</li>
+<li>See how close you can get to achieving a diagonal, and!
+<ul>
+<li>Don’t forget to check your code <em>more than once</em></li>
+<li>It is randomized, and you don’t want to just get lucky.</li>
+</ul></li>
+</ul>
+</section>
+<section id="final-product" class="level2">
+<h2 class="anchored" data-anchor-id="final-product">Final Product</h2>
+<ul>
+<li>You should have a Colab document which, when run:
+<ul>
+<li>Creates a random matrix.</li>
+<li>Modifies that random matrix to better detect dice.</li>
+<li>Captures 6 true positives.</li>
+<li>Has the minimum number of false positives possible.</li>
+<li>Has a note of 100-200 words explaining what changes you made, and why.
+<ul>
+<li>“I just tried something” is fine, but do state, e.g., what “something” means to you.</li>
+</ul></li>
+</ul></li>
+</ul>
+
+
+<!-- -->
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./90_learning.html" class="pagination-link" aria-label="Learning">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Learning</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb21" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a href="#cb21-1"></a><span class="co">---</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a><span class="an">title:</span><span class="co"> Falsify</span></span>
+<span id="cb21-3"><a href="#cb21-3"></a><span class="an">format:</span><span class="co"> html</span></span>
+<span id="cb21-4"><a href="#cb21-4"></a><span class="co">---</span></span>
+<span id="cb21-5"><a href="#cb21-5"></a></span>
+<span id="cb21-6"><a href="#cb21-6"></a><span class="fu"># Background</span></span>
+<span id="cb21-7"><a href="#cb21-7"></a></span>
+<span id="cb21-8"><a href="#cb21-8"></a><span class="fu">## Connections</span></span>
+<span id="cb21-9"><a href="#cb21-9"></a></span>
+<span id="cb21-10"><a href="#cb21-10"></a>In our lecture, we introduced the *learning* within our martrix framework. I think there was a lot of content in the lecture and would like for you to be able to go over it a bit, and try things out yourself.</span>
+<span id="cb21-11"><a href="#cb21-11"></a></span>
+<span id="cb21-12"><a href="#cb21-12"></a></span>
+<span id="cb21-13"><a href="#cb21-13"></a><span class="fu">## Definitions</span></span>
+<span id="cb21-14"><a href="#cb21-14"></a></span>
+<span id="cb21-15"><a href="#cb21-15"></a><span class="ss">- </span>Today, we will work with *code cells* of Colab to create a multi-class perceptron than can correctly classify dice when run.</span>
+<span id="cb21-16"><a href="#cb21-16"></a></span>
+<span id="cb21-17"><a href="#cb21-17"></a><span class="fu">## Setup</span></span>
+<span id="cb21-18"><a href="#cb21-18"></a></span>
+<span id="cb21-19"><a href="#cb21-19"></a><span class="fu">## The Dice</span></span>
+<span id="cb21-20"><a href="#cb21-20"></a></span>
+<span id="cb21-21"><a href="#cb21-21"></a><span class="ss">- </span>You will need a code cell that includes at least the following:</span>
+<span id="cb21-22"><a href="#cb21-22"></a></span>
+<span id="cb21-25"><a href="#cb21-25"></a><span class="in">```{python}</span></span>
+<span id="cb21-26"><a href="#cb21-26"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb21-27"><a href="#cb21-27"></a>one <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>]</span>
+<span id="cb21-28"><a href="#cb21-28"></a>two <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>]</span>
+<span id="cb21-29"><a href="#cb21-29"></a>thr <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>]</span>
+<span id="cb21-30"><a href="#cb21-30"></a>fou <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>]</span>
+<span id="cb21-31"><a href="#cb21-31"></a>fiv <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>]</span>
+<span id="cb21-32"><a href="#cb21-32"></a>six <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>]</span>
+<span id="cb21-33"><a href="#cb21-33"></a>dice <span class="op">=</span> np.array([one, two, thr, fou, fiv, six])</span>
+<span id="cb21-34"><a href="#cb21-34"></a><span class="bu">print</span>(dice)</span>
+<span id="cb21-35"><a href="#cb21-35"></a><span class="in">```</span></span>
+<span id="cb21-36"><a href="#cb21-36"></a></span>
+<span id="cb21-37"><a href="#cb21-37"></a><span class="ss">- </span>You will probably also want "fair" dice.</span>
+<span id="cb21-38"><a href="#cb21-38"></a><span class="ss">    - </span>Each row sums to one, even though...</span>
+<span id="cb21-39"><a href="#cb21-39"></a><span class="ss">    - </span>Each row has a different number of non-zero values.</span>
+<span id="cb21-40"><a href="#cb21-40"></a></span>
+<span id="cb21-43"><a href="#cb21-43"></a><span class="in">```{python}</span></span>
+<span id="cb21-44"><a href="#cb21-44"></a>divider <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]).reshape(<span class="dv">1</span>,<span class="dv">6</span>)</span>
+<span id="cb21-45"><a href="#cb21-45"></a>fair_dice <span class="op">=</span> (dice.transpose() <span class="op">/</span> divider).transpose()</span>
+<span id="cb21-46"><a href="#cb21-46"></a>fair_dice</span>
+<span id="cb21-47"><a href="#cb21-47"></a><span class="bu">print</span>(fair_dice)</span>
+<span id="cb21-48"><a href="#cb21-48"></a><span class="in">```</span></span>
+<span id="cb21-49"><a href="#cb21-49"></a></span>
+<span id="cb21-50"><a href="#cb21-50"></a><span class="ss">- </span>You should have some familiarity with what these code blocks do, even if you wouldn't have written them yourself without them being provided.</span>
+<span id="cb21-51"><a href="#cb21-51"></a><span class="ss">    - </span>Run them a few times.</span>
+<span id="cb21-52"><a href="#cb21-52"></a><span class="ss">    - </span>Try to make some minor edits and predict what will change.</span>
+<span id="cb21-53"><a href="#cb21-53"></a><span class="ss">    - </span>See if your are correct.</span>
+<span id="cb21-54"><a href="#cb21-54"></a><span class="ss">    - </span>Get them working again.</span>
+<span id="cb21-55"><a href="#cb21-55"></a>    </span>
+<span id="cb21-56"><a href="#cb21-56"></a><span class="fu">### The Neural Network</span></span>
+<span id="cb21-57"><a href="#cb21-57"></a></span>
+<span id="cb21-58"><a href="#cb21-58"></a><span class="ss">- </span>We made a neural network with random "edge weights".</span>
+<span id="cb21-59"><a href="#cb21-59"></a></span>
+<span id="cb21-62"><a href="#cb21-62"></a><span class="in">```{python}</span></span>
+<span id="cb21-63"><a href="#cb21-63"></a>learn <span class="op">=</span> np.random.rand(<span class="dv">6</span>,<span class="dv">9</span>)</span>
+<span id="cb21-64"><a href="#cb21-64"></a><span class="in">```</span></span>
+<span id="cb21-65"><a href="#cb21-65"></a></span>
+<span id="cb21-66"><a href="#cb21-66"></a><span class="ss">- </span>We also made a backup copy so we could start over, easily, at any time.</span>
+<span id="cb21-67"><a href="#cb21-67"></a></span>
+<span id="cb21-70"><a href="#cb21-70"></a><span class="in">```{python}</span></span>
+<span id="cb21-71"><a href="#cb21-71"></a>backup <span class="op">=</span> learn.copy()</span>
+<span id="cb21-72"><a href="#cb21-72"></a><span class="in">```</span></span>
+<span id="cb21-73"><a href="#cb21-73"></a></span>
+<span id="cb21-74"><a href="#cb21-74"></a><span class="ss">- </span>It should look like this:</span>
+<span id="cb21-75"><a href="#cb21-75"></a></span>
+<span id="cb21-78"><a href="#cb21-78"></a><span class="in">```{python}</span></span>
+<span id="cb21-79"><a href="#cb21-79"></a><span class="bu">print</span>(learn)</span>
+<span id="cb21-80"><a href="#cb21-80"></a><span class="in">```</span></span>
+<span id="cb21-81"><a href="#cb21-81"></a></span>
+<span id="cb21-82"><a href="#cb21-82"></a><span class="fu">### Supervision</span></span>
+<span id="cb21-83"><a href="#cb21-83"></a></span>
+<span id="cb21-84"><a href="#cb21-84"></a><span class="ss">- </span>We compared against an answer key, which was just a diagonal.</span>
+<span id="cb21-85"><a href="#cb21-85"></a><span class="ss">    - </span>This is the superviser in supervised learning.</span>
+<span id="cb21-86"><a href="#cb21-86"></a><span class="ss">        - </span>It knows the answers.</span>
+<span id="cb21-87"><a href="#cb21-87"></a><span class="ss">        - </span>It can provide feedback to the learning framework.</span>
+<span id="cb21-88"><a href="#cb21-88"></a></span>
+<span id="cb21-91"><a href="#cb21-91"></a><span class="in">```{python}</span></span>
+<span id="cb21-92"><a href="#cb21-92"></a>key <span class="op">=</span> np.array([</span>
+<span id="cb21-93"><a href="#cb21-93"></a>       [ <span class="va">True</span>, <span class="va">False</span>, <span class="va">False</span>, <span class="va">False</span>, <span class="va">False</span>, <span class="va">False</span>],</span>
+<span id="cb21-94"><a href="#cb21-94"></a>       [<span class="va">False</span>,  <span class="va">True</span>, <span class="va">False</span>, <span class="va">False</span>, <span class="va">False</span>, <span class="va">False</span>],</span>
+<span id="cb21-95"><a href="#cb21-95"></a>       [<span class="va">False</span>, <span class="va">False</span>,  <span class="va">True</span>, <span class="va">False</span>, <span class="va">False</span>, <span class="va">False</span>],</span>
+<span id="cb21-96"><a href="#cb21-96"></a>       [<span class="va">False</span>, <span class="va">False</span>, <span class="va">False</span>,  <span class="va">True</span>, <span class="va">False</span>, <span class="va">False</span>],</span>
+<span id="cb21-97"><a href="#cb21-97"></a>       [<span class="va">False</span>, <span class="va">False</span>, <span class="va">False</span>, <span class="va">False</span>,  <span class="va">True</span>, <span class="va">False</span>],</span>
+<span id="cb21-98"><a href="#cb21-98"></a>       [<span class="va">False</span>, <span class="va">False</span>, <span class="va">False</span>, <span class="va">False</span>, <span class="va">False</span>,  <span class="va">True</span>]</span>
+<span id="cb21-99"><a href="#cb21-99"></a>])</span>
+<span id="cb21-100"><a href="#cb21-100"></a><span class="in">```</span></span>
+<span id="cb21-101"><a href="#cb21-101"></a></span>
+<span id="cb21-102"><a href="#cb21-102"></a><span class="fu">### Learning</span></span>
+<span id="cb21-103"><a href="#cb21-103"></a></span>
+<span id="cb21-104"><a href="#cb21-104"></a><span class="ss">- </span>Learning occured in a few stages.</span>
+<span id="cb21-105"><a href="#cb21-105"></a><span class="ss">- </span>First, we also made sure to start with a fresh "<span class="in">`learn`</span>" matrix, by copying from the backup.</span>
+<span id="cb21-106"><a href="#cb21-106"></a></span>
+<span id="cb21-109"><a href="#cb21-109"></a><span class="in">```{python}</span></span>
+<span id="cb21-110"><a href="#cb21-110"></a>learn <span class="op">=</span> backup.copy()</span>
+<span id="cb21-111"><a href="#cb21-111"></a><span class="bu">print</span>(learn)</span>
+<span id="cb21-112"><a href="#cb21-112"></a><span class="in">```</span></span>
+<span id="cb21-113"><a href="#cb21-113"></a></span>
+<span id="cb21-114"><a href="#cb21-114"></a><span class="ss">- </span>Then, we would compare against the answer key to see how accurate the current neural network was at predicting dice.</span>
+<span id="cb21-115"><a href="#cb21-115"></a></span>
+<span id="cb21-118"><a href="#cb21-118"></a><span class="in">```{python}</span></span>
+<span id="cb21-119"><a href="#cb21-119"></a>grade <span class="op">=</span> np.equal(key, <span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose())</span>
+<span id="cb21-120"><a href="#cb21-120"></a><span class="bu">print</span>(grade)</span>
+<span id="cb21-121"><a href="#cb21-121"></a><span class="in">```</span></span>
+<span id="cb21-122"><a href="#cb21-122"></a></span>
+<span id="cb21-123"><a href="#cb21-123"></a><span class="ss">- </span>Then, we used a loop.</span>
+<span id="cb21-124"><a href="#cb21-124"></a><span class="ss">    - </span>For every dice,</span>
+<span id="cb21-125"><a href="#cb21-125"></a><span class="ss">        - </span>For every value it could predict, correct or otherwise.</span>
+<span id="cb21-126"><a href="#cb21-126"></a><span class="ss">            - </span>If correct, reward the row with increased weight.</span>
+<span id="cb21-127"><a href="#cb21-127"></a><span class="ss">            - </span>Else, penalize the row with reduced weight.</span>
+<span id="cb21-128"><a href="#cb21-128"></a></span>
+<span id="cb21-131"><a href="#cb21-131"></a><span class="in">```{python}</span></span>
+<span id="cb21-132"><a href="#cb21-132"></a><span class="cf">for</span> loc, row <span class="kw">in</span> <span class="bu">enumerate</span>(grade):</span>
+<span id="cb21-133"><a href="#cb21-133"></a>    <span class="cf">for</span> correct <span class="kw">in</span> row:</span>
+<span id="cb21-134"><a href="#cb21-134"></a>        <span class="cf">if</span> correct:</span>
+<span id="cb21-135"><a href="#cb21-135"></a>            learn[loc] <span class="op">=</span> learn[loc] <span class="op">+</span> dice[loc]</span>
+<span id="cb21-136"><a href="#cb21-136"></a>        <span class="cf">else</span>: </span>
+<span id="cb21-137"><a href="#cb21-137"></a>            learn[loc] <span class="op">=</span> learn[loc] <span class="op">-</span> dice[loc]</span>
+<span id="cb21-138"><a href="#cb21-138"></a><span class="in">```</span></span>
+<span id="cb21-139"><a href="#cb21-139"></a></span>
+<span id="cb21-140"><a href="#cb21-140"></a><span class="ss">- </span>Finally, we can see how well we did.</span>
+<span id="cb21-141"><a href="#cb21-141"></a><span class="ss">    - </span>Recall, we want a diagonal here.</span>
+<span id="cb21-142"><a href="#cb21-142"></a></span>
+<span id="cb21-145"><a href="#cb21-145"></a><span class="in">```{python}</span></span>
+<span id="cb21-146"><a href="#cb21-146"></a>(<span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose()) <span class="op">+</span> <span class="dv">0</span></span>
+<span id="cb21-147"><a href="#cb21-147"></a><span class="in">```</span></span>
+<span id="cb21-148"><a href="#cb21-148"></a></span>
+<span id="cb21-149"><a href="#cb21-149"></a><span class="in">    </span></span>
+<span id="cb21-150"><a href="#cb21-150"></a><span class="fu"># The Problem</span></span>
+<span id="cb21-151"><a href="#cb21-151"></a></span>
+<span id="cb21-152"><a href="#cb21-152"></a><span class="fu">## In Lecture</span></span>
+<span id="cb21-153"><a href="#cb21-153"></a></span>
+<span id="cb21-154"><a href="#cb21-154"></a><span class="ss">- </span>In lecture we dealt with the following problem:</span>
+<span id="cb21-155"><a href="#cb21-155"></a><span class="ss">    - </span>We could predict "no" for all die to be any number.</span>
+<span id="cb21-156"><a href="#cb21-156"></a><span class="ss">    - </span>This was highly accurate (83%).</span>
+<span id="cb21-157"><a href="#cb21-157"></a><span class="ss">    - </span>This was highly useless (captured 0% of true positives).</span>
+<span id="cb21-158"><a href="#cb21-158"></a><span class="ss">    - </span>Any learning attempt was complicated somehow.</span>
+<span id="cb21-159"><a href="#cb21-159"></a></span>
+<span id="cb21-160"><a href="#cb21-160"></a><span class="fu">### The "Bias"</span></span>
+<span id="cb21-161"><a href="#cb21-161"></a></span>
+<span id="cb21-162"><a href="#cb21-162"></a><span class="ss">- </span>Even with negative weights, we have a problem: **The Threshold**.</span>
+<span id="cb21-163"><a href="#cb21-163"></a><span class="ss">- </span>We need a way to decide exactly when the sum is "enough" to trigger a fire.</span>
+<span id="cb21-164"><a href="#cb21-164"></a><span class="ss">- </span>We need to shift the "goalposts" without rewriting all our weights.</span>
+<span id="cb21-165"><a href="#cb21-165"></a></span>
+<span id="cb21-166"><a href="#cb21-166"></a><span class="fu">#### $b$</span></span>
+<span id="cb21-167"><a href="#cb21-167"></a></span>
+<span id="cb21-168"><a href="#cb21-168"></a><span class="ss">- </span>The **Bias** is a number we add to the sum *before* deciding to fire.</span>
+<span id="cb21-169"><a href="#cb21-169"></a><span class="ss">- </span>It represents how "easy" it is to make the neuron fire.</span>
+<span id="cb21-170"><a href="#cb21-170"></a><span class="ss">- </span>**High Bias:** The neuron is "trigger happy" and fires easily.</span>
+<span id="cb21-171"><a href="#cb21-171"></a><span class="ss">    - </span>My "movie good" neuron is *highly biased* toward Ridley Scott films.</span>
+<span id="cb21-172"><a href="#cb21-172"></a><span class="ss">- </span>**Negative Bias:** The neuron is "stubborn" and needs a very high positive sum to fire.</span>
+<span id="cb21-173"><a href="#cb21-173"></a><span class="ss">    - </span>My "movie good" neuron is *negatively biased* against *Predator* films.</span>
+<span id="cb21-174"><a href="#cb21-174"></a></span>
+<span id="cb21-175"><a href="#cb21-175"></a><span class="fu">#### The Completed Formula</span></span>
+<span id="cb21-176"><a href="#cb21-176"></a></span>
+<span id="cb21-177"><a href="#cb21-177"></a><span class="ss">- </span>Include the bias term $b$:</span>
+<span id="cb21-178"><a href="#cb21-178"></a></span>
+<span id="cb21-179"><a href="#cb21-179"></a>$$\sum_{i=1}^{n} w_i x_i + b $$</span>
+<span id="cb21-180"><a href="#cb21-180"></a></span>
+<span id="cb21-181"><a href="#cb21-181"></a><span class="ss">- </span>If the result is $&gt; 0$, the neuron fires (1).</span>
+<span id="cb21-182"><a href="#cb21-182"></a><span class="ss">- </span>If the result is $\le 0$, it stays silent (0).</span>
+<span id="cb21-183"><a href="#cb21-183"></a></span>
+<span id="cb21-184"><a href="#cb21-184"></a><span class="fu">#### Visualizing the Bias</span></span>
+<span id="cb21-185"><a href="#cb21-185"></a></span>
+<span id="cb21-186"><a href="#cb21-186"></a><span class="ss">- </span>In a graph, the bias is often shown as a special input node that is **always** 1, multiplied by its own weight $b$.</span>
+<span id="cb21-187"><a href="#cb21-187"></a></span>
+<span id="cb21-190"><a href="#cb21-190"></a><span class="in">```{dot}</span></span>
+<span id="cb21-191"><a href="#cb21-191"></a><span class="in">// | echo: false</span></span>
+<span id="cb21-192"><a href="#cb21-192"></a><span class="in">graph PerceptronWithBias {</span></span>
+<span id="cb21-193"><a href="#cb21-193"></a><span class="in">    rankdir=TD;</span></span>
+<span id="cb21-194"><a href="#cb21-194"></a><span class="in">    bgcolor="transparent"  </span></span>
+<span id="cb21-195"><a href="#cb21-195"></a><span class="in">    node [shape=circle, fontcolor = "#ffffff", color = "#ffffff"]</span></span>
+<span id="cb21-196"><a href="#cb21-196"></a><span class="in">    edge [color="white", fontcolor="white";];</span></span>
+<span id="cb21-197"><a href="#cb21-197"></a><span class="in">    </span></span>
+<span id="cb21-198"><a href="#cb21-198"></a><span class="in">    subgraph cluster_input {</span></span>
+<span id="cb21-199"><a href="#cb21-199"></a><span class="in">        label="Inputs";</span></span>
+<span id="cb21-200"><a href="#cb21-200"></a><span class="in">        fontcolor="white";</span></span>
+<span id="cb21-201"><a href="#cb21-201"></a><span class="in">        color="white";</span></span>
+<span id="cb21-202"><a href="#cb21-202"></a><span class="in">        node [style=filled, fillcolor="red"];</span></span>
+<span id="cb21-203"><a href="#cb21-203"></a><span class="in">        X1; X2; X3;</span></span>
+<span id="cb21-204"><a href="#cb21-204"></a><span class="in">    }</span></span>
+<span id="cb21-205"><a href="#cb21-205"></a></span>
+<span id="cb21-206"><a href="#cb21-206"></a><span class="in">    subgraph cluster_bias {</span></span>
+<span id="cb21-207"><a href="#cb21-207"></a><span class="in">        label="Bias";</span></span>
+<span id="cb21-208"><a href="#cb21-208"></a><span class="in">        fontcolor="white";</span></span>
+<span id="cb21-209"><a href="#cb21-209"></a><span class="in">        color="white";</span></span>
+<span id="cb21-210"><a href="#cb21-210"></a><span class="in">        node [style=filled, fillcolor="green"];</span></span>
+<span id="cb21-211"><a href="#cb21-211"></a><span class="in">        B [label="1"];</span></span>
+<span id="cb21-212"><a href="#cb21-212"></a><span class="in">    }</span></span>
+<span id="cb21-213"><a href="#cb21-213"></a></span>
+<span id="cb21-214"><a href="#cb21-214"></a><span class="in">    node [style=filled, fillcolor="blue"];</span></span>
+<span id="cb21-215"><a href="#cb21-215"></a><span class="in">    Neuron [label="∑"];</span></span>
+<span id="cb21-216"><a href="#cb21-216"></a></span>
+<span id="cb21-217"><a href="#cb21-217"></a><span class="in">    X1 -- Neuron [label="w1"];</span></span>
+<span id="cb21-218"><a href="#cb21-218"></a><span class="in">    X2 -- Neuron [label="w2"];</span></span>
+<span id="cb21-219"><a href="#cb21-219"></a><span class="in">    X3 -- Neuron [label="w3"];</span></span>
+<span id="cb21-220"><a href="#cb21-220"></a><span class="in">    B  -- Neuron [label="b", color="yellow"];</span></span>
+<span id="cb21-221"><a href="#cb21-221"></a><span class="in">}</span></span>
+<span id="cb21-222"><a href="#cb21-222"></a><span class="in">```</span></span>
+<span id="cb21-223"><a href="#cb21-223"></a></span>
+<span id="cb21-224"><a href="#cb21-224"></a><span class="fu">#### Trying it out</span></span>
+<span id="cb21-225"><a href="#cb21-225"></a></span>
+<span id="cb21-226"><a href="#cb21-226"></a><span class="ss">- </span>We tried different *biases* with our learning framework.</span>
+<span id="cb21-227"><a href="#cb21-227"></a></span>
+<span id="cb21-230"><a href="#cb21-230"></a><span class="in">```{python}</span></span>
+<span id="cb21-231"><a href="#cb21-231"></a><span class="cf">for</span> bias <span class="kw">in</span> [<span class="fl">3.5</span>,<span class="dv">4</span>,<span class="fl">4.5</span>]:</span>
+<span id="cb21-232"><a href="#cb21-232"></a>    <span class="bu">print</span>(<span class="st">"Bias of "</span>, bias)</span>
+<span id="cb21-233"><a href="#cb21-233"></a>    <span class="bu">print</span>((bias <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose()) <span class="op">+</span> <span class="dv">0</span>)</span>
+<span id="cb21-234"><a href="#cb21-234"></a><span class="in">```</span></span>
+<span id="cb21-235"><a href="#cb21-235"></a></span>
+<span id="cb21-236"><a href="#cb21-236"></a><span class="fu"># The Solution</span></span>
+<span id="cb21-237"><a href="#cb21-237"></a></span>
+<span id="cb21-238"><a href="#cb21-238"></a><span class="ss">- </span>Or part of it.</span>
+<span id="cb21-239"><a href="#cb21-239"></a></span>
+<span id="cb21-240"><a href="#cb21-240"></a></span>
+<span id="cb21-241"><a href="#cb21-241"></a><span class="fu">## Previously...</span></span>
+<span id="cb21-242"><a href="#cb21-242"></a></span>
+<span id="cb21-243"><a href="#cb21-243"></a><span class="ss">- </span>Before we messed with the bias, we modified how learning took place at all.</span>
+<span id="cb21-244"><a href="#cb21-244"></a><span class="ss">- </span>Specifically, we increased or decreased *all* values in a row by some fixed number.</span>
+<span id="cb21-245"><a href="#cb21-245"></a><span class="ss">    - </span>Versus adding or subtracting from the relevant edges.</span>
+<span id="cb21-246"><a href="#cb21-246"></a><span class="ss">- </span>It looked like this.</span>
+<span id="cb21-247"><a href="#cb21-247"></a></span>
+<span id="cb21-248"><a href="#cb21-248"></a><span class="in">```{.python code-line-numbers="4-6"}</span></span>
+<span id="cb21-249"><a href="#cb21-249"></a><span class="in">for loc, row in enumerate(grade):</span></span>
+<span id="cb21-250"><a href="#cb21-250"></a><span class="in">    for correct in row:</span></span>
+<span id="cb21-251"><a href="#cb21-251"></a><span class="in">        if correct:</span></span>
+<span id="cb21-252"><a href="#cb21-252"></a><span class="in">            learn[loc] = learn[loc] * 1.1</span></span>
+<span id="cb21-253"><a href="#cb21-253"></a><span class="in">        else: </span></span>
+<span id="cb21-254"><a href="#cb21-254"></a><span class="in">            learn[loc] = learn[loc] * .9</span></span>
+<span id="cb21-255"><a href="#cb21-255"></a><span class="in">```</span></span>
+<span id="cb21-256"><a href="#cb21-256"></a></span>
+<span id="cb21-257"><a href="#cb21-257"></a><span class="ss">- </span>Instead of this:</span>
+<span id="cb21-258"><a href="#cb21-258"></a></span>
+<span id="cb21-259"><a href="#cb21-259"></a><span class="in">```{.python}</span></span>
+<span id="cb21-260"><a href="#cb21-260"></a><span class="in">for loc, row in enumerate(grade):</span></span>
+<span id="cb21-261"><a href="#cb21-261"></a><span class="in">    for correct in row:</span></span>
+<span id="cb21-262"><a href="#cb21-262"></a><span class="in">        if correct:</span></span>
+<span id="cb21-263"><a href="#cb21-263"></a><span class="in">            learn[loc] = learn[loc] + dice[loc]</span></span>
+<span id="cb21-264"><a href="#cb21-264"></a><span class="in">        else: </span></span>
+<span id="cb21-265"><a href="#cb21-265"></a><span class="in">            learn[loc] = learn[loc] - dice[loc]</span></span>
+<span id="cb21-266"><a href="#cb21-266"></a><span class="in">```</span></span>
+<span id="cb21-267"><a href="#cb21-267"></a></span>
+<span id="cb21-268"><a href="#cb21-268"></a><span class="fu">### Mathematically</span></span>
+<span id="cb21-269"><a href="#cb21-269"></a></span>
+<span id="cb21-270"><a href="#cb21-270"></a><span class="ss">- </span>We can express this mathematically by considering:</span>
+<span id="cb21-271"><a href="#cb21-271"></a><span class="ss">    - </span>Old weights $w$</span>
+<span id="cb21-272"><a href="#cb21-272"></a><span class="ss">    - </span>New weights $w`$ (w "prime")</span>
+<span id="cb21-273"><a href="#cb21-273"></a><span class="ss">    - </span>Dice value $d$</span>
+<span id="cb21-274"><a href="#cb21-274"></a><span class="ss">- </span>Initially, we multiplied:</span>
+<span id="cb21-275"><a href="#cb21-275"></a></span>
+<span id="cb21-276"><a href="#cb21-276"></a>$$</span>
+<span id="cb21-277"><a href="#cb21-277"></a>w` = n \times w</span>
+<span id="cb21-278"><a href="#cb21-278"></a>$$</span>
+<span id="cb21-279"><a href="#cb21-279"></a></span>
+<span id="cb21-280"><a href="#cb21-280"></a><span class="ss">- </span>Later, we added:</span>
+<span id="cb21-281"><a href="#cb21-281"></a></span>
+<span id="cb21-282"><a href="#cb21-282"></a>$$</span>
+<span id="cb21-283"><a href="#cb21-283"></a>w` = w + d</span>
+<span id="cb21-284"><a href="#cb21-284"></a>$$</span>
+<span id="cb21-285"><a href="#cb21-285"></a></span>
+<span id="cb21-286"><a href="#cb21-286"></a><span class="ss">- </span>We note these are both linear transformations.</span>
+<span id="cb21-287"><a href="#cb21-287"></a><span class="ss">    - </span>They create lines.</span>
+<span id="cb21-288"><a href="#cb21-288"></a><span class="ss">    - </span>Say, imagine $n = 2$ and $d = 5$</span>
+<span id="cb21-289"><a href="#cb21-289"></a></span>
+<span id="cb21-292"><a href="#cb21-292"></a><span class="in">```{python}</span></span>
+<span id="cb21-293"><a href="#cb21-293"></a><span class="co">#| echo: false</span></span>
+<span id="cb21-294"><a href="#cb21-294"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb21-295"><a href="#cb21-295"></a></span>
+<span id="cb21-296"><a href="#cb21-296"></a>xs <span class="op">=</span> np.arange(<span class="dv">10</span>)</span>
+<span id="cb21-297"><a href="#cb21-297"></a>ys_1 <span class="op">=</span> xs <span class="op">*</span> <span class="dv">2</span></span>
+<span id="cb21-298"><a href="#cb21-298"></a>ys_2 <span class="op">=</span> xs <span class="op">+</span> <span class="dv">5</span></span>
+<span id="cb21-299"><a href="#cb21-299"></a></span>
+<span id="cb21-300"><a href="#cb21-300"></a>plt.plot(xs,ys_1, label<span class="op">=</span><span class="st">"n * w"</span>)</span>
+<span id="cb21-301"><a href="#cb21-301"></a>plt.plot(xs,ys_2, label<span class="op">=</span><span class="st">"w + d"</span>)</span>
+<span id="cb21-302"><a href="#cb21-302"></a>plt.legend()</span>
+<span id="cb21-303"><a href="#cb21-303"></a><span class="in">```</span></span>
+<span id="cb21-304"><a href="#cb21-304"></a></span>
+<span id="cb21-305"><a href="#cb21-305"></a><span class="fu"># Your Task</span></span>
+<span id="cb21-306"><a href="#cb21-306"></a></span>
+<span id="cb21-307"><a href="#cb21-307"></a><span class="fu">## Steps</span></span>
+<span id="cb21-308"><a href="#cb21-308"></a></span>
+<span id="cb21-309"><a href="#cb21-309"></a><span class="ss">- </span>Construct a series of additions or multiplications.</span>
+<span id="cb21-310"><a href="#cb21-310"></a><span class="ss">- </span>They may be by *scalars*</span>
+<span id="cb21-311"><a href="#cb21-311"></a><span class="ss">    - </span>Like <span class="in">`1.1`</span> or <span class="in">`2`</span></span>
+<span id="cb21-312"><a href="#cb21-312"></a><span class="ss">- </span>They may be by *vectors*</span>
+<span id="cb21-313"><a href="#cb21-313"></a><span class="ss">    - </span>Like <span class="in">`[0,0,0,0,1,0,0,0,0]`</span></span>
+<span id="cb21-314"><a href="#cb21-314"></a><span class="ss">- </span>You do not have to do the same kind of transfer for correct or incorrect.</span>
+<span id="cb21-315"><a href="#cb21-315"></a><span class="ss">    - </span>You could scalar add in one place and vector multiply in another.</span>
+<span id="cb21-316"><a href="#cb21-316"></a><span class="ss">- </span>As a bonus, you may also change the bias however you like.</span>
+<span id="cb21-317"><a href="#cb21-317"></a><span class="ss">- </span>See how close you can get to achieving a diagonal, and!</span>
+<span id="cb21-318"><a href="#cb21-318"></a><span class="ss">    - </span>Don't forget to check your code *more than once*</span>
+<span id="cb21-319"><a href="#cb21-319"></a><span class="ss">    - </span>It is randomized, and you don't want to just get lucky.</span>
+<span id="cb21-320"><a href="#cb21-320"></a></span>
+<span id="cb21-321"><a href="#cb21-321"></a><span class="fu">## Final Product</span></span>
+<span id="cb21-322"><a href="#cb21-322"></a></span>
+<span id="cb21-323"><a href="#cb21-323"></a><span class="ss">- </span>You should have a Colab document which, when run:</span>
+<span id="cb21-324"><a href="#cb21-324"></a><span class="ss">    - </span>Creates a random matrix.</span>
+<span id="cb21-325"><a href="#cb21-325"></a><span class="ss">    - </span>Modifies that random matrix to better detect dice.</span>
+<span id="cb21-326"><a href="#cb21-326"></a><span class="ss">    - </span>Captures 6 true positives.</span>
+<span id="cb21-327"><a href="#cb21-327"></a><span class="ss">    - </span>Has the minimum number of false positives possible.</span>
+<span id="cb21-328"><a href="#cb21-328"></a><span class="ss">    - </span>Has a note of 100-200 words explaining what changes you made, and why.</span>
+<span id="cb21-329"><a href="#cb21-329"></a><span class="ss">        - </span>"I just tried something" is fine, but do state, e.g., what "something" means to you.</span>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

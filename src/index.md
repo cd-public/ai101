@@ -67,7 +67,7 @@ format: html
 |0x8|03/09|[Perceptron](70_perceptron.qmd)|[Multi-class](71_multi.qmd)|<!--Error|Plotly| <!-- incl. back propagation --> <!-- Connectivity|| <!-- fully connected networks, https://docs.nvidia.com/deeplearning/performance/dl-performance-fully-connected/index.html Latent Space|Models| Tensors|Tensorflow| -->
 |0x9|03/16|[Matrix](80_matrix.qmd)| <!-- compression or prey -->
 |0bX|03/23|`None`|`None`|
-|0xA|03/30|Text Rep.|Tokens| <!-- XOR -->
+|0xA|03/30|[Learning](90_learning.qmd)|[Falsify](91_false.qmd)| <!-- XOR -->
 |0xB|03/06|Transformers| <!-- Weight matrices (K, Q, V), and Multiple Heads-->
 |0xC|04/13|GenAI|[`None`](https://my.willamette.edu/site/ssrd)|| <!-- Fine tuning, prompt injection, chat bots -->
 |0xD|04/20|Prompts|

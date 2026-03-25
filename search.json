@@ -4,7 +4,1071 @@
     "href": "index.html",
     "title": "AI 101",
     "section": "",
-    "text": "CS 199 “Understanding AI”\n\nCalled:\n\nCS 199: Topics: Understanding AI\nAI 101\n\nA non-technical survey semester over:\n\nSome trends in AI use\nSome historical conversations around AI\nSome technical background in implementing minimal AI\n\nTaught this year via Google Colab.\n\nIt’s fast (it’s not)\nIt’s free (to us for now)\nIt’s fun (trust me)\n\n\n\nMW 1020-1150\n\n\nProf. Calvin\n\n\nSyllabus\n\nSyllabus link\n\n\n\n\nCalendar\n\n\n\n\n\nWeek\nDate (M)\nLecture (M)\nLab (W)\n\n\n\n\n0x0\n01/12\nAda & Alan\nTuring’s Test\n\n\n0x1\n01/19\nNone\nColab\n\n\n0x2\n01/26\n(Un)supervision\nDichotomy, Solution\n\n\n0x3\n02/02\nRegression\n\\(n\\)D\n\n\n0x4\n02/09\nClassification\nTree tree\n\n\n0x5\n02/16\nGraphs\nSudoku\n\n\n0x6\n02/23\nGuest\nThinking Game\n\n\n0x7\n03/02\nNeural\nWeights\n\n\n0x8\n03/09\nPerceptron\nMulti-class\n\n\n0x9\n03/16\nMatrix\n\n\n\n0bX\n03/23\nNone\nNone\n\n\n0xA\n03/30\nText Rep.\nTokens\n\n\n0xB\n03/06\nTransformers\n\n\n\n0xC\n04/13\nGenAI\nNone\n\n\n0xD\n04/20\nPrompts\n\n\n\n0xE\n04/27\nPerspectives\nPeer Review\n\n\n\nFinal course reflection (“Perspectives”) due whenever the final exam would finish, TBA"
+    "text": "CS 199 “Understanding AI”\n\nCalled:\n\nCS 199: Topics: Understanding AI\nAI 101\n\nA non-technical survey semester over:\n\nSome trends in AI use\nSome historical conversations around AI\nSome technical background in implementing minimal AI\n\nTaught this year via Google Colab.\n\nIt’s fast (it’s not)\nIt’s free (to us for now)\nIt’s fun (trust me)\n\n\n\nMW 1020-1150\n\n\nProf. Calvin\n\n\nSyllabus\n\nSyllabus link\n\n\n\n\nCalendar\n\n\n\n\n\nWeek\nDate (M)\nLecture (M)\nLab (W)\n\n\n\n\n0x0\n01/12\nAda & Alan\nTuring’s Test\n\n\n0x1\n01/19\nNone\nColab\n\n\n0x2\n01/26\n(Un)supervision\nDichotomy, Solution\n\n\n0x3\n02/02\nRegression\n\\(n\\)D\n\n\n0x4\n02/09\nClassification\nTree tree\n\n\n0x5\n02/16\nGraphs\nSudoku\n\n\n0x6\n02/23\nGuest\nThinking Game\n\n\n0x7\n03/02\nNeural\nWeights\n\n\n0x8\n03/09\nPerceptron\nMulti-class\n\n\n0x9\n03/16\nMatrix\n\n\n\n0bX\n03/23\nNone\nNone\n\n\n0xA\n03/30\nLearning\nFalsify\n\n\n0xB\n03/06\nTransformers\n\n\n\n0xC\n04/13\nGenAI\nNone\n\n\n0xD\n04/20\nPrompts\n\n\n\n0xE\n04/27\nPerspectives\nPeer Review\n\n\n\nFinal course reflection (“Perspectives”) due whenever the final exam would finish, TBA"
+  },
+  {
+    "objectID": "90_learning.html",
+    "href": "90_learning.html",
+    "title": "Learning",
+    "section": "",
+    "text": "We’ve explored the perceptron\nWe’ve used binary classification to different odds and evens.\nWe approach multi-class classification.\nAnd finally… we placed the entire framework within a matrix.",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#setting-the-stage",
+    "href": "90_learning.html#setting-the-stage",
+    "title": "Learning",
+    "section": "",
+    "text": "We’ve explored the perceptron\nWe’ve used binary classification to different odds and evens.\nWe approach multi-class classification.\nAnd finally… we placed the entire framework within a matrix.",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#setup",
+    "href": "90_learning.html#setup",
+    "title": "Learning",
+    "section": "Setup",
+    "text": "Setup\n\nimport numpy as np\none = [0,0,0,0,1,0,0,0,0]\ntwo = [0,0,1,0,0,0,1,0,0]\nthr = [0,0,1,0,1,0,1,0,0]\nfou = [1,0,1,0,0,0,1,0,1]\nfiv = [1,0,1,0,1,0,1,0,1]\nsix = [1,0,1,1,0,1,1,0,1]\ndice = np.array([one, two, thr, fou, fiv, six])",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#representing-reality",
+    "href": "90_learning.html#representing-reality",
+    "title": "Learning",
+    "section": "Representing Reality",
+    "text": "Representing Reality\n\nHow does a computer “see” a simple object?\nLet’s take a standard six-sided die.\nWe can represent the face of a die as a 3x3 grid.\nOr, alternatively, a 1x9 (or 9x1) “vector”",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#numpy",
+    "href": "90_learning.html#numpy",
+    "title": "Learning",
+    "section": "NumPy",
+    "text": "NumPy\n\nWe used NumPy to perform element-wise multiplication over vectors.\nThis is also called the “Hadamard product” or “element-wise product”.\nWe step through the example from the lab, briefly.",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#is-one",
+    "href": "90_learning.html#is-one",
+    "title": "Learning",
+    "section": "Is One",
+    "text": "Is One\n\nLast week, we found it was easy enough to classify one.\nBriefly, we looked for a center dot with a positive weight, and gave everything else a negative weight.\nThen we multiplied “element-wise” the visual data (a vector of length 9) by the weights (a vector of length 9).\n\n\\[\n\\sum_{i=1}^{n} w_i \\times x_i\n\\]",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#is-one-vector",
+    "href": "90_learning.html#is-one-vector",
+    "title": "Learning",
+    "section": "Is One Vector",
+    "text": "Is One Vector\n\nWe used, perhaps, this “is one?” vector.\n\nRecall, we cannot include spaces in our names of things in Colab.\nWe use “single equals assignment” to assign a variable to some name.\nIn this case, the variable is the “is one?” vector.\n\n\n\nis_one_vector = np.array([-1,-1,-1,-1,1,-1,-1,-1,-1])",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#compare",
+    "href": "90_learning.html#compare",
+    "title": "Learning",
+    "section": "Compare",
+    "text": "Compare\n\nFind out which die we have in a single line using vector arithmetic.\n\n\n0 &lt; np.sum(dice * is_one_vector, 1)\n\narray([ True, False, False, False, False, False])",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#matrices",
+    "href": "90_learning.html#matrices",
+    "title": "Learning",
+    "section": "Matrices",
+    "text": "Matrices\n\nImagine that instead of having six dice that we want to check to see if they are one.\nWe instead have one die and we wish to see what value it represents.\n\nWe represent the die as a 1 by 9 (or 9 by 1) vector\nWe represent its value (1 to 6) as a 1 by 6 (or 6 by 1) vector.\nWe can perform a single matrix multiplication using a 9 by 6 to get the result.",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#for-example",
+    "href": "90_learning.html#for-example",
+    "title": "Learning",
+    "section": "For example",
+    "text": "For example\n\nWe wish to find out what “class” (what number) fiv belongs to.\nWe would start with fiv\n\n\nfiv = np.array(fiv)\nfiv\n\narray([1, 0, 1, 0, 1, 0, 1, 0, 1])\n\n\n\nWe would want to get back something with a 1 in the fiveth position, and zeroes elsewhere.\n\n\n[0, 0, 0, 0, 1, 0,]\n\n[0, 0, 0, 0, 1, 0]",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#that-matrix",
+    "href": "90_learning.html#that-matrix",
+    "title": "Learning",
+    "section": "That matrix",
+    "text": "That matrix\n\nThis matrix is the precise matrix made in the lab.\n\n\nmulti = np.array([\n    [-1/1, -1/1, -1/1, -1/1,  1/1, -1/1, -1/1, -1/1, -1/1],\n    [-1/2, -1/2,  1/2, -1/2, -1/2, -1/2,  1/2, -1/2, -1/2],\n    [-1/3, -1/3,  1/3, -1/3,  1/3, -1/3,  1/3, -1/3, -1/3],\n    [ 1/4, -1/4,  1/4, -1/4, -1/4, -1/4,  1/4, -1/4,  1/4],\n    [ 1/5, -1/5,  1/5, -1/5,  1/5, -1/5,  1/5, -1/5,  1/5],\n    [ 0/6,  3/6,  0/6,  3/6, -6/6,  3/6,  0/6,  3/6,  0/6],\n])",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#compare-to-1",
+    "href": "90_learning.html#compare-to-1",
+    "title": "Learning",
+    "section": "Compare to 1",
+    "text": "Compare to 1\n\nOnce again, we can simply by just seeing if there’s enough “weight” to make a neuron fire, or not.\n\n\n1 &lt;= np.sum(fiv * multi,1)\n\narray([False, False, False, False,  True, False])\n\n\n\nOnly the neuron representing “five” will fire!",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#collect-our-thoughts",
+    "href": "90_learning.html#collect-our-thoughts",
+    "title": "Learning",
+    "section": "Collect Our Thoughts",
+    "text": "Collect Our Thoughts\n\nIs this intelligent:\n\n\nprint(multi)\n\n[[-1.         -1.         -1.         -1.          1.         -1.\n  -1.         -1.         -1.        ]\n [-0.5        -0.5         0.5        -0.5        -0.5        -0.5\n   0.5        -0.5        -0.5       ]\n [-0.33333333 -0.33333333  0.33333333 -0.33333333  0.33333333 -0.33333333\n   0.33333333 -0.33333333 -0.33333333]\n [ 0.25       -0.25        0.25       -0.25       -0.25       -0.25\n   0.25       -0.25        0.25      ]\n [ 0.2        -0.2         0.2        -0.2         0.2        -0.2\n   0.2        -0.2         0.2       ]\n [ 0.          0.5         0.          0.5        -1.          0.5\n   0.          0.5         0.        ]]",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#our-task",
+    "href": "90_learning.html#our-task",
+    "title": "Learning",
+    "section": "Our Task",
+    "text": "Our Task\n\nWe were trying to do a computer vision task.\nSpecifically, we wished to classify dice.",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#encoding",
+    "href": "90_learning.html#encoding",
+    "title": "Learning",
+    "section": "Encoding",
+    "text": "Encoding\n\nTo do so, we recognized we could view dice with as few as nice (9) “sensory neurons.\n\n\n\n\n1\n2\n3\n\n\n4\n5\n6\n\n\n7\n8\n9\n\n\n\n\nEach of these is either 0 or 1 or perhaps True or False etc.",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#vectors",
+    "href": "90_learning.html#vectors",
+    "title": "Learning",
+    "section": "Vectors",
+    "text": "Vectors\n\nWe then recognized we could place these in any order, and in a single “dimension”.\n\nWe termed this a vector.\n\n\n\n\n\n1\n2\n3\n4\n5\n6\n7\n8\n9",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#graphs",
+    "href": "90_learning.html#graphs",
+    "title": "Learning",
+    "section": "Graphs",
+    "text": "Graphs\n\nWe then discussed that these vectors could be treated as part of a graph.\n\nThe top, input layer representing the visual data.\nThe bottom, output layer representing the classification\n\n\n\n\n\n\n\n\n\nSudokuBipartite\n\ncluster_cells\n\n\n\n\nC22\n\n(2,2)\n\n\n\nD06\n\n6\n\n\n\nC22--D06\n\n\n\n\nD05\n\n5\n\n\n\nC22--D05\n\n\n\n\nD04\n\n4\n\n\n\nC22--D04\n\n\n\n\nD03\n\n3\n\n\n\nC22--D03\n\n\n\n\nD02\n\n2\n\n\n\nC22--D02\n\n\n\n\nD01\n\n1\n\n\n\nC22--D01\n\n\n\n\nC21\n\n(2,1)\n\n\n\nC21--D06\n\n\n\n\nC21--D05\n\n\n\n\nC21--D04\n\n\n\n\nC21--D03\n\n\n\n\nC21--D02\n\n\n\n\nC21--D01\n\n\n\n\nC20\n\n(2,0)\n\n\n\nC20--D06\n\n\n\n\nC20--D05\n\n\n\n\nC20--D04\n\n\n\n\nC20--D03\n\n\n\n\nC20--D02\n\n\n\n\nC20--D01\n\n\n\n\nC12\n\n(1,2)\n\n\n\nC12--D06\n\n\n\n\nC12--D05\n\n\n\n\nC12--D04\n\n\n\n\nC12--D03\n\n\n\n\nC12--D02\n\n\n\n\nC12--D01\n\n\n\n\nC11\n\n(1,1)\n\n\n\nC11--D06\n\n\n\n\nC11--D05\n\n\n\n\nC11--D04\n\n\n\n\nC11--D03\n\n\n\n\nC11--D02\n\n\n\n\nC11--D01\n\n\n\n\nC10\n\n(1,0)\n\n\n\nC10--D06\n\n\n\n\nC10--D05\n\n\n\n\nC10--D04\n\n\n\n\nC10--D03\n\n\n\n\nC10--D02\n\n\n\n\nC10--D01\n\n\n\n\nC02\n\n(0,2)\n\n\n\nC02--D06\n\n\n\n\nC02--D05\n\n\n\n\nC02--D04\n\n\n\n\nC02--D03\n\n\n\n\nC02--D02\n\n\n\n\nC02--D01\n\n\n\n\nC01\n\n(0,1)\n\n\n\nC01--D06\n\n\n\n\nC01--D05\n\n\n\n\nC01--D04\n\n\n\n\nC01--D03\n\n\n\n\nC01--D02\n\n\n\n\nC01--D01\n\n\n\n\nC00\n\n(0,0)\n\n\n\nC00--D06\n\n\n\n\nC00--D05\n\n\n\n\nC00--D04\n\n\n\n\nC00--D03\n\n\n\n\nC00--D02\n\n\n\n\nC00--D01",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#edges",
+    "href": "90_learning.html#edges",
+    "title": "Learning",
+    "section": "Edges",
+    "text": "Edges\n\nEdges in this graph could connect sensed dots to numeric meaning.\n\nMiddle square to odd numbers.\n\n\n\n\n\n\n\n\n\nSudokuBipartite\n\ncluster_cells\n\n\n\n\nC22\n\n(2,2)\n\n\n\nD06\n\n6\n\n\n\nC22--D06\n\n\n\n\nD05\n\n5\n\n\n\nC22--D05\n\n\n\n\nD04\n\n4\n\n\n\nC22--D04\n\n\n\n\nD03\n\n3\n\n\n\nC22--D03\n\n\n\n\nD02\n\n2\n\n\n\nC22--D02\n\n\n\n\nD01\n\n1\n\n\n\nC22--D01\n\n\n\n\nC21\n\n(2,1)\n\n\n\nC21--D06\n\n\n\n\nC21--D05\n\n\n\n\nC21--D04\n\n\n\n\nC21--D03\n\n\n\n\nC21--D02\n\n\n\n\nC21--D01\n\n\n\n\nC20\n\n(2,0)\n\n\n\nC20--D06\n\n\n\n\nC20--D05\n\n\n\n\nC20--D04\n\n\n\n\nC20--D03\n\n\n\n\nC20--D02\n\n\n\n\nC20--D01\n\n\n\n\nC12\n\n(1,2)\n\n\n\nC12--D06\n\n\n\n\nC12--D05\n\n\n\n\nC12--D04\n\n\n\n\nC12--D03\n\n\n\n\nC12--D02\n\n\n\n\nC12--D01\n\n\n\n\nC11\n\n(1,1)\n\n\n\nC11--D06\n\n\n\n\nC11--D05\n\n\n\n\nC11--D05\n\n\n\n\nC11--D04\n\n\n\n\nC11--D03\n\n\n\n\nC11--D03\n\n\n\n\nC11--D02\n\n\n\n\nC11--D01\n\n\n\n\nC11--D01\n\n\n\n\nC10\n\n(1,0)\n\n\n\nC10--D06\n\n\n\n\nC10--D05\n\n\n\n\nC10--D04\n\n\n\n\nC10--D03\n\n\n\n\nC10--D02\n\n\n\n\nC10--D01\n\n\n\n\nC02\n\n(0,2)\n\n\n\nC02--D06\n\n\n\n\nC02--D05\n\n\n\n\nC02--D04\n\n\n\n\nC02--D03\n\n\n\n\nC02--D02\n\n\n\n\nC02--D01\n\n\n\n\nC01\n\n(0,1)\n\n\n\nC01--D06\n\n\n\n\nC01--D05\n\n\n\n\nC01--D04\n\n\n\n\nC01--D03\n\n\n\n\nC01--D02\n\n\n\n\nC01--D01\n\n\n\n\nC00\n\n(0,0)\n\n\n\nC00--D06\n\n\n\n\nC00--D05\n\n\n\n\nC00--D04\n\n\n\n\nC00--D03\n\n\n\n\nC00--D02\n\n\n\n\nC00--D01",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#weights",
+    "href": "90_learning.html#weights",
+    "title": "Learning",
+    "section": "Weights",
+    "text": "Weights\n\nSome edges may matter more than others.\n\nCenter is very important for 1\nKinda important for 3 and 5 - where corners matter too.\n\n\n\n\n\n\n\n\n\nSudokuBipartite\n\ncluster_cells\n\n\n\n\nC22\n\n(2,2)\n\n\n\nD05\n\n5\n\n\n\nC22--D05\n\n\n\n\nC20\n\n(2,0)\n\n\n\nC20--D05\n\n\n\n\nD03\n\n3\n\n\n\nC20--D03\n\n\n\n\nC11\n\n(1,1)\n\n\n\nC11--D05\n\n\n\n\nC11--D03\n\n\n\n\nD01\n\n1\n\n\n\nC11--D01\n\n\n\n\nC02\n\n(0,2)\n\n\n\nC02--D05\n\n\n\n\nC02--D03\n\n\n\n\nC00\n\n(0,0)\n\n\n\nC00--D05",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#matrices-1",
+    "href": "90_learning.html#matrices-1",
+    "title": "Learning",
+    "section": "Matrices",
+    "text": "Matrices\n\nThen, we note that we can express these weights in a matrix.\n\n\nmulti = np.array([\n    [-1/1, -1/1, -1/1, -1/1,  1/1, -1/1, -1/1, -1/1, -1/1],\n    [-1/2, -1/2,  1/2, -1/2, -1/2, -1/2,  1/2, -1/2, -1/2],\n    [-1/3, -1/3,  1/3, -1/3,  1/3, -1/3,  1/3, -1/3, -1/3],\n    [ 1/4, -1/4,  1/4, -1/4, -1/4, -1/4,  1/4, -1/4,  1/4],\n    [ 1/5, -1/5,  1/5, -1/5,  1/5, -1/5,  1/5, -1/5,  1/5],\n    [ 0/6,  3/6,  0/6,  3/6, -6/6,  3/6,  0/6,  3/6,  0/6],\n])",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#simpler",
+    "href": "90_learning.html#simpler",
+    "title": "Learning",
+    "section": "Simpler",
+    "text": "Simpler\n\nTrying to make this easier to see and think about.\n\nmulti = np.array([\n    [ 0,  0,  0,  0,  1,  0,  0,  0,  0],\n    ...\n    [ 0,  0, .3,  0, .3,  0, .3,  0,  0],\n    ...\n    [.2,  0, .2,  0, .2,  0, .2,  0, .2],\n    ...\n])",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#my-claim",
+    "href": "90_learning.html#my-claim",
+    "title": "Learning",
+    "section": "My claim",
+    "text": "My claim\n\nI claim this is not intelligent, though it can do an intelligent task (vision).\n\n\nmulti = np.array([\n    [-1/1, -1/1, -1/1, -1/1,  1/1, -1/1, -1/1, -1/1, -1/1],\n    [-1/2, -1/2,  1/2, -1/2, -1/2, -1/2,  1/2, -1/2, -1/2],\n    [-1/3, -1/3,  1/3, -1/3,  1/3, -1/3,  1/3, -1/3, -1/3],\n    [ 1/4, -1/4,  1/4, -1/4, -1/4, -1/4,  1/4, -1/4,  1/4],\n    [ 1/5, -1/5,  1/5, -1/5,  1/5, -1/5,  1/5, -1/5,  1/5],\n    [ 0/6,  3/6,  0/6,  3/6, -6/6,  3/6,  0/6,  3/6,  0/6],\n])\n\n\nRather, I am intelligent, since I made it.",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#my-claim-1",
+    "href": "90_learning.html#my-claim-1",
+    "title": "Learning",
+    "section": "My claim",
+    "text": "My claim\n\nI do, however, claim, that this is pretty close to being intelligent:\n\n\n1 &lt;= np.sum(fiv * multi,1)\n\narray([False, False, False, False,  True, False])\n\n\n\nAs a method, it could theoretically recognize anything.\n\nArt\nLove\nBeauty\nTrue",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#generalize",
+    "href": "90_learning.html#generalize",
+    "title": "Learning",
+    "section": "Generalize",
+    "text": "Generalize\n\nThe trouble is, how do we get the values in the matrix?\nSomehow, to go from “just arithmetic” to intelligence, we need to learn.\nThis is where machine learning comes into artificial intelligence.",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#our-goals",
+    "href": "90_learning.html#our-goals",
+    "title": "Learning",
+    "section": "Our Goals",
+    "text": "Our Goals\n\nWe will:\n\nStart with “nothing”\n\nAn arbitrary matrix with random values.\n\nConstruct some learning process\n\nWe will represent this with Colab code, but the ideas are independent of how we write them.\n\nShow that we can recognize dice.\n\nAnd therefore (at least theoretically) anything",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#example",
+    "href": "90_learning.html#example",
+    "title": "Learning",
+    "section": "Example",
+    "text": "Example\n\nWe started with this:\n\n\nmulti = np.array([\n    [-1/1, -1/1, -1/1, -1/1,  1/1, -1/1, -1/1, -1/1, -1/1],\n    [-1/2, -1/2,  1/2, -1/2, -1/2, -1/2,  1/2, -1/2, -1/2],\n    [-1/3, -1/3,  1/3, -1/3,  1/3, -1/3,  1/3, -1/3, -1/3],\n    [ 1/4, -1/4,  1/4, -1/4, -1/4, -1/4,  1/4, -1/4,  1/4],\n    [ 1/5, -1/5,  1/5, -1/5,  1/5, -1/5,  1/5, -1/5,  1/5],\n    [ 0/6,  3/6,  0/6,  3/6, -6/6,  3/6,  0/6,  3/6,  0/6],\n])",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#size",
+    "href": "90_learning.html#size",
+    "title": "Learning",
+    "section": "Size",
+    "text": "Size\n\nAs discussed, to look at:\n\n9 locations, and produce\n6 possible characterizations\n\nWe used a \\(9 \\times 6\\) matrix.\n\n\nmulti.shape\n\n(6, 9)",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#randomize",
+    "href": "90_learning.html#randomize",
+    "title": "Learning",
+    "section": "Randomize",
+    "text": "Randomize\n\nRather than using our own intelligence to create the matrix…\n…we can randomize everything.\nImagine, say, when we first try to understand something.\n\nAbout the same as random guessing.\n\nWe use np.random.rand and tell it what shape we want.\n\n\nlearn = np.random.rand(6,9)",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#view-it",
+    "href": "90_learning.html#view-it",
+    "title": "Learning",
+    "section": "View it",
+    "text": "View it\n\nIt looks like this:\n\nAll between 0 and 1 by default.\n\n\n\nprint(learn)\n\n[[0.13819755 0.858514   0.89387389 0.97953215 0.95078702 0.91339183\n  0.55505456 0.05400497 0.76328784]\n [0.61992175 0.60798114 0.47795787 0.99881325 0.21490773 0.1434384\n  0.24203858 0.96896522 0.44601858]\n [0.32932856 0.81046388 0.98930022 0.72729313 0.19500454 0.34640125\n  0.48504912 0.72482006 0.13982303]\n [0.86507991 0.15626278 0.73353581 0.0778394  0.23396891 0.53146514\n  0.62610878 0.30177633 0.65322222]\n [0.30151646 0.17771519 0.31744043 0.70558929 0.92332405 0.86750924\n  0.06348737 0.10571363 0.8207625 ]\n [0.18535997 0.81312843 0.86835174 0.80318644 0.5531322  0.4545896\n  0.96877004 0.93137333 0.08946593]]",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#check-it-out",
+    "href": "90_learning.html#check-it-out",
+    "title": "Learning",
+    "section": "Check it out!",
+    "text": "Check it out!\n\n\n\nMine:\n\n\nfor die in dice:\n    print(1 &lt;= np.sum(die * multi,1))\n\n[ True False False False False False]\n[False  True False False False False]\n[False False  True False False False]\n[False False False  True False False]\n[False False False False  True False]\n[False False False False False  True]\n\n\n\n\nRandom:\n\n\nfor die in dice:\n    print(1 &lt;= np.sum(die * learn,1))\n\n[False False False False False False]\n[ True False  True  True False  True]\n[ True False  True  True  True  True]\n[ True  True  True  True  True  True]\n[ True  True  True  True  True  True]\n[ True  True  True  True  True  True]",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#what-happened",
+    "href": "90_learning.html#what-happened",
+    "title": "Learning",
+    "section": "What happened?",
+    "text": "What happened?\n\nWell, we multiplied each of the nine possible places for a dot in a die by something.\nActually, we did this six times - one for each possible classification\n\nWe classify a die as a “one” or a “three”\n\nFor each of these six classes, we summed up the nine products\n\nThe presence of dot multiplied by importance of dot, for all dots.",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#examine-the-results",
+    "href": "90_learning.html#examine-the-results",
+    "title": "Learning",
+    "section": "Examine the results",
+    "text": "Examine the results\n\nFor each prediction, we can determine which row (or column) of the matrix made that prediction.\nIf that prediction is correct, we can “strengthen” the connections.\n\nPerhaps increase them by 10% or by .1 or something.\n\nIf the prediction is incorrect, we can “penalize” the connections.\n\nPerhaps decrease them by 10% or by .1 or something.",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#supervised-learning",
+    "href": "90_learning.html#supervised-learning",
+    "title": "Learning",
+    "section": "“Supervised” Learning",
+    "text": "“Supervised” Learning\n\nIn this case, we engage in supervised learning.\n\nWe know the answer.\nWe can compare against the answer.\n\nThis is the answer:\n\n\nfor die in dice:\n    print(1 &lt;= np.sum(die * multi,1))\n\n[ True False False False False False]\n[False  True False False False False]\n[False False  True False False False]\n[False False False  True False False]\n[False False False False  True False]\n[False False False False False  True]",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#the-key",
+    "href": "90_learning.html#the-key",
+    "title": "Learning",
+    "section": "The key",
+    "text": "The key\n\nI make an answer key quickly.\n\n\n1 &lt;= dice @ multi.transpose()\n\narray([[ True, False, False, False, False, False],\n       [False,  True, False, False, False, False],\n       [False, False,  True, False, False, False],\n       [False, False, False,  True, False, False],\n       [False, False, False, False,  True, False],\n       [False, False, False, False, False,  True]])\n\n\n\nWe “transpose” the key to make the dimensions line up.\n@ is the special NumPy “operator” for matrix multiplication.\n\nMultiple rows times columns, then sum them up.\n\n\n\nkey = 1 &lt;= dice @ multi.transpose()",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#compare-1",
+    "href": "90_learning.html#compare-1",
+    "title": "Learning",
+    "section": "Compare",
+    "text": "Compare\n\nWe can compare the answer key to the current results from random guessing.\nWe use np.equal to compare all of the matrix positions to see if they are equal.\n\n\nnp.equal(key, 1 &lt;= dice @ learn.transpose())\n\narray([[False,  True,  True,  True,  True,  True],\n       [False, False, False, False,  True, False],\n       [False,  True,  True, False, False, False],\n       [False, False, False,  True, False, False],\n       [False, False, False, False,  True, False],\n       [False, False, False, False, False,  True]])\n\n\n\nWe want all of these to be true - the learned matrix should be just as good as our own intelligence!",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#insight",
+    "href": "90_learning.html#insight",
+    "title": "Learning",
+    "section": "Insight",
+    "text": "Insight\n\nWe note that is often the case that there are many correct guesses for one.\n\nAfter all, it is unlikely that the randomization produces values high enough to sum to one given a single dot.\n\nWe note that is often the case that there are many incorrect guesses for six.\n\nAfter all, it is unlikely that the randomization produces values high enough to sum to six given a single dot.",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#problem",
+    "href": "90_learning.html#problem",
+    "title": "Learning",
+    "section": "Problem",
+    "text": "Problem\n\nJust for this class and to make things easier, we modify the dice so they all sum to one.\n\nSo, six, which previously had six dots multiplied by one, now has 6 dots mulitiplied by \\(\\frac{1}{6}\\) each.\n\nWe started with this:\n\n\ndice\n\narray([[0, 0, 0, 0, 1, 0, 0, 0, 0],\n       [0, 0, 1, 0, 0, 0, 1, 0, 0],\n       [0, 0, 1, 0, 1, 0, 1, 0, 0],\n       [1, 0, 1, 0, 0, 0, 1, 0, 1],\n       [1, 0, 1, 0, 1, 0, 1, 0, 1],\n       [1, 0, 1, 1, 0, 1, 1, 0, 1]])",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#solution",
+    "href": "90_learning.html#solution",
+    "title": "Learning",
+    "section": "Solution",
+    "text": "Solution\n\nI just want to divide each die by how many dots it has.\nI frustrating have to transpose there and back to get the multiplication to work…\n\n\ndivider = np.array([1,2,3,4,5,6]).reshape(1,6)\nfair_dice = (dice.transpose() / divider).transpose()\nfair_dice\n\narray([[0.        , 0.        , 0.        , 0.        , 1.        ,\n        0.        , 0.        , 0.        , 0.        ],\n       [0.        , 0.        , 0.5       , 0.        , 0.        ,\n        0.        , 0.5       , 0.        , 0.        ],\n       [0.        , 0.        , 0.33333333, 0.        , 0.33333333,\n        0.        , 0.33333333, 0.        , 0.        ],\n       [0.25      , 0.        , 0.25      , 0.        , 0.        ,\n        0.        , 0.25      , 0.        , 0.25      ],\n       [0.2       , 0.        , 0.2       , 0.        , 0.2       ,\n        0.        , 0.2       , 0.        , 0.2       ],\n       [0.16666667, 0.        , 0.16666667, 0.16666667, 0.        ,\n        0.16666667, 0.16666667, 0.        , 0.16666667]])",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#check-it-now",
+    "href": "90_learning.html#check-it-now",
+    "title": "Learning",
+    "section": "Check it now",
+    "text": "Check it now\n\nThese should make the random guessing more, well, random…\n\n\nnp.equal(key, 1 &lt;= fair_dice @ learn.transpose())\n\narray([[False,  True,  True,  True,  True,  True],\n       [ True, False,  True,  True,  True,  True],\n       [ True,  True, False,  True,  True,  True],\n       [ True,  True,  True, False,  True,  True],\n       [ True,  True,  True,  True, False,  True],\n       [ True,  True,  True,  True,  True, False]])",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#were-ready",
+    "href": "90_learning.html#were-ready",
+    "title": "Learning",
+    "section": "We’re ready",
+    "text": "We’re ready\n\nNow we are ready to go from nothing (random guessing) to something (intelligence)\nWe will go over every classification.\n\nIf it is the same as the answer key, we will “reward” the row - increasing its weights.\nIf it differs, we will decrease the weights.\n\nI will do this by 10%.",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#writing-it-out",
+    "href": "90_learning.html#writing-it-out",
+    "title": "Learning",
+    "section": "Writing it out",
+    "text": "Writing it out\n\nNo real way around using code for this as far as I know.\nFirst, we’ll make a copy of our original random thing to compare against.\nThen we’ll loop - using for - over all the classifications and update accordingly.\n\n\nbackup = learn.copy()",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#steps",
+    "href": "90_learning.html#steps",
+    "title": "Learning",
+    "section": "Steps",
+    "text": "Steps\n\n\n\nCheck the answer.\n\nPrint them for now, to see them.\n\n\n\n\ngrade = np.equal(key, 1 &lt;= fair_dice @ learn.transpose())\nprint(grade)\n\n[[False  True  True  True  True  True]\n [ True False  True  True  True  True]\n [ True  True False  True  True  True]\n [ True  True  True False  True  True]\n [ True  True  True  True False  True]\n [ True  True  True  True  True False]]",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#steps-1",
+    "href": "90_learning.html#steps-1",
+    "title": "Learning",
+    "section": "Steps",
+    "text": "Steps\n\n\n\nCheck the answer.\nLoop over rows\n\nPrint them for now, to see them.\nThe first row shows how the “one” die is classified.\nThe first entry in each row shows whether a die is classified as a “one”\n\n\n\n\ngrade = np.equal(key, 1 &lt;= fair_dice @ learn.transpose())\nfor row in grade:\n    print(row)\n\n[False  True  True  True  True  True]\n[ True False  True  True  True  True]\n[ True  True False  True  True  True]\n[ True  True  True False  True  True]\n[ True  True  True  True False  True]\n[ True  True  True  True  True False]",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#steps-2",
+    "href": "90_learning.html#steps-2",
+    "title": "Learning",
+    "section": "Steps",
+    "text": "Steps\n\n\n\nCheck the answer.\nLoop over rows\nLoop over correctnesses.\n\n\n\ngrade = np.equal(key, 1 &lt;= fair_dice @ learn.transpose())\nfor row in grade:\n    for correct in row:\n        print(correct)\n\nFalse\nTrue\nTrue\nTrue\nTrue\nTrue\nTrue\nFalse\nTrue\nTrue\nTrue\nTrue\nTrue\nTrue\nFalse\nTrue\nTrue\nTrue\nTrue\nTrue\nTrue\nFalse\nTrue\nTrue\nTrue\nTrue\nTrue\nTrue\nFalse\nTrue\nTrue\nTrue\nTrue\nTrue\nTrue\nFalse",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#steps-3",
+    "href": "90_learning.html#steps-3",
+    "title": "Learning",
+    "section": "Steps",
+    "text": "Steps\n\n\n\nCheck the answer.\nLoop over rows\nLoop over correctnesses.\nIf correct…\n\nIncrease… something?\n\n\n\n\ngrade = np.equal(key, 1 &lt;= fair_dice @ learn.transpose())\nfor row in grade:\n    for correct in row:\n        if correct:\n            print(\"What goes here?\")\n\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#we-know",
+    "href": "90_learning.html#we-know",
+    "title": "Learning",
+    "section": "We know",
+    "text": "We know\n\nIf a guess in a certain row is correct:\n\nIt was predicted by something.\nThat something was the random guesses.\nBut not all of the random guesses…\nJust values that are multiplied to get that row.\n\nSo we want to increase (or decrease) the row at the same address.\nHow?",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#enumerate",
+    "href": "90_learning.html#enumerate",
+    "title": "Learning",
+    "section": "Enumerate",
+    "text": "Enumerate\n\nWe can use the special enumerate function to get back a row and its location with in the matrix.\n\n\nfor loc, row in enumerate(grade):\n    print(\"Location is\", loc, \"and row is\", row)\n\nLocation is 0 and row is [False  True  True  True  True  True]\nLocation is 1 and row is [ True False  True  True  True  True]\nLocation is 2 and row is [ True  True False  True  True  True]\nLocation is 3 and row is [ True  True  True False  True  True]\nLocation is 4 and row is [ True  True  True  True False  True]\nLocation is 5 and row is [ True  True  True  True  True False]",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#enumerate-1",
+    "href": "90_learning.html#enumerate-1",
+    "title": "Learning",
+    "section": "Enumerate",
+    "text": "Enumerate\n\nWe can use the special [] notation to look up the part of the learning matrix that corresponds to the same row.\n\n\nfor loc, row in enumerate(grade):\n    print(\"Location is\", loc, \"and row is\", row, \"and weights are\", learn[loc])\n\nLocation is 0 and row is [False  True  True  True  True  True] and weights are [0.13819755 0.858514   0.89387389 0.97953215 0.95078702 0.91339183\n 0.55505456 0.05400497 0.76328784]\nLocation is 1 and row is [ True False  True  True  True  True] and weights are [0.61992175 0.60798114 0.47795787 0.99881325 0.21490773 0.1434384\n 0.24203858 0.96896522 0.44601858]\nLocation is 2 and row is [ True  True False  True  True  True] and weights are [0.32932856 0.81046388 0.98930022 0.72729313 0.19500454 0.34640125\n 0.48504912 0.72482006 0.13982303]\nLocation is 3 and row is [ True  True  True False  True  True] and weights are [0.86507991 0.15626278 0.73353581 0.0778394  0.23396891 0.53146514\n 0.62610878 0.30177633 0.65322222]\nLocation is 4 and row is [ True  True  True  True False  True] and weights are [0.30151646 0.17771519 0.31744043 0.70558929 0.92332405 0.86750924\n 0.06348737 0.10571363 0.8207625 ]\nLocation is 5 and row is [ True  True  True  True  True False] and weights are [0.18535997 0.81312843 0.86835174 0.80318644 0.5531322  0.4545896\n 0.96877004 0.93137333 0.08946593]",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#steps-4",
+    "href": "90_learning.html#steps-4",
+    "title": "Learning",
+    "section": "Steps",
+    "text": "Steps\n\n\n\nCheck the answer.\nLoop over rows\nLoop over correctnesses.\nIf correct…\n\nIncrease that row.\n\n\n\n\ngrade = np.equal(key, 1 &lt;= fair_dice @ learn.transpose())\nfor loc, row in enumerate(grade):\n    for correct in row:\n        if correct:\n            learn[loc] * 1.1",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#check-it-out-1",
+    "href": "90_learning.html#check-it-out-1",
+    "title": "Learning",
+    "section": "Check it out",
+    "text": "Check it out\n\n\n\nOld (“backup”)\n\n\nnp.equal(key, 1 &lt;= fair_dice @ backup.transpose())\n\narray([[False,  True,  True,  True,  True,  True],\n       [ True, False,  True,  True,  True,  True],\n       [ True,  True, False,  True,  True,  True],\n       [ True,  True,  True, False,  True,  True],\n       [ True,  True,  True,  True, False,  True],\n       [ True,  True,  True,  True,  True, False]])\n\n\n\n\nNew (“learn”)\n\n\nnp.equal(key, 1 &lt;= fair_dice @ learn.transpose())\n\narray([[False,  True,  True,  True,  True,  True],\n       [ True, False,  True,  True,  True,  True],\n       [ True,  True, False,  True,  True,  True],\n       [ True,  True,  True, False,  True,  True],\n       [ True,  True,  True,  True, False,  True],\n       [ True,  True,  True,  True,  True, False]])",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#not-much-better",
+    "href": "90_learning.html#not-much-better",
+    "title": "Learning",
+    "section": "Not much better",
+    "text": "Not much better\n\nWe should do more.\nBut first, we begin again from our backup.\nWe don’t want to mix different experiments together.\n\n\nlearn = backup.copy()",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#steps-5",
+    "href": "90_learning.html#steps-5",
+    "title": "Learning",
+    "section": "Steps",
+    "text": "Steps\n\n\n\nCheck the answer.\nLoop over rows\nLoop over correctnesses.\nIf correct…\n\nIncrease that row.\n\nOtherwise…\n\nDecrease that row.\n\n\n\n\nlearn = backup.copy()\ngrade = np.equal(key, 1 &lt;= fair_dice @ learn.transpose())\nfor loc, row in enumerate(grade):\n    for correct in row:\n        if correct:\n            learn[loc] = learn[loc] * 1.1\n        else: \n            learn[loc] = learn[loc] * .9",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#better",
+    "href": "90_learning.html#better",
+    "title": "Learning",
+    "section": "Better?",
+    "text": "Better?\n\n(1 &lt;= fair_dice @ learn.transpose()) + 0\n\narray([[1, 0, 0, 0, 1, 0],\n       [1, 0, 1, 0, 0, 1],\n       [1, 0, 0, 0, 0, 1],\n       [0, 0, 0, 1, 0, 0],\n       [0, 0, 0, 0, 0, 0],\n       [1, 0, 0, 0, 0, 0]])\n\n\n\nRecall we want a diagonal of 1 here.\n(I use + 0 to turn into numbers so the array is smaller and easier to read)\n(True + 0 is 1 and False + 0 is 0 - don’t worry about it)\nDoesn’t look intelligent to me.",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#we-recognize",
+    "href": "90_learning.html#we-recognize",
+    "title": "Learning",
+    "section": "We recognize",
+    "text": "We recognize\n\nWe don’t need to increase or decrease entire rows\nRather, we know which of the nine dots has a nonzero value…\nAnd therefore which of the nine weights is contributing to a classification.\nSo, rather than increase a row by 10%, increase or decrease the relevant weights only.",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#steps-6",
+    "href": "90_learning.html#steps-6",
+    "title": "Learning",
+    "section": "Steps",
+    "text": "Steps\n\n\n\nCheck the answer.\nLoop over rows\nLoop over correctnesses.\nIf correct…\n\nIncrease relevant.\n\nOtherwise…\n\nDecrease relevant.\n\n\n\n\nlearn = backup.copy()\ngrade = np.equal(key, 1 &lt;= fair_dice @ learn.transpose())\nfor loc, row in enumerate(grade):\n    for correct in row:\n        if correct:\n            learn[loc] = learn[loc] + dice[loc]\n        else: \n            learn[loc] = learn[loc] - dice[loc]\n(1 &lt;= fair_dice @ learn.transpose()) + 0\n\narray([[1, 0, 1, 0, 1, 0],\n       [0, 1, 1, 1, 1, 1],\n       [1, 1, 1, 1, 1, 1],\n       [0, 1, 1, 1, 1, 1],\n       [1, 1, 1, 1, 1, 1],\n       [0, 1, 1, 1, 1, 1]])\n\n\n\nRecall we want a diagonal of 1 here.",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#one-problem",
+    "href": "90_learning.html#one-problem",
+    "title": "Learning",
+    "section": "One Problem",
+    "text": "One Problem\n\nWe may guess correctly too often.\n\nGiven two equally likely choices, 50% chance.\nBut we only want one classification of six - ~17% chance.\n\nWe can bias against guessing by… increasing the bias!\n\n\n\n\n(3 &lt;= fair_dice @ learn.transpose()) + 0\n\narray([[1, 0, 1, 0, 1, 0],\n       [0, 1, 1, 1, 1, 1],\n       [0, 0, 1, 1, 1, 1],\n       [0, 0, 0, 1, 1, 1],\n       [0, 0, 0, 1, 1, 1],\n       [0, 0, 0, 1, 1, 1]])\n\n\n\n\n(4 &lt;= fair_dice @ learn.transpose()) + 0\n\narray([[1, 0, 1, 0, 1, 0],\n       [0, 1, 1, 1, 1, 1],\n       [0, 0, 1, 0, 1, 0],\n       [0, 0, 0, 1, 1, 1],\n       [0, 0, 0, 0, 1, 0],\n       [0, 0, 0, 0, 0, 1]])\n\n\n\n\n(5 &lt;= fair_dice @ learn.transpose()) + 0\n\narray([[0, 0, 0, 0, 0, 0],\n       [0, 0, 0, 0, 0, 0],\n       [0, 0, 0, 0, 0, 0],\n       [0, 0, 0, 0, 0, 0],\n       [0, 0, 0, 0, 0, 0],\n       [0, 0, 0, 0, 0, 0]])",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#looking-good",
+    "href": "90_learning.html#looking-good",
+    "title": "Learning",
+    "section": "Looking good?",
+    "text": "Looking good?\n\nThis looked awfully good to me.\n\n\n(4 &lt;= fair_dice @ learn.transpose()) + 0\n\narray([[1, 0, 1, 0, 1, 0],\n       [0, 1, 1, 1, 1, 1],\n       [0, 0, 1, 0, 1, 0],\n       [0, 0, 0, 1, 1, 1],\n       [0, 0, 0, 0, 1, 0],\n       [0, 0, 0, 0, 0, 1]])\n\n\n\nIf this was an exam the percentage would be a…\n\n\ncompare_to_key = np.equal(4 &lt;= fair_dice @ learn.transpose(), key)\nnp.count_nonzero(compare_to_key) / compare_to_key.size\n\n0.75",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#compare-2",
+    "href": "90_learning.html#compare-2",
+    "title": "Learning",
+    "section": "Compare",
+    "text": "Compare\n\n\n\nInitially…\n\n\ncompare_to_random = np.equal(1 &lt;= fair_dice @ backup.transpose(), key)\nprint(np.count_nonzero(compare_to_random) / compare_to_random.size)\n\n0.8333333333333334\n\n\n\n\nAfter learning…\n\n\ncompare_to_key = np.equal(4 &lt;= fair_dice @ learn.transpose(), key)\nprint(np.count_nonzero(compare_to_key) / compare_to_key.size)\n\n0.75\n\n\n\n\n\nWait… isn’t that worse?",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#precision-and-recall",
+    "href": "90_learning.html#precision-and-recall",
+    "title": "Learning",
+    "section": "Precision and Recall",
+    "text": "Precision and Recall\n\nPrecision and recall are then defined as:\n\n\\[\n\\begin{align}\n  \\text{Precision} &= \\frac{tp}{tp + fp} \\\\\n     \\text{Recall} &= \\frac{tp}{tp + fn} \\,\n\\end{align}\n\\]\n\nPrecision is the number of true positives among the predicted positives.\nRecall is the number of true positives among the actual positives.",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#true-positive-detection",
+    "href": "90_learning.html#true-positive-detection",
+    "title": "Learning",
+    "section": "True Positive Detection",
+    "text": "True Positive Detection\n\n\n\nInitially…\n\n\nguesses = 1 &lt;= fair_dice @ backup.transpose()\ntrue_positive = 0\nfor loc, row in enumerate(guesses):\n    if row[loc]:\n        true_positive = true_positive + 1\nprint(true_positive / 6)\n\n0.0\n\n\n\n\nAfter learning…\n\n\nguesses = 4 &lt;= fair_dice @ learn.transpose()\ntrue_positive = 0\nfor loc, row in enumerate(guesses):\n    if row[loc]:\n        true_positive = true_positive + 1\nprint(true_positive / 6)\n\n1.0\n\n\n\n\n\nCount along the diagonal.\nWe go from zero to all true positives.",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#how",
+    "href": "90_learning.html#how",
+    "title": "Learning",
+    "section": "How?",
+    "text": "How?\n\nInitially, randomization simply predicted no classes at all for anything.\n\n\n1 &lt;= fair_dice @ backup.transpose()\n\narray([[False, False, False, False, False, False],\n       [False, False, False, False, False, False],\n       [False, False, False, False, False, False],\n       [False, False, False, False, False, False],\n       [False, False, False, False, False, False],\n       [False, False, False, False, False, False]])\n\n\n\nNow, at least, we capture the diagonal and aren’t too far off from here.",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#more-to-come",
+    "href": "90_learning.html#more-to-come",
+    "title": "Learning",
+    "section": "More to Come",
+    "text": "More to Come\n\nI think today was a lot.\nWe will play around with this a bit in the lab then return next week.\nTo reduce false positives",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.html#fin",
+    "href": "90_learning.html#fin",
+    "title": "Learning",
+    "section": "FIN",
+    "text": "FIN\n\n\n\n(3.5 &lt;= fair_dice @ learn.transpose()) + 0\n\narray([[1, 0, 1, 0, 1, 0],\n       [0, 1, 1, 1, 1, 1],\n       [0, 0, 1, 0, 1, 0],\n       [0, 0, 0, 1, 1, 1],\n       [0, 0, 0, 1, 1, 1],\n       [0, 0, 0, 0, 0, 1]])\n\n\n\n\n(4.0 &lt;= fair_dice @ learn.transpose()) + 0\n\narray([[1, 0, 1, 0, 1, 0],\n       [0, 1, 1, 1, 1, 1],\n       [0, 0, 1, 0, 1, 0],\n       [0, 0, 0, 1, 1, 1],\n       [0, 0, 0, 0, 1, 0],\n       [0, 0, 0, 0, 0, 1]])\n\n\n\n\n(4.5 &lt;= fair_dice @ learn.transpose()) + 0\n\narray([[1, 0, 0, 0, 1, 0],\n       [0, 0, 1, 1, 0, 1],\n       [0, 0, 1, 0, 0, 0],\n       [0, 0, 0, 1, 0, 1],\n       [0, 0, 0, 0, 0, 0],\n       [0, 0, 0, 0, 0, 1]])\n\n\n\n\n\nBias is not enough!",
+    "crumbs": [
+      "Learning"
+    ]
+  },
+  {
+    "objectID": "90_learning.rjs.html#setting-the-stage",
+    "href": "90_learning.rjs.html#setting-the-stage",
+    "title": "Learning",
+    "section": "Setting the Stage",
+    "text": "Setting the Stage\n\nWe’ve explored the perceptron\nWe’ve used binary classification to different odds and evens.\nWe approach multi-class classification.\nAnd finally… we placed the entire framework within a matrix."
+  },
+  {
+    "objectID": "90_learning.rjs.html#setup",
+    "href": "90_learning.rjs.html#setup",
+    "title": "Learning",
+    "section": "Setup",
+    "text": "Setup\n\nimport numpy as np\none = [0,0,0,0,1,0,0,0,0]\ntwo = [0,0,1,0,0,0,1,0,0]\nthr = [0,0,1,0,1,0,1,0,0]\nfou = [1,0,1,0,0,0,1,0,1]\nfiv = [1,0,1,0,1,0,1,0,1]\nsix = [1,0,1,1,0,1,1,0,1]\ndice = np.array([one, two, thr, fou, fiv, six])"
+  },
+  {
+    "objectID": "90_learning.rjs.html#representing-reality",
+    "href": "90_learning.rjs.html#representing-reality",
+    "title": "Learning",
+    "section": "Representing Reality",
+    "text": "Representing Reality\n\nHow does a computer “see” a simple object?\nLet’s take a standard six-sided die.\nWe can represent the face of a die as a 3x3 grid.\nOr, alternatively, a 1x9 (or 9x1) “vector”"
+  },
+  {
+    "objectID": "90_learning.rjs.html#numpy",
+    "href": "90_learning.rjs.html#numpy",
+    "title": "Learning",
+    "section": "NumPy",
+    "text": "NumPy\n\nWe used NumPy to perform element-wise multiplication over vectors.\nThis is also called the “Hadamard product” or “element-wise product”.\nWe step through the example from the lab, briefly."
+  },
+  {
+    "objectID": "90_learning.rjs.html#is-one",
+    "href": "90_learning.rjs.html#is-one",
+    "title": "Learning",
+    "section": "Is One",
+    "text": "Is One\n\nLast week, we found it was easy enough to classify one.\nBriefly, we looked for a center dot with a positive weight, and gave everything else a negative weight.\nThen we multiplied “element-wise” the visual data (a vector of length 9) by the weights (a vector of length 9).\n\n\\[\n\\sum_{i=1}^{n} w_i \\times x_i\n\\]"
+  },
+  {
+    "objectID": "90_learning.rjs.html#is-one-vector",
+    "href": "90_learning.rjs.html#is-one-vector",
+    "title": "Learning",
+    "section": "Is One Vector",
+    "text": "Is One Vector\n\nWe used, perhaps, this “is one?” vector.\n\nRecall, we cannot include spaces in our names of things in Colab.\nWe use “single equals assignment” to assign a variable to some name.\nIn this case, the variable is the “is one?” vector.\n\n\n\nis_one_vector = np.array([-1,-1,-1,-1,1,-1,-1,-1,-1])"
+  },
+  {
+    "objectID": "90_learning.rjs.html#compare",
+    "href": "90_learning.rjs.html#compare",
+    "title": "Learning",
+    "section": "Compare",
+    "text": "Compare\n\nFind out which die we have in a single line using vector arithmetic.\n\n\n0 &lt; np.sum(dice * is_one_vector, 1)\n\narray([ True, False, False, False, False, False])"
+  },
+  {
+    "objectID": "90_learning.rjs.html#matrices",
+    "href": "90_learning.rjs.html#matrices",
+    "title": "Learning",
+    "section": "Matrices",
+    "text": "Matrices\n\nImagine that instead of having six dice that we want to check to see if they are one.\nWe instead have one die and we wish to see what value it represents.\n\nWe represent the die as a 1 by 9 (or 9 by 1) vector\nWe represent its value (1 to 6) as a 1 by 6 (or 6 by 1) vector.\nWe can perform a single matrix multiplication using a 9 by 6 to get the result."
+  },
+  {
+    "objectID": "90_learning.rjs.html#for-example",
+    "href": "90_learning.rjs.html#for-example",
+    "title": "Learning",
+    "section": "For example",
+    "text": "For example\n\nWe wish to find out what “class” (what number) fiv belongs to.\nWe would start with fiv\n\n\nfiv = np.array(fiv)\nfiv\n\narray([1, 0, 1, 0, 1, 0, 1, 0, 1])\n\n\n\nWe would want to get back something with a 1 in the fiveth position, and zeroes elsewhere.\n\n\n[0, 0, 0, 0, 1, 0,]\n\n[0, 0, 0, 0, 1, 0]"
+  },
+  {
+    "objectID": "90_learning.rjs.html#that-matrix",
+    "href": "90_learning.rjs.html#that-matrix",
+    "title": "Learning",
+    "section": "That matrix",
+    "text": "That matrix\n\nThis matrix is the precise matrix made in the lab.\n\n\nmulti = np.array([\n    [-1/1, -1/1, -1/1, -1/1,  1/1, -1/1, -1/1, -1/1, -1/1],\n    [-1/2, -1/2,  1/2, -1/2, -1/2, -1/2,  1/2, -1/2, -1/2],\n    [-1/3, -1/3,  1/3, -1/3,  1/3, -1/3,  1/3, -1/3, -1/3],\n    [ 1/4, -1/4,  1/4, -1/4, -1/4, -1/4,  1/4, -1/4,  1/4],\n    [ 1/5, -1/5,  1/5, -1/5,  1/5, -1/5,  1/5, -1/5,  1/5],\n    [ 0/6,  3/6,  0/6,  3/6, -6/6,  3/6,  0/6,  3/6,  0/6],\n])"
+  },
+  {
+    "objectID": "90_learning.rjs.html#compare-to-1",
+    "href": "90_learning.rjs.html#compare-to-1",
+    "title": "Learning",
+    "section": "Compare to 1",
+    "text": "Compare to 1\n\nOnce again, we can simply by just seeing if there’s enough “weight” to make a neuron fire, or not.\n\n\n1 &lt;= np.sum(fiv * multi,1)\n\narray([False, False, False, False,  True, False])\n\n\n\nOnly the neuron representing “five” will fire!"
+  },
+  {
+    "objectID": "90_learning.rjs.html#collect-our-thoughts",
+    "href": "90_learning.rjs.html#collect-our-thoughts",
+    "title": "Learning",
+    "section": "Collect Our Thoughts",
+    "text": "Collect Our Thoughts\n\nIs this intelligent:\n\n\nprint(multi)\n\n[[-1.         -1.         -1.         -1.          1.         -1.\n  -1.         -1.         -1.        ]\n [-0.5        -0.5         0.5        -0.5        -0.5        -0.5\n   0.5        -0.5        -0.5       ]\n [-0.33333333 -0.33333333  0.33333333 -0.33333333  0.33333333 -0.33333333\n   0.33333333 -0.33333333 -0.33333333]\n [ 0.25       -0.25        0.25       -0.25       -0.25       -0.25\n   0.25       -0.25        0.25      ]\n [ 0.2        -0.2         0.2        -0.2         0.2        -0.2\n   0.2        -0.2         0.2       ]\n [ 0.          0.5         0.          0.5        -1.          0.5\n   0.          0.5         0.        ]]"
+  },
+  {
+    "objectID": "90_learning.rjs.html#our-task",
+    "href": "90_learning.rjs.html#our-task",
+    "title": "Learning",
+    "section": "Our Task",
+    "text": "Our Task\n\nWe were trying to do a computer vision task.\nSpecifically, we wished to classify dice."
+  },
+  {
+    "objectID": "90_learning.rjs.html#encoding",
+    "href": "90_learning.rjs.html#encoding",
+    "title": "Learning",
+    "section": "Encoding",
+    "text": "Encoding\n\nTo do so, we recognized we could view dice with as few as nice (9) “sensory neurons.\n\n\n\n\n1\n2\n3\n\n\n4\n5\n6\n\n\n7\n8\n9\n\n\n\n\nEach of these is either 0 or 1 or perhaps True or False etc."
+  },
+  {
+    "objectID": "90_learning.rjs.html#vectors",
+    "href": "90_learning.rjs.html#vectors",
+    "title": "Learning",
+    "section": "Vectors",
+    "text": "Vectors\n\nWe then recognized we could place these in any order, and in a single “dimension”.\n\nWe termed this a vector.\n\n\n\n\n\n1\n2\n3\n4\n5\n6\n7\n8\n9"
+  },
+  {
+    "objectID": "90_learning.rjs.html#graphs",
+    "href": "90_learning.rjs.html#graphs",
+    "title": "Learning",
+    "section": "Graphs",
+    "text": "Graphs\n\nWe then discussed that these vectors could be treated as part of a graph.\n\nThe top, input layer representing the visual data.\nThe bottom, output layer representing the classification\n\n\n\n\n\n\n\n\n\nSudokuBipartite\n\ncluster_cells\n\n\n\n\nC22\n\n(2,2)\n\n\n\nD06\n\n6\n\n\n\nC22--D06\n\n\n\n\nD05\n\n5\n\n\n\nC22--D05\n\n\n\n\nD04\n\n4\n\n\n\nC22--D04\n\n\n\n\nD03\n\n3\n\n\n\nC22--D03\n\n\n\n\nD02\n\n2\n\n\n\nC22--D02\n\n\n\n\nD01\n\n1\n\n\n\nC22--D01\n\n\n\n\nC21\n\n(2,1)\n\n\n\nC21--D06\n\n\n\n\nC21--D05\n\n\n\n\nC21--D04\n\n\n\n\nC21--D03\n\n\n\n\nC21--D02\n\n\n\n\nC21--D01\n\n\n\n\nC20\n\n(2,0)\n\n\n\nC20--D06\n\n\n\n\nC20--D05\n\n\n\n\nC20--D04\n\n\n\n\nC20--D03\n\n\n\n\nC20--D02\n\n\n\n\nC20--D01\n\n\n\n\nC12\n\n(1,2)\n\n\n\nC12--D06\n\n\n\n\nC12--D05\n\n\n\n\nC12--D04\n\n\n\n\nC12--D03\n\n\n\n\nC12--D02\n\n\n\n\nC12--D01\n\n\n\n\nC11\n\n(1,1)\n\n\n\nC11--D06\n\n\n\n\nC11--D05\n\n\n\n\nC11--D04\n\n\n\n\nC11--D03\n\n\n\n\nC11--D02\n\n\n\n\nC11--D01\n\n\n\n\nC10\n\n(1,0)\n\n\n\nC10--D06\n\n\n\n\nC10--D05\n\n\n\n\nC10--D04\n\n\n\n\nC10--D03\n\n\n\n\nC10--D02\n\n\n\n\nC10--D01\n\n\n\n\nC02\n\n(0,2)\n\n\n\nC02--D06\n\n\n\n\nC02--D05\n\n\n\n\nC02--D04\n\n\n\n\nC02--D03\n\n\n\n\nC02--D02\n\n\n\n\nC02--D01\n\n\n\n\nC01\n\n(0,1)\n\n\n\nC01--D06\n\n\n\n\nC01--D05\n\n\n\n\nC01--D04\n\n\n\n\nC01--D03\n\n\n\n\nC01--D02\n\n\n\n\nC01--D01\n\n\n\n\nC00\n\n(0,0)\n\n\n\nC00--D06\n\n\n\n\nC00--D05\n\n\n\n\nC00--D04\n\n\n\n\nC00--D03\n\n\n\n\nC00--D02\n\n\n\n\nC00--D01"
+  },
+  {
+    "objectID": "90_learning.rjs.html#edges",
+    "href": "90_learning.rjs.html#edges",
+    "title": "Learning",
+    "section": "Edges",
+    "text": "Edges\n\nEdges in this graph could connect sensed dots to numeric meaning.\n\nMiddle square to odd numbers.\n\n\n\n\n\n\n\n\n\nSudokuBipartite\n\ncluster_cells\n\n\n\n\nC22\n\n(2,2)\n\n\n\nD06\n\n6\n\n\n\nC22--D06\n\n\n\n\nD05\n\n5\n\n\n\nC22--D05\n\n\n\n\nD04\n\n4\n\n\n\nC22--D04\n\n\n\n\nD03\n\n3\n\n\n\nC22--D03\n\n\n\n\nD02\n\n2\n\n\n\nC22--D02\n\n\n\n\nD01\n\n1\n\n\n\nC22--D01\n\n\n\n\nC21\n\n(2,1)\n\n\n\nC21--D06\n\n\n\n\nC21--D05\n\n\n\n\nC21--D04\n\n\n\n\nC21--D03\n\n\n\n\nC21--D02\n\n\n\n\nC21--D01\n\n\n\n\nC20\n\n(2,0)\n\n\n\nC20--D06\n\n\n\n\nC20--D05\n\n\n\n\nC20--D04\n\n\n\n\nC20--D03\n\n\n\n\nC20--D02\n\n\n\n\nC20--D01\n\n\n\n\nC12\n\n(1,2)\n\n\n\nC12--D06\n\n\n\n\nC12--D05\n\n\n\n\nC12--D04\n\n\n\n\nC12--D03\n\n\n\n\nC12--D02\n\n\n\n\nC12--D01\n\n\n\n\nC11\n\n(1,1)\n\n\n\nC11--D06\n\n\n\n\nC11--D05\n\n\n\n\nC11--D05\n\n\n\n\nC11--D04\n\n\n\n\nC11--D03\n\n\n\n\nC11--D03\n\n\n\n\nC11--D02\n\n\n\n\nC11--D01\n\n\n\n\nC11--D01\n\n\n\n\nC10\n\n(1,0)\n\n\n\nC10--D06\n\n\n\n\nC10--D05\n\n\n\n\nC10--D04\n\n\n\n\nC10--D03\n\n\n\n\nC10--D02\n\n\n\n\nC10--D01\n\n\n\n\nC02\n\n(0,2)\n\n\n\nC02--D06\n\n\n\n\nC02--D05\n\n\n\n\nC02--D04\n\n\n\n\nC02--D03\n\n\n\n\nC02--D02\n\n\n\n\nC02--D01\n\n\n\n\nC01\n\n(0,1)\n\n\n\nC01--D06\n\n\n\n\nC01--D05\n\n\n\n\nC01--D04\n\n\n\n\nC01--D03\n\n\n\n\nC01--D02\n\n\n\n\nC01--D01\n\n\n\n\nC00\n\n(0,0)\n\n\n\nC00--D06\n\n\n\n\nC00--D05\n\n\n\n\nC00--D04\n\n\n\n\nC00--D03\n\n\n\n\nC00--D02\n\n\n\n\nC00--D01"
+  },
+  {
+    "objectID": "90_learning.rjs.html#weights",
+    "href": "90_learning.rjs.html#weights",
+    "title": "Learning",
+    "section": "Weights",
+    "text": "Weights\n\nSome edges may matter more than others.\n\nCenter is very important for 1\nKinda important for 3 and 5 - where corners matter too.\n\n\n\n\n\n\n\n\n\nSudokuBipartite\n\ncluster_cells\n\n\n\n\nC22\n\n(2,2)\n\n\n\nD05\n\n5\n\n\n\nC22--D05\n\n\n\n\nC20\n\n(2,0)\n\n\n\nC20--D05\n\n\n\n\nD03\n\n3\n\n\n\nC20--D03\n\n\n\n\nC11\n\n(1,1)\n\n\n\nC11--D05\n\n\n\n\nC11--D03\n\n\n\n\nD01\n\n1\n\n\n\nC11--D01\n\n\n\n\nC02\n\n(0,2)\n\n\n\nC02--D05\n\n\n\n\nC02--D03\n\n\n\n\nC00\n\n(0,0)\n\n\n\nC00--D05"
+  },
+  {
+    "objectID": "90_learning.rjs.html#matrices-1",
+    "href": "90_learning.rjs.html#matrices-1",
+    "title": "Learning",
+    "section": "Matrices",
+    "text": "Matrices\n\nThen, we note that we can express these weights in a matrix.\n\n\nmulti = np.array([\n    [-1/1, -1/1, -1/1, -1/1,  1/1, -1/1, -1/1, -1/1, -1/1],\n    [-1/2, -1/2,  1/2, -1/2, -1/2, -1/2,  1/2, -1/2, -1/2],\n    [-1/3, -1/3,  1/3, -1/3,  1/3, -1/3,  1/3, -1/3, -1/3],\n    [ 1/4, -1/4,  1/4, -1/4, -1/4, -1/4,  1/4, -1/4,  1/4],\n    [ 1/5, -1/5,  1/5, -1/5,  1/5, -1/5,  1/5, -1/5,  1/5],\n    [ 0/6,  3/6,  0/6,  3/6, -6/6,  3/6,  0/6,  3/6,  0/6],\n])"
+  },
+  {
+    "objectID": "90_learning.rjs.html#simpler",
+    "href": "90_learning.rjs.html#simpler",
+    "title": "Learning",
+    "section": "Simpler",
+    "text": "Simpler\n\nTrying to make this easier to see and think about.\n\nmulti = np.array([\n    [ 0,  0,  0,  0,  1,  0,  0,  0,  0],\n    ...\n    [ 0,  0, .3,  0, .3,  0, .3,  0,  0],\n    ...\n    [.2,  0, .2,  0, .2,  0, .2,  0, .2],\n    ...\n])"
+  },
+  {
+    "objectID": "90_learning.rjs.html#my-claim",
+    "href": "90_learning.rjs.html#my-claim",
+    "title": "Learning",
+    "section": "My claim",
+    "text": "My claim\n\nI claim this is not intelligent, though it can do an intelligent task (vision).\n\n\nmulti = np.array([\n    [-1/1, -1/1, -1/1, -1/1,  1/1, -1/1, -1/1, -1/1, -1/1],\n    [-1/2, -1/2,  1/2, -1/2, -1/2, -1/2,  1/2, -1/2, -1/2],\n    [-1/3, -1/3,  1/3, -1/3,  1/3, -1/3,  1/3, -1/3, -1/3],\n    [ 1/4, -1/4,  1/4, -1/4, -1/4, -1/4,  1/4, -1/4,  1/4],\n    [ 1/5, -1/5,  1/5, -1/5,  1/5, -1/5,  1/5, -1/5,  1/5],\n    [ 0/6,  3/6,  0/6,  3/6, -6/6,  3/6,  0/6,  3/6,  0/6],\n])\n\n\nRather, I am intelligent, since I made it."
+  },
+  {
+    "objectID": "90_learning.rjs.html#my-claim-1",
+    "href": "90_learning.rjs.html#my-claim-1",
+    "title": "Learning",
+    "section": "My claim",
+    "text": "My claim\n\nI do, however, claim, that this is pretty close to being intelligent:\n\n\n1 &lt;= np.sum(fiv * multi,1)\n\narray([False, False, False, False,  True, False])\n\n\n\nAs a method, it could theoretically recognize anything.\n\nArt\nLove\nBeauty\nTrue"
+  },
+  {
+    "objectID": "90_learning.rjs.html#generalize",
+    "href": "90_learning.rjs.html#generalize",
+    "title": "Learning",
+    "section": "Generalize",
+    "text": "Generalize\n\nThe trouble is, how do we get the values in the matrix?\nSomehow, to go from “just arithmetic” to intelligence, we need to learn.\nThis is where machine learning comes into artificial intelligence."
+  },
+  {
+    "objectID": "90_learning.rjs.html#our-goals",
+    "href": "90_learning.rjs.html#our-goals",
+    "title": "Learning",
+    "section": "Our Goals",
+    "text": "Our Goals\n\nWe will:\n\nStart with “nothing”\n\nAn arbitrary matrix with random values.\n\nConstruct some learning process\n\nWe will represent this with Colab code, but the ideas are independent of how we write them.\n\nShow that we can recognize dice.\n\nAnd therefore (at least theoretically) anything"
+  },
+  {
+    "objectID": "90_learning.rjs.html#example",
+    "href": "90_learning.rjs.html#example",
+    "title": "Learning",
+    "section": "Example",
+    "text": "Example\n\nWe started with this:\n\n\nmulti = np.array([\n    [-1/1, -1/1, -1/1, -1/1,  1/1, -1/1, -1/1, -1/1, -1/1],\n    [-1/2, -1/2,  1/2, -1/2, -1/2, -1/2,  1/2, -1/2, -1/2],\n    [-1/3, -1/3,  1/3, -1/3,  1/3, -1/3,  1/3, -1/3, -1/3],\n    [ 1/4, -1/4,  1/4, -1/4, -1/4, -1/4,  1/4, -1/4,  1/4],\n    [ 1/5, -1/5,  1/5, -1/5,  1/5, -1/5,  1/5, -1/5,  1/5],\n    [ 0/6,  3/6,  0/6,  3/6, -6/6,  3/6,  0/6,  3/6,  0/6],\n])"
+  },
+  {
+    "objectID": "90_learning.rjs.html#size",
+    "href": "90_learning.rjs.html#size",
+    "title": "Learning",
+    "section": "Size",
+    "text": "Size\n\nAs discussed, to look at:\n\n9 locations, and produce\n6 possible characterizations\n\nWe used a \\(9 \\times 6\\) matrix.\n\n\nmulti.shape\n\n(6, 9)"
+  },
+  {
+    "objectID": "90_learning.rjs.html#randomize",
+    "href": "90_learning.rjs.html#randomize",
+    "title": "Learning",
+    "section": "Randomize",
+    "text": "Randomize\n\nRather than using our own intelligence to create the matrix…\n…we can randomize everything.\nImagine, say, when we first try to understand something.\n\nAbout the same as random guessing.\n\nWe use np.random.rand and tell it what shape we want.\n\n\nlearn = np.random.rand(6,9)"
+  },
+  {
+    "objectID": "90_learning.rjs.html#view-it",
+    "href": "90_learning.rjs.html#view-it",
+    "title": "Learning",
+    "section": "View it",
+    "text": "View it\n\nIt looks like this:\n\nAll between 0 and 1 by default.\n\n\n\nprint(learn)\n\n[[0.13819755 0.858514   0.89387389 0.97953215 0.95078702 0.91339183\n  0.55505456 0.05400497 0.76328784]\n [0.61992175 0.60798114 0.47795787 0.99881325 0.21490773 0.1434384\n  0.24203858 0.96896522 0.44601858]\n [0.32932856 0.81046388 0.98930022 0.72729313 0.19500454 0.34640125\n  0.48504912 0.72482006 0.13982303]\n [0.86507991 0.15626278 0.73353581 0.0778394  0.23396891 0.53146514\n  0.62610878 0.30177633 0.65322222]\n [0.30151646 0.17771519 0.31744043 0.70558929 0.92332405 0.86750924\n  0.06348737 0.10571363 0.8207625 ]\n [0.18535997 0.81312843 0.86835174 0.80318644 0.5531322  0.4545896\n  0.96877004 0.93137333 0.08946593]]"
+  },
+  {
+    "objectID": "90_learning.rjs.html#check-it-out",
+    "href": "90_learning.rjs.html#check-it-out",
+    "title": "Learning",
+    "section": "Check it out!",
+    "text": "Check it out!\n\n\n\nMine:\n\n\nfor die in dice:\n    print(1 &lt;= np.sum(die * multi,1))\n\n[ True False False False False False]\n[False  True False False False False]\n[False False  True False False False]\n[False False False  True False False]\n[False False False False  True False]\n[False False False False False  True]\n\n\n\n\nRandom:\n\n\nfor die in dice:\n    print(1 &lt;= np.sum(die * learn,1))\n\n[False False False False False False]\n[ True False  True  True False  True]\n[ True False  True  True  True  True]\n[ True  True  True  True  True  True]\n[ True  True  True  True  True  True]\n[ True  True  True  True  True  True]"
+  },
+  {
+    "objectID": "90_learning.rjs.html#what-happened",
+    "href": "90_learning.rjs.html#what-happened",
+    "title": "Learning",
+    "section": "What happened?",
+    "text": "What happened?\n\nWell, we multiplied each of the nine possible places for a dot in a die by something.\nActually, we did this six times - one for each possible classification\n\nWe classify a die as a “one” or a “three”\n\nFor each of these six classes, we summed up the nine products\n\nThe presence of dot multiplied by importance of dot, for all dots."
+  },
+  {
+    "objectID": "90_learning.rjs.html#examine-the-results",
+    "href": "90_learning.rjs.html#examine-the-results",
+    "title": "Learning",
+    "section": "Examine the results",
+    "text": "Examine the results\n\nFor each prediction, we can determine which row (or column) of the matrix made that prediction.\nIf that prediction is correct, we can “strengthen” the connections.\n\nPerhaps increase them by 10% or by .1 or something.\n\nIf the prediction is incorrect, we can “penalize” the connections.\n\nPerhaps decrease them by 10% or by .1 or something."
+  },
+  {
+    "objectID": "90_learning.rjs.html#supervised-learning",
+    "href": "90_learning.rjs.html#supervised-learning",
+    "title": "Learning",
+    "section": "“Supervised” Learning",
+    "text": "“Supervised” Learning\n\nIn this case, we engage in supervised learning.\n\nWe know the answer.\nWe can compare against the answer.\n\nThis is the answer:\n\n\nfor die in dice:\n    print(1 &lt;= np.sum(die * multi,1))\n\n[ True False False False False False]\n[False  True False False False False]\n[False False  True False False False]\n[False False False  True False False]\n[False False False False  True False]\n[False False False False False  True]"
+  },
+  {
+    "objectID": "90_learning.rjs.html#the-key",
+    "href": "90_learning.rjs.html#the-key",
+    "title": "Learning",
+    "section": "The key",
+    "text": "The key\n\nI make an answer key quickly.\n\n\n1 &lt;= dice @ multi.transpose()\n\narray([[ True, False, False, False, False, False],\n       [False,  True, False, False, False, False],\n       [False, False,  True, False, False, False],\n       [False, False, False,  True, False, False],\n       [False, False, False, False,  True, False],\n       [False, False, False, False, False,  True]])\n\n\n\nWe “transpose” the key to make the dimensions line up.\n@ is the special NumPy “operator” for matrix multiplication.\n\nMultiple rows times columns, then sum them up.\n\n\n\nkey = 1 &lt;= dice @ multi.transpose()"
+  },
+  {
+    "objectID": "90_learning.rjs.html#compare-1",
+    "href": "90_learning.rjs.html#compare-1",
+    "title": "Learning",
+    "section": "Compare",
+    "text": "Compare\n\nWe can compare the answer key to the current results from random guessing.\nWe use np.equal to compare all of the matrix positions to see if they are equal.\n\n\nnp.equal(key, 1 &lt;= dice @ learn.transpose())\n\narray([[False,  True,  True,  True,  True,  True],\n       [False, False, False, False,  True, False],\n       [False,  True,  True, False, False, False],\n       [False, False, False,  True, False, False],\n       [False, False, False, False,  True, False],\n       [False, False, False, False, False,  True]])\n\n\n\nWe want all of these to be true - the learned matrix should be just as good as our own intelligence!"
+  },
+  {
+    "objectID": "90_learning.rjs.html#insight",
+    "href": "90_learning.rjs.html#insight",
+    "title": "Learning",
+    "section": "Insight",
+    "text": "Insight\n\nWe note that is often the case that there are many correct guesses for one.\n\nAfter all, it is unlikely that the randomization produces values high enough to sum to one given a single dot.\n\nWe note that is often the case that there are many incorrect guesses for six.\n\nAfter all, it is unlikely that the randomization produces values high enough to sum to six given a single dot."
+  },
+  {
+    "objectID": "90_learning.rjs.html#problem",
+    "href": "90_learning.rjs.html#problem",
+    "title": "Learning",
+    "section": "Problem",
+    "text": "Problem\n\nJust for this class and to make things easier, we modify the dice so they all sum to one.\n\nSo, six, which previously had six dots multiplied by one, now has 6 dots mulitiplied by \\(\\frac{1}{6}\\) each.\n\nWe started with this:\n\n\ndice\n\narray([[0, 0, 0, 0, 1, 0, 0, 0, 0],\n       [0, 0, 1, 0, 0, 0, 1, 0, 0],\n       [0, 0, 1, 0, 1, 0, 1, 0, 0],\n       [1, 0, 1, 0, 0, 0, 1, 0, 1],\n       [1, 0, 1, 0, 1, 0, 1, 0, 1],\n       [1, 0, 1, 1, 0, 1, 1, 0, 1]])"
+  },
+  {
+    "objectID": "90_learning.rjs.html#solution",
+    "href": "90_learning.rjs.html#solution",
+    "title": "Learning",
+    "section": "Solution",
+    "text": "Solution\n\nI just want to divide each die by how many dots it has.\nI frustrating have to transpose there and back to get the multiplication to work…\n\n\ndivider = np.array([1,2,3,4,5,6]).reshape(1,6)\nfair_dice = (dice.transpose() / divider).transpose()\nfair_dice\n\narray([[0.        , 0.        , 0.        , 0.        , 1.        ,\n        0.        , 0.        , 0.        , 0.        ],\n       [0.        , 0.        , 0.5       , 0.        , 0.        ,\n        0.        , 0.5       , 0.        , 0.        ],\n       [0.        , 0.        , 0.33333333, 0.        , 0.33333333,\n        0.        , 0.33333333, 0.        , 0.        ],\n       [0.25      , 0.        , 0.25      , 0.        , 0.        ,\n        0.        , 0.25      , 0.        , 0.25      ],\n       [0.2       , 0.        , 0.2       , 0.        , 0.2       ,\n        0.        , 0.2       , 0.        , 0.2       ],\n       [0.16666667, 0.        , 0.16666667, 0.16666667, 0.        ,\n        0.16666667, 0.16666667, 0.        , 0.16666667]])"
+  },
+  {
+    "objectID": "90_learning.rjs.html#check-it-now",
+    "href": "90_learning.rjs.html#check-it-now",
+    "title": "Learning",
+    "section": "Check it now",
+    "text": "Check it now\n\nThese should make the random guessing more, well, random…\n\n\nnp.equal(key, 1 &lt;= fair_dice @ learn.transpose())\n\narray([[False,  True,  True,  True,  True,  True],\n       [ True, False,  True,  True,  True,  True],\n       [ True,  True, False,  True,  True,  True],\n       [ True,  True,  True, False,  True,  True],\n       [ True,  True,  True,  True, False,  True],\n       [ True,  True,  True,  True,  True, False]])"
+  },
+  {
+    "objectID": "90_learning.rjs.html#were-ready",
+    "href": "90_learning.rjs.html#were-ready",
+    "title": "Learning",
+    "section": "We’re ready",
+    "text": "We’re ready\n\nNow we are ready to go from nothing (random guessing) to something (intelligence)\nWe will go over every classification.\n\nIf it is the same as the answer key, we will “reward” the row - increasing its weights.\nIf it differs, we will decrease the weights.\n\nI will do this by 10%."
+  },
+  {
+    "objectID": "90_learning.rjs.html#writing-it-out",
+    "href": "90_learning.rjs.html#writing-it-out",
+    "title": "Learning",
+    "section": "Writing it out",
+    "text": "Writing it out\n\nNo real way around using code for this as far as I know.\nFirst, we’ll make a copy of our original random thing to compare against.\nThen we’ll loop - using for - over all the classifications and update accordingly.\n\n\nbackup = learn.copy()"
+  },
+  {
+    "objectID": "90_learning.rjs.html#steps",
+    "href": "90_learning.rjs.html#steps",
+    "title": "Learning",
+    "section": "Steps",
+    "text": "Steps\n\n\n\nCheck the answer.\n\nPrint them for now, to see them.\n\n\n\n\ngrade = np.equal(key, 1 &lt;= fair_dice @ learn.transpose())\nprint(grade)\n\n[[False  True  True  True  True  True]\n [ True False  True  True  True  True]\n [ True  True False  True  True  True]\n [ True  True  True False  True  True]\n [ True  True  True  True False  True]\n [ True  True  True  True  True False]]"
+  },
+  {
+    "objectID": "90_learning.rjs.html#steps-1",
+    "href": "90_learning.rjs.html#steps-1",
+    "title": "Learning",
+    "section": "Steps",
+    "text": "Steps\n\n\n\nCheck the answer.\nLoop over rows\n\nPrint them for now, to see them.\nThe first row shows how the “one” die is classified.\nThe first entry in each row shows whether a die is classified as a “one”\n\n\n\n\ngrade = np.equal(key, 1 &lt;= fair_dice @ learn.transpose())\nfor row in grade:\n    print(row)\n\n[False  True  True  True  True  True]\n[ True False  True  True  True  True]\n[ True  True False  True  True  True]\n[ True  True  True False  True  True]\n[ True  True  True  True False  True]\n[ True  True  True  True  True False]"
+  },
+  {
+    "objectID": "90_learning.rjs.html#steps-2",
+    "href": "90_learning.rjs.html#steps-2",
+    "title": "Learning",
+    "section": "Steps",
+    "text": "Steps\n\n\n\nCheck the answer.\nLoop over rows\nLoop over correctnesses.\n\n\n\ngrade = np.equal(key, 1 &lt;= fair_dice @ learn.transpose())\nfor row in grade:\n    for correct in row:\n        print(correct)\n\nFalse\nTrue\nTrue\nTrue\nTrue\nTrue\nTrue\nFalse\nTrue\nTrue\nTrue\nTrue\nTrue\nTrue\nFalse\nTrue\nTrue\nTrue\nTrue\nTrue\nTrue\nFalse\nTrue\nTrue\nTrue\nTrue\nTrue\nTrue\nFalse\nTrue\nTrue\nTrue\nTrue\nTrue\nTrue\nFalse"
+  },
+  {
+    "objectID": "90_learning.rjs.html#steps-3",
+    "href": "90_learning.rjs.html#steps-3",
+    "title": "Learning",
+    "section": "Steps",
+    "text": "Steps\n\n\n\nCheck the answer.\nLoop over rows\nLoop over correctnesses.\nIf correct…\n\nIncrease… something?\n\n\n\n\ngrade = np.equal(key, 1 &lt;= fair_dice @ learn.transpose())\nfor row in grade:\n    for correct in row:\n        if correct:\n            print(\"What goes here?\")\n\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?\nWhat goes here?"
+  },
+  {
+    "objectID": "90_learning.rjs.html#we-know",
+    "href": "90_learning.rjs.html#we-know",
+    "title": "Learning",
+    "section": "We know",
+    "text": "We know\n\nIf a guess in a certain row is correct:\n\nIt was predicted by something.\nThat something was the random guesses.\nBut not all of the random guesses…\nJust values that are multiplied to get that row.\n\nSo we want to increase (or decrease) the row at the same address.\nHow?"
+  },
+  {
+    "objectID": "90_learning.rjs.html#enumerate",
+    "href": "90_learning.rjs.html#enumerate",
+    "title": "Learning",
+    "section": "Enumerate",
+    "text": "Enumerate\n\nWe can use the special enumerate function to get back a row and its location with in the matrix.\n\n\nfor loc, row in enumerate(grade):\n    print(\"Location is\", loc, \"and row is\", row)\n\nLocation is 0 and row is [False  True  True  True  True  True]\nLocation is 1 and row is [ True False  True  True  True  True]\nLocation is 2 and row is [ True  True False  True  True  True]\nLocation is 3 and row is [ True  True  True False  True  True]\nLocation is 4 and row is [ True  True  True  True False  True]\nLocation is 5 and row is [ True  True  True  True  True False]"
+  },
+  {
+    "objectID": "90_learning.rjs.html#enumerate-1",
+    "href": "90_learning.rjs.html#enumerate-1",
+    "title": "Learning",
+    "section": "Enumerate",
+    "text": "Enumerate\n\nWe can use the special [] notation to look up the part of the learning matrix that corresponds to the same row.\n\n\nfor loc, row in enumerate(grade):\n    print(\"Location is\", loc, \"and row is\", row, \"and weights are\", learn[loc])\n\nLocation is 0 and row is [False  True  True  True  True  True] and weights are [0.13819755 0.858514   0.89387389 0.97953215 0.95078702 0.91339183\n 0.55505456 0.05400497 0.76328784]\nLocation is 1 and row is [ True False  True  True  True  True] and weights are [0.61992175 0.60798114 0.47795787 0.99881325 0.21490773 0.1434384\n 0.24203858 0.96896522 0.44601858]\nLocation is 2 and row is [ True  True False  True  True  True] and weights are [0.32932856 0.81046388 0.98930022 0.72729313 0.19500454 0.34640125\n 0.48504912 0.72482006 0.13982303]\nLocation is 3 and row is [ True  True  True False  True  True] and weights are [0.86507991 0.15626278 0.73353581 0.0778394  0.23396891 0.53146514\n 0.62610878 0.30177633 0.65322222]\nLocation is 4 and row is [ True  True  True  True False  True] and weights are [0.30151646 0.17771519 0.31744043 0.70558929 0.92332405 0.86750924\n 0.06348737 0.10571363 0.8207625 ]\nLocation is 5 and row is [ True  True  True  True  True False] and weights are [0.18535997 0.81312843 0.86835174 0.80318644 0.5531322  0.4545896\n 0.96877004 0.93137333 0.08946593]"
+  },
+  {
+    "objectID": "90_learning.rjs.html#steps-4",
+    "href": "90_learning.rjs.html#steps-4",
+    "title": "Learning",
+    "section": "Steps",
+    "text": "Steps\n\n\n\nCheck the answer.\nLoop over rows\nLoop over correctnesses.\nIf correct…\n\nIncrease that row.\n\n\n\n\ngrade = np.equal(key, 1 &lt;= fair_dice @ learn.transpose())\nfor loc, row in enumerate(grade):\n    for correct in row:\n        if correct:\n            learn[loc] * 1.1"
+  },
+  {
+    "objectID": "90_learning.rjs.html#check-it-out-1",
+    "href": "90_learning.rjs.html#check-it-out-1",
+    "title": "Learning",
+    "section": "Check it out",
+    "text": "Check it out\n\n\n\nOld (“backup”)\n\n\nnp.equal(key, 1 &lt;= fair_dice @ backup.transpose())\n\narray([[False,  True,  True,  True,  True,  True],\n       [ True, False,  True,  True,  True,  True],\n       [ True,  True, False,  True,  True,  True],\n       [ True,  True,  True, False,  True,  True],\n       [ True,  True,  True,  True, False,  True],\n       [ True,  True,  True,  True,  True, False]])\n\n\n\n\nNew (“learn”)\n\n\nnp.equal(key, 1 &lt;= fair_dice @ learn.transpose())\n\narray([[False,  True,  True,  True,  True,  True],\n       [ True, False,  True,  True,  True,  True],\n       [ True,  True, False,  True,  True,  True],\n       [ True,  True,  True, False,  True,  True],\n       [ True,  True,  True,  True, False,  True],\n       [ True,  True,  True,  True,  True, False]])"
+  },
+  {
+    "objectID": "90_learning.rjs.html#not-much-better",
+    "href": "90_learning.rjs.html#not-much-better",
+    "title": "Learning",
+    "section": "Not much better",
+    "text": "Not much better\n\nWe should do more.\nBut first, we begin again from our backup.\nWe don’t want to mix different experiments together.\n\n\nlearn = backup.copy()"
+  },
+  {
+    "objectID": "90_learning.rjs.html#steps-5",
+    "href": "90_learning.rjs.html#steps-5",
+    "title": "Learning",
+    "section": "Steps",
+    "text": "Steps\n\n\n\nCheck the answer.\nLoop over rows\nLoop over correctnesses.\nIf correct…\n\nIncrease that row.\n\nOtherwise…\n\nDecrease that row.\n\n\n\n\nlearn = backup.copy()\ngrade = np.equal(key, 1 &lt;= fair_dice @ learn.transpose())\nfor loc, row in enumerate(grade):\n    for correct in row:\n        if correct:\n            learn[loc] = learn[loc] * 1.1\n        else: \n            learn[loc] = learn[loc] * .9"
+  },
+  {
+    "objectID": "90_learning.rjs.html#better",
+    "href": "90_learning.rjs.html#better",
+    "title": "Learning",
+    "section": "Better?",
+    "text": "Better?\n\n(1 &lt;= fair_dice @ learn.transpose()) + 0\n\narray([[1, 0, 0, 0, 1, 0],\n       [1, 0, 1, 0, 0, 1],\n       [1, 0, 0, 0, 0, 1],\n       [0, 0, 0, 1, 0, 0],\n       [0, 0, 0, 0, 0, 0],\n       [1, 0, 0, 0, 0, 0]])\n\n\n\nRecall we want a diagonal of 1 here.\n(I use + 0 to turn into numbers so the array is smaller and easier to read)\n(True + 0 is 1 and False + 0 is 0 - don’t worry about it)\nDoesn’t look intelligent to me."
+  },
+  {
+    "objectID": "90_learning.rjs.html#we-recognize",
+    "href": "90_learning.rjs.html#we-recognize",
+    "title": "Learning",
+    "section": "We recognize",
+    "text": "We recognize\n\nWe don’t need to increase or decrease entire rows\nRather, we know which of the nine dots has a nonzero value…\nAnd therefore which of the nine weights is contributing to a classification.\nSo, rather than increase a row by 10%, increase or decrease the relevant weights only."
+  },
+  {
+    "objectID": "90_learning.rjs.html#steps-6",
+    "href": "90_learning.rjs.html#steps-6",
+    "title": "Learning",
+    "section": "Steps",
+    "text": "Steps\n\n\n\nCheck the answer.\nLoop over rows\nLoop over correctnesses.\nIf correct…\n\nIncrease relevant.\n\nOtherwise…\n\nDecrease relevant.\n\n\n\n\nlearn = backup.copy()\ngrade = np.equal(key, 1 &lt;= fair_dice @ learn.transpose())\nfor loc, row in enumerate(grade):\n    for correct in row:\n        if correct:\n            learn[loc] = learn[loc] + dice[loc]\n        else: \n            learn[loc] = learn[loc] - dice[loc]\n(1 &lt;= fair_dice @ learn.transpose()) + 0\n\narray([[1, 0, 1, 0, 1, 0],\n       [0, 1, 1, 1, 1, 1],\n       [1, 1, 1, 1, 1, 1],\n       [0, 1, 1, 1, 1, 1],\n       [1, 1, 1, 1, 1, 1],\n       [0, 1, 1, 1, 1, 1]])\n\n\n\nRecall we want a diagonal of 1 here."
+  },
+  {
+    "objectID": "90_learning.rjs.html#one-problem",
+    "href": "90_learning.rjs.html#one-problem",
+    "title": "Learning",
+    "section": "One Problem",
+    "text": "One Problem\n\nWe may guess correctly too often.\n\nGiven two equally likely choices, 50% chance.\nBut we only want one classification of six - ~17% chance.\n\nWe can bias against guessing by… increasing the bias!\n\n\n\n\n(3 &lt;= fair_dice @ learn.transpose()) + 0\n\narray([[1, 0, 1, 0, 1, 0],\n       [0, 1, 1, 1, 1, 1],\n       [0, 0, 1, 1, 1, 1],\n       [0, 0, 0, 1, 1, 1],\n       [0, 0, 0, 1, 1, 1],\n       [0, 0, 0, 1, 1, 1]])\n\n\n\n\n(4 &lt;= fair_dice @ learn.transpose()) + 0\n\narray([[1, 0, 1, 0, 1, 0],\n       [0, 1, 1, 1, 1, 1],\n       [0, 0, 1, 0, 1, 0],\n       [0, 0, 0, 1, 1, 1],\n       [0, 0, 0, 0, 1, 0],\n       [0, 0, 0, 0, 0, 1]])\n\n\n\n\n(5 &lt;= fair_dice @ learn.transpose()) + 0\n\narray([[0, 0, 0, 0, 0, 0],\n       [0, 0, 0, 0, 0, 0],\n       [0, 0, 0, 0, 0, 0],\n       [0, 0, 0, 0, 0, 0],\n       [0, 0, 0, 0, 0, 0],\n       [0, 0, 0, 0, 0, 0]])"
+  },
+  {
+    "objectID": "90_learning.rjs.html#looking-good",
+    "href": "90_learning.rjs.html#looking-good",
+    "title": "Learning",
+    "section": "Looking good?",
+    "text": "Looking good?\n\nThis looked awfully good to me.\n\n\n(4 &lt;= fair_dice @ learn.transpose()) + 0\n\narray([[1, 0, 1, 0, 1, 0],\n       [0, 1, 1, 1, 1, 1],\n       [0, 0, 1, 0, 1, 0],\n       [0, 0, 0, 1, 1, 1],\n       [0, 0, 0, 0, 1, 0],\n       [0, 0, 0, 0, 0, 1]])\n\n\n\nIf this was an exam the percentage would be a…\n\n\ncompare_to_key = np.equal(4 &lt;= fair_dice @ learn.transpose(), key)\nnp.count_nonzero(compare_to_key) / compare_to_key.size\n\n0.75"
+  },
+  {
+    "objectID": "90_learning.rjs.html#compare-2",
+    "href": "90_learning.rjs.html#compare-2",
+    "title": "Learning",
+    "section": "Compare",
+    "text": "Compare\n\n\n\nInitially…\n\n\ncompare_to_random = np.equal(1 &lt;= fair_dice @ backup.transpose(), key)\nprint(np.count_nonzero(compare_to_random) / compare_to_random.size)\n\n0.8333333333333334\n\n\n\n\nAfter learning…\n\n\ncompare_to_key = np.equal(4 &lt;= fair_dice @ learn.transpose(), key)\nprint(np.count_nonzero(compare_to_key) / compare_to_key.size)\n\n0.75\n\n\n\n\nWait… isn’t that worse?"
+  },
+  {
+    "objectID": "90_learning.rjs.html#precision-and-recall",
+    "href": "90_learning.rjs.html#precision-and-recall",
+    "title": "Learning",
+    "section": "Precision and Recall",
+    "text": "Precision and Recall\n\nPrecision and recall are then defined as:\n\n\\[\n\\begin{align}\n  \\text{Precision} &= \\frac{tp}{tp + fp} \\\\\n     \\text{Recall} &= \\frac{tp}{tp + fn} \\,\n\\end{align}\n\\]\n\nPrecision is the number of true positives among the predicted positives.\nRecall is the number of true positives among the actual positives."
+  },
+  {
+    "objectID": "90_learning.rjs.html#true-positive-detection",
+    "href": "90_learning.rjs.html#true-positive-detection",
+    "title": "Learning",
+    "section": "True Positive Detection",
+    "text": "True Positive Detection\n\n\n\nInitially…\n\n\nguesses = 1 &lt;= fair_dice @ backup.transpose()\ntrue_positive = 0\nfor loc, row in enumerate(guesses):\n    if row[loc]:\n        true_positive = true_positive + 1\nprint(true_positive / 6)\n\n0.0\n\n\n\n\nAfter learning…\n\n\nguesses = 4 &lt;= fair_dice @ learn.transpose()\ntrue_positive = 0\nfor loc, row in enumerate(guesses):\n    if row[loc]:\n        true_positive = true_positive + 1\nprint(true_positive / 6)\n\n1.0\n\n\n\n\nCount along the diagonal.\nWe go from zero to all true positives."
+  },
+  {
+    "objectID": "90_learning.rjs.html#how",
+    "href": "90_learning.rjs.html#how",
+    "title": "Learning",
+    "section": "How?",
+    "text": "How?\n\nInitially, randomization simply predicted no classes at all for anything.\n\n\n1 &lt;= fair_dice @ backup.transpose()\n\narray([[False, False, False, False, False, False],\n       [False, False, False, False, False, False],\n       [False, False, False, False, False, False],\n       [False, False, False, False, False, False],\n       [False, False, False, False, False, False],\n       [False, False, False, False, False, False]])\n\n\n\nNow, at least, we capture the diagonal and aren’t too far off from here."
+  },
+  {
+    "objectID": "90_learning.rjs.html#more-to-come",
+    "href": "90_learning.rjs.html#more-to-come",
+    "title": "Learning",
+    "section": "More to Come",
+    "text": "More to Come\n\nI think today was a lot.\nWe will play around with this a bit in the lab then return next week.\nTo reduce false positives"
+  },
+  {
+    "objectID": "90_learning.rjs.html#fin",
+    "href": "90_learning.rjs.html#fin",
+    "title": "Learning",
+    "section": "FIN",
+    "text": "FIN\n\n\n\n(3.5 &lt;= fair_dice @ learn.transpose()) + 0\n\narray([[1, 0, 1, 0, 1, 0],\n       [0, 1, 1, 1, 1, 1],\n       [0, 0, 1, 0, 1, 0],\n       [0, 0, 0, 1, 1, 1],\n       [0, 0, 0, 1, 1, 1],\n       [0, 0, 0, 0, 0, 1]])\n\n\n\n\n(4.0 &lt;= fair_dice @ learn.transpose()) + 0\n\narray([[1, 0, 1, 0, 1, 0],\n       [0, 1, 1, 1, 1, 1],\n       [0, 0, 1, 0, 1, 0],\n       [0, 0, 0, 1, 1, 1],\n       [0, 0, 0, 0, 1, 0],\n       [0, 0, 0, 0, 0, 1]])\n\n\n\n\n(4.5 &lt;= fair_dice @ learn.transpose()) + 0\n\narray([[1, 0, 0, 0, 1, 0],\n       [0, 0, 1, 1, 0, 1],\n       [0, 0, 1, 0, 0, 0],\n       [0, 0, 0, 1, 0, 1],\n       [0, 0, 0, 0, 0, 0],\n       [0, 0, 0, 0, 0, 1]])\n\n\n\n\nBias is not enough!"
   },
   {
     "objectID": "71_multi.html",
@@ -4263,11 +5327,11 @@
     "text": "Takeaways\n\nModels are hard.\nIntelligence is:\n\nHard to do, and\nHard to measure.\n\nPrecision corresponds to some notion of goodness of a model.\n\nWe will now aim to be precise with language."
   },
   {
-    "objectID": "50_graph.rjs.html#defintion",
-    "href": "50_graph.rjs.html#defintion",
+    "objectID": "50_graph.rjs.html#definition",
+    "href": "50_graph.rjs.html#definition",
     "title": "Graphs",
-    "section": "Defintion",
-    "text": "Defintion\n\nWe will start with a definition which we gradually expand.\n\nWe recall (haha - recall) what a graph is not."
+    "section": "Definition",
+    "text": "Definition\n\nWe will start with a definition which we gradually expand.\n\nWe recall (haha - recall) what a graph is not."
   },
   {
     "objectID": "50_graph.rjs.html#graphs-1",
@@ -4709,11 +5773,11 @@
     ]
   },
   {
-    "objectID": "50_graph.html#defintion",
-    "href": "50_graph.html#defintion",
+    "objectID": "50_graph.html#definition",
+    "href": "50_graph.html#definition",
     "title": "Graphs",
-    "section": "Defintion",
-    "text": "Defintion\n\nWe will start with a definition which we gradually expand.\n\nWe recall (haha - recall) what a graph is not.",
+    "section": "Definition",
+    "text": "Definition\n\nWe will start with a definition which we gradually expand.\n\nWe recall (haha - recall) what a graph is not.",
     "crumbs": [
       "Graphs"
     ]
@@ -5924,7 +6988,7 @@
     "href": "70_perceptron.rjs.html#visualizing-the-bias-node",
     "title": "Perceptron",
     "section": "Visualizing the Bias Node",
-    "text": "Visualizing the Bias Node\n\nIn a graph, the bias is often shown as a special input node that is always 1, multiplied by its own weight \\(b\\).\n\n\ngraph PerceptronWithBias {\n    rankdir=TD;\n    bgcolor=\"transparent\"  \n    node [shape=circle, fontcolor = \"#ffffff\", color = \"#ffffff\"]\n    \n    subgraph cluster_input {\n        label=\"Inputs\";\n        fontcolor=\"white\";\n        node [style=filled, fillcolor=\"red\"];\n        X1; X2; X3;\n    }\n\n    subgraph cluster_bias {\n        label=\"Bias\";\n        fontcolor=\"white\";\n        node [style=filled, fillcolor=\"green\"];\n        B [label=\"1\"];\n    }\n\n    node [style=filled, fillcolor=\"blue\"];\n    Neuron [label=\"∑\"];\n\n    X1 -- Neuron [label=\"w1\"];\n    X2 -- Neuron [label=\"w2\"];\n    X3 -- Neuron [label=\"w3\"];\n    B  -- Neuron [label=\"b\", color=\"yellow\"];\n}\n\n\n\n\n\n\nPerceptronWithBias\n\ncluster_input\n\nInputs\n\n\ncluster_bias\n\nBias\n\n\n\nX1\n\nX1\n\n\n\nNeuron\n\n∑\n\n\n\nX1--Neuron\n\nw1\n\n\n\nX2\n\nX2\n\n\n\nX2--Neuron\n\nw2\n\n\n\nX3\n\nX3\n\n\n\nX3--Neuron\n\nw3\n\n\n\nB\n\n1\n\n\n\nB--Neuron\n\nb"
+    "text": "Visualizing the Bias Node\n\nIn a graph, the bias is often shown as a special input node that is always 1, multiplied by its own weight \\(b\\).\n\n\n\n\n\n\n\n\nPerceptronWithBias\n\ncluster_input\n\nInputs\n\n\ncluster_bias\n\nBias\n\n\n\nX1\n\nX1\n\n\n\nNeuron\n\n∑\n\n\n\nX1--Neuron\n\nw1\n\n\n\nX2\n\nX2\n\n\n\nX2--Neuron\n\nw2\n\n\n\nX3\n\nX3\n\n\n\nX3--Neuron\n\nw3\n\n\n\nB\n\n1\n\n\n\nB--Neuron\n\nb"
   },
   {
     "objectID": "70_perceptron.rjs.html#bias-and-threshold",
@@ -6434,7 +7498,7 @@
     "href": "70_perceptron.html#visualizing-the-bias-node",
     "title": "Perceptron",
     "section": "Visualizing the Bias Node",
-    "text": "Visualizing the Bias Node\n\nIn a graph, the bias is often shown as a special input node that is always 1, multiplied by its own weight \\(b\\).\n\n\ngraph PerceptronWithBias {\n    rankdir=TD;\n    bgcolor=\"transparent\"  \n    node [shape=circle, fontcolor = \"#ffffff\", color = \"#ffffff\"]\n    \n    subgraph cluster_input {\n        label=\"Inputs\";\n        fontcolor=\"white\";\n        node [style=filled, fillcolor=\"red\"];\n        X1; X2; X3;\n    }\n\n    subgraph cluster_bias {\n        label=\"Bias\";\n        fontcolor=\"white\";\n        node [style=filled, fillcolor=\"green\"];\n        B [label=\"1\"];\n    }\n\n    node [style=filled, fillcolor=\"blue\"];\n    Neuron [label=\"∑\"];\n\n    X1 -- Neuron [label=\"w1\"];\n    X2 -- Neuron [label=\"w2\"];\n    X3 -- Neuron [label=\"w3\"];\n    B  -- Neuron [label=\"b\", color=\"yellow\"];\n}\n\n\n\n\n\n\nPerceptronWithBias\n\ncluster_input\n\nInputs\n\n\ncluster_bias\n\nBias\n\n\n\nX1\n\nX1\n\n\n\nNeuron\n\n∑\n\n\n\nX1--Neuron\n\nw1\n\n\n\nX2\n\nX2\n\n\n\nX2--Neuron\n\nw2\n\n\n\nX3\n\nX3\n\n\n\nX3--Neuron\n\nw3\n\n\n\nB\n\n1\n\n\n\nB--Neuron\n\nb",
+    "text": "Visualizing the Bias Node\n\nIn a graph, the bias is often shown as a special input node that is always 1, multiplied by its own weight \\(b\\).\n\n\n\n\n\n\n\n\nPerceptronWithBias\n\ncluster_input\n\nInputs\n\n\ncluster_bias\n\nBias\n\n\n\nX1\n\nX1\n\n\n\nNeuron\n\n∑\n\n\n\nX1--Neuron\n\nw1\n\n\n\nX2\n\nX2\n\n\n\nX2--Neuron\n\nw2\n\n\n\nX3\n\nX3\n\n\n\nX3--Neuron\n\nw3\n\n\n\nB\n\n1\n\n\n\nB--Neuron\n\nb",
     "crumbs": [
       "Perceptron"
     ]
@@ -7521,6 +8585,86 @@
     "text": "Think, Pair, Share\n\nTalk about\n\nVectors, and encoding.\nGraphs\nEdges\nWeights\nMatrices\n\nAnd also: classification.",
     "crumbs": [
       "Matrix"
+    ]
+  },
+  {
+    "objectID": "91_false.html",
+    "href": "91_false.html",
+    "title": "Falsify",
+    "section": "",
+    "text": "In our lecture, we introduced the learning within our martrix framework. I think there was a lot of content in the lecture and would like for you to be able to go over it a bit, and try things out yourself.\n\n\n\n\nToday, we will work with code cells of Colab to create a multi-class perceptron than can correctly classify dice when run.\n\n\n\n\n\n\n\n\nYou will need a code cell that includes at least the following:\n\n\nimport numpy as np\none = [0,0,0,0,1,0,0,0,0]\ntwo = [0,0,1,0,0,0,1,0,0]\nthr = [0,0,1,0,1,0,1,0,0]\nfou = [1,0,1,0,0,0,1,0,1]\nfiv = [1,0,1,0,1,0,1,0,1]\nsix = [1,0,1,1,0,1,1,0,1]\ndice = np.array([one, two, thr, fou, fiv, six])\nprint(dice)\n\n[[0 0 0 0 1 0 0 0 0]\n [0 0 1 0 0 0 1 0 0]\n [0 0 1 0 1 0 1 0 0]\n [1 0 1 0 0 0 1 0 1]\n [1 0 1 0 1 0 1 0 1]\n [1 0 1 1 0 1 1 0 1]]\n\n\n\nYou will probably also want “fair” dice.\n\nEach row sums to one, even though…\nEach row has a different number of non-zero values.\n\n\n\ndivider = np.array([1,2,3,4,5,6]).reshape(1,6)\nfair_dice = (dice.transpose() / divider).transpose()\nfair_dice\nprint(fair_dice)\n\n[[0.         0.         0.         0.         1.         0.\n  0.         0.         0.        ]\n [0.         0.         0.5        0.         0.         0.\n  0.5        0.         0.        ]\n [0.         0.         0.33333333 0.         0.33333333 0.\n  0.33333333 0.         0.        ]\n [0.25       0.         0.25       0.         0.         0.\n  0.25       0.         0.25      ]\n [0.2        0.         0.2        0.         0.2        0.\n  0.2        0.         0.2       ]\n [0.16666667 0.         0.16666667 0.16666667 0.         0.16666667\n  0.16666667 0.         0.16666667]]\n\n\n\nYou should have some familiarity with what these code blocks do, even if you wouldn’t have written them yourself without them being provided.\n\nRun them a few times.\nTry to make some minor edits and predict what will change.\nSee if your are correct.\nGet them working again.\n\n\n\n\n\nWe made a neural network with random “edge weights”.\n\n\nlearn = np.random.rand(6,9)\n\n\nWe also made a backup copy so we could start over, easily, at any time.\n\n\nbackup = learn.copy()\n\n\nIt should look like this:\n\n\nprint(learn)\n\n[[0.79905459 0.90807795 0.64882604 0.2891742  0.08023946 0.40492137\n  0.68131149 0.29313589 0.43091928]\n [0.08478128 0.81795651 0.23087639 0.65886414 0.97435858 0.98247183\n  0.59866117 0.29200513 0.76870662]\n [0.37112311 0.96460858 0.79185725 0.60330096 0.13559981 0.93244911\n  0.67072557 0.07258409 0.89131832]\n [0.26224806 0.32607417 0.87612109 0.37124917 0.189376   0.11007376\n  0.88541619 0.12534034 0.36361595]\n [0.21851785 0.30719779 0.30366815 0.37589443 0.12214581 0.68600188\n  0.8202339  0.72848908 0.09124466]\n [0.27977661 0.36640022 0.54602639 0.49274091 0.22379799 0.72878082\n  0.27838677 0.82448433 0.07645653]]\n\n\n\n\n\n\nWe compared against an answer key, which was just a diagonal.\n\nThis is the superviser in supervised learning.\n\nIt knows the answers.\nIt can provide feedback to the learning framework.\n\n\n\n\nkey = np.array([\n       [ True, False, False, False, False, False],\n       [False,  True, False, False, False, False],\n       [False, False,  True, False, False, False],\n       [False, False, False,  True, False, False],\n       [False, False, False, False,  True, False],\n       [False, False, False, False, False,  True]\n])\n\n\n\n\n\nLearning occured in a few stages.\nFirst, we also made sure to start with a fresh “learn” matrix, by copying from the backup.\n\n\nlearn = backup.copy()\nprint(learn)\n\n[[0.79905459 0.90807795 0.64882604 0.2891742  0.08023946 0.40492137\n  0.68131149 0.29313589 0.43091928]\n [0.08478128 0.81795651 0.23087639 0.65886414 0.97435858 0.98247183\n  0.59866117 0.29200513 0.76870662]\n [0.37112311 0.96460858 0.79185725 0.60330096 0.13559981 0.93244911\n  0.67072557 0.07258409 0.89131832]\n [0.26224806 0.32607417 0.87612109 0.37124917 0.189376   0.11007376\n  0.88541619 0.12534034 0.36361595]\n [0.21851785 0.30719779 0.30366815 0.37589443 0.12214581 0.68600188\n  0.8202339  0.72848908 0.09124466]\n [0.27977661 0.36640022 0.54602639 0.49274091 0.22379799 0.72878082\n  0.27838677 0.82448433 0.07645653]]\n\n\n\nThen, we would compare against the answer key to see how accurate the current neural network was at predicting dice.\n\n\ngrade = np.equal(key, 1 &lt;= fair_dice @ learn.transpose())\nprint(grade)\n\n[[False  True  True  True  True  True]\n [ True False  True  True  True  True]\n [ True  True False  True  True  True]\n [ True  True  True False  True  True]\n [ True  True  True  True False  True]\n [ True  True  True  True  True False]]\n\n\n\nThen, we used a loop.\n\nFor every dice,\n\nFor every value it could predict, correct or otherwise.\n\nIf correct, reward the row with increased weight.\nElse, penalize the row with reduced weight.\n\n\n\n\n\nfor loc, row in enumerate(grade):\n    for correct in row:\n        if correct:\n            learn[loc] = learn[loc] + dice[loc]\n        else: \n            learn[loc] = learn[loc] - dice[loc]\n\n\nFinally, we can see how well we did.\n\nRecall, we want a diagonal here.\n\n\n\n(1 &lt;= fair_dice @ learn.transpose()) + 0\n\narray([[1, 0, 1, 0, 1, 0],\n       [0, 1, 1, 1, 1, 1],\n       [1, 1, 1, 1, 1, 1],\n       [0, 1, 1, 1, 1, 1],\n       [1, 1, 1, 1, 1, 1],\n       [0, 1, 1, 1, 1, 1]])",
+    "crumbs": [
+      "Falsify"
+    ]
+  },
+  {
+    "objectID": "91_false.html#connections",
+    "href": "91_false.html#connections",
+    "title": "Falsify",
+    "section": "",
+    "text": "In our lecture, we introduced the learning within our martrix framework. I think there was a lot of content in the lecture and would like for you to be able to go over it a bit, and try things out yourself.",
+    "crumbs": [
+      "Falsify"
+    ]
+  },
+  {
+    "objectID": "91_false.html#definitions",
+    "href": "91_false.html#definitions",
+    "title": "Falsify",
+    "section": "",
+    "text": "Today, we will work with code cells of Colab to create a multi-class perceptron than can correctly classify dice when run.",
+    "crumbs": [
+      "Falsify"
+    ]
+  },
+  {
+    "objectID": "91_false.html#the-dice",
+    "href": "91_false.html#the-dice",
+    "title": "Falsify",
+    "section": "",
+    "text": "You will need a code cell that includes at least the following:\n\n\nimport numpy as np\none = [0,0,0,0,1,0,0,0,0]\ntwo = [0,0,1,0,0,0,1,0,0]\nthr = [0,0,1,0,1,0,1,0,0]\nfou = [1,0,1,0,0,0,1,0,1]\nfiv = [1,0,1,0,1,0,1,0,1]\nsix = [1,0,1,1,0,1,1,0,1]\ndice = np.array([one, two, thr, fou, fiv, six])\nprint(dice)\n\n[[0 0 0 0 1 0 0 0 0]\n [0 0 1 0 0 0 1 0 0]\n [0 0 1 0 1 0 1 0 0]\n [1 0 1 0 0 0 1 0 1]\n [1 0 1 0 1 0 1 0 1]\n [1 0 1 1 0 1 1 0 1]]\n\n\n\nYou will probably also want “fair” dice.\n\nEach row sums to one, even though…\nEach row has a different number of non-zero values.\n\n\n\ndivider = np.array([1,2,3,4,5,6]).reshape(1,6)\nfair_dice = (dice.transpose() / divider).transpose()\nfair_dice\nprint(fair_dice)\n\n[[0.         0.         0.         0.         1.         0.\n  0.         0.         0.        ]\n [0.         0.         0.5        0.         0.         0.\n  0.5        0.         0.        ]\n [0.         0.         0.33333333 0.         0.33333333 0.\n  0.33333333 0.         0.        ]\n [0.25       0.         0.25       0.         0.         0.\n  0.25       0.         0.25      ]\n [0.2        0.         0.2        0.         0.2        0.\n  0.2        0.         0.2       ]\n [0.16666667 0.         0.16666667 0.16666667 0.         0.16666667\n  0.16666667 0.         0.16666667]]\n\n\n\nYou should have some familiarity with what these code blocks do, even if you wouldn’t have written them yourself without them being provided.\n\nRun them a few times.\nTry to make some minor edits and predict what will change.\nSee if your are correct.\nGet them working again.\n\n\n\n\n\nWe made a neural network with random “edge weights”.\n\n\nlearn = np.random.rand(6,9)\n\n\nWe also made a backup copy so we could start over, easily, at any time.\n\n\nbackup = learn.copy()\n\n\nIt should look like this:\n\n\nprint(learn)\n\n[[0.79905459 0.90807795 0.64882604 0.2891742  0.08023946 0.40492137\n  0.68131149 0.29313589 0.43091928]\n [0.08478128 0.81795651 0.23087639 0.65886414 0.97435858 0.98247183\n  0.59866117 0.29200513 0.76870662]\n [0.37112311 0.96460858 0.79185725 0.60330096 0.13559981 0.93244911\n  0.67072557 0.07258409 0.89131832]\n [0.26224806 0.32607417 0.87612109 0.37124917 0.189376   0.11007376\n  0.88541619 0.12534034 0.36361595]\n [0.21851785 0.30719779 0.30366815 0.37589443 0.12214581 0.68600188\n  0.8202339  0.72848908 0.09124466]\n [0.27977661 0.36640022 0.54602639 0.49274091 0.22379799 0.72878082\n  0.27838677 0.82448433 0.07645653]]\n\n\n\n\n\n\nWe compared against an answer key, which was just a diagonal.\n\nThis is the superviser in supervised learning.\n\nIt knows the answers.\nIt can provide feedback to the learning framework.\n\n\n\n\nkey = np.array([\n       [ True, False, False, False, False, False],\n       [False,  True, False, False, False, False],\n       [False, False,  True, False, False, False],\n       [False, False, False,  True, False, False],\n       [False, False, False, False,  True, False],\n       [False, False, False, False, False,  True]\n])\n\n\n\n\n\nLearning occured in a few stages.\nFirst, we also made sure to start with a fresh “learn” matrix, by copying from the backup.\n\n\nlearn = backup.copy()\nprint(learn)\n\n[[0.79905459 0.90807795 0.64882604 0.2891742  0.08023946 0.40492137\n  0.68131149 0.29313589 0.43091928]\n [0.08478128 0.81795651 0.23087639 0.65886414 0.97435858 0.98247183\n  0.59866117 0.29200513 0.76870662]\n [0.37112311 0.96460858 0.79185725 0.60330096 0.13559981 0.93244911\n  0.67072557 0.07258409 0.89131832]\n [0.26224806 0.32607417 0.87612109 0.37124917 0.189376   0.11007376\n  0.88541619 0.12534034 0.36361595]\n [0.21851785 0.30719779 0.30366815 0.37589443 0.12214581 0.68600188\n  0.8202339  0.72848908 0.09124466]\n [0.27977661 0.36640022 0.54602639 0.49274091 0.22379799 0.72878082\n  0.27838677 0.82448433 0.07645653]]\n\n\n\nThen, we would compare against the answer key to see how accurate the current neural network was at predicting dice.\n\n\ngrade = np.equal(key, 1 &lt;= fair_dice @ learn.transpose())\nprint(grade)\n\n[[False  True  True  True  True  True]\n [ True False  True  True  True  True]\n [ True  True False  True  True  True]\n [ True  True  True False  True  True]\n [ True  True  True  True False  True]\n [ True  True  True  True  True False]]\n\n\n\nThen, we used a loop.\n\nFor every dice,\n\nFor every value it could predict, correct or otherwise.\n\nIf correct, reward the row with increased weight.\nElse, penalize the row with reduced weight.\n\n\n\n\n\nfor loc, row in enumerate(grade):\n    for correct in row:\n        if correct:\n            learn[loc] = learn[loc] + dice[loc]\n        else: \n            learn[loc] = learn[loc] - dice[loc]\n\n\nFinally, we can see how well we did.\n\nRecall, we want a diagonal here.\n\n\n\n(1 &lt;= fair_dice @ learn.transpose()) + 0\n\narray([[1, 0, 1, 0, 1, 0],\n       [0, 1, 1, 1, 1, 1],\n       [1, 1, 1, 1, 1, 1],\n       [0, 1, 1, 1, 1, 1],\n       [1, 1, 1, 1, 1, 1],\n       [0, 1, 1, 1, 1, 1]])",
+    "crumbs": [
+      "Falsify"
+    ]
+  },
+  {
+    "objectID": "91_false.html#in-lecture",
+    "href": "91_false.html#in-lecture",
+    "title": "Falsify",
+    "section": "In Lecture",
+    "text": "In Lecture\n\nIn lecture we dealt with the following problem:\n\nWe could predict “no” for all die to be any number.\nThis was highly accurate (83%).\nThis was highly useless (captured 0% of true positives).\nAny learning attempt was complicated somehow.\n\n\n\nThe “Bias”\n\nEven with negative weights, we have a problem: The Threshold.\nWe need a way to decide exactly when the sum is “enough” to trigger a fire.\nWe need to shift the “goalposts” without rewriting all our weights.\n\n\n\\(b\\)\n\nThe Bias is a number we add to the sum before deciding to fire.\nIt represents how “easy” it is to make the neuron fire.\nHigh Bias: The neuron is “trigger happy” and fires easily.\n\nMy “movie good” neuron is highly biased toward Ridley Scott films.\n\nNegative Bias: The neuron is “stubborn” and needs a very high positive sum to fire.\n\nMy “movie good” neuron is negatively biased against Predator films.\n\n\n\n\nThe Completed Formula\n\nInclude the bias term \\(b\\):\n\n\\[\\sum_{i=1}^{n} w_i x_i + b \\]\n\nIf the result is \\(&gt; 0\\), the neuron fires (1).\nIf the result is \\(\\le 0\\), it stays silent (0).\n\n\n\nVisualizing the Bias\n\nIn a graph, the bias is often shown as a special input node that is always 1, multiplied by its own weight \\(b\\).\n\n\n\n\n\n\n\n\nPerceptronWithBias\n\ncluster_bias\n\nBias\n\n\ncluster_input\n\nInputs\n\n\n\nX1\n\nX1\n\n\n\nNeuron\n\n∑\n\n\n\nX1--Neuron\n\nw1\n\n\n\nX2\n\nX2\n\n\n\nX2--Neuron\n\nw2\n\n\n\nX3\n\nX3\n\n\n\nX3--Neuron\n\nw3\n\n\n\nB\n\n1\n\n\n\nB--Neuron\n\nb\n\n\n\n\n\n\n\n\n\n\nTrying it out\n\nWe tried different biases with our learning framework.\n\n\nfor bias in [3.5,4,4.5]:\n    print(\"Bias of \", bias)\n    print((bias &lt;= fair_dice @ learn.transpose()) + 0)\n\nBias of  3.5\n[[1 0 1 0 1 0]\n [0 1 1 1 1 1]\n [0 0 1 0 1 0]\n [0 0 0 1 1 1]\n [0 0 0 1 1 0]\n [0 0 0 0 0 1]]\nBias of  4\n[[1 0 1 0 1 0]\n [0 1 1 1 1 1]\n [0 0 1 0 1 0]\n [0 0 0 1 1 1]\n [0 0 0 0 1 0]\n [0 0 0 0 0 1]]\nBias of  4.5\n[[0 0 0 0 0 0]\n [0 0 1 1 1 0]\n [0 0 1 0 0 0]\n [0 0 0 1 0 0]\n [0 0 0 0 0 0]\n [0 0 0 0 0 0]]",
+    "crumbs": [
+      "Falsify"
+    ]
+  },
+  {
+    "objectID": "91_false.html#previously",
+    "href": "91_false.html#previously",
+    "title": "Falsify",
+    "section": "Previously…",
+    "text": "Previously…\n\nBefore we messed with the bias, we modified how learning took place at all.\nSpecifically, we increased or decreased all values in a row by some fixed number.\n\nVersus adding or subtracting from the relevant edges.\n\nIt looked like this.\n\nfor loc, row in enumerate(grade):\n    for correct in row:\n        if correct:\n            learn[loc] = learn[loc] * 1.1\n        else: \n            learn[loc] = learn[loc] * .9\n\nInstead of this:\n\nfor loc, row in enumerate(grade):\n    for correct in row:\n        if correct:\n            learn[loc] = learn[loc] + dice[loc]\n        else: \n            learn[loc] = learn[loc] - dice[loc]\n\nMathematically\n\nWe can express this mathematically by considering:\n\nOld weights \\(w\\)\nNew weights \\(w`\\) (w “prime”)\nDice value \\(d\\)\n\nInitially, we multiplied:\n\n\\[\nw` = n \\times w\n\\]\n\nLater, we added:\n\n\\[\nw` = w + d\n\\]\n\nWe note these are both linear transformations.\n\nThey create lines.\nSay, imagine \\(n = 2\\) and \\(d = 5\\)",
+    "crumbs": [
+      "Falsify"
+    ]
+  },
+  {
+    "objectID": "91_false.html#steps",
+    "href": "91_false.html#steps",
+    "title": "Falsify",
+    "section": "Steps",
+    "text": "Steps\n\nConstruct a series of additions or multiplications.\nThey may be by scalars\n\nLike 1.1 or 2\n\nThey may be by vectors\n\nLike [0,0,0,0,1,0,0,0,0]\n\nYou do not have to do the same kind of transfer for correct or incorrect.\n\nYou could scalar add in one place and vector multiply in another.\n\nAs a bonus, you may also change the bias however you like.\nSee how close you can get to achieving a diagonal, and!\n\nDon’t forget to check your code more than once\nIt is randomized, and you don’t want to just get lucky.",
+    "crumbs": [
+      "Falsify"
+    ]
+  },
+  {
+    "objectID": "91_false.html#final-product",
+    "href": "91_false.html#final-product",
+    "title": "Falsify",
+    "section": "Final Product",
+    "text": "Final Product\n\nYou should have a Colab document which, when run:\n\nCreates a random matrix.\nModifies that random matrix to better detect dice.\nCaptures 6 true positives.\nHas the minimum number of false positives possible.\nHas a note of 100-200 words explaining what changes you made, and why.\n\n“I just tried something” is fine, but do state, e.g., what “something” means to you.",
+    "crumbs": [
+      "Falsify"
     ]
   }
 ]

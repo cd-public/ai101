@@ -448,14 +448,17 @@ $$\sum_{i=1}^{n} w_i x_i + b $$
 - In a graph, the bias is often shown as a special input node that is **always** 1, multiplied by its own weight $b$.
 
 ```{dot}
+// | echo: false
 graph PerceptronWithBias {
     rankdir=TD;
     bgcolor="transparent"  
     node [shape=circle, fontcolor = "#ffffff", color = "#ffffff"]
+    edge [color="white", fontcolor="white";];
     
     subgraph cluster_input {
         label="Inputs";
         fontcolor="white";
+        color="white";
         node [style=filled, fillcolor="red"];
         X1; X2; X3;
     }
@@ -463,6 +466,7 @@ graph PerceptronWithBias {
     subgraph cluster_bias {
         label="Bias";
         fontcolor="white";
+        color="white";
         node [style=filled, fillcolor="green"];
         B [label="1"];
     }

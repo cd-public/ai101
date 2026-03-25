@@ -1096,33 +1096,6 @@
 <li>In a graph, the bias is often shown as a special input node that is <strong>always</strong> 1, multiplied by its own weight <span class="math inline">\(b\)</span>.</li>
 </ul>
 <div class="cell" data-layout-align="default">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource dot number-lines code-with-copy"><code class="sourceCode dot"><span id="cb6-1"><a></a><span class="va">graph</span> <span class="va">PerceptronWithBias</span> <span class="ot">{</span></span>
-<span id="cb6-2"><a></a><span class="co">    </span><span class="at">rankdir</span><span class="ot">=</span><span class="va">TD</span><span class="ot">;</span></span>
-<span id="cb6-3"><a></a><span class="co">    </span><span class="at">bgcolor</span><span class="ot">=</span><span class="st">"transparent"</span><span class="co">  </span></span>
-<span id="cb6-4"><a></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">circle</span><span class="co">, </span><span class="at">fontcolor</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"#ffffff"</span><span class="co">, </span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"#ffffff"</span><span class="ot">]</span></span>
-<span id="cb6-5"><a></a><span class="co">    </span></span>
-<span id="cb6-6"><a></a><span class="co">    </span><span class="kw">subgraph</span><span class="co"> </span><span class="va">cluster_input</span><span class="co"> </span><span class="ot">{</span></span>
-<span id="cb6-7"><a></a><span class="co">        </span><span class="at">label</span><span class="ot">=</span><span class="st">"Inputs"</span><span class="ot">;</span></span>
-<span id="cb6-8"><a></a><span class="co">        </span><span class="at">fontcolor</span><span class="ot">=</span><span class="st">"white"</span><span class="ot">;</span></span>
-<span id="cb6-9"><a></a><span class="co">        </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"red"</span><span class="ot">];</span></span>
-<span id="cb6-10"><a></a><span class="co">        </span><span class="va">X1</span><span class="ot">;</span><span class="co"> </span><span class="va">X2</span><span class="ot">;</span><span class="co"> </span><span class="va">X3</span><span class="ot">;</span></span>
-<span id="cb6-11"><a></a><span class="co">    </span><span class="ot">}</span></span>
-<span id="cb6-12"><a></a></span>
-<span id="cb6-13"><a></a><span class="co">    </span><span class="kw">subgraph</span><span class="co"> </span><span class="va">cluster_bias</span><span class="co"> </span><span class="ot">{</span></span>
-<span id="cb6-14"><a></a><span class="co">        </span><span class="at">label</span><span class="ot">=</span><span class="st">"Bias"</span><span class="ot">;</span></span>
-<span id="cb6-15"><a></a><span class="co">        </span><span class="at">fontcolor</span><span class="ot">=</span><span class="st">"white"</span><span class="ot">;</span></span>
-<span id="cb6-16"><a></a><span class="co">        </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"green"</span><span class="ot">];</span></span>
-<span id="cb6-17"><a></a><span class="co">        </span><span class="va">B</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"1"</span><span class="ot">];</span></span>
-<span id="cb6-18"><a></a><span class="co">    </span><span class="ot">}</span></span>
-<span id="cb6-19"><a></a></span>
-<span id="cb6-20"><a></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"blue"</span><span class="ot">];</span></span>
-<span id="cb6-21"><a></a><span class="co">    </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"∑"</span><span class="ot">];</span></span>
-<span id="cb6-22"><a></a></span>
-<span id="cb6-23"><a></a><span class="co">    </span><span class="va">X1</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"w1"</span><span class="ot">];</span></span>
-<span id="cb6-24"><a></a><span class="co">    </span><span class="va">X2</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"w2"</span><span class="ot">];</span></span>
-<span id="cb6-25"><a></a><span class="co">    </span><span class="va">X3</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"w3"</span><span class="ot">];</span></span>
-<span id="cb6-26"><a></a><span class="co">    </span><span class="va">B</span><span class="co">  -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"b"</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"yellow"</span><span class="ot">];</span></span>
-<span id="cb6-27"><a></a><span class="ot">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <p></p><figure class=""><p></p>
@@ -1132,12 +1105,12 @@
 <title>PerceptronWithBias</title>
 <g id="clust1" class="cluster">
 <title>cluster_input</title>
-<polygon fill="transparent" stroke="black" points="8,-81.36 8,-167.84 198,-167.84 198,-81.36 8,-81.36"></polygon>
+<polygon fill="transparent" stroke="white" points="8,-81.36 8,-167.84 198,-167.84 198,-81.36 8,-81.36"></polygon>
 <text text-anchor="middle" x="103" y="-151.24" font-family="Times,serif" font-size="14.00" fill="white">Inputs</text>
 </g>
 <g id="clust2" class="cluster">
 <title>cluster_bias</title>
-<polygon fill="transparent" stroke="black" points="206,-86.2 206,-163 258,-163 258,-86.2 206,-86.2"></polygon>
+<polygon fill="transparent" stroke="white" points="206,-86.2 206,-163 258,-163 258,-86.2 206,-86.2"></polygon>
 <text text-anchor="middle" x="232" y="-146.4" font-family="Times,serif" font-size="14.00" fill="white">Bias</text>
 </g>
 <!-- X1 -->
@@ -1155,8 +1128,8 @@
 <!-- X1&#45;&#45;Neuron -->
 <g id="edge1" class="edge">
 <title>X1--Neuron</title>
-<path fill="none" stroke="black" d="M54.36,-95.03C65.43,-83.53 80.83,-67.84 94.89,-54.56 103.52,-46.41 113.55,-37.59 121.42,-30.81"></path>
-<text text-anchor="middle" x="102.56" y="-58.76" font-family="Times,serif" font-size="14.00">w1</text>
+<path fill="none" stroke="white" d="M54.36,-95.03C65.43,-83.53 80.83,-67.84 94.89,-54.56 103.52,-46.41 113.55,-37.59 121.42,-30.81"></path>
+<text text-anchor="middle" x="102.56" y="-58.76" font-family="Times,serif" font-size="14.00" fill="white">w1</text>
 </g>
 <!-- X2 -->
 <g id="node2" class="node">
@@ -1167,8 +1140,8 @@
 <!-- X2&#45;&#45;Neuron -->
 <g id="edge2" class="edge">
 <title>X2--Neuron</title>
-<path fill="none" stroke="black" d="M109.83,-90.16C113.35,-79.47 117.75,-66.29 121.89,-54.56 124.06,-48.4 126.54,-41.66 128.75,-35.75"></path>
-<text text-anchor="middle" x="129.56" y="-58.76" font-family="Times,serif" font-size="14.00">w2</text>
+<path fill="none" stroke="white" d="M109.83,-90.16C113.35,-79.47 117.75,-66.29 121.89,-54.56 124.06,-48.4 126.54,-41.66 128.75,-35.75"></path>
+<text text-anchor="middle" x="129.56" y="-58.76" font-family="Times,serif" font-size="14.00" fill="white">w2</text>
 </g>
 <!-- X3 -->
 <g id="node3" class="node">
@@ -1179,8 +1152,8 @@
 <!-- X3&#45;&#45;Neuron -->
 <g id="edge3" class="edge">
 <title>X3--Neuron</title>
-<path fill="none" stroke="black" d="M159.74,-90.34C153.99,-73.81 146.06,-51.04 140.74,-35.77"></path>
-<text text-anchor="middle" x="160.56" y="-58.76" font-family="Times,serif" font-size="14.00">w3</text>
+<path fill="none" stroke="white" d="M159.74,-90.34C153.99,-73.81 146.06,-51.04 140.74,-35.77"></path>
+<text text-anchor="middle" x="160.56" y="-58.76" font-family="Times,serif" font-size="14.00" fill="white">w3</text>
 </g>
 <!-- B -->
 <g id="node4" class="node">
@@ -1192,7 +1165,7 @@
 <g id="edge4" class="edge">
 <title>B--Neuron</title>
 <path fill="none" stroke="yellow" d="M219.84,-98.9C214.42,-93.48 207.94,-87.06 202,-81.36 183.7,-63.79 162.1,-43.93 148.48,-31.51"></path>
-<text text-anchor="middle" x="194.5" y="-58.76" font-family="Times,serif" font-size="14.00">b</text>
+<text text-anchor="middle" x="194.5" y="-58.76" font-family="Times,serif" font-size="14.00" fill="white">b</text>
 </g>
 </g>
 </svg>
@@ -1333,7 +1306,7 @@ f(x) = \begin{cases}
 <p><span class="math display">\[
 z = \sum_{i=1}^{n} w_i x_i + b
 \]</span></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource tex number-lines code-with-copy"><code class="sourceCode latex"><span id="cb7-1"><a></a>z = <span class="fu">\sum</span>_{i=1}^{n} w_i x_i + b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource tex number-lines code-with-copy"><code class="sourceCode latex"><span id="cb6-1"><a></a>z = <span class="fu">\sum</span>_{i=1}^{n} w_i x_i + b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This is the standard way to express the <strong>“weighted sum plus bias.”</strong></p>
 </section>
 <section id="visualizing-the-weights" class="slide level2">
@@ -1342,29 +1315,29 @@ z = \sum_{i=1}^{n} w_i x_i + b
 <li>Let’s look at the graph again, but with weights indicated by line thickness.</li>
 </ul>
 <div class="cell" data-layout-align="default">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource dot number-lines code-with-copy"><code class="sourceCode dot"><span id="cb8-1"><a></a><span class="va">graph</span> <span class="va">PerceptronWeights</span> <span class="ot">{</span></span>
-<span id="cb8-2"><a></a><span class="co">    </span><span class="at">rankdir</span><span class="ot">=</span><span class="va">TD</span><span class="ot">;</span></span>
-<span id="cb8-3"><a></a><span class="co">    </span><span class="at">bgcolor</span><span class="ot">=</span><span class="st">"transparent"</span><span class="co">  </span></span>
-<span id="cb8-4"><a></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">circle</span><span class="co">, </span><span class="at">fontcolor</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"#ffffff"</span><span class="co">, </span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"#ffffff"</span><span class="ot">]</span></span>
-<span id="cb8-5"><a></a><span class="co">    </span></span>
-<span id="cb8-6"><a></a><span class="co">    </span><span class="kw">subgraph</span><span class="co"> </span><span class="va">cluster_input</span><span class="co"> </span><span class="ot">{</span></span>
-<span id="cb8-7"><a></a><span class="co">        </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"red"</span><span class="ot">];</span></span>
-<span id="cb8-8"><a></a><span class="co">        </span><span class="va">X0</span><span class="ot">;</span><span class="co"> </span><span class="va">X1</span><span class="ot">;</span><span class="co"> </span><span class="va">X2</span><span class="ot">;</span><span class="co"> </span><span class="va">X3</span><span class="ot">;</span><span class="co"> </span><span class="va">X4</span><span class="ot">;</span><span class="co"> </span><span class="va">X5</span><span class="ot">;</span><span class="co"> </span><span class="va">X6</span><span class="ot">;</span><span class="co"> </span><span class="va">X7</span><span class="ot">;</span><span class="co"> </span><span class="va">X8</span><span class="ot">;</span></span>
-<span id="cb8-9"><a></a><span class="co">    </span><span class="ot">}</span></span>
-<span id="cb8-10"><a></a></span>
-<span id="cb8-11"><a></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"blue"</span><span class="ot">];</span></span>
-<span id="cb8-12"><a></a><span class="co">    </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Odd?"</span><span class="ot">];</span></span>
-<span id="cb8-13"><a></a></span>
-<span id="cb8-14"><a></a><span class="co">    </span><span class="va">X0</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"0"</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"#444444"</span><span class="ot">];</span></span>
-<span id="cb8-15"><a></a><span class="co">    </span><span class="va">X1</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"0"</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"#444444"</span><span class="ot">];</span></span>
-<span id="cb8-16"><a></a><span class="co">    </span><span class="va">X2</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"0"</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"#444444"</span><span class="ot">];</span></span>
-<span id="cb8-17"><a></a><span class="co">    </span><span class="va">X3</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"0"</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"#444444"</span><span class="ot">];</span></span>
-<span id="cb8-18"><a></a><span class="co">    </span><span class="va">X4</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"1"</span><span class="co">, </span><span class="va">penwidth</span><span class="ot">=</span><span class="dv">5</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"white"</span><span class="ot">];</span><span class="co"> </span></span>
-<span id="cb8-19"><a></a><span class="co">    </span><span class="va">X5</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"0"</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"#444444"</span><span class="ot">];</span></span>
-<span id="cb8-20"><a></a><span class="co">    </span><span class="va">X6</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"0"</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"#444444"</span><span class="ot">];</span></span>
-<span id="cb8-21"><a></a><span class="co">    </span><span class="va">X7</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"0"</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"#444444"</span><span class="ot">];</span></span>
-<span id="cb8-22"><a></a><span class="co">    </span><span class="va">X8</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"0"</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"#444444"</span><span class="ot">];</span></span>
-<span id="cb8-23"><a></a><span class="ot">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource dot number-lines code-with-copy"><code class="sourceCode dot"><span id="cb7-1"><a></a><span class="va">graph</span> <span class="va">PerceptronWeights</span> <span class="ot">{</span></span>
+<span id="cb7-2"><a></a><span class="co">    </span><span class="at">rankdir</span><span class="ot">=</span><span class="va">TD</span><span class="ot">;</span></span>
+<span id="cb7-3"><a></a><span class="co">    </span><span class="at">bgcolor</span><span class="ot">=</span><span class="st">"transparent"</span><span class="co">  </span></span>
+<span id="cb7-4"><a></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">circle</span><span class="co">, </span><span class="at">fontcolor</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"#ffffff"</span><span class="co">, </span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"#ffffff"</span><span class="ot">]</span></span>
+<span id="cb7-5"><a></a><span class="co">    </span></span>
+<span id="cb7-6"><a></a><span class="co">    </span><span class="kw">subgraph</span><span class="co"> </span><span class="va">cluster_input</span><span class="co"> </span><span class="ot">{</span></span>
+<span id="cb7-7"><a></a><span class="co">        </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"red"</span><span class="ot">];</span></span>
+<span id="cb7-8"><a></a><span class="co">        </span><span class="va">X0</span><span class="ot">;</span><span class="co"> </span><span class="va">X1</span><span class="ot">;</span><span class="co"> </span><span class="va">X2</span><span class="ot">;</span><span class="co"> </span><span class="va">X3</span><span class="ot">;</span><span class="co"> </span><span class="va">X4</span><span class="ot">;</span><span class="co"> </span><span class="va">X5</span><span class="ot">;</span><span class="co"> </span><span class="va">X6</span><span class="ot">;</span><span class="co"> </span><span class="va">X7</span><span class="ot">;</span><span class="co"> </span><span class="va">X8</span><span class="ot">;</span></span>
+<span id="cb7-9"><a></a><span class="co">    </span><span class="ot">}</span></span>
+<span id="cb7-10"><a></a></span>
+<span id="cb7-11"><a></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"blue"</span><span class="ot">];</span></span>
+<span id="cb7-12"><a></a><span class="co">    </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Odd?"</span><span class="ot">];</span></span>
+<span id="cb7-13"><a></a></span>
+<span id="cb7-14"><a></a><span class="co">    </span><span class="va">X0</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"0"</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"#444444"</span><span class="ot">];</span></span>
+<span id="cb7-15"><a></a><span class="co">    </span><span class="va">X1</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"0"</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"#444444"</span><span class="ot">];</span></span>
+<span id="cb7-16"><a></a><span class="co">    </span><span class="va">X2</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"0"</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"#444444"</span><span class="ot">];</span></span>
+<span id="cb7-17"><a></a><span class="co">    </span><span class="va">X3</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"0"</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"#444444"</span><span class="ot">];</span></span>
+<span id="cb7-18"><a></a><span class="co">    </span><span class="va">X4</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"1"</span><span class="co">, </span><span class="va">penwidth</span><span class="ot">=</span><span class="dv">5</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"white"</span><span class="ot">];</span><span class="co"> </span></span>
+<span id="cb7-19"><a></a><span class="co">    </span><span class="va">X5</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"0"</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"#444444"</span><span class="ot">];</span></span>
+<span id="cb7-20"><a></a><span class="co">    </span><span class="va">X6</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"0"</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"#444444"</span><span class="ot">];</span></span>
+<span id="cb7-21"><a></a><span class="co">    </span><span class="va">X7</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"0"</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"#444444"</span><span class="ot">];</span></span>
+<span id="cb7-22"><a></a><span class="co">    </span><span class="va">X8</span><span class="co"> -- </span><span class="va">Neuron</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"0"</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"#444444"</span><span class="ot">];</span></span>
+<span id="cb7-23"><a></a><span class="ot">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <p></p><figure class=""><p></p>

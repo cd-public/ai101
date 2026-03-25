@@ -395,7 +395,7 @@ $$
 
 # Graphs
 
-## Defintion
+## Definition
 
 - We will start with a definition which we gradually expand.
   	- We recall (haha - recall) what a graph is not.
