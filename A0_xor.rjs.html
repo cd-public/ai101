@@ -618,7 +618,7 @@
 </ul></li>
 <li>Recall this solution:</li>
 </ul>
-<div id="86f99688" class="cell" data-execution_count="2">
+<div id="4368a139" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a></a>multi <span class="op">=</span> np.array([</span>
 <span id="cb1-3"><a></a>    [<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>],</span>
@@ -731,7 +731,7 @@
 <li>We can take a look at how well we classify this value.</li>
 <li>First, we make both “top left” and “top right” three.</li>
 </ul>
-<div id="d976d807" class="cell" data-execution_count="3">
+<div id="dac28aba" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>rite <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>]</span>
 <span id="cb2-2"><a></a>left <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -746,9 +746,9 @@
 <ul>
 <li>As with anything else, we can take our trusty “multi-classifier”.</li>
 </ul>
-<div id="0f65af89" class="cell" data-execution_count="4">
+<div id="8f10ba08" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a>multi.shape</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="220">
+<div class="cell-output cell-output-display" data-execution_count="332">
 <pre><code>(6, 9)</code></pre>
 </div>
 </div>
@@ -770,7 +770,7 @@
 <ul>
 <li>It is possible to just take a each row, multiply by the die, and see the result.</li>
 </ul>
-<div id="c6f451a7" class="cell" data-execution_count="5">
+<div id="47585dce" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="cf">for</span> row <span class="kw">in</span> multi:</span>
 <span id="cb5-2"><a></a>    <span class="bu">print</span>(rite <span class="op">*</span> row)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -789,7 +789,7 @@
 <ul>
 <li>We could then sum up each row…</li>
 </ul>
-<div id="ab33ddbd" class="cell" data-execution_count="6">
+<div id="2aeea439" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a><span class="cf">for</span> row <span class="kw">in</span> multi:</span>
 <span id="cb7-2"><a></a>    <span class="bu">print</span>(<span class="bu">sum</span>(rite <span class="op">*</span> row))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -807,7 +807,7 @@
 <ul>
 <li>We could then compare the sum to <code>1</code></li>
 </ul>
-<div id="73e9ed02" class="cell" data-execution_count="7">
+<div id="ab64bfc1" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a><span class="cf">for</span> row <span class="kw">in</span> multi:</span>
 <span id="cb9-2"><a></a>    <span class="bu">print</span>(<span class="dv">1</span> <span class="op">&lt;=</span> <span class="bu">sum</span>(rite <span class="op">*</span> row))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -841,9 +841,9 @@ False</code></pre>
 <li>Here is an example…</li>
 <li>I hastily wrote <code>multi</code> as a <span class="math inline">\(6 \times 9\)</span>…</li>
 </ul>
-<div id="64cefff2" class="cell" data-execution_count="8">
+<div id="0530176a" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a>multi</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="224">
+<div class="cell-output cell-output-display" data-execution_count="336">
 <pre><code>array([[-1.        , -1.        , -1.        , -1.        ,  1.        ,
         -1.        , -1.        , -1.        , -1.        ],
        [-0.5       , -0.5       ,  0.5       , -0.5       , -0.5       ,
@@ -868,9 +868,9 @@ False</code></pre>
 <li>…so I need to rotate (transpose) it.</li>
 <li>So the <em>columns</em> are of length 9.</li>
 </ul>
-<div id="84b8751d" class="cell" data-execution_count="9">
+<div id="7d0b4f4f" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a>multi.transpose()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="225">
+<div class="cell-output cell-output-display" data-execution_count="337">
 <pre><code>array([[-1.        , -0.5       , -0.33333333,  0.25      ,  0.2       ,
          0.        ],
        [-1.        , -0.5       , -0.33333333, -0.25      , -0.2       ,
@@ -900,9 +900,9 @@ False</code></pre>
 <ul>
 <li>Then, I can use <code>@</code> to “matrix multiply” the dice times the classifier!</li>
 </ul>
-<div id="29f5258f" class="cell" data-execution_count="10">
+<div id="83eef2e9" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a>rite <span class="op">@</span> multi.transpose()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="226">
+<div class="cell-output cell-output-display" data-execution_count="338">
 <pre><code>array([-1.  ,  0.5 ,  1.  ,  0.25,  0.6 , -1.  ])</code></pre>
 </div>
 </div>
@@ -916,9 +916,9 @@ False</code></pre>
 </ul></li>
 <li>So we do so, same as with the other method using <code>sum</code> and <code>for</code></li>
 </ul>
-<div id="fde4177b" class="cell" data-execution_count="11">
+<div id="d20db9c2" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a><span class="dv">1</span> <span class="op">&lt;=</span> rite <span class="op">@</span> multi.transpose()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="227">
+<div class="cell-output cell-output-display" data-execution_count="339">
 <pre><code>array([False, False,  True, False, False, False])</code></pre>
 </div>
 </div>
@@ -928,18 +928,18 @@ False</code></pre>
 <ul>
 <li>This classifier only works for the “top right” version of three!</li>
 </ul>
-<div id="38121d0b" class="cell" data-execution_count="12">
+<div id="b3b74545" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a><span class="dv">1</span> <span class="op">&lt;=</span> left <span class="op">@</span> multi.transpose()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="228">
+<div class="cell-output cell-output-display" data-execution_count="340">
 <pre><code>array([False, False, False, False, False, False])</code></pre>
 </div>
 </div>
 <ul>
 <li>Even though that is definitely a three!</li>
 </ul>
-<div id="ee973120" class="cell" data-execution_count="13">
+<div id="dc3730fe" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a><span class="bu">sum</span>(left)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="229">
+<div class="cell-output cell-output-display" data-execution_count="341">
 <pre><code>3</code></pre>
 </div>
 </div>
@@ -1136,10 +1136,11 @@ False</code></pre>
 <li>The “x” in XOR stands for “exclusive or”</li>
 <li>I use “i” for “inclusive or” to not just say vanilla “or”</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb23-2"><a></a>X <span class="op">=</span> np.array([[<span class="dv">0</span>,<span class="dv">0</span>], [<span class="dv">0</span>,<span class="dv">1</span>], [<span class="dv">1</span>,<span class="dv">0</span>], [<span class="dv">1</span>,<span class="dv">1</span>]])</span>
-<span id="cb23-3"><a></a>y_xor <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>])</span>
-<span id="cb23-4"><a></a>y_ior <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="7082fcbb" class="cell" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a>x <span class="op">=</span> np.array([[<span class="dv">0</span>,<span class="dv">0</span>], [<span class="dv">0</span>,<span class="dv">1</span>], [<span class="dv">1</span>,<span class="dv">0</span>], [<span class="dv">1</span>,<span class="dv">1</span>]])</span>
+<span id="cb23-2"><a></a>y_xor <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>])</span>
+<span id="cb23-3"><a></a>y_ior <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
 <section id="the-geometry-of-logic" class="slide level2">
 <h2>The Geometry of Logic</h2>
@@ -1163,11 +1164,11 @@ False</code></pre>
 </section>
 <section id="place-dots" class="slide level2">
 <h2>Place dots</h2>
-<div id="9bb53743" class="cell" data-execution_count="14">
+<div id="8f69a4ba" class="cell" data-execution_count="15">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="A0_xor_files/figure-revealjs/cell-14-output-1.png" width="565" height="566"></p>
+<p><img data-src="A0_xor_files/figure-revealjs/cell-15-output-1.png" width="565" height="566"></p>
 </figure>
 </div>
 </div>
@@ -1187,41 +1188,46 @@ False</code></pre>
 </section>
 <section id="missing-some-2s3s" class="slide level2">
 <h2>Missing some 2s/3s</h2>
-<div id="7f3f45e7" class="cell" data-execution_count="15">
+<div id="8c24110a" class="cell" data-execution_count="16">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="A0_xor_files/figure-revealjs/cell-15-output-1.png" width="565" height="566"></p>
+<p><img data-src="A0_xor_files/figure-revealjs/cell-16-output-1.png" width="565" height="566"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="linear-separability" class="slide level2">
-<h2>Linear Separability</h2>
-<ul>
-<li>In the <strong>OR</strong> plot, we can draw a <strong>single line</strong>.</li>
-<li>All “1” results are on one side of the line.</li>
-<li>All “0” results are on the other side.</li>
-<li>This is called being <strong>linearly separable</strong>.</li>
-</ul>
+<section id="getting-the-4s5s" class="slide level2">
+<h2>Getting the 4s/5s</h2>
+<div id="0d679fe3" class="cell" data-execution_count="17">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="A0_xor_files/figure-revealjs/cell-17-output-1.png" width="565" height="566"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
-<section id="plotting-xor" class="slide level2">
-<h2>Plotting XOR</h2>
-<ul>
-<li>Now, look at the <strong>XOR</strong> plot.</li>
-<li>(0,1) and (1,0) are “1”.</li>
-<li>(0,0) and (1,1) are “0”.</li>
-<li>Try to draw a single straight line to separate them.</li>
-</ul>
+<section id="both-bad-things" class="slide level2">
+<h2>Both Bad Things</h2>
+<div id="c06e2727" class="cell" data-execution_count="18">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="A0_xor_files/figure-revealjs/cell-18-output-1.png" width="565" height="566"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
-<section id="the-wall" class="slide level2">
-<h2>The Wall</h2>
+<section id="takeaway" class="slide level2">
+<h2>Takeaway</h2>
 <ul>
-<li>It is <strong>mathematically impossible</strong> to draw that line.</li>
-<li>A single-layer network is just a line-drawer.</li>
-<li>If the data isn’t separable by a line, it fails.</li>
-<li>This is the famous <strong>XOR Problem</strong>.</li>
+<li>This is no possible way for a <strong>single-layer</strong> perceptron to differentiate 2s/3s from 4s/5s.</li>
+<li>On these graphs, the “intercept” represents the bias.</li>
+<li>On these graphs, the “slope” represents (the sume of) the weights</li>
 </ul>
 </section>
 <section id="impact-on-dice" class="slide level2">
@@ -1245,10 +1251,14 @@ False</code></pre>
 <section id="the-solution" class="slide level2">
 <h2>The Solution?</h2>
 <ul>
-<li>To solve XOR, we need a <strong>Hidden Layer</strong>.</li>
-<li>We need to transform the data into a new space.</li>
-<li>By adding a layer, we can draw <strong>two lines</strong>.</li>
-<li>Or, we can warp the space so a line works.</li>
+<li>To solve XOR, we need a <em>more powerful technique</em></li>
+<li>We will:
+<ul>
+<li>Create something not unlike a perceptron which “projects” these two dots into a different “space”</li>
+<li>Apply that transformation to the incoming (visual) data.</li>
+<li>Apply a perceptron to the transformed data.</li>
+</ul></li>
+<li>These are two perceptron “layers”</li>
 </ul>
 </section>
 <section id="visualizing-layers" class="slide level2">
@@ -1264,61 +1274,563 @@ False</code></pre>
 <h2>Designing the Logic</h2>
 <ul>
 <li>XOR can be thought of as:</li>
-<li>(A OR B) <strong>AND NOT</strong> (A AND B).</li>
+<li>(A IOR B) <strong>AND NOT</strong> (A AND B).</li>
 <li>This requires a sequence of operations.</li>
 <li>Sequence = <strong>Depth</strong> in a neural network.</li>
 </ul>
 </section>
-<section id="testing-our-perceptron" class="slide level2">
-<h2>Testing our Perceptron</h2>
+<section id="minimal-example" class="slide level2">
+<h2>Minimal Example</h2>
 <ul>
-<li>If we try to train on XOR, the error won’t go to zero.</li>
-<li>The weights will just “spin” in circles.</li>
-<li>It will try to find a middle ground that doesn’t exist.</li>
+<li>We consider only “corners in the top row”.</li>
+<li>These ones in red, basically:</li>
 </ul>
-<p><code> # A failed attempt at XOR with a single layer weights = np.random.rand(2) bias = -0.5 for epoch in range(100): for i in range(4): pred = 1 if np.dot(X[i], weights) + bias &gt; 0 else 0 error = y_xor[i] - pred weights += error * X[i] * 0.1 </code></p>
-</section>
-<section id="results-of-the-test" class="slide level2">
-<h2>Results of the Test</h2>
+<div style="position: relative; width: 300px; height: 300px; background-color: white; border: 1px solid #ccc;">
+<div style="position: absolute; top: 0; right: 0; width: 100px; height: 100px; background-color: red;">
+
+</div>
+<div style="position: absolute; top: 0; left: 0; width: 100px; height: 100px; background-color: red;">
+
+</div>
+</div>
 <ul>
-<li>The model might get 75% accuracy.</li>
-<li>It can never get 100%.</li>
-<li>This is because (1,1) will always sum higher than (1,0).</li>
-<li>If (1,0) fires the neuron, (1,1) definitely will.</li>
-</ul>
-</section>
-<section id="beyond-the-line" class="slide level2">
-<h2>Beyond the Line</h2>
-<ul>
-<li>We need <strong>non-linearity</strong>.</li>
-<li>We need to be able to say “Too much input is bad.”</li>
-<li>This leads us to <strong>Activation Functions</strong>.</li>
-<li>And more importantly, <strong>Multi-Layer Perceptrons (MLP)</strong>.</li>
+<li>We will make a “perceptron” that takes only two inputs.</li>
 </ul>
 </section>
-<section id="summary" class="slide level2">
-<h2>Summary</h2>
+<section id="data" class="slide level2">
+<h2>Data</h2>
 <ul>
-<li>Single layers are limited to <strong>linear logic</strong>.</li>
-<li>XOR represents the simplest <strong>non-linear</strong> problem.</li>
-<li>Dice classification involves many XOR-like patterns.</li>
-<li>To progress, we must go <strong>deeper</strong>.</li>
+<li>We recall:</li>
+</ul>
+<div id="f562257a" class="cell" data-execution_count="19">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a></a><span class="bu">print</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[0 0]
+ [0 1]
+ [1 0]
+ [1 1]]</code></pre>
+</div>
+</div>
+<div id="2e44553e" class="cell" data-execution_count="20">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a></a><span class="bu">print</span>(y_ior)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[0 1 1 1]</code></pre>
+</div>
+</div>
+<div id="e640b280" class="cell" data-execution_count="21">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a></a><span class="bu">print</span>(y_xor)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[0 1 1 0]</code></pre>
+</div>
+</div>
+<ul>
+<li>We want to take a vector of size 2 (top two dots) and produce a vecotr of size 2 (IOR or XOR).
+<ul>
+<li>Only XOR is interesting.</li>
+</ul></li>
 </ul>
 </section>
-<section id="next-steps" class="slide level2">
-<h2>Next Steps</h2>
+<section id="our-first-steps" class="slide level2">
+<h2>Our First Steps</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
 <ul>
-<li>We will look at adding a “hidden” layer.</li>
-<li>We will see how two lines can solve XOR.</li>
-<li>We will apply this “depth” to our dice matrix.</li>
-<li>The age of the <strong>Deep</strong> Neural Network begins.</li>
+<li>First, let’s naively just sum up the number of dots.</li>
+<li>We can do this simply with a single layer that sets all weights to 1.</li>
 </ul>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-fig-width="400px" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="400" height="480" viewbox="0.00 0.00 238.00 246.20" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 242.2)">
+<title>SudokuBipartite</title>
+<g id="clust1" class="cluster">
+<title>cluster_cells</title>
+<polygon fill="transparent" stroke="black" points="8,-8 8,-230.2 222,-230.2 222,-8 8,-8"></polygon>
+</g>
+<!-- RITE -->
+<g id="node1" class="node">
+<title>RITE</title>
+<ellipse fill="magenta" stroke="#ffffff" cx="169" cy="-177.1" rx="45.2" ry="45.2"></ellipse>
+<text text-anchor="middle" x="169" y="-172.9" font-family="Times,serif" font-size="14.00" fill="#ffffff">Top Rite</text>
+</g>
+<!-- DEST -->
+<g id="node3" class="node">
+<title>DEST</title>
+<ellipse fill="blue" stroke="#ffffff" cx="115" cy="-56" rx="40" ry="40"></ellipse>
+<text text-anchor="middle" x="115" y="-51.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">Neuron</text>
+</g>
+<!-- RITE&#45;&#45;DEST -->
+<g id="edge1" class="edge">
+<title>RITE--DEST</title>
+<path fill="none" stroke="white" d="M150.72,-135.77C144.42,-121.87 137.4,-106.41 131.27,-92.88"></path>
+</g>
+<!-- LEFT -->
+<g id="node2" class="node">
+<title>LEFT</title>
+<ellipse fill="magenta" stroke="#ffffff" cx="61" cy="-177.1" rx="45.18" ry="45.18"></ellipse>
+<text text-anchor="middle" x="61" y="-172.9" font-family="Times,serif" font-size="14.00" fill="#ffffff">Top Left</text>
+</g>
+<!-- LEFT&#45;&#45;DEST -->
+<g id="edge2" class="edge">
+<title>LEFT--DEST</title>
+<path fill="none" stroke="white" d="M79.28,-135.77C85.58,-121.87 92.6,-106.41 98.73,-92.88"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div></div>
 </section>
-<section id="fin" class="slide level2">
-<h2>FIN</h2>
+<section id="our-first-steps-1" class="slide level2">
+<h2>Our First Steps</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
 <ul>
-<li>(The slides would continue with roughly 900+ more lines of similar structured content detailing specific weight iterations, historical context of the Minsky/Papert critique, and step-by-step visualizations of hidden layer transformations.)</li>
+<li>We can have neurons fire for sums of <em>at least</em> 1 or <em>at least</em> 2.</li>
+<li>Green for “positive” weights (greater than zero)</li>
 </ul>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-fig-width="400px" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="400" height="480" viewbox="0.00 0.00 238.00 202.20" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 198.2)">
+<title>SudokuBipartite</title>
+<g id="clust1" class="cluster">
+<title>cluster_cells</title>
+<polygon fill="transparent" stroke="black" points="8,-8 8,-186.2 222,-186.2 222,-8 8,-8"></polygon>
+</g>
+<!-- RITE -->
+<g id="node1" class="node">
+<title>RITE</title>
+<ellipse fill="magenta" stroke="#ffffff" cx="169" cy="-133.1" rx="45.2" ry="45.2"></ellipse>
+<text text-anchor="middle" x="169" y="-128.9" font-family="Times,serif" font-size="14.00" fill="#ffffff">Top Rite</text>
+</g>
+<!-- ONE -->
+<g id="node3" class="node">
+<title>ONE</title>
+<ellipse fill="blue" stroke="#ffffff" cx="74" cy="-34" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="74" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">1</text>
+</g>
+<!-- RITE&#45;&#45;ONE -->
+<g id="edge1" class="edge">
+<title>RITE--ONE</title>
+<path fill="none" stroke="green" d="M137.89,-100.31C120.36,-82.39 99.43,-60.99 86.43,-47.7"></path>
+</g>
+<!-- TWO -->
+<g id="node4" class="node">
+<title>TWO</title>
+<ellipse fill="blue" stroke="#ffffff" cx="155" cy="-34" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="155" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">2</text>
+</g>
+<!-- RITE&#45;&#45;TWO -->
+<g id="edge3" class="edge">
+<title>RITE--TWO</title>
+<path fill="none" stroke="green" d="M162.7,-88.38C160.84,-75.49 158.91,-62.15 157.45,-52.02"></path>
+</g>
+<!-- LEFT -->
+<g id="node2" class="node">
+<title>LEFT</title>
+<ellipse fill="magenta" stroke="#ffffff" cx="61" cy="-133.1" rx="45.18" ry="45.18"></ellipse>
+<text text-anchor="middle" x="61" y="-128.9" font-family="Times,serif" font-size="14.00" fill="#ffffff">Top Left</text>
+</g>
+<!-- LEFT&#45;&#45;ONE -->
+<g id="edge2" class="edge">
+<title>LEFT--ONE</title>
+<path fill="none" stroke="green" d="M66.85,-88.38C68.58,-75.49 70.37,-62.15 71.72,-52.02"></path>
+</g>
+<!-- LEFT&#45;&#45;TWO -->
+<g id="edge4" class="edge">
+<title>LEFT--TWO</title>
+<path fill="none" stroke="green" d="M92.04,-100.04C109.37,-82.14 129.98,-60.85 142.78,-47.63"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="setting-weights" class="slide level2">
+<h2>Setting Weights</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>Apply high weight to edges into <code>1</code></li>
+<li>Apply half weight to edges into <code>2</code></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-fig-width="400px" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="400" height="480" viewbox="0.00 0.00 238.00 202.20" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 198.2)">
+<title>SudokuBipartite</title>
+<g id="clust1" class="cluster">
+<title>cluster_cells</title>
+<polygon fill="transparent" stroke="black" points="8,-8 8,-186.2 222,-186.2 222,-8 8,-8"></polygon>
+</g>
+<!-- RITE -->
+<g id="node1" class="node">
+<title>RITE</title>
+<ellipse fill="magenta" stroke="#ffffff" cx="169" cy="-133.1" rx="45.2" ry="45.2"></ellipse>
+<text text-anchor="middle" x="169" y="-128.9" font-family="Times,serif" font-size="14.00" fill="#ffffff">Top Rite</text>
+</g>
+<!-- ONE -->
+<g id="node3" class="node">
+<title>ONE</title>
+<ellipse fill="blue" stroke="#ffffff" cx="74" cy="-34" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="74" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">1</text>
+</g>
+<!-- RITE&#45;&#45;ONE -->
+<g id="edge1" class="edge">
+<title>RITE--ONE</title>
+<path fill="none" stroke="green" stroke-width="2" d="M137.89,-100.31C120.36,-82.39 99.43,-60.99 86.43,-47.7"></path>
+</g>
+<!-- TWO -->
+<g id="node4" class="node">
+<title>TWO</title>
+<ellipse fill="blue" stroke="#ffffff" cx="155" cy="-34" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="155" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">2</text>
+</g>
+<!-- RITE&#45;&#45;TWO -->
+<g id="edge3" class="edge">
+<title>RITE--TWO</title>
+<path fill="none" stroke="green" stroke-width="0.5" d="M162.7,-88.38C160.84,-75.49 158.91,-62.15 157.45,-52.02"></path>
+</g>
+<!-- LEFT -->
+<g id="node2" class="node">
+<title>LEFT</title>
+<ellipse fill="magenta" stroke="#ffffff" cx="61" cy="-133.1" rx="45.18" ry="45.18"></ellipse>
+<text text-anchor="middle" x="61" y="-128.9" font-family="Times,serif" font-size="14.00" fill="#ffffff">Top Left</text>
+</g>
+<!-- LEFT&#45;&#45;ONE -->
+<g id="edge2" class="edge">
+<title>LEFT--ONE</title>
+<path fill="none" stroke="green" stroke-width="2" d="M66.85,-88.38C68.58,-75.49 70.37,-62.15 71.72,-52.02"></path>
+</g>
+<!-- LEFT&#45;&#45;TWO -->
+<g id="edge4" class="edge">
+<title>LEFT--TWO</title>
+<path fill="none" stroke="green" stroke-width="0.5" d="M92.04,-100.04C109.37,-82.14 129.98,-60.85 142.78,-47.63"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="adding-a-layer" class="slide level2">
+<h2>Adding a Layer</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>We keep this stage, but add a layer below.</li>
+<li>We only connect top-to-middle and middle-to-bottom</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-fig-width="400px" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="400" height="480" viewbox="0.00 0.00 238.00 285.05" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 281.05)">
+<title>SudokuBipartite</title>
+<g id="clust1" class="cluster">
+<title>cluster_cells</title>
+<polygon fill="transparent" stroke="black" points="8,-90.85 8,-269.05 222,-269.05 222,-90.85 8,-90.85"></polygon>
+</g>
+<!-- RITE -->
+<g id="node1" class="node">
+<title>RITE</title>
+<ellipse fill="magenta" stroke="#ffffff" cx="169" cy="-215.95" rx="45.2" ry="45.2"></ellipse>
+<text text-anchor="middle" x="169" y="-211.75" font-family="Times,serif" font-size="14.00" fill="#ffffff">Top Rite</text>
+</g>
+<!-- ONE -->
+<g id="node3" class="node">
+<title>ONE</title>
+<ellipse fill="blue" stroke="#ffffff" cx="82" cy="-116.85" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="82" y="-112.65" font-family="Times,serif" font-size="14.00" fill="#ffffff">1</text>
+</g>
+<!-- RITE&#45;&#45;ONE -->
+<g id="edge1" class="edge">
+<title>RITE--ONE</title>
+<path fill="none" stroke="green" stroke-width="2" d="M139.3,-181.81C123.75,-164.45 105.57,-144.15 93.92,-131.16"></path>
+</g>
+<!-- TWO -->
+<g id="node4" class="node">
+<title>TWO</title>
+<ellipse fill="blue" stroke="#ffffff" cx="147" cy="-116.85" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="147" y="-112.65" font-family="Times,serif" font-size="14.00" fill="#ffffff">2</text>
+</g>
+<!-- RITE&#45;&#45;TWO -->
+<g id="edge3" class="edge">
+<title>RITE--TWO</title>
+<path fill="none" stroke="green" stroke-width="0.5" d="M159.22,-171.8C156.24,-158.63 153.13,-144.92 150.8,-134.62"></path>
+</g>
+<!-- LEFT -->
+<g id="node2" class="node">
+<title>LEFT</title>
+<ellipse fill="magenta" stroke="#ffffff" cx="61" cy="-215.95" rx="45.18" ry="45.18"></ellipse>
+<text text-anchor="middle" x="61" y="-211.75" font-family="Times,serif" font-size="14.00" fill="#ffffff">Top Left</text>
+</g>
+<!-- LEFT&#45;&#45;ONE -->
+<g id="edge2" class="edge">
+<title>LEFT--ONE</title>
+<path fill="none" stroke="green" stroke-width="2" d="M70.33,-171.8C73.18,-158.63 76.15,-144.92 78.37,-134.62"></path>
+</g>
+<!-- LEFT&#45;&#45;TWO -->
+<g id="edge4" class="edge">
+<title>LEFT--TWO</title>
+<path fill="none" stroke="green" stroke-width="0.5" d="M90.6,-181.53C105.95,-164.2 123.84,-144 135.28,-131.08"></path>
+</g>
+<!-- IOR -->
+<g id="node5" class="node">
+<title>IOR</title>
+<ellipse fill="none" stroke="#ffffff" cx="76" cy="-31.43" rx="27.84" ry="27.84"></ellipse>
+<text text-anchor="middle" x="76" y="-27.23" font-family="Times,serif" font-size="14.00" fill="#ffffff">IOR</text>
+</g>
+<!-- ONE&#45;&#45;IOR -->
+<g id="edge5" class="edge">
+<title>ONE--IOR</title>
+<path fill="none" stroke="green" d="M80.76,-98.57C79.94,-87.21 78.85,-72.12 77.93,-59.22"></path>
+</g>
+<!-- XOR -->
+<g id="node6" class="node">
+<title>XOR</title>
+<ellipse fill="none" stroke="#ffffff" cx="153" cy="-31.43" rx="31.35" ry="31.35"></ellipse>
+<text text-anchor="middle" x="153" y="-27.23" font-family="Times,serif" font-size="14.00" fill="#ffffff">XOR</text>
+</g>
+<!-- ONE&#45;&#45;XOR -->
+<g id="edge6" class="edge">
+<title>ONE--XOR</title>
+<path fill="none" stroke="green" d="M93.41,-102.45C104.07,-89.92 120.22,-70.94 133.02,-55.9"></path>
+</g>
+<!-- TWO&#45;&#45;IOR -->
+<g id="edge7" class="edge">
+<title>TWO--IOR</title>
+<path fill="none" stroke="green" d="M135.59,-102.45C124.22,-89.09 106.62,-68.4 93.48,-52.97"></path>
+</g>
+<!-- TWO&#45;&#45;XOR -->
+<g id="edge8" class="edge">
+<title>TWO--XOR</title>
+<path fill="none" stroke="green" d="M148.24,-98.57C148.98,-88.26 149.95,-74.87 150.81,-62.85"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="setting-weights-again" class="slide level2">
+<h2>Setting weights again</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>We add a negative (red) weight from “2” to “XOR”
+<ul>
+<li>We don’t want to “activate” if both are set</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-fig-width="400px" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="400" height="480" viewbox="0.00 0.00 238.00 285.05" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 281.05)">
+<title>SudokuBipartite</title>
+<g id="clust1" class="cluster">
+<title>cluster_cells</title>
+<polygon fill="transparent" stroke="black" points="8,-90.85 8,-269.05 222,-269.05 222,-90.85 8,-90.85"></polygon>
+</g>
+<!-- RITE -->
+<g id="node1" class="node">
+<title>RITE</title>
+<ellipse fill="magenta" stroke="#ffffff" cx="169" cy="-215.95" rx="45.2" ry="45.2"></ellipse>
+<text text-anchor="middle" x="169" y="-211.75" font-family="Times,serif" font-size="14.00" fill="#ffffff">Top Rite</text>
+</g>
+<!-- ONE -->
+<g id="node3" class="node">
+<title>ONE</title>
+<ellipse fill="blue" stroke="#ffffff" cx="82" cy="-116.85" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="82" y="-112.65" font-family="Times,serif" font-size="14.00" fill="#ffffff">1</text>
+</g>
+<!-- RITE&#45;&#45;ONE -->
+<g id="edge1" class="edge">
+<title>RITE--ONE</title>
+<path fill="none" stroke="green" stroke-width="2" d="M139.3,-181.81C123.75,-164.45 105.57,-144.15 93.92,-131.16"></path>
+</g>
+<!-- TWO -->
+<g id="node4" class="node">
+<title>TWO</title>
+<ellipse fill="blue" stroke="#ffffff" cx="147" cy="-116.85" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="147" y="-112.65" font-family="Times,serif" font-size="14.00" fill="#ffffff">2</text>
+</g>
+<!-- RITE&#45;&#45;TWO -->
+<g id="edge3" class="edge">
+<title>RITE--TWO</title>
+<path fill="none" stroke="green" stroke-width="0.5" d="M159.22,-171.8C156.24,-158.63 153.13,-144.92 150.8,-134.62"></path>
+</g>
+<!-- LEFT -->
+<g id="node2" class="node">
+<title>LEFT</title>
+<ellipse fill="magenta" stroke="#ffffff" cx="61" cy="-215.95" rx="45.18" ry="45.18"></ellipse>
+<text text-anchor="middle" x="61" y="-211.75" font-family="Times,serif" font-size="14.00" fill="#ffffff">Top Left</text>
+</g>
+<!-- LEFT&#45;&#45;ONE -->
+<g id="edge2" class="edge">
+<title>LEFT--ONE</title>
+<path fill="none" stroke="green" stroke-width="2" d="M70.33,-171.8C73.18,-158.63 76.15,-144.92 78.37,-134.62"></path>
+</g>
+<!-- LEFT&#45;&#45;TWO -->
+<g id="edge4" class="edge">
+<title>LEFT--TWO</title>
+<path fill="none" stroke="green" stroke-width="0.5" d="M90.6,-181.53C105.95,-164.2 123.84,-144 135.28,-131.08"></path>
+</g>
+<!-- IOR -->
+<g id="node5" class="node">
+<title>IOR</title>
+<ellipse fill="none" stroke="#ffffff" cx="76" cy="-31.43" rx="27.84" ry="27.84"></ellipse>
+<text text-anchor="middle" x="76" y="-27.23" font-family="Times,serif" font-size="14.00" fill="#ffffff">IOR</text>
+</g>
+<!-- ONE&#45;&#45;IOR -->
+<g id="edge5" class="edge">
+<title>ONE--IOR</title>
+<path fill="none" stroke="green" d="M80.76,-98.57C79.94,-87.21 78.85,-72.12 77.93,-59.22"></path>
+</g>
+<!-- XOR -->
+<g id="node6" class="node">
+<title>XOR</title>
+<ellipse fill="none" stroke="#ffffff" cx="153" cy="-31.43" rx="31.35" ry="31.35"></ellipse>
+<text text-anchor="middle" x="153" y="-27.23" font-family="Times,serif" font-size="14.00" fill="#ffffff">XOR</text>
+</g>
+<!-- ONE&#45;&#45;XOR -->
+<g id="edge6" class="edge">
+<title>ONE--XOR</title>
+<path fill="none" stroke="green" d="M93.41,-102.45C104.07,-89.92 120.22,-70.94 133.02,-55.9"></path>
+</g>
+<!-- TWO&#45;&#45;IOR -->
+<g id="edge7" class="edge">
+<title>TWO--IOR</title>
+<path fill="none" stroke="green" d="M135.59,-102.45C124.22,-89.09 106.62,-68.4 93.48,-52.97"></path>
+</g>
+<!-- TWO&#45;&#45;XOR -->
+<g id="edge8" class="edge">
+<title>TWO--XOR</title>
+<path fill="none" stroke="red" d="M148.24,-98.57C148.98,-88.26 149.95,-74.87 150.81,-62.85"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="as-a-matrix" class="slide level2">
+<h2>As a matrix</h2>
+<ul>
+<li>We can easily make a matrix!</li>
+<li>… or two.</li>
+</ul>
+<div id="2b473c2b" class="cell" data-execution_count="22">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a></a>top_layer <span class="op">=</span> np.array([</span>
+<span id="cb30-2"><a></a>    [ <span class="fl">1.0</span>,  <span class="fl">1.0</span>],</span>
+<span id="cb30-3"><a></a>    [ <span class="fl">0.5</span>,  <span class="fl">0.5</span>],</span>
+<span id="cb30-4"><a></a>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="479327db" class="cell" data-execution_count="23">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a></a>bot_layer <span class="op">=</span> np.array([</span>
+<span id="cb31-2"><a></a>    [ <span class="fl">1.0</span>,  <span class="fl">1.0</span>],</span>
+<span id="cb31-3"><a></a>    [ <span class="fl">1.0</span>, <span class="op">-</span><span class="fl">1.0</span>],</span>
+<span id="cb31-4"><a></a>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="try-it-1" class="slide level2">
+<h2>Try it</h2>
+<ul>
+<li>We can apply the first layer.</li>
+</ul>
+<div id="2bafe20d" class="cell" data-execution_count="24">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a></a>np.array([<span class="dv">0</span>,<span class="dv">1</span>]) <span class="op">@</span> top_layer</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="352">
+<pre><code>array([0.5, 0.5])</code></pre>
+</div>
+</div>
+</section>
+<section id="transpose-2" class="slide level2">
+<h2>Transpose</h2>
+<ul>
+<li>Whoops! We have to transponse to use <code>@</code></li>
+</ul>
+<div id="09b0fb8e" class="cell" data-execution_count="25">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a></a>np.array([<span class="dv">0</span>,<span class="dv">1</span>]) <span class="op">@</span> top_layer.transpose()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="353">
+<pre><code>array([1. , 0.5])</code></pre>
+</div>
+</div>
+</section>
+<section id="activate" class="slide level2">
+<h2>Activate</h2>
+<ul>
+<li>We can compare to <code>1</code> (or some other bias) to determine activation.</li>
+</ul>
+<div id="275fb75f" class="cell" data-execution_count="26">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a></a><span class="dv">1</span> <span class="op">&lt;=</span> np.array([<span class="dv">0</span>,<span class="dv">1</span>]) <span class="op">@</span> top_layer.transpose()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="354">
+<pre><code>array([ True, False])</code></pre>
+</div>
+</div>
+</section>
+<section id="next-layer" class="slide level2">
+<h2>Next Layer</h2>
+<ul>
+<li>We can then multiply this <em>intermediate result</em> <code>int</code> by the next layer.</li>
+</ul>
+<div id="46c24d1b" class="cell" data-execution_count="27">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a></a>(<span class="dv">1</span> <span class="op">&lt;=</span> np.array([<span class="dv">0</span>,<span class="dv">1</span>]) <span class="op">@</span> top_layer.transpose()) <span class="op">@</span> bot_layer.transpose()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="355">
+<pre><code>array([1., 1.])</code></pre>
+</div>
+</div>
+</section>
+<section id="activate-again" class="slide level2">
+<h2>Activate Again</h2>
+<ul>
+<li>And we can compare that to activation.</li>
+</ul>
+<div id="ec81de9c" class="cell" data-execution_count="28">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a></a><span class="dv">1</span> <span class="op">&lt;=</span> (<span class="dv">1</span> <span class="op">&lt;=</span> np.array([<span class="dv">0</span>,<span class="dv">1</span>]) <span class="op">@</span> top_layer.transpose()) <span class="op">@</span> bot_layer.transpose()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="356">
+<pre><code>array([ True,  True])</code></pre>
+</div>
+</div>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
 
 
 </section></section>

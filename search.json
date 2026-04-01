@@ -8792,7 +8792,7 @@
     "href": "A0_xor.html#coding-the-problem",
     "title": "The XOR Problem",
     "section": "Coding the Problem",
-    "text": "Coding the Problem\n\nLet’s try to build an XOR dataset in NumPy.\nWe want to see if our perceptron can solve it.\n\nWe want to regard this as only trying to tell “small” (2 or 3) from “big” (4 or 5) numbers by looking at the top outer two dots.\n\nThe “x” in XOR stands for “exclusive or”\nI use “i” for “inclusive or” to not just say vanilla “or”\n\nimport numpy as np\nX = np.array([[0,0], [0,1], [1,0], [1,1]])\ny_xor = np.array([0, 1, 1, 0])\ny_ior = np.array([0, 1, 1, 1])",
+    "text": "Coding the Problem\n\nLet’s try to build an XOR dataset in NumPy.\nWe want to see if our perceptron can solve it.\n\nWe want to regard this as only trying to tell “small” (2 or 3) from “big” (4 or 5) numbers by looking at the top outer two dots.\n\nThe “x” in XOR stands for “exclusive or”\nI use “i” for “inclusive or” to not just say vanilla “or”\n\n\nx = np.array([[0,0], [0,1], [1,0], [1,1]])\ny_xor = np.array([0, 1, 1, 0])\ny_ior = np.array([0, 1, 1, 1])",
     "crumbs": [
       "The XOR Problem"
     ]
@@ -8862,7 +8862,7 @@
     "href": "A0_xor.html#the-solution",
     "title": "The XOR Problem",
     "section": "The Solution?",
-    "text": "The Solution?\n\nTo solve XOR, we need a Hidden Layer.\nWe need to transform the data into a new space.\nBy adding a layer, we can draw two lines.\nOr, we can warp the space so a line works.",
+    "text": "The Solution?\n\nTo solve XOR, we need a more powerful technique\nWe will:\n\nCreate something not unlike a perceptron which “projects” these two dots into a different “space”\nApply that transformation to the incoming (visual) data.\nApply a perceptron to the transformed data.\n\nThese are two perceptron “layers”",
     "crumbs": [
       "The XOR Problem"
     ]
@@ -8882,7 +8882,7 @@
     "href": "A0_xor.html#designing-the-logic",
     "title": "The XOR Problem",
     "section": "Designing the Logic",
-    "text": "Designing the Logic\n\nXOR can be thought of as:\n(A OR B) AND NOT (A AND B).\nThis requires a sequence of operations.\nSequence = Depth in a neural network.",
+    "text": "Designing the Logic\n\nXOR can be thought of as:\n(A IOR B) AND NOT (A AND B).\nThis requires a sequence of operations.\nSequence = Depth in a neural network.",
     "crumbs": [
       "The XOR Problem"
     ]
@@ -9029,7 +9029,7 @@
     "href": "A0_xor.rjs.html#coding-the-problem",
     "title": "The XOR Problem",
     "section": "Coding the Problem",
-    "text": "Coding the Problem\n\nLet’s try to build an XOR dataset in NumPy.\nWe want to see if our perceptron can solve it.\n\nWe want to regard this as only trying to tell “small” (2 or 3) from “big” (4 or 5) numbers by looking at the top outer two dots.\n\nThe “x” in XOR stands for “exclusive or”\nI use “i” for “inclusive or” to not just say vanilla “or”\n\nimport numpy as np\nX = np.array([[0,0], [0,1], [1,0], [1,1]])\ny_xor = np.array([0, 1, 1, 0])\ny_ior = np.array([0, 1, 1, 1])"
+    "text": "Coding the Problem\n\nLet’s try to build an XOR dataset in NumPy.\nWe want to see if our perceptron can solve it.\n\nWe want to regard this as only trying to tell “small” (2 or 3) from “big” (4 or 5) numbers by looking at the top outer two dots.\n\nThe “x” in XOR stands for “exclusive or”\nI use “i” for “inclusive or” to not just say vanilla “or”\n\n\nx = np.array([[0,0], [0,1], [1,0], [1,1]])\ny_xor = np.array([0, 1, 1, 0])\ny_ior = np.array([0, 1, 1, 1])"
   },
   {
     "objectID": "A0_xor.rjs.html#the-geometry-of-logic",
@@ -9078,7 +9078,7 @@
     "href": "A0_xor.rjs.html#the-solution",
     "title": "The XOR Problem",
     "section": "The Solution?",
-    "text": "The Solution?\n\nTo solve XOR, we need a Hidden Layer.\nWe need to transform the data into a new space.\nBy adding a layer, we can draw two lines.\nOr, we can warp the space so a line works."
+    "text": "The Solution?\n\nTo solve XOR, we need a more powerful technique\nWe will:\n\nCreate something not unlike a perceptron which “projects” these two dots into a different “space”\nApply that transformation to the incoming (visual) data.\nApply a perceptron to the transformed data.\n\nThese are two perceptron “layers”"
   },
   {
     "objectID": "A0_xor.rjs.html#visualizing-layers",
@@ -9092,7 +9092,7 @@
     "href": "A0_xor.rjs.html#designing-the-logic",
     "title": "The XOR Problem",
     "section": "Designing the Logic",
-    "text": "Designing the Logic\n\nXOR can be thought of as:\n(A OR B) AND NOT (A AND B).\nThis requires a sequence of operations.\nSequence = Depth in a neural network."
+    "text": "Designing the Logic\n\nXOR can be thought of as:\n(A IOR B) AND NOT (A AND B).\nThis requires a sequence of operations.\nSequence = Depth in a neural network."
   },
   {
     "objectID": "A0_xor.rjs.html#testing-our-perceptron",
@@ -9492,5 +9492,294 @@
     "title": "The XOR Problem",
     "section": "Missing some 2s/3s",
     "text": "Missing some 2s/3s"
+  },
+  {
+    "objectID": "A0_xor.html#getting-the-4s5s",
+    "href": "A0_xor.html#getting-the-4s5s",
+    "title": "The XOR Problem",
+    "section": "Getting the 4s/5s",
+    "text": "Getting the 4s/5s",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.rjs.html#getting-the-4s5s",
+    "href": "A0_xor.rjs.html#getting-the-4s5s",
+    "title": "The XOR Problem",
+    "section": "Getting the 4s/5s",
+    "text": "Getting the 4s/5s"
+  },
+  {
+    "objectID": "A0_xor.html#both-bad-things",
+    "href": "A0_xor.html#both-bad-things",
+    "title": "The XOR Problem",
+    "section": "Both Bad Things",
+    "text": "Both Bad Things",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.rjs.html#both-bad-things",
+    "href": "A0_xor.rjs.html#both-bad-things",
+    "title": "The XOR Problem",
+    "section": "Both Bad Things",
+    "text": "Both Bad Things"
+  },
+  {
+    "objectID": "A0_xor.html#takeaway",
+    "href": "A0_xor.html#takeaway",
+    "title": "The XOR Problem",
+    "section": "Takeaway",
+    "text": "Takeaway\n\nThis is no possible way for a single-layer perceptron to differentiate 2s/3s from 4s/5s.\nOn these graphs, the “intercept” represents the bias.\nOn these graphs, the “slope” represents (the sume of) the weights",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.html#minimal-example",
+    "href": "A0_xor.html#minimal-example",
+    "title": "The XOR Problem",
+    "section": "Minimal Example",
+    "text": "Minimal Example\n\nWe consider only “corners in the top row”.\nThese ones in red, basically:\n\n\n\n\n\n\n\n\n\n\nWe will make a “perceptron” that takes only two inputs.",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.rjs.html#takeaway",
+    "href": "A0_xor.rjs.html#takeaway",
+    "title": "The XOR Problem",
+    "section": "Takeaway",
+    "text": "Takeaway\n\nThis is no possible way for a single-layer perceptron to differentiate 2s/3s from 4s/5s.\nOn these graphs, the “intercept” represents the bias.\nOn these graphs, the “slope” represents (the sume of) the weights"
+  },
+  {
+    "objectID": "A0_xor.rjs.html#minimal-example",
+    "href": "A0_xor.rjs.html#minimal-example",
+    "title": "The XOR Problem",
+    "section": "Minimal Example",
+    "text": "Minimal Example\n\nWe consider only “corners in the top row”.\nThese ones in red, basically:\n\n\n\n\n\n\n\n\n\n\nWe will make a “perceptron” that takes only two inputs."
+  },
+  {
+    "objectID": "A0_xor.html#data",
+    "href": "A0_xor.html#data",
+    "title": "The XOR Problem",
+    "section": "Data",
+    "text": "Data\n\nWe recall:\n\n\nprint(x)\n\n[[0 0]\n [0 1]\n [1 0]\n [1 1]]\n\n\n\nprint(y_ior)\n\n[0 1 1 1]\n\n\n\nprint(y_xor)\n\n[0 1 1 0]\n\n\n\nWe want to take a vector of size 2 (top two dots) and produce a vecotr of size 2 (IOR or XOR).\n\nOnly XOR is interesting.",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.html#our-first-steps",
+    "href": "A0_xor.html#our-first-steps",
+    "title": "The XOR Problem",
+    "section": "Our First Steps",
+    "text": "Our First Steps\n\n\n\nFirst, let’s naively just sum up the number of dots.\nWe can do this simply with a single layer that sets all weights to 1.\n\n\n\n\n\n\n\n\n\nSudokuBipartite\n\ncluster_cells\n\n\n\n\nRITE\n\nTop Rite\n\n\n\nDEST\n\nNeuron\n\n\n\nRITE--DEST\n\n\n\n\nLEFT\n\nTop Left\n\n\n\nLEFT--DEST",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.html#our-first-steps-1",
+    "href": "A0_xor.html#our-first-steps-1",
+    "title": "The XOR Problem",
+    "section": "Our First Steps",
+    "text": "Our First Steps\n\n\n\nWe can have neurons fire for sums of at least 1 or at least 2.\nGreen for “positive” weights (greater than zero)\n\n\n\n\n\n\n\n\n\nSudokuBipartite\n\ncluster_cells\n\n\n\n\nRITE\n\nTop Rite\n\n\n\nONE\n\n1\n\n\n\nRITE--ONE\n\n\n\n\nTWO\n\n2\n\n\n\nRITE--TWO\n\n\n\n\nLEFT\n\nTop Left\n\n\n\nLEFT--ONE\n\n\n\n\nLEFT--TWO",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.rjs.html#data",
+    "href": "A0_xor.rjs.html#data",
+    "title": "The XOR Problem",
+    "section": "Data",
+    "text": "Data\n\nWe recall:\n\n\nprint(x)\n\n[[0 0]\n [0 1]\n [1 0]\n [1 1]]\n\n\n\nprint(y_ior)\n\n[0 1 1 1]\n\n\n\nprint(y_xor)\n\n[0 1 1 0]\n\n\n\nWe want to take a vector of size 2 (top two dots) and produce a vecotr of size 2 (IOR or XOR).\n\nOnly XOR is interesting."
+  },
+  {
+    "objectID": "A0_xor.rjs.html#our-first-steps",
+    "href": "A0_xor.rjs.html#our-first-steps",
+    "title": "The XOR Problem",
+    "section": "Our First Steps",
+    "text": "Our First Steps\n\n\n\nFirst, let’s naively just sum up the number of dots.\nWe can do this simply with a single layer that sets all weights to 1.\n\n\n\n\n\n\n\n\n\nSudokuBipartite\n\ncluster_cells\n\n\n\n\nRITE\n\nTop Rite\n\n\n\nDEST\n\nNeuron\n\n\n\nRITE--DEST\n\n\n\n\nLEFT\n\nTop Left\n\n\n\nLEFT--DEST"
+  },
+  {
+    "objectID": "A0_xor.rjs.html#our-first-steps-1",
+    "href": "A0_xor.rjs.html#our-first-steps-1",
+    "title": "The XOR Problem",
+    "section": "Our First Steps",
+    "text": "Our First Steps\n\n\n\nWe can have neurons fire for sums of at least 1 or at least 2.\nGreen for “positive” weights (greater than zero)\n\n\n\n\n\n\n\n\n\nSudokuBipartite\n\ncluster_cells\n\n\n\n\nRITE\n\nTop Rite\n\n\n\nONE\n\n1\n\n\n\nRITE--ONE\n\n\n\n\nTWO\n\n2\n\n\n\nRITE--TWO\n\n\n\n\nLEFT\n\nTop Left\n\n\n\nLEFT--ONE\n\n\n\n\nLEFT--TWO"
+  },
+  {
+    "objectID": "A0_xor.html#setting-weights",
+    "href": "A0_xor.html#setting-weights",
+    "title": "The XOR Problem",
+    "section": "Setting Weights",
+    "text": "Setting Weights\n\n\n\nApply high weight to edges into 1\nApply half weight to edges into 2\n\n\n\n\n\n\n\n\n\nSudokuBipartite\n\ncluster_cells\n\n\n\n\nRITE\n\nTop Rite\n\n\n\nONE\n\n1\n\n\n\nRITE--ONE\n\n\n\n\nTWO\n\n2\n\n\n\nRITE--TWO\n\n\n\n\nLEFT\n\nTop Left\n\n\n\nLEFT--ONE\n\n\n\n\nLEFT--TWO",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.rjs.html#setting-weights",
+    "href": "A0_xor.rjs.html#setting-weights",
+    "title": "The XOR Problem",
+    "section": "Setting Weights",
+    "text": "Setting Weights\n\n\n\nApply high weight to edges into 1\nApply half weight to edges into 2\n\n\n\n\n\n\n\n\n\nSudokuBipartite\n\ncluster_cells\n\n\n\n\nRITE\n\nTop Rite\n\n\n\nONE\n\n1\n\n\n\nRITE--ONE\n\n\n\n\nTWO\n\n2\n\n\n\nRITE--TWO\n\n\n\n\nLEFT\n\nTop Left\n\n\n\nLEFT--ONE\n\n\n\n\nLEFT--TWO"
+  },
+  {
+    "objectID": "A0_xor.html#adding-a-layer",
+    "href": "A0_xor.html#adding-a-layer",
+    "title": "The XOR Problem",
+    "section": "Adding a Layer",
+    "text": "Adding a Layer\n\n\n\nWe keep this stage, but add a layer below.\nWe only connect top-to-middle and middle-to-bottom\n\n\n\n\n\n\n\n\n\nSudokuBipartite\n\ncluster_cells\n\n\n\n\nRITE\n\nTop Rite\n\n\n\nONE\n\n1\n\n\n\nRITE--ONE\n\n\n\n\nTWO\n\n2\n\n\n\nRITE--TWO\n\n\n\n\nLEFT\n\nTop Left\n\n\n\nLEFT--ONE\n\n\n\n\nLEFT--TWO\n\n\n\n\nIOR\n\nIOR\n\n\n\nONE--IOR\n\n\n\n\nXOR\n\nXOR\n\n\n\nONE--XOR\n\n\n\n\nTWO--IOR\n\n\n\n\nTWO--XOR",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.rjs.html#adding-a-layer",
+    "href": "A0_xor.rjs.html#adding-a-layer",
+    "title": "The XOR Problem",
+    "section": "Adding a Layer",
+    "text": "Adding a Layer\n\n\n\nWe keep this stage, but add a layer below.\nWe only connect top-to-middle and middle-to-bottom\n\n\n\n\n\n\n\n\n\nSudokuBipartite\n\ncluster_cells\n\n\n\n\nRITE\n\nTop Rite\n\n\n\nONE\n\n1\n\n\n\nRITE--ONE\n\n\n\n\nTWO\n\n2\n\n\n\nRITE--TWO\n\n\n\n\nLEFT\n\nTop Left\n\n\n\nLEFT--ONE\n\n\n\n\nLEFT--TWO\n\n\n\n\nIOR\n\nIOR\n\n\n\nONE--IOR\n\n\n\n\nXOR\n\nXOR\n\n\n\nONE--XOR\n\n\n\n\nTWO--IOR\n\n\n\n\nTWO--XOR"
+  },
+  {
+    "objectID": "A0_xor.html#setting-weights-1",
+    "href": "A0_xor.html#setting-weights-1",
+    "title": "The XOR Problem",
+    "section": "Setting weights",
+    "text": "Setting weights\n\n\n\nWe add a negative (red) weight from “2” to “XOR”\n\nWe don’t want to “activate” if both are set\n\n\n\n\n\n\n\n\n\n\nSudokuBipartite\n\ncluster_cells\n\n\n\n\nRITE\n\nTop Rite\n\n\n\nONE\n\n1\n\n\n\nRITE--ONE\n\n\n\n\nTWO\n\n2\n\n\n\nRITE--TWO\n\n\n\n\nLEFT\n\nTop Left\n\n\n\nLEFT--ONE\n\n\n\n\nLEFT--TWO\n\n\n\n\nIOR\n\nIOR\n\n\n\nONE--IOR\n\n\n\n\nXOR\n\nXOR\n\n\n\nONE--XOR\n\n\n\n\nTWO--IOR\n\n\n\n\nTWO--XOR",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.rjs.html#setting-weights-1",
+    "href": "A0_xor.rjs.html#setting-weights-1",
+    "title": "The XOR Problem",
+    "section": "Setting weights",
+    "text": "Setting weights\n\n\n\nWe add a negative (red) weight from “2” to “XOR”\n\nWe don’t want to “activate” if both are set\n\n\n\n\n\n\n\n\n\n\nSudokuBipartite\n\ncluster_cells\n\n\n\n\nRITE\n\nTop Rite\n\n\n\nONE\n\n1\n\n\n\nRITE--ONE\n\n\n\n\nTWO\n\n2\n\n\n\nRITE--TWO\n\n\n\n\nLEFT\n\nTop Left\n\n\n\nLEFT--ONE\n\n\n\n\nLEFT--TWO\n\n\n\n\nIOR\n\nIOR\n\n\n\nONE--IOR\n\n\n\n\nXOR\n\nXOR\n\n\n\nONE--XOR\n\n\n\n\nTWO--IOR\n\n\n\n\nTWO--XOR"
+  },
+  {
+    "objectID": "A0_xor.html#setting-weights-again",
+    "href": "A0_xor.html#setting-weights-again",
+    "title": "The XOR Problem",
+    "section": "Setting weights again",
+    "text": "Setting weights again\n\n\n\nWe add a negative (red) weight from “2” to “XOR”\n\nWe don’t want to “activate” if both are set\n\n\n\n\n\n\n\n\n\n\nSudokuBipartite\n\ncluster_cells\n\n\n\n\nRITE\n\nTop Rite\n\n\n\nONE\n\n1\n\n\n\nRITE--ONE\n\n\n\n\nTWO\n\n2\n\n\n\nRITE--TWO\n\n\n\n\nLEFT\n\nTop Left\n\n\n\nLEFT--ONE\n\n\n\n\nLEFT--TWO\n\n\n\n\nIOR\n\nIOR\n\n\n\nONE--IOR\n\n\n\n\nXOR\n\nXOR\n\n\n\nONE--XOR\n\n\n\n\nTWO--IOR\n\n\n\n\nTWO--XOR",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.html#as-a-matrix",
+    "href": "A0_xor.html#as-a-matrix",
+    "title": "The XOR Problem",
+    "section": "As a matrix",
+    "text": "As a matrix\n\nWe can easily make a matrix!\n… or two.\n\n\ntop_layer = np.array([\n    [ 1.0,  1.0],\n    [ 0.5,  0.5],\n])\n\n\nbot_layer = np.array([\n    [ 1.0,  1.0],\n    [ 1.0, -1.0],\n])",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.html#try-it-1",
+    "href": "A0_xor.html#try-it-1",
+    "title": "The XOR Problem",
+    "section": "Try it",
+    "text": "Try it\n\nWe can apply the first layer.\n\n\nnp.array([0,1]) @ top_layer\n\narray([0.5, 0.5])",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.rjs.html#setting-weights-again",
+    "href": "A0_xor.rjs.html#setting-weights-again",
+    "title": "The XOR Problem",
+    "section": "Setting weights again",
+    "text": "Setting weights again\n\n\n\nWe add a negative (red) weight from “2” to “XOR”\n\nWe don’t want to “activate” if both are set\n\n\n\n\n\n\n\n\n\n\nSudokuBipartite\n\ncluster_cells\n\n\n\n\nRITE\n\nTop Rite\n\n\n\nONE\n\n1\n\n\n\nRITE--ONE\n\n\n\n\nTWO\n\n2\n\n\n\nRITE--TWO\n\n\n\n\nLEFT\n\nTop Left\n\n\n\nLEFT--ONE\n\n\n\n\nLEFT--TWO\n\n\n\n\nIOR\n\nIOR\n\n\n\nONE--IOR\n\n\n\n\nXOR\n\nXOR\n\n\n\nONE--XOR\n\n\n\n\nTWO--IOR\n\n\n\n\nTWO--XOR"
+  },
+  {
+    "objectID": "A0_xor.rjs.html#as-a-matrix",
+    "href": "A0_xor.rjs.html#as-a-matrix",
+    "title": "The XOR Problem",
+    "section": "As a matrix",
+    "text": "As a matrix\n\nWe can easily make a matrix!\n… or two.\n\n\ntop_layer = np.array([\n    [ 1.0,  1.0],\n    [ 0.5,  0.5],\n])\n\n\nbot_layer = np.array([\n    [ 1.0,  1.0],\n    [ 1.0, -1.0],\n])"
+  },
+  {
+    "objectID": "A0_xor.rjs.html#try-it-1",
+    "href": "A0_xor.rjs.html#try-it-1",
+    "title": "The XOR Problem",
+    "section": "Try it",
+    "text": "Try it\n\nWe can apply the first layer.\n\n\nnp.array([0,1]) @ top_layer\n\narray([0.5, 0.5])"
+  },
+  {
+    "objectID": "A0_xor.html#transpose-2",
+    "href": "A0_xor.html#transpose-2",
+    "title": "The XOR Problem",
+    "section": "Transpose",
+    "text": "Transpose\n\nWhoops! We have to transponse to use @\n\n\nnp.array([0,1]) @ top_layer.transpose()\n\narray([1. , 0.5])",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.rjs.html#transpose-2",
+    "href": "A0_xor.rjs.html#transpose-2",
+    "title": "The XOR Problem",
+    "section": "Transpose",
+    "text": "Transpose\n\nWhoops! We have to transponse to use @\n\n\nnp.array([0,1]) @ top_layer.transpose()\n\narray([1. , 0.5])"
+  },
+  {
+    "objectID": "A0_xor.html#activate",
+    "href": "A0_xor.html#activate",
+    "title": "The XOR Problem",
+    "section": "Activate",
+    "text": "Activate\n\nWe can compare to 1 (or some other bias) to determine activation.\n\n\n1 &lt;= np.array([0,1]) @ top_layer.transpose()\n\narray([ True, False])",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.rjs.html#activate",
+    "href": "A0_xor.rjs.html#activate",
+    "title": "The XOR Problem",
+    "section": "Activate",
+    "text": "Activate\n\nWe can compare to 1 (or some other bias) to determine activation.\n\n\n1 &lt;= np.array([0,1]) @ top_layer.transpose()\n\narray([ True, False])"
+  },
+  {
+    "objectID": "A0_xor.html#next-layer",
+    "href": "A0_xor.html#next-layer",
+    "title": "The XOR Problem",
+    "section": "Next Layer",
+    "text": "Next Layer\n\nWe can then multiply this intermediate result int by the next layer.\n\n\n(1 &lt;= np.array([0,1]) @ top_layer.transpose()) @ bot_layer.transpose()\n\narray([1., 1.])",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.rjs.html#next-layer",
+    "href": "A0_xor.rjs.html#next-layer",
+    "title": "The XOR Problem",
+    "section": "Next Layer",
+    "text": "Next Layer\n\nWe can then multiply this intermediate result int by the next layer.\n\n\n(1 &lt;= np.array([0,1]) @ top_layer.transpose()) @ bot_layer.transpose()\n\narray([1., 1.])"
+  },
+  {
+    "objectID": "A0_xor.html#activate-again",
+    "href": "A0_xor.html#activate-again",
+    "title": "The XOR Problem",
+    "section": "Activate Again",
+    "text": "Activate Again\n\nAnd we can compare that to activation.\n\n\n1 &lt;= (1 &lt;= np.array([0,1]) @ top_layer.transpose()) @ bot_layer.transpose()\n\narray([ True,  True])",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.rjs.html#activate-again",
+    "href": "A0_xor.rjs.html#activate-again",
+    "title": "The XOR Problem",
+    "section": "Activate Again",
+    "text": "Activate Again\n\nAnd we can compare that to activation.\n\n\n1 &lt;= (1 &lt;= np.array([0,1]) @ top_layer.transpose()) @ bot_layer.transpose()\n\narray([ True,  True])"
   }
 ]

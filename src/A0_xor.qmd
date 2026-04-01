@@ -431,9 +431,8 @@ sum(left)
 - I use "i" for "inclusive or" to not just say vanilla "or"
 
 
-```{.py}
-import numpy as np
-X = np.array([[0,0], [0,1], [1,0], [1,1]])
+```{python}
+x = np.array([[0,0], [0,1], [1,0], [1,1]])
 y_xor = np.array([0, 1, 1, 0])
 y_ior = np.array([0, 1, 1, 1])
 ```
@@ -457,7 +456,6 @@ y_ior = np.array([0, 1, 1, 1])
 ```{python}
 #| echo: false
 import matplotlib.pyplot as plt
-import numpy as np
 
 # Points and their labels
 points = [(1, 0), (0, 1), (1, 1), (0, 0)]
@@ -585,35 +583,155 @@ ax.set_ylim(-0.5, 1.5)
 ax.axhline(0, color='white', linewidth=1)
 ax.axvline(0, color='white', linewidth=1)
 
-# Set the overall plot color scheme to dark for contrast when displayed, but the save itself is transparent
-# For the sake of the user's current environment, we'll save with a transparent background.
+xs = np.arange(-5,15) / 10
+ys = xs - .25
+
+plt.plot(xs, ys, "r")
+
 plt.tight_layout()
-plt.savefig('xor_scatter_white_transparent.png', transparent=True)
 ```
 
+## Getting the 4s/5s
 
-## Linear Separability
+```{python}
+#| echo: false
+import matplotlib.pyplot as plt
+import numpy as np
 
-- In the **OR** plot, we can draw a **single line**.
-- All "1" results are on one side of the line.
-- All "0" results are on the other side.
-- This is called being **linearly separable**.
+# Points and their labels
+points = [(1, 0), (0, 1), (1, 1), (0, 0)]
+labels = ["top right only", "top left only", "both top", "none"]
 
-## Plotting XOR
+x_coords = [p[0] for p in points]
+y_coords = [p[1] for p in points]
 
-- Now, look at the **XOR** plot.
-- (0,1) and (1,0) are "1".
-- (0,0) and (1,1) are "0".
-- Try to draw a single straight line to separate them.
+# Set the figure to be transparent
+fig, ax = plt.figure(figsize=(6, 6), facecolor='none'), plt.gca()
 
+# Set axes background to transparent
+ax.set_facecolor('none')
 
+# Plot the points (all white dots)
+ax.scatter(x_coords, y_coords, color='white', s=150) # Increased size for better visibility on dark backgrounds
 
-## The Wall
+# Annotate each point (all white text)
+for i, label in enumerate(labels):
+    ax.annotate(label, (x_coords[i], y_coords[i]), 
+                 textcoords="offset points", 
+                 xytext=(0, 15), 
+                 ha='center',
+                 fontsize=12,
+                 fontweight='bold',
+                 color='white')
 
-- It is **mathematically impossible** to draw that line.
-- A single-layer network is just a line-drawer.
-- If the data isn't separable by a line, it fails.
-- This is the famous **XOR Problem**.
+# Set labels (all white text)
+ax.set_xlabel("Top Right Dot (x1)", fontsize=14, color='white')
+ax.set_ylabel("Top Left Dot (x2)", fontsize=14, color='white')
+ax.set_title("The XOR Problem Geometry", fontsize=16, color='white')
+
+# Remove the grid
+ax.grid(False)
+
+# Set axes to only show integer points 0 and 1 (white ticks)
+ax.set_xticks([0, 1])
+ax.set_yticks([0, 1])
+ax.tick_params(axis='both', colors='white', labelsize=12)
+
+# Set axis spine colors (white axes)
+ax.spines['bottom'].set_color('white')
+ax.spines['top'].set_color('white')
+ax.spines['left'].set_color('white')
+ax.spines['right'].set_color('white')
+
+# Adjust limits to see the points clearly without too much dead space
+ax.set_xlim(-0.5, 1.5)
+ax.set_ylim(-0.5, 1.5)
+
+# Ensure the axes cross at a reasonable point or are clearly visible (white lines)
+ax.axhline(0, color='white', linewidth=1)
+ax.axvline(0, color='white', linewidth=1)
+
+xs = np.arange(-5,15) / 10
+ys = xs/4 + 1.25
+
+plt.plot(xs, ys, "r")
+
+plt.tight_layout()
+```
+
+## Both Bad Things 
+
+```{python}
+#| echo: false
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Points and their labels
+points = [(1, 0), (0, 1), (1, 1), (0, 0)]
+labels = ["top right only", "top left only", "both top", "none"]
+
+x_coords = [p[0] for p in points]
+y_coords = [p[1] for p in points]
+
+# Set the figure to be transparent
+fig, ax = plt.figure(figsize=(6, 6), facecolor='none'), plt.gca()
+
+# Set axes background to transparent
+ax.set_facecolor('none')
+
+# Plot the points (all white dots)
+ax.scatter(x_coords, y_coords, color='white', s=150) # Increased size for better visibility on dark backgrounds
+
+# Annotate each point (all white text)
+for i, label in enumerate(labels):
+    ax.annotate(label, (x_coords[i], y_coords[i]), 
+                 textcoords="offset points", 
+                 xytext=(0, 15), 
+                 ha='center',
+                 fontsize=12,
+                 fontweight='bold',
+                 color='white')
+
+# Set labels (all white text)
+ax.set_xlabel("Top Right Dot (x1)", fontsize=14, color='white')
+ax.set_ylabel("Top Left Dot (x2)", fontsize=14, color='white')
+ax.set_title("The XOR Problem Geometry", fontsize=16, color='white')
+
+# Remove the grid
+ax.grid(False)
+
+# Set axes to only show integer points 0 and 1 (white ticks)
+ax.set_xticks([0, 1])
+ax.set_yticks([0, 1])
+ax.tick_params(axis='both', colors='white', labelsize=12)
+
+# Set axis spine colors (white axes)
+ax.spines['bottom'].set_color('white')
+ax.spines['top'].set_color('white')
+ax.spines['left'].set_color('white')
+ax.spines['right'].set_color('white')
+
+# Adjust limits to see the points clearly without too much dead space
+ax.set_xlim(-0.5, 1.5)
+ax.set_ylim(-0.5, 1.5)
+
+# Ensure the axes cross at a reasonable point or are clearly visible (white lines)
+ax.axhline(0, color='white', linewidth=1)
+ax.axvline(0, color='white', linewidth=1)
+
+xs = np.arange(-5,15) / 10
+ys = xs + .75
+
+plt.plot(xs, ys, "r")
+
+plt.tight_layout()
+```
+
+## Takeaway
+
+- This is no possible way for a **single-layer** perceptron to differentiate 2s/3s from 4s/5s.
+- On these graphs, the "intercept" represents the bias.
+- On these graphs, the "slope" represents (the sume of) the weights
 
 ## Impact on Dice
 
@@ -631,10 +749,12 @@ plt.savefig('xor_scatter_white_transparent.png', transparent=True)
 
 ## The Solution?
 
-- To solve XOR, we need a **Hidden Layer**.
-- We need to transform the data into a new space.
-- By adding a layer, we can draw **two lines**.
-- Or, we can warp the space so a line works.
+- To solve XOR, we need a *more powerful technique*
+- We will:
+  - Create something not unlike a perceptron which "projects" these two dots into a different "space"
+  - Apply that transformation to the incoming (visual) data.
+  - Apply a perceptron to the transformed data.
+- These are two perceptron "layers"
 
 ## Visualizing Layers
 
@@ -646,54 +766,362 @@ plt.savefig('xor_scatter_white_transparent.png', transparent=True)
 ## Designing the Logic
 
 - XOR can be thought of as:
-- (A OR B) **AND NOT** (A AND B).
+- (A IOR B) **AND NOT** (A AND B).
 - This requires a sequence of operations.
 - Sequence = **Depth** in a neural network.
 
-## Testing our Perceptron
+## Minimal Example
 
-- If we try to train on XOR, the error won't go to zero.
-- The weights will just "spin" in circles.
-- It will try to find a middle ground that doesn't exist.
+- We consider only "corners in the top row".
+- These ones in red, basically:
 
-<code>
-# A failed attempt at XOR with a single layer
-weights = np.random.rand(2)
-bias = -0.5
-for epoch in range(100):
-    for i in range(4):
-        pred = 1 if np.dot(X[i], weights) + bias > 0 else 0
-        error = y_xor[i] - pred
-        weights += error * X[i] * 0.1
-</code>
+<div style="position: relative; width: 300px; height: 300px; background-color: white; border: 1px solid #ccc;">
+<div style="position: absolute; top: 0; right: 0; width: 100px; height: 100px; background-color: red;"></div>
 
-## Results of the Test
+<div style="position: absolute; top: 0; left: 0; width: 100px; height: 100px; background-color: red;"></div>
+</div>
 
-- The model might get 75% accuracy.
-- It can never get 100%.
-- This is because (1,1) will always sum higher than (1,0).
-- If (1,0) fires the neuron, (1,1) definitely will.
+- We will make a "perceptron" that takes only two inputs.
 
-## Beyond the Line
+## Data
 
-- We need **non-linearity**.
-- We need to be able to say "Too much input is bad."
-- This leads us to **Activation Functions**.
-- And more importantly, **Multi-Layer Perceptrons (MLP)**.
+- We recall:
 
-## Summary
+```{python}
+print(x)
+```
 
-- Single layers are limited to **linear logic**.
-- XOR represents the simplest **non-linear** problem.
-- Dice classification involves many XOR-like patterns.
-- To progress, we must go **deeper**.
 
-## Next Steps
+```{python}
+print(y_ior)
+```
 
-- We will look at adding a "hidden" layer.
-- We will see how two lines can solve XOR.
-- We will apply this "depth" to our dice matrix.
-- The age of the **Deep** Neural Network begins.
 
-## FIN
-- (The slides would continue with roughly 900+ more lines of similar structured content detailing specific weight iterations, historical context of the Minsky/Papert critique, and step-by-step visualizations of hidden layer transformations.)
+```{python}
+print(y_xor)
+```
+
+- We want to take a vector of size 2 (top two dots) and produce a vecotr of size 2 (IOR or XOR).
+  - Only XOR is interesting.
+
+## Our First Steps
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- First, let's naively just sum up the number of dots.
+- We can do this simply with a single layer that sets all weights to 1.
+
+:::
+
+::: {.column width="50%"}
+
+```{dot}
+//| echo: false
+//| fig-width: 400px
+graph SudokuBipartite {
+    rankdir=TB;
+    bgcolor="transparent"  
+    node [shape=circle, fontcolor = "#ffffff", color = "#ffffff"]
+    edge [color = "white"]
+    
+
+    // --- PARTITION 1: SRC ---
+    subgraph cluster_cells {
+        rankdir=LR;
+        node [style=filled, fillcolor="magenta"];
+        RITE [label="Top Rite"]; LEFT [label="Top Left"];
+    }
+
+    // --- PARTITION 2: DST ---
+
+    subgraph cluster_cells {
+        rankdir=RL;
+        node [fillcolor="blue"];
+	DEST [label="Neuron"]
+    }
+
+    RITE -- DEST;
+    LEFT -- DEST;
+}
+```
+
+:::
+
+::::
+
+## Our First Steps
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- We can have neurons fire for sums of *at least*  1 or *at least* 2.
+- Green for "positive" weights (greater than zero)
+
+:::
+
+::: {.column width="50%"}
+
+```{dot}
+//| echo: false
+//| fig-width: 400px
+graph SudokuBipartite {
+    rankdir=TB;
+    bgcolor="transparent"  
+    node [shape=circle, fontcolor = "#ffffff", color = "#ffffff"]
+    edge [color = "green"]
+    
+
+    // --- PARTITION 1: SRC ---
+    subgraph cluster_cells {
+        rankdir=LR;
+        node [style=filled, fillcolor="magenta"];
+        RITE [label="Top Rite"]; LEFT [label="Top Left"];
+    }
+
+    // --- PARTITION 2: DST ---
+
+    subgraph cluster_cells {
+        rankdir=RL;
+        node [fillcolor="blue"];
+	ONE [label="1"];
+	TWO [label="2"];
+    }
+
+    {RITE, LEFT} -- ONE; 
+    {RITE, LEFT} -- TWO;
+}
+```
+
+:::
+
+::::
+
+## Setting Weights
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- Apply high weight to edges into `1`
+- Apply half weight to edges into `2`
+
+:::
+
+::: {.column width="50%"}
+
+```{dot}
+//| echo: false
+//| fig-width: 400px
+graph SudokuBipartite {
+    rankdir=TB;
+    bgcolor="transparent"  
+    node [shape=circle, fontcolor = "#ffffff", color = "#ffffff"]
+    edge [color = "green"]
+    
+
+    // --- PARTITION 1: SRC ---
+    subgraph cluster_cells {
+        rankdir=LR;
+        node [style=filled, fillcolor="magenta"];
+        RITE [label="Top Rite"]; LEFT [label="Top Left"];
+    }
+
+    // --- PARTITION 2: DST ---
+
+    subgraph cluster_cells {
+        rankdir=RL;
+        node [fillcolor="blue"];
+	ONE [label="1"];
+	TWO [label="2"];
+    }
+
+    {RITE, LEFT} -- ONE [penwidth=2.0];
+    {RITE, LEFT} -- TWO [penwidth=0.5];
+}
+```
+
+:::
+
+::::
+
+## Adding a Layer
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- We keep this stage, but add a layer below.
+- We only connect top-to-middle and middle-to-bottom
+
+:::
+
+::: {.column width="50%"}
+
+```{dot}
+//| echo: false
+//| fig-width: 400px
+graph SudokuBipartite {
+    rankdir=TB;
+    bgcolor="transparent"  
+    node [shape=circle, fontcolor = "#ffffff", color = "#ffffff"]
+    edge [color = "green"]
+    
+
+    // --- PARTITION 1: SRC ---
+    subgraph cluster_cells {
+        rankdir=LR;
+        node [style=filled, fillcolor="magenta"];
+        RITE [label="Top Rite"]; LEFT [label="Top Left"];
+    }
+
+    // --- PARTITION 2: DST ---
+
+    subgraph cluster_cells {
+        rankdir=RL;
+        node [fillcolor="blue"];
+	ONE [label="1"];
+	TWO [label="2"];
+    }
+
+    subgraph out_cells {
+        rankdir=RL;
+        node [fillcolor="orange"];
+	IOR;
+	XOR;
+    }
+
+    {RITE, LEFT} -- ONE [penwidth=2.0];
+    {RITE, LEFT} -- TWO [penwidth=0.5];
+
+    ONE -- {IOR, XOR};
+    TWO -- {IOR, XOR};
+}
+```
+
+:::
+
+::::
+
+## Setting weights again 
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- We add a negative (red) weight from "2" to "XOR"
+  	- We don't want to "activate" if both are set
+
+:::
+
+::: {.column width="50%"}
+
+```{dot}
+//| echo: false
+//| fig-width: 400px
+graph SudokuBipartite {
+    rankdir=TB;
+    bgcolor="transparent"  
+    node [shape=circle, fontcolor = "#ffffff", color = "#ffffff"]
+    edge [color = "green"]
+    
+
+    // --- PARTITION 1: SRC ---
+    subgraph cluster_cells {
+        rankdir=LR;
+        node [style=filled, fillcolor="magenta"];
+        RITE [label="Top Rite"]; LEFT [label="Top Left"];
+    }
+
+    // --- PARTITION 2: DST ---
+
+    subgraph cluster_cells {
+        rankdir=RL;
+        node [fillcolor="blue"];
+	ONE [label="1"];
+	TWO [label="2"];
+    }
+
+    subgraph out_cells {
+        rankdir=RL;
+        node [fillcolor="orange"];
+	IOR;
+	XOR;
+    }
+
+    {RITE, LEFT} -- ONE [penwidth=2.0];
+    {RITE, LEFT} -- TWO [penwidth=0.5];
+
+    ONE -- {IOR, XOR};
+    TWO -- IOR;
+    TWO -- XOR [color = "red"];
+}
+```
+
+:::
+
+::::
+
+## As a matrix
+
+- We can easily make a matrix!
+- ... or two.
+
+```{python}
+top_layer = np.array([
+    [ 1.0,  1.0],
+    [ 0.5,  0.5],
+])
+```
+
+```{python}
+bot_layer = np.array([
+    [ 1.0,  1.0],
+    [ 1.0, -1.0],
+])
+```
+
+## Try it
+
+- We can apply the first layer.
+
+```{python}
+np.array([0,1]) @ top_layer
+```
+
+## Transpose
+
+- Whoops! We have to transponse to use `@`
+
+```{python}
+np.array([0,1]) @ top_layer.transpose()
+```
+
+## Activate
+
+- We can compare to `1` (or some other bias) to determine activation.
+
+```{python}
+1 <= np.array([0,1]) @ top_layer.transpose()
+```
+
+## Next Layer
+
+- We can then multiply this *intermediate result* `int` by the next layer.
+
+```{python}
+(1 <= np.array([0,1]) @ top_layer.transpose()) @ bot_layer.transpose()
+```
+
+## Activate Again
+
+
+- And we can compare that to activation. 
+
+```{python}
+1 <= (1 <= np.array([0,1]) @ top_layer.transpose()) @ bot_layer.transpose()
+```
+
+## 
