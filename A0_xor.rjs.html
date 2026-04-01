@@ -1,0 +1,1710 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/tabby.min.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.25">
+
+  <title>AI 101 – The XOR Problem</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #f8f8f2;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #f8f8f2; } /* Normal */
+    code span.al { color: #f07178; } /* Alert */
+    code span.an { color: #d4d0ab; } /* Annotation */
+    code span.at { color: #00e0e0; } /* Attribute */
+    code span.bn { color: #d4d0ab; } /* BaseN */
+    code span.bu { color: #abe338; } /* BuiltIn */
+    code span.cf { color: #ffa07a; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #abe338; } /* Char */
+    code span.cn { color: #ffd700; } /* Constant */
+    code span.co { color: #f8f8f2; font-style: italic; } /* Comment */
+    code span.cv { color: #ffd700; } /* CommentVar */
+    code span.do { color: #f8f8f2; } /* Documentation */
+    code span.dt { color: #ffa07a; } /* DataType */
+    code span.dv { color: #d4d0ab; } /* DecVal */
+    code span.er { color: #f07178; text-decoration: underline; } /* Error */
+    code span.ex { color: #00e0e0; font-weight: bold; } /* Extension */
+    code span.fl { color: #d4d0ab; } /* Float */
+    code span.fu { color: #ffa07a; } /* Function */
+    code span.im { color: #abe338; } /* Import */
+    code span.in { color: #d4d0ab; } /* Information */
+    code span.kw { color: #ffa07a; font-weight: bold; } /* Keyword */
+    code span.op { color: #ffa07a; } /* Operator */
+    code span.ot { color: #00e0e0; } /* Other */
+    code span.pp { color: #dcc6e0; } /* Preprocessor */
+    code span.re { color: #00e0e0; background-color: #f8f8f2; } /* RegionMarker */
+    code span.sc { color: #abe338; } /* SpecialChar */
+    code span.ss { color: #abe338; } /* SpecialString */
+    code span.st { color: #abe338; } /* String */
+    code span.va { color: #00e0e0; } /* Variable */
+    code span.vs { color: #abe338; } /* VerbatimString */
+    code span.wa { color: #dcc6e0; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-327cab17de08e4a17faa7d61f48ae591.css">
+  <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-dark">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">The XOR Problem</h1>
+  <p class="subtitle">AI 101</p>
+
+<div class="quarto-title-authors">
+</div>
+
+</section>
+<section id="today" class="slide level2">
+<h2>Today</h2>
+<ul>
+<li>Thus far we have:
+<ul>
+<li>Created a matrix that can do a single intelligent task.
+<ul>
+<li>NOT general intelligence</li>
+</ul></li>
+<li>Shown how to use random processes to create that matrix.
+<ul>
+<li>Not perfected this, by shown the ability to improve on random.</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section>
+<section id="motivation" class="title-slide slide level1 center">
+<h1>Motivation</h1>
+
+</section>
+<section id="re-evaluating-our-model" class="slide level2">
+<h2>Re-evaluating Our Model</h2>
+<ul>
+<li>We have been using a <strong>single-layer</strong> approach.
+<ul>
+<li>What does this mean?</li>
+<li>We have a single “layer” of thinking neurons between the “sensory neurons” and result.</li>
+</ul></li>
+</ul>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="960" height="480" viewbox="0.00 0.00 716.00 171.08" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 167.08)">
+<title>SudokuBipartite</title>
+<g id="clust1" class="cluster">
+<title>cluster_cells</title>
+<polygon fill="transparent" stroke="black" points="8,-8 8,-155.08 700,-155.08 700,-8 8,-8"></polygon>
+</g>
+<!-- C22 -->
+<g id="node1" class="node">
+<title>C22</title>
+<ellipse fill="red" stroke="#ffffff" cx="46" cy="-117.54" rx="29.58" ry="29.58"></ellipse>
+<text text-anchor="middle" x="46" y="-113.34" font-family="Times,serif" font-size="14.00" fill="#ffffff">(2,2)</text>
+</g>
+<!-- D06 -->
+<g id="node10" class="node">
+<title>D06</title>
+<ellipse fill="blue" stroke="#ffffff" cx="435" cy="-34" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="435" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">6</text>
+</g>
+<!-- C22&#45;&#45;D06 -->
+<g id="edge49" class="edge">
+<title>C22--D06</title>
+<path fill="none" stroke="transparent" d="M67.7,-97.19C72.75,-93.58 78.32,-90.25 84,-88 218.69,-34.61 271.23,-99.81 408,-52 412.5,-50.43 417.02,-47.99 421.04,-45.45"></path>
+</g>
+<!-- D05 -->
+<g id="node11" class="node">
+<title>D05</title>
+<ellipse fill="blue" stroke="#ffffff" cx="489" cy="-34" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="489" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">5</text>
+</g>
+<!-- C22&#45;&#45;D05 -->
+<g id="edge50" class="edge">
+<title>C22--D05</title>
+<path fill="none" stroke="transparent" d="M67.68,-97.12C72.73,-93.52 78.31,-90.21 84,-88 241.37,-27.04 302.26,-106.44 462,-52 466.51,-50.46 471.04,-48.04 475.06,-45.5"></path>
+</g>
+<!-- D04 -->
+<g id="node12" class="node">
+<title>D04</title>
+<ellipse fill="blue" stroke="#ffffff" cx="219" cy="-34" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="219" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">4</text>
+</g>
+<!-- C22&#45;&#45;D04 -->
+<g id="edge51" class="edge">
+<title>C22--D04</title>
+<path fill="none" stroke="transparent" d="M68.63,-97.99C73.54,-94.42 78.81,-90.9 84,-88 124.01,-65.66 175.37,-48.3 201.71,-40.13"></path>
+</g>
+<!-- D03 -->
+<g id="node13" class="node">
+<title>D03</title>
+<ellipse fill="blue" stroke="#ffffff" cx="273" cy="-34" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="273" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">3</text>
+</g>
+<!-- C22&#45;&#45;D03 -->
+<g id="edge52" class="edge">
+<title>C22--D03</title>
+<path fill="none" stroke="transparent" d="M67.9,-97.65C72.94,-94.01 78.45,-90.55 84,-88 151,-57.16 177.79,-80.06 246,-52 250.3,-50.23 254.69,-47.79 258.64,-45.31"></path>
+</g>
+<!-- D02 -->
+<g id="node14" class="node">
+<title>D02</title>
+<ellipse fill="blue" stroke="#ffffff" cx="327" cy="-34" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="327" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">2</text>
+</g>
+<!-- C22&#45;&#45;D02 -->
+<g id="edge53" class="edge">
+<title>C22--D02</title>
+<path fill="none" stroke="transparent" d="M67.8,-97.42C72.84,-93.8 78.39,-90.4 84,-88 173.46,-49.68 209.04,-86.61 300,-52 304.35,-50.35 308.75,-47.95 312.7,-45.47"></path>
+</g>
+<!-- D01 -->
+<g id="node15" class="node">
+<title>D01</title>
+<ellipse fill="blue" stroke="#ffffff" cx="381" cy="-34" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="381" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">1</text>
+</g>
+<!-- C22&#45;&#45;D01 -->
+<g id="edge54" class="edge">
+<title>C22--D01</title>
+<path fill="none" stroke="transparent" d="M67.74,-97.28C72.79,-93.67 78.35,-90.31 84,-88 196.05,-42.16 240.16,-93.2 354,-52 358.48,-50.38 363,-47.93 367.02,-45.39"></path>
+</g>
+<!-- C21 -->
+<g id="node2" class="node">
+<title>C21</title>
+<ellipse fill="red" stroke="#ffffff" cx="662" cy="-117.54" rx="29.58" ry="29.58"></ellipse>
+<text text-anchor="middle" x="662" y="-113.34" font-family="Times,serif" font-size="14.00" fill="#ffffff">(2,1)</text>
+</g>
+<!-- C21&#45;&#45;D06 -->
+<g id="edge43" class="edge">
+<title>C21--D06</title>
+<path fill="none" stroke="transparent" d="M640.1,-97.65C635.06,-94.01 629.55,-90.55 624,-88 557,-57.16 530.21,-80.06 462,-52 457.7,-50.23 453.31,-47.79 449.36,-45.31"></path>
+</g>
+<!-- C21&#45;&#45;D05 -->
+<g id="edge44" class="edge">
+<title>C21--D05</title>
+<path fill="none" stroke="transparent" d="M639.37,-97.99C634.46,-94.42 629.19,-90.9 624,-88 583.99,-65.66 532.63,-48.3 506.29,-40.13"></path>
+</g>
+<!-- C21&#45;&#45;D04 -->
+<g id="edge45" class="edge">
+<title>C21--D04</title>
+<path fill="none" stroke="transparent" d="M640.32,-97.12C635.27,-93.52 629.69,-90.21 624,-88 466.63,-27.04 405.74,-106.44 246,-52 241.49,-50.46 236.96,-48.04 232.94,-45.5"></path>
+</g>
+<!-- C21&#45;&#45;D03 -->
+<g id="edge46" class="edge">
+<title>C21--D03</title>
+<path fill="none" stroke="transparent" d="M640.3,-97.19C635.25,-93.58 629.68,-90.25 624,-88 489.31,-34.61 436.77,-99.81 300,-52 295.5,-50.43 290.98,-47.99 286.96,-45.45"></path>
+</g>
+<!-- C21&#45;&#45;D02 -->
+<g id="edge47" class="edge">
+<title>C21--D02</title>
+<path fill="none" stroke="transparent" d="M640.26,-97.28C635.21,-93.67 629.65,-90.31 624,-88 511.95,-42.16 467.84,-93.2 354,-52 349.52,-50.38 345,-47.93 340.98,-45.39"></path>
+</g>
+<!-- C21&#45;&#45;D01 -->
+<g id="edge48" class="edge">
+<title>C21--D01</title>
+<path fill="none" stroke="transparent" d="M640.2,-97.42C635.16,-93.8 629.61,-90.4 624,-88 534.54,-49.68 498.96,-86.61 408,-52 403.65,-50.35 399.25,-47.95 395.3,-45.47"></path>
+</g>
+<!-- C20 -->
+<g id="node3" class="node">
+<title>C20</title>
+<ellipse fill="red" stroke="#ffffff" cx="585" cy="-117.54" rx="29.58" ry="29.58"></ellipse>
+<text text-anchor="middle" x="585" y="-113.34" font-family="Times,serif" font-size="14.00" fill="#ffffff">(2,0)</text>
+</g>
+<!-- C20&#45;&#45;D06 -->
+<g id="edge37" class="edge">
+<title>C20--D06</title>
+<path fill="none" stroke="transparent" d="M562.31,-98.1C557.41,-94.52 552.15,-90.96 547,-88 511.45,-67.53 498.37,-70.99 462,-52 457.88,-49.85 453.55,-47.28 449.6,-44.79"></path>
+</g>
+<!-- C20&#45;&#45;D05 -->
+<g id="edge38" class="edge">
+<title>C20--D05</title>
+<path fill="none" stroke="transparent" d="M562.73,-97.63C544.01,-81.73 517.88,-59.53 502.27,-46.27"></path>
+</g>
+<!-- C20&#45;&#45;D04 -->
+<g id="edge39" class="edge">
+<title>C20--D04</title>
+<path fill="none" stroke="transparent" d="M563.28,-97.22C558.23,-93.62 552.67,-90.27 547,-88 421.96,-37.83 373,-96.99 246,-52 241.51,-50.41 236.99,-47.97 232.97,-45.43"></path>
+</g>
+<!-- C20&#45;&#45;D03 -->
+<g id="edge40" class="edge">
+<title>C20--D03</title>
+<path fill="none" stroke="transparent" d="M563.24,-97.33C558.19,-93.72 552.64,-90.35 547,-88 444.58,-45.37 404.08,-90.39 300,-52 295.53,-50.35 291.02,-47.89 286.99,-45.35"></path>
+</g>
+<!-- C20&#45;&#45;D02 -->
+<g id="edge41" class="edge">
+<title>C20--D02</title>
+<path fill="none" stroke="transparent" d="M563.16,-97.5C558.12,-93.88 552.59,-90.46 547,-88 467.12,-52.88 435.25,-83.81 354,-52 349.67,-50.3 345.27,-47.89 341.32,-45.41"></path>
+</g>
+<!-- C20&#45;&#45;D01 -->
+<g id="edge42" class="edge">
+<title>C20--D01</title>
+<path fill="none" stroke="transparent" d="M563.03,-97.79C558,-94.15 552.5,-90.65 547,-88 489.5,-60.31 466.59,-77.3 408,-52 403.73,-50.16 399.35,-47.69 395.4,-45.21"></path>
+</g>
+<!-- C12 -->
+<g id="node4" class="node">
+<title>C12</title>
+<ellipse fill="red" stroke="#ffffff" cx="508" cy="-117.54" rx="29.58" ry="29.58"></ellipse>
+<text text-anchor="middle" x="508" y="-113.34" font-family="Times,serif" font-size="14.00" fill="#ffffff">(1,2)</text>
+</g>
+<!-- C12&#45;&#45;D06 -->
+<g id="edge31" class="edge">
+<title>C12--D06</title>
+<path fill="none" stroke="transparent" d="M488.44,-94.69C475.09,-79.78 457.86,-60.54 446.63,-47.99"></path>
+</g>
+<!-- C12&#45;&#45;D05 -->
+<g id="edge32" class="edge">
+<title>C12--D05</title>
+<path fill="none" stroke="transparent" d="M501.46,-88.48C498.63,-76.32 495.4,-62.48 492.94,-51.93"></path>
+</g>
+<!-- C12&#45;&#45;D04 -->
+<g id="edge33" class="edge">
+<title>C12--D04</title>
+<path fill="none" stroke="transparent" d="M486.21,-97.4C481.17,-93.78 475.62,-90.39 470,-88 377.2,-48.57 340.35,-87.58 246,-52 241.54,-50.32 237.03,-47.85 233.01,-45.31"></path>
+</g>
+<!-- C12&#45;&#45;D03 -->
+<g id="edge34" class="edge">
+<title>C12--D03</title>
+<path fill="none" stroke="transparent" d="M486.12,-97.6C481.08,-93.98 475.56,-90.53 470,-88 399.68,-56.06 371.57,-81.03 300,-52 295.69,-50.25 291.3,-47.82 287.35,-45.34"></path>
+</g>
+<!-- C12&#45;&#45;D02 -->
+<g id="edge35" class="edge">
+<title>C12--D02</title>
+<path fill="none" stroke="transparent" d="M485.52,-97.69C480.61,-94.14 475.29,-90.7 470,-88 421.93,-63.43 403.04,-74.57 354,-52 349.77,-50.05 345.41,-47.56 341.46,-45.08"></path>
+</g>
+<!-- C12&#45;&#45;D01 -->
+<g id="edge36" class="edge">
+<title>C12--D01</title>
+<path fill="none" stroke="transparent" d="M485,-98.59C480.12,-94.97 474.95,-91.28 470,-88 443.44,-70.4 435.26,-68.49 408,-52 404.02,-49.59 399.74,-46.93 395.8,-44.45"></path>
+</g>
+<!-- C11 -->
+<g id="node5" class="node">
+<title>C11</title>
+<ellipse fill="red" stroke="#ffffff" cx="431" cy="-117.54" rx="29.58" ry="29.58"></ellipse>
+<text text-anchor="middle" x="431" y="-113.34" font-family="Times,serif" font-size="14.00" fill="#ffffff">(1,1)</text>
+</g>
+<!-- C11&#45;&#45;D06 -->
+<g id="edge25" class="edge">
+<title>C11--D06</title>
+<path fill="none" stroke="transparent" d="M432.4,-88.02C432.98,-76.08 433.65,-62.59 434.16,-52.21"></path>
+</g>
+<!-- C11&#45;&#45;D05 -->
+<g id="edge26" class="edge">
+<title>C11--D05</title>
+<path fill="none" stroke="transparent" d="M447.78,-92.95C457.81,-78.84 470.24,-61.37 478.81,-49.32"></path>
+</g>
+<!-- C11&#45;&#45;D04 -->
+<g id="edge27" class="edge">
+<title>C11--D04</title>
+<path fill="none" stroke="transparent" d="M409.06,-97.74C404.02,-94.1 398.52,-90.61 393,-88 332.21,-59.22 307.93,-78.26 246,-52 241.72,-50.18 237.34,-47.73 233.39,-45.25"></path>
+</g>
+<!-- C11&#45;&#45;D03 -->
+<g id="edge28" class="edge">
+<title>C11--D03</title>
+<path fill="none" stroke="transparent" d="M408.38,-97.97C403.47,-94.4 398.19,-90.88 393,-88 354.25,-66.49 339.6,-71.9 300,-52 295.84,-49.91 291.51,-47.36 287.56,-44.88"></path>
+</g>
+<!-- C11&#45;&#45;D02 -->
+<g id="edge29" class="edge">
+<title>C11--D02</title>
+<path fill="none" stroke="transparent" d="M408.18,-98.65C387.61,-82.52 358.03,-59.33 340.84,-45.85"></path>
+</g>
+<!-- C11&#45;&#45;D01 -->
+<g id="edge30" class="edge">
+<title>C11--D01</title>
+<path fill="none" stroke="transparent" d="M416,-92.07C407.6,-78.38 397.4,-61.74 390.18,-49.97"></path>
+</g>
+<!-- C10 -->
+<g id="node6" class="node">
+<title>C10</title>
+<ellipse fill="red" stroke="#ffffff" cx="354" cy="-117.54" rx="29.58" ry="29.58"></ellipse>
+<text text-anchor="middle" x="354" y="-113.34" font-family="Times,serif" font-size="14.00" fill="#ffffff">(1,0)</text>
+</g>
+<!-- C10&#45;&#45;D06 -->
+<g id="edge19" class="edge">
+<title>C10--D06</title>
+<path fill="none" stroke="transparent" d="M374.44,-95.96C389.62,-80.68 409.84,-60.33 422.64,-47.44"></path>
+</g>
+<!-- C10&#45;&#45;D05 -->
+<g id="edge20" class="edge">
+<title>C10--D05</title>
+<path fill="none" stroke="transparent" d="M376.87,-98.39C381.76,-94.79 386.97,-91.15 392,-88 421.65,-69.43 431.61,-69.34 462,-52 466.04,-49.69 470.34,-47.07 474.29,-44.59"></path>
+</g>
+<!-- C10&#45;&#45;D04 -->
+<g id="edge21" class="edge">
+<title>C10--D04</title>
+<path fill="none" stroke="transparent" d="M331.13,-98.39C326.24,-94.79 321.03,-91.15 316,-88 286.35,-69.43 276.39,-69.34 246,-52 241.96,-49.69 237.66,-47.07 233.71,-44.59"></path>
+</g>
+<!-- C10&#45;&#45;D03 -->
+<g id="edge22" class="edge">
+<title>C10--D03</title>
+<path fill="none" stroke="transparent" d="M333.56,-95.96C318.38,-80.68 298.16,-60.33 285.36,-47.44"></path>
+</g>
+<!-- C10&#45;&#45;D02 -->
+<g id="edge23" class="edge">
+<title>C10--D02</title>
+<path fill="none" stroke="transparent" d="M345.01,-89.39C340.84,-76.79 336.01,-62.22 332.41,-51.34"></path>
+</g>
+<!-- C10&#45;&#45;D01 -->
+<g id="edge24" class="edge">
+<title>C10--D01</title>
+<path fill="none" stroke="transparent" d="M362.99,-89.39C367.16,-76.79 371.99,-62.22 375.59,-51.34"></path>
+</g>
+<!-- C02 -->
+<g id="node7" class="node">
+<title>C02</title>
+<ellipse fill="red" stroke="#ffffff" cx="277" cy="-117.54" rx="29.58" ry="29.58"></ellipse>
+<text text-anchor="middle" x="277" y="-113.34" font-family="Times,serif" font-size="14.00" fill="#ffffff">(0,2)</text>
+</g>
+<!-- C02&#45;&#45;D06 -->
+<g id="edge13" class="edge">
+<title>C02--D06</title>
+<path fill="none" stroke="transparent" d="M299.62,-97.97C304.53,-94.4 309.81,-90.88 315,-88 353.75,-66.49 368.4,-71.9 408,-52 412.16,-49.91 416.49,-47.36 420.44,-44.88"></path>
+</g>
+<!-- C02&#45;&#45;D05 -->
+<g id="edge14" class="edge">
+<title>C02--D05</title>
+<path fill="none" stroke="transparent" d="M298.94,-97.74C303.98,-94.1 309.48,-90.61 315,-88 375.79,-59.22 400.07,-78.26 462,-52 466.28,-50.18 470.66,-47.73 474.61,-45.25"></path>
+</g>
+<!-- C02&#45;&#45;D04 -->
+<g id="edge15" class="edge">
+<title>C02--D04</title>
+<path fill="none" stroke="transparent" d="M260.22,-92.95C250.19,-78.84 237.76,-61.37 229.19,-49.32"></path>
+</g>
+<!-- C02&#45;&#45;D03 -->
+<g id="edge16" class="edge">
+<title>C02--D03</title>
+<path fill="none" stroke="transparent" d="M275.6,-88.02C275.02,-76.08 274.35,-62.59 273.84,-52.21"></path>
+</g>
+<!-- C02&#45;&#45;D02 -->
+<g id="edge17" class="edge">
+<title>C02--D02</title>
+<path fill="none" stroke="transparent" d="M292,-92.07C300.4,-78.38 310.6,-61.74 317.82,-49.97"></path>
+</g>
+<!-- C02&#45;&#45;D01 -->
+<g id="edge18" class="edge">
+<title>C02--D01</title>
+<path fill="none" stroke="transparent" d="M299.82,-98.65C320.39,-82.52 349.97,-59.33 367.16,-45.85"></path>
+</g>
+<!-- C01 -->
+<g id="node8" class="node">
+<title>C01</title>
+<ellipse fill="red" stroke="#ffffff" cx="200" cy="-117.54" rx="29.58" ry="29.58"></ellipse>
+<text text-anchor="middle" x="200" y="-113.34" font-family="Times,serif" font-size="14.00" fill="#ffffff">(0,1)</text>
+</g>
+<!-- C01&#45;&#45;D06 -->
+<g id="edge7" class="edge">
+<title>C01--D06</title>
+<path fill="none" stroke="transparent" d="M221.88,-97.6C226.92,-93.98 232.44,-90.53 238,-88 308.32,-56.06 336.43,-81.03 408,-52 412.31,-50.25 416.7,-47.82 420.65,-45.34"></path>
+</g>
+<!-- C01&#45;&#45;D05 -->
+<g id="edge8" class="edge">
+<title>C01--D05</title>
+<path fill="none" stroke="transparent" d="M221.79,-97.4C226.83,-93.78 232.38,-90.39 238,-88 330.8,-48.57 367.65,-87.58 462,-52 466.46,-50.32 470.97,-47.85 474.99,-45.31"></path>
+</g>
+<!-- C01&#45;&#45;D04 -->
+<g id="edge9" class="edge">
+<title>C01--D04</title>
+<path fill="none" stroke="transparent" d="M206.54,-88.48C209.37,-76.32 212.6,-62.48 215.06,-51.93"></path>
+</g>
+<!-- C01&#45;&#45;D03 -->
+<g id="edge10" class="edge">
+<title>C01--D03</title>
+<path fill="none" stroke="transparent" d="M219.56,-94.69C232.91,-79.78 250.14,-60.54 261.37,-47.99"></path>
+</g>
+<!-- C01&#45;&#45;D02 -->
+<g id="edge11" class="edge">
+<title>C01--D02</title>
+<path fill="none" stroke="transparent" d="M223,-98.59C227.88,-94.97 233.05,-91.28 238,-88 264.56,-70.4 272.74,-68.49 300,-52 303.98,-49.59 308.26,-46.93 312.2,-44.45"></path>
+</g>
+<!-- C01&#45;&#45;D01 -->
+<g id="edge12" class="edge">
+<title>C01--D01</title>
+<path fill="none" stroke="transparent" d="M222.48,-97.69C227.39,-94.14 232.71,-90.7 238,-88 286.07,-63.43 304.96,-74.57 354,-52 358.23,-50.05 362.59,-47.56 366.54,-45.08"></path>
+</g>
+<!-- C00 -->
+<g id="node9" class="node">
+<title>C00</title>
+<ellipse fill="red" stroke="#ffffff" cx="123" cy="-117.54" rx="29.58" ry="29.58"></ellipse>
+<text text-anchor="middle" x="123" y="-113.34" font-family="Times,serif" font-size="14.00" fill="#ffffff">(0,0)</text>
+</g>
+<!-- C00&#45;&#45;D06 -->
+<g id="edge1" class="edge">
+<title>C00--D06</title>
+<path fill="none" stroke="transparent" d="M144.76,-97.33C149.81,-93.72 155.36,-90.35 161,-88 263.42,-45.37 303.92,-90.39 408,-52 412.47,-50.35 416.98,-47.89 421.01,-45.35"></path>
+</g>
+<!-- C00&#45;&#45;D05 -->
+<g id="edge2" class="edge">
+<title>C00--D05</title>
+<path fill="none" stroke="transparent" d="M144.72,-97.22C149.77,-93.62 155.33,-90.27 161,-88 286.04,-37.83 335,-96.99 462,-52 466.49,-50.41 471.01,-47.97 475.03,-45.43"></path>
+</g>
+<!-- C00&#45;&#45;D04 -->
+<g id="edge3" class="edge">
+<title>C00--D04</title>
+<path fill="none" stroke="transparent" d="M145.27,-97.63C163.99,-81.73 190.12,-59.53 205.73,-46.27"></path>
+</g>
+<!-- C00&#45;&#45;D03 -->
+<g id="edge4" class="edge">
+<title>C00--D03</title>
+<path fill="none" stroke="transparent" d="M145.69,-98.1C150.59,-94.52 155.85,-90.96 161,-88 196.55,-67.53 209.63,-70.99 246,-52 250.12,-49.85 254.45,-47.28 258.4,-44.79"></path>
+</g>
+<!-- C00&#45;&#45;D02 -->
+<g id="edge5" class="edge">
+<title>C00--D02</title>
+<path fill="none" stroke="transparent" d="M144.97,-97.79C150,-94.15 155.5,-90.65 161,-88 218.5,-60.31 241.41,-77.3 300,-52 304.27,-50.16 308.65,-47.69 312.6,-45.21"></path>
+</g>
+<!-- C00&#45;&#45;D01 -->
+<g id="edge6" class="edge">
+<title>C00--D01</title>
+<path fill="none" stroke="transparent" d="M144.84,-97.5C149.88,-93.88 155.41,-90.46 161,-88 240.88,-52.88 272.75,-83.81 354,-52 358.33,-50.3 362.73,-47.89 366.68,-45.41"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="this-works" class="slide level2">
+<h2>This… works</h2>
+<ul>
+<li>We have shown that there are possible matrix solutions that classify correctly in all cases using this single layer.
+<ul>
+<li>Given one (1) assumption.</li>
+</ul></li>
+<li>Recall this solution:</li>
+</ul>
+<div id="86f99688" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a></a>multi <span class="op">=</span> np.array([</span>
+<span id="cb1-3"><a></a>    [<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>],</span>
+<span id="cb1-4"><a></a>    [<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>],</span>
+<span id="cb1-5"><a></a>    [<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>],</span>
+<span id="cb1-6"><a></a>    [ <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>],</span>
+<span id="cb1-7"><a></a>    [ <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>],</span>
+<span id="cb1-8"><a></a>    [ <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>, <span class="op">-</span><span class="dv">6</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>],</span>
+<span id="cb1-9"><a></a>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="big-assumption" class="slide level2">
+<h2>Big Assumption</h2>
+<ul>
+<li>We made a big, I’d argue unreasonable, assumption.</li>
+<li>Three must always look like this:
+<ul>
+<li><code>[0,0,1,0,1,0,1,0,0]</code></li>
+</ul></li>
+<li>Never like this:
+<ul>
+<li><code>[1,0,0,0,1,0,0,0,1]</code></li>
+</ul></li>
+</ul>
+</section>
+<section id="encoding-the-number-3" class="slide level2">
+<h2>Encoding the Number 3</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<table class="caption-top">
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:50%;">
+<div style="position: relative; width: 300px; height: 300px; background-color: white; border: 1px solid #ccc;">
+<div style="position: absolute; top: 0; right: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+<div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 100px; background-color: black;">
+
+</div>
+<div style="position: absolute; bottom: 0; left: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+</div>
+</div></div>
+</section>
+<section id="why" class="slide level2">
+<h2>Why?</h2>
+<ul>
+<li>Is it not equally correct to have that die rotated 90°?</li>
+<li>Is that not still a die showing a three?</li>
+</ul>
+</section>
+<section id="re-encoding-the-number-3" class="slide level2">
+<h2>Re-encoding the Number 3</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<table class="caption-top">
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:50%;">
+<div style="position: relative; width: 300px; height: 300px; background-color: white; border: 1px solid #ccc;">
+<div style="position: absolute; bottom: 0; right: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+<div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 100px; background-color: black;">
+
+</div>
+<div style="position: absolute; top: 0; left: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+</div>
+</div></div>
+</section>
+<section id="try-it" class="slide level2">
+<h2>Try it!</h2>
+<ul>
+<li>We can take a look at how well we classify this value.</li>
+<li>First, we make both “top left” and “top right” three.</li>
+</ul>
+<div id="d976d807" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>rite <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>]</span>
+<span id="cb2-2"><a></a>left <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section></section>
+<section>
+<section id="aside-matrix-review" class="title-slide slide level1 center">
+<h1>Aside: Matrix Review</h1>
+
+</section>
+<section id="classify-it" class="slide level2">
+<h2>Classify it!</h2>
+<ul>
+<li>As with anything else, we can take our trusty “multi-classifier”.</li>
+</ul>
+<div id="0f65af89" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a>multi.shape</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="220">
+<pre><code>(6, 9)</code></pre>
+</div>
+</div>
+<ul>
+<li>As a <span class="math inline">\(6 \times 9\)</span> matrix, we can use it to take something of size “9” - like the 9 possible dots on a die - and get something of size 6 - like the six possible values of a die.</li>
+</ul>
+</section>
+<section id="matrix-multiply" class="slide level2">
+<h2>Matrix Multiply</h2>
+<ul>
+<li>To perform a multiplication, we take our die and multiply it by each internal sub-vector of size 9 of the matrix.
+<ul>
+<li>Make sure you understand that sentence.</li>
+</ul></li>
+</ul>
+</section>
+<section id="i-could" class="slide level2">
+<h2>I could…</h2>
+<ul>
+<li>It is possible to just take a each row, multiply by the die, and see the result.</li>
+</ul>
+<div id="c6f451a7" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="cf">for</span> row <span class="kw">in</span> multi:</span>
+<span id="cb5-2"><a></a>    <span class="bu">print</span>(rite <span class="op">*</span> row)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[-0. -0. -1. -0.  1. -0. -1. -0. -0.]
+[-0.  -0.   0.5 -0.  -0.5 -0.   0.5 -0.  -0. ]
+[-0.         -0.          0.33333333 -0.          0.33333333 -0.
+  0.33333333 -0.         -0.        ]
+[ 0.   -0.    0.25 -0.   -0.25 -0.    0.25 -0.    0.  ]
+[ 0.  -0.   0.2 -0.   0.2 -0.   0.2 -0.   0. ]
+[ 0.  0.  0.  0. -1.  0.  0.  0.  0.]</code></pre>
+</div>
+</div>
+</section>
+<section id="i-could-1" class="slide level2">
+<h2>I could…</h2>
+<ul>
+<li>We could then sum up each row…</li>
+</ul>
+<div id="ab33ddbd" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a><span class="cf">for</span> row <span class="kw">in</span> multi:</span>
+<span id="cb7-2"><a></a>    <span class="bu">print</span>(<span class="bu">sum</span>(rite <span class="op">*</span> row))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>-1.0
+0.5
+1.0
+0.25
+0.6000000000000001
+-1.0</code></pre>
+</div>
+</div>
+</section>
+<section id="i-could-2" class="slide level2">
+<h2>I could…</h2>
+<ul>
+<li>We could then compare the sum to <code>1</code></li>
+</ul>
+<div id="73e9ed02" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a><span class="cf">for</span> row <span class="kw">in</span> multi:</span>
+<span id="cb9-2"><a></a>    <span class="bu">print</span>(<span class="dv">1</span> <span class="op">&lt;=</span> <span class="bu">sum</span>(rite <span class="op">*</span> row))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>False
+False
+True
+False
+False
+False</code></pre>
+</div>
+</div>
+</section>
+<section id="transpose" class="slide level2">
+<h2>Transpose</h2>
+<ul>
+<li>We do not have to use a <code>for</code> loop
+<ul>
+<li>This is a simple case of <em>matrix multiplication</em></li>
+</ul></li>
+<li>Matrix multiplication
+<ul>
+<li>Multiplies rows of the first matrix by the columns of the next.</li>
+<li>Sums the rows.</li>
+<li>Outputs the sum of the row in the relevant position in a vector.</li>
+</ul></li>
+</ul>
+</section>
+<section id="worked-example" class="slide level2">
+<h2>Worked Example</h2>
+<ul>
+<li>Here is an example…</li>
+<li>I hastily wrote <code>multi</code> as a <span class="math inline">\(6 \times 9\)</span>…</li>
+</ul>
+<div id="64cefff2" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a>multi</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="224">
+<pre><code>array([[-1.        , -1.        , -1.        , -1.        ,  1.        ,
+        -1.        , -1.        , -1.        , -1.        ],
+       [-0.5       , -0.5       ,  0.5       , -0.5       , -0.5       ,
+        -0.5       ,  0.5       , -0.5       , -0.5       ],
+       [-0.33333333, -0.33333333,  0.33333333, -0.33333333,  0.33333333,
+        -0.33333333,  0.33333333, -0.33333333, -0.33333333],
+       [ 0.25      , -0.25      ,  0.25      , -0.25      , -0.25      ,
+        -0.25      ,  0.25      , -0.25      ,  0.25      ],
+       [ 0.2       , -0.2       ,  0.2       , -0.2       ,  0.2       ,
+        -0.2       ,  0.2       , -0.2       ,  0.2       ],
+       [ 0.        ,  0.5       ,  0.        ,  0.5       , -1.        ,
+         0.5       ,  0.        ,  0.5       ,  0.        ]])</code></pre>
+</div>
+</div>
+<ul>
+<li>So the <em>rows</em> are of length 9.</li>
+</ul>
+</section>
+<section id="transpose-1" class="slide level2">
+<h2>Transpose</h2>
+<ul>
+<li>…so I need to rotate (transpose) it.</li>
+<li>So the <em>columns</em> are of length 9.</li>
+</ul>
+<div id="84b8751d" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a>multi.transpose()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="225">
+<pre><code>array([[-1.        , -0.5       , -0.33333333,  0.25      ,  0.2       ,
+         0.        ],
+       [-1.        , -0.5       , -0.33333333, -0.25      , -0.2       ,
+         0.5       ],
+       [-1.        ,  0.5       ,  0.33333333,  0.25      ,  0.2       ,
+         0.        ],
+       [-1.        , -0.5       , -0.33333333, -0.25      , -0.2       ,
+         0.5       ],
+       [ 1.        , -0.5       ,  0.33333333, -0.25      ,  0.2       ,
+        -1.        ],
+       [-1.        , -0.5       , -0.33333333, -0.25      , -0.2       ,
+         0.5       ],
+       [-1.        ,  0.5       ,  0.33333333,  0.25      ,  0.2       ,
+         0.        ],
+       [-1.        , -0.5       , -0.33333333, -0.25      , -0.2       ,
+         0.5       ],
+       [-1.        , -0.5       , -0.33333333,  0.25      ,  0.2       ,
+         0.        ]])</code></pre>
+</div>
+</div>
+<ul>
+<li>Transpose has a <code>()</code> at the end because it is an action (a <em>verb</em>)</li>
+</ul>
+</section>
+<section id="multiply" class="slide level2">
+<h2>Multiply</h2>
+<ul>
+<li>Then, I can use <code>@</code> to “matrix multiply” the dice times the classifier!</li>
+</ul>
+<div id="29f5258f" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a>rite <span class="op">@</span> multi.transpose()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="226">
+<pre><code>array([-1.  ,  0.5 ,  1.  ,  0.25,  0.6 , -1.  ])</code></pre>
+</div>
+</div>
+</section>
+<section id="the-bias" class="slide level2">
+<h2>The Bias</h2>
+<ul>
+<li>To determine if this is enough for a neuron to fire, I still need to include the bias.
+<ul>
+<li>This isn’t part of matrix multiplication!</li>
+</ul></li>
+<li>So we do so, same as with the other method using <code>sum</code> and <code>for</code></li>
+</ul>
+<div id="fde4177b" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a><span class="dv">1</span> <span class="op">&lt;=</span> rite <span class="op">@</span> multi.transpose()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="227">
+<pre><code>array([False, False,  True, False, False, False])</code></pre>
+</div>
+</div>
+</section>
+<section id="the-problem" class="slide level2">
+<h2>The problem</h2>
+<ul>
+<li>This classifier only works for the “top right” version of three!</li>
+</ul>
+<div id="38121d0b" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a><span class="dv">1</span> <span class="op">&lt;=</span> left <span class="op">@</span> multi.transpose()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="228">
+<pre><code>array([False, False, False, False, False, False])</code></pre>
+</div>
+</div>
+<ul>
+<li>Even though that is definitely a three!</li>
+</ul>
+<div id="ee973120" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a><span class="bu">sum</span>(left)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="229">
+<pre><code>3</code></pre>
+</div>
+</div>
+</section></section>
+<section>
+<section id="interactions" class="title-slide slide level1 center">
+<h1>Interactions</h1>
+
+</section>
+<section id="our-method" class="slide level2">
+<h2>Our method…</h2>
+<ul>
+<li>… works well for detecting a <strong>single dot</strong>.</li>
+<li>But what happens when dots <strong>interact</strong>?</li>
+<li>We encounter a limit of our current logic.</li>
+</ul>
+</section>
+<section id="two-vs.-four" class="slide level2">
+<h2>Two vs.&nbsp;Four</h2>
+<ul>
+<li>Let’s look at the <strong>two</strong> and <strong>four</strong> dice.</li>
+<li>Both have dots in <em>either</em> the <strong>top-left</strong> <em>or</em> <strong>top-right</strong>.</li>
+<li>The four simply has dots in <em>both</em> the <strong>top-left</strong> <em>and</em> <strong>bottom-right</strong>.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:33%;">
+<div style="position: relative; width: 300px; height: 300px; background-color: white; border: 1px solid #ccc;">
+<div style="position: absolute; top: 0; right: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+<div style="position: absolute; bottom: 0; left: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+</div>
+</div><div class="column" style="width:34%;">
+<div style="position: relative; width: 300px; height: 300px; background-color: white; border: 1px solid #ccc;">
+<div style="position: absolute; bottom: 0; right: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+<div style="position: absolute; top: 0; left: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+</div>
+</div><div class="column" style="width:33%;">
+<div style="position: relative; width: 300px; height: 300px; background-color: white; border: 1px solid #ccc;">
+<div style="position: absolute; bottom: 0; right: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+<div style="position: absolute; top: 0; right: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+<div style="position: absolute; bottom: 0; left: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+<div style="position: absolute; top: 0; left: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+</div>
+</div></div>
+</section>
+<section id="three-vs.-five" class="slide level2">
+<h2>Three vs.&nbsp;Five</h2>
+<ul>
+<li>Both have a <strong>center dot</strong> and a diagonal.</li>
+<li>Both have dots in <em>either</em> the <strong>top-left</strong> <em>or</em> <strong>top-right</strong>.</li>
+<li>The five simply has dots in <em>both</em> the <strong>top-left</strong> <em>and</em> <strong>bottom-right</strong>.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:33%;">
+<div style="position: relative; width: 300px; height: 300px; background-color: white; border: 1px solid #ccc;">
+<div style="position: absolute; top: 0; right: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+<div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 100px; background-color: black;">
+
+</div>
+<div style="position: absolute; bottom: 0; left: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+</div>
+</div><div class="column" style="width:34%;">
+<div style="position: relative; width: 300px; height: 300px; background-color: white; border: 1px solid #ccc;">
+<div style="position: absolute; bottom: 0; right: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+<div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 100px; background-color: black;">
+
+</div>
+<div style="position: absolute; top: 0; left: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+</div>
+</div><div class="column" style="width:33%;">
+<div style="position: relative; width: 300px; height: 300px; background-color: white; border: 1px solid #ccc;">
+<div style="position: absolute; bottom: 0; right: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+<div style="position: absolute; top: 0; right: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+<div style="position: absolute; bottom: 0; left: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+<div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 100px; background-color: black;">
+
+</div>
+<div style="position: absolute; top: 0; left: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+</div>
+</div></div>
+</section>
+<section id="the-interaction-problem" class="slide level2">
+<h2>The Interaction Problem</h2>
+<ul>
+<li>Our matrix multiplication is a <strong>linear combination</strong>.</li>
+<li>It sums up evidence: <span class="math inline">\(y = \sum w_i x_i\)</span>.</li>
+<li>To tell a 2 from a 4, we need more than a sum.
+<ul>
+<li>4 will <strong>always</strong> sum more than 2, <em>unless we restrict 2 to a single orientation</em></li>
+</ul></li>
+<li>We need to know if dots exist <strong>exclusively</strong>.</li>
+</ul>
+</section>
+<section id="a-minimal-example" class="slide level2">
+<h2>A Minimal Example</h2>
+<ul>
+<li>Let’s focus on just <strong>two positions</strong> on the die.</li>
+<li>Position A: Top-Left dot (<span class="math inline">\(x_1\)</span>).</li>
+<li>Position B: Top-Right dot (<span class="math inline">\(x_2\)</span>).</li>
+<li>Can we “calculate” a specific relationship?</li>
+</ul>
+</section>
+<section id="the-four-scenarios" class="slide level2">
+<h2>The Four Scenarios</h2>
+<ul>
+<li>We take <span class="math inline">\((x_1, x_2)\)</span> to be…
+<ul>
+<li>Scenario 1: No dots are present (0, 0).</li>
+<li>Scenario 2: Only Top-Left is present (1, 0).</li>
+<li>Scenario 3: Only Top-Right is present (0, 1).</li>
+<li>Scenario 4: Both dots are present (1, 1).</li>
+</ul></li>
+</ul>
+</section>
+<section id="defining-xor" class="slide level2">
+<h2>Defining XOR</h2>
+<ul>
+<li><strong>XOR</strong> stands for <strong>Exclusive OR</strong>.</li>
+<li>Pronounced as “ex-or” or “ZOR”.</li>
+<li>It means: “Either A or B, but <strong>not both</strong>.”</li>
+<li>It is a fundamental technique in logic and computing.
+<ul>
+<li>Not so much the English language!</li>
+<li>English tends to use “or” for “xor” and nothing for “logical or”, which is either of “and” and “xor”.</li>
+</ul></li>
+</ul>
+</section>
+<section id="xor-vs.-or" class="slide level2">
+<h2>XOR vs.&nbsp;OR</h2>
+<ul>
+<li>In a standard (logical) <strong>OR</strong>, (1, 1) results in True.
+<ul>
+<li>Not “coke or pepsi” (restaurant only has one)</li>
+<li>Perhaps “delicious or filling” (wouldn’t reject a dish that is <em>both</em>)</li>
+</ul></li>
+<li>In an <strong>XOR</strong>, (1, 1) results in <strong>False</strong>.
+<ul>
+<li>Perhaps, when ordering sides, “fries or tots”
+<ul>
+<li>Both would cost extra and is therefore banned.</li>
+</ul></li>
+</ul></li>
+<li>This “reversal” is what breaks simple models.</li>
+</ul>
+</section>
+<section id="xor-in-real-life" class="slide level2">
+<h2>XOR in Real Life</h2>
+<ul>
+<li><strong>Dairy Choice</strong>: Choose milk or soy, but not both.</li>
+<li><strong>Enrollment</strong>: You can “Enroll” or “Drop,” not both.</li>
+<li><strong>Car “Status”</strong>: Engine is either running or “off”</li>
+<li>Logic depends on specific, exclusive combinations.</li>
+</ul>
+</section>
+<section id="coding-the-problem" class="slide level2">
+<h2>Coding the Problem</h2>
+<ul>
+<li>Let’s try to build an XOR dataset in NumPy.</li>
+<li>We want to see if our perceptron can solve it.
+<ul>
+<li>We want to regard this as only trying to tell “small” (2 or 3) from “big” (4 or 5) numbers by looking at the top outer two dots.</li>
+</ul></li>
+<li>The “x” in XOR stands for “exclusive or”</li>
+<li>I use “i” for “inclusive or” to not just say vanilla “or”</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb23-2"><a></a>X <span class="op">=</span> np.array([[<span class="dv">0</span>,<span class="dv">0</span>], [<span class="dv">0</span>,<span class="dv">1</span>], [<span class="dv">1</span>,<span class="dv">0</span>], [<span class="dv">1</span>,<span class="dv">1</span>]])</span>
+<span id="cb23-3"><a></a>y_xor <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>])</span>
+<span id="cb23-4"><a></a>y_ior <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="the-geometry-of-logic" class="slide level2">
+<h2>The Geometry of Logic</h2>
+<ul>
+<li>Imagine a 2D plot of these points.</li>
+<li>X-axis: Top-Left dot (<span class="math inline">\(x_1\)</span>).</li>
+<li>Y-axis: Top-Right dot (<span class="math inline">\(x_2\)</span>).</li>
+<li>Let’s visualize the “IOR” logic first.</li>
+</ul>
+</section>
+<section id="meaning" class="slide level2">
+<h2>Meaning</h2>
+<ul>
+<li>We want to place a line somewhere through this 2D space.
+<ul>
+<li>On one side of the line, the neuron “activates”.</li>
+<li>On the other, it does not.</li>
+</ul></li>
+<li>IOR is relatively simple (the 4/5 case) - we only want to activate if we see both dots.</li>
+</ul>
+</section>
+<section id="place-dots" class="slide level2">
+<h2>Place dots</h2>
+<div id="9bb53743" class="cell" data-execution_count="14">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="A0_xor_files/figure-revealjs/cell-14-output-1.png" width="565" height="566"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="draw-some-lines" class="slide level2">
+<h2>Draw some lines</h2>
+<ul>
+<li>Any upward line either:
+<ul>
+<li>Doesn’t capture all 2s or 3s, or</li>
+<li>Captures all 2s or 3s but also captures all 4s or 5s</li>
+<li>It can be wrong in both ways at once!</li>
+</ul></li>
+<li>Some examples</li>
+</ul>
+</section>
+<section id="missing-some-2s3s" class="slide level2">
+<h2>Missing some 2s/3s</h2>
+<div id="7f3f45e7" class="cell" data-execution_count="15">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="A0_xor_files/figure-revealjs/cell-15-output-1.png" width="565" height="566"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="linear-separability" class="slide level2">
+<h2>Linear Separability</h2>
+<ul>
+<li>In the <strong>OR</strong> plot, we can draw a <strong>single line</strong>.</li>
+<li>All “1” results are on one side of the line.</li>
+<li>All “0” results are on the other side.</li>
+<li>This is called being <strong>linearly separable</strong>.</li>
+</ul>
+</section>
+<section id="plotting-xor" class="slide level2">
+<h2>Plotting XOR</h2>
+<ul>
+<li>Now, look at the <strong>XOR</strong> plot.</li>
+<li>(0,1) and (1,0) are “1”.</li>
+<li>(0,0) and (1,1) are “0”.</li>
+<li>Try to draw a single straight line to separate them.</li>
+</ul>
+</section>
+<section id="the-wall" class="slide level2">
+<h2>The Wall</h2>
+<ul>
+<li>It is <strong>mathematically impossible</strong> to draw that line.</li>
+<li>A single-layer network is just a line-drawer.</li>
+<li>If the data isn’t separable by a line, it fails.</li>
+<li>This is the famous <strong>XOR Problem</strong>.</li>
+</ul>
+</section>
+<section id="impact-on-dice" class="slide level2">
+<h2>Impact on Dice</h2>
+<ul>
+<li>To distinguish a 2 from a 4 based on these dots:</li>
+<li>We need to know if the extra dots are <strong>absent</strong>.</li>
+<li>Our current model only knows how to <strong>add weight</strong>.</li>
+<li>It doesn’t know how to handle “exclusive” patterns.</li>
+</ul>
+</section>
+<section id="linear-combinations" class="slide level2">
+<h2>Linear Combinations</h2>
+<ul>
+<li>Our current math looks like this:</li>
+<li><span class="math inline">\(Output = Weights \cdot Inputs + Bias\)</span></li>
+<li>This is a <strong>linear</strong> transformation.</li>
+<li>It can only create “flat” decision boundaries.</li>
+</ul>
+</section>
+<section id="the-solution" class="slide level2">
+<h2>The Solution?</h2>
+<ul>
+<li>To solve XOR, we need a <strong>Hidden Layer</strong>.</li>
+<li>We need to transform the data into a new space.</li>
+<li>By adding a layer, we can draw <strong>two lines</strong>.</li>
+<li>Or, we can warp the space so a line works.</li>
+</ul>
+</section>
+<section id="visualizing-layers" class="slide level2">
+<h2>Visualizing Layers</h2>
+<ul>
+<li>Think of the first layer as “feature detectors.”</li>
+<li>One neuron detects “At least one dot.”</li>
+<li>Another neuron detects “Both dots.”</li>
+<li>The final layer combines these detections.</li>
+</ul>
+</section>
+<section id="designing-the-logic" class="slide level2">
+<h2>Designing the Logic</h2>
+<ul>
+<li>XOR can be thought of as:</li>
+<li>(A OR B) <strong>AND NOT</strong> (A AND B).</li>
+<li>This requires a sequence of operations.</li>
+<li>Sequence = <strong>Depth</strong> in a neural network.</li>
+</ul>
+</section>
+<section id="testing-our-perceptron" class="slide level2">
+<h2>Testing our Perceptron</h2>
+<ul>
+<li>If we try to train on XOR, the error won’t go to zero.</li>
+<li>The weights will just “spin” in circles.</li>
+<li>It will try to find a middle ground that doesn’t exist.</li>
+</ul>
+<p><code> # A failed attempt at XOR with a single layer weights = np.random.rand(2) bias = -0.5 for epoch in range(100): for i in range(4): pred = 1 if np.dot(X[i], weights) + bias &gt; 0 else 0 error = y_xor[i] - pred weights += error * X[i] * 0.1 </code></p>
+</section>
+<section id="results-of-the-test" class="slide level2">
+<h2>Results of the Test</h2>
+<ul>
+<li>The model might get 75% accuracy.</li>
+<li>It can never get 100%.</li>
+<li>This is because (1,1) will always sum higher than (1,0).</li>
+<li>If (1,0) fires the neuron, (1,1) definitely will.</li>
+</ul>
+</section>
+<section id="beyond-the-line" class="slide level2">
+<h2>Beyond the Line</h2>
+<ul>
+<li>We need <strong>non-linearity</strong>.</li>
+<li>We need to be able to say “Too much input is bad.”</li>
+<li>This leads us to <strong>Activation Functions</strong>.</li>
+<li>And more importantly, <strong>Multi-Layer Perceptrons (MLP)</strong>.</li>
+</ul>
+</section>
+<section id="summary" class="slide level2">
+<h2>Summary</h2>
+<ul>
+<li>Single layers are limited to <strong>linear logic</strong>.</li>
+<li>XOR represents the simplest <strong>non-linear</strong> problem.</li>
+<li>Dice classification involves many XOR-like patterns.</li>
+<li>To progress, we must go <strong>deeper</strong>.</li>
+</ul>
+</section>
+<section id="next-steps" class="slide level2">
+<h2>Next Steps</h2>
+<ul>
+<li>We will look at adding a “hidden” layer.</li>
+<li>We will see how two lines can solve XOR.</li>
+<li>We will apply this “depth” to our dice matrix.</li>
+<li>The age of the <strong>Deep</strong> Neural Network begins.</li>
+</ul>
+</section>
+<section id="fin" class="slide level2">
+<h2>FIN</h2>
+<ul>
+<li>(The slides would continue with roughly 900+ more lines of similar structured content detailing specific weight iterations, historical context of the Minsky/Papert critique, and step-by-step visualizations of hidden layer transformations.)</li>
+</ul>
+
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+<p><a href="index.html">Home</a></p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

@@ -1,0 +1,2683 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>The XOR Problem – AI 101</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./91_false.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-b86297dc19107d1c9b1952b0f8e15fd8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./A0_xor.html">The XOR Problem</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00_turing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ada &amp; Alan</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Turing’s Test</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11_colab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Colab</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20_supervise.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">(Un)supervision</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21_key.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dichotomous Key</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./30_regress.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Regression</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./31_nd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="math inline">\(n\)</span>-D</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./40_class.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Classification</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./41_treetree.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tree Tree</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./50_graph.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Graphs</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./51_sudoku.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sudoku</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6__guest.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Guest</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6_1_doc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Thinking Game</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./60_neural.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Neural Networks</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./61_weights.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Weights</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./70_perceptron.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Perceptron</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./71_multi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Multi-class</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./80_matrix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Matrix</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./90_learning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Learning</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./91_false.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Falsify</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A0_xor.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">The XOR Problem</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#today" id="toc-today" class="nav-link active" data-scroll-target="#today">Today</a></li>
+  <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation">Motivation</a>
+  <ul class="collapse">
+  <li><a href="#re-evaluating-our-model" id="toc-re-evaluating-our-model" class="nav-link" data-scroll-target="#re-evaluating-our-model">Re-evaluating Our Model</a></li>
+  <li><a href="#this-works" id="toc-this-works" class="nav-link" data-scroll-target="#this-works">This… works</a></li>
+  <li><a href="#big-assumption" id="toc-big-assumption" class="nav-link" data-scroll-target="#big-assumption">Big Assumption</a></li>
+  <li><a href="#encoding-the-number-3" id="toc-encoding-the-number-3" class="nav-link" data-scroll-target="#encoding-the-number-3">Encoding the Number 3</a></li>
+  <li><a href="#why" id="toc-why" class="nav-link" data-scroll-target="#why">Why?</a></li>
+  <li><a href="#re-encoding-the-number-3" id="toc-re-encoding-the-number-3" class="nav-link" data-scroll-target="#re-encoding-the-number-3">Re-encoding the Number 3</a></li>
+  <li><a href="#try-it" id="toc-try-it" class="nav-link" data-scroll-target="#try-it">Try it!</a></li>
+  </ul></li>
+  <li><a href="#aside-matrix-review" id="toc-aside-matrix-review" class="nav-link" data-scroll-target="#aside-matrix-review">Aside: Matrix Review</a>
+  <ul class="collapse">
+  <li><a href="#classify-it" id="toc-classify-it" class="nav-link" data-scroll-target="#classify-it">Classify it!</a></li>
+  <li><a href="#matrix-multiply" id="toc-matrix-multiply" class="nav-link" data-scroll-target="#matrix-multiply">Matrix Multiply</a></li>
+  <li><a href="#i-could" id="toc-i-could" class="nav-link" data-scroll-target="#i-could">I could…</a></li>
+  <li><a href="#i-could-1" id="toc-i-could-1" class="nav-link" data-scroll-target="#i-could-1">I could…</a></li>
+  <li><a href="#i-could-2" id="toc-i-could-2" class="nav-link" data-scroll-target="#i-could-2">I could…</a></li>
+  <li><a href="#transpose" id="toc-transpose" class="nav-link" data-scroll-target="#transpose">Transpose</a></li>
+  <li><a href="#worked-example" id="toc-worked-example" class="nav-link" data-scroll-target="#worked-example">Worked Example</a></li>
+  <li><a href="#transpose-1" id="toc-transpose-1" class="nav-link" data-scroll-target="#transpose-1">Transpose</a></li>
+  <li><a href="#multiply" id="toc-multiply" class="nav-link" data-scroll-target="#multiply">Multiply</a></li>
+  <li><a href="#the-bias" id="toc-the-bias" class="nav-link" data-scroll-target="#the-bias">The Bias</a></li>
+  <li><a href="#the-problem" id="toc-the-problem" class="nav-link" data-scroll-target="#the-problem">The problem</a></li>
+  </ul></li>
+  <li><a href="#interactions" id="toc-interactions" class="nav-link" data-scroll-target="#interactions">Interactions</a>
+  <ul class="collapse">
+  <li><a href="#our-method" id="toc-our-method" class="nav-link" data-scroll-target="#our-method">Our method…</a></li>
+  <li><a href="#two-vs.-four" id="toc-two-vs.-four" class="nav-link" data-scroll-target="#two-vs.-four">Two vs.&nbsp;Four</a></li>
+  <li><a href="#three-vs.-five" id="toc-three-vs.-five" class="nav-link" data-scroll-target="#three-vs.-five">Three vs.&nbsp;Five</a></li>
+  <li><a href="#the-interaction-problem" id="toc-the-interaction-problem" class="nav-link" data-scroll-target="#the-interaction-problem">The Interaction Problem</a></li>
+  <li><a href="#a-minimal-example" id="toc-a-minimal-example" class="nav-link" data-scroll-target="#a-minimal-example">A Minimal Example</a></li>
+  <li><a href="#the-four-scenarios" id="toc-the-four-scenarios" class="nav-link" data-scroll-target="#the-four-scenarios">The Four Scenarios</a></li>
+  <li><a href="#defining-xor" id="toc-defining-xor" class="nav-link" data-scroll-target="#defining-xor">Defining XOR</a></li>
+  <li><a href="#xor-vs.-or" id="toc-xor-vs.-or" class="nav-link" data-scroll-target="#xor-vs.-or">XOR vs.&nbsp;OR</a></li>
+  <li><a href="#xor-in-real-life" id="toc-xor-in-real-life" class="nav-link" data-scroll-target="#xor-in-real-life">XOR in Real Life</a></li>
+  <li><a href="#coding-the-problem" id="toc-coding-the-problem" class="nav-link" data-scroll-target="#coding-the-problem">Coding the Problem</a></li>
+  <li><a href="#the-geometry-of-logic" id="toc-the-geometry-of-logic" class="nav-link" data-scroll-target="#the-geometry-of-logic">The Geometry of Logic</a></li>
+  <li><a href="#meaning" id="toc-meaning" class="nav-link" data-scroll-target="#meaning">Meaning</a></li>
+  <li><a href="#place-dots" id="toc-place-dots" class="nav-link" data-scroll-target="#place-dots">Place dots</a></li>
+  <li><a href="#draw-some-lines" id="toc-draw-some-lines" class="nav-link" data-scroll-target="#draw-some-lines">Draw some lines</a></li>
+  <li><a href="#missing-some-2s3s" id="toc-missing-some-2s3s" class="nav-link" data-scroll-target="#missing-some-2s3s">Missing some 2s/3s</a></li>
+  <li><a href="#linear-separability" id="toc-linear-separability" class="nav-link" data-scroll-target="#linear-separability">Linear Separability</a></li>
+  <li><a href="#plotting-xor" id="toc-plotting-xor" class="nav-link" data-scroll-target="#plotting-xor">Plotting XOR</a></li>
+  <li><a href="#the-wall" id="toc-the-wall" class="nav-link" data-scroll-target="#the-wall">The Wall</a></li>
+  <li><a href="#impact-on-dice" id="toc-impact-on-dice" class="nav-link" data-scroll-target="#impact-on-dice">Impact on Dice</a></li>
+  <li><a href="#linear-combinations" id="toc-linear-combinations" class="nav-link" data-scroll-target="#linear-combinations">Linear Combinations</a></li>
+  <li><a href="#the-solution" id="toc-the-solution" class="nav-link" data-scroll-target="#the-solution">The Solution?</a></li>
+  <li><a href="#visualizing-layers" id="toc-visualizing-layers" class="nav-link" data-scroll-target="#visualizing-layers">Visualizing Layers</a></li>
+  <li><a href="#designing-the-logic" id="toc-designing-the-logic" class="nav-link" data-scroll-target="#designing-the-logic">Designing the Logic</a></li>
+  <li><a href="#testing-our-perceptron" id="toc-testing-our-perceptron" class="nav-link" data-scroll-target="#testing-our-perceptron">Testing our Perceptron</a></li>
+  <li><a href="#results-of-the-test" id="toc-results-of-the-test" class="nav-link" data-scroll-target="#results-of-the-test">Results of the Test</a></li>
+  <li><a href="#beyond-the-line" id="toc-beyond-the-line" class="nav-link" data-scroll-target="#beyond-the-line">Beyond the Line</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next Steps</a></li>
+  <li><a href="#fin" id="toc-fin" class="nav-link" data-scroll-target="#fin">FIN</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="A0_xor.rjs.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">The XOR Problem</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i></button></div></div>
+<p class="subtitle lead">AI 101</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="today" class="level2">
+<h2 class="anchored" data-anchor-id="today">Today</h2>
+<ul>
+<li>Thus far we have:
+<ul>
+<li>Created a matrix that can do a single intelligent task.
+<ul>
+<li>NOT general intelligence</li>
+</ul></li>
+<li>Shown how to use random processes to create that matrix.
+<ul>
+<li>Not perfected this, by shown the ability to improve on random.</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="motivation" class="level1">
+<h1>Motivation</h1>
+<section id="re-evaluating-our-model" class="level2">
+<h2 class="anchored" data-anchor-id="re-evaluating-our-model">Re-evaluating Our Model</h2>
+<ul>
+<li>We have been using a <strong>single-layer</strong> approach.
+<ul>
+<li>What does this mean?</li>
+<li>We have a single “layer” of thinking neurons between the “sensory neurons” and result.</li>
+</ul></li>
+</ul>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 716.00 171.08" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 167.08)">
+<title>SudokuBipartite</title>
+<g id="clust1" class="cluster">
+<title>cluster_cells</title>
+<polygon fill="transparent" stroke="black" points="8,-8 8,-155.08 700,-155.08 700,-8 8,-8"></polygon>
+</g>
+<!-- C22 -->
+<g id="node1" class="node">
+<title>C22</title>
+<ellipse fill="red" stroke="#ffffff" cx="46" cy="-117.54" rx="29.58" ry="29.58"></ellipse>
+<text text-anchor="middle" x="46" y="-113.34" font-family="Times,serif" font-size="14.00" fill="#ffffff">(2,2)</text>
+</g>
+<!-- D06 -->
+<g id="node10" class="node">
+<title>D06</title>
+<ellipse fill="blue" stroke="#ffffff" cx="435" cy="-34" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="435" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">6</text>
+</g>
+<!-- C22&#45;&#45;D06 -->
+<g id="edge49" class="edge">
+<title>C22--D06</title>
+<path fill="none" stroke="transparent" d="M67.7,-97.19C72.75,-93.58 78.32,-90.25 84,-88 218.69,-34.61 271.23,-99.81 408,-52 412.5,-50.43 417.02,-47.99 421.04,-45.45"></path>
+</g>
+<!-- D05 -->
+<g id="node11" class="node">
+<title>D05</title>
+<ellipse fill="blue" stroke="#ffffff" cx="489" cy="-34" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="489" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">5</text>
+</g>
+<!-- C22&#45;&#45;D05 -->
+<g id="edge50" class="edge">
+<title>C22--D05</title>
+<path fill="none" stroke="transparent" d="M67.68,-97.12C72.73,-93.52 78.31,-90.21 84,-88 241.37,-27.04 302.26,-106.44 462,-52 466.51,-50.46 471.04,-48.04 475.06,-45.5"></path>
+</g>
+<!-- D04 -->
+<g id="node12" class="node">
+<title>D04</title>
+<ellipse fill="blue" stroke="#ffffff" cx="219" cy="-34" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="219" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">4</text>
+</g>
+<!-- C22&#45;&#45;D04 -->
+<g id="edge51" class="edge">
+<title>C22--D04</title>
+<path fill="none" stroke="transparent" d="M68.63,-97.99C73.54,-94.42 78.81,-90.9 84,-88 124.01,-65.66 175.37,-48.3 201.71,-40.13"></path>
+</g>
+<!-- D03 -->
+<g id="node13" class="node">
+<title>D03</title>
+<ellipse fill="blue" stroke="#ffffff" cx="273" cy="-34" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="273" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">3</text>
+</g>
+<!-- C22&#45;&#45;D03 -->
+<g id="edge52" class="edge">
+<title>C22--D03</title>
+<path fill="none" stroke="transparent" d="M67.9,-97.65C72.94,-94.01 78.45,-90.55 84,-88 151,-57.16 177.79,-80.06 246,-52 250.3,-50.23 254.69,-47.79 258.64,-45.31"></path>
+</g>
+<!-- D02 -->
+<g id="node14" class="node">
+<title>D02</title>
+<ellipse fill="blue" stroke="#ffffff" cx="327" cy="-34" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="327" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">2</text>
+</g>
+<!-- C22&#45;&#45;D02 -->
+<g id="edge53" class="edge">
+<title>C22--D02</title>
+<path fill="none" stroke="transparent" d="M67.8,-97.42C72.84,-93.8 78.39,-90.4 84,-88 173.46,-49.68 209.04,-86.61 300,-52 304.35,-50.35 308.75,-47.95 312.7,-45.47"></path>
+</g>
+<!-- D01 -->
+<g id="node15" class="node">
+<title>D01</title>
+<ellipse fill="blue" stroke="#ffffff" cx="381" cy="-34" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="381" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">1</text>
+</g>
+<!-- C22&#45;&#45;D01 -->
+<g id="edge54" class="edge">
+<title>C22--D01</title>
+<path fill="none" stroke="transparent" d="M67.74,-97.28C72.79,-93.67 78.35,-90.31 84,-88 196.05,-42.16 240.16,-93.2 354,-52 358.48,-50.38 363,-47.93 367.02,-45.39"></path>
+</g>
+<!-- C21 -->
+<g id="node2" class="node">
+<title>C21</title>
+<ellipse fill="red" stroke="#ffffff" cx="662" cy="-117.54" rx="29.58" ry="29.58"></ellipse>
+<text text-anchor="middle" x="662" y="-113.34" font-family="Times,serif" font-size="14.00" fill="#ffffff">(2,1)</text>
+</g>
+<!-- C21&#45;&#45;D06 -->
+<g id="edge43" class="edge">
+<title>C21--D06</title>
+<path fill="none" stroke="transparent" d="M640.1,-97.65C635.06,-94.01 629.55,-90.55 624,-88 557,-57.16 530.21,-80.06 462,-52 457.7,-50.23 453.31,-47.79 449.36,-45.31"></path>
+</g>
+<!-- C21&#45;&#45;D05 -->
+<g id="edge44" class="edge">
+<title>C21--D05</title>
+<path fill="none" stroke="transparent" d="M639.37,-97.99C634.46,-94.42 629.19,-90.9 624,-88 583.99,-65.66 532.63,-48.3 506.29,-40.13"></path>
+</g>
+<!-- C21&#45;&#45;D04 -->
+<g id="edge45" class="edge">
+<title>C21--D04</title>
+<path fill="none" stroke="transparent" d="M640.32,-97.12C635.27,-93.52 629.69,-90.21 624,-88 466.63,-27.04 405.74,-106.44 246,-52 241.49,-50.46 236.96,-48.04 232.94,-45.5"></path>
+</g>
+<!-- C21&#45;&#45;D03 -->
+<g id="edge46" class="edge">
+<title>C21--D03</title>
+<path fill="none" stroke="transparent" d="M640.3,-97.19C635.25,-93.58 629.68,-90.25 624,-88 489.31,-34.61 436.77,-99.81 300,-52 295.5,-50.43 290.98,-47.99 286.96,-45.45"></path>
+</g>
+<!-- C21&#45;&#45;D02 -->
+<g id="edge47" class="edge">
+<title>C21--D02</title>
+<path fill="none" stroke="transparent" d="M640.26,-97.28C635.21,-93.67 629.65,-90.31 624,-88 511.95,-42.16 467.84,-93.2 354,-52 349.52,-50.38 345,-47.93 340.98,-45.39"></path>
+</g>
+<!-- C21&#45;&#45;D01 -->
+<g id="edge48" class="edge">
+<title>C21--D01</title>
+<path fill="none" stroke="transparent" d="M640.2,-97.42C635.16,-93.8 629.61,-90.4 624,-88 534.54,-49.68 498.96,-86.61 408,-52 403.65,-50.35 399.25,-47.95 395.3,-45.47"></path>
+</g>
+<!-- C20 -->
+<g id="node3" class="node">
+<title>C20</title>
+<ellipse fill="red" stroke="#ffffff" cx="585" cy="-117.54" rx="29.58" ry="29.58"></ellipse>
+<text text-anchor="middle" x="585" y="-113.34" font-family="Times,serif" font-size="14.00" fill="#ffffff">(2,0)</text>
+</g>
+<!-- C20&#45;&#45;D06 -->
+<g id="edge37" class="edge">
+<title>C20--D06</title>
+<path fill="none" stroke="transparent" d="M562.31,-98.1C557.41,-94.52 552.15,-90.96 547,-88 511.45,-67.53 498.37,-70.99 462,-52 457.88,-49.85 453.55,-47.28 449.6,-44.79"></path>
+</g>
+<!-- C20&#45;&#45;D05 -->
+<g id="edge38" class="edge">
+<title>C20--D05</title>
+<path fill="none" stroke="transparent" d="M562.73,-97.63C544.01,-81.73 517.88,-59.53 502.27,-46.27"></path>
+</g>
+<!-- C20&#45;&#45;D04 -->
+<g id="edge39" class="edge">
+<title>C20--D04</title>
+<path fill="none" stroke="transparent" d="M563.28,-97.22C558.23,-93.62 552.67,-90.27 547,-88 421.96,-37.83 373,-96.99 246,-52 241.51,-50.41 236.99,-47.97 232.97,-45.43"></path>
+</g>
+<!-- C20&#45;&#45;D03 -->
+<g id="edge40" class="edge">
+<title>C20--D03</title>
+<path fill="none" stroke="transparent" d="M563.24,-97.33C558.19,-93.72 552.64,-90.35 547,-88 444.58,-45.37 404.08,-90.39 300,-52 295.53,-50.35 291.02,-47.89 286.99,-45.35"></path>
+</g>
+<!-- C20&#45;&#45;D02 -->
+<g id="edge41" class="edge">
+<title>C20--D02</title>
+<path fill="none" stroke="transparent" d="M563.16,-97.5C558.12,-93.88 552.59,-90.46 547,-88 467.12,-52.88 435.25,-83.81 354,-52 349.67,-50.3 345.27,-47.89 341.32,-45.41"></path>
+</g>
+<!-- C20&#45;&#45;D01 -->
+<g id="edge42" class="edge">
+<title>C20--D01</title>
+<path fill="none" stroke="transparent" d="M563.03,-97.79C558,-94.15 552.5,-90.65 547,-88 489.5,-60.31 466.59,-77.3 408,-52 403.73,-50.16 399.35,-47.69 395.4,-45.21"></path>
+</g>
+<!-- C12 -->
+<g id="node4" class="node">
+<title>C12</title>
+<ellipse fill="red" stroke="#ffffff" cx="508" cy="-117.54" rx="29.58" ry="29.58"></ellipse>
+<text text-anchor="middle" x="508" y="-113.34" font-family="Times,serif" font-size="14.00" fill="#ffffff">(1,2)</text>
+</g>
+<!-- C12&#45;&#45;D06 -->
+<g id="edge31" class="edge">
+<title>C12--D06</title>
+<path fill="none" stroke="transparent" d="M488.44,-94.69C475.09,-79.78 457.86,-60.54 446.63,-47.99"></path>
+</g>
+<!-- C12&#45;&#45;D05 -->
+<g id="edge32" class="edge">
+<title>C12--D05</title>
+<path fill="none" stroke="transparent" d="M501.46,-88.48C498.63,-76.32 495.4,-62.48 492.94,-51.93"></path>
+</g>
+<!-- C12&#45;&#45;D04 -->
+<g id="edge33" class="edge">
+<title>C12--D04</title>
+<path fill="none" stroke="transparent" d="M486.21,-97.4C481.17,-93.78 475.62,-90.39 470,-88 377.2,-48.57 340.35,-87.58 246,-52 241.54,-50.32 237.03,-47.85 233.01,-45.31"></path>
+</g>
+<!-- C12&#45;&#45;D03 -->
+<g id="edge34" class="edge">
+<title>C12--D03</title>
+<path fill="none" stroke="transparent" d="M486.12,-97.6C481.08,-93.98 475.56,-90.53 470,-88 399.68,-56.06 371.57,-81.03 300,-52 295.69,-50.25 291.3,-47.82 287.35,-45.34"></path>
+</g>
+<!-- C12&#45;&#45;D02 -->
+<g id="edge35" class="edge">
+<title>C12--D02</title>
+<path fill="none" stroke="transparent" d="M485.52,-97.69C480.61,-94.14 475.29,-90.7 470,-88 421.93,-63.43 403.04,-74.57 354,-52 349.77,-50.05 345.41,-47.56 341.46,-45.08"></path>
+</g>
+<!-- C12&#45;&#45;D01 -->
+<g id="edge36" class="edge">
+<title>C12--D01</title>
+<path fill="none" stroke="transparent" d="M485,-98.59C480.12,-94.97 474.95,-91.28 470,-88 443.44,-70.4 435.26,-68.49 408,-52 404.02,-49.59 399.74,-46.93 395.8,-44.45"></path>
+</g>
+<!-- C11 -->
+<g id="node5" class="node">
+<title>C11</title>
+<ellipse fill="red" stroke="#ffffff" cx="431" cy="-117.54" rx="29.58" ry="29.58"></ellipse>
+<text text-anchor="middle" x="431" y="-113.34" font-family="Times,serif" font-size="14.00" fill="#ffffff">(1,1)</text>
+</g>
+<!-- C11&#45;&#45;D06 -->
+<g id="edge25" class="edge">
+<title>C11--D06</title>
+<path fill="none" stroke="transparent" d="M432.4,-88.02C432.98,-76.08 433.65,-62.59 434.16,-52.21"></path>
+</g>
+<!-- C11&#45;&#45;D05 -->
+<g id="edge26" class="edge">
+<title>C11--D05</title>
+<path fill="none" stroke="transparent" d="M447.78,-92.95C457.81,-78.84 470.24,-61.37 478.81,-49.32"></path>
+</g>
+<!-- C11&#45;&#45;D04 -->
+<g id="edge27" class="edge">
+<title>C11--D04</title>
+<path fill="none" stroke="transparent" d="M409.06,-97.74C404.02,-94.1 398.52,-90.61 393,-88 332.21,-59.22 307.93,-78.26 246,-52 241.72,-50.18 237.34,-47.73 233.39,-45.25"></path>
+</g>
+<!-- C11&#45;&#45;D03 -->
+<g id="edge28" class="edge">
+<title>C11--D03</title>
+<path fill="none" stroke="transparent" d="M408.38,-97.97C403.47,-94.4 398.19,-90.88 393,-88 354.25,-66.49 339.6,-71.9 300,-52 295.84,-49.91 291.51,-47.36 287.56,-44.88"></path>
+</g>
+<!-- C11&#45;&#45;D02 -->
+<g id="edge29" class="edge">
+<title>C11--D02</title>
+<path fill="none" stroke="transparent" d="M408.18,-98.65C387.61,-82.52 358.03,-59.33 340.84,-45.85"></path>
+</g>
+<!-- C11&#45;&#45;D01 -->
+<g id="edge30" class="edge">
+<title>C11--D01</title>
+<path fill="none" stroke="transparent" d="M416,-92.07C407.6,-78.38 397.4,-61.74 390.18,-49.97"></path>
+</g>
+<!-- C10 -->
+<g id="node6" class="node">
+<title>C10</title>
+<ellipse fill="red" stroke="#ffffff" cx="354" cy="-117.54" rx="29.58" ry="29.58"></ellipse>
+<text text-anchor="middle" x="354" y="-113.34" font-family="Times,serif" font-size="14.00" fill="#ffffff">(1,0)</text>
+</g>
+<!-- C10&#45;&#45;D06 -->
+<g id="edge19" class="edge">
+<title>C10--D06</title>
+<path fill="none" stroke="transparent" d="M374.44,-95.96C389.62,-80.68 409.84,-60.33 422.64,-47.44"></path>
+</g>
+<!-- C10&#45;&#45;D05 -->
+<g id="edge20" class="edge">
+<title>C10--D05</title>
+<path fill="none" stroke="transparent" d="M376.87,-98.39C381.76,-94.79 386.97,-91.15 392,-88 421.65,-69.43 431.61,-69.34 462,-52 466.04,-49.69 470.34,-47.07 474.29,-44.59"></path>
+</g>
+<!-- C10&#45;&#45;D04 -->
+<g id="edge21" class="edge">
+<title>C10--D04</title>
+<path fill="none" stroke="transparent" d="M331.13,-98.39C326.24,-94.79 321.03,-91.15 316,-88 286.35,-69.43 276.39,-69.34 246,-52 241.96,-49.69 237.66,-47.07 233.71,-44.59"></path>
+</g>
+<!-- C10&#45;&#45;D03 -->
+<g id="edge22" class="edge">
+<title>C10--D03</title>
+<path fill="none" stroke="transparent" d="M333.56,-95.96C318.38,-80.68 298.16,-60.33 285.36,-47.44"></path>
+</g>
+<!-- C10&#45;&#45;D02 -->
+<g id="edge23" class="edge">
+<title>C10--D02</title>
+<path fill="none" stroke="transparent" d="M345.01,-89.39C340.84,-76.79 336.01,-62.22 332.41,-51.34"></path>
+</g>
+<!-- C10&#45;&#45;D01 -->
+<g id="edge24" class="edge">
+<title>C10--D01</title>
+<path fill="none" stroke="transparent" d="M362.99,-89.39C367.16,-76.79 371.99,-62.22 375.59,-51.34"></path>
+</g>
+<!-- C02 -->
+<g id="node7" class="node">
+<title>C02</title>
+<ellipse fill="red" stroke="#ffffff" cx="277" cy="-117.54" rx="29.58" ry="29.58"></ellipse>
+<text text-anchor="middle" x="277" y="-113.34" font-family="Times,serif" font-size="14.00" fill="#ffffff">(0,2)</text>
+</g>
+<!-- C02&#45;&#45;D06 -->
+<g id="edge13" class="edge">
+<title>C02--D06</title>
+<path fill="none" stroke="transparent" d="M299.62,-97.97C304.53,-94.4 309.81,-90.88 315,-88 353.75,-66.49 368.4,-71.9 408,-52 412.16,-49.91 416.49,-47.36 420.44,-44.88"></path>
+</g>
+<!-- C02&#45;&#45;D05 -->
+<g id="edge14" class="edge">
+<title>C02--D05</title>
+<path fill="none" stroke="transparent" d="M298.94,-97.74C303.98,-94.1 309.48,-90.61 315,-88 375.79,-59.22 400.07,-78.26 462,-52 466.28,-50.18 470.66,-47.73 474.61,-45.25"></path>
+</g>
+<!-- C02&#45;&#45;D04 -->
+<g id="edge15" class="edge">
+<title>C02--D04</title>
+<path fill="none" stroke="transparent" d="M260.22,-92.95C250.19,-78.84 237.76,-61.37 229.19,-49.32"></path>
+</g>
+<!-- C02&#45;&#45;D03 -->
+<g id="edge16" class="edge">
+<title>C02--D03</title>
+<path fill="none" stroke="transparent" d="M275.6,-88.02C275.02,-76.08 274.35,-62.59 273.84,-52.21"></path>
+</g>
+<!-- C02&#45;&#45;D02 -->
+<g id="edge17" class="edge">
+<title>C02--D02</title>
+<path fill="none" stroke="transparent" d="M292,-92.07C300.4,-78.38 310.6,-61.74 317.82,-49.97"></path>
+</g>
+<!-- C02&#45;&#45;D01 -->
+<g id="edge18" class="edge">
+<title>C02--D01</title>
+<path fill="none" stroke="transparent" d="M299.82,-98.65C320.39,-82.52 349.97,-59.33 367.16,-45.85"></path>
+</g>
+<!-- C01 -->
+<g id="node8" class="node">
+<title>C01</title>
+<ellipse fill="red" stroke="#ffffff" cx="200" cy="-117.54" rx="29.58" ry="29.58"></ellipse>
+<text text-anchor="middle" x="200" y="-113.34" font-family="Times,serif" font-size="14.00" fill="#ffffff">(0,1)</text>
+</g>
+<!-- C01&#45;&#45;D06 -->
+<g id="edge7" class="edge">
+<title>C01--D06</title>
+<path fill="none" stroke="transparent" d="M221.88,-97.6C226.92,-93.98 232.44,-90.53 238,-88 308.32,-56.06 336.43,-81.03 408,-52 412.31,-50.25 416.7,-47.82 420.65,-45.34"></path>
+</g>
+<!-- C01&#45;&#45;D05 -->
+<g id="edge8" class="edge">
+<title>C01--D05</title>
+<path fill="none" stroke="transparent" d="M221.79,-97.4C226.83,-93.78 232.38,-90.39 238,-88 330.8,-48.57 367.65,-87.58 462,-52 466.46,-50.32 470.97,-47.85 474.99,-45.31"></path>
+</g>
+<!-- C01&#45;&#45;D04 -->
+<g id="edge9" class="edge">
+<title>C01--D04</title>
+<path fill="none" stroke="transparent" d="M206.54,-88.48C209.37,-76.32 212.6,-62.48 215.06,-51.93"></path>
+</g>
+<!-- C01&#45;&#45;D03 -->
+<g id="edge10" class="edge">
+<title>C01--D03</title>
+<path fill="none" stroke="transparent" d="M219.56,-94.69C232.91,-79.78 250.14,-60.54 261.37,-47.99"></path>
+</g>
+<!-- C01&#45;&#45;D02 -->
+<g id="edge11" class="edge">
+<title>C01--D02</title>
+<path fill="none" stroke="transparent" d="M223,-98.59C227.88,-94.97 233.05,-91.28 238,-88 264.56,-70.4 272.74,-68.49 300,-52 303.98,-49.59 308.26,-46.93 312.2,-44.45"></path>
+</g>
+<!-- C01&#45;&#45;D01 -->
+<g id="edge12" class="edge">
+<title>C01--D01</title>
+<path fill="none" stroke="transparent" d="M222.48,-97.69C227.39,-94.14 232.71,-90.7 238,-88 286.07,-63.43 304.96,-74.57 354,-52 358.23,-50.05 362.59,-47.56 366.54,-45.08"></path>
+</g>
+<!-- C00 -->
+<g id="node9" class="node">
+<title>C00</title>
+<ellipse fill="red" stroke="#ffffff" cx="123" cy="-117.54" rx="29.58" ry="29.58"></ellipse>
+<text text-anchor="middle" x="123" y="-113.34" font-family="Times,serif" font-size="14.00" fill="#ffffff">(0,0)</text>
+</g>
+<!-- C00&#45;&#45;D06 -->
+<g id="edge1" class="edge">
+<title>C00--D06</title>
+<path fill="none" stroke="transparent" d="M144.76,-97.33C149.81,-93.72 155.36,-90.35 161,-88 263.42,-45.37 303.92,-90.39 408,-52 412.47,-50.35 416.98,-47.89 421.01,-45.35"></path>
+</g>
+<!-- C00&#45;&#45;D05 -->
+<g id="edge2" class="edge">
+<title>C00--D05</title>
+<path fill="none" stroke="transparent" d="M144.72,-97.22C149.77,-93.62 155.33,-90.27 161,-88 286.04,-37.83 335,-96.99 462,-52 466.49,-50.41 471.01,-47.97 475.03,-45.43"></path>
+</g>
+<!-- C00&#45;&#45;D04 -->
+<g id="edge3" class="edge">
+<title>C00--D04</title>
+<path fill="none" stroke="transparent" d="M145.27,-97.63C163.99,-81.73 190.12,-59.53 205.73,-46.27"></path>
+</g>
+<!-- C00&#45;&#45;D03 -->
+<g id="edge4" class="edge">
+<title>C00--D03</title>
+<path fill="none" stroke="transparent" d="M145.69,-98.1C150.59,-94.52 155.85,-90.96 161,-88 196.55,-67.53 209.63,-70.99 246,-52 250.12,-49.85 254.45,-47.28 258.4,-44.79"></path>
+</g>
+<!-- C00&#45;&#45;D02 -->
+<g id="edge5" class="edge">
+<title>C00--D02</title>
+<path fill="none" stroke="transparent" d="M144.97,-97.79C150,-94.15 155.5,-90.65 161,-88 218.5,-60.31 241.41,-77.3 300,-52 304.27,-50.16 308.65,-47.69 312.6,-45.21"></path>
+</g>
+<!-- C00&#45;&#45;D01 -->
+<g id="edge6" class="edge">
+<title>C00--D01</title>
+<path fill="none" stroke="transparent" d="M144.84,-97.5C149.88,-93.88 155.41,-90.46 161,-88 240.88,-52.88 272.75,-83.81 354,-52 358.33,-50.3 362.73,-47.89 366.68,-45.41"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="this-works" class="level2">
+<h2 class="anchored" data-anchor-id="this-works">This… works</h2>
+<ul>
+<li>We have shown that there are possible matrix solutions that classify correctly in all cases using this single layer.
+<ul>
+<li>Given one (1) assumption.</li>
+</ul></li>
+<li>Recall this solution:</li>
+</ul>
+<div id="86f99688" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2"></a>multi <span class="op">=</span> np.array([</span>
+<span id="cb1-3"><a href="#cb1-3"></a>    [<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>],</span>
+<span id="cb1-4"><a href="#cb1-4"></a>    [<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>],</span>
+<span id="cb1-5"><a href="#cb1-5"></a>    [<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>],</span>
+<span id="cb1-6"><a href="#cb1-6"></a>    [ <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>],</span>
+<span id="cb1-7"><a href="#cb1-7"></a>    [ <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>],</span>
+<span id="cb1-8"><a href="#cb1-8"></a>    [ <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>, <span class="op">-</span><span class="dv">6</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>],</span>
+<span id="cb1-9"><a href="#cb1-9"></a>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="big-assumption" class="level2">
+<h2 class="anchored" data-anchor-id="big-assumption">Big Assumption</h2>
+<ul>
+<li>We made a big, I’d argue unreasonable, assumption.</li>
+<li>Three must always look like this:
+<ul>
+<li><code>[0,0,1,0,1,0,1,0,0]</code></li>
+</ul></li>
+<li>Never like this:
+<ul>
+<li><code>[1,0,0,0,1,0,0,0,1]</code></li>
+</ul></li>
+</ul>
+</section>
+<section id="encoding-the-number-3" class="level2">
+<h2 class="anchored" data-anchor-id="encoding-the-number-3">Encoding the Number 3</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:50%;">
+<div style="position: relative; width: 300px; height: 300px; background-color: white; border: 1px solid #ccc;">
+<div style="position: absolute; top: 0; right: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+<div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 100px; background-color: black;">
+
+</div>
+<div style="position: absolute; bottom: 0; left: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="why" class="level2">
+<h2 class="anchored" data-anchor-id="why">Why?</h2>
+<ul>
+<li>Is it not equally correct to have that die rotated 90°?</li>
+<li>Is that not still a die showing a three?</li>
+</ul>
+</section>
+<section id="re-encoding-the-number-3" class="level2">
+<h2 class="anchored" data-anchor-id="re-encoding-the-number-3">Re-encoding the Number 3</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:50%;">
+<div style="position: relative; width: 300px; height: 300px; background-color: white; border: 1px solid #ccc;">
+<div style="position: absolute; bottom: 0; right: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+<div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 100px; background-color: black;">
+
+</div>
+<div style="position: absolute; top: 0; left: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="try-it" class="level2">
+<h2 class="anchored" data-anchor-id="try-it">Try it!</h2>
+<ul>
+<li>We can take a look at how well we classify this value.</li>
+<li>First, we make both “top left” and “top right” three.</li>
+</ul>
+<div id="d976d807" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>rite <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>]</span>
+<span id="cb2-2"><a href="#cb2-2"></a>left <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="aside-matrix-review" class="level1">
+<h1>Aside: Matrix Review</h1>
+<section id="classify-it" class="level2">
+<h2 class="anchored" data-anchor-id="classify-it">Classify it!</h2>
+<ul>
+<li>As with anything else, we can take our trusty “multi-classifier”.</li>
+</ul>
+<div id="0f65af89" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>multi.shape</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="206">
+<pre><code>(6, 9)</code></pre>
+</div>
+</div>
+<ul>
+<li>As a <span class="math inline">\(6 \times 9\)</span> matrix, we can use it to take something of size “9” - like the 9 possible dots on a die - and get something of size 6 - like the six possible values of a die.</li>
+</ul>
+</section>
+<section id="matrix-multiply" class="level2">
+<h2 class="anchored" data-anchor-id="matrix-multiply">Matrix Multiply</h2>
+<ul>
+<li>To perform a multiplication, we take our die and multiply it by each internal sub-vector of size 9 of the matrix.
+<ul>
+<li>Make sure you understand that sentence.</li>
+</ul></li>
+</ul>
+</section>
+<section id="i-could" class="level2">
+<h2 class="anchored" data-anchor-id="i-could">I could…</h2>
+<ul>
+<li>It is possible to just take a each row, multiply by the die, and see the result.</li>
+</ul>
+<div id="c6f451a7" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="cf">for</span> row <span class="kw">in</span> multi:</span>
+<span id="cb5-2"><a href="#cb5-2"></a>    <span class="bu">print</span>(rite <span class="op">*</span> row)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[-0. -0. -1. -0.  1. -0. -1. -0. -0.]
+[-0.  -0.   0.5 -0.  -0.5 -0.   0.5 -0.  -0. ]
+[-0.         -0.          0.33333333 -0.          0.33333333 -0.
+  0.33333333 -0.         -0.        ]
+[ 0.   -0.    0.25 -0.   -0.25 -0.    0.25 -0.    0.  ]
+[ 0.  -0.   0.2 -0.   0.2 -0.   0.2 -0.   0. ]
+[ 0.  0.  0.  0. -1.  0.  0.  0.  0.]</code></pre>
+</div>
+</div>
+</section>
+<section id="i-could-1" class="level2">
+<h2 class="anchored" data-anchor-id="i-could-1">I could…</h2>
+<ul>
+<li>We could then sum up each row…</li>
+</ul>
+<div id="ab33ddbd" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="cf">for</span> row <span class="kw">in</span> multi:</span>
+<span id="cb7-2"><a href="#cb7-2"></a>    <span class="bu">print</span>(<span class="bu">sum</span>(rite <span class="op">*</span> row))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>-1.0
+0.5
+1.0
+0.25
+0.6000000000000001
+-1.0</code></pre>
+</div>
+</div>
+</section>
+<section id="i-could-2" class="level2">
+<h2 class="anchored" data-anchor-id="i-could-2">I could…</h2>
+<ul>
+<li>We could then compare the sum to <code>1</code></li>
+</ul>
+<div id="73e9ed02" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="cf">for</span> row <span class="kw">in</span> multi:</span>
+<span id="cb9-2"><a href="#cb9-2"></a>    <span class="bu">print</span>(<span class="dv">1</span> <span class="op">&lt;=</span> <span class="bu">sum</span>(rite <span class="op">*</span> row))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>False
+False
+True
+False
+False
+False</code></pre>
+</div>
+</div>
+</section>
+<section id="transpose" class="level2">
+<h2 class="anchored" data-anchor-id="transpose">Transpose</h2>
+<ul>
+<li>We do not have to use a <code>for</code> loop
+<ul>
+<li>This is a simple case of <em>matrix multiplication</em></li>
+</ul></li>
+<li>Matrix multiplication
+<ul>
+<li>Multiplies rows of the first matrix by the columns of the next.</li>
+<li>Sums the rows.</li>
+<li>Outputs the sum of the row in the relevant position in a vector.</li>
+</ul></li>
+</ul>
+</section>
+<section id="worked-example" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example">Worked Example</h2>
+<ul>
+<li>Here is an example…</li>
+<li>I hastily wrote <code>multi</code> as a <span class="math inline">\(6 \times 9\)</span>…</li>
+</ul>
+<div id="64cefff2" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>multi</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="210">
+<pre><code>array([[-1.        , -1.        , -1.        , -1.        ,  1.        ,
+        -1.        , -1.        , -1.        , -1.        ],
+       [-0.5       , -0.5       ,  0.5       , -0.5       , -0.5       ,
+        -0.5       ,  0.5       , -0.5       , -0.5       ],
+       [-0.33333333, -0.33333333,  0.33333333, -0.33333333,  0.33333333,
+        -0.33333333,  0.33333333, -0.33333333, -0.33333333],
+       [ 0.25      , -0.25      ,  0.25      , -0.25      , -0.25      ,
+        -0.25      ,  0.25      , -0.25      ,  0.25      ],
+       [ 0.2       , -0.2       ,  0.2       , -0.2       ,  0.2       ,
+        -0.2       ,  0.2       , -0.2       ,  0.2       ],
+       [ 0.        ,  0.5       ,  0.        ,  0.5       , -1.        ,
+         0.5       ,  0.        ,  0.5       ,  0.        ]])</code></pre>
+</div>
+</div>
+<ul>
+<li>So the <em>rows</em> are of length 9.</li>
+</ul>
+</section>
+<section id="transpose-1" class="level2">
+<h2 class="anchored" data-anchor-id="transpose-1">Transpose</h2>
+<ul>
+<li>…so I need to rotate (transpose) it.</li>
+<li>So the <em>columns</em> are of length 9.</li>
+</ul>
+<div id="84b8751d" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>multi.transpose()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="211">
+<pre><code>array([[-1.        , -0.5       , -0.33333333,  0.25      ,  0.2       ,
+         0.        ],
+       [-1.        , -0.5       , -0.33333333, -0.25      , -0.2       ,
+         0.5       ],
+       [-1.        ,  0.5       ,  0.33333333,  0.25      ,  0.2       ,
+         0.        ],
+       [-1.        , -0.5       , -0.33333333, -0.25      , -0.2       ,
+         0.5       ],
+       [ 1.        , -0.5       ,  0.33333333, -0.25      ,  0.2       ,
+        -1.        ],
+       [-1.        , -0.5       , -0.33333333, -0.25      , -0.2       ,
+         0.5       ],
+       [-1.        ,  0.5       ,  0.33333333,  0.25      ,  0.2       ,
+         0.        ],
+       [-1.        , -0.5       , -0.33333333, -0.25      , -0.2       ,
+         0.5       ],
+       [-1.        , -0.5       , -0.33333333,  0.25      ,  0.2       ,
+         0.        ]])</code></pre>
+</div>
+</div>
+<ul>
+<li>Transpose has a <code>()</code> at the end because it is an action (a <em>verb</em>)</li>
+</ul>
+</section>
+<section id="multiply" class="level2">
+<h2 class="anchored" data-anchor-id="multiply">Multiply</h2>
+<ul>
+<li>Then, I can use <code>@</code> to “matrix multiply” the dice times the classifier!</li>
+</ul>
+<div id="29f5258f" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>rite <span class="op">@</span> multi.transpose()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="212">
+<pre><code>array([-1.  ,  0.5 ,  1.  ,  0.25,  0.6 , -1.  ])</code></pre>
+</div>
+</div>
+</section>
+<section id="the-bias" class="level2">
+<h2 class="anchored" data-anchor-id="the-bias">The Bias</h2>
+<ul>
+<li>To determine if this is enough for a neuron to fire, I still need to include the bias.
+<ul>
+<li>This isn’t part of matrix multiplication!</li>
+</ul></li>
+<li>So we do so, same as with the other method using <code>sum</code> and <code>for</code></li>
+</ul>
+<div id="fde4177b" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="dv">1</span> <span class="op">&lt;=</span> rite <span class="op">@</span> multi.transpose()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="213">
+<pre><code>array([False, False,  True, False, False, False])</code></pre>
+</div>
+</div>
+</section>
+<section id="the-problem" class="level2">
+<h2 class="anchored" data-anchor-id="the-problem">The problem</h2>
+<ul>
+<li>This classifier only works for the “top right” version of three!</li>
+</ul>
+<div id="38121d0b" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="dv">1</span> <span class="op">&lt;=</span> left <span class="op">@</span> multi.transpose()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="214">
+<pre><code>array([False, False, False, False, False, False])</code></pre>
+</div>
+</div>
+<ul>
+<li>Even though that is definitely a three!</li>
+</ul>
+<div id="ee973120" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="bu">sum</span>(left)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="215">
+<pre><code>3</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="interactions" class="level1">
+<h1>Interactions</h1>
+<section id="our-method" class="level2">
+<h2 class="anchored" data-anchor-id="our-method">Our method…</h2>
+<ul>
+<li>… works well for detecting a <strong>single dot</strong>.</li>
+<li>But what happens when dots <strong>interact</strong>?</li>
+<li>We encounter a limit of our current logic.</li>
+</ul>
+</section>
+<section id="two-vs.-four" class="level2">
+<h2 class="anchored" data-anchor-id="two-vs.-four">Two vs.&nbsp;Four</h2>
+<ul>
+<li>Let’s look at the <strong>two</strong> and <strong>four</strong> dice.</li>
+<li>Both have dots in <em>either</em> the <strong>top-left</strong> <em>or</em> <strong>top-right</strong>.</li>
+<li>The four simply has dots in <em>both</em> the <strong>top-left</strong> <em>and</em> <strong>bottom-right</strong>.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:33%;">
+<div style="position: relative; width: 300px; height: 300px; background-color: white; border: 1px solid #ccc;">
+<div style="position: absolute; top: 0; right: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+<div style="position: absolute; bottom: 0; left: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+</div>
+</div><div class="column" style="width:34%;">
+<div style="position: relative; width: 300px; height: 300px; background-color: white; border: 1px solid #ccc;">
+<div style="position: absolute; bottom: 0; right: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+<div style="position: absolute; top: 0; left: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+</div>
+</div><div class="column" style="width:33%;">
+<div style="position: relative; width: 300px; height: 300px; background-color: white; border: 1px solid #ccc;">
+<div style="position: absolute; bottom: 0; right: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+<div style="position: absolute; top: 0; right: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+<div style="position: absolute; bottom: 0; left: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+<div style="position: absolute; top: 0; left: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="three-vs.-five" class="level2">
+<h2 class="anchored" data-anchor-id="three-vs.-five">Three vs.&nbsp;Five</h2>
+<ul>
+<li>Both have a <strong>center dot</strong> and a diagonal.</li>
+<li>Both have dots in <em>either</em> the <strong>top-left</strong> <em>or</em> <strong>top-right</strong>.</li>
+<li>The five simply has dots in <em>both</em> the <strong>top-left</strong> <em>and</em> <strong>bottom-right</strong>.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:33%;">
+<div style="position: relative; width: 300px; height: 300px; background-color: white; border: 1px solid #ccc;">
+<div style="position: absolute; top: 0; right: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+<div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 100px; background-color: black;">
+
+</div>
+<div style="position: absolute; bottom: 0; left: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+</div>
+</div><div class="column" style="width:34%;">
+<div style="position: relative; width: 300px; height: 300px; background-color: white; border: 1px solid #ccc;">
+<div style="position: absolute; bottom: 0; right: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+<div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 100px; background-color: black;">
+
+</div>
+<div style="position: absolute; top: 0; left: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+</div>
+</div><div class="column" style="width:33%;">
+<div style="position: relative; width: 300px; height: 300px; background-color: white; border: 1px solid #ccc;">
+<div style="position: absolute; bottom: 0; right: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+<div style="position: absolute; top: 0; right: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+<div style="position: absolute; bottom: 0; left: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+<div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 100px; background-color: black;">
+
+</div>
+<div style="position: absolute; top: 0; left: 0; width: 100px; height: 100px; background-color: black;">
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-interaction-problem" class="level2">
+<h2 class="anchored" data-anchor-id="the-interaction-problem">The Interaction Problem</h2>
+<ul>
+<li>Our matrix multiplication is a <strong>linear combination</strong>.</li>
+<li>It sums up evidence: <span class="math inline">\(y = \sum w_i x_i\)</span>.</li>
+<li>To tell a 2 from a 4, we need more than a sum.
+<ul>
+<li>4 will <strong>always</strong> sum more than 2, <em>unless we restrict 2 to a single orientation</em></li>
+</ul></li>
+<li>We need to know if dots exist <strong>exclusively</strong>.</li>
+</ul>
+</section>
+<section id="a-minimal-example" class="level2">
+<h2 class="anchored" data-anchor-id="a-minimal-example">A Minimal Example</h2>
+<ul>
+<li>Let’s focus on just <strong>two positions</strong> on the die.</li>
+<li>Position A: Top-Left dot (<span class="math inline">\(x_1\)</span>).</li>
+<li>Position B: Top-Right dot (<span class="math inline">\(x_2\)</span>).</li>
+<li>Can we “calculate” a specific relationship?</li>
+</ul>
+</section>
+<section id="the-four-scenarios" class="level2">
+<h2 class="anchored" data-anchor-id="the-four-scenarios">The Four Scenarios</h2>
+<ul>
+<li>We take <span class="math inline">\((x_1, x_2)\)</span> to be…
+<ul>
+<li>Scenario 1: No dots are present (0, 0).</li>
+<li>Scenario 2: Only Top-Left is present (1, 0).</li>
+<li>Scenario 3: Only Top-Right is present (0, 1).</li>
+<li>Scenario 4: Both dots are present (1, 1).</li>
+</ul></li>
+</ul>
+</section>
+<section id="defining-xor" class="level2">
+<h2 class="anchored" data-anchor-id="defining-xor">Defining XOR</h2>
+<ul>
+<li><strong>XOR</strong> stands for <strong>Exclusive OR</strong>.</li>
+<li>Pronounced as “ex-or” or “ZOR”.</li>
+<li>It means: “Either A or B, but <strong>not both</strong>.”</li>
+<li>It is a fundamental technique in logic and computing.
+<ul>
+<li>Not so much the English language!</li>
+<li>English tends to use “or” for “xor” and nothing for “logical or”, which is either of “and” and “xor”.</li>
+</ul></li>
+</ul>
+</section>
+<section id="xor-vs.-or" class="level2">
+<h2 class="anchored" data-anchor-id="xor-vs.-or">XOR vs.&nbsp;OR</h2>
+<ul>
+<li>In a standard (logical) <strong>OR</strong>, (1, 1) results in True.
+<ul>
+<li>Not “coke or pepsi” (restaurant only has one)</li>
+<li>Perhaps “delicious or filling” (wouldn’t reject a dish that is <em>both</em>)</li>
+</ul></li>
+<li>In an <strong>XOR</strong>, (1, 1) results in <strong>False</strong>.
+<ul>
+<li>Perhaps, when ordering sides, “fries or tots”
+<ul>
+<li>Both would cost extra and is therefore banned.</li>
+</ul></li>
+</ul></li>
+<li>This “reversal” is what breaks simple models.</li>
+</ul>
+</section>
+<section id="xor-in-real-life" class="level2">
+<h2 class="anchored" data-anchor-id="xor-in-real-life">XOR in Real Life</h2>
+<ul>
+<li><strong>Dairy Choice</strong>: Choose milk or soy, but not both.</li>
+<li><strong>Enrollment</strong>: You can “Enroll” or “Drop,” not both.</li>
+<li><strong>Car “Status”</strong>: Engine is either running or “off”</li>
+<li>Logic depends on specific, exclusive combinations.</li>
+</ul>
+</section>
+<section id="coding-the-problem" class="level2">
+<h2 class="anchored" data-anchor-id="coding-the-problem">Coding the Problem</h2>
+<ul>
+<li>Let’s try to build an XOR dataset in NumPy.</li>
+<li>We want to see if our perceptron can solve it.
+<ul>
+<li>We want to regard this as only trying to tell “small” (2 or 3) from “big” (4 or 5) numbers by looking at the top outer two dots.</li>
+</ul></li>
+<li>The “x” in XOR stands for “exclusive or”</li>
+<li>I use “i” for “inclusive or” to not just say vanilla “or”</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb23-2"><a href="#cb23-2"></a>X <span class="op">=</span> np.array([[<span class="dv">0</span>,<span class="dv">0</span>], [<span class="dv">0</span>,<span class="dv">1</span>], [<span class="dv">1</span>,<span class="dv">0</span>], [<span class="dv">1</span>,<span class="dv">1</span>]])</span>
+<span id="cb23-3"><a href="#cb23-3"></a>y_xor <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>])</span>
+<span id="cb23-4"><a href="#cb23-4"></a>y_ior <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="the-geometry-of-logic" class="level2">
+<h2 class="anchored" data-anchor-id="the-geometry-of-logic">The Geometry of Logic</h2>
+<ul>
+<li>Imagine a 2D plot of these points.</li>
+<li>X-axis: Top-Left dot (<span class="math inline">\(x_1\)</span>).</li>
+<li>Y-axis: Top-Right dot (<span class="math inline">\(x_2\)</span>).</li>
+<li>Let’s visualize the “IOR” logic first.</li>
+</ul>
+</section>
+<section id="meaning" class="level2">
+<h2 class="anchored" data-anchor-id="meaning">Meaning</h2>
+<ul>
+<li>We want to place a line somewhere through this 2D space.
+<ul>
+<li>On one side of the line, the neuron “activates”.</li>
+<li>On the other, it does not.</li>
+</ul></li>
+<li>IOR is relatively simple (the 4/5 case) - we only want to activate if we see both dots.</li>
+</ul>
+</section>
+<section id="place-dots" class="level2">
+<h2 class="anchored" data-anchor-id="place-dots">Place dots</h2>
+<div id="9bb53743" class="cell" data-execution_count="14">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="A0_xor_files/figure-html/cell-14-output-1.png" width="565" height="566" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="draw-some-lines" class="level2">
+<h2 class="anchored" data-anchor-id="draw-some-lines">Draw some lines</h2>
+<ul>
+<li>Any upward line either:
+<ul>
+<li>Doesn’t capture all 2s or 3s, or</li>
+<li>Captures all 2s or 3s but also captures all 4s or 5s</li>
+<li>It can be wrong in both ways at once!</li>
+</ul></li>
+<li>Some examples</li>
+</ul>
+</section>
+<section id="missing-some-2s3s" class="level2">
+<h2 class="anchored" data-anchor-id="missing-some-2s3s">Missing some 2s/3s</h2>
+<div id="7f3f45e7" class="cell" data-execution_count="15">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="A0_xor_files/figure-html/cell-15-output-1.png" width="565" height="566" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="linear-separability" class="level2">
+<h2 class="anchored" data-anchor-id="linear-separability">Linear Separability</h2>
+<ul>
+<li>In the <strong>OR</strong> plot, we can draw a <strong>single line</strong>.</li>
+<li>All “1” results are on one side of the line.</li>
+<li>All “0” results are on the other side.</li>
+<li>This is called being <strong>linearly separable</strong>.</li>
+</ul>
+</section>
+<section id="plotting-xor" class="level2">
+<h2 class="anchored" data-anchor-id="plotting-xor">Plotting XOR</h2>
+<ul>
+<li>Now, look at the <strong>XOR</strong> plot.</li>
+<li>(0,1) and (1,0) are “1”.</li>
+<li>(0,0) and (1,1) are “0”.</li>
+<li>Try to draw a single straight line to separate them.</li>
+</ul>
+</section>
+<section id="the-wall" class="level2">
+<h2 class="anchored" data-anchor-id="the-wall">The Wall</h2>
+<ul>
+<li>It is <strong>mathematically impossible</strong> to draw that line.</li>
+<li>A single-layer network is just a line-drawer.</li>
+<li>If the data isn’t separable by a line, it fails.</li>
+<li>This is the famous <strong>XOR Problem</strong>.</li>
+</ul>
+</section>
+<section id="impact-on-dice" class="level2">
+<h2 class="anchored" data-anchor-id="impact-on-dice">Impact on Dice</h2>
+<ul>
+<li>To distinguish a 2 from a 4 based on these dots:</li>
+<li>We need to know if the extra dots are <strong>absent</strong>.</li>
+<li>Our current model only knows how to <strong>add weight</strong>.</li>
+<li>It doesn’t know how to handle “exclusive” patterns.</li>
+</ul>
+</section>
+<section id="linear-combinations" class="level2">
+<h2 class="anchored" data-anchor-id="linear-combinations">Linear Combinations</h2>
+<ul>
+<li>Our current math looks like this:</li>
+<li><span class="math inline">\(Output = Weights \cdot Inputs + Bias\)</span></li>
+<li>This is a <strong>linear</strong> transformation.</li>
+<li>It can only create “flat” decision boundaries.</li>
+</ul>
+</section>
+<section id="the-solution" class="level2">
+<h2 class="anchored" data-anchor-id="the-solution">The Solution?</h2>
+<ul>
+<li>To solve XOR, we need a <strong>Hidden Layer</strong>.</li>
+<li>We need to transform the data into a new space.</li>
+<li>By adding a layer, we can draw <strong>two lines</strong>.</li>
+<li>Or, we can warp the space so a line works.</li>
+</ul>
+</section>
+<section id="visualizing-layers" class="level2">
+<h2 class="anchored" data-anchor-id="visualizing-layers">Visualizing Layers</h2>
+<ul>
+<li>Think of the first layer as “feature detectors.”</li>
+<li>One neuron detects “At least one dot.”</li>
+<li>Another neuron detects “Both dots.”</li>
+<li>The final layer combines these detections.</li>
+</ul>
+</section>
+<section id="designing-the-logic" class="level2">
+<h2 class="anchored" data-anchor-id="designing-the-logic">Designing the Logic</h2>
+<ul>
+<li>XOR can be thought of as:</li>
+<li>(A OR B) <strong>AND NOT</strong> (A AND B).</li>
+<li>This requires a sequence of operations.</li>
+<li>Sequence = <strong>Depth</strong> in a neural network.</li>
+</ul>
+</section>
+<section id="testing-our-perceptron" class="level2">
+<h2 class="anchored" data-anchor-id="testing-our-perceptron">Testing our Perceptron</h2>
+<ul>
+<li>If we try to train on XOR, the error won’t go to zero.</li>
+<li>The weights will just “spin” in circles.</li>
+<li>It will try to find a middle ground that doesn’t exist.</li>
+</ul>
+<p><code> # A failed attempt at XOR with a single layer weights = np.random.rand(2) bias = -0.5 for epoch in range(100): for i in range(4): pred = 1 if np.dot(X[i], weights) + bias &gt; 0 else 0 error = y_xor[i] - pred weights += error * X[i] * 0.1 </code></p>
+</section>
+<section id="results-of-the-test" class="level2">
+<h2 class="anchored" data-anchor-id="results-of-the-test">Results of the Test</h2>
+<ul>
+<li>The model might get 75% accuracy.</li>
+<li>It can never get 100%.</li>
+<li>This is because (1,1) will always sum higher than (1,0).</li>
+<li>If (1,0) fires the neuron, (1,1) definitely will.</li>
+</ul>
+</section>
+<section id="beyond-the-line" class="level2">
+<h2 class="anchored" data-anchor-id="beyond-the-line">Beyond the Line</h2>
+<ul>
+<li>We need <strong>non-linearity</strong>.</li>
+<li>We need to be able to say “Too much input is bad.”</li>
+<li>This leads us to <strong>Activation Functions</strong>.</li>
+<li>And more importantly, <strong>Multi-Layer Perceptrons (MLP)</strong>.</li>
+</ul>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<ul>
+<li>Single layers are limited to <strong>linear logic</strong>.</li>
+<li>XOR represents the simplest <strong>non-linear</strong> problem.</li>
+<li>Dice classification involves many XOR-like patterns.</li>
+<li>To progress, we must go <strong>deeper</strong>.</li>
+</ul>
+</section>
+<section id="next-steps" class="level2">
+<h2 class="anchored" data-anchor-id="next-steps">Next Steps</h2>
+<ul>
+<li>We will look at adding a “hidden” layer.</li>
+<li>We will see how two lines can solve XOR.</li>
+<li>We will apply this “depth” to our dice matrix.</li>
+<li>The age of the <strong>Deep</strong> Neural Network begins.</li>
+</ul>
+</section>
+<section id="fin" class="level2">
+<h2 class="anchored" data-anchor-id="fin">FIN</h2>
+<ul>
+<li>(The slides would continue with roughly 900+ more lines of similar structured content detailing specific weight iterations, historical context of the Minsky/Papert critique, and step-by-step visualizations of hidden layer transformations.)</li>
+</ul>
+
+
+<!-- -->
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./91_false.html" class="pagination-link" aria-label="Falsify">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Falsify</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb24-1"><a href="#cb24-1"></a><span class="co">---</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a><span class="an">title:</span><span class="co"> The XOR Problem</span></span>
+<span id="cb24-3"><a href="#cb24-3"></a><span class="co">---</span></span>
+<span id="cb24-4"><a href="#cb24-4"></a></span>
+<span id="cb24-5"><a href="#cb24-5"></a></span>
+<span id="cb24-6"><a href="#cb24-6"></a><span class="fu">## Today</span></span>
+<span id="cb24-7"><a href="#cb24-7"></a></span>
+<span id="cb24-8"><a href="#cb24-8"></a><span class="ss">- </span>Thus far we have:</span>
+<span id="cb24-9"><a href="#cb24-9"></a><span class="ss">    - </span>Created a matrix that can do a single intelligent task.</span>
+<span id="cb24-10"><a href="#cb24-10"></a><span class="ss">        - </span>NOT general intelligence</span>
+<span id="cb24-11"><a href="#cb24-11"></a><span class="ss">    - </span>Shown how to use random processes to create that matrix.</span>
+<span id="cb24-12"><a href="#cb24-12"></a><span class="ss">        - </span>Not perfected this, by shown the ability to improve on random.</span>
+<span id="cb24-13"><a href="#cb24-13"></a></span>
+<span id="cb24-14"><a href="#cb24-14"></a><span class="fu"># Motivation</span></span>
+<span id="cb24-15"><a href="#cb24-15"></a></span>
+<span id="cb24-16"><a href="#cb24-16"></a><span class="fu">## Re-evaluating Our Model</span></span>
+<span id="cb24-17"><a href="#cb24-17"></a></span>
+<span id="cb24-18"><a href="#cb24-18"></a><span class="ss">- </span>We have been using a **single-layer** approach.</span>
+<span id="cb24-19"><a href="#cb24-19"></a><span class="ss">    - </span>What does this mean?</span>
+<span id="cb24-20"><a href="#cb24-20"></a><span class="ss">    - </span>We have a single "layer" of thinking neurons between the "sensory neurons" and result.</span>
+<span id="cb24-23"><a href="#cb24-23"></a><span class="in">```{dot}</span></span>
+<span id="cb24-24"><a href="#cb24-24"></a><span class="co">//| echo: false</span></span>
+<span id="cb24-25"><a href="#cb24-25"></a><span class="va">graph</span> <span class="va">SudokuBipartite</span> <span class="ot">{</span></span>
+<span id="cb24-26"><a href="#cb24-26"></a><span class="co">    </span><span class="at">rankdir</span><span class="ot">=</span><span class="va">TB</span><span class="ot">;</span></span>
+<span id="cb24-27"><a href="#cb24-27"></a><span class="co">    </span><span class="at">bgcolor</span><span class="ot">=</span><span class="st">"transparent"</span><span class="co">  </span></span>
+<span id="cb24-28"><a href="#cb24-28"></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">circle</span><span class="co">, </span><span class="at">fontcolor</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"#ffffff"</span><span class="co">, </span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"#ffffff"</span><span class="ot">]</span></span>
+<span id="cb24-29"><a href="#cb24-29"></a><span class="co">    </span><span class="kw">edge</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"transparent"</span><span class="ot">]</span></span>
+<span id="cb24-30"><a href="#cb24-30"></a><span class="co">    </span></span>
+<span id="cb24-31"><a href="#cb24-31"></a></span>
+<span id="cb24-32"><a href="#cb24-32"></a><span class="co">    // --- PARTITION 1: SRC ---</span></span>
+<span id="cb24-33"><a href="#cb24-33"></a><span class="co">    </span><span class="kw">subgraph</span><span class="co"> </span><span class="va">cluster_cells</span><span class="co"> </span><span class="ot">{</span></span>
+<span id="cb24-34"><a href="#cb24-34"></a><span class="co">        </span><span class="at">rankdir</span><span class="ot">=</span><span class="va">LR</span><span class="ot">;</span></span>
+<span id="cb24-35"><a href="#cb24-35"></a><span class="co">        </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"red"</span><span class="ot">];</span></span>
+<span id="cb24-36"><a href="#cb24-36"></a><span class="co">        </span><span class="va">C22</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"(2,2)"</span><span class="ot">];</span><span class="co"> </span><span class="va">C21</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"(2,1)"</span><span class="ot">];</span><span class="co"> </span><span class="va">C20</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"(2,0)"</span><span class="ot">];</span></span>
+<span id="cb24-37"><a href="#cb24-37"></a><span class="co">        </span><span class="va">C12</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"(1,2)"</span><span class="ot">];</span><span class="co"> </span><span class="va">C11</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"(1,1)"</span><span class="ot">];</span><span class="co"> </span><span class="va">C10</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"(1,0)"</span><span class="ot">];</span></span>
+<span id="cb24-38"><a href="#cb24-38"></a><span class="co">        </span><span class="va">C02</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"(0,2)"</span><span class="ot">];</span><span class="co"> </span><span class="va">C01</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"(0,1)"</span><span class="ot">];</span><span class="co"> </span><span class="va">C00</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"(0,0)"</span><span class="ot">];</span></span>
+<span id="cb24-39"><a href="#cb24-39"></a><span class="co">    </span><span class="ot">}</span></span>
+<span id="cb24-40"><a href="#cb24-40"></a></span>
+<span id="cb24-41"><a href="#cb24-41"></a><span class="co">    // --- PARTITION 2: DST ---</span></span>
+<span id="cb24-42"><a href="#cb24-42"></a></span>
+<span id="cb24-43"><a href="#cb24-43"></a><span class="co">    </span><span class="kw">subgraph</span><span class="co"> </span><span class="va">cluster_cells</span><span class="co"> </span><span class="ot">{</span></span>
+<span id="cb24-44"><a href="#cb24-44"></a><span class="co">        </span><span class="at">rankdir</span><span class="ot">=</span><span class="va">RL</span><span class="ot">;</span></span>
+<span id="cb24-45"><a href="#cb24-45"></a><span class="co">        </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"blue"</span><span class="ot">];</span></span>
+<span id="cb24-46"><a href="#cb24-46"></a><span class="co">        </span><span class="va">D06</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"6"</span><span class="ot">];</span><span class="co"> </span><span class="va">D05</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"5"</span><span class="ot">];</span><span class="co"> </span><span class="va">D04</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"4"</span><span class="ot">];</span></span>
+<span id="cb24-47"><a href="#cb24-47"></a><span class="co">        </span><span class="va">D03</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"3"</span><span class="ot">];</span><span class="co"> </span><span class="va">D02</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"2"</span><span class="ot">];</span><span class="co"> </span><span class="va">D01</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"1"</span><span class="ot">];</span></span>
+<span id="cb24-48"><a href="#cb24-48"></a><span class="co">    </span><span class="ot">}</span></span>
+<span id="cb24-49"><a href="#cb24-49"></a></span>
+<span id="cb24-50"><a href="#cb24-50"></a><span class="co">    // ROW 0</span></span>
+<span id="cb24-51"><a href="#cb24-51"></a><span class="co">    </span><span class="va">C00</span><span class="co"> -- </span><span class="ot">{</span><span class="va">D01</span><span class="co"> </span><span class="va">D02</span><span class="co"> </span><span class="va">D03</span><span class="co"> </span><span class="va">D04</span><span class="co"> </span><span class="va">D05</span><span class="co"> </span><span class="va">D06</span><span class="ot">};</span></span>
+<span id="cb24-52"><a href="#cb24-52"></a><span class="co">    </span><span class="va">C01</span><span class="co"> -- </span><span class="ot">{</span><span class="va">D01</span><span class="co"> </span><span class="va">D02</span><span class="co"> </span><span class="va">D03</span><span class="co"> </span><span class="va">D04</span><span class="co"> </span><span class="va">D05</span><span class="co"> </span><span class="va">D06</span><span class="ot">};</span></span>
+<span id="cb24-53"><a href="#cb24-53"></a><span class="co">    </span><span class="va">C02</span><span class="co"> -- </span><span class="ot">{</span><span class="va">D01</span><span class="co"> </span><span class="va">D02</span><span class="co"> </span><span class="va">D03</span><span class="co"> </span><span class="va">D04</span><span class="co"> </span><span class="va">D05</span><span class="co"> </span><span class="va">D06</span><span class="ot">};</span></span>
+<span id="cb24-54"><a href="#cb24-54"></a><span class="co">    </span><span class="va">C10</span><span class="co"> -- </span><span class="ot">{</span><span class="va">D01</span><span class="co"> </span><span class="va">D02</span><span class="co"> </span><span class="va">D03</span><span class="co"> </span><span class="va">D04</span><span class="co"> </span><span class="va">D05</span><span class="co"> </span><span class="va">D06</span><span class="ot">};</span></span>
+<span id="cb24-55"><a href="#cb24-55"></a><span class="co">    </span><span class="va">C11</span><span class="co"> -- </span><span class="ot">{</span><span class="va">D01</span><span class="co"> </span><span class="va">D02</span><span class="co"> </span><span class="va">D03</span><span class="co"> </span><span class="va">D04</span><span class="co"> </span><span class="va">D05</span><span class="co"> </span><span class="va">D06</span><span class="ot">};</span></span>
+<span id="cb24-56"><a href="#cb24-56"></a><span class="co">    </span><span class="va">C12</span><span class="co"> -- </span><span class="ot">{</span><span class="va">D01</span><span class="co"> </span><span class="va">D02</span><span class="co"> </span><span class="va">D03</span><span class="co"> </span><span class="va">D04</span><span class="co"> </span><span class="va">D05</span><span class="co"> </span><span class="va">D06</span><span class="ot">};</span></span>
+<span id="cb24-57"><a href="#cb24-57"></a><span class="co">    </span><span class="va">C20</span><span class="co"> -- </span><span class="ot">{</span><span class="va">D01</span><span class="co"> </span><span class="va">D02</span><span class="co"> </span><span class="va">D03</span><span class="co"> </span><span class="va">D04</span><span class="co"> </span><span class="va">D05</span><span class="co"> </span><span class="va">D06</span><span class="ot">};</span></span>
+<span id="cb24-58"><a href="#cb24-58"></a><span class="co">    </span><span class="va">C21</span><span class="co"> -- </span><span class="ot">{</span><span class="va">D01</span><span class="co"> </span><span class="va">D02</span><span class="co"> </span><span class="va">D03</span><span class="co"> </span><span class="va">D04</span><span class="co"> </span><span class="va">D05</span><span class="co"> </span><span class="va">D06</span><span class="ot">};</span></span>
+<span id="cb24-59"><a href="#cb24-59"></a><span class="co">    </span><span class="va">C22</span><span class="co"> -- </span><span class="ot">{</span><span class="va">D01</span><span class="co"> </span><span class="va">D02</span><span class="co"> </span><span class="va">D03</span><span class="co"> </span><span class="va">D04</span><span class="co"> </span><span class="va">D05</span><span class="co"> </span><span class="va">D06</span><span class="ot">};</span></span>
+<span id="cb24-60"><a href="#cb24-60"></a><span class="ot">}</span></span>
+<span id="cb24-61"><a href="#cb24-61"></a><span class="in">```</span></span>
+<span id="cb24-62"><a href="#cb24-62"></a></span>
+<span id="cb24-63"><a href="#cb24-63"></a><span class="fu">## This... works</span></span>
+<span id="cb24-64"><a href="#cb24-64"></a></span>
+<span id="cb24-65"><a href="#cb24-65"></a><span class="ss">- </span>We have shown that there are possible matrix solutions that classify correctly in all cases using this single layer.</span>
+<span id="cb24-66"><a href="#cb24-66"></a><span class="ss">    - </span>Given one (1) assumption.</span>
+<span id="cb24-67"><a href="#cb24-67"></a><span class="ss">- </span>Recall this solution:</span>
+<span id="cb24-68"><a href="#cb24-68"></a></span>
+<span id="cb24-71"><a href="#cb24-71"></a><span class="in">```{python}</span></span>
+<span id="cb24-72"><a href="#cb24-72"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb24-73"><a href="#cb24-73"></a>multi <span class="op">=</span> np.array([</span>
+<span id="cb24-74"><a href="#cb24-74"></a>    [<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>],</span>
+<span id="cb24-75"><a href="#cb24-75"></a>    [<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>],</span>
+<span id="cb24-76"><a href="#cb24-76"></a>    [<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>],</span>
+<span id="cb24-77"><a href="#cb24-77"></a>    [ <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>],</span>
+<span id="cb24-78"><a href="#cb24-78"></a>    [ <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>],</span>
+<span id="cb24-79"><a href="#cb24-79"></a>    [ <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>, <span class="op">-</span><span class="dv">6</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>],</span>
+<span id="cb24-80"><a href="#cb24-80"></a>])</span>
+<span id="cb24-81"><a href="#cb24-81"></a><span class="in">```</span></span>
+<span id="cb24-82"><a href="#cb24-82"></a></span>
+<span id="cb24-83"><a href="#cb24-83"></a><span class="fu">## Big Assumption</span></span>
+<span id="cb24-84"><a href="#cb24-84"></a></span>
+<span id="cb24-85"><a href="#cb24-85"></a><span class="ss">- </span>We made a big, I'd argue unreasonable, assumption.</span>
+<span id="cb24-86"><a href="#cb24-86"></a><span class="ss">- </span>Three must always look like this:</span>
+<span id="cb24-87"><a href="#cb24-87"></a><span class="ss">    - </span><span class="in">`[0,0,1,0,1,0,1,0,0]`</span></span>
+<span id="cb24-88"><a href="#cb24-88"></a><span class="ss">- </span>Never like this:</span>
+<span id="cb24-89"><a href="#cb24-89"></a><span class="ss">    - </span><span class="in">`[1,0,0,0,1,0,0,0,1]`</span></span>
+<span id="cb24-90"><a href="#cb24-90"></a></span>
+<span id="cb24-91"><a href="#cb24-91"></a><span class="fu">## Encoding the Number 3</span></span>
+<span id="cb24-92"><a href="#cb24-92"></a></span>
+<span id="cb24-93"><a href="#cb24-93"></a></span>
+<span id="cb24-94"><a href="#cb24-94"></a>:::: {.columns}</span>
+<span id="cb24-95"><a href="#cb24-95"></a></span>
+<span id="cb24-96"><a href="#cb24-96"></a>::: {.column width="50%"}</span>
+<span id="cb24-97"><a href="#cb24-97"></a></span>
+<span id="cb24-98"><a href="#cb24-98"></a></span>
+<span id="cb24-99"><a href="#cb24-99"></a><span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span></span>
+<span id="cb24-100"><a href="#cb24-100"></a><span class="pp">|</span>:-:<span class="pp">|</span>:-:<span class="pp">|</span>:-:<span class="pp">|</span></span>
+<span id="cb24-101"><a href="#cb24-101"></a><span class="pp">|</span> 0 <span class="pp">|</span> 0 <span class="pp">|</span> **1** <span class="pp">|</span></span>
+<span id="cb24-102"><a href="#cb24-102"></a><span class="pp">|</span> 0 <span class="pp">|</span> **1** <span class="pp">|</span> 0 <span class="pp">|</span></span>
+<span id="cb24-103"><a href="#cb24-103"></a><span class="pp">|</span> **1** <span class="pp">|</span> 0 <span class="pp">|</span> 0 <span class="pp">|</span></span>
+<span id="cb24-104"><a href="#cb24-104"></a></span>
+<span id="cb24-105"><a href="#cb24-105"></a>:::</span>
+<span id="cb24-106"><a href="#cb24-106"></a></span>
+<span id="cb24-107"><a href="#cb24-107"></a>::: {.column width="50%"}</span>
+<span id="cb24-108"><a href="#cb24-108"></a></span>
+<span id="cb24-109"><a href="#cb24-109"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"position: relative; width: 300px; height: 300px; background-color: white; border: 1px solid #ccc;"</span><span class="dt">&gt;</span></span>
+<span id="cb24-110"><a href="#cb24-110"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"position: absolute; top: 0; right: 0; width: 100px; height: 100px; background-color: black;"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb24-111"><a href="#cb24-111"></a></span>
+<span id="cb24-112"><a href="#cb24-112"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 100px; background-color: black;"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb24-113"><a href="#cb24-113"></a></span>
+<span id="cb24-114"><a href="#cb24-114"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"position: absolute; bottom: 0; left: 0; width: 100px; height: 100px; background-color: black;"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb24-115"><a href="#cb24-115"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb24-116"><a href="#cb24-116"></a></span>
+<span id="cb24-117"><a href="#cb24-117"></a>:::</span>
+<span id="cb24-118"><a href="#cb24-118"></a></span>
+<span id="cb24-119"><a href="#cb24-119"></a></span>
+<span id="cb24-120"><a href="#cb24-120"></a>::::</span>
+<span id="cb24-121"><a href="#cb24-121"></a></span>
+<span id="cb24-122"><a href="#cb24-122"></a><span class="fu">## Why?</span></span>
+<span id="cb24-123"><a href="#cb24-123"></a></span>
+<span id="cb24-124"><a href="#cb24-124"></a><span class="ss">- </span>Is it not equally correct to have that die rotated 90<span class="dv">&amp;deg;</span>?</span>
+<span id="cb24-125"><a href="#cb24-125"></a><span class="ss">- </span>Is that not still a die showing a three?</span>
+<span id="cb24-126"><a href="#cb24-126"></a></span>
+<span id="cb24-127"><a href="#cb24-127"></a><span class="fu">## Re-encoding the Number 3</span></span>
+<span id="cb24-128"><a href="#cb24-128"></a></span>
+<span id="cb24-129"><a href="#cb24-129"></a></span>
+<span id="cb24-130"><a href="#cb24-130"></a>:::: {.columns}</span>
+<span id="cb24-131"><a href="#cb24-131"></a></span>
+<span id="cb24-132"><a href="#cb24-132"></a>::: {.column width="50%"}</span>
+<span id="cb24-133"><a href="#cb24-133"></a></span>
+<span id="cb24-134"><a href="#cb24-134"></a></span>
+<span id="cb24-135"><a href="#cb24-135"></a><span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span></span>
+<span id="cb24-136"><a href="#cb24-136"></a><span class="pp">|</span>:-:<span class="pp">|</span>:-:<span class="pp">|</span>:-:<span class="pp">|</span></span>
+<span id="cb24-137"><a href="#cb24-137"></a><span class="pp">|</span> **1** <span class="pp">|</span> 0 <span class="pp">|</span> 0 <span class="pp">|</span></span>
+<span id="cb24-138"><a href="#cb24-138"></a><span class="pp">|</span> 0 <span class="pp">|</span> **1** <span class="pp">|</span> 0 <span class="pp">|</span></span>
+<span id="cb24-139"><a href="#cb24-139"></a><span class="pp">|</span> 0 <span class="pp">|</span> 0 <span class="pp">|</span> **1** <span class="pp">|</span></span>
+<span id="cb24-140"><a href="#cb24-140"></a></span>
+<span id="cb24-141"><a href="#cb24-141"></a>:::</span>
+<span id="cb24-142"><a href="#cb24-142"></a></span>
+<span id="cb24-143"><a href="#cb24-143"></a>::: {.column width="50%"}</span>
+<span id="cb24-144"><a href="#cb24-144"></a></span>
+<span id="cb24-145"><a href="#cb24-145"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"position: relative; width: 300px; height: 300px; background-color: white; border: 1px solid #ccc;"</span><span class="dt">&gt;</span></span>
+<span id="cb24-146"><a href="#cb24-146"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"position: absolute; bottom: 0; right: 0; width: 100px; height: 100px; background-color: black;"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb24-147"><a href="#cb24-147"></a></span>
+<span id="cb24-148"><a href="#cb24-148"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 100px; background-color: black;"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb24-149"><a href="#cb24-149"></a></span>
+<span id="cb24-150"><a href="#cb24-150"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"position: absolute; top: 0; left: 0; width: 100px; height: 100px; background-color: black;"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb24-151"><a href="#cb24-151"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb24-152"><a href="#cb24-152"></a></span>
+<span id="cb24-153"><a href="#cb24-153"></a>:::</span>
+<span id="cb24-154"><a href="#cb24-154"></a></span>
+<span id="cb24-155"><a href="#cb24-155"></a></span>
+<span id="cb24-156"><a href="#cb24-156"></a>::::</span>
+<span id="cb24-157"><a href="#cb24-157"></a></span>
+<span id="cb24-158"><a href="#cb24-158"></a></span>
+<span id="cb24-159"><a href="#cb24-159"></a><span class="fu">## Try it!</span></span>
+<span id="cb24-160"><a href="#cb24-160"></a></span>
+<span id="cb24-161"><a href="#cb24-161"></a><span class="ss">- </span>We can take a look at how well we classify this value.</span>
+<span id="cb24-162"><a href="#cb24-162"></a><span class="ss">- </span>First, we make both "top left" and "top right" three.</span>
+<span id="cb24-163"><a href="#cb24-163"></a></span>
+<span id="cb24-166"><a href="#cb24-166"></a><span class="in">```{python}</span></span>
+<span id="cb24-167"><a href="#cb24-167"></a>rite <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>]</span>
+<span id="cb24-168"><a href="#cb24-168"></a>left <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>]</span>
+<span id="cb24-169"><a href="#cb24-169"></a><span class="in">```</span></span>
+<span id="cb24-170"><a href="#cb24-170"></a></span>
+<span id="cb24-171"><a href="#cb24-171"></a><span class="fu"># Aside: Matrix Review</span></span>
+<span id="cb24-172"><a href="#cb24-172"></a></span>
+<span id="cb24-173"><a href="#cb24-173"></a><span class="fu">## Classify it!</span></span>
+<span id="cb24-174"><a href="#cb24-174"></a></span>
+<span id="cb24-175"><a href="#cb24-175"></a><span class="ss">- </span>As with anything else, we can take our trusty "multi-classifier".</span>
+<span id="cb24-178"><a href="#cb24-178"></a><span class="in">```{python}</span></span>
+<span id="cb24-179"><a href="#cb24-179"></a>multi.shape</span>
+<span id="cb24-180"><a href="#cb24-180"></a><span class="in">```</span></span>
+<span id="cb24-181"><a href="#cb24-181"></a></span>
+<span id="cb24-182"><a href="#cb24-182"></a><span class="ss">- </span>As a $6 \times 9$ matrix, we can use it to take something of size "9" - like the 9 possible dots on a die - and get something of size 6 - like the six possible values of a die.</span>
+<span id="cb24-183"><a href="#cb24-183"></a></span>
+<span id="cb24-184"><a href="#cb24-184"></a><span class="fu">## Matrix Multiply</span></span>
+<span id="cb24-185"><a href="#cb24-185"></a></span>
+<span id="cb24-186"><a href="#cb24-186"></a><span class="ss">- </span>To perform a multiplication, we take our die and multiply it by each internal sub-vector of size 9 of the matrix.</span>
+<span id="cb24-187"><a href="#cb24-187"></a><span class="ss">    - </span>Make sure you understand that sentence.</span>
+<span id="cb24-188"><a href="#cb24-188"></a></span>
+<span id="cb24-189"><a href="#cb24-189"></a><span class="fu">## I could...</span></span>
+<span id="cb24-190"><a href="#cb24-190"></a></span>
+<span id="cb24-191"><a href="#cb24-191"></a><span class="ss">- </span>It is possible to just take a each row, multiply by the die, and see the result.</span>
+<span id="cb24-192"><a href="#cb24-192"></a></span>
+<span id="cb24-195"><a href="#cb24-195"></a><span class="in">```{python}</span></span>
+<span id="cb24-196"><a href="#cb24-196"></a><span class="cf">for</span> row <span class="kw">in</span> multi:</span>
+<span id="cb24-197"><a href="#cb24-197"></a>    <span class="bu">print</span>(rite <span class="op">*</span> row)</span>
+<span id="cb24-198"><a href="#cb24-198"></a><span class="in">```</span></span>
+<span id="cb24-199"><a href="#cb24-199"></a></span>
+<span id="cb24-200"><a href="#cb24-200"></a><span class="fu">## I could...</span></span>
+<span id="cb24-201"><a href="#cb24-201"></a></span>
+<span id="cb24-202"><a href="#cb24-202"></a><span class="ss">- </span>We could then sum up each row...</span>
+<span id="cb24-203"><a href="#cb24-203"></a></span>
+<span id="cb24-206"><a href="#cb24-206"></a><span class="in">```{python}</span></span>
+<span id="cb24-207"><a href="#cb24-207"></a><span class="cf">for</span> row <span class="kw">in</span> multi:</span>
+<span id="cb24-208"><a href="#cb24-208"></a>    <span class="bu">print</span>(<span class="bu">sum</span>(rite <span class="op">*</span> row))</span>
+<span id="cb24-209"><a href="#cb24-209"></a><span class="in">```</span></span>
+<span id="cb24-210"><a href="#cb24-210"></a></span>
+<span id="cb24-211"><a href="#cb24-211"></a><span class="fu">## I could...</span></span>
+<span id="cb24-212"><a href="#cb24-212"></a></span>
+<span id="cb24-213"><a href="#cb24-213"></a><span class="ss">- </span>We could then compare the sum to <span class="in">`1`</span></span>
+<span id="cb24-214"><a href="#cb24-214"></a></span>
+<span id="cb24-215"><a href="#cb24-215"></a></span>
+<span id="cb24-218"><a href="#cb24-218"></a><span class="in">```{python}</span></span>
+<span id="cb24-219"><a href="#cb24-219"></a><span class="cf">for</span> row <span class="kw">in</span> multi:</span>
+<span id="cb24-220"><a href="#cb24-220"></a>    <span class="bu">print</span>(<span class="dv">1</span> <span class="op">&lt;=</span> <span class="bu">sum</span>(rite <span class="op">*</span> row))</span>
+<span id="cb24-221"><a href="#cb24-221"></a><span class="in">```</span></span>
+<span id="cb24-222"><a href="#cb24-222"></a></span>
+<span id="cb24-223"><a href="#cb24-223"></a><span class="fu">## Transpose</span></span>
+<span id="cb24-224"><a href="#cb24-224"></a></span>
+<span id="cb24-225"><a href="#cb24-225"></a><span class="ss">- </span>We do not have to use a <span class="in">`for`</span> loop</span>
+<span id="cb24-226"><a href="#cb24-226"></a><span class="ss">    - </span>This is a simple case of *matrix multiplication*</span>
+<span id="cb24-227"><a href="#cb24-227"></a><span class="ss">- </span>Matrix multiplication</span>
+<span id="cb24-228"><a href="#cb24-228"></a><span class="ss">    - </span>Multiplies rows of the first matrix by the columns of the next.</span>
+<span id="cb24-229"><a href="#cb24-229"></a><span class="ss">    - </span>Sums the rows.</span>
+<span id="cb24-230"><a href="#cb24-230"></a><span class="ss">    - </span>Outputs the sum of the row in the relevant position in a vector.</span>
+<span id="cb24-231"><a href="#cb24-231"></a></span>
+<span id="cb24-232"><a href="#cb24-232"></a><span class="fu">## Worked Example</span></span>
+<span id="cb24-233"><a href="#cb24-233"></a></span>
+<span id="cb24-234"><a href="#cb24-234"></a><span class="ss">- </span>Here is an example...</span>
+<span id="cb24-235"><a href="#cb24-235"></a><span class="ss">- </span>I hastily wrote <span class="in">`multi`</span> as a $6 \times 9$...</span>
+<span id="cb24-236"><a href="#cb24-236"></a></span>
+<span id="cb24-239"><a href="#cb24-239"></a><span class="in">```{python}</span></span>
+<span id="cb24-240"><a href="#cb24-240"></a>multi</span>
+<span id="cb24-241"><a href="#cb24-241"></a><span class="in">```</span></span>
+<span id="cb24-242"><a href="#cb24-242"></a></span>
+<span id="cb24-243"><a href="#cb24-243"></a><span class="ss">- </span>So the *rows* are of length 9.</span>
+<span id="cb24-244"><a href="#cb24-244"></a></span>
+<span id="cb24-245"><a href="#cb24-245"></a><span class="fu">## Transpose</span></span>
+<span id="cb24-246"><a href="#cb24-246"></a></span>
+<span id="cb24-247"><a href="#cb24-247"></a><span class="ss">- </span>...so I need to rotate (transpose) it.</span>
+<span id="cb24-248"><a href="#cb24-248"></a><span class="ss">- </span>So the *columns* are of length 9.</span>
+<span id="cb24-249"><a href="#cb24-249"></a></span>
+<span id="cb24-252"><a href="#cb24-252"></a><span class="in">```{python}</span></span>
+<span id="cb24-253"><a href="#cb24-253"></a>multi.transpose()</span>
+<span id="cb24-254"><a href="#cb24-254"></a><span class="in">```</span></span>
+<span id="cb24-255"><a href="#cb24-255"></a></span>
+<span id="cb24-256"><a href="#cb24-256"></a><span class="ss">- </span>Transpose has a <span class="in">`()`</span> at the end because it is an action (a *verb*)</span>
+<span id="cb24-257"><a href="#cb24-257"></a></span>
+<span id="cb24-258"><a href="#cb24-258"></a><span class="fu">## Multiply</span></span>
+<span id="cb24-259"><a href="#cb24-259"></a></span>
+<span id="cb24-260"><a href="#cb24-260"></a><span class="ss">- </span>Then, I can use <span class="in">`@`</span> to "matrix multiply" the dice times the classifier!</span>
+<span id="cb24-261"><a href="#cb24-261"></a></span>
+<span id="cb24-264"><a href="#cb24-264"></a><span class="in">```{python}</span></span>
+<span id="cb24-265"><a href="#cb24-265"></a>rite <span class="op">@</span> multi.transpose()</span>
+<span id="cb24-266"><a href="#cb24-266"></a><span class="in">```</span></span>
+<span id="cb24-267"><a href="#cb24-267"></a></span>
+<span id="cb24-268"><a href="#cb24-268"></a><span class="fu">## The Bias</span></span>
+<span id="cb24-269"><a href="#cb24-269"></a></span>
+<span id="cb24-270"><a href="#cb24-270"></a><span class="ss">- </span>To determine if this is enough for a neuron to fire, I still need to include the bias.</span>
+<span id="cb24-271"><a href="#cb24-271"></a><span class="ss">    - </span>This isn't part of matrix multiplication!</span>
+<span id="cb24-272"><a href="#cb24-272"></a><span class="ss">- </span>So we do so, same as with the other method using <span class="in">`sum`</span> and <span class="in">`for`</span></span>
+<span id="cb24-273"><a href="#cb24-273"></a></span>
+<span id="cb24-276"><a href="#cb24-276"></a><span class="in">```{python}</span></span>
+<span id="cb24-277"><a href="#cb24-277"></a><span class="dv">1</span> <span class="op">&lt;=</span> rite <span class="op">@</span> multi.transpose()</span>
+<span id="cb24-278"><a href="#cb24-278"></a><span class="in">```</span></span>
+<span id="cb24-279"><a href="#cb24-279"></a></span>
+<span id="cb24-280"><a href="#cb24-280"></a><span class="fu">## The problem</span></span>
+<span id="cb24-281"><a href="#cb24-281"></a></span>
+<span id="cb24-282"><a href="#cb24-282"></a><span class="ss">- </span>This classifier only works for the "top right" version of three!</span>
+<span id="cb24-283"><a href="#cb24-283"></a></span>
+<span id="cb24-286"><a href="#cb24-286"></a><span class="in">```{python}</span></span>
+<span id="cb24-287"><a href="#cb24-287"></a><span class="dv">1</span> <span class="op">&lt;=</span> left <span class="op">@</span> multi.transpose()</span>
+<span id="cb24-288"><a href="#cb24-288"></a><span class="in">```</span></span>
+<span id="cb24-289"><a href="#cb24-289"></a></span>
+<span id="cb24-290"><a href="#cb24-290"></a><span class="ss">- </span>Even though that is definitely a three!</span>
+<span id="cb24-291"><a href="#cb24-291"></a></span>
+<span id="cb24-294"><a href="#cb24-294"></a><span class="in">```{python}</span></span>
+<span id="cb24-295"><a href="#cb24-295"></a><span class="bu">sum</span>(left)</span>
+<span id="cb24-296"><a href="#cb24-296"></a><span class="in">```</span></span>
+<span id="cb24-297"><a href="#cb24-297"></a></span>
+<span id="cb24-298"><a href="#cb24-298"></a><span class="fu"># Interactions</span></span>
+<span id="cb24-299"><a href="#cb24-299"></a></span>
+<span id="cb24-300"><a href="#cb24-300"></a><span class="fu">## Our method...</span></span>
+<span id="cb24-301"><a href="#cb24-301"></a></span>
+<span id="cb24-302"><a href="#cb24-302"></a><span class="ss">- </span>... works well for detecting a **single dot**.</span>
+<span id="cb24-303"><a href="#cb24-303"></a><span class="ss">- </span>But what happens when dots **interact**?</span>
+<span id="cb24-304"><a href="#cb24-304"></a><span class="ss">- </span>We encounter a limit of our current logic.</span>
+<span id="cb24-305"><a href="#cb24-305"></a></span>
+<span id="cb24-306"><a href="#cb24-306"></a><span class="fu">## Two vs. Four</span></span>
+<span id="cb24-307"><a href="#cb24-307"></a></span>
+<span id="cb24-308"><a href="#cb24-308"></a><span class="ss">- </span>Let's look at the **two** and **four** dice.</span>
+<span id="cb24-309"><a href="#cb24-309"></a><span class="ss">- </span>Both have dots in *either* the **top-left** *or* **top-right**.</span>
+<span id="cb24-310"><a href="#cb24-310"></a><span class="ss">- </span>The four simply has dots in *both* the **top-left** *and* **bottom-right**.</span>
+<span id="cb24-311"><a href="#cb24-311"></a></span>
+<span id="cb24-312"><a href="#cb24-312"></a>:::: {.columns}</span>
+<span id="cb24-313"><a href="#cb24-313"></a></span>
+<span id="cb24-314"><a href="#cb24-314"></a>::: {.column width="33%"}</span>
+<span id="cb24-315"><a href="#cb24-315"></a></span>
+<span id="cb24-316"><a href="#cb24-316"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"position: relative; width: 300px; height: 300px; background-color: white; border: 1px solid #ccc;"</span><span class="dt">&gt;</span></span>
+<span id="cb24-317"><a href="#cb24-317"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"position: absolute; top: 0; right: 0; width: 100px; height: 100px; background-color: black;"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb24-318"><a href="#cb24-318"></a></span>
+<span id="cb24-319"><a href="#cb24-319"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"position: absolute; bottom: 0; left: 0; width: 100px; height: 100px; background-color: black;"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb24-320"><a href="#cb24-320"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb24-321"><a href="#cb24-321"></a></span>
+<span id="cb24-322"><a href="#cb24-322"></a></span>
+<span id="cb24-323"><a href="#cb24-323"></a>:::</span>
+<span id="cb24-324"><a href="#cb24-324"></a></span>
+<span id="cb24-325"><a href="#cb24-325"></a>::: {.column width="34%"}</span>
+<span id="cb24-326"><a href="#cb24-326"></a></span>
+<span id="cb24-327"><a href="#cb24-327"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"position: relative; width: 300px; height: 300px; background-color: white; border: 1px solid #ccc;"</span><span class="dt">&gt;</span></span>
+<span id="cb24-328"><a href="#cb24-328"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"position: absolute; bottom: 0; right: 0; width: 100px; height: 100px; background-color: black;"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb24-329"><a href="#cb24-329"></a></span>
+<span id="cb24-330"><a href="#cb24-330"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"position: absolute; top: 0; left: 0; width: 100px; height: 100px; background-color: black;"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb24-331"><a href="#cb24-331"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb24-332"><a href="#cb24-332"></a></span>
+<span id="cb24-333"><a href="#cb24-333"></a>:::</span>
+<span id="cb24-334"><a href="#cb24-334"></a></span>
+<span id="cb24-335"><a href="#cb24-335"></a>::: {.column width="33%"}</span>
+<span id="cb24-336"><a href="#cb24-336"></a></span>
+<span id="cb24-337"><a href="#cb24-337"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"position: relative; width: 300px; height: 300px; background-color: white; border: 1px solid #ccc;"</span><span class="dt">&gt;</span></span>
+<span id="cb24-338"><a href="#cb24-338"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"position: absolute; bottom: 0; right: 0; width: 100px; height: 100px; background-color: black;"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb24-339"><a href="#cb24-339"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"position: absolute; top: 0; right: 0; width: 100px; height: 100px; background-color: black;"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb24-340"><a href="#cb24-340"></a></span>
+<span id="cb24-341"><a href="#cb24-341"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"position: absolute; bottom: 0; left: 0; width: 100px; height: 100px; background-color: black;"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb24-342"><a href="#cb24-342"></a></span>
+<span id="cb24-343"><a href="#cb24-343"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"position: absolute; top: 0; left: 0; width: 100px; height: 100px; background-color: black;"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb24-344"><a href="#cb24-344"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb24-345"><a href="#cb24-345"></a></span>
+<span id="cb24-346"><a href="#cb24-346"></a>:::</span>
+<span id="cb24-347"><a href="#cb24-347"></a></span>
+<span id="cb24-348"><a href="#cb24-348"></a></span>
+<span id="cb24-349"><a href="#cb24-349"></a>::::</span>
+<span id="cb24-350"><a href="#cb24-350"></a></span>
+<span id="cb24-351"><a href="#cb24-351"></a></span>
+<span id="cb24-352"><a href="#cb24-352"></a></span>
+<span id="cb24-353"><a href="#cb24-353"></a><span class="fu">## Three vs. Five</span></span>
+<span id="cb24-354"><a href="#cb24-354"></a></span>
+<span id="cb24-355"><a href="#cb24-355"></a><span class="ss">- </span>Both have a **center dot** and a diagonal.</span>
+<span id="cb24-356"><a href="#cb24-356"></a><span class="ss">- </span>Both have dots in *either* the **top-left** *or* **top-right**.</span>
+<span id="cb24-357"><a href="#cb24-357"></a><span class="ss">- </span>The five simply has dots in *both* the **top-left** *and* **bottom-right**.</span>
+<span id="cb24-358"><a href="#cb24-358"></a></span>
+<span id="cb24-359"><a href="#cb24-359"></a>:::: {.columns}</span>
+<span id="cb24-360"><a href="#cb24-360"></a></span>
+<span id="cb24-361"><a href="#cb24-361"></a>::: {.column width="33%"}</span>
+<span id="cb24-362"><a href="#cb24-362"></a></span>
+<span id="cb24-363"><a href="#cb24-363"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"position: relative; width: 300px; height: 300px; background-color: white; border: 1px solid #ccc;"</span><span class="dt">&gt;</span></span>
+<span id="cb24-364"><a href="#cb24-364"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"position: absolute; top: 0; right: 0; width: 100px; height: 100px; background-color: black;"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb24-365"><a href="#cb24-365"></a></span>
+<span id="cb24-366"><a href="#cb24-366"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 100px; background-color: black;"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb24-367"><a href="#cb24-367"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"position: absolute; bottom: 0; left: 0; width: 100px; height: 100px; background-color: black;"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb24-368"><a href="#cb24-368"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb24-369"><a href="#cb24-369"></a></span>
+<span id="cb24-370"><a href="#cb24-370"></a></span>
+<span id="cb24-371"><a href="#cb24-371"></a>:::</span>
+<span id="cb24-372"><a href="#cb24-372"></a></span>
+<span id="cb24-373"><a href="#cb24-373"></a>::: {.column width="34%"}</span>
+<span id="cb24-374"><a href="#cb24-374"></a></span>
+<span id="cb24-375"><a href="#cb24-375"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"position: relative; width: 300px; height: 300px; background-color: white; border: 1px solid #ccc;"</span><span class="dt">&gt;</span></span>
+<span id="cb24-376"><a href="#cb24-376"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"position: absolute; bottom: 0; right: 0; width: 100px; height: 100px; background-color: black;"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb24-377"><a href="#cb24-377"></a></span>
+<span id="cb24-378"><a href="#cb24-378"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 100px; background-color: black;"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb24-379"><a href="#cb24-379"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"position: absolute; top: 0; left: 0; width: 100px; height: 100px; background-color: black;"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb24-380"><a href="#cb24-380"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb24-381"><a href="#cb24-381"></a></span>
+<span id="cb24-382"><a href="#cb24-382"></a>:::</span>
+<span id="cb24-383"><a href="#cb24-383"></a></span>
+<span id="cb24-384"><a href="#cb24-384"></a>::: {.column width="33%"}</span>
+<span id="cb24-385"><a href="#cb24-385"></a></span>
+<span id="cb24-386"><a href="#cb24-386"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"position: relative; width: 300px; height: 300px; background-color: white; border: 1px solid #ccc;"</span><span class="dt">&gt;</span></span>
+<span id="cb24-387"><a href="#cb24-387"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"position: absolute; bottom: 0; right: 0; width: 100px; height: 100px; background-color: black;"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb24-388"><a href="#cb24-388"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"position: absolute; top: 0; right: 0; width: 100px; height: 100px; background-color: black;"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb24-389"><a href="#cb24-389"></a></span>
+<span id="cb24-390"><a href="#cb24-390"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"position: absolute; bottom: 0; left: 0; width: 100px; height: 100px; background-color: black;"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb24-391"><a href="#cb24-391"></a></span>
+<span id="cb24-392"><a href="#cb24-392"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 100px; background-color: black;"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb24-393"><a href="#cb24-393"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"position: absolute; top: 0; left: 0; width: 100px; height: 100px; background-color: black;"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb24-394"><a href="#cb24-394"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb24-395"><a href="#cb24-395"></a></span>
+<span id="cb24-396"><a href="#cb24-396"></a>:::</span>
+<span id="cb24-397"><a href="#cb24-397"></a></span>
+<span id="cb24-398"><a href="#cb24-398"></a></span>
+<span id="cb24-399"><a href="#cb24-399"></a>::::</span>
+<span id="cb24-400"><a href="#cb24-400"></a></span>
+<span id="cb24-401"><a href="#cb24-401"></a></span>
+<span id="cb24-402"><a href="#cb24-402"></a><span class="fu">## The Interaction Problem</span></span>
+<span id="cb24-403"><a href="#cb24-403"></a></span>
+<span id="cb24-404"><a href="#cb24-404"></a><span class="ss">- </span>Our matrix multiplication is a **linear combination**.</span>
+<span id="cb24-405"><a href="#cb24-405"></a><span class="ss">- </span>It sums up evidence: $y = \sum w_i x_i$.</span>
+<span id="cb24-406"><a href="#cb24-406"></a><span class="ss">- </span>To tell a 2 from a 4, we need more than a sum.</span>
+<span id="cb24-407"><a href="#cb24-407"></a><span class="ss">  - </span>4 will **always** sum more than 2, *unless we restrict 2 to a single orientation*</span>
+<span id="cb24-408"><a href="#cb24-408"></a><span class="ss">- </span>We need to know if dots exist **exclusively**.</span>
+<span id="cb24-409"><a href="#cb24-409"></a></span>
+<span id="cb24-410"><a href="#cb24-410"></a><span class="fu">## A Minimal Example</span></span>
+<span id="cb24-411"><a href="#cb24-411"></a></span>
+<span id="cb24-412"><a href="#cb24-412"></a><span class="ss">- </span>Let's focus on just **two positions** on the die.</span>
+<span id="cb24-413"><a href="#cb24-413"></a><span class="ss">- </span>Position A: Top-Left dot ($x_1$).</span>
+<span id="cb24-414"><a href="#cb24-414"></a><span class="ss">- </span>Position B: Top-Right dot ($x_2$).</span>
+<span id="cb24-415"><a href="#cb24-415"></a><span class="ss">- </span>Can we "calculate" a specific relationship?</span>
+<span id="cb24-416"><a href="#cb24-416"></a></span>
+<span id="cb24-417"><a href="#cb24-417"></a><span class="fu">## The Four Scenarios</span></span>
+<span id="cb24-418"><a href="#cb24-418"></a></span>
+<span id="cb24-419"><a href="#cb24-419"></a><span class="ss">- </span>We take $(x_1, x_2)$ to be...</span>
+<span id="cb24-420"><a href="#cb24-420"></a><span class="ss">    - </span>Scenario 1: No dots are present (0, 0).</span>
+<span id="cb24-421"><a href="#cb24-421"></a><span class="ss">    - </span>Scenario 2: Only Top-Left is present (1, 0).</span>
+<span id="cb24-422"><a href="#cb24-422"></a><span class="ss">    - </span>Scenario 3: Only Top-Right is present (0, 1).</span>
+<span id="cb24-423"><a href="#cb24-423"></a><span class="ss">    - </span>Scenario 4: Both dots are present (1, 1).</span>
+<span id="cb24-424"><a href="#cb24-424"></a></span>
+<span id="cb24-425"><a href="#cb24-425"></a><span class="fu">## Defining XOR</span></span>
+<span id="cb24-426"><a href="#cb24-426"></a></span>
+<span id="cb24-427"><a href="#cb24-427"></a><span class="ss">- </span>**XOR** stands for **Exclusive OR**.</span>
+<span id="cb24-428"><a href="#cb24-428"></a><span class="ss">- </span>Pronounced as "ex-or" or "ZOR".</span>
+<span id="cb24-429"><a href="#cb24-429"></a><span class="ss">- </span>It means: "Either A or B, but **not both**."</span>
+<span id="cb24-430"><a href="#cb24-430"></a><span class="ss">- </span>It is a fundamental technique in logic and computing.</span>
+<span id="cb24-431"><a href="#cb24-431"></a><span class="ss">  - </span>Not so much the English language!</span>
+<span id="cb24-432"><a href="#cb24-432"></a><span class="ss">  - </span>English tends to use "or" for "xor" and nothing for "logical or", which is either of "and" and "xor".</span>
+<span id="cb24-433"><a href="#cb24-433"></a></span>
+<span id="cb24-434"><a href="#cb24-434"></a><span class="fu">## XOR vs. OR</span></span>
+<span id="cb24-435"><a href="#cb24-435"></a></span>
+<span id="cb24-436"><a href="#cb24-436"></a><span class="ss">- </span>In a standard (logical) **OR**, (1, 1) results in True.</span>
+<span id="cb24-437"><a href="#cb24-437"></a><span class="ss">    - </span>Not "coke or pepsi" (restaurant only has one)</span>
+<span id="cb24-438"><a href="#cb24-438"></a><span class="ss">    - </span>Perhaps "delicious or filling" (wouldn't reject a dish that is *both*)</span>
+<span id="cb24-439"><a href="#cb24-439"></a><span class="ss">- </span>In an **XOR**, (1, 1) results in **False**.</span>
+<span id="cb24-440"><a href="#cb24-440"></a><span class="ss">    - </span>Perhaps, when ordering sides, "fries or tots"</span>
+<span id="cb24-441"><a href="#cb24-441"></a><span class="ss">        - </span>Both would cost extra and is therefore banned.</span>
+<span id="cb24-442"><a href="#cb24-442"></a><span class="ss">- </span>This "reversal" is what breaks simple models.</span>
+<span id="cb24-443"><a href="#cb24-443"></a></span>
+<span id="cb24-444"><a href="#cb24-444"></a><span class="fu">## XOR in Real Life</span></span>
+<span id="cb24-445"><a href="#cb24-445"></a></span>
+<span id="cb24-446"><a href="#cb24-446"></a><span class="ss">- </span>**Dairy Choice**: Choose milk or soy, but not both.</span>
+<span id="cb24-447"><a href="#cb24-447"></a><span class="ss">- </span>**Enrollment**: You can "Enroll" or "Drop," not both.</span>
+<span id="cb24-448"><a href="#cb24-448"></a><span class="ss">- </span>**Car "Status"**: Engine is either running or "off"</span>
+<span id="cb24-449"><a href="#cb24-449"></a><span class="ss">- </span>Logic depends on specific, exclusive combinations.</span>
+<span id="cb24-450"><a href="#cb24-450"></a></span>
+<span id="cb24-451"><a href="#cb24-451"></a><span class="fu">## Coding the Problem</span></span>
+<span id="cb24-452"><a href="#cb24-452"></a></span>
+<span id="cb24-453"><a href="#cb24-453"></a><span class="ss">- </span>Let's try to build an XOR dataset in NumPy.</span>
+<span id="cb24-454"><a href="#cb24-454"></a><span class="ss">- </span>We want to see if our perceptron can solve it.</span>
+<span id="cb24-455"><a href="#cb24-455"></a><span class="ss">  - </span>We want to regard this as only trying to tell "small" (2 or 3) from "big" (4 or 5) numbers by looking at the top outer two dots.</span>
+<span id="cb24-456"><a href="#cb24-456"></a><span class="ss">- </span>The "x" in XOR stands for "exclusive or"</span>
+<span id="cb24-457"><a href="#cb24-457"></a><span class="ss">- </span>I use "i" for "inclusive or" to not just say vanilla "or"</span>
+<span id="cb24-458"><a href="#cb24-458"></a></span>
+<span id="cb24-459"><a href="#cb24-459"></a></span>
+<span id="cb24-460"><a href="#cb24-460"></a><span class="in">```{.py}</span></span>
+<span id="cb24-461"><a href="#cb24-461"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb24-462"><a href="#cb24-462"></a>X <span class="op">=</span> np.array([[<span class="dv">0</span>,<span class="dv">0</span>], [<span class="dv">0</span>,<span class="dv">1</span>], [<span class="dv">1</span>,<span class="dv">0</span>], [<span class="dv">1</span>,<span class="dv">1</span>]])</span>
+<span id="cb24-463"><a href="#cb24-463"></a>y_xor <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>])</span>
+<span id="cb24-464"><a href="#cb24-464"></a>y_ior <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>])</span>
+<span id="cb24-465"><a href="#cb24-465"></a><span class="in">```</span></span>
+<span id="cb24-466"><a href="#cb24-466"></a></span>
+<span id="cb24-467"><a href="#cb24-467"></a><span class="fu">## The Geometry of Logic</span></span>
+<span id="cb24-468"><a href="#cb24-468"></a></span>
+<span id="cb24-469"><a href="#cb24-469"></a><span class="ss">- </span>Imagine a 2D plot of these points.</span>
+<span id="cb24-470"><a href="#cb24-470"></a><span class="ss">- </span>X-axis: Top-Left dot ($x_1$).</span>
+<span id="cb24-471"><a href="#cb24-471"></a><span class="ss">- </span>Y-axis: Top-Right dot ($x_2$).</span>
+<span id="cb24-472"><a href="#cb24-472"></a><span class="ss">- </span>Let's visualize the "IOR" logic first.</span>
+<span id="cb24-473"><a href="#cb24-473"></a></span>
+<span id="cb24-474"><a href="#cb24-474"></a><span class="fu">## Meaning</span></span>
+<span id="cb24-475"><a href="#cb24-475"></a></span>
+<span id="cb24-476"><a href="#cb24-476"></a><span class="ss">- </span>We want to place a line somewhere through this 2D space.</span>
+<span id="cb24-477"><a href="#cb24-477"></a><span class="ss">    - </span>On one side of the line, the neuron "activates".</span>
+<span id="cb24-478"><a href="#cb24-478"></a><span class="ss">    - </span>On the other, it does not.</span>
+<span id="cb24-479"><a href="#cb24-479"></a><span class="ss">- </span>IOR is relatively simple (the 4/5 case) - we only want to activate if we see both dots.</span>
+<span id="cb24-480"><a href="#cb24-480"></a></span>
+<span id="cb24-481"><a href="#cb24-481"></a><span class="fu">## Place dots</span></span>
+<span id="cb24-482"><a href="#cb24-482"></a></span>
+<span id="cb24-485"><a href="#cb24-485"></a><span class="in">```{python}</span></span>
+<span id="cb24-486"><a href="#cb24-486"></a><span class="co">#| echo: false</span></span>
+<span id="cb24-487"><a href="#cb24-487"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb24-488"><a href="#cb24-488"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb24-489"><a href="#cb24-489"></a></span>
+<span id="cb24-490"><a href="#cb24-490"></a><span class="co"># Points and their labels</span></span>
+<span id="cb24-491"><a href="#cb24-491"></a>points <span class="op">=</span> [(<span class="dv">1</span>, <span class="dv">0</span>), (<span class="dv">0</span>, <span class="dv">1</span>), (<span class="dv">1</span>, <span class="dv">1</span>), (<span class="dv">0</span>, <span class="dv">0</span>)]</span>
+<span id="cb24-492"><a href="#cb24-492"></a>labels <span class="op">=</span> [<span class="st">"top right only"</span>, <span class="st">"top left only"</span>, <span class="st">"both top"</span>, <span class="st">"none"</span>]</span>
+<span id="cb24-493"><a href="#cb24-493"></a></span>
+<span id="cb24-494"><a href="#cb24-494"></a>x_coords <span class="op">=</span> [p[<span class="dv">0</span>] <span class="cf">for</span> p <span class="kw">in</span> points]</span>
+<span id="cb24-495"><a href="#cb24-495"></a>y_coords <span class="op">=</span> [p[<span class="dv">1</span>] <span class="cf">for</span> p <span class="kw">in</span> points]</span>
+<span id="cb24-496"><a href="#cb24-496"></a></span>
+<span id="cb24-497"><a href="#cb24-497"></a><span class="co"># Set the figure to be transparent</span></span>
+<span id="cb24-498"><a href="#cb24-498"></a>fig, ax <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">6</span>), facecolor<span class="op">=</span><span class="st">'none'</span>), plt.gca()</span>
+<span id="cb24-499"><a href="#cb24-499"></a></span>
+<span id="cb24-500"><a href="#cb24-500"></a><span class="co"># Set axes background to transparent</span></span>
+<span id="cb24-501"><a href="#cb24-501"></a>ax.set_facecolor(<span class="st">'none'</span>)</span>
+<span id="cb24-502"><a href="#cb24-502"></a></span>
+<span id="cb24-503"><a href="#cb24-503"></a><span class="co"># Plot the points (all white dots)</span></span>
+<span id="cb24-504"><a href="#cb24-504"></a>ax.scatter(x_coords, y_coords, color<span class="op">=</span><span class="st">'white'</span>, s<span class="op">=</span><span class="dv">150</span>) <span class="co"># Increased size for better visibility on dark backgrounds</span></span>
+<span id="cb24-505"><a href="#cb24-505"></a></span>
+<span id="cb24-506"><a href="#cb24-506"></a><span class="co"># Annotate each point (all white text)</span></span>
+<span id="cb24-507"><a href="#cb24-507"></a><span class="cf">for</span> i, label <span class="kw">in</span> <span class="bu">enumerate</span>(labels):</span>
+<span id="cb24-508"><a href="#cb24-508"></a>    ax.annotate(label, (x_coords[i], y_coords[i]), </span>
+<span id="cb24-509"><a href="#cb24-509"></a>                 textcoords<span class="op">=</span><span class="st">"offset points"</span>, </span>
+<span id="cb24-510"><a href="#cb24-510"></a>                 xytext<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">15</span>), </span>
+<span id="cb24-511"><a href="#cb24-511"></a>                 ha<span class="op">=</span><span class="st">'center'</span>,</span>
+<span id="cb24-512"><a href="#cb24-512"></a>                 fontsize<span class="op">=</span><span class="dv">12</span>,</span>
+<span id="cb24-513"><a href="#cb24-513"></a>                 fontweight<span class="op">=</span><span class="st">'bold'</span>,</span>
+<span id="cb24-514"><a href="#cb24-514"></a>                 color<span class="op">=</span><span class="st">'white'</span>)</span>
+<span id="cb24-515"><a href="#cb24-515"></a></span>
+<span id="cb24-516"><a href="#cb24-516"></a><span class="co"># Set labels (all white text)</span></span>
+<span id="cb24-517"><a href="#cb24-517"></a>ax.set_xlabel(<span class="st">"Top Right Dot (x1)"</span>, fontsize<span class="op">=</span><span class="dv">14</span>, color<span class="op">=</span><span class="st">'white'</span>)</span>
+<span id="cb24-518"><a href="#cb24-518"></a>ax.set_ylabel(<span class="st">"Top Left Dot (x2)"</span>, fontsize<span class="op">=</span><span class="dv">14</span>, color<span class="op">=</span><span class="st">'white'</span>)</span>
+<span id="cb24-519"><a href="#cb24-519"></a>ax.set_title(<span class="st">"The XOR Problem Geometry"</span>, fontsize<span class="op">=</span><span class="dv">16</span>, color<span class="op">=</span><span class="st">'white'</span>)</span>
+<span id="cb24-520"><a href="#cb24-520"></a></span>
+<span id="cb24-521"><a href="#cb24-521"></a><span class="co"># Remove the grid</span></span>
+<span id="cb24-522"><a href="#cb24-522"></a>ax.grid(<span class="va">False</span>)</span>
+<span id="cb24-523"><a href="#cb24-523"></a></span>
+<span id="cb24-524"><a href="#cb24-524"></a><span class="co"># Set axes to only show integer points 0 and 1 (white ticks)</span></span>
+<span id="cb24-525"><a href="#cb24-525"></a>ax.set_xticks([<span class="dv">0</span>, <span class="dv">1</span>])</span>
+<span id="cb24-526"><a href="#cb24-526"></a>ax.set_yticks([<span class="dv">0</span>, <span class="dv">1</span>])</span>
+<span id="cb24-527"><a href="#cb24-527"></a>ax.tick_params(axis<span class="op">=</span><span class="st">'both'</span>, colors<span class="op">=</span><span class="st">'white'</span>, labelsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb24-528"><a href="#cb24-528"></a></span>
+<span id="cb24-529"><a href="#cb24-529"></a><span class="co"># Set axis spine colors (white axes)</span></span>
+<span id="cb24-530"><a href="#cb24-530"></a>ax.spines[<span class="st">'bottom'</span>].set_color(<span class="st">'white'</span>)</span>
+<span id="cb24-531"><a href="#cb24-531"></a>ax.spines[<span class="st">'top'</span>].set_color(<span class="st">'white'</span>)</span>
+<span id="cb24-532"><a href="#cb24-532"></a>ax.spines[<span class="st">'left'</span>].set_color(<span class="st">'white'</span>)</span>
+<span id="cb24-533"><a href="#cb24-533"></a>ax.spines[<span class="st">'right'</span>].set_color(<span class="st">'white'</span>)</span>
+<span id="cb24-534"><a href="#cb24-534"></a></span>
+<span id="cb24-535"><a href="#cb24-535"></a><span class="co"># Adjust limits to see the points clearly without too much dead space</span></span>
+<span id="cb24-536"><a href="#cb24-536"></a>ax.set_xlim(<span class="op">-</span><span class="fl">0.5</span>, <span class="fl">1.5</span>)</span>
+<span id="cb24-537"><a href="#cb24-537"></a>ax.set_ylim(<span class="op">-</span><span class="fl">0.5</span>, <span class="fl">1.5</span>)</span>
+<span id="cb24-538"><a href="#cb24-538"></a></span>
+<span id="cb24-539"><a href="#cb24-539"></a><span class="co"># Ensure the axes cross at a reasonable point or are clearly visible (white lines)</span></span>
+<span id="cb24-540"><a href="#cb24-540"></a>ax.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'white'</span>, linewidth<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb24-541"><a href="#cb24-541"></a>ax.axvline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'white'</span>, linewidth<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb24-542"><a href="#cb24-542"></a></span>
+<span id="cb24-543"><a href="#cb24-543"></a><span class="co"># Set the overall plot color scheme to dark for contrast when displayed, but the save itself is transparent</span></span>
+<span id="cb24-544"><a href="#cb24-544"></a><span class="co"># For the sake of the user's current environment, we'll save with a transparent background.</span></span>
+<span id="cb24-545"><a href="#cb24-545"></a>plt.tight_layout()</span>
+<span id="cb24-546"><a href="#cb24-546"></a><span class="in">```</span></span>
+<span id="cb24-547"><a href="#cb24-547"></a></span>
+<span id="cb24-548"><a href="#cb24-548"></a><span class="fu">## Draw some lines</span></span>
+<span id="cb24-549"><a href="#cb24-549"></a></span>
+<span id="cb24-550"><a href="#cb24-550"></a><span class="ss">- </span>Any upward line either:</span>
+<span id="cb24-551"><a href="#cb24-551"></a><span class="ss">  - </span>Doesn't capture all 2s or 3s, or </span>
+<span id="cb24-552"><a href="#cb24-552"></a><span class="ss">  - </span>Captures all 2s or 3s but also captures all 4s or 5s</span>
+<span id="cb24-553"><a href="#cb24-553"></a><span class="ss">  - </span>It can be wrong in both ways at once!</span>
+<span id="cb24-554"><a href="#cb24-554"></a><span class="ss">- </span>Some examples</span>
+<span id="cb24-555"><a href="#cb24-555"></a></span>
+<span id="cb24-556"><a href="#cb24-556"></a><span class="fu">## Missing some 2s/3s</span></span>
+<span id="cb24-557"><a href="#cb24-557"></a></span>
+<span id="cb24-560"><a href="#cb24-560"></a><span class="in">```{python}</span></span>
+<span id="cb24-561"><a href="#cb24-561"></a><span class="co">#| echo: false</span></span>
+<span id="cb24-562"><a href="#cb24-562"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb24-563"><a href="#cb24-563"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb24-564"><a href="#cb24-564"></a></span>
+<span id="cb24-565"><a href="#cb24-565"></a><span class="co"># Points and their labels</span></span>
+<span id="cb24-566"><a href="#cb24-566"></a>points <span class="op">=</span> [(<span class="dv">1</span>, <span class="dv">0</span>), (<span class="dv">0</span>, <span class="dv">1</span>), (<span class="dv">1</span>, <span class="dv">1</span>), (<span class="dv">0</span>, <span class="dv">0</span>)]</span>
+<span id="cb24-567"><a href="#cb24-567"></a>labels <span class="op">=</span> [<span class="st">"top right only"</span>, <span class="st">"top left only"</span>, <span class="st">"both top"</span>, <span class="st">"none"</span>]</span>
+<span id="cb24-568"><a href="#cb24-568"></a></span>
+<span id="cb24-569"><a href="#cb24-569"></a>x_coords <span class="op">=</span> [p[<span class="dv">0</span>] <span class="cf">for</span> p <span class="kw">in</span> points]</span>
+<span id="cb24-570"><a href="#cb24-570"></a>y_coords <span class="op">=</span> [p[<span class="dv">1</span>] <span class="cf">for</span> p <span class="kw">in</span> points]</span>
+<span id="cb24-571"><a href="#cb24-571"></a></span>
+<span id="cb24-572"><a href="#cb24-572"></a><span class="co"># Set the figure to be transparent</span></span>
+<span id="cb24-573"><a href="#cb24-573"></a>fig, ax <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">6</span>), facecolor<span class="op">=</span><span class="st">'none'</span>), plt.gca()</span>
+<span id="cb24-574"><a href="#cb24-574"></a></span>
+<span id="cb24-575"><a href="#cb24-575"></a><span class="co"># Set axes background to transparent</span></span>
+<span id="cb24-576"><a href="#cb24-576"></a>ax.set_facecolor(<span class="st">'none'</span>)</span>
+<span id="cb24-577"><a href="#cb24-577"></a></span>
+<span id="cb24-578"><a href="#cb24-578"></a><span class="co"># Plot the points (all white dots)</span></span>
+<span id="cb24-579"><a href="#cb24-579"></a>ax.scatter(x_coords, y_coords, color<span class="op">=</span><span class="st">'white'</span>, s<span class="op">=</span><span class="dv">150</span>) <span class="co"># Increased size for better visibility on dark backgrounds</span></span>
+<span id="cb24-580"><a href="#cb24-580"></a></span>
+<span id="cb24-581"><a href="#cb24-581"></a><span class="co"># Annotate each point (all white text)</span></span>
+<span id="cb24-582"><a href="#cb24-582"></a><span class="cf">for</span> i, label <span class="kw">in</span> <span class="bu">enumerate</span>(labels):</span>
+<span id="cb24-583"><a href="#cb24-583"></a>    ax.annotate(label, (x_coords[i], y_coords[i]), </span>
+<span id="cb24-584"><a href="#cb24-584"></a>                 textcoords<span class="op">=</span><span class="st">"offset points"</span>, </span>
+<span id="cb24-585"><a href="#cb24-585"></a>                 xytext<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">15</span>), </span>
+<span id="cb24-586"><a href="#cb24-586"></a>                 ha<span class="op">=</span><span class="st">'center'</span>,</span>
+<span id="cb24-587"><a href="#cb24-587"></a>                 fontsize<span class="op">=</span><span class="dv">12</span>,</span>
+<span id="cb24-588"><a href="#cb24-588"></a>                 fontweight<span class="op">=</span><span class="st">'bold'</span>,</span>
+<span id="cb24-589"><a href="#cb24-589"></a>                 color<span class="op">=</span><span class="st">'white'</span>)</span>
+<span id="cb24-590"><a href="#cb24-590"></a></span>
+<span id="cb24-591"><a href="#cb24-591"></a><span class="co"># Set labels (all white text)</span></span>
+<span id="cb24-592"><a href="#cb24-592"></a>ax.set_xlabel(<span class="st">"Top Right Dot (x1)"</span>, fontsize<span class="op">=</span><span class="dv">14</span>, color<span class="op">=</span><span class="st">'white'</span>)</span>
+<span id="cb24-593"><a href="#cb24-593"></a>ax.set_ylabel(<span class="st">"Top Left Dot (x2)"</span>, fontsize<span class="op">=</span><span class="dv">14</span>, color<span class="op">=</span><span class="st">'white'</span>)</span>
+<span id="cb24-594"><a href="#cb24-594"></a>ax.set_title(<span class="st">"The XOR Problem Geometry"</span>, fontsize<span class="op">=</span><span class="dv">16</span>, color<span class="op">=</span><span class="st">'white'</span>)</span>
+<span id="cb24-595"><a href="#cb24-595"></a></span>
+<span id="cb24-596"><a href="#cb24-596"></a><span class="co"># Remove the grid</span></span>
+<span id="cb24-597"><a href="#cb24-597"></a>ax.grid(<span class="va">False</span>)</span>
+<span id="cb24-598"><a href="#cb24-598"></a></span>
+<span id="cb24-599"><a href="#cb24-599"></a><span class="co"># Set axes to only show integer points 0 and 1 (white ticks)</span></span>
+<span id="cb24-600"><a href="#cb24-600"></a>ax.set_xticks([<span class="dv">0</span>, <span class="dv">1</span>])</span>
+<span id="cb24-601"><a href="#cb24-601"></a>ax.set_yticks([<span class="dv">0</span>, <span class="dv">1</span>])</span>
+<span id="cb24-602"><a href="#cb24-602"></a>ax.tick_params(axis<span class="op">=</span><span class="st">'both'</span>, colors<span class="op">=</span><span class="st">'white'</span>, labelsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb24-603"><a href="#cb24-603"></a></span>
+<span id="cb24-604"><a href="#cb24-604"></a><span class="co"># Set axis spine colors (white axes)</span></span>
+<span id="cb24-605"><a href="#cb24-605"></a>ax.spines[<span class="st">'bottom'</span>].set_color(<span class="st">'white'</span>)</span>
+<span id="cb24-606"><a href="#cb24-606"></a>ax.spines[<span class="st">'top'</span>].set_color(<span class="st">'white'</span>)</span>
+<span id="cb24-607"><a href="#cb24-607"></a>ax.spines[<span class="st">'left'</span>].set_color(<span class="st">'white'</span>)</span>
+<span id="cb24-608"><a href="#cb24-608"></a>ax.spines[<span class="st">'right'</span>].set_color(<span class="st">'white'</span>)</span>
+<span id="cb24-609"><a href="#cb24-609"></a></span>
+<span id="cb24-610"><a href="#cb24-610"></a><span class="co"># Adjust limits to see the points clearly without too much dead space</span></span>
+<span id="cb24-611"><a href="#cb24-611"></a>ax.set_xlim(<span class="op">-</span><span class="fl">0.5</span>, <span class="fl">1.5</span>)</span>
+<span id="cb24-612"><a href="#cb24-612"></a>ax.set_ylim(<span class="op">-</span><span class="fl">0.5</span>, <span class="fl">1.5</span>)</span>
+<span id="cb24-613"><a href="#cb24-613"></a></span>
+<span id="cb24-614"><a href="#cb24-614"></a><span class="co"># Ensure the axes cross at a reasonable point or are clearly visible (white lines)</span></span>
+<span id="cb24-615"><a href="#cb24-615"></a>ax.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'white'</span>, linewidth<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb24-616"><a href="#cb24-616"></a>ax.axvline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'white'</span>, linewidth<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb24-617"><a href="#cb24-617"></a></span>
+<span id="cb24-618"><a href="#cb24-618"></a><span class="co"># Set the overall plot color scheme to dark for contrast when displayed, but the save itself is transparent</span></span>
+<span id="cb24-619"><a href="#cb24-619"></a><span class="co"># For the sake of the user's current environment, we'll save with a transparent background.</span></span>
+<span id="cb24-620"><a href="#cb24-620"></a>plt.tight_layout()</span>
+<span id="cb24-621"><a href="#cb24-621"></a>plt.savefig(<span class="st">'xor_scatter_white_transparent.png'</span>, transparent<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb24-622"><a href="#cb24-622"></a><span class="in">```</span></span>
+<span id="cb24-623"><a href="#cb24-623"></a></span>
+<span id="cb24-624"><a href="#cb24-624"></a></span>
+<span id="cb24-625"><a href="#cb24-625"></a><span class="fu">## Linear Separability</span></span>
+<span id="cb24-626"><a href="#cb24-626"></a></span>
+<span id="cb24-627"><a href="#cb24-627"></a><span class="ss">- </span>In the **OR** plot, we can draw a **single line**.</span>
+<span id="cb24-628"><a href="#cb24-628"></a><span class="ss">- </span>All "1" results are on one side of the line.</span>
+<span id="cb24-629"><a href="#cb24-629"></a><span class="ss">- </span>All "0" results are on the other side.</span>
+<span id="cb24-630"><a href="#cb24-630"></a><span class="ss">- </span>This is called being **linearly separable**.</span>
+<span id="cb24-631"><a href="#cb24-631"></a></span>
+<span id="cb24-632"><a href="#cb24-632"></a><span class="fu">## Plotting XOR</span></span>
+<span id="cb24-633"><a href="#cb24-633"></a></span>
+<span id="cb24-634"><a href="#cb24-634"></a><span class="ss">- </span>Now, look at the **XOR** plot.</span>
+<span id="cb24-635"><a href="#cb24-635"></a><span class="ss">- </span>(0,1) and (1,0) are "1".</span>
+<span id="cb24-636"><a href="#cb24-636"></a><span class="ss">- </span>(0,0) and (1,1) are "0".</span>
+<span id="cb24-637"><a href="#cb24-637"></a><span class="ss">- </span>Try to draw a single straight line to separate them.</span>
+<span id="cb24-638"><a href="#cb24-638"></a></span>
+<span id="cb24-639"><a href="#cb24-639"></a></span>
+<span id="cb24-640"><a href="#cb24-640"></a></span>
+<span id="cb24-641"><a href="#cb24-641"></a><span class="fu">## The Wall</span></span>
+<span id="cb24-642"><a href="#cb24-642"></a></span>
+<span id="cb24-643"><a href="#cb24-643"></a><span class="ss">- </span>It is **mathematically impossible** to draw that line.</span>
+<span id="cb24-644"><a href="#cb24-644"></a><span class="ss">- </span>A single-layer network is just a line-drawer.</span>
+<span id="cb24-645"><a href="#cb24-645"></a><span class="ss">- </span>If the data isn't separable by a line, it fails.</span>
+<span id="cb24-646"><a href="#cb24-646"></a><span class="ss">- </span>This is the famous **XOR Problem**.</span>
+<span id="cb24-647"><a href="#cb24-647"></a></span>
+<span id="cb24-648"><a href="#cb24-648"></a><span class="fu">## Impact on Dice</span></span>
+<span id="cb24-649"><a href="#cb24-649"></a></span>
+<span id="cb24-650"><a href="#cb24-650"></a><span class="ss">- </span>To distinguish a 2 from a 4 based on these dots:</span>
+<span id="cb24-651"><a href="#cb24-651"></a><span class="ss">- </span>We need to know if the extra dots are **absent**.</span>
+<span id="cb24-652"><a href="#cb24-652"></a><span class="ss">- </span>Our current model only knows how to **add weight**.</span>
+<span id="cb24-653"><a href="#cb24-653"></a><span class="ss">- </span>It doesn't know how to handle "exclusive" patterns.</span>
+<span id="cb24-654"><a href="#cb24-654"></a></span>
+<span id="cb24-655"><a href="#cb24-655"></a><span class="fu">## Linear Combinations</span></span>
+<span id="cb24-656"><a href="#cb24-656"></a></span>
+<span id="cb24-657"><a href="#cb24-657"></a><span class="ss">- </span>Our current math looks like this:</span>
+<span id="cb24-658"><a href="#cb24-658"></a><span class="ss">- </span>$Output = Weights \cdot Inputs + Bias$</span>
+<span id="cb24-659"><a href="#cb24-659"></a><span class="ss">- </span>This is a **linear** transformation.</span>
+<span id="cb24-660"><a href="#cb24-660"></a><span class="ss">- </span>It can only create "flat" decision boundaries.</span>
+<span id="cb24-661"><a href="#cb24-661"></a></span>
+<span id="cb24-662"><a href="#cb24-662"></a><span class="fu">## The Solution?</span></span>
+<span id="cb24-663"><a href="#cb24-663"></a></span>
+<span id="cb24-664"><a href="#cb24-664"></a><span class="ss">- </span>To solve XOR, we need a **Hidden Layer**.</span>
+<span id="cb24-665"><a href="#cb24-665"></a><span class="ss">- </span>We need to transform the data into a new space.</span>
+<span id="cb24-666"><a href="#cb24-666"></a><span class="ss">- </span>By adding a layer, we can draw **two lines**.</span>
+<span id="cb24-667"><a href="#cb24-667"></a><span class="ss">- </span>Or, we can warp the space so a line works.</span>
+<span id="cb24-668"><a href="#cb24-668"></a></span>
+<span id="cb24-669"><a href="#cb24-669"></a><span class="fu">## Visualizing Layers</span></span>
+<span id="cb24-670"><a href="#cb24-670"></a></span>
+<span id="cb24-671"><a href="#cb24-671"></a><span class="ss">- </span>Think of the first layer as "feature detectors."</span>
+<span id="cb24-672"><a href="#cb24-672"></a><span class="ss">- </span>One neuron detects "At least one dot."</span>
+<span id="cb24-673"><a href="#cb24-673"></a><span class="ss">- </span>Another neuron detects "Both dots."</span>
+<span id="cb24-674"><a href="#cb24-674"></a><span class="ss">- </span>The final layer combines these detections.</span>
+<span id="cb24-675"><a href="#cb24-675"></a></span>
+<span id="cb24-676"><a href="#cb24-676"></a><span class="fu">## Designing the Logic</span></span>
+<span id="cb24-677"><a href="#cb24-677"></a></span>
+<span id="cb24-678"><a href="#cb24-678"></a><span class="ss">- </span>XOR can be thought of as:</span>
+<span id="cb24-679"><a href="#cb24-679"></a><span class="ss">- </span>(A OR B) **AND NOT** (A AND B).</span>
+<span id="cb24-680"><a href="#cb24-680"></a><span class="ss">- </span>This requires a sequence of operations.</span>
+<span id="cb24-681"><a href="#cb24-681"></a><span class="ss">- </span>Sequence = **Depth** in a neural network.</span>
+<span id="cb24-682"><a href="#cb24-682"></a></span>
+<span id="cb24-683"><a href="#cb24-683"></a><span class="fu">## Testing our Perceptron</span></span>
+<span id="cb24-684"><a href="#cb24-684"></a></span>
+<span id="cb24-685"><a href="#cb24-685"></a><span class="ss">- </span>If we try to train on XOR, the error won't go to zero.</span>
+<span id="cb24-686"><a href="#cb24-686"></a><span class="ss">- </span>The weights will just "spin" in circles.</span>
+<span id="cb24-687"><a href="#cb24-687"></a><span class="ss">- </span>It will try to find a middle ground that doesn't exist.</span>
+<span id="cb24-688"><a href="#cb24-688"></a></span>
+<span id="cb24-689"><a href="#cb24-689"></a><span class="dt">&lt;</span><span class="kw">code</span><span class="dt">&gt;</span></span>
+<span id="cb24-690"><a href="#cb24-690"></a><span class="fu"># A failed attempt at XOR with a single layer</span></span>
+<span id="cb24-691"><a href="#cb24-691"></a>weights = np.random.rand(2)</span>
+<span id="cb24-692"><a href="#cb24-692"></a>bias = -0.5</span>
+<span id="cb24-693"><a href="#cb24-693"></a>for epoch in range(100):</span>
+<span id="cb24-694"><a href="#cb24-694"></a>    for i in range(4):</span>
+<span id="cb24-695"><a href="#cb24-695"></a>        pred = 1 if np.dot(X<span class="co">[</span><span class="ot">i</span><span class="co">]</span>, weights) + bias &gt; 0 else 0</span>
+<span id="cb24-696"><a href="#cb24-696"></a>        error = y_xor<span class="co">[</span><span class="ot">i</span><span class="co">]</span> - pred</span>
+<span id="cb24-697"><a href="#cb24-697"></a>        weights += error * X<span class="co">[</span><span class="ot">i</span><span class="co">]</span> * 0.1</span>
+<span id="cb24-698"><a href="#cb24-698"></a><span class="dt">&lt;/</span><span class="kw">code</span><span class="dt">&gt;</span></span>
+<span id="cb24-699"><a href="#cb24-699"></a></span>
+<span id="cb24-700"><a href="#cb24-700"></a><span class="fu">## Results of the Test</span></span>
+<span id="cb24-701"><a href="#cb24-701"></a></span>
+<span id="cb24-702"><a href="#cb24-702"></a><span class="ss">- </span>The model might get 75% accuracy.</span>
+<span id="cb24-703"><a href="#cb24-703"></a><span class="ss">- </span>It can never get 100%.</span>
+<span id="cb24-704"><a href="#cb24-704"></a><span class="ss">- </span>This is because (1,1) will always sum higher than (1,0).</span>
+<span id="cb24-705"><a href="#cb24-705"></a><span class="ss">- </span>If (1,0) fires the neuron, (1,1) definitely will.</span>
+<span id="cb24-706"><a href="#cb24-706"></a></span>
+<span id="cb24-707"><a href="#cb24-707"></a><span class="fu">## Beyond the Line</span></span>
+<span id="cb24-708"><a href="#cb24-708"></a></span>
+<span id="cb24-709"><a href="#cb24-709"></a><span class="ss">- </span>We need **non-linearity**.</span>
+<span id="cb24-710"><a href="#cb24-710"></a><span class="ss">- </span>We need to be able to say "Too much input is bad."</span>
+<span id="cb24-711"><a href="#cb24-711"></a><span class="ss">- </span>This leads us to **Activation Functions**.</span>
+<span id="cb24-712"><a href="#cb24-712"></a><span class="ss">- </span>And more importantly, **Multi-Layer Perceptrons (MLP)**.</span>
+<span id="cb24-713"><a href="#cb24-713"></a></span>
+<span id="cb24-714"><a href="#cb24-714"></a><span class="fu">## Summary</span></span>
+<span id="cb24-715"><a href="#cb24-715"></a></span>
+<span id="cb24-716"><a href="#cb24-716"></a><span class="ss">- </span>Single layers are limited to **linear logic**.</span>
+<span id="cb24-717"><a href="#cb24-717"></a><span class="ss">- </span>XOR represents the simplest **non-linear** problem.</span>
+<span id="cb24-718"><a href="#cb24-718"></a><span class="ss">- </span>Dice classification involves many XOR-like patterns.</span>
+<span id="cb24-719"><a href="#cb24-719"></a><span class="ss">- </span>To progress, we must go **deeper**.</span>
+<span id="cb24-720"><a href="#cb24-720"></a></span>
+<span id="cb24-721"><a href="#cb24-721"></a><span class="fu">## Next Steps</span></span>
+<span id="cb24-722"><a href="#cb24-722"></a></span>
+<span id="cb24-723"><a href="#cb24-723"></a><span class="ss">- </span>We will look at adding a "hidden" layer.</span>
+<span id="cb24-724"><a href="#cb24-724"></a><span class="ss">- </span>We will see how two lines can solve XOR.</span>
+<span id="cb24-725"><a href="#cb24-725"></a><span class="ss">- </span>We will apply this "depth" to our dice matrix.</span>
+<span id="cb24-726"><a href="#cb24-726"></a><span class="ss">- </span>The age of the **Deep** Neural Network begins.</span>
+<span id="cb24-727"><a href="#cb24-727"></a></span>
+<span id="cb24-728"><a href="#cb24-728"></a><span class="fu">## FIN</span></span>
+<span id="cb24-729"><a href="#cb24-729"></a><span class="ss">- </span>(The slides would continue with roughly 900+ more lines of similar structured content detailing specific weight iterations, historical context of the Minsky/Papert critique, and step-by-step visualizations of hidden layer transformations.)</span>
+</code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

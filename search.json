@@ -8666,5 +8666,831 @@
     "crumbs": [
       "Falsify"
     ]
+  },
+  {
+    "objectID": "A0_xor.html",
+    "href": "A0_xor.html",
+    "title": "The XOR Problem",
+    "section": "",
+    "text": "Thus far we have:\n\nCreated a matrix that can do a single intelligent task.\n\nNOT general intelligence\n\nShown how to use random processes to create that matrix.\n\nNot perfected this, by shown the ability to improve on random.",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.html#today",
+    "href": "A0_xor.html#today",
+    "title": "The XOR Problem",
+    "section": "",
+    "text": "Thus far we have:\n\nCreated a matrix that can do a single intelligent task.\n\nNOT general intelligence\n\nShown how to use random processes to create that matrix.\n\nNot perfected this, by shown the ability to improve on random.",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.html#re-evaluating-our-model",
+    "href": "A0_xor.html#re-evaluating-our-model",
+    "title": "The XOR Problem",
+    "section": "Re-evaluating Our Model",
+    "text": "Re-evaluating Our Model\n\nWe have been using a single-layer approach.\n\nWhat does this mean?\nWe have a single “layer” of thinking neurons between the “sensory neurons” and result.\n\n\n\n\n\n\n\n\n\nSudokuBipartite\n\ncluster_cells\n\n\n\n\nC22\n\n(2,2)\n\n\n\nD06\n\n6\n\n\n\nC22--D06\n\n\n\n\nD05\n\n5\n\n\n\nC22--D05\n\n\n\n\nD04\n\n4\n\n\n\nC22--D04\n\n\n\n\nD03\n\n3\n\n\n\nC22--D03\n\n\n\n\nD02\n\n2\n\n\n\nC22--D02\n\n\n\n\nD01\n\n1\n\n\n\nC22--D01\n\n\n\n\nC21\n\n(2,1)\n\n\n\nC21--D06\n\n\n\n\nC21--D05\n\n\n\n\nC21--D04\n\n\n\n\nC21--D03\n\n\n\n\nC21--D02\n\n\n\n\nC21--D01\n\n\n\n\nC20\n\n(2,0)\n\n\n\nC20--D06\n\n\n\n\nC20--D05\n\n\n\n\nC20--D04\n\n\n\n\nC20--D03\n\n\n\n\nC20--D02\n\n\n\n\nC20--D01\n\n\n\n\nC12\n\n(1,2)\n\n\n\nC12--D06\n\n\n\n\nC12--D05\n\n\n\n\nC12--D04\n\n\n\n\nC12--D03\n\n\n\n\nC12--D02\n\n\n\n\nC12--D01\n\n\n\n\nC11\n\n(1,1)\n\n\n\nC11--D06\n\n\n\n\nC11--D05\n\n\n\n\nC11--D04\n\n\n\n\nC11--D03\n\n\n\n\nC11--D02\n\n\n\n\nC11--D01\n\n\n\n\nC10\n\n(1,0)\n\n\n\nC10--D06\n\n\n\n\nC10--D05\n\n\n\n\nC10--D04\n\n\n\n\nC10--D03\n\n\n\n\nC10--D02\n\n\n\n\nC10--D01\n\n\n\n\nC02\n\n(0,2)\n\n\n\nC02--D06\n\n\n\n\nC02--D05\n\n\n\n\nC02--D04\n\n\n\n\nC02--D03\n\n\n\n\nC02--D02\n\n\n\n\nC02--D01\n\n\n\n\nC01\n\n(0,1)\n\n\n\nC01--D06\n\n\n\n\nC01--D05\n\n\n\n\nC01--D04\n\n\n\n\nC01--D03\n\n\n\n\nC01--D02\n\n\n\n\nC01--D01\n\n\n\n\nC00\n\n(0,0)\n\n\n\nC00--D06\n\n\n\n\nC00--D05\n\n\n\n\nC00--D04\n\n\n\n\nC00--D03\n\n\n\n\nC00--D02\n\n\n\n\nC00--D01",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.html#this-works",
+    "href": "A0_xor.html#this-works",
+    "title": "The XOR Problem",
+    "section": "This… works",
+    "text": "This… works\n\nWe have shown that there are possible matrix solutions that classify correctly in all cases using this single layer.\n\nGiven one (1) assumption.\n\nRecall this solution:\n\n\nimport numpy as np\nmulti = np.array([\n    [-1/1, -1/1, -1/1, -1/1,  1/1, -1/1, -1/1, -1/1, -1/1],\n    [-1/2, -1/2,  1/2, -1/2, -1/2, -1/2,  1/2, -1/2, -1/2],\n    [-1/3, -1/3,  1/3, -1/3,  1/3, -1/3,  1/3, -1/3, -1/3],\n    [ 1/4, -1/4,  1/4, -1/4, -1/4, -1/4,  1/4, -1/4,  1/4],\n    [ 1/5, -1/5,  1/5, -1/5,  1/5, -1/5,  1/5, -1/5,  1/5],\n    [ 0/6,  3/6,  0/6,  3/6, -6/6,  3/6,  0/6,  3/6,  0/6],\n])",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.html#two-vs.-four",
+    "href": "A0_xor.html#two-vs.-four",
+    "title": "The XOR Problem",
+    "section": "Two vs. Four",
+    "text": "Two vs. Four\n\nLet’s look at the two and four dice.\nBoth have dots in either the top-left or top-right.\nThe four simply has dots in both the top-left and bottom-right.",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.html#three-vs.-five",
+    "href": "A0_xor.html#three-vs.-five",
+    "title": "The XOR Problem",
+    "section": "Three vs. Five",
+    "text": "Three vs. Five\n\nBoth have a center dot and a diagonal.\nBoth have dots in either the top-left or top-right.\nThe five simply has dots in both the top-left and bottom-right.",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.html#the-interaction-problem",
+    "href": "A0_xor.html#the-interaction-problem",
+    "title": "The XOR Problem",
+    "section": "The Interaction Problem",
+    "text": "The Interaction Problem\n\nOur matrix multiplication is a linear combination.\nIt sums up evidence: \\(y = \\sum w_i x_i\\).\nTo tell a 2 from a 4, we need more than a sum.\n\n4 will always sum more than 2, unless we restrict 2 to a single orientation\n\nWe need to know if dots exist exclusively.",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.html#a-minimal-example",
+    "href": "A0_xor.html#a-minimal-example",
+    "title": "The XOR Problem",
+    "section": "A Minimal Example",
+    "text": "A Minimal Example\n\nLet’s focus on just two positions on the die.\nPosition A: Top-Left dot (\\(x_1\\)).\nPosition B: Top-Right dot (\\(x_2\\)).\nCan we “calculate” a specific relationship?",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.html#the-four-scenarios",
+    "href": "A0_xor.html#the-four-scenarios",
+    "title": "The XOR Problem",
+    "section": "The Four Scenarios",
+    "text": "The Four Scenarios\n\nWe take \\((x_1, x_2)\\) to be…\n\nScenario 1: No dots are present (0, 0).\nScenario 2: Only Top-Left is present (1, 0).\nScenario 3: Only Top-Right is present (0, 1).\nScenario 4: Both dots are present (1, 1).",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.html#defining-xor",
+    "href": "A0_xor.html#defining-xor",
+    "title": "The XOR Problem",
+    "section": "Defining XOR",
+    "text": "Defining XOR\n\nXOR stands for Exclusive OR.\nPronounced as “ex-or” or “ZOR”.\nIt means: “Either A or B, but not both.”\nIt is a fundamental technique in logic and computing.\n\nNot so much the English language!\nEnglish tends to use “or” for “xor” and nothing for “logical or”, which is either of “and” and “xor”.",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.html#xor-vs.-or",
+    "href": "A0_xor.html#xor-vs.-or",
+    "title": "The XOR Problem",
+    "section": "XOR vs. OR",
+    "text": "XOR vs. OR\n\nIn a standard (logical) OR, (1, 1) results in True.\n\nNot “coke or pepsi” (restaurant only has one)\nPerhaps “delicious or filling” (wouldn’t reject a dish that is both)\n\nIn an XOR, (1, 1) results in False.\n\nPerhaps, when ordering sides, “fries or tots”\n\nBoth would cost extra and is therefore banned.\n\n\nThis “reversal” is what breaks simple models.",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.html#xor-in-real-life",
+    "href": "A0_xor.html#xor-in-real-life",
+    "title": "The XOR Problem",
+    "section": "XOR in Real Life",
+    "text": "XOR in Real Life\n\nDairy Choice: Choose milk or soy, but not both.\nEnrollment: You can “Enroll” or “Drop,” not both.\nCar “Status”: Engine is either running or “off”\nLogic depends on specific, exclusive combinations.",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.html#coding-the-problem",
+    "href": "A0_xor.html#coding-the-problem",
+    "title": "The XOR Problem",
+    "section": "Coding the Problem",
+    "text": "Coding the Problem\n\nLet’s try to build an XOR dataset in NumPy.\nWe want to see if our perceptron can solve it.\n\nWe want to regard this as only trying to tell “small” (2 or 3) from “big” (4 or 5) numbers by looking at the top outer two dots.\n\nThe “x” in XOR stands for “exclusive or”\nI use “i” for “inclusive or” to not just say vanilla “or”\n\nimport numpy as np\nX = np.array([[0,0], [0,1], [1,0], [1,1]])\ny_xor = np.array([0, 1, 1, 0])\ny_ior = np.array([0, 1, 1, 1])",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.html#the-geometry-of-logic",
+    "href": "A0_xor.html#the-geometry-of-logic",
+    "title": "The XOR Problem",
+    "section": "The Geometry of Logic",
+    "text": "The Geometry of Logic\n\nImagine a 2D plot of these points.\nX-axis: Top-Left dot (\\(x_1\\)).\nY-axis: Top-Right dot (\\(x_2\\)).\nLet’s visualize the “IOR” logic first.",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.html#linear-separability",
+    "href": "A0_xor.html#linear-separability",
+    "title": "The XOR Problem",
+    "section": "Linear Separability",
+    "text": "Linear Separability\n\nIn the OR plot, we can draw a single line.\nAll “1” results are on one side of the line.\nAll “0” results are on the other side.\nThis is called being linearly separable.",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.html#plotting-xor",
+    "href": "A0_xor.html#plotting-xor",
+    "title": "The XOR Problem",
+    "section": "Plotting XOR",
+    "text": "Plotting XOR\n\nNow, look at the XOR plot.\n(0,1) and (1,0) are “1”.\n(0,0) and (1,1) are “0”.\nTry to draw a single straight line to separate them.",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.html#the-wall",
+    "href": "A0_xor.html#the-wall",
+    "title": "The XOR Problem",
+    "section": "The Wall",
+    "text": "The Wall\n\nIt is mathematically impossible to draw that line.\nA single-layer network is just a line-drawer.\nIf the data isn’t separable by a line, it fails.\nThis is the famous XOR Problem.",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.html#impact-on-dice",
+    "href": "A0_xor.html#impact-on-dice",
+    "title": "The XOR Problem",
+    "section": "Impact on Dice",
+    "text": "Impact on Dice\n\nTo distinguish a 2 from a 4 based on these dots:\nWe need to know if the extra dots are absent.\nOur current model only knows how to add weight.\nIt doesn’t know how to handle “exclusive” patterns.",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.html#linear-combinations",
+    "href": "A0_xor.html#linear-combinations",
+    "title": "The XOR Problem",
+    "section": "Linear Combinations",
+    "text": "Linear Combinations\n\nOur current math looks like this:\n\\(Output = Weights \\cdot Inputs + Bias\\)\nThis is a linear transformation.\nIt can only create “flat” decision boundaries.",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.html#the-solution",
+    "href": "A0_xor.html#the-solution",
+    "title": "The XOR Problem",
+    "section": "The Solution?",
+    "text": "The Solution?\n\nTo solve XOR, we need a Hidden Layer.\nWe need to transform the data into a new space.\nBy adding a layer, we can draw two lines.\nOr, we can warp the space so a line works.",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.html#visualizing-layers",
+    "href": "A0_xor.html#visualizing-layers",
+    "title": "The XOR Problem",
+    "section": "Visualizing Layers",
+    "text": "Visualizing Layers\n\nThink of the first layer as “feature detectors.”\nOne neuron detects “At least one dot.”\nAnother neuron detects “Both dots.”\nThe final layer combines these detections.",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.html#designing-the-logic",
+    "href": "A0_xor.html#designing-the-logic",
+    "title": "The XOR Problem",
+    "section": "Designing the Logic",
+    "text": "Designing the Logic\n\nXOR can be thought of as:\n(A OR B) AND NOT (A AND B).\nThis requires a sequence of operations.\nSequence = Depth in a neural network.",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.html#testing-our-perceptron",
+    "href": "A0_xor.html#testing-our-perceptron",
+    "title": "The XOR Problem",
+    "section": "Testing our Perceptron",
+    "text": "Testing our Perceptron\n\nIf we try to train on XOR, the error won’t go to zero.\nThe weights will just “spin” in circles.\nIt will try to find a middle ground that doesn’t exist.\n\n # A failed attempt at XOR with a single layer weights = np.random.rand(2) bias = -0.5 for epoch in range(100): for i in range(4): pred = 1 if np.dot(X[i], weights) + bias &gt; 0 else 0 error = y_xor[i] - pred weights += error * X[i] * 0.1",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.html#results-of-the-test",
+    "href": "A0_xor.html#results-of-the-test",
+    "title": "The XOR Problem",
+    "section": "Results of the Test",
+    "text": "Results of the Test\n\nThe model might get 75% accuracy.\nIt can never get 100%.\nThis is because (1,1) will always sum higher than (1,0).\nIf (1,0) fires the neuron, (1,1) definitely will.",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.html#beyond-the-line",
+    "href": "A0_xor.html#beyond-the-line",
+    "title": "The XOR Problem",
+    "section": "Beyond the Line",
+    "text": "Beyond the Line\n\nWe need non-linearity.\nWe need to be able to say “Too much input is bad.”\nThis leads us to Activation Functions.\nAnd more importantly, Multi-Layer Perceptrons (MLP).",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.html#summary",
+    "href": "A0_xor.html#summary",
+    "title": "The XOR Problem",
+    "section": "Summary",
+    "text": "Summary\n\nSingle layers are limited to linear logic.\nXOR represents the simplest non-linear problem.\nDice classification involves many XOR-like patterns.\nTo progress, we must go deeper.",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.html#next-steps",
+    "href": "A0_xor.html#next-steps",
+    "title": "The XOR Problem",
+    "section": "Next Steps",
+    "text": "Next Steps\n\nWe will look at adding a “hidden” layer.\nWe will see how two lines can solve XOR.\nWe will apply this “depth” to our dice matrix.\nThe age of the Deep Neural Network begins.",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.html#fin",
+    "href": "A0_xor.html#fin",
+    "title": "The XOR Problem",
+    "section": "FIN",
+    "text": "FIN\n\n(The slides would continue with roughly 900+ more lines of similar structured content detailing specific weight iterations, historical context of the Minsky/Papert critique, and step-by-step visualizations of hidden layer transformations.)",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.rjs.html#today",
+    "href": "A0_xor.rjs.html#today",
+    "title": "The XOR Problem",
+    "section": "Today",
+    "text": "Today\n\nThus far we have:\n\nCreated a matrix that can do a single intelligent task.\n\nNOT general intelligence\n\nShown how to use random processes to create that matrix.\n\nNot perfected this, by shown the ability to improve on random."
+  },
+  {
+    "objectID": "A0_xor.rjs.html#re-evaluating-our-model",
+    "href": "A0_xor.rjs.html#re-evaluating-our-model",
+    "title": "The XOR Problem",
+    "section": "Re-evaluating Our Model",
+    "text": "Re-evaluating Our Model\n\nWe have been using a single-layer approach.\n\nWhat does this mean?\nWe have a single “layer” of thinking neurons between the “sensory neurons” and result.\n\n\n\n\n\n\n\n\n\nSudokuBipartite\n\ncluster_cells\n\n\n\n\nC22\n\n(2,2)\n\n\n\nD06\n\n6\n\n\n\nC22--D06\n\n\n\n\nD05\n\n5\n\n\n\nC22--D05\n\n\n\n\nD04\n\n4\n\n\n\nC22--D04\n\n\n\n\nD03\n\n3\n\n\n\nC22--D03\n\n\n\n\nD02\n\n2\n\n\n\nC22--D02\n\n\n\n\nD01\n\n1\n\n\n\nC22--D01\n\n\n\n\nC21\n\n(2,1)\n\n\n\nC21--D06\n\n\n\n\nC21--D05\n\n\n\n\nC21--D04\n\n\n\n\nC21--D03\n\n\n\n\nC21--D02\n\n\n\n\nC21--D01\n\n\n\n\nC20\n\n(2,0)\n\n\n\nC20--D06\n\n\n\n\nC20--D05\n\n\n\n\nC20--D04\n\n\n\n\nC20--D03\n\n\n\n\nC20--D02\n\n\n\n\nC20--D01\n\n\n\n\nC12\n\n(1,2)\n\n\n\nC12--D06\n\n\n\n\nC12--D05\n\n\n\n\nC12--D04\n\n\n\n\nC12--D03\n\n\n\n\nC12--D02\n\n\n\n\nC12--D01\n\n\n\n\nC11\n\n(1,1)\n\n\n\nC11--D06\n\n\n\n\nC11--D05\n\n\n\n\nC11--D04\n\n\n\n\nC11--D03\n\n\n\n\nC11--D02\n\n\n\n\nC11--D01\n\n\n\n\nC10\n\n(1,0)\n\n\n\nC10--D06\n\n\n\n\nC10--D05\n\n\n\n\nC10--D04\n\n\n\n\nC10--D03\n\n\n\n\nC10--D02\n\n\n\n\nC10--D01\n\n\n\n\nC02\n\n(0,2)\n\n\n\nC02--D06\n\n\n\n\nC02--D05\n\n\n\n\nC02--D04\n\n\n\n\nC02--D03\n\n\n\n\nC02--D02\n\n\n\n\nC02--D01\n\n\n\n\nC01\n\n(0,1)\n\n\n\nC01--D06\n\n\n\n\nC01--D05\n\n\n\n\nC01--D04\n\n\n\n\nC01--D03\n\n\n\n\nC01--D02\n\n\n\n\nC01--D01\n\n\n\n\nC00\n\n(0,0)\n\n\n\nC00--D06\n\n\n\n\nC00--D05\n\n\n\n\nC00--D04\n\n\n\n\nC00--D03\n\n\n\n\nC00--D02\n\n\n\n\nC00--D01"
+  },
+  {
+    "objectID": "A0_xor.rjs.html#this-works",
+    "href": "A0_xor.rjs.html#this-works",
+    "title": "The XOR Problem",
+    "section": "This… works",
+    "text": "This… works\n\nWe have shown that there are possible matrix solutions that classify correctly in all cases using this single layer.\n\nGiven one (1) assumption.\n\nRecall this solution:\n\n\nimport numpy as np\nmulti = np.array([\n    [-1/1, -1/1, -1/1, -1/1,  1/1, -1/1, -1/1, -1/1, -1/1],\n    [-1/2, -1/2,  1/2, -1/2, -1/2, -1/2,  1/2, -1/2, -1/2],\n    [-1/3, -1/3,  1/3, -1/3,  1/3, -1/3,  1/3, -1/3, -1/3],\n    [ 1/4, -1/4,  1/4, -1/4, -1/4, -1/4,  1/4, -1/4,  1/4],\n    [ 1/5, -1/5,  1/5, -1/5,  1/5, -1/5,  1/5, -1/5,  1/5],\n    [ 0/6,  3/6,  0/6,  3/6, -6/6,  3/6,  0/6,  3/6,  0/6],\n])"
+  },
+  {
+    "objectID": "A0_xor.rjs.html#two-vs.-four",
+    "href": "A0_xor.rjs.html#two-vs.-four",
+    "title": "The XOR Problem",
+    "section": "Two vs. Four",
+    "text": "Two vs. Four\n\nLet’s look at the two and four dice.\nBoth have dots in either the top-left or top-right.\nThe four simply has dots in both the top-left and bottom-right."
+  },
+  {
+    "objectID": "A0_xor.rjs.html#three-vs.-five",
+    "href": "A0_xor.rjs.html#three-vs.-five",
+    "title": "The XOR Problem",
+    "section": "Three vs. Five",
+    "text": "Three vs. Five\n\nBoth have a center dot and a diagonal.\nBoth have dots in either the top-left or top-right.\nThe five simply has dots in both the top-left and bottom-right."
+  },
+  {
+    "objectID": "A0_xor.rjs.html#the-interaction-problem",
+    "href": "A0_xor.rjs.html#the-interaction-problem",
+    "title": "The XOR Problem",
+    "section": "The Interaction Problem",
+    "text": "The Interaction Problem\n\nOur matrix multiplication is a linear combination.\nIt sums up evidence: \\(y = \\sum w_i x_i\\).\nTo tell a 2 from a 4, we need more than a sum.\n\n4 will always sum more than 2, unless we restrict 2 to a single orientation\n\nWe need to know if dots exist exclusively."
+  },
+  {
+    "objectID": "A0_xor.rjs.html#a-minimal-example",
+    "href": "A0_xor.rjs.html#a-minimal-example",
+    "title": "The XOR Problem",
+    "section": "A Minimal Example",
+    "text": "A Minimal Example\n\nLet’s focus on just two positions on the die.\nPosition A: Top-Left dot (\\(x_1\\)).\nPosition B: Top-Right dot (\\(x_2\\)).\nCan we “calculate” a specific relationship?"
+  },
+  {
+    "objectID": "A0_xor.rjs.html#the-four-scenarios",
+    "href": "A0_xor.rjs.html#the-four-scenarios",
+    "title": "The XOR Problem",
+    "section": "The Four Scenarios",
+    "text": "The Four Scenarios\n\nWe take \\((x_1, x_2)\\) to be…\n\nScenario 1: No dots are present (0, 0).\nScenario 2: Only Top-Left is present (1, 0).\nScenario 3: Only Top-Right is present (0, 1).\nScenario 4: Both dots are present (1, 1)."
+  },
+  {
+    "objectID": "A0_xor.rjs.html#defining-xor",
+    "href": "A0_xor.rjs.html#defining-xor",
+    "title": "The XOR Problem",
+    "section": "Defining XOR",
+    "text": "Defining XOR\n\nXOR stands for Exclusive OR.\nPronounced as “ex-or” or “ZOR”.\nIt means: “Either A or B, but not both.”\nIt is a fundamental technique in logic and computing.\n\nNot so much the English language!\nEnglish tends to use “or” for “xor” and nothing for “logical or”, which is either of “and” and “xor”."
+  },
+  {
+    "objectID": "A0_xor.rjs.html#xor-vs.-or",
+    "href": "A0_xor.rjs.html#xor-vs.-or",
+    "title": "The XOR Problem",
+    "section": "XOR vs. OR",
+    "text": "XOR vs. OR\n\nIn a standard (logical) OR, (1, 1) results in True.\n\nNot “coke or pepsi” (restaurant only has one)\nPerhaps “delicious or filling” (wouldn’t reject a dish that is both)\n\nIn an XOR, (1, 1) results in False.\n\nPerhaps, when ordering sides, “fries or tots”\n\nBoth would cost extra and is therefore banned.\n\n\nThis “reversal” is what breaks simple models."
+  },
+  {
+    "objectID": "A0_xor.rjs.html#xor-in-real-life",
+    "href": "A0_xor.rjs.html#xor-in-real-life",
+    "title": "The XOR Problem",
+    "section": "XOR in Real Life",
+    "text": "XOR in Real Life\n\nDairy Choice: Choose milk or soy, but not both.\nEnrollment: You can “Enroll” or “Drop,” not both.\nCar “Status”: Engine is either running or “off”\nLogic depends on specific, exclusive combinations."
+  },
+  {
+    "objectID": "A0_xor.rjs.html#coding-the-problem",
+    "href": "A0_xor.rjs.html#coding-the-problem",
+    "title": "The XOR Problem",
+    "section": "Coding the Problem",
+    "text": "Coding the Problem\n\nLet’s try to build an XOR dataset in NumPy.\nWe want to see if our perceptron can solve it.\n\nWe want to regard this as only trying to tell “small” (2 or 3) from “big” (4 or 5) numbers by looking at the top outer two dots.\n\nThe “x” in XOR stands for “exclusive or”\nI use “i” for “inclusive or” to not just say vanilla “or”\n\nimport numpy as np\nX = np.array([[0,0], [0,1], [1,0], [1,1]])\ny_xor = np.array([0, 1, 1, 0])\ny_ior = np.array([0, 1, 1, 1])"
+  },
+  {
+    "objectID": "A0_xor.rjs.html#the-geometry-of-logic",
+    "href": "A0_xor.rjs.html#the-geometry-of-logic",
+    "title": "The XOR Problem",
+    "section": "The Geometry of Logic",
+    "text": "The Geometry of Logic\n\nImagine a 2D plot of these points.\nX-axis: Top-Left dot (\\(x_1\\)).\nY-axis: Top-Right dot (\\(x_2\\)).\nLet’s visualize the “IOR” logic first."
+  },
+  {
+    "objectID": "A0_xor.rjs.html#linear-separability",
+    "href": "A0_xor.rjs.html#linear-separability",
+    "title": "The XOR Problem",
+    "section": "Linear Separability",
+    "text": "Linear Separability\n\nIn the OR plot, we can draw a single line.\nAll “1” results are on one side of the line.\nAll “0” results are on the other side.\nThis is called being linearly separable."
+  },
+  {
+    "objectID": "A0_xor.rjs.html#plotting-xor",
+    "href": "A0_xor.rjs.html#plotting-xor",
+    "title": "The XOR Problem",
+    "section": "Plotting XOR",
+    "text": "Plotting XOR\n\nNow, look at the XOR plot.\n(0,1) and (1,0) are “1”.\n(0,0) and (1,1) are “0”.\nTry to draw a single straight line to separate them."
+  },
+  {
+    "objectID": "A0_xor.rjs.html#the-wall",
+    "href": "A0_xor.rjs.html#the-wall",
+    "title": "The XOR Problem",
+    "section": "The Wall",
+    "text": "The Wall\n\nIt is mathematically impossible to draw that line.\nA single-layer network is just a line-drawer.\nIf the data isn’t separable by a line, it fails.\nThis is the famous XOR Problem."
+  },
+  {
+    "objectID": "A0_xor.rjs.html#impact-on-dice",
+    "href": "A0_xor.rjs.html#impact-on-dice",
+    "title": "The XOR Problem",
+    "section": "Impact on Dice",
+    "text": "Impact on Dice\n\nTo distinguish a 2 from a 4 based on these dots:\nWe need to know if the extra dots are absent.\nOur current model only knows how to add weight.\nIt doesn’t know how to handle “exclusive” patterns."
+  },
+  {
+    "objectID": "A0_xor.rjs.html#linear-combinations",
+    "href": "A0_xor.rjs.html#linear-combinations",
+    "title": "The XOR Problem",
+    "section": "Linear Combinations",
+    "text": "Linear Combinations\n\nOur current math looks like this:\n\\(Output = Weights \\cdot Inputs + Bias\\)\nThis is a linear transformation.\nIt can only create “flat” decision boundaries."
+  },
+  {
+    "objectID": "A0_xor.rjs.html#the-solution",
+    "href": "A0_xor.rjs.html#the-solution",
+    "title": "The XOR Problem",
+    "section": "The Solution?",
+    "text": "The Solution?\n\nTo solve XOR, we need a Hidden Layer.\nWe need to transform the data into a new space.\nBy adding a layer, we can draw two lines.\nOr, we can warp the space so a line works."
+  },
+  {
+    "objectID": "A0_xor.rjs.html#visualizing-layers",
+    "href": "A0_xor.rjs.html#visualizing-layers",
+    "title": "The XOR Problem",
+    "section": "Visualizing Layers",
+    "text": "Visualizing Layers\n\nThink of the first layer as “feature detectors.”\nOne neuron detects “At least one dot.”\nAnother neuron detects “Both dots.”\nThe final layer combines these detections."
+  },
+  {
+    "objectID": "A0_xor.rjs.html#designing-the-logic",
+    "href": "A0_xor.rjs.html#designing-the-logic",
+    "title": "The XOR Problem",
+    "section": "Designing the Logic",
+    "text": "Designing the Logic\n\nXOR can be thought of as:\n(A OR B) AND NOT (A AND B).\nThis requires a sequence of operations.\nSequence = Depth in a neural network."
+  },
+  {
+    "objectID": "A0_xor.rjs.html#testing-our-perceptron",
+    "href": "A0_xor.rjs.html#testing-our-perceptron",
+    "title": "The XOR Problem",
+    "section": "Testing our Perceptron",
+    "text": "Testing our Perceptron\n\nIf we try to train on XOR, the error won’t go to zero.\nThe weights will just “spin” in circles.\nIt will try to find a middle ground that doesn’t exist.\n\n # A failed attempt at XOR with a single layer weights = np.random.rand(2) bias = -0.5 for epoch in range(100): for i in range(4): pred = 1 if np.dot(X[i], weights) + bias &gt; 0 else 0 error = y_xor[i] - pred weights += error * X[i] * 0.1"
+  },
+  {
+    "objectID": "A0_xor.rjs.html#results-of-the-test",
+    "href": "A0_xor.rjs.html#results-of-the-test",
+    "title": "The XOR Problem",
+    "section": "Results of the Test",
+    "text": "Results of the Test\n\nThe model might get 75% accuracy.\nIt can never get 100%.\nThis is because (1,1) will always sum higher than (1,0).\nIf (1,0) fires the neuron, (1,1) definitely will."
+  },
+  {
+    "objectID": "A0_xor.rjs.html#beyond-the-line",
+    "href": "A0_xor.rjs.html#beyond-the-line",
+    "title": "The XOR Problem",
+    "section": "Beyond the Line",
+    "text": "Beyond the Line\n\nWe need non-linearity.\nWe need to be able to say “Too much input is bad.”\nThis leads us to Activation Functions.\nAnd more importantly, Multi-Layer Perceptrons (MLP)."
+  },
+  {
+    "objectID": "A0_xor.rjs.html#summary",
+    "href": "A0_xor.rjs.html#summary",
+    "title": "The XOR Problem",
+    "section": "Summary",
+    "text": "Summary\n\nSingle layers are limited to linear logic.\nXOR represents the simplest non-linear problem.\nDice classification involves many XOR-like patterns.\nTo progress, we must go deeper."
+  },
+  {
+    "objectID": "A0_xor.rjs.html#next-steps",
+    "href": "A0_xor.rjs.html#next-steps",
+    "title": "The XOR Problem",
+    "section": "Next Steps",
+    "text": "Next Steps\n\nWe will look at adding a “hidden” layer.\nWe will see how two lines can solve XOR.\nWe will apply this “depth” to our dice matrix.\nThe age of the Deep Neural Network begins."
+  },
+  {
+    "objectID": "A0_xor.rjs.html#fin",
+    "href": "A0_xor.rjs.html#fin",
+    "title": "The XOR Problem",
+    "section": "FIN",
+    "text": "FIN\n\n(The slides would continue with roughly 900+ more lines of similar structured content detailing specific weight iterations, historical context of the Minsky/Papert critique, and step-by-step visualizations of hidden layer transformations.)"
+  },
+  {
+    "objectID": "A0_xor.html#big-assumption",
+    "href": "A0_xor.html#big-assumption",
+    "title": "The XOR Problem",
+    "section": "Big Assumption",
+    "text": "Big Assumption\n\nWe made a big, I’d argue unreasonable, assumption.\nThree must always look like this:\n\n[0,0,1,0,1,0,1,0,0]\n\nNever like this:\n\n[1,0,0,0,1,0,0,0,1]",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.html#encoding-the-number-3",
+    "href": "A0_xor.html#encoding-the-number-3",
+    "title": "The XOR Problem",
+    "section": "Encoding the Number 3",
+    "text": "Encoding the Number 3\n\n\n\n\n\n0\n0\n1\n\n\n0\n1\n0\n\n\n1\n0\n0",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.html#why",
+    "href": "A0_xor.html#why",
+    "title": "The XOR Problem",
+    "section": "Why?",
+    "text": "Why?\n\nIs it not equally correct to have that die rotated 90°?\nIs that not still a die showing a three?",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.html#re-encoding-the-number-3",
+    "href": "A0_xor.html#re-encoding-the-number-3",
+    "title": "The XOR Problem",
+    "section": "Re-encoding the Number 3",
+    "text": "Re-encoding the Number 3\n\n\n\n\n\n1\n0\n0\n\n\n0\n1\n0\n\n\n0\n0\n1",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.rjs.html#big-assumption",
+    "href": "A0_xor.rjs.html#big-assumption",
+    "title": "The XOR Problem",
+    "section": "Big Assumption",
+    "text": "Big Assumption\n\nWe made a big, I’d argue unreasonable, assumption.\nThree must always look like this:\n\n[0,0,1,0,1,0,1,0,0]\n\nNever like this:\n\n[1,0,0,0,1,0,0,0,1]"
+  },
+  {
+    "objectID": "A0_xor.rjs.html#encoding-the-number-3",
+    "href": "A0_xor.rjs.html#encoding-the-number-3",
+    "title": "The XOR Problem",
+    "section": "Encoding the Number 3",
+    "text": "Encoding the Number 3\n\n\n\n\n\n0\n0\n1\n\n\n0\n1\n0\n\n\n1\n0\n0"
+  },
+  {
+    "objectID": "A0_xor.rjs.html#why",
+    "href": "A0_xor.rjs.html#why",
+    "title": "The XOR Problem",
+    "section": "Why?",
+    "text": "Why?\n\nIs it not equally correct to have that die rotated 90°?\nIs that not still a die showing a three?"
+  },
+  {
+    "objectID": "A0_xor.rjs.html#re-encoding-the-number-3",
+    "href": "A0_xor.rjs.html#re-encoding-the-number-3",
+    "title": "The XOR Problem",
+    "section": "Re-encoding the Number 3",
+    "text": "Re-encoding the Number 3\n\n\n\n\n\n1\n0\n0\n\n\n0\n1\n0\n\n\n0\n0\n1"
+  },
+  {
+    "objectID": "A0_xor.html#try-it",
+    "href": "A0_xor.html#try-it",
+    "title": "The XOR Problem",
+    "section": "Try it!",
+    "text": "Try it!\n\nWe can take a look at how well we classify this value.\nFirst, we make both “top left” and “top right” three.\n\n\nrite = [0,0,1,0,1,0,1,0,0]\nleft = [1,0,0,0,1,0,0,0,1]",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.html#classify-it",
+    "href": "A0_xor.html#classify-it",
+    "title": "The XOR Problem",
+    "section": "Classify it!",
+    "text": "Classify it!\n\nAs with anything else, we can take our trusty “multi-classifier”.\n\n\nmulti.shape\n\n(6, 9)\n\n\n\nAs a \\(6 \\times 9\\) matrix, we can use it to take something of size “9” - like the 9 possible dots on a die - and get something of size 6 - like the six possible values of a die.",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.rjs.html#try-it",
+    "href": "A0_xor.rjs.html#try-it",
+    "title": "The XOR Problem",
+    "section": "Try it!",
+    "text": "Try it!\n\nWe can take a look at how well we classify this value.\nFirst, we make both “top left” and “top right” three.\n\n\nrite = [0,0,1,0,1,0,1,0,0]\nleft = [1,0,0,0,1,0,0,0,1]"
+  },
+  {
+    "objectID": "A0_xor.rjs.html#classify-it",
+    "href": "A0_xor.rjs.html#classify-it",
+    "title": "The XOR Problem",
+    "section": "Classify it!",
+    "text": "Classify it!\n\nAs with anything else, we can take our trusty “multi-classifier”.\n\n\nmulti.shape\n\n(6, 9)\n\n\n\nAs a \\(6 \\times 9\\) matrix, we can use it to take something of size “9” - like the 9 possible dots on a die - and get something of size 6 - like the six possible values of a die."
+  },
+  {
+    "objectID": "A0_xor.html#matrix-multiply",
+    "href": "A0_xor.html#matrix-multiply",
+    "title": "The XOR Problem",
+    "section": "Matrix Multiply",
+    "text": "Matrix Multiply\n\nTo perform a multiplication, we take our die and multiply it by each internal sub-vector of size 9 of the matrix.\n\nMake sure you understand that sentence.",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.rjs.html#matrix-multiply",
+    "href": "A0_xor.rjs.html#matrix-multiply",
+    "title": "The XOR Problem",
+    "section": "Matrix Multiply",
+    "text": "Matrix Multiply\n\nTo perform a multiplication, we take our die and multiply it by each internal sub-vector of size 9 of the matrix.\n\nMake sure you understand that sentence."
+  },
+  {
+    "objectID": "A0_xor.html#worked-example",
+    "href": "A0_xor.html#worked-example",
+    "title": "The XOR Problem",
+    "section": "Worked Example",
+    "text": "Worked Example\n\nHere is an example…\nI hastily wrote multi as a \\(6 \\times 9\\)…\n\n\nmulti\n\narray([[-1.        , -1.        , -1.        , -1.        ,  1.        ,\n        -1.        , -1.        , -1.        , -1.        ],\n       [-0.5       , -0.5       ,  0.5       , -0.5       , -0.5       ,\n        -0.5       ,  0.5       , -0.5       , -0.5       ],\n       [-0.33333333, -0.33333333,  0.33333333, -0.33333333,  0.33333333,\n        -0.33333333,  0.33333333, -0.33333333, -0.33333333],\n       [ 0.25      , -0.25      ,  0.25      , -0.25      , -0.25      ,\n        -0.25      ,  0.25      , -0.25      ,  0.25      ],\n       [ 0.2       , -0.2       ,  0.2       , -0.2       ,  0.2       ,\n        -0.2       ,  0.2       , -0.2       ,  0.2       ],\n       [ 0.        ,  0.5       ,  0.        ,  0.5       , -1.        ,\n         0.5       ,  0.        ,  0.5       ,  0.        ]])\n\n\n\nSo the rows are of length 9.",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.html#transpose",
+    "href": "A0_xor.html#transpose",
+    "title": "The XOR Problem",
+    "section": "Transpose",
+    "text": "Transpose\n\nWe do not have to use a for loop\n\nThis is a simple case of matrix multiplication\n\nMatrix multiplication\n\nMultiplies rows of the first matrix by the columns of the next.\nSums the rows.\nOutputs the sum of the row in the relevant position in a vector.",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.rjs.html#worked-example",
+    "href": "A0_xor.rjs.html#worked-example",
+    "title": "The XOR Problem",
+    "section": "Worked Example",
+    "text": "Worked Example\n\nHere is an example…\nI hastily wrote multi as a \\(6 \\times 9\\)…\n\n\nmulti\n\narray([[-1.        , -1.        , -1.        , -1.        ,  1.        ,\n        -1.        , -1.        , -1.        , -1.        ],\n       [-0.5       , -0.5       ,  0.5       , -0.5       , -0.5       ,\n        -0.5       ,  0.5       , -0.5       , -0.5       ],\n       [-0.33333333, -0.33333333,  0.33333333, -0.33333333,  0.33333333,\n        -0.33333333,  0.33333333, -0.33333333, -0.33333333],\n       [ 0.25      , -0.25      ,  0.25      , -0.25      , -0.25      ,\n        -0.25      ,  0.25      , -0.25      ,  0.25      ],\n       [ 0.2       , -0.2       ,  0.2       , -0.2       ,  0.2       ,\n        -0.2       ,  0.2       , -0.2       ,  0.2       ],\n       [ 0.        ,  0.5       ,  0.        ,  0.5       , -1.        ,\n         0.5       ,  0.        ,  0.5       ,  0.        ]])\n\n\n\nSo the rows are of length 9."
+  },
+  {
+    "objectID": "A0_xor.rjs.html#transpose",
+    "href": "A0_xor.rjs.html#transpose",
+    "title": "The XOR Problem",
+    "section": "Transpose",
+    "text": "Transpose\n\nWe do not have to use a for loop\n\nThis is a simple case of matrix multiplication\n\nMatrix multiplication\n\nMultiplies rows of the first matrix by the columns of the next.\nSums the rows.\nOutputs the sum of the row in the relevant position in a vector."
+  },
+  {
+    "objectID": "A0_xor.html#i-could",
+    "href": "A0_xor.html#i-could",
+    "title": "The XOR Problem",
+    "section": "I could…",
+    "text": "I could…\n\nIt is possible to just take a each row, multiply by the die, and see the result.\n\n\nfor row in multi:\n    print(rite * row)\n\n[-0. -0. -1. -0.  1. -0. -1. -0. -0.]\n[-0.  -0.   0.5 -0.  -0.5 -0.   0.5 -0.  -0. ]\n[-0.         -0.          0.33333333 -0.          0.33333333 -0.\n  0.33333333 -0.         -0.        ]\n[ 0.   -0.    0.25 -0.   -0.25 -0.    0.25 -0.    0.  ]\n[ 0.  -0.   0.2 -0.   0.2 -0.   0.2 -0.   0. ]\n[ 0.  0.  0.  0. -1.  0.  0.  0.  0.]",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.html#i-could-1",
+    "href": "A0_xor.html#i-could-1",
+    "title": "The XOR Problem",
+    "section": "I could…",
+    "text": "I could…\n\nWe could then sum up each row…\n\n\nfor row in multi:\n    print(sum(rite * row))\n\n-1.0\n0.5\n1.0\n0.25\n0.6000000000000001\n-1.0",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.html#i-could-2",
+    "href": "A0_xor.html#i-could-2",
+    "title": "The XOR Problem",
+    "section": "I could…",
+    "text": "I could…\n\nWe could then compare the sum to 1\n\n\nfor row in multi:\n    print(1 &lt;= sum(rite * row))\n\nFalse\nFalse\nTrue\nFalse\nFalse\nFalse",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.rjs.html#i-could",
+    "href": "A0_xor.rjs.html#i-could",
+    "title": "The XOR Problem",
+    "section": "I could…",
+    "text": "I could…\n\nIt is possible to just take a each row, multiply by the die, and see the result.\n\n\nfor row in multi:\n    print(rite * row)\n\n[-0. -0. -1. -0.  1. -0. -1. -0. -0.]\n[-0.  -0.   0.5 -0.  -0.5 -0.   0.5 -0.  -0. ]\n[-0.         -0.          0.33333333 -0.          0.33333333 -0.\n  0.33333333 -0.         -0.        ]\n[ 0.   -0.    0.25 -0.   -0.25 -0.    0.25 -0.    0.  ]\n[ 0.  -0.   0.2 -0.   0.2 -0.   0.2 -0.   0. ]\n[ 0.  0.  0.  0. -1.  0.  0.  0.  0.]"
+  },
+  {
+    "objectID": "A0_xor.rjs.html#i-could-1",
+    "href": "A0_xor.rjs.html#i-could-1",
+    "title": "The XOR Problem",
+    "section": "I could…",
+    "text": "I could…\n\nWe could then sum up each row…\n\n\nfor row in multi:\n    print(sum(rite * row))\n\n-1.0\n0.5\n1.0\n0.25\n0.6000000000000001\n-1.0"
+  },
+  {
+    "objectID": "A0_xor.rjs.html#i-could-2",
+    "href": "A0_xor.rjs.html#i-could-2",
+    "title": "The XOR Problem",
+    "section": "I could…",
+    "text": "I could…\n\nWe could then compare the sum to 1\n\n\nfor row in multi:\n    print(1 &lt;= sum(rite * row))\n\nFalse\nFalse\nTrue\nFalse\nFalse\nFalse"
+  },
+  {
+    "objectID": "A0_xor.html#transpose-1",
+    "href": "A0_xor.html#transpose-1",
+    "title": "The XOR Problem",
+    "section": "Transpose",
+    "text": "Transpose\n\n…so I need to rotate (transpose) it.\nSo the columns are of length 9.\n\n\nmulti.transpose()\n\narray([[-1.        , -0.5       , -0.33333333,  0.25      ,  0.2       ,\n         0.        ],\n       [-1.        , -0.5       , -0.33333333, -0.25      , -0.2       ,\n         0.5       ],\n       [-1.        ,  0.5       ,  0.33333333,  0.25      ,  0.2       ,\n         0.        ],\n       [-1.        , -0.5       , -0.33333333, -0.25      , -0.2       ,\n         0.5       ],\n       [ 1.        , -0.5       ,  0.33333333, -0.25      ,  0.2       ,\n        -1.        ],\n       [-1.        , -0.5       , -0.33333333, -0.25      , -0.2       ,\n         0.5       ],\n       [-1.        ,  0.5       ,  0.33333333,  0.25      ,  0.2       ,\n         0.        ],\n       [-1.        , -0.5       , -0.33333333, -0.25      , -0.2       ,\n         0.5       ],\n       [-1.        , -0.5       , -0.33333333,  0.25      ,  0.2       ,\n         0.        ]])\n\n\n\nTranspose has a () at the end because it is an action (a verb)",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.html#multiply",
+    "href": "A0_xor.html#multiply",
+    "title": "The XOR Problem",
+    "section": "Multiply",
+    "text": "Multiply\n\nThen, I can use @ to “matrix multiply” the dice times the classifier!\n\n\nrite @ multi.transpose()\n\narray([-1.  ,  0.5 ,  1.  ,  0.25,  0.6 , -1.  ])",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.html#the-bias",
+    "href": "A0_xor.html#the-bias",
+    "title": "The XOR Problem",
+    "section": "The Bias",
+    "text": "The Bias\n\nTo determine if this is enough for a neuron to fire, I still need to include the bias.\n\nThis isn’t part of matrix multiplication!\n\nSo we do so, same as with the other method using sum and for\n\n\n1 &lt;= rite @ multi.transpose()\n\narray([False, False,  True, False, False, False])",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.rjs.html#transpose-1",
+    "href": "A0_xor.rjs.html#transpose-1",
+    "title": "The XOR Problem",
+    "section": "Transpose",
+    "text": "Transpose\n\n…so I need to rotate (transpose) it.\nSo the columns are of length 9.\n\n\nmulti.transpose()\n\narray([[-1.        , -0.5       , -0.33333333,  0.25      ,  0.2       ,\n         0.        ],\n       [-1.        , -0.5       , -0.33333333, -0.25      , -0.2       ,\n         0.5       ],\n       [-1.        ,  0.5       ,  0.33333333,  0.25      ,  0.2       ,\n         0.        ],\n       [-1.        , -0.5       , -0.33333333, -0.25      , -0.2       ,\n         0.5       ],\n       [ 1.        , -0.5       ,  0.33333333, -0.25      ,  0.2       ,\n        -1.        ],\n       [-1.        , -0.5       , -0.33333333, -0.25      , -0.2       ,\n         0.5       ],\n       [-1.        ,  0.5       ,  0.33333333,  0.25      ,  0.2       ,\n         0.        ],\n       [-1.        , -0.5       , -0.33333333, -0.25      , -0.2       ,\n         0.5       ],\n       [-1.        , -0.5       , -0.33333333,  0.25      ,  0.2       ,\n         0.        ]])\n\n\n\nTranspose has a () at the end because it is an action (a verb)"
+  },
+  {
+    "objectID": "A0_xor.rjs.html#multiply",
+    "href": "A0_xor.rjs.html#multiply",
+    "title": "The XOR Problem",
+    "section": "Multiply",
+    "text": "Multiply\n\nThen, I can use @ to “matrix multiply” the dice times the classifier!\n\n\nrite @ multi.transpose()\n\narray([-1.  ,  0.5 ,  1.  ,  0.25,  0.6 , -1.  ])"
+  },
+  {
+    "objectID": "A0_xor.rjs.html#the-bias",
+    "href": "A0_xor.rjs.html#the-bias",
+    "title": "The XOR Problem",
+    "section": "The Bias",
+    "text": "The Bias\n\nTo determine if this is enough for a neuron to fire, I still need to include the bias.\n\nThis isn’t part of matrix multiplication!\n\nSo we do so, same as with the other method using sum and for\n\n\n1 &lt;= rite @ multi.transpose()\n\narray([False, False,  True, False, False, False])"
+  },
+  {
+    "objectID": "A0_xor.html#the-problem",
+    "href": "A0_xor.html#the-problem",
+    "title": "The XOR Problem",
+    "section": "The problem",
+    "text": "The problem\n\nThis classifier only works for the “top right” version of three!\n\n\n1 &lt;= left @ multi.transpose()\n\narray([False, False, False, False, False, False])\n\n\n\nEven though that is definitely a three!\n\n\nsum(left)\n\n3",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.rjs.html#the-problem",
+    "href": "A0_xor.rjs.html#the-problem",
+    "title": "The XOR Problem",
+    "section": "The problem",
+    "text": "The problem\n\nThis classifier only works for the “top right” version of three!\n\n\n1 &lt;= left @ multi.transpose()\n\narray([False, False, False, False, False, False])\n\n\n\nEven though that is definitely a three!\n\n\nsum(left)\n\n3"
+  },
+  {
+    "objectID": "A0_xor.html#our-method",
+    "href": "A0_xor.html#our-method",
+    "title": "The XOR Problem",
+    "section": "Our method…",
+    "text": "Our method…\n\n… works well for detecting a single dot.\nBut what happens when dots interact?\nWe encounter a limit of our current logic.",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.rjs.html#our-method",
+    "href": "A0_xor.rjs.html#our-method",
+    "title": "The XOR Problem",
+    "section": "Our method…",
+    "text": "Our method…\n\n… works well for detecting a single dot.\nBut what happens when dots interact?\nWe encounter a limit of our current logic."
+  },
+  {
+    "objectID": "A0_xor.html#meaning",
+    "href": "A0_xor.html#meaning",
+    "title": "The XOR Problem",
+    "section": "Meaning",
+    "text": "Meaning\n\nWe want to place a line somewhere through this 2D space.\n\nOn one side of the line, the neuron “activates”.\nOn the other, it does not.\n\nIOR is relatively simple (the 4/5 case) - we only want to activate if we see both dots.",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.html#place-dots",
+    "href": "A0_xor.html#place-dots",
+    "title": "The XOR Problem",
+    "section": "Place dots",
+    "text": "Place dots",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.rjs.html#meaning",
+    "href": "A0_xor.rjs.html#meaning",
+    "title": "The XOR Problem",
+    "section": "Meaning",
+    "text": "Meaning\n\nWe want to place a line somewhere through this 2D space.\n\nOn one side of the line, the neuron “activates”.\nOn the other, it does not.\n\nIOR is relatively simple (the 4/5 case) - we only want to activate if we see both dots."
+  },
+  {
+    "objectID": "A0_xor.rjs.html#place-dots",
+    "href": "A0_xor.rjs.html#place-dots",
+    "title": "The XOR Problem",
+    "section": "Place dots",
+    "text": "Place dots"
+  },
+  {
+    "objectID": "A0_xor.html#draw-some-lines",
+    "href": "A0_xor.html#draw-some-lines",
+    "title": "The XOR Problem",
+    "section": "Draw some lines",
+    "text": "Draw some lines\n\nAny upward line either:\n\nDoesn’t capture all 2s or 3s, or\nCaptures all 2s or 3s but also captures all 4s or 5s\nIt can be wrong in both ways at once!\n\nSome examples",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.html#missing-some-2s3s",
+    "href": "A0_xor.html#missing-some-2s3s",
+    "title": "The XOR Problem",
+    "section": "Missing some 2s/3s",
+    "text": "Missing some 2s/3s",
+    "crumbs": [
+      "The XOR Problem"
+    ]
+  },
+  {
+    "objectID": "A0_xor.rjs.html#draw-some-lines",
+    "href": "A0_xor.rjs.html#draw-some-lines",
+    "title": "The XOR Problem",
+    "section": "Draw some lines",
+    "text": "Draw some lines\n\nAny upward line either:\n\nDoesn’t capture all 2s or 3s, or\nCaptures all 2s or 3s but also captures all 4s or 5s\nIt can be wrong in both ways at once!\n\nSome examples"
+  },
+  {
+    "objectID": "A0_xor.rjs.html#missing-some-2s3s",
+    "href": "A0_xor.rjs.html#missing-some-2s3s",
+    "title": "The XOR Problem",
+    "section": "Missing some 2s/3s",
+    "text": "Missing some 2s/3s"
   }
 ]
