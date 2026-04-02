@@ -437,6 +437,8 @@ y_xor = np.array([0, 1, 1, 0])
 y_ior = np.array([0, 1, 1, 1])
 ```
 
+# Linearity
+
 ## The Geometry of Logic
 
 - Imagine a 2D plot of these points.
@@ -746,6 +748,8 @@ plt.tight_layout()
 - $Output = Weights \cdot Inputs + Bias$
 - This is a **linear** transformation.
 - It can only create "flat" decision boundaries.
+
+# Layers
 
 ## The Solution?
 
@@ -1124,4 +1128,30 @@ np.array([0,1]) @ top_layer.transpose()
 1 <= (1 <= np.array([0,1]) @ top_layer.transpose()) @ bot_layer.transpose()
 ```
 
-## 
+- Is this what we would expect?
+    - Yes!
+    - There is *exactly* one dot.
+    - There is *at least* one dot.
+
+## Test 'em all
+
+- Check this out:
+
+```{python}
+for pair in x:
+    print(pair, 1 <= (1 <= np.array(pair) @ top_layer.transpose()) @ bot_layer.transpose())
+```
+
+- *We can tell 2s/3s (middle) from 4s/5s (bottom)!*
+
+# Summary
+
+## What we learned
+
+- You can't do everything with a single matrix.
+- It seems an awful lot like you can do *anything* by stacking them.
+- Stacking isn't too bad:
+    - Multiplty, then
+    - Check activations.
+
+# Fin
