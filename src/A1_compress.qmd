@@ -1,0 +1,143 @@
+---
+title: Compression
+format: html
+---
+
+# Background
+
+## Connections
+
+In lecture we have now shown the ability to classify without looking at all of the data.
+
+- We differentiate odds from evens looking at a single dot.
+- We differentiate 2s/3s from 4s/5s looking at only two dots.
+
+This raises the question: Do we really need to consider all 9 dots?
+
+
+## Definitions
+
+- Today, we will work with *code cells* of Colab to create a multi-layer perceptron that classifies dice while only looking at *some* of the dots.
+	- Five, to be precise.
+
+## Setup
+
+## The Dice
+
+- You will need a code cell that includes at least the following:
+  - Same as last time but we now add `owt` and `rht` - which are `two` and `thr` backwards, spectively.
+
+```{python}
+import numpy as np
+one = [0,0,0,0,1,0,0,0,0]
+two = [0,0,1,0,0,0,1,0,0]
+owt = [1,0,0,0,0,0,0,0,1]
+thr = [0,0,1,0,1,0,1,0,0]
+rht = [1,0,0,0,1,0,0,0,1]
+fou = [1,0,1,0,0,0,1,0,1]
+fiv = [1,0,1,0,1,0,1,0,1]
+six = [1,0,1,1,0,1,1,0,1]
+dice = np.array([one, two, owt, thr, rht, fou, fiv, six])
+```
+
+- We will take just the first 5 values - the full top row, and the first two values in the middle row - only.
+	- To do so, we will use the location or indexing notation we used previously with `enumerate`.
+	  	- Include some numerical value within box brackets `[]` after the name of the vector.
+		- Here we will be much more complex, using ranges that include multiple values in multiple dimensions.
+		- You don't need to know how to write this yourself, but I want to show it to you in case you see it from e.g. Gemini.
+
+```{python}
+compress = dice[:,:5]
+print(compress)
+```
+  
+- What this does is takes a sub-matrix `[:,:6]`
+  	- `:` is used to give a range, like from position 4 until position 7 as `4:7`
+	- When given with no leading or trailing value, the minimum or maximum location in a matrix is used.
+	- So `[:,:]` would mean all rows, all columns.
+	- `[:,:5]` means "all rows" and "first five columns".
+	- So this is just the first five values of every row.
+
+
+### The Neural Network
+
+- We previously made a neural network with random "edge weights".
+
+```{python}
+learn = np.random.rand(6,9)
+```
+
+- This martix is the wrong size *and* shape.
+  	- It would need to be transposed, and...
+	- Is not configured to see only 5 dots per row.
+
+```{python}
+learn = np.random.rand(5,6)
+print(learn)
+```
+
+- Also, while it is the case that the *last* layer should produce a vector of length six, it is not not neccesarily the case the the *first* layer should produce a vector of length six.
+	- Though it must *accept* a vector of length five.
+
+
+```{python}
+top = np.random.rand(5,4)
+print(top)
+```
+
+- Then the *next* (presumably final) layer must accept whatever the output size of the previous layer was, and produce a vector of length 6.
+
+```{python}
+bot = np.random.rand(4,6)
+print(bot)
+```
+
+- These can be amicably multiplied.
+
+```{python}
+for die in compress:
+	print(1 <= (1 <= die @ top) @ bot)
+```
+
+- You do not need to make or use a random matrix (training a multi-layer perceptron is out-of-scope for this term, but not too bad), rather we will have you work to create one yourself.
+
+
+- It should look like this:
+  - Basically the same as last week, but...
+  - Now we have two each of two-encoding and three-encoding die.
+  - Eight die in total.
+
+```{python}
+key = np.array([
+       [ True, False, False, False, False, False],
+       [False,  True, False, False, False, False],
+       [False,  True, False, False, False, False],
+       [False, False,  True, False, False, False],
+       [False, False,  True, False, False, False],
+       [False, False, False,  True, False, False],
+       [False, False, False, False,  True, False],
+       [False, False, False, False, False,  True]
+])
+```
+
+# Your Task
+
+## Steps
+
+- Construct two matrices.
+  - One top layer
+  - One bot layer
+- The top layer must be of size 5 by $x$
+- The bot layer must be of size $x$ by 6.
+	- You may use any $x$ value you like.
+- Ensure that when multiplied, you correctly classify all die in `compress`.
+
+## Final Product
+
+- You should have a Colab document which, when run:
+    - Contains the compressed die.
+    - Contains top and bot layers that you wrote.
+    - Performs the multiplications to classify each of the compressed die.
+    - Either is correct in all cases (same as `key`), or
+    - Has a note of 1000 words explaining what you tried, why, and why it didn't work.
+- I plan to show my solution Monday.
