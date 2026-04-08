@@ -6,8 +6,8 @@
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.25">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-a4a11d514c7d463668e07712114998e6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.6.30">
 
   <title>AI 101 – Learning</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -28,9 +28,8 @@
       vertical-align: middle;
     }
     /* CSS for syntax highlighting */
-    html { -webkit-text-size-adjust: 100%; }
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -41,7 +40,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -63,7 +62,7 @@
     pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
     }
     code span { color: #f8f8f2; } /* Normal */
-    code span.al { color: #f07178; } /* Alert */
+    code span.al { color: #f07178; background-color: #2a0f15; font-weight: bold; } /* Alert */
     code span.an { color: #d4d0ab; } /* Annotation */
     code span.at { color: #00e0e0; } /* Attribute */
     code span.bn { color: #d4d0ab; } /* BaseN */
@@ -94,11 +93,209 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #dcc6e0; } /* Warning */
   </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-327cab17de08e4a17faa7d61f48ae591.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-83ff8eaca933b935d6975c751fe501e4.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
+
+  </style>
   <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
@@ -211,14 +408,14 @@
 <section id="setup" class="slide level2">
 <h2>Setup</h2>
 <div id="c9a46da7" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a></a>one <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>]</span>
 <span id="cb1-3"><a></a>two <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>]</span>
 <span id="cb1-4"><a></a>thr <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>]</span>
 <span id="cb1-5"><a></a>fou <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>]</span>
 <span id="cb1-6"><a></a>fiv <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>]</span>
 <span id="cb1-7"><a></a>six <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>]</span>
-<span id="cb1-8"><a></a>dice <span class="op">=</span> np.array([one, two, thr, fou, fiv, six])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-8"><a></a>dice <span class="op">=</span> np.array([one, two, thr, fou, fiv, six])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section>
@@ -265,7 +462,7 @@
 </ul></li>
 </ul>
 <div id="e94dc554" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>is_one_vector <span class="op">=</span> np.array([<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>is_one_vector <span class="op">=</span> np.array([<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="compare" class="slide level2">
@@ -274,7 +471,7 @@
 <li>Find out which die we have in a single line using vector arithmetic.</li>
 </ul>
 <div id="41a951f2" class="cell" data-execution_count="4">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="dv">0</span> <span class="op">&lt;</span> np.<span class="bu">sum</span>(dice <span class="op">*</span> is_one_vector, <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="dv">0</span> <span class="op">&lt;</span> np.<span class="bu">sum</span>(dice <span class="op">*</span> is_one_vector, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3252">
 <pre><code>array([ True, False, False, False, False, False])</code></pre>
 </div>
@@ -299,8 +496,8 @@
 <li>We would start with <code>fiv</code></li>
 </ul>
 <div id="a0ca0a6c" class="cell" data-execution_count="5">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a>fiv <span class="op">=</span> np.array(fiv)</span>
-<span id="cb5-2"><a></a>fiv</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a>fiv <span class="op">=</span> np.array(fiv)</span>
+<span id="cb5-2"><a></a>fiv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3253">
 <pre><code>array([1, 0, 1, 0, 1, 0, 1, 0, 1])</code></pre>
 </div>
@@ -309,7 +506,7 @@
 <li>We would want to get back something with a <code>1</code> in the fiveth position, and zeroes elsewhere.</li>
 </ul>
 <div id="b36dbc60" class="cell" data-execution_count="6">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>[<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>,]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>[<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3254">
 <pre><code>[0, 0, 0, 0, 1, 0]</code></pre>
 </div>
@@ -321,14 +518,14 @@
 <li>This matrix is the <em>precise</em> matrix made in the lab.</li>
 </ul>
 <div id="8410eed5" class="cell" data-execution_count="7">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a>multi <span class="op">=</span> np.array([</span>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a>multi <span class="op">=</span> np.array([</span>
 <span id="cb9-2"><a></a>    [<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>],</span>
 <span id="cb9-3"><a></a>    [<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>],</span>
 <span id="cb9-4"><a></a>    [<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>],</span>
 <span id="cb9-5"><a></a>    [ <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>],</span>
 <span id="cb9-6"><a></a>    [ <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>],</span>
 <span id="cb9-7"><a></a>    [ <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>, <span class="op">-</span><span class="dv">6</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>],</span>
-<span id="cb9-8"><a></a>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb9-8"><a></a>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="compare-to-1" class="slide level2">
@@ -337,7 +534,7 @@
 <li>Once again, we can simply by just seeing if there’s enough “weight” to make a neuron fire, or not.</li>
 </ul>
 <div id="42742def" class="cell" data-execution_count="8">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="dv">1</span> <span class="op">&lt;=</span> np.<span class="bu">sum</span>(fiv <span class="op">*</span> multi,<span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="dv">1</span> <span class="op">&lt;=</span> np.<span class="bu">sum</span>(fiv <span class="op">*</span> multi,<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3256">
 <pre><code>array([False, False, False, False,  True, False])</code></pre>
 </div>
@@ -357,7 +554,7 @@
 <li>Is this intelligent:</li>
 </ul>
 <div id="ecd8a944" class="cell" data-execution_count="9">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a><span class="bu">print</span>(multi)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a><span class="bu">print</span>(multi)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[-1.         -1.         -1.         -1.          1.         -1.
   -1.         -1.         -1.        ]
@@ -1354,14 +1551,14 @@
 <li>Then, we note that we can express these weights in a matrix.</li>
 </ul>
 <div id="a4c58825" class="cell" data-execution_count="10">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a>multi <span class="op">=</span> np.array([</span>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a>multi <span class="op">=</span> np.array([</span>
 <span id="cb14-2"><a></a>    [<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>],</span>
 <span id="cb14-3"><a></a>    [<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>],</span>
 <span id="cb14-4"><a></a>    [<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>],</span>
 <span id="cb14-5"><a></a>    [ <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>],</span>
 <span id="cb14-6"><a></a>    [ <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>],</span>
 <span id="cb14-7"><a></a>    [ <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>, <span class="op">-</span><span class="dv">6</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>],</span>
-<span id="cb14-8"><a></a>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb14-8"><a></a>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="simpler" class="slide level2">
@@ -1369,14 +1566,14 @@
 <ul>
 <li>Trying to make this easier to see and think about.</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a>multi <span class="op">=</span> np.array([</span>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a>multi <span class="op">=</span> np.array([</span>
 <span id="cb15-2"><a></a>    [ <span class="dv">0</span>,  <span class="dv">0</span>,  <span class="dv">0</span>,  <span class="dv">0</span>,  <span class="dv">1</span>,  <span class="dv">0</span>,  <span class="dv">0</span>,  <span class="dv">0</span>,  <span class="dv">0</span>],</span>
 <span id="cb15-3"><a></a>    ...</span>
 <span id="cb15-4"><a></a>    [ <span class="dv">0</span>,  <span class="dv">0</span>, <span class="fl">.3</span>,  <span class="dv">0</span>, <span class="fl">.3</span>,  <span class="dv">0</span>, <span class="fl">.3</span>,  <span class="dv">0</span>,  <span class="dv">0</span>],</span>
 <span id="cb15-5"><a></a>    ...</span>
 <span id="cb15-6"><a></a>    [<span class="fl">.2</span>,  <span class="dv">0</span>, <span class="fl">.2</span>,  <span class="dv">0</span>, <span class="fl">.2</span>,  <span class="dv">0</span>, <span class="fl">.2</span>,  <span class="dv">0</span>, <span class="fl">.2</span>],</span>
 <span id="cb15-7"><a></a>    ...</span>
-<span id="cb15-8"><a></a>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb15-8"><a></a>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section></section>
 <section>
 <section id="learning" class="title-slide slide level1 center">
@@ -1389,14 +1586,14 @@
 <li>I claim this is <em>not</em> intelligent, though it can do an intelligent task (vision).</li>
 </ul>
 <div id="d28a8d84" class="cell" data-execution_count="11">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a>multi <span class="op">=</span> np.array([</span>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a>multi <span class="op">=</span> np.array([</span>
 <span id="cb16-2"><a></a>    [<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>],</span>
 <span id="cb16-3"><a></a>    [<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>],</span>
 <span id="cb16-4"><a></a>    [<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>],</span>
 <span id="cb16-5"><a></a>    [ <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>],</span>
 <span id="cb16-6"><a></a>    [ <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>],</span>
 <span id="cb16-7"><a></a>    [ <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>, <span class="op">-</span><span class="dv">6</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>],</span>
-<span id="cb16-8"><a></a>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb16-8"><a></a>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>Rather, <em>I</em> am intelligent, since I made it.</li>
@@ -1408,7 +1605,7 @@
 <li>I do, however, claim, that this is pretty close to being intelligent:</li>
 </ul>
 <div id="55a23c7c" class="cell" data-execution_count="12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a><span class="dv">1</span> <span class="op">&lt;=</span> np.<span class="bu">sum</span>(fiv <span class="op">*</span> multi,<span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a><span class="dv">1</span> <span class="op">&lt;=</span> np.<span class="bu">sum</span>(fiv <span class="op">*</span> multi,<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3260">
 <pre><code>array([False, False, False, False,  True, False])</code></pre>
 </div>
@@ -1462,14 +1659,14 @@
 <li>We started with this:</li>
 </ul>
 <div id="627e5e24" class="cell" data-execution_count="13">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a>multi <span class="op">=</span> np.array([</span>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a>multi <span class="op">=</span> np.array([</span>
 <span id="cb19-2"><a></a>    [<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>],</span>
 <span id="cb19-3"><a></a>    [<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>],</span>
 <span id="cb19-4"><a></a>    [<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>],</span>
 <span id="cb19-5"><a></a>    [ <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>],</span>
 <span id="cb19-6"><a></a>    [ <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>],</span>
 <span id="cb19-7"><a></a>    [ <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>, <span class="op">-</span><span class="dv">6</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>],</span>
-<span id="cb19-8"><a></a>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb19-8"><a></a>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="size" class="slide level2">
@@ -1483,7 +1680,7 @@
 <li>We used a <span class="math inline">\(9 \times 6\)</span> matrix.</li>
 </ul>
 <div id="cb346111" class="cell" data-execution_count="14">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a></a>multi.shape</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a></a>multi.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3262">
 <pre><code>(6, 9)</code></pre>
 </div>
@@ -1501,7 +1698,7 @@
 <li>We use <code>np.random.rand</code> and tell it what shape we want.</li>
 </ul>
 <div id="46decfcd" class="cell" data-execution_count="15">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a></a>learn <span class="op">=</span> np.random.rand(<span class="dv">6</span>,<span class="dv">9</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a></a>learn <span class="op">=</span> np.random.rand(<span class="dv">6</span>,<span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="view-it" class="slide level2">
@@ -1513,7 +1710,7 @@
 </ul></li>
 </ul>
 <div id="34de664c" class="cell" data-execution_count="16">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a><span class="bu">print</span>(learn)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a><span class="bu">print</span>(learn)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[0.13819755 0.858514   0.89387389 0.97953215 0.95078702 0.91339183
   0.55505456 0.05400497 0.76328784]
@@ -1538,8 +1735,8 @@
 <li>Mine:</li>
 </ul>
 <div id="4068f735" class="cell" data-execution_count="17">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a></a><span class="cf">for</span> die <span class="kw">in</span> dice:</span>
-<span id="cb25-2"><a></a>    <span class="bu">print</span>(<span class="dv">1</span> <span class="op">&lt;=</span> np.<span class="bu">sum</span>(die <span class="op">*</span> multi,<span class="dv">1</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a></a><span class="cf">for</span> die <span class="kw">in</span> dice:</span>
+<span id="cb25-2"><a></a>    <span class="bu">print</span>(<span class="dv">1</span> <span class="op">&lt;=</span> np.<span class="bu">sum</span>(die <span class="op">*</span> multi,<span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[ True False False False False False]
 [False  True False False False False]
@@ -1554,8 +1751,8 @@
 <li>Random:</li>
 </ul>
 <div id="c9116c91" class="cell" data-execution_count="18">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a></a><span class="cf">for</span> die <span class="kw">in</span> dice:</span>
-<span id="cb27-2"><a></a>    <span class="bu">print</span>(<span class="dv">1</span> <span class="op">&lt;=</span> np.<span class="bu">sum</span>(die <span class="op">*</span> learn,<span class="dv">1</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a></a><span class="cf">for</span> die <span class="kw">in</span> dice:</span>
+<span id="cb27-2"><a></a>    <span class="bu">print</span>(<span class="dv">1</span> <span class="op">&lt;=</span> np.<span class="bu">sum</span>(die <span class="op">*</span> learn,<span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[False False False False False False]
 [ True False  True  True False  True]
@@ -1606,8 +1803,8 @@
 <li>This is the answer:</li>
 </ul>
 <div id="6719db1e" class="cell" data-execution_count="19">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a></a><span class="cf">for</span> die <span class="kw">in</span> dice:</span>
-<span id="cb29-2"><a></a>    <span class="bu">print</span>(<span class="dv">1</span> <span class="op">&lt;=</span> np.<span class="bu">sum</span>(die <span class="op">*</span> multi,<span class="dv">1</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a></a><span class="cf">for</span> die <span class="kw">in</span> dice:</span>
+<span id="cb29-2"><a></a>    <span class="bu">print</span>(<span class="dv">1</span> <span class="op">&lt;=</span> np.<span class="bu">sum</span>(die <span class="op">*</span> multi,<span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[ True False False False False False]
 [False  True False False False False]
@@ -1624,7 +1821,7 @@
 <li>I make an answer key quickly.</li>
 </ul>
 <div id="f70f6022" class="cell" data-execution_count="20">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a></a><span class="dv">1</span> <span class="op">&lt;=</span> dice <span class="op">@</span> multi.transpose()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a></a><span class="dv">1</span> <span class="op">&lt;=</span> dice <span class="op">@</span> multi.transpose()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3268">
 <pre><code>array([[ True, False, False, False, False, False],
        [False,  True, False, False, False, False],
@@ -1642,7 +1839,7 @@
 </ul></li>
 </ul>
 <div id="fdd81773" class="cell" data-execution_count="21">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a></a>key <span class="op">=</span> <span class="dv">1</span> <span class="op">&lt;=</span> dice <span class="op">@</span> multi.transpose()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a></a>key <span class="op">=</span> <span class="dv">1</span> <span class="op">&lt;=</span> dice <span class="op">@</span> multi.transpose()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="compare-1" class="slide level2">
@@ -1652,7 +1849,7 @@
 <li>We use <code>np.equal</code> to compare all of the matrix positions to see if they are equal.</li>
 </ul>
 <div id="efc6cf34" class="cell" data-execution_count="22">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a></a>np.equal(key, <span class="dv">1</span> <span class="op">&lt;=</span> dice <span class="op">@</span> learn.transpose())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a></a>np.equal(key, <span class="dv">1</span> <span class="op">&lt;=</span> dice <span class="op">@</span> learn.transpose())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3270">
 <pre><code>array([[False,  True,  True,  True,  True,  True],
        [False, False, False, False,  True, False],
@@ -1689,7 +1886,7 @@
 <li>We started with this:</li>
 </ul>
 <div id="afd5794f" class="cell" data-execution_count="23">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a></a>dice</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a></a>dice</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3271">
 <pre><code>array([[0, 0, 0, 0, 1, 0, 0, 0, 0],
        [0, 0, 1, 0, 0, 0, 1, 0, 0],
@@ -1707,9 +1904,9 @@
 <li>I frustrating have to transpose there and back to get the multiplication to work…</li>
 </ul>
 <div id="1c905c1d" class="cell" data-execution_count="24">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a></a>divider <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]).reshape(<span class="dv">1</span>,<span class="dv">6</span>)</span>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a></a>divider <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]).reshape(<span class="dv">1</span>,<span class="dv">6</span>)</span>
 <span id="cb38-2"><a></a>fair_dice <span class="op">=</span> (dice.transpose() <span class="op">/</span> divider).transpose()</span>
-<span id="cb38-3"><a></a>fair_dice</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb38-3"><a></a>fair_dice</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3272">
 <pre><code>array([[0.        , 0.        , 0.        , 0.        , 1.        ,
         0.        , 0.        , 0.        , 0.        ],
@@ -1732,7 +1929,7 @@
 <li>These should make the random guessing more, well, random…</li>
 </ul>
 <div id="d4f1f7fa" class="cell" data-execution_count="25">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a></a>np.equal(key, <span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a></a>np.equal(key, <span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3273">
 <pre><code>array([[False,  True,  True,  True,  True,  True],
        [ True, False,  True,  True,  True,  True],
@@ -1768,7 +1965,7 @@
 <li>Then we’ll loop - using <code>for</code> - over all the classifications and update accordingly.</li>
 </ul>
 <div id="a84b88f0" class="cell" data-execution_count="26">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a></a>backup <span class="op">=</span> learn.copy()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a></a>backup <span class="op">=</span> learn.copy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="steps" class="slide level2">
@@ -1783,8 +1980,8 @@
 </ul>
 </div><div class="column" style="width:50%;">
 <div id="3926e522" class="cell" data-execution_count="27">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a></a>grade <span class="op">=</span> np.equal(key, <span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose())</span>
-<span id="cb43-2"><a></a><span class="bu">print</span>(grade)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a></a>grade <span class="op">=</span> np.equal(key, <span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose())</span>
+<span id="cb43-2"><a></a><span class="bu">print</span>(grade)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[False  True  True  True  True  True]
  [ True False  True  True  True  True]
@@ -1811,9 +2008,9 @@
 </ul>
 </div><div class="column" style="width:50%;">
 <div id="112abd30" class="cell" data-execution_count="28">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a></a>grade <span class="op">=</span> np.equal(key, <span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose())</span>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a></a>grade <span class="op">=</span> np.equal(key, <span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose())</span>
 <span id="cb45-2"><a></a><span class="cf">for</span> row <span class="kw">in</span> grade:</span>
-<span id="cb45-3"><a></a>    <span class="bu">print</span>(row)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb45-3"><a></a>    <span class="bu">print</span>(row)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[False  True  True  True  True  True]
 [ True False  True  True  True  True]
@@ -1836,10 +2033,10 @@
 </ul>
 </div><div class="column" style="width:50%;">
 <div id="69e699b4" class="cell" data-execution_count="29">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a></a>grade <span class="op">=</span> np.equal(key, <span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose())</span>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a></a>grade <span class="op">=</span> np.equal(key, <span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose())</span>
 <span id="cb47-2"><a></a><span class="cf">for</span> row <span class="kw">in</span> grade:</span>
 <span id="cb47-3"><a></a>    <span class="cf">for</span> correct <span class="kw">in</span> row:</span>
-<span id="cb47-4"><a></a>        <span class="bu">print</span>(correct)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb47-4"><a></a>        <span class="bu">print</span>(correct)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>False
 True
@@ -1896,11 +2093,11 @@ False</code></pre>
 </ul>
 </div><div class="column" style="width:50%;">
 <div id="e4e4ac4b" class="cell" data-execution_count="30">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a></a>grade <span class="op">=</span> np.equal(key, <span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose())</span>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a></a>grade <span class="op">=</span> np.equal(key, <span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose())</span>
 <span id="cb49-2"><a></a><span class="cf">for</span> row <span class="kw">in</span> grade:</span>
 <span id="cb49-3"><a></a>    <span class="cf">for</span> correct <span class="kw">in</span> row:</span>
 <span id="cb49-4"><a></a>        <span class="cf">if</span> correct:</span>
-<span id="cb49-5"><a></a>            <span class="bu">print</span>(<span class="st">"What goes here?"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb49-5"><a></a>            <span class="bu">print</span>(<span class="st">"What goes here?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>What goes here?
 What goes here?
@@ -1956,8 +2153,8 @@ What goes here?</code></pre>
 <li>We can use the special <code>enumerate</code> function to get back a row and its location with in the matrix.</li>
 </ul>
 <div id="6ed391a7" class="cell" data-execution_count="31">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a></a><span class="cf">for</span> loc, row <span class="kw">in</span> <span class="bu">enumerate</span>(grade):</span>
-<span id="cb51-2"><a></a>    <span class="bu">print</span>(<span class="st">"Location is"</span>, loc, <span class="st">"and row is"</span>, row)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a></a><span class="cf">for</span> loc, row <span class="kw">in</span> <span class="bu">enumerate</span>(grade):</span>
+<span id="cb51-2"><a></a>    <span class="bu">print</span>(<span class="st">"Location is"</span>, loc, <span class="st">"and row is"</span>, row)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Location is 0 and row is [False  True  True  True  True  True]
 Location is 1 and row is [ True False  True  True  True  True]
@@ -1974,8 +2171,8 @@ Location is 5 and row is [ True  True  True  True  True False]</code></pre>
 <li>We can use the special <code>[]</code> notation to look up the part of the learning matrix that corresponds to the same row.</li>
 </ul>
 <div id="546e30c7" class="cell" data-execution_count="32">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a></a><span class="cf">for</span> loc, row <span class="kw">in</span> <span class="bu">enumerate</span>(grade):</span>
-<span id="cb53-2"><a></a>    <span class="bu">print</span>(<span class="st">"Location is"</span>, loc, <span class="st">"and row is"</span>, row, <span class="st">"and weights are"</span>, learn[loc])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a></a><span class="cf">for</span> loc, row <span class="kw">in</span> <span class="bu">enumerate</span>(grade):</span>
+<span id="cb53-2"><a></a>    <span class="bu">print</span>(<span class="st">"Location is"</span>, loc, <span class="st">"and row is"</span>, row, <span class="st">"and weights are"</span>, learn[loc])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Location is 0 and row is [False  True  True  True  True  True] and weights are [0.13819755 0.858514   0.89387389 0.97953215 0.95078702 0.91339183
  0.55505456 0.05400497 0.76328784]
@@ -2007,11 +2204,11 @@ Location is 5 and row is [ True  True  True  True  True False] and weights are [
 </ul>
 </div><div class="column" style="width:50%;">
 <div id="e0126e03" class="cell" data-execution_count="33">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a></a>grade <span class="op">=</span> np.equal(key, <span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose())</span>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a></a>grade <span class="op">=</span> np.equal(key, <span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose())</span>
 <span id="cb55-2"><a></a><span class="cf">for</span> loc, row <span class="kw">in</span> <span class="bu">enumerate</span>(grade):</span>
 <span id="cb55-3"><a></a>    <span class="cf">for</span> correct <span class="kw">in</span> row:</span>
 <span id="cb55-4"><a></a>        <span class="cf">if</span> correct:</span>
-<span id="cb55-5"><a></a>            learn[loc] <span class="op">*</span> <span class="fl">1.1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb55-5"><a></a>            learn[loc] <span class="op">*</span> <span class="fl">1.1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div></div>
 </section>
@@ -2023,7 +2220,7 @@ Location is 5 and row is [ True  True  True  True  True False] and weights are [
 <li>Old (“<code>backup</code>”)</li>
 </ul>
 <div id="1d1c311f" class="cell" data-execution_count="34">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a></a>np.equal(key, <span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> backup.transpose())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a></a>np.equal(key, <span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> backup.transpose())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3282">
 <pre><code>array([[False,  True,  True,  True,  True,  True],
        [ True, False,  True,  True,  True,  True],
@@ -2038,7 +2235,7 @@ Location is 5 and row is [ True  True  True  True  True False] and weights are [
 <li>New (“<code>learn</code>”)</li>
 </ul>
 <div id="625681c8" class="cell" data-execution_count="35">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a></a>np.equal(key, <span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a></a>np.equal(key, <span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3283">
 <pre><code>array([[False,  True,  True,  True,  True,  True],
        [ True, False,  True,  True,  True,  True],
@@ -2058,7 +2255,7 @@ Location is 5 and row is [ True  True  True  True  True False] and weights are [
 <li>We don’t want to mix different experiments together.</li>
 </ul>
 <div id="ccde4b8c" class="cell" data-execution_count="36">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a></a>learn <span class="op">=</span> backup.copy()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a></a>learn <span class="op">=</span> backup.copy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="steps-5" class="slide level2">
@@ -2080,21 +2277,21 @@ Location is 5 and row is [ True  True  True  True  True False] and weights are [
 </ul>
 </div><div class="column" style="width:50%;">
 <div id="cf056075" class="cell" data-execution_count="37">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a></a>learn <span class="op">=</span> backup.copy()</span>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a></a>learn <span class="op">=</span> backup.copy()</span>
 <span id="cb61-2"><a></a>grade <span class="op">=</span> np.equal(key, <span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose())</span>
 <span id="cb61-3"><a></a><span class="cf">for</span> loc, row <span class="kw">in</span> <span class="bu">enumerate</span>(grade):</span>
 <span id="cb61-4"><a></a>    <span class="cf">for</span> correct <span class="kw">in</span> row:</span>
 <span id="cb61-5"><a></a>        <span class="cf">if</span> correct:</span>
 <span id="cb61-6"><a></a>            learn[loc] <span class="op">=</span> learn[loc] <span class="op">*</span> <span class="fl">1.1</span></span>
 <span id="cb61-7"><a></a>        <span class="cf">else</span>: </span>
-<span id="cb61-8"><a></a>            learn[loc] <span class="op">=</span> learn[loc] <span class="op">*</span> <span class="fl">.9</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb61-8"><a></a>            learn[loc] <span class="op">=</span> learn[loc] <span class="op">*</span> <span class="fl">.9</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div></div>
 </section>
 <section id="better" class="slide level2">
 <h2>Better?</h2>
 <div id="9b2b3af6" class="cell" data-execution_count="38">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a></a>(<span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose()) <span class="op">+</span> <span class="dv">0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a></a>(<span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose()) <span class="op">+</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3286">
 <pre><code>array([[1, 0, 0, 0, 1, 0],
        [1, 0, 1, 0, 0, 1],
@@ -2139,7 +2336,7 @@ Location is 5 and row is [ True  True  True  True  True False] and weights are [
 </ul>
 </div><div class="column" style="width:50%;">
 <div id="e82fa4fc" class="cell" data-execution_count="39">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a></a>learn <span class="op">=</span> backup.copy()</span>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a></a>learn <span class="op">=</span> backup.copy()</span>
 <span id="cb64-2"><a></a>grade <span class="op">=</span> np.equal(key, <span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose())</span>
 <span id="cb64-3"><a></a><span class="cf">for</span> loc, row <span class="kw">in</span> <span class="bu">enumerate</span>(grade):</span>
 <span id="cb64-4"><a></a>    <span class="cf">for</span> correct <span class="kw">in</span> row:</span>
@@ -2147,7 +2344,7 @@ Location is 5 and row is [ True  True  True  True  True False] and weights are [
 <span id="cb64-6"><a></a>            learn[loc] <span class="op">=</span> learn[loc] <span class="op">+</span> dice[loc]</span>
 <span id="cb64-7"><a></a>        <span class="cf">else</span>: </span>
 <span id="cb64-8"><a></a>            learn[loc] <span class="op">=</span> learn[loc] <span class="op">-</span> dice[loc]</span>
-<span id="cb64-9"><a></a>(<span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose()) <span class="op">+</span> <span class="dv">0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb64-9"><a></a>(<span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose()) <span class="op">+</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3287">
 <pre><code>array([[1, 0, 1, 0, 1, 0],
        [0, 1, 1, 1, 1, 1],
@@ -2175,7 +2372,7 @@ Location is 5 and row is [ True  True  True  True  True False] and weights are [
 <div class="columns">
 <div class="column" style="width:33%;">
 <div id="d5b4fa28" class="cell" data-execution_count="40">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a></a>(<span class="dv">3</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose()) <span class="op">+</span> <span class="dv">0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a></a>(<span class="dv">3</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose()) <span class="op">+</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3288">
 <pre><code>array([[1, 0, 1, 0, 1, 0],
        [0, 1, 1, 1, 1, 1],
@@ -2187,7 +2384,7 @@ Location is 5 and row is [ True  True  True  True  True False] and weights are [
 </div>
 </div><div class="column" style="width:33%;">
 <div id="83925a1c" class="cell" data-execution_count="41">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a></a>(<span class="dv">4</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose()) <span class="op">+</span> <span class="dv">0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a></a>(<span class="dv">4</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose()) <span class="op">+</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3289">
 <pre><code>array([[1, 0, 1, 0, 1, 0],
        [0, 1, 1, 1, 1, 1],
@@ -2199,7 +2396,7 @@ Location is 5 and row is [ True  True  True  True  True False] and weights are [
 </div>
 </div><div class="column" style="width:33%;">
 <div id="dd3d66d6" class="cell" data-execution_count="42">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a></a>(<span class="dv">5</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose()) <span class="op">+</span> <span class="dv">0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a></a>(<span class="dv">5</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose()) <span class="op">+</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3290">
 <pre><code>array([[0, 0, 0, 0, 0, 0],
        [0, 0, 0, 0, 0, 0],
@@ -2217,7 +2414,7 @@ Location is 5 and row is [ True  True  True  True  True False] and weights are [
 <li>This looked awfully good to me.</li>
 </ul>
 <div id="081b3da1" class="cell" data-execution_count="43">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a></a>(<span class="dv">4</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose()) <span class="op">+</span> <span class="dv">0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a></a>(<span class="dv">4</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose()) <span class="op">+</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3291">
 <pre><code>array([[1, 0, 1, 0, 1, 0],
        [0, 1, 1, 1, 1, 1],
@@ -2231,8 +2428,8 @@ Location is 5 and row is [ True  True  True  True  True False] and weights are [
 <li>If this was an exam the percentage would be a…</li>
 </ul>
 <div id="bd9fd82c" class="cell" data-execution_count="44">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a></a>compare_to_key <span class="op">=</span> np.equal(<span class="dv">4</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose(), key)</span>
-<span id="cb74-2"><a></a>np.count_nonzero(compare_to_key) <span class="op">/</span> compare_to_key.size</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a></a>compare_to_key <span class="op">=</span> np.equal(<span class="dv">4</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose(), key)</span>
+<span id="cb74-2"><a></a>np.count_nonzero(compare_to_key) <span class="op">/</span> compare_to_key.size</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3292">
 <pre><code>0.75</code></pre>
 </div>
@@ -2246,8 +2443,8 @@ Location is 5 and row is [ True  True  True  True  True False] and weights are [
 <li>Initially…</li>
 </ul>
 <div id="f2a8baa0" class="cell" data-execution_count="45">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a></a>compare_to_random <span class="op">=</span> np.equal(<span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> backup.transpose(), key)</span>
-<span id="cb76-2"><a></a><span class="bu">print</span>(np.count_nonzero(compare_to_random) <span class="op">/</span> compare_to_random.size)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a></a>compare_to_random <span class="op">=</span> np.equal(<span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> backup.transpose(), key)</span>
+<span id="cb76-2"><a></a><span class="bu">print</span>(np.count_nonzero(compare_to_random) <span class="op">/</span> compare_to_random.size)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>0.8333333333333334</code></pre>
 </div>
@@ -2257,8 +2454,8 @@ Location is 5 and row is [ True  True  True  True  True False] and weights are [
 <li>After learning…</li>
 </ul>
 <div id="717b1c57" class="cell" data-execution_count="46">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a></a>compare_to_key <span class="op">=</span> np.equal(<span class="dv">4</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose(), key)</span>
-<span id="cb78-2"><a></a><span class="bu">print</span>(np.count_nonzero(compare_to_key) <span class="op">/</span> compare_to_key.size)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a></a>compare_to_key <span class="op">=</span> np.equal(<span class="dv">4</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose(), key)</span>
+<span id="cb78-2"><a></a><span class="bu">print</span>(np.count_nonzero(compare_to_key) <span class="op">/</span> compare_to_key.size)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>0.75</code></pre>
 </div>
@@ -2292,12 +2489,12 @@ Location is 5 and row is [ True  True  True  True  True False] and weights are [
 <li>Initially…</li>
 </ul>
 <div id="8af458ca" class="cell" data-execution_count="47">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a></a>guesses <span class="op">=</span> <span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> backup.transpose()</span>
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a></a>guesses <span class="op">=</span> <span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> backup.transpose()</span>
 <span id="cb80-2"><a></a>true_positive <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb80-3"><a></a><span class="cf">for</span> loc, row <span class="kw">in</span> <span class="bu">enumerate</span>(guesses):</span>
 <span id="cb80-4"><a></a>    <span class="cf">if</span> row[loc]:</span>
 <span id="cb80-5"><a></a>        true_positive <span class="op">=</span> true_positive <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb80-6"><a></a><span class="bu">print</span>(true_positive <span class="op">/</span> <span class="dv">6</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb80-6"><a></a><span class="bu">print</span>(true_positive <span class="op">/</span> <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>0.0</code></pre>
 </div>
@@ -2307,12 +2504,12 @@ Location is 5 and row is [ True  True  True  True  True False] and weights are [
 <li>After learning…</li>
 </ul>
 <div id="1cb738dc" class="cell" data-execution_count="48">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a></a>guesses <span class="op">=</span> <span class="dv">4</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose()</span>
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a></a>guesses <span class="op">=</span> <span class="dv">4</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose()</span>
 <span id="cb82-2"><a></a>true_positive <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb82-3"><a></a><span class="cf">for</span> loc, row <span class="kw">in</span> <span class="bu">enumerate</span>(guesses):</span>
 <span id="cb82-4"><a></a>    <span class="cf">if</span> row[loc]:</span>
 <span id="cb82-5"><a></a>        true_positive <span class="op">=</span> true_positive <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb82-6"><a></a><span class="bu">print</span>(true_positive <span class="op">/</span> <span class="dv">6</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb82-6"><a></a><span class="bu">print</span>(true_positive <span class="op">/</span> <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>1.0</code></pre>
 </div>
@@ -2329,7 +2526,7 @@ Location is 5 and row is [ True  True  True  True  True False] and weights are [
 <li>Initially, randomization simply predicted <em>no classes at all for anything</em>.</li>
 </ul>
 <div id="070ebf96" class="cell" data-execution_count="49">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a></a><span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> backup.transpose()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a></a><span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> backup.transpose()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3297">
 <pre><code>array([[False, False, False, False, False, False],
        [False, False, False, False, False, False],
@@ -2356,7 +2553,7 @@ Location is 5 and row is [ True  True  True  True  True False] and weights are [
 <div class="columns">
 <div class="column" style="width:33%;">
 <div id="314cb70b" class="cell" data-execution_count="50">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a></a>(<span class="fl">3.5</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose()) <span class="op">+</span> <span class="dv">0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a></a>(<span class="fl">3.5</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose()) <span class="op">+</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3298">
 <pre><code>array([[1, 0, 1, 0, 1, 0],
        [0, 1, 1, 1, 1, 1],
@@ -2368,7 +2565,7 @@ Location is 5 and row is [ True  True  True  True  True False] and weights are [
 </div>
 </div><div class="column" style="width:33%;">
 <div id="4f36f09b" class="cell" data-execution_count="51">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb88-1"><a></a>(<span class="fl">4.0</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose()) <span class="op">+</span> <span class="dv">0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb88-1"><a></a>(<span class="fl">4.0</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose()) <span class="op">+</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3299">
 <pre><code>array([[1, 0, 1, 0, 1, 0],
        [0, 1, 1, 1, 1, 1],
@@ -2380,7 +2577,7 @@ Location is 5 and row is [ True  True  True  True  True False] and weights are [
 </div>
 </div><div class="column" style="width:33%;">
 <div id="bcfda6f2" class="cell" data-execution_count="52">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb90-1"><a></a>(<span class="fl">4.5</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose()) <span class="op">+</span> <span class="dv">0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb90-1"><a></a>(<span class="fl">4.5</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose()) <span class="op">+</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3300">
 <pre><code>array([[1, 0, 0, 0, 1, 0],
        [0, 0, 1, 1, 0, 1],
@@ -2714,7 +2911,7 @@ print(learn)
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -2741,173 +2938,192 @@ print(learn)
       });
     </script>
     <script id="quarto-html-after-body" type="application/javascript">
-      window.document.addEventListener("DOMContentLoaded", function (event) {
-        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
-        tabsets.forEach(function(tabset) {
-          const tabby = new Tabby('#' + tabset.id);
-        });
-        const isCodeAnnotation = (el) => {
-          for (const clz of el.classList) {
-            if (clz.startsWith('code-annotation-')) {                     
-              return true;
-            }
-          }
-          return false;
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
         }
-        const onCopySuccess = function(e) {
-          // button target
-          const button = e.trigger;
-          // don't keep focus
-          button.blur();
-          // flash "checked"
-          button.classList.add('code-copy-button-checked');
-          var currentTitle = button.getAttribute("title");
-          button.setAttribute("title", "Copied!");
-          let tooltip;
-          if (window.bootstrap) {
-            button.setAttribute("data-bs-toggle", "tooltip");
-            button.setAttribute("data-bs-placement", "left");
-            button.setAttribute("data-bs-title", "Copied!");
-            tooltip = new bootstrap.Tooltip(button, 
-              { trigger: "manual", 
-                customClass: "code-copy-button-tooltip",
-                offset: [0, -8]});
-            tooltip.show();    
-          }
-          setTimeout(function() {
-            if (tooltip) {
-              tooltip.hide();
-              button.removeAttribute("data-bs-title");
-              button.removeAttribute("data-bs-toggle");
-              button.removeAttribute("data-bs-placement");
-            }
-            button.setAttribute("title", currentTitle);
-            button.classList.remove('code-copy-button-checked');
-          }, 1000);
-          // clear code selection
-          e.clearSelection();
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
         }
-        const getTextToCopy = function(trigger) {
-          const outerScaffold = trigger.parentElement.cloneNode(true);
-          const codeEl = outerScaffold.querySelector('code');
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
           for (const childEl of codeEl.children) {
             if (isCodeAnnotation(childEl)) {
               childEl.remove();
             }
           }
           return codeEl.innerText;
-        }
-        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-          text: getTextToCopy
-        });
-        clipboard.on('success', onCopySuccess);
-        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-            text: getTextToCopy,
-            container: window.document.getElementById('quarto-embedded-source-code-modal')
-          });
-          clipboardModal.on('success', onCopySuccess);
-        }
-          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-          var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
-          var isInternal = (href) => {
-              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-          }
-          // Inspect non-navigation links and adorn them if external
-         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-          for (var i=0; i<links.length; i++) {
-            const link = links[i];
-            if (!isInternal(link.href)) {
-              // undo the damage that might have been done by quarto-nav.js in the case of
-              // links that we want to consider external
-              if (link.dataset.originalHref !== undefined) {
-                link.href = link.dataset.originalHref;
-              }
-            }
-          }
-        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-          const config = {
-            allowHTML: true,
-            maxWidth: 500,
-            delay: 100,
-            arrow: false,
-            appendTo: function(el) {
-                return el.closest('section.slide') || el.parentElement;
-            },
-            interactive: true,
-            interactiveBorder: 10,
-            theme: 'light-border',
-            placement: 'bottom-start',
-          };
-          if (contentFn) {
-            config.content = contentFn;
-          }
-          if (onTriggerFn) {
-            config.onTrigger = onTriggerFn;
-          }
-          if (onUntriggerFn) {
-            config.onUntrigger = onUntriggerFn;
-          }
-            config['offset'] = [0,0];
-            config['maxWidth'] = 700;
-          window.tippy(el, config); 
-        }
-        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-        for (var i=0; i<noterefs.length; i++) {
-          const ref = noterefs[i];
-          tippyHover(ref, function() {
-            // use id or data attribute instead here
-            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-            try { href = new URL(href).hash; } catch {}
-            const id = href.replace(/^#\/?/, "");
-            const note = window.document.getElementById(id);
-            if (note) {
-              return note.innerHTML;
-            } else {
-              return "";
-            }
-          });
-        }
-        const findCites = (el) => {
-          const parentEl = el.parentElement;
-          if (parentEl) {
-            const cites = parentEl.dataset.cites;
-            if (cites) {
-              return {
-                el,
-                cites: cites.split(' ')
-              };
-            } else {
-              return findCites(el.parentElement)
-            }
-          } else {
-            return undefined;
-          }
-        };
-        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-        for (var i=0; i<bibliorefs.length; i++) {
-          const ref = bibliorefs[i];
-          const citeInfo = findCites(ref);
-          if (citeInfo) {
-            tippyHover(citeInfo.el, function() {
-              var popup = window.document.createElement('div');
-              citeInfo.cites.forEach(function(cite) {
-                var citeDiv = window.document.createElement('div');
-                citeDiv.classList.add('hanging-indent');
-                citeDiv.classList.add('csl-entry');
-                var biblioDiv = window.document.getElementById('ref-' + cite);
-                if (biblioDiv) {
-                  citeDiv.innerHTML = biblioDiv.innerHTML;
-                }
-                popup.appendChild(citeDiv);
-              });
-              return popup.innerHTML;
-            });
-          }
-        }
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
-      </script>
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
     
 
 </body></html>

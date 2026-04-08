@@ -69,7 +69,7 @@ format: html
 |0bX|03/23|`None`|`None`|
 |0xA|03/30|[Learning](90_learning.qmd)|[Falsify](91_false.qmd)| <!-- XOR -->
 |0xB|03/06|[XOR](A0_xor.qmd)|[Compression](A1_compress.qmd)| <!-- compression --> <!-- Weight matrices (K, Q, V), and Multiple Heads-->
-|0xC|04/13|Markov|[`None`](https://my.willamette.edu/site/ssrd)|| <!-- Fine tuning, prompt injection, chat bots -->
+|0xC|04/13|[Markov](B0_markov.qmd)|[`None`](https://my.willamette.edu/site/ssrd)|| <!-- Fine tuning, prompt injection, chat bots -->
 |0xD|04/20|Prompts|
 |0xE|04/27|Perspectives|Peer Review|
 
