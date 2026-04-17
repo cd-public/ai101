@@ -1,0 +1,39 @@
+---
+title: Compression
+format: html
+---
+
+# Background
+
+## Poetry
+
+```email
+From tech comp'ny, board chair, or well-meant friend,
+The hype abounds but some true use it lacks.
+More "A" than "I" I do yet comprehend
+for e'ry claim there's more than a few cracks.
+
+Luddite am I, or just a scientist?
+Vindicated by history or no?
+The coming years will be a proper test;
+The stock market will soar or yield much woe.
+
+I revere the wheel, engines, react'r cores;
+Technology elevates humankind.
+Abhor the bomb, the gun, panopticon
+The trillionaires weigh heavy on my mind.
+
+Vectors, arrays, and matrices I see.
+Intelligence, much less, at least for me.
+```
+
+
+## Final Product
+
+- You should have a Colab document which, when run:
+    - Contains the compressed die.
+    - Contains top and bot layers that you wrote.
+    - Performs the multiplications to classify each of the compressed die.
+    - Either is correct in all cases (same as `key`), or
+    - Has a note of 1000 words explaining what you tried, why, and why it didn't work.
+- I plan to show my solution Monday.

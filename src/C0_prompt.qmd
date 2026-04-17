@@ -1,0 +1,528 @@
+---
+title: Prompts
+---
+
+
+## Today
+
+- Thus far we have:
+	- Shown how to develop a minimal AI
+    - Generated text
+- Now we will:
+    - Use our understanding of the internals
+    - "Prompt" text generators to... generate text.
+
+# Recap
+
+## 
+
+```{python}
+import numpy as np
+
+sar = "to do is to be"
+soc = "to be is to do"
+sha = "to be or no to be"
+sin = "do be do be do"
+all = [sar, soc, sha, sin]
+
+words = [quote.split() for quote in all]
+sets = [set(quote) for quote in words]
+unique = set.union(*sets)
+
+nexts = dict()
+for first in unique:
+    next = []
+    for quote in words:
+        for loc, word in enumerate(quote):
+            if word == first and loc + 1 < len(quote):
+                next.append(quote[loc + 1])
+    nexts[first] = next
+
+def next_word(prev_word):
+    die = np.random.rand()
+    possible_words = nexts[prev_word]
+    position = die * len(possible_words)
+    position = int(position)
+    return possible_words[position]
+    
+def make_text(first_word, num_words):
+    text = first_word
+    word = first_word
+    for _ in range(num_words - 1):
+        word = next_word(word)
+        text = text + " " + word
+    print(text)
+    
+for word in unique:
+    make_text(word, 5)
+```
+
+# Prompts
+
+## Citation
+
+- I do consider myself good at writing "prompts" - instructions to get a large language model to produce the prompt I want.
+- However, I do so by thinking of prompts as writing code.
+- I have not (really) taught you to write code.
+    - Though I have a little bit.
+- Instead, [Prompt engineering: overview and guide](https://cloud.google.com/discover/what-is-prompt-engineering)
+    - I took Google's guide and put it in Gemini (then lightly edited)
+
+## Prompt "engineering"
+
+> The rise of large language models (LLMs) has brought forth exciting possibilities for human-computer interaction. However, harnessing the full potential of these powerful AI models requires a crucial skill: prompt engineering. 
+
+## Goals
+
+- "Unlock" the capabilities of LLMs.
+    - Understand **intent**. 
+    - **Follow** instructions.
+    - Generate **desired** outputs. 
+- Aim for:
+    - *Accurate*, *relevant*, *safe*
+    
+## What is prompt engineering?
+
+- **Art and science** of designing/optimizing prompts.
+    - *Very* cool to see the term "art and science" appear... not just in a "College of Arts and Sciences"
+    - I think of it as: things that can be verified experimentally and things that can't.
+    - Prompts are both!
+- Guides AI toward specific responses.
+- Provides **context**, **instructions**, and **examples**.
+- Acts as a **structure** for the AI.
+
+## What is a prompt?
+
+- Input provided to "primes" a specific response.
+    - Like when we provided example phrases, a starting word, and a length.
+- Structure how is natural to you: 
+    - Questions, keywords, instructions.
+    - I often provide examples.
+- Influences **quality** and **relevance** of output.
+
+## Key Elements
+
+- Mastery communicates effectively with AI models.
+- **Format:** How the model interprets requests.
+    - Natural language, commands, structured fields.
+- **Context:** Improves tone, theme, and accuracy.
+    - "For a work email..."
+    - "For an Instagram post..."
+    - "For the group chat..."
+
+# Elements
+
+## The idea
+
+- Decompose a prompt into some key elements.
+    - Format
+    - Context
+    - Example
+    - Tuning
+    - Turns
+
+## Prompt formats
+
+- The (1) **structure** and (2) **style** of your prompt play a significant role in guiding the AI's response. 
+- Different models (GPT, Claude, LLaMa, Gemini) may respond better to specific formats.
+
+## Examples
+
+- Natural language questions.
+    - "Is this a leaf?"
+- Direct commands.
+    - "Write 4 sentences of 14-18 words."
+- Structured inputs with specific fields
+    - "3 adjectives that evoke happiness and relaxation."
+    
+## Context and Examples
+
+- Provide context to improve **accuracy** and **relevance**.
+- Define specific **tone** or **themes**.
+- Helps the AI understand the desired **intent**.
+- Examples:
+    - Include a few sentences on the tasks **background**.
+    - Describe the **mood** (e.g., "upbeat," "concerned").
+
+## Fine-tuning and Adapting
+
+- **Fine-tuning** enhances performance via tailored prompts.
+- Target specific **tasks** or **domains**.
+- **Adapt** based on user feedback or model outputs.
+- Improves response quality **over time**.
+- Examples:
+    - Train on **peer-reviewed journals** for accuracy.
+    - Refine prompts based on **common user errors**.
+
+## Multi-turn Conversations
+
+- Enables **continuous**, **context-aware** interactions.
+- Enhances the overall **user experience**.
+- AI remembers **previous inputs** within the thread.
+- Facilitates complex, **multi-step** tasks.
+- Examples:
+    - Refining a search: "Now find prices for those **hotels**."
+    - Debugging: "Why did the **previous** code throw an error?"
+    
+# Types
+
+## Types of prompts
+
+- There are various types of prompts used in AI, each serving a specific purpose:
+    - Direct
+    - $n$-shot
+    - Chain-of-thought
+
+## Direct Prompts
+
+- Provide **direct instructions** or questions.
+- Includes **no additional context** or examples.
+    - Helpful to get "general" or "broad" responses.
+- Relies on the model's **pre-existing knowledge**.
+    - Basically, what is currently on the internet.
+    - And at the *rate* things are on the internet.
+    - So: low density of peer reviewed studies.
+    
+## Direct Prompts
+
+- Also called "zero-shot" prompts (zero back-and-forth)
+- Useful for **standard tasks** and quick queries.
+- Examples:
+    - "**Brainstorming**": "Brainstorm a theme for birthday party."
+    - **Summarization**: "Summarize the text provided below."
+    - **Translation**: "Translate 'Hello' into French."
+
+## $n>0$ Shot
+
+- Provide one or more **input-output pairs**.
+    - With a human, we would say "conversation" or "back-and-forth".
+- Helps the model understand **complex patterns**.
+    - "Make more things like this". 
+- Improves **accuracy** for specific formatting.
+
+## $n>0$ Shot
+
+- Refines the **desired style** before the task.
+- Examples:
+    - **One-shot:** Give more fictional names like "[Argaven Harge](https://en.wikipedia.org/wiki/The_Left_Hand_of_Darkness#Argaven)"
+    - **Few-shot:** Give more coffee-shop names like "[Sterling](https://www.sterling.coffee/)", "[Push x Pull](https://pushxpullcoffee.com/)", and "[Proud Mary](https://proudmarycoffee.com/)".
+    - **Multi-shot:** Below I have included an English-[Sindarin (Common Elvish)](https://tolkiengateway.net/wiki/Sindarin) dictionary. Generate a Sindarin word for "computer".
+
+## Chain of Thought (CoT)
+
+- Encourages **complex reasoning** via intermediate steps.
+- Leads to **well-structured** and detailed outputs.
+- Helps the model "think" through **logic** and **math**.
+    - An aside: LLMs know what "logic" or "math" are...
+        - Remember - they cannot understand "this or that"
+    - But they know what humans *sound* like when humans *think* they are doing logic or math.
+
+## CoT
+
+- Improves **transparency** and accuracy of the result.
+- Examples:
+    - Solve a math word problem **step-by-step**.
+    - Explain the **logic** behind a legal conclusion.
+    - Break down a **business strategy** into phases.
+
+## Hybrid
+
+- "Zero-shot CoT Prompts"
+- Combines **chain of thought** with **zero-shot** methods.
+- Triggers **reasoning steps** without specific examples.
+- Some users feel this produces **higher quality** output for logic tasks.
+
+## Hybrid
+
+- Uses **trigger phrases** to initiate the thinking process.
+- Examples:
+    - Adding "Let's **think step-by-step**" to a question.
+    - Prompting: "Solve this logic puzzle **explaining your work**."
+    - "Break this down **systematically** to find the answer."
+        - Fun question: What do we think "systematically" even means?
+
+# Use Cases
+
+## Text generation
+
+- "Creative" Writing
+- Summarization
+- Translation
+- Dialogue
+
+## Text Generation
+
+| Scenario | Instructions | Example Prompt |
+| :--- | :--- | :--- |
+| "Creative" Writing | Craft prompts that specify genre, tone, style, and plot points to guide the AI in generating engaging narratives. | "Write a short story about a young woman who discovers a magical portal in her attic." |
+
+- By construction, an LLM cannot be creative.
+- It can "appear" or "claim to be" creative.
+
+## Text Generation
+
+| Scenario | Instructions | Example Prompt |
+| :--- | :--- | :--- |
+| Summarization | Provide the AI with text and instruct it to generate concise summaries that capture key information. | "Summarize the main points of the following news article on climate change." |
+
+- This, notably, entrusts matrix multiplication with not missing the "point" of some writing.
+
+## Text Generation
+
+| Scenario | Instructions | Example Prompt |
+| :--- | :--- | :--- |
+| Translation | Specify the source and target languages to enable the AI to accurately translate text while preserving meaning and context. | "Translate the following text from English to Spanish: 'The quick brown fox jumps over the lazy dog.'" |
+
+## Text Generation
+
+| Scenario | Instructions | Example Prompt |
+| :--- | :--- | :--- |
+| Dialogue | Design prompts that simulate conversations, allowing the AI to generate responses that mimic human interaction and maintain context. | "You are a friendly chatbot helping users troubleshoot their computer problems. Respond to the user's query: 'My computer won't turn on.'" |
+
+## Question Answering
+
+- Open-Ended Questions 
+- Specific Questions 
+- Multiple Choice Questions 
+- Hypothetical Questions
+- Opinion-Based Questions
+
+## Question Answering
+
+| Scenario | Instructions | Example Prompt |
+| :--- | :--- | :--- |
+| Open-Ended Questions | Encourage comprehensive and informative answers based on its knowledge base. | "Explain quantum computing and its potential impact on the future of technology." |
+
+- It is important to recognize that LLMs are not trained to teach or understand topics...
+- But *are* trained to sound authoritative.
+
+## Question Answering
+
+| Scenario | Instructions | Example Prompt |
+| :--- | :--- | :--- |
+| Specific Questions | Design prompts that target specific information, so AI just "looks it up" | "What is the capital of France?" or "According to the provided text, what are the main causes of deforestation?" |
+
+- Just use a search engine or encyclopedia
+
+## Question Answering
+
+| Scenario | Instructions | Example Prompt |
+| :--- | :--- | :--- |
+| Multiple Choice Questions | Present prompts with options, prompting the AI to analyze and select the most appropriate answer based on its understanding of the context. | "Who wrote the Earthsea series? A) J.R.R. Tolkien, B) Isaac Asimov, C) Usula Le Guin D) Frank Herbert" |
+
+## Question Answering
+
+| Scenario | Instructions | Example Prompt |
+| :--- | :--- | :--- |
+| Hypothetical Questions | Explore hypothetical situations, to speculate or discuss potentials. | "What would happen if humans could travel at the speed of light?" |
+
+- Good to be specific here.
+    - Does this mean a human can "run" that fast, or...
+    - That the established laws of physics are (deeply) wrong.
+
+## Question Answering
+
+| Scenario | Instructions | Example Prompt |
+| :--- | :--- | :--- |
+| Opinion-Based Questions | Design prompts generate a perspective or opinion on a specific topic, perhpas with reasoning for the stance. | "Do you believe that artificial intelligence will eventually surpass human intelligence? Why or why not?" |
+
+- This can be conspiciously similar to asking a CS professor if you should study computer science.
+
+## Code Generation
+
+- The provided examples, from Google, suggest AIs, including Google's Gemini, can generate code.
+- This has not be demonstrated scientifically.
+    - The state-of-the-art is that AI usage slows development and reduces code quality, while increasing costs.
+- Google "sells" Gemini and tactfully avoids this consensus.
+- You have seen me try (and often fail) to use Gemini to generate code in this class.
+
+## Code Generation
+
+| Scenario | Instructions | Example Prompt |
+| :--- | :--- | :--- |
+| Code<br>Completion | Provide the AI with a partial code snippet and prompt it to suggest or complete the remaining code based on the context and programming language. | "Write a Python function to calculate the factorial of a given number." |
+
+## Interesting Example
+
+- Competing formulation: [https://gprivate.com/search/index.html?q=#gsc.q=python+factorial+function](https://gprivate.com/search/index.html?q=#gsc.q=python+factorial+function)
+- Here is the first result (there is a built in function so no reason to write one): [https://stackoverflow.com/questions/5136447/function-for-factorial-in-python](https://stackoverflow.com/questions/5136447/function-for-factorial-in-python)
+
+## Code Generation
+
+| Scenario | Instructions | Example Prompt |
+| :--- | :--- | :--- |
+| Code Translation | Specify the source and target programming languages to enable the AI to translate code while preserving functionality and syntax. | "Translate the following Python code to JavaScript: def greet(name): print('Hello,', name)" |
+
+## Code Generation
+
+| Scenario | Instructions | Example Prompt |
+| :--- | :--- | :--- |
+| Code Optimization | Prompt the AI to analyze existing code and suggest improvements for efficiency, readability, or performance. | "Optimize the following Python code to reduce its execution time." |
+
+## Code Generation
+
+| Scenario | Instructions | Example Prompt |
+| :--- | :--- | :--- |
+| Code Debugging | Provide the AI with code containing errors and prompt it to identify and suggest potential solutions for the identified issues. | "Debug the following Java code and explain why it is throwing a NullPointerException." |
+
+## Return to vision
+
+- Gemini in particularly is fond of its image capabilities, including writing alt-text and generating images.
+- I do not think the following necessariyl apply as broadly to non-Gemini.
+
+## Image Generation
+
+| Scenario | Instructions | Example Prompt |
+| :--- | :--- | :--- |
+| Photorealistic Images | Craft prompts that describe the desired image in detail, including objects, scenery, lighting, and style, to generate realistic and high-quality images. | "A photorealistic image of a sunset over the ocean with palm trees silhouetted against the sky." |
+
+## Image Generation
+
+| Scenario | Instructions | Example Prompt |
+| :--- | :--- | :--- |
+| Artistic Images | Design prompts that specify art styles, techniques, and subject matter to guide the AI in creating images that mimic specific artistic movements or evoke certain emotions. | "An impressionist painting of a bustling city street with people walking under umbrellas in the rain." |
+
+## Image Generation
+
+| Scenario | Instructions | Example Prompt |
+| :--- | :--- | :--- |
+| Abstract Images | Formulate prompts that encourage the AI to generate images that are open to interpretation, utilizing shapes, colors, and textures to evoke feelings or concepts. | "An abstract image representing the concept of hope, using bright colors and flowing shapes." |
+
+## Image Generation
+
+| Scenario | Instructions | Example Prompt |
+| :--- | :--- | :--- |
+| Image Editing | Provide the AI with an existing image and specify desired modifications, enabling it to edit and enhance the image according to the given instructions. | "Change the background of this photo to a starry night sky and add a full moon." or "Remove the person from this image and replace them with a cat." |
+
+# Strategies
+
+- Clear Goals
+- Context
+- Iterate
+- Avoid Pitfalls
+
+## Clear Goals
+
+- Clearly define what you want the AI to achieve.
+
+| Tactic | Prompt Example |
+| :--- | :--- |
+| Use precise language and avoid ambiguity | Instead of: "Write something about climate change," use: "Write a persuasive essay arguing for the implementation of stricter carbon emission regulations." |
+
+## Clear Goals
+
+- Clearly define what you want the AI to achieve.
+
+| Tactic | Prompt Example |
+| :--- | :--- |
+| Use action verbs to specify the desired action | "Write a bulleted list that summarizes the key findings of the attached research paper" |
+
+## Clear Goals
+
+- Clearly define what you want the AI to achieve.
+
+| Tactic | Prompt Example |
+| :--- | :--- |
+| Define the desired length and format of the output | "Compose a 500-word essay discussing the impact of climate change on coastal communities." |
+
+## Clear Goals
+
+- Clearly define what you want the AI to achieve.
+
+| Tactic | Prompt Example |
+| :--- | :--- |
+| Quantify your requests whenever possible | Instead of: "Write a long poem," use: "Write a sonnet with 14 lines that explores themes of love and loss." |
+
+## Provide Context
+
+- Providing relevant context and background information.
+
+| Tactic | Prompt Example |
+| :--- | :--- |
+| Break down complex tasks into smaller steps | Instead of: "Create a marketing plan," use: "1. Identify the target audience. 2. Develop key marketing messages. 3. Choose appropriate marketing channels." |
+
+## Provide Context
+
+- Providing relevant context and background information.
+
+| Tactic | Prompt Example |
+| :--- | :--- |
+| Assign a persona to the AI model | "Act as a technical writer and create a user manual for a new software application." |
+
+## Use $n>$-Shot Prompting
+
+- Already discussed!
+- "Name three fish that rhyme with brown".
+    - I don't know if there's three.
+
+## Iterate
+
+- Prompt engineering is an iterative process. 
+    - **Experiment** with different prompt variations
+    - **Observe** the model's responses
+    - **Refine** your prompts based on the results.
+    
+## Experiment    
+
+| Tactic | Prompt Example |
+| :--- | :--- |
+| Try different phrasings and structures | Experiment with using different synonyms, sentence structures, and formatting to see how they affect the output. |
+    
+## Experiment    
+
+| Tactic | Prompt Example |
+| :--- | :--- |
+| Adjust the level of detail and specificity | Add or remove information from your prompt to see how it impacts the model's understanding and output. |
+    
+## Experiment    
+
+| Tactic | Prompt Example |
+| :--- | :--- |
+| Test different prompt lengths | Experiment with both shorter and longer prompts to find the optimal balance. |
+
+## Common Pitfalls
+
+Be mindful of common pitfalls in prompt engineering, such as:
+
+- Providing insufficient or ambiguous instructions
+- Using overly complex or technical language
+    - Especially words that are context-specific for which you have not provided the context.
+- Including biased or leading information
+- Failing to iterate and refine prompts
+
+# Benefits
+
+## Accuracy and Relevance
+
+- By providing clear instructions and context, you can significantly improve the accuracy and relevance of the AI's output.
+
+## Reduce Predictability
+
+- Google called this "Creativity and Innovation".
+- A matrix is not creative, but can be surprising.
+- They may generate *unexpected* ideas, stories, and images.
+
+## Efficiency and Productivity
+
+- Well-crafted prompts can 
+    - Streamline tasks
+        - Saving you time, say, manually editing and email.
+    - Automate processes
+        - Code is better at this, but say, capitalize every instance of a word that happens to be a proper noun, like "Satisfy" or "Python"
+    - Reduce overall time and effort.
+    
+## Precision
+
+- Google called this "Control and Customization".
+- Tailor the AI's responses to your specific needs and preferences.
+- This is the thing AI is good out - if you just need some text, and you can't find it with a search engine or in a library.
+    - Give me three words that might make me feel hungry.
+    - Hard task for a dictionary.
+
+## Bias and Safety
+
+- Google claims it is possible to reduce bias and improve safety with prompt engineering.
+- This has never been demonstrated scientifically with either AI or with, in fact, Google search results, so I am skeptical.
+- I do think, however, an LLM trained on Google's PR statements would claim that I, the user, am partially responsible for bias and safety.
+
+# Fin

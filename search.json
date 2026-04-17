@@ -7,6 +7,36 @@
     "text": "CS 199 “Understanding AI”\n\nCalled:\n\nCS 199: Topics: Understanding AI\nAI 101\n\nA non-technical survey semester over:\n\nSome trends in AI use\nSome historical conversations around AI\nSome technical background in implementing minimal AI\n\nTaught this year via Google Colab.\n\nIt’s fast (it’s not)\nIt’s free (to us for now)\nIt’s fun (trust me)\n\n\n\nMW 1020-1150\n\n\nProf. Calvin\n\n\nSyllabus\n\nSyllabus link\n\n\n\n\nCalendar\n\n\n\n\n\nWeek\nDate (M)\nLecture (M)\nLab (W)\n\n\n\n\n0x0\n01/12\nAda & Alan\nTuring’s Test\n\n\n0x1\n01/19\nNone\nColab\n\n\n0x2\n01/26\n(Un)supervision\nDichotomy, Solution\n\n\n0x3\n02/02\nRegression\n\\(n\\)D\n\n\n0x4\n02/09\nClassification\nTree tree\n\n\n0x5\n02/16\nGraphs\nSudoku\n\n\n0x6\n02/23\nGuest\nThinking Game\n\n\n0x7\n03/02\nNeural\nWeights\n\n\n0x8\n03/09\nPerceptron\nMulti-class\n\n\n0x9\n03/16\nMatrix\n\n\n\n0bX\n03/23\nNone\nNone\n\n\n0xA\n03/30\nLearning\nFalsify\n\n\n0xB\n03/06\nXOR\nCompression\n\n\n0xC\n04/13\nMarkov\nNone\n\n\n0xD\n04/20\nPrompts\n\n\n\n0xE\n04/27\nPerspectives\nPeer Review\n\n\n\nFinal course reflection (“Perspectives”) due whenever the final exam would finish, TBA"
   },
   {
+    "objectID": "B2_sonnet.html",
+    "href": "B2_sonnet.html",
+    "title": "Compression",
+    "section": "",
+    "text": "From tech comp'ny, board chair, or well-meant friend,\nThe hype abounds but some true use it lacks.\nMore \"A\" than \"I\" I do yet comprehend\nfor e'ry claim there's more than a few cracks.\n\nLuddite am I, or just a scientist?\nVindicated by history or no?\nThe coming years will be a proper test;\nThe stock market will soar or yield much woe.\n\nI revere the wheel, engines, react'r cores;\nTechnology elevates humankind.\nAbhor the bomb, the gun, panopticon\nThe trillionaires weigh heavy on my mind.\n\nVectors, arrays, and matrices I see.\nIntelligence, much less, at least for me.\n\n\n\n\nYou should have a Colab document which, when run:\n\nContains the compressed die.\nContains top and bot layers that you wrote.\nPerforms the multiplications to classify each of the compressed die.\nEither is correct in all cases (same as key), or\nHas a note of 1000 words explaining what you tried, why, and why it didn’t work.\n\nI plan to show my solution Monday.",
+    "crumbs": [
+      "Compression"
+    ]
+  },
+  {
+    "objectID": "B2_sonnet.html#poetry",
+    "href": "B2_sonnet.html#poetry",
+    "title": "Compression",
+    "section": "",
+    "text": "From tech comp'ny, board chair, or well-meant friend,\nThe hype abounds but some true use it lacks.\nMore \"A\" than \"I\" I do yet comprehend\nfor e'ry claim there's more than a few cracks.\n\nLuddite am I, or just a scientist?\nVindicated by history or no?\nThe coming years will be a proper test;\nThe stock market will soar or yield much woe.\n\nI revere the wheel, engines, react'r cores;\nTechnology elevates humankind.\nAbhor the bomb, the gun, panopticon\nThe trillionaires weigh heavy on my mind.\n\nVectors, arrays, and matrices I see.\nIntelligence, much less, at least for me.",
+    "crumbs": [
+      "Compression"
+    ]
+  },
+  {
+    "objectID": "B2_sonnet.html#final-product",
+    "href": "B2_sonnet.html#final-product",
+    "title": "Compression",
+    "section": "",
+    "text": "You should have a Colab document which, when run:\n\nContains the compressed die.\nContains top and bot layers that you wrote.\nPerforms the multiplications to classify each of the compressed die.\nEither is correct in all cases (same as key), or\nHas a note of 1000 words explaining what you tried, why, and why it didn’t work.\n\nI plan to show my solution Monday.",
+    "crumbs": [
+      "Compression"
+    ]
+  },
+  {
     "objectID": "A1_compress.html",
     "href": "A1_compress.html",
     "title": "Compression",
@@ -10445,6 +10475,1070 @@
     "text": "What we learned\n\nYou can generate text with neural networks.\nWe used a single layer, but of course…\n\nIt seems an awful lot like you can do anything by stacking them.",
     "crumbs": [
       "Markov"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#today",
+    "href": "C0_prompt.rjs.html#today",
+    "title": "Prompts",
+    "section": "Today",
+    "text": "Today\n\nThus far we have:\n\nShown how to develop a minimal AI\nGenerated text\n\nNow we will:\n\nUse our understanding of the internals\n“Prompt” text generators to… generate text."
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#section",
+    "href": "C0_prompt.rjs.html#section",
+    "title": "Prompts",
+    "section": "",
+    "text": "import numpy as np\n\nsar = \"to do is to be\"\nsoc = \"to be is to do\"\nsha = \"to be or no to be\"\nsin = \"do be do be do\"\nall = [sar, soc, sha, sin]\n\nwords = [quote.split() for quote in all]\nsets = [set(quote) for quote in words]\nunique = set.union(*sets)\n\nnexts = dict()\nfor first in unique:\n    next = []\n    for quote in words:\n        for loc, word in enumerate(quote):\n            if word == first and loc + 1 &lt; len(quote):\n                next.append(quote[loc + 1])\n    nexts[first] = next\n\ndef next_word(prev_word):\n    die = np.random.rand()\n    possible_words = nexts[prev_word]\n    position = die * len(possible_words)\n    position = int(position)\n    return possible_words[position]\n    \ndef make_text(first_word, num_words):\n    text = first_word\n    word = first_word\n    for _ in range(num_words - 1):\n        word = next_word(word)\n        text = text + \" \" + word\n    print(text)\n    \nfor word in unique:\n    make_text(word, 5)\n\nor no to be do\ndo is to be or\nno to do be is\nis to be is to\nbe or no to be\nto be do be is"
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#citation",
+    "href": "C0_prompt.rjs.html#citation",
+    "title": "Prompts",
+    "section": "Citation",
+    "text": "Citation\n\nI do consider myself good at writing “prompts” - instructions to get a large language model to produce the prompt I want.\nHowever, I do so by thinking of prompts as writing code.\nI have not (really) taught you to write code.\n\nThough I have a little bit.\n\nInstead, Prompt engineering: overview and guide\n\nI took Google’s guide and put it in Gemini (then lightly edited)"
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#prompt-engineering",
+    "href": "C0_prompt.rjs.html#prompt-engineering",
+    "title": "Prompts",
+    "section": "Prompt “engineering”",
+    "text": "Prompt “engineering”\n\nThe rise of large language models (LLMs) has brought forth exciting possibilities for human-computer interaction. However, harnessing the full potential of these powerful AI models requires a crucial skill: prompt engineering."
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#goals",
+    "href": "C0_prompt.rjs.html#goals",
+    "title": "Prompts",
+    "section": "Goals",
+    "text": "Goals\n\n“Unlock” the capabilities of LLMs.\n\nUnderstand intent.\nFollow instructions.\nGenerate desired outputs.\n\nAim for:\n\nAccurate, relevant, safe"
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#what-is-prompt-engineering",
+    "href": "C0_prompt.rjs.html#what-is-prompt-engineering",
+    "title": "Prompts",
+    "section": "What is prompt engineering?",
+    "text": "What is prompt engineering?\n\nArt and science of designing/optimizing prompts.\n\nVery cool to see the term “art and science” appear… not just in a “College of Arts and Sciences”\nI think of it as: things that can be verified experimentally and things that can’t.\nPrompts are both!\n\nGuides AI toward specific responses.\nProvides context, instructions, and examples.\nActs as a structure for the AI."
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#what-is-a-prompt",
+    "href": "C0_prompt.rjs.html#what-is-a-prompt",
+    "title": "Prompts",
+    "section": "What is a prompt?",
+    "text": "What is a prompt?\n\nInput provided to “primes” a specific response.\n\nLike when we provided example phrases, a starting word, and a length.\n\nStructure how is natural to you:\n\nQuestions, keywords, instructions.\nI often provide examples.\n\nInfluences quality and relevance of output."
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#key-elements",
+    "href": "C0_prompt.rjs.html#key-elements",
+    "title": "Prompts",
+    "section": "Key Elements",
+    "text": "Key Elements\n\nMastery communicates effectively with AI models.\nFormat: How the model interprets requests.\n\nNatural language, commands, structured fields.\n\nContext: Improves tone, theme, and accuracy.\n\n“For a work email…”\n“For an Instagram post…”\n“For the group chat…”"
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#the-idea",
+    "href": "C0_prompt.rjs.html#the-idea",
+    "title": "Prompts",
+    "section": "The idea",
+    "text": "The idea\n\nDecompose a prompt into some key elements.\n\nFormat\nContext\nExample\nTuning\nTurns"
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#prompt-formats",
+    "href": "C0_prompt.rjs.html#prompt-formats",
+    "title": "Prompts",
+    "section": "Prompt formats",
+    "text": "Prompt formats\n\nThe (1) structure and (2) style of your prompt play a significant role in guiding the AI’s response.\nDifferent models (GPT, Claude, LLaMa, Gemini) may respond better to specific formats."
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#examples",
+    "href": "C0_prompt.rjs.html#examples",
+    "title": "Prompts",
+    "section": "Examples",
+    "text": "Examples\n\nNatural language questions.\n\n“Is this a leaf?”\n\nDirect commands.\n\n“Write 4 sentences of 14-18 words.”\n\nStructured inputs with specific fields\n\n“3 adjectives that evoke happiness and relaxation.”"
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#context-and-examples",
+    "href": "C0_prompt.rjs.html#context-and-examples",
+    "title": "Prompts",
+    "section": "Context and Examples",
+    "text": "Context and Examples\n\nProvide context to improve accuracy and relevance.\nDefine specific tone or themes.\nHelps the AI understand the desired intent.\nExamples:\n\nInclude a few sentences on the tasks background.\nDescribe the mood (e.g., “upbeat,” “concerned”)."
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#fine-tuning-and-adapting",
+    "href": "C0_prompt.rjs.html#fine-tuning-and-adapting",
+    "title": "Prompts",
+    "section": "Fine-tuning and Adapting",
+    "text": "Fine-tuning and Adapting\n\nFine-tuning enhances performance via tailored prompts.\nTarget specific tasks or domains.\nAdapt based on user feedback or model outputs.\nImproves response quality over time.\nExamples:\n\nTrain on peer-reviewed journals for accuracy.\nRefine prompts based on common user errors."
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#multi-turn-conversations",
+    "href": "C0_prompt.rjs.html#multi-turn-conversations",
+    "title": "Prompts",
+    "section": "Multi-turn Conversations",
+    "text": "Multi-turn Conversations\n\nEnables continuous, context-aware interactions.\nEnhances the overall user experience.\nAI remembers previous inputs within the thread.\nFacilitates complex, multi-step tasks.\nExamples:\n\nRefining a search: “Now find prices for those hotels.”\nDebugging: “Why did the previous code throw an error?”"
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#types-of-prompts",
+    "href": "C0_prompt.rjs.html#types-of-prompts",
+    "title": "Prompts",
+    "section": "Types of prompts",
+    "text": "Types of prompts\n\nThere are various types of prompts used in AI, each serving a specific purpose:\n\nDirect\n\\(n\\)-shot\nChain-of-thought"
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#direct-prompts",
+    "href": "C0_prompt.rjs.html#direct-prompts",
+    "title": "Prompts",
+    "section": "Direct Prompts",
+    "text": "Direct Prompts\n\nProvide direct instructions or questions.\nIncludes no additional context or examples.\n\nHelpful to get “general” or “broad” responses.\n\nRelies on the model’s pre-existing knowledge.\n\nBasically, what is currently on the internet.\nAnd at the rate things are on the internet.\nSo: low density of peer reviewed studies."
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#direct-prompts-1",
+    "href": "C0_prompt.rjs.html#direct-prompts-1",
+    "title": "Prompts",
+    "section": "Direct Prompts",
+    "text": "Direct Prompts\n\nAlso called “zero-shot” prompts (zero back-and-forth)\nUseful for standard tasks and quick queries.\nExamples:\n\n“Brainstorming”: “Brainstorm a theme for birthday party.”\nSummarization: “Summarize the text provided below.”\nTranslation: “Translate ‘Hello’ into French.”"
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#n0-shot",
+    "href": "C0_prompt.rjs.html#n0-shot",
+    "title": "Prompts",
+    "section": "\\(n>0\\) Shot",
+    "text": "\\(n&gt;0\\) Shot\n\nProvide one or more input-output pairs.\n\nWith a human, we would say “conversation” or “back-and-forth”.\n\nHelps the model understand complex patterns.\n\n“Make more things like this”.\n\nImproves accuracy for specific formatting."
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#n0-shot-1",
+    "href": "C0_prompt.rjs.html#n0-shot-1",
+    "title": "Prompts",
+    "section": "\\(n>0\\) Shot",
+    "text": "\\(n&gt;0\\) Shot\n\nRefines the desired style before the task.\nExamples:\n\nOne-shot: Give more fictional names like “Argaven Harge”\nFew-shot: Give more coffee-shop names like “Sterling”, “Push x Pull”, and “Proud Mary”.\nMulti-shot: Below I have included an English-Sindarin (Common Elvish) dictionary. Generate a Sindarin word for “computer”."
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#chain-of-thought-cot",
+    "href": "C0_prompt.rjs.html#chain-of-thought-cot",
+    "title": "Prompts",
+    "section": "Chain of Thought (CoT)",
+    "text": "Chain of Thought (CoT)\n\nEncourages complex reasoning via intermediate steps.\nLeads to well-structured and detailed outputs.\nHelps the model “think” through logic and math.\n\nAn aside: LLMs know what “logic” or “math” are…\n\nRemember - they cannot understand “this or that”\n\nBut they know what humans sound like when humans think they are doing logic or math."
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#cot",
+    "href": "C0_prompt.rjs.html#cot",
+    "title": "Prompts",
+    "section": "CoT",
+    "text": "CoT\n\nImproves transparency and accuracy of the result.\nExamples:\n\nSolve a math word problem step-by-step.\nExplain the logic behind a legal conclusion.\nBreak down a business strategy into phases."
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#hybrid",
+    "href": "C0_prompt.rjs.html#hybrid",
+    "title": "Prompts",
+    "section": "Hybrid",
+    "text": "Hybrid\n\n“Zero-shot CoT Prompts”\nCombines chain of thought with zero-shot methods.\nTriggers reasoning steps without specific examples.\nSome users feel this produces higher quality output for logic tasks."
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#hybrid-1",
+    "href": "C0_prompt.rjs.html#hybrid-1",
+    "title": "Prompts",
+    "section": "Hybrid",
+    "text": "Hybrid\n\nUses trigger phrases to initiate the thinking process.\nExamples:\n\nAdding “Let’s think step-by-step” to a question.\nPrompting: “Solve this logic puzzle explaining your work.”\n“Break this down systematically to find the answer.”\n\nFun question: What do we think “systematically” even means?"
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#text-generation",
+    "href": "C0_prompt.rjs.html#text-generation",
+    "title": "Prompts",
+    "section": "Text generation",
+    "text": "Text generation\n\n“Creative” Writing\nSummarization\nTranslation\nDialogue"
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#text-generation-1",
+    "href": "C0_prompt.rjs.html#text-generation-1",
+    "title": "Prompts",
+    "section": "Text Generation",
+    "text": "Text Generation\n\n\n\n\n\n\n\n\nScenario\nInstructions\nExample Prompt\n\n\n\n\n“Creative” Writing\nCraft prompts that specify genre, tone, style, and plot points to guide the AI in generating engaging narratives.\n“Write a short story about a young woman who discovers a magical portal in her attic.”\n\n\n\n\nBy construction, an LLM cannot be creative.\nIt can “appear” or “claim to be” creative."
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#text-generation-2",
+    "href": "C0_prompt.rjs.html#text-generation-2",
+    "title": "Prompts",
+    "section": "Text Generation",
+    "text": "Text Generation\n\n\n\n\n\n\n\n\nScenario\nInstructions\nExample Prompt\n\n\n\n\nSummarization\nProvide the AI with text and instruct it to generate concise summaries that capture key information.\n“Summarize the main points of the following news article on climate change.”\n\n\n\n\nThis, notably, entrusts matrix multiplication with not missing the “point” of some writing."
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#text-generation-3",
+    "href": "C0_prompt.rjs.html#text-generation-3",
+    "title": "Prompts",
+    "section": "Text Generation",
+    "text": "Text Generation\n\n\n\n\n\n\n\n\nScenario\nInstructions\nExample Prompt\n\n\n\n\nTranslation\nSpecify the source and target languages to enable the AI to accurately translate text while preserving meaning and context.\n“Translate the following text from English to Spanish: ‘The quick brown fox jumps over the lazy dog.’”"
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#text-generation-4",
+    "href": "C0_prompt.rjs.html#text-generation-4",
+    "title": "Prompts",
+    "section": "Text Generation",
+    "text": "Text Generation\n\n\n\n\n\n\n\n\nScenario\nInstructions\nExample Prompt\n\n\n\n\nDialogue\nDesign prompts that simulate conversations, allowing the AI to generate responses that mimic human interaction and maintain context.\n“You are a friendly chatbot helping users troubleshoot their computer problems. Respond to the user’s query: ‘My computer won’t turn on.’”"
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#question-answering",
+    "href": "C0_prompt.rjs.html#question-answering",
+    "title": "Prompts",
+    "section": "Question Answering",
+    "text": "Question Answering\n\nOpen-Ended Questions\nSpecific Questions\nMultiple Choice Questions\nHypothetical Questions\nOpinion-Based Questions"
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#question-answering-1",
+    "href": "C0_prompt.rjs.html#question-answering-1",
+    "title": "Prompts",
+    "section": "Question Answering",
+    "text": "Question Answering\n\n\n\n\n\n\n\n\nScenario\nInstructions\nExample Prompt\n\n\n\n\nOpen-Ended Questions\nEncourage comprehensive and informative answers based on its knowledge base.\n“Explain quantum computing and its potential impact on the future of technology.”\n\n\n\n\nIt is important to recognize that LLMs are not trained to teach or understand topics…\nBut are trained to sound authoritative."
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#question-answering-2",
+    "href": "C0_prompt.rjs.html#question-answering-2",
+    "title": "Prompts",
+    "section": "Question Answering",
+    "text": "Question Answering\n\n\n\n\n\n\n\n\nScenario\nInstructions\nExample Prompt\n\n\n\n\nSpecific Questions\nDesign prompts that target specific information, so AI just “looks it up”\n“What is the capital of France?” or “According to the provided text, what are the main causes of deforestation?”\n\n\n\n\nJust use a search engine or encyclopedia"
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#question-answering-3",
+    "href": "C0_prompt.rjs.html#question-answering-3",
+    "title": "Prompts",
+    "section": "Question Answering",
+    "text": "Question Answering\n\n\n\n\n\n\n\n\nScenario\nInstructions\nExample Prompt\n\n\n\n\nMultiple Choice Questions\nPresent prompts with options, prompting the AI to analyze and select the most appropriate answer based on its understanding of the context.\n“Who wrote the Earthsea series? A) J.R.R. Tolkien, B) Isaac Asimov, C) Usula Le Guin D) Frank Herbert”"
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#question-answering-4",
+    "href": "C0_prompt.rjs.html#question-answering-4",
+    "title": "Prompts",
+    "section": "Question Answering",
+    "text": "Question Answering\n\n\n\n\n\n\n\n\nScenario\nInstructions\nExample Prompt\n\n\n\n\nHypothetical Questions\nExplore hypothetical situations, to speculate or discuss potentials.\n“What would happen if humans could travel at the speed of light?”\n\n\n\n\nGood to be specific here.\n\nDoes this mean a human can “run” that fast, or…\nThat the established laws of physics are (deeply) wrong."
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#question-answering-5",
+    "href": "C0_prompt.rjs.html#question-answering-5",
+    "title": "Prompts",
+    "section": "Question Answering",
+    "text": "Question Answering\n\n\n\n\n\n\n\n\nScenario\nInstructions\nExample Prompt\n\n\n\n\nOpinion-Based Questions\nDesign prompts generate a perspective or opinion on a specific topic, perhpas with reasoning for the stance.\n“Do you believe that artificial intelligence will eventually surpass human intelligence? Why or why not?”\n\n\n\n\nThis can be conspiciously similar to asking a CS professor if you should study computer science."
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#code-generation",
+    "href": "C0_prompt.rjs.html#code-generation",
+    "title": "Prompts",
+    "section": "Code Generation",
+    "text": "Code Generation\n\nThe provided examples, from Google, suggest AIs, including Google’s Gemini, can generate code.\nThis has not be demonstrated scientifically.\n\nThe state-of-the-art is that AI usage slows development and reduces code quality, while increasing costs.\n\nGoogle “sells” Gemini and tactfully avoids this consensus.\nYou have seen me try (and often fail) to use Gemini to generate code in this class."
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#code-generation-1",
+    "href": "C0_prompt.rjs.html#code-generation-1",
+    "title": "Prompts",
+    "section": "Code Generation",
+    "text": "Code Generation\n\n\n\n\n\n\n\n\nScenario\nInstructions\nExample Prompt\n\n\n\n\nCodeCompletion\nProvide the AI with a partial code snippet and prompt it to suggest or complete the remaining code based on the context and programming language.\n“Write a Python function to calculate the factorial of a given number.”"
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#interesting-example",
+    "href": "C0_prompt.rjs.html#interesting-example",
+    "title": "Prompts",
+    "section": "Interesting Example",
+    "text": "Interesting Example\n\nCompeting formulation: https://gprivate.com/search/index.html?q=#gsc.q=python+factorial+function\nHere is the first result (there is a built in function so no reason to write one): https://stackoverflow.com/questions/5136447/function-for-factorial-in-python"
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#code-generation-2",
+    "href": "C0_prompt.rjs.html#code-generation-2",
+    "title": "Prompts",
+    "section": "Code Generation",
+    "text": "Code Generation\n\n\n\n\n\n\n\n\nScenario\nInstructions\nExample Prompt\n\n\n\n\nCode Translation\nSpecify the source and target programming languages to enable the AI to translate code while preserving functionality and syntax.\n“Translate the following Python code to JavaScript: def greet(name): print(‘Hello,’, name)”"
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#code-generation-3",
+    "href": "C0_prompt.rjs.html#code-generation-3",
+    "title": "Prompts",
+    "section": "Code Generation",
+    "text": "Code Generation\n\n\n\n\n\n\n\n\nScenario\nInstructions\nExample Prompt\n\n\n\n\nCode Optimization\nPrompt the AI to analyze existing code and suggest improvements for efficiency, readability, or performance.\n“Optimize the following Python code to reduce its execution time.”"
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#code-generation-4",
+    "href": "C0_prompt.rjs.html#code-generation-4",
+    "title": "Prompts",
+    "section": "Code Generation",
+    "text": "Code Generation\n\n\n\n\n\n\n\n\nScenario\nInstructions\nExample Prompt\n\n\n\n\nCode Debugging\nProvide the AI with code containing errors and prompt it to identify and suggest potential solutions for the identified issues.\n“Debug the following Java code and explain why it is throwing a NullPointerException.”"
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#return-to-vision",
+    "href": "C0_prompt.rjs.html#return-to-vision",
+    "title": "Prompts",
+    "section": "Return to vision",
+    "text": "Return to vision\n\nGemini in particularly is fond of its image capabilities, including writing alt-text and generating images.\nI do not think the following necessariyl apply as broadly to non-Gemini."
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#image-generation",
+    "href": "C0_prompt.rjs.html#image-generation",
+    "title": "Prompts",
+    "section": "Image Generation",
+    "text": "Image Generation\n\n\n\n\n\n\n\n\nScenario\nInstructions\nExample Prompt\n\n\n\n\nPhotorealistic Images\nCraft prompts that describe the desired image in detail, including objects, scenery, lighting, and style, to generate realistic and high-quality images.\n“A photorealistic image of a sunset over the ocean with palm trees silhouetted against the sky.”"
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#image-generation-1",
+    "href": "C0_prompt.rjs.html#image-generation-1",
+    "title": "Prompts",
+    "section": "Image Generation",
+    "text": "Image Generation\n\n\n\n\n\n\n\n\nScenario\nInstructions\nExample Prompt\n\n\n\n\nArtistic Images\nDesign prompts that specify art styles, techniques, and subject matter to guide the AI in creating images that mimic specific artistic movements or evoke certain emotions.\n“An impressionist painting of a bustling city street with people walking under umbrellas in the rain.”"
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#image-generation-2",
+    "href": "C0_prompt.rjs.html#image-generation-2",
+    "title": "Prompts",
+    "section": "Image Generation",
+    "text": "Image Generation\n\n\n\n\n\n\n\n\nScenario\nInstructions\nExample Prompt\n\n\n\n\nAbstract Images\nFormulate prompts that encourage the AI to generate images that are open to interpretation, utilizing shapes, colors, and textures to evoke feelings or concepts.\n“An abstract image representing the concept of hope, using bright colors and flowing shapes.”"
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#image-generation-3",
+    "href": "C0_prompt.rjs.html#image-generation-3",
+    "title": "Prompts",
+    "section": "Image Generation",
+    "text": "Image Generation\n\n\n\n\n\n\n\n\nScenario\nInstructions\nExample Prompt\n\n\n\n\nImage Editing\nProvide the AI with an existing image and specify desired modifications, enabling it to edit and enhance the image according to the given instructions.\n“Change the background of this photo to a starry night sky and add a full moon.” or “Remove the person from this image and replace them with a cat.”"
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#clear-goals",
+    "href": "C0_prompt.rjs.html#clear-goals",
+    "title": "Prompts",
+    "section": "Clear Goals",
+    "text": "Clear Goals\n\nClearly define what you want the AI to achieve.\n\n\n\n\n\n\n\n\nTactic\nPrompt Example\n\n\n\n\nUse precise language and avoid ambiguity\nInstead of: “Write something about climate change,” use: “Write a persuasive essay arguing for the implementation of stricter carbon emission regulations.”"
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#clear-goals-1",
+    "href": "C0_prompt.rjs.html#clear-goals-1",
+    "title": "Prompts",
+    "section": "Clear Goals",
+    "text": "Clear Goals\n\nClearly define what you want the AI to achieve.\n\n\n\n\n\n\n\n\nTactic\nPrompt Example\n\n\n\n\nUse action verbs to specify the desired action\n“Write a bulleted list that summarizes the key findings of the attached research paper”"
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#clear-goals-2",
+    "href": "C0_prompt.rjs.html#clear-goals-2",
+    "title": "Prompts",
+    "section": "Clear Goals",
+    "text": "Clear Goals\n\nClearly define what you want the AI to achieve.\n\n\n\n\n\n\n\n\nTactic\nPrompt Example\n\n\n\n\nDefine the desired length and format of the output\n“Compose a 500-word essay discussing the impact of climate change on coastal communities.”"
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#clear-goals-3",
+    "href": "C0_prompt.rjs.html#clear-goals-3",
+    "title": "Prompts",
+    "section": "Clear Goals",
+    "text": "Clear Goals\n\nClearly define what you want the AI to achieve.\n\n\n\n\n\n\n\n\nTactic\nPrompt Example\n\n\n\n\nQuantify your requests whenever possible\nInstead of: “Write a long poem,” use: “Write a sonnet with 14 lines that explores themes of love and loss.”"
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#provide-context",
+    "href": "C0_prompt.rjs.html#provide-context",
+    "title": "Prompts",
+    "section": "Provide Context",
+    "text": "Provide Context\n\nProviding relevant context and background information.\n\n\n\n\n\n\n\n\nTactic\nPrompt Example\n\n\n\n\nBreak down complex tasks into smaller steps\nInstead of: “Create a marketing plan,” use: “1. Identify the target audience. 2. Develop key marketing messages. 3. Choose appropriate marketing channels.”"
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#provide-context-1",
+    "href": "C0_prompt.rjs.html#provide-context-1",
+    "title": "Prompts",
+    "section": "Provide Context",
+    "text": "Provide Context\n\nProviding relevant context and background information.\n\n\n\n\n\n\n\n\nTactic\nPrompt Example\n\n\n\n\nAssign a persona to the AI model\n“Act as a technical writer and create a user manual for a new software application.”"
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#use-n-shot-prompting",
+    "href": "C0_prompt.rjs.html#use-n-shot-prompting",
+    "title": "Prompts",
+    "section": "Use \\(n>\\)-Shot Prompting",
+    "text": "Use \\(n&gt;\\)-Shot Prompting\n\nAlready discussed!\n“Name three fish that rhyme with brown”.\n\nI don’t know if there’s three."
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#iterate",
+    "href": "C0_prompt.rjs.html#iterate",
+    "title": "Prompts",
+    "section": "Iterate",
+    "text": "Iterate\n\nPrompt engineering is an iterative process.\n\nExperiment with different prompt variations\nObserve the model’s responses\nRefine your prompts based on the results."
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#experiment",
+    "href": "C0_prompt.rjs.html#experiment",
+    "title": "Prompts",
+    "section": "Experiment",
+    "text": "Experiment\n\n\n\n\n\n\n\nTactic\nPrompt Example\n\n\n\n\nTry different phrasings and structures\nExperiment with using different synonyms, sentence structures, and formatting to see how they affect the output."
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#experiment-1",
+    "href": "C0_prompt.rjs.html#experiment-1",
+    "title": "Prompts",
+    "section": "Experiment",
+    "text": "Experiment\n\n\n\n\n\n\n\nTactic\nPrompt Example\n\n\n\n\nAdjust the level of detail and specificity\nAdd or remove information from your prompt to see how it impacts the model’s understanding and output."
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#experiment-2",
+    "href": "C0_prompt.rjs.html#experiment-2",
+    "title": "Prompts",
+    "section": "Experiment",
+    "text": "Experiment\n\n\n\n\n\n\n\nTactic\nPrompt Example\n\n\n\n\nTest different prompt lengths\nExperiment with both shorter and longer prompts to find the optimal balance."
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#common-pitfalls",
+    "href": "C0_prompt.rjs.html#common-pitfalls",
+    "title": "Prompts",
+    "section": "Common Pitfalls",
+    "text": "Common Pitfalls\nBe mindful of common pitfalls in prompt engineering, such as:\n\nProviding insufficient or ambiguous instructions\nUsing overly complex or technical language\n\nEspecially words that are context-specific for which you have not provided the context.\n\nIncluding biased or leading information\nFailing to iterate and refine prompts"
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#accuracy-and-relevance",
+    "href": "C0_prompt.rjs.html#accuracy-and-relevance",
+    "title": "Prompts",
+    "section": "Accuracy and Relevance",
+    "text": "Accuracy and Relevance\n\nBy providing clear instructions and context, you can significantly improve the accuracy and relevance of the AI’s output."
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#reduce-predictability",
+    "href": "C0_prompt.rjs.html#reduce-predictability",
+    "title": "Prompts",
+    "section": "Reduce Predictability",
+    "text": "Reduce Predictability\n\nGoogle called this “Creativity and Innovation”.\nA matrix is not creative, but can be surprising.\nThey may generate unexpected ideas, stories, and images."
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#efficiency-and-productivity",
+    "href": "C0_prompt.rjs.html#efficiency-and-productivity",
+    "title": "Prompts",
+    "section": "Efficiency and Productivity",
+    "text": "Efficiency and Productivity\n\nWell-crafted prompts can\n\nStreamline tasks\n\nSaving you time, say, manually editing and email.\n\nAutomate processes\n\nCode is better at this, but say, capitalize every instance of a word that happens to be a proper noun, like “Satisfy” or “Python”\n\nReduce overall time and effort."
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#precision",
+    "href": "C0_prompt.rjs.html#precision",
+    "title": "Prompts",
+    "section": "Precision",
+    "text": "Precision\n\nGoogle called this “Control and Customization”.\nTailor the AI’s responses to your specific needs and preferences.\nThis is the thing AI is good out - if you just need some text, and you can’t find it with a search engine or in a library.\n\nGive me three words that might make me feel hungry.\nHard task for a dictionary."
+  },
+  {
+    "objectID": "C0_prompt.rjs.html#bias-and-safety",
+    "href": "C0_prompt.rjs.html#bias-and-safety",
+    "title": "Prompts",
+    "section": "Bias and Safety",
+    "text": "Bias and Safety\n\nGoogle claims it is possible to reduce bias and improve safety with prompt engineering.\nThis has never been demonstrated scientifically with either AI or with, in fact, Google search results, so I am skeptical.\nI do think, however, an LLM trained on Google’s PR statements would claim that I, the user, am partially responsible for bias and safety."
+  },
+  {
+    "objectID": "C0_prompt.html",
+    "href": "C0_prompt.html",
+    "title": "Prompts",
+    "section": "",
+    "text": "Thus far we have:\n\nShown how to develop a minimal AI\nGenerated text\n\nNow we will:\n\nUse our understanding of the internals\n“Prompt” text generators to… generate text.",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#today",
+    "href": "C0_prompt.html#today",
+    "title": "Prompts",
+    "section": "",
+    "text": "Thus far we have:\n\nShown how to develop a minimal AI\nGenerated text\n\nNow we will:\n\nUse our understanding of the internals\n“Prompt” text generators to… generate text.",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#section",
+    "href": "C0_prompt.html#section",
+    "title": "Prompts",
+    "section": "",
+    "text": "import numpy as np\n\nsar = \"to do is to be\"\nsoc = \"to be is to do\"\nsha = \"to be or no to be\"\nsin = \"do be do be do\"\nall = [sar, soc, sha, sin]\n\nwords = [quote.split() for quote in all]\nsets = [set(quote) for quote in words]\nunique = set.union(*sets)\n\nnexts = dict()\nfor first in unique:\n    next = []\n    for quote in words:\n        for loc, word in enumerate(quote):\n            if word == first and loc + 1 &lt; len(quote):\n                next.append(quote[loc + 1])\n    nexts[first] = next\n\ndef next_word(prev_word):\n    die = np.random.rand()\n    possible_words = nexts[prev_word]\n    position = die * len(possible_words)\n    position = int(position)\n    return possible_words[position]\n    \ndef make_text(first_word, num_words):\n    text = first_word\n    word = first_word\n    for _ in range(num_words - 1):\n        word = next_word(word)\n        text = text + \" \" + word\n    print(text)\n    \nfor word in unique:\n    make_text(word, 5)\n\nor no to be do\ndo is to be or\nno to do be is\nis to be is to\nbe or no to be\nto be do be is",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#citation",
+    "href": "C0_prompt.html#citation",
+    "title": "Prompts",
+    "section": "Citation",
+    "text": "Citation\n\nI do consider myself good at writing “prompts” - instructions to get a large language model to produce the prompt I want.\nHowever, I do so by thinking of prompts as writing code.\nI have not (really) taught you to write code.\n\nThough I have a little bit.\n\nInstead, Prompt engineering: overview and guide\n\nI took Google’s guide and put it in Gemini (then lightly edited)",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#prompt-engineering",
+    "href": "C0_prompt.html#prompt-engineering",
+    "title": "Prompts",
+    "section": "Prompt “engineering”",
+    "text": "Prompt “engineering”\n\nThe rise of large language models (LLMs) has brought forth exciting possibilities for human-computer interaction. However, harnessing the full potential of these powerful AI models requires a crucial skill: prompt engineering.",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#goals",
+    "href": "C0_prompt.html#goals",
+    "title": "Prompts",
+    "section": "Goals",
+    "text": "Goals\n\n“Unlock” the capabilities of LLMs.\n\nUnderstand intent.\nFollow instructions.\nGenerate desired outputs.\n\nAim for:\n\nAccurate, relevant, safe",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#what-is-prompt-engineering",
+    "href": "C0_prompt.html#what-is-prompt-engineering",
+    "title": "Prompts",
+    "section": "What is prompt engineering?",
+    "text": "What is prompt engineering?\n\nArt and science of designing/optimizing prompts.\n\nVery cool to see the term “art and science” appear… not just in a “College of Arts and Sciences”\nI think of it as: things that can be verified experimentally and things that can’t.\nPrompts are both!\n\nGuides AI toward specific responses.\nProvides context, instructions, and examples.\nActs as a structure for the AI.",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#what-is-a-prompt",
+    "href": "C0_prompt.html#what-is-a-prompt",
+    "title": "Prompts",
+    "section": "What is a prompt?",
+    "text": "What is a prompt?\n\nInput provided to “primes” a specific response.\n\nLike when we provided example phrases, a starting word, and a length.\n\nStructure how is natural to you:\n\nQuestions, keywords, instructions.\nI often provide examples.\n\nInfluences quality and relevance of output.",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#key-elements",
+    "href": "C0_prompt.html#key-elements",
+    "title": "Prompts",
+    "section": "Key Elements",
+    "text": "Key Elements\n\nMastery communicates effectively with AI models.\nFormat: How the model interprets requests.\n\nNatural language, commands, structured fields.\n\nContext: Improves tone, theme, and accuracy.\n\n“For a work email…”\n“For an Instagram post…”\n“For the group chat…”",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#the-idea",
+    "href": "C0_prompt.html#the-idea",
+    "title": "Prompts",
+    "section": "The idea",
+    "text": "The idea\n\nDecompose a prompt into some key elements.\n\nFormat\nContext\nExample\nTuning\nTurns",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#prompt-formats",
+    "href": "C0_prompt.html#prompt-formats",
+    "title": "Prompts",
+    "section": "Prompt formats",
+    "text": "Prompt formats\n\nThe (1) structure and (2) style of your prompt play a significant role in guiding the AI’s response.\nDifferent models (GPT, Claude, LLaMa, Gemini) may respond better to specific formats.",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#examples",
+    "href": "C0_prompt.html#examples",
+    "title": "Prompts",
+    "section": "Examples",
+    "text": "Examples\n\nNatural language questions.\n\n“Is this a leaf?”\n\nDirect commands.\n\n“Write 4 sentences of 14-18 words.”\n\nStructured inputs with specific fields\n\n“3 adjectives that evoke happiness and relaxation.”",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#context-and-examples",
+    "href": "C0_prompt.html#context-and-examples",
+    "title": "Prompts",
+    "section": "Context and Examples",
+    "text": "Context and Examples\n\nProvide context to improve accuracy and relevance.\nDefine specific tone or themes.\nHelps the AI understand the desired intent.\nExamples:\n\nInclude a few sentences on the tasks background.\nDescribe the mood (e.g., “upbeat,” “concerned”).",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#fine-tuning-and-adapting",
+    "href": "C0_prompt.html#fine-tuning-and-adapting",
+    "title": "Prompts",
+    "section": "Fine-tuning and Adapting",
+    "text": "Fine-tuning and Adapting\n\nFine-tuning enhances performance via tailored prompts.\nTarget specific tasks or domains.\nAdapt based on user feedback or model outputs.\nImproves response quality over time.\nExamples:\n\nTrain on peer-reviewed journals for accuracy.\nRefine prompts based on common user errors.",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#multi-turn-conversations",
+    "href": "C0_prompt.html#multi-turn-conversations",
+    "title": "Prompts",
+    "section": "Multi-turn Conversations",
+    "text": "Multi-turn Conversations\n\nEnables continuous, context-aware interactions.\nEnhances the overall user experience.\nAI remembers previous inputs within the thread.\nFacilitates complex, multi-step tasks.\nExamples:\n\nRefining a search: “Now find prices for those hotels.”\nDebugging: “Why did the previous code throw an error?”",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#types-of-prompts",
+    "href": "C0_prompt.html#types-of-prompts",
+    "title": "Prompts",
+    "section": "Types of prompts",
+    "text": "Types of prompts\n\nThere are various types of prompts used in AI, each serving a specific purpose:\n\nDirect\n\\(n\\)-shot\nChain-of-thought",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#direct-prompts",
+    "href": "C0_prompt.html#direct-prompts",
+    "title": "Prompts",
+    "section": "Direct Prompts",
+    "text": "Direct Prompts\n\nProvide direct instructions or questions.\nIncludes no additional context or examples.\n\nHelpful to get “general” or “broad” responses.\n\nRelies on the model’s pre-existing knowledge.\n\nBasically, what is currently on the internet.\nAnd at the rate things are on the internet.\nSo: low density of peer reviewed studies.",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#direct-prompts-1",
+    "href": "C0_prompt.html#direct-prompts-1",
+    "title": "Prompts",
+    "section": "Direct Prompts",
+    "text": "Direct Prompts\n\nAlso called “zero-shot” prompts (zero back-and-forth)\nUseful for standard tasks and quick queries.\nExamples:\n\n“Brainstorming”: “Brainstorm a theme for birthday party.”\nSummarization: “Summarize the text provided below.”\nTranslation: “Translate ‘Hello’ into French.”",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#n0-shot",
+    "href": "C0_prompt.html#n0-shot",
+    "title": "Prompts",
+    "section": "\\(n>0\\) Shot",
+    "text": "\\(n&gt;0\\) Shot\n\nProvide one or more input-output pairs.\n\nWith a human, we would say “conversation” or “back-and-forth”.\n\nHelps the model understand complex patterns.\n\n“Make more things like this”.\n\nImproves accuracy for specific formatting.",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#n0-shot-1",
+    "href": "C0_prompt.html#n0-shot-1",
+    "title": "Prompts",
+    "section": "\\(n>0\\) Shot",
+    "text": "\\(n&gt;0\\) Shot\n\nRefines the desired style before the task.\nExamples:\n\nOne-shot: Give more fictional names like “Argaven Harge”\nFew-shot: Give more coffee-shop names like “Sterling”, “Push x Pull”, and “Proud Mary”.\nMulti-shot: Below I have included an English-Sindarin (Common Elvish) dictionary. Generate a Sindarin word for “computer”.",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#chain-of-thought-cot",
+    "href": "C0_prompt.html#chain-of-thought-cot",
+    "title": "Prompts",
+    "section": "Chain of Thought (CoT)",
+    "text": "Chain of Thought (CoT)\n\nEncourages complex reasoning via intermediate steps.\nLeads to well-structured and detailed outputs.\nHelps the model “think” through logic and math.\n\nAn aside: LLMs know what “logic” or “math” are…\n\nRemember - they cannot understand “this or that”\n\nBut they know what humans sound like when humans think they are doing logic or math.",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#cot",
+    "href": "C0_prompt.html#cot",
+    "title": "Prompts",
+    "section": "CoT",
+    "text": "CoT\n\nImproves transparency and accuracy of the result.\nExamples:\n\nSolve a math word problem step-by-step.\nExplain the logic behind a legal conclusion.\nBreak down a business strategy into phases.",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#hybrid",
+    "href": "C0_prompt.html#hybrid",
+    "title": "Prompts",
+    "section": "Hybrid",
+    "text": "Hybrid\n\n“Zero-shot CoT Prompts”\nCombines chain of thought with zero-shot methods.\nTriggers reasoning steps without specific examples.\nSome users feel this produces higher quality output for logic tasks.",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#hybrid-1",
+    "href": "C0_prompt.html#hybrid-1",
+    "title": "Prompts",
+    "section": "Hybrid",
+    "text": "Hybrid\n\nUses trigger phrases to initiate the thinking process.\nExamples:\n\nAdding “Let’s think step-by-step” to a question.\nPrompting: “Solve this logic puzzle explaining your work.”\n“Break this down systematically to find the answer.”\n\nFun question: What do we think “systematically” even means?",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#text-generation",
+    "href": "C0_prompt.html#text-generation",
+    "title": "Prompts",
+    "section": "Text generation",
+    "text": "Text generation\n\n“Creative” Writing\nSummarization\nTranslation\nDialogue",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#text-generation-1",
+    "href": "C0_prompt.html#text-generation-1",
+    "title": "Prompts",
+    "section": "Text Generation",
+    "text": "Text Generation\n\n\n\n\n\n\n\n\nScenario\nInstructions\nExample Prompt\n\n\n\n\n“Creative” Writing\nCraft prompts that specify genre, tone, style, and plot points to guide the AI in generating engaging narratives.\n“Write a short story about a young woman who discovers a magical portal in her attic.”\n\n\n\n\nBy construction, an LLM cannot be creative.\nIt can “appear” or “claim to be” creative.",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#text-generation-2",
+    "href": "C0_prompt.html#text-generation-2",
+    "title": "Prompts",
+    "section": "Text Generation",
+    "text": "Text Generation\n\n\n\n\n\n\n\n\nScenario\nInstructions\nExample Prompt\n\n\n\n\nSummarization\nProvide the AI with text and instruct it to generate concise summaries that capture key information.\n“Summarize the main points of the following news article on climate change.”\n\n\n\n\nThis, notably, entrusts matrix multiplication with not missing the “point” of some writing.",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#text-generation-3",
+    "href": "C0_prompt.html#text-generation-3",
+    "title": "Prompts",
+    "section": "Text Generation",
+    "text": "Text Generation\n\n\n\n\n\n\n\n\nScenario\nInstructions\nExample Prompt\n\n\n\n\nTranslation\nSpecify the source and target languages to enable the AI to accurately translate text while preserving meaning and context.\n“Translate the following text from English to Spanish: ‘The quick brown fox jumps over the lazy dog.’”",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#text-generation-4",
+    "href": "C0_prompt.html#text-generation-4",
+    "title": "Prompts",
+    "section": "Text Generation",
+    "text": "Text Generation\n\n\n\n\n\n\n\n\nScenario\nInstructions\nExample Prompt\n\n\n\n\nDialogue\nDesign prompts that simulate conversations, allowing the AI to generate responses that mimic human interaction and maintain context.\n“You are a friendly chatbot helping users troubleshoot their computer problems. Respond to the user’s query: ‘My computer won’t turn on.’”",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#question-answering",
+    "href": "C0_prompt.html#question-answering",
+    "title": "Prompts",
+    "section": "Question Answering",
+    "text": "Question Answering\n\nOpen-Ended Questions\nSpecific Questions\nMultiple Choice Questions\nHypothetical Questions\nOpinion-Based Questions",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#question-answering-1",
+    "href": "C0_prompt.html#question-answering-1",
+    "title": "Prompts",
+    "section": "Question Answering",
+    "text": "Question Answering\n\n\n\n\n\n\n\n\nScenario\nInstructions\nExample Prompt\n\n\n\n\nOpen-Ended Questions\nEncourage comprehensive and informative answers based on its knowledge base.\n“Explain quantum computing and its potential impact on the future of technology.”\n\n\n\n\nIt is important to recognize that LLMs are not trained to teach or understand topics…\nBut are trained to sound authoritative.",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#question-answering-2",
+    "href": "C0_prompt.html#question-answering-2",
+    "title": "Prompts",
+    "section": "Question Answering",
+    "text": "Question Answering\n\n\n\n\n\n\n\n\nScenario\nInstructions\nExample Prompt\n\n\n\n\nSpecific Questions\nDesign prompts that target specific information, so AI just “looks it up”\n“What is the capital of France?” or “According to the provided text, what are the main causes of deforestation?”\n\n\n\n\nJust use a search engine or encyclopedia",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#question-answering-3",
+    "href": "C0_prompt.html#question-answering-3",
+    "title": "Prompts",
+    "section": "Question Answering",
+    "text": "Question Answering\n\n\n\n\n\n\n\n\nScenario\nInstructions\nExample Prompt\n\n\n\n\nMultiple Choice Questions\nPresent prompts with options, prompting the AI to analyze and select the most appropriate answer based on its understanding of the context.\n“Who wrote the Earthsea series? A) J.R.R. Tolkien, B) Isaac Asimov, C) Usula Le Guin D) Frank Herbert”",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#question-answering-4",
+    "href": "C0_prompt.html#question-answering-4",
+    "title": "Prompts",
+    "section": "Question Answering",
+    "text": "Question Answering\n\n\n\n\n\n\n\n\nScenario\nInstructions\nExample Prompt\n\n\n\n\nHypothetical Questions\nExplore hypothetical situations, to speculate or discuss potentials.\n“What would happen if humans could travel at the speed of light?”\n\n\n\n\nGood to be specific here.\n\nDoes this mean a human can “run” that fast, or…\nThat the established laws of physics are (deeply) wrong.",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#question-answering-5",
+    "href": "C0_prompt.html#question-answering-5",
+    "title": "Prompts",
+    "section": "Question Answering",
+    "text": "Question Answering\n\n\n\n\n\n\n\n\nScenario\nInstructions\nExample Prompt\n\n\n\n\nOpinion-Based Questions\nDesign prompts generate a perspective or opinion on a specific topic, perhpas with reasoning for the stance.\n“Do you believe that artificial intelligence will eventually surpass human intelligence? Why or why not?”\n\n\n\n\nThis can be conspiciously similar to asking a CS professor if you should study computer science.",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#code-generation",
+    "href": "C0_prompt.html#code-generation",
+    "title": "Prompts",
+    "section": "Code Generation",
+    "text": "Code Generation\n\nThe provided examples, from Google, suggest AIs, including Google’s Gemini, can generate code.\nThis has not be demonstrated scientifically.\n\nThe state-of-the-art is that AI usage slows development and reduces code quality, while increasing costs.\n\nGoogle “sells” Gemini and tactfully avoids this consensus.\nYou have seen me try (and often fail) to use Gemini to generate code in this class.",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#code-generation-1",
+    "href": "C0_prompt.html#code-generation-1",
+    "title": "Prompts",
+    "section": "Code Generation",
+    "text": "Code Generation\n\n\n\n\n\n\n\n\nScenario\nInstructions\nExample Prompt\n\n\n\n\nCodeCompletion\nProvide the AI with a partial code snippet and prompt it to suggest or complete the remaining code based on the context and programming language.\n“Write a Python function to calculate the factorial of a given number.”",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#interesting-example",
+    "href": "C0_prompt.html#interesting-example",
+    "title": "Prompts",
+    "section": "Interesting Example",
+    "text": "Interesting Example\n\nCompeting formulation: https://gprivate.com/search/index.html?q=#gsc.q=python+factorial+function\nHere is the first result (there is a built in function so no reason to write one): https://stackoverflow.com/questions/5136447/function-for-factorial-in-python",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#code-generation-2",
+    "href": "C0_prompt.html#code-generation-2",
+    "title": "Prompts",
+    "section": "Code Generation",
+    "text": "Code Generation\n\n\n\n\n\n\n\n\nScenario\nInstructions\nExample Prompt\n\n\n\n\nCode Translation\nSpecify the source and target programming languages to enable the AI to translate code while preserving functionality and syntax.\n“Translate the following Python code to JavaScript: def greet(name): print(‘Hello,’, name)”",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#code-generation-3",
+    "href": "C0_prompt.html#code-generation-3",
+    "title": "Prompts",
+    "section": "Code Generation",
+    "text": "Code Generation\n\n\n\n\n\n\n\n\nScenario\nInstructions\nExample Prompt\n\n\n\n\nCode Optimization\nPrompt the AI to analyze existing code and suggest improvements for efficiency, readability, or performance.\n“Optimize the following Python code to reduce its execution time.”",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#code-generation-4",
+    "href": "C0_prompt.html#code-generation-4",
+    "title": "Prompts",
+    "section": "Code Generation",
+    "text": "Code Generation\n\n\n\n\n\n\n\n\nScenario\nInstructions\nExample Prompt\n\n\n\n\nCode Debugging\nProvide the AI with code containing errors and prompt it to identify and suggest potential solutions for the identified issues.\n“Debug the following Java code and explain why it is throwing a NullPointerException.”",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#return-to-vision",
+    "href": "C0_prompt.html#return-to-vision",
+    "title": "Prompts",
+    "section": "Return to vision",
+    "text": "Return to vision\n\nGemini in particularly is fond of its image capabilities, including writing alt-text and generating images.\nI do not think the following necessariyl apply as broadly to non-Gemini.",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#image-generation",
+    "href": "C0_prompt.html#image-generation",
+    "title": "Prompts",
+    "section": "Image Generation",
+    "text": "Image Generation\n\n\n\n\n\n\n\n\nScenario\nInstructions\nExample Prompt\n\n\n\n\nPhotorealistic Images\nCraft prompts that describe the desired image in detail, including objects, scenery, lighting, and style, to generate realistic and high-quality images.\n“A photorealistic image of a sunset over the ocean with palm trees silhouetted against the sky.”",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#image-generation-1",
+    "href": "C0_prompt.html#image-generation-1",
+    "title": "Prompts",
+    "section": "Image Generation",
+    "text": "Image Generation\n\n\n\n\n\n\n\n\nScenario\nInstructions\nExample Prompt\n\n\n\n\nArtistic Images\nDesign prompts that specify art styles, techniques, and subject matter to guide the AI in creating images that mimic specific artistic movements or evoke certain emotions.\n“An impressionist painting of a bustling city street with people walking under umbrellas in the rain.”",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#image-generation-2",
+    "href": "C0_prompt.html#image-generation-2",
+    "title": "Prompts",
+    "section": "Image Generation",
+    "text": "Image Generation\n\n\n\n\n\n\n\n\nScenario\nInstructions\nExample Prompt\n\n\n\n\nAbstract Images\nFormulate prompts that encourage the AI to generate images that are open to interpretation, utilizing shapes, colors, and textures to evoke feelings or concepts.\n“An abstract image representing the concept of hope, using bright colors and flowing shapes.”",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#image-generation-3",
+    "href": "C0_prompt.html#image-generation-3",
+    "title": "Prompts",
+    "section": "Image Generation",
+    "text": "Image Generation\n\n\n\n\n\n\n\n\nScenario\nInstructions\nExample Prompt\n\n\n\n\nImage Editing\nProvide the AI with an existing image and specify desired modifications, enabling it to edit and enhance the image according to the given instructions.\n“Change the background of this photo to a starry night sky and add a full moon.” or “Remove the person from this image and replace them with a cat.”",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#clear-goals",
+    "href": "C0_prompt.html#clear-goals",
+    "title": "Prompts",
+    "section": "Clear Goals",
+    "text": "Clear Goals\n\nClearly define what you want the AI to achieve.\n\n\n\n\n\n\n\n\nTactic\nPrompt Example\n\n\n\n\nUse precise language and avoid ambiguity\nInstead of: “Write something about climate change,” use: “Write a persuasive essay arguing for the implementation of stricter carbon emission regulations.”",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#clear-goals-1",
+    "href": "C0_prompt.html#clear-goals-1",
+    "title": "Prompts",
+    "section": "Clear Goals",
+    "text": "Clear Goals\n\nClearly define what you want the AI to achieve.\n\n\n\n\n\n\n\n\nTactic\nPrompt Example\n\n\n\n\nUse action verbs to specify the desired action\n“Write a bulleted list that summarizes the key findings of the attached research paper”",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#clear-goals-2",
+    "href": "C0_prompt.html#clear-goals-2",
+    "title": "Prompts",
+    "section": "Clear Goals",
+    "text": "Clear Goals\n\nClearly define what you want the AI to achieve.\n\n\n\n\n\n\n\n\nTactic\nPrompt Example\n\n\n\n\nDefine the desired length and format of the output\n“Compose a 500-word essay discussing the impact of climate change on coastal communities.”",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#clear-goals-3",
+    "href": "C0_prompt.html#clear-goals-3",
+    "title": "Prompts",
+    "section": "Clear Goals",
+    "text": "Clear Goals\n\nClearly define what you want the AI to achieve.\n\n\n\n\n\n\n\n\nTactic\nPrompt Example\n\n\n\n\nQuantify your requests whenever possible\nInstead of: “Write a long poem,” use: “Write a sonnet with 14 lines that explores themes of love and loss.”",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#provide-context",
+    "href": "C0_prompt.html#provide-context",
+    "title": "Prompts",
+    "section": "Provide Context",
+    "text": "Provide Context\n\nProviding relevant context and background information.\n\n\n\n\n\n\n\n\nTactic\nPrompt Example\n\n\n\n\nBreak down complex tasks into smaller steps\nInstead of: “Create a marketing plan,” use: “1. Identify the target audience. 2. Develop key marketing messages. 3. Choose appropriate marketing channels.”",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#provide-context-1",
+    "href": "C0_prompt.html#provide-context-1",
+    "title": "Prompts",
+    "section": "Provide Context",
+    "text": "Provide Context\n\nProviding relevant context and background information.\n\n\n\n\n\n\n\n\nTactic\nPrompt Example\n\n\n\n\nAssign a persona to the AI model\n“Act as a technical writer and create a user manual for a new software application.”",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#use-n-shot-prompting",
+    "href": "C0_prompt.html#use-n-shot-prompting",
+    "title": "Prompts",
+    "section": "Use \\(n>\\)-Shot Prompting",
+    "text": "Use \\(n&gt;\\)-Shot Prompting\n\nAlready discussed!\n“Name three fish that rhyme with brown”.\n\nI don’t know if there’s three.",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#iterate",
+    "href": "C0_prompt.html#iterate",
+    "title": "Prompts",
+    "section": "Iterate",
+    "text": "Iterate\n\nPrompt engineering is an iterative process.\n\nExperiment with different prompt variations\nObserve the model’s responses\nRefine your prompts based on the results.",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#experiment",
+    "href": "C0_prompt.html#experiment",
+    "title": "Prompts",
+    "section": "Experiment",
+    "text": "Experiment\n\n\n\n\n\n\n\nTactic\nPrompt Example\n\n\n\n\nTry different phrasings and structures\nExperiment with using different synonyms, sentence structures, and formatting to see how they affect the output.",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#experiment-1",
+    "href": "C0_prompt.html#experiment-1",
+    "title": "Prompts",
+    "section": "Experiment",
+    "text": "Experiment\n\n\n\n\n\n\n\nTactic\nPrompt Example\n\n\n\n\nAdjust the level of detail and specificity\nAdd or remove information from your prompt to see how it impacts the model’s understanding and output.",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#experiment-2",
+    "href": "C0_prompt.html#experiment-2",
+    "title": "Prompts",
+    "section": "Experiment",
+    "text": "Experiment\n\n\n\n\n\n\n\nTactic\nPrompt Example\n\n\n\n\nTest different prompt lengths\nExperiment with both shorter and longer prompts to find the optimal balance.",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#common-pitfalls",
+    "href": "C0_prompt.html#common-pitfalls",
+    "title": "Prompts",
+    "section": "Common Pitfalls",
+    "text": "Common Pitfalls\nBe mindful of common pitfalls in prompt engineering, such as:\n\nProviding insufficient or ambiguous instructions\nUsing overly complex or technical language\n\nEspecially words that are context-specific for which you have not provided the context.\n\nIncluding biased or leading information\nFailing to iterate and refine prompts",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#accuracy-and-relevance",
+    "href": "C0_prompt.html#accuracy-and-relevance",
+    "title": "Prompts",
+    "section": "Accuracy and Relevance",
+    "text": "Accuracy and Relevance\n\nBy providing clear instructions and context, you can significantly improve the accuracy and relevance of the AI’s output.",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#reduce-predictability",
+    "href": "C0_prompt.html#reduce-predictability",
+    "title": "Prompts",
+    "section": "Reduce Predictability",
+    "text": "Reduce Predictability\n\nGoogle called this “Creativity and Innovation”.\nA matrix is not creative, but can be surprising.\nThey may generate unexpected ideas, stories, and images.",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#efficiency-and-productivity",
+    "href": "C0_prompt.html#efficiency-and-productivity",
+    "title": "Prompts",
+    "section": "Efficiency and Productivity",
+    "text": "Efficiency and Productivity\n\nWell-crafted prompts can\n\nStreamline tasks\n\nSaving you time, say, manually editing and email.\n\nAutomate processes\n\nCode is better at this, but say, capitalize every instance of a word that happens to be a proper noun, like “Satisfy” or “Python”\n\nReduce overall time and effort.",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#precision",
+    "href": "C0_prompt.html#precision",
+    "title": "Prompts",
+    "section": "Precision",
+    "text": "Precision\n\nGoogle called this “Control and Customization”.\nTailor the AI’s responses to your specific needs and preferences.\nThis is the thing AI is good out - if you just need some text, and you can’t find it with a search engine or in a library.\n\nGive me three words that might make me feel hungry.\nHard task for a dictionary.",
+    "crumbs": [
+      "Prompts"
+    ]
+  },
+  {
+    "objectID": "C0_prompt.html#bias-and-safety",
+    "href": "C0_prompt.html#bias-and-safety",
+    "title": "Prompts",
+    "section": "Bias and Safety",
+    "text": "Bias and Safety\n\nGoogle claims it is possible to reduce bias and improve safety with prompt engineering.\nThis has never been demonstrated scientifically with either AI or with, in fact, Google search results, so I am skeptical.\nI do think, however, an LLM trained on Google’s PR statements would claim that I, the user, am partially responsible for bias and safety.",
+    "crumbs": [
+      "Prompts"
     ]
   }
 ]

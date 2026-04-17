@@ -1,0 +1,2603 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.30">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Prompts – AI 101</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./B2_sonnet.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-a4a11d514c7d463668e07712114998e6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-70c9a4798e5f6abb0636bcdc3eed0e90.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./C0_prompt.html">Prompts</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">AI 101</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00_turing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ada &amp; Alan</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Turing’s Test</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11_colab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Colab</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20_supervise.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">(Un)supervision</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21_key.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dichotomous Key</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./30_regress.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Regression</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./31_nd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="math inline">\(n\)</span>-D</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./40_class.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Classification</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./41_treetree.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tree Tree</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./50_graph.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Graphs</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./51_sudoku.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sudoku</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6__guest.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Guest</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6_1_doc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Thinking Game</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./60_neural.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Neural Networks</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./61_weights.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Weights</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./70_perceptron.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Perceptron</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./71_multi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Multi-class</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./80_matrix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Matrix</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./90_learning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Learning</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./91_false.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Falsify</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A0_xor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The XOR Problem</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A1_compress.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Compression</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./B0_markov.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Markov</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./B2_sonnet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Compression</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./C0_prompt.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Prompts</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#today" id="toc-today" class="nav-link active" data-scroll-target="#today">Today</a></li>
+  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a>
+  <ul class="collapse">
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  </ul></li>
+  <li><a href="#prompts" id="toc-prompts" class="nav-link" data-scroll-target="#prompts">Prompts</a>
+  <ul class="collapse">
+  <li><a href="#citation" id="toc-citation" class="nav-link" data-scroll-target="#citation">Citation</a></li>
+  <li><a href="#prompt-engineering" id="toc-prompt-engineering" class="nav-link" data-scroll-target="#prompt-engineering">Prompt “engineering”</a></li>
+  <li><a href="#goals" id="toc-goals" class="nav-link" data-scroll-target="#goals">Goals</a></li>
+  <li><a href="#what-is-prompt-engineering" id="toc-what-is-prompt-engineering" class="nav-link" data-scroll-target="#what-is-prompt-engineering">What is prompt engineering?</a></li>
+  <li><a href="#what-is-a-prompt" id="toc-what-is-a-prompt" class="nav-link" data-scroll-target="#what-is-a-prompt">What is a prompt?</a></li>
+  <li><a href="#key-elements" id="toc-key-elements" class="nav-link" data-scroll-target="#key-elements">Key Elements</a></li>
+  </ul></li>
+  <li><a href="#elements" id="toc-elements" class="nav-link" data-scroll-target="#elements">Elements</a>
+  <ul class="collapse">
+  <li><a href="#the-idea" id="toc-the-idea" class="nav-link" data-scroll-target="#the-idea">The idea</a></li>
+  <li><a href="#prompt-formats" id="toc-prompt-formats" class="nav-link" data-scroll-target="#prompt-formats">Prompt formats</a></li>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
+  <li><a href="#context-and-examples" id="toc-context-and-examples" class="nav-link" data-scroll-target="#context-and-examples">Context and Examples</a></li>
+  <li><a href="#fine-tuning-and-adapting" id="toc-fine-tuning-and-adapting" class="nav-link" data-scroll-target="#fine-tuning-and-adapting">Fine-tuning and Adapting</a></li>
+  <li><a href="#multi-turn-conversations" id="toc-multi-turn-conversations" class="nav-link" data-scroll-target="#multi-turn-conversations">Multi-turn Conversations</a></li>
+  </ul></li>
+  <li><a href="#types" id="toc-types" class="nav-link" data-scroll-target="#types">Types</a>
+  <ul class="collapse">
+  <li><a href="#types-of-prompts" id="toc-types-of-prompts" class="nav-link" data-scroll-target="#types-of-prompts">Types of prompts</a></li>
+  <li><a href="#direct-prompts" id="toc-direct-prompts" class="nav-link" data-scroll-target="#direct-prompts">Direct Prompts</a></li>
+  <li><a href="#direct-prompts-1" id="toc-direct-prompts-1" class="nav-link" data-scroll-target="#direct-prompts-1">Direct Prompts</a></li>
+  <li><a href="#n0-shot" id="toc-n0-shot" class="nav-link" data-scroll-target="#n0-shot"><span class="math inline">\(n&gt;0\)</span> Shot</a></li>
+  <li><a href="#n0-shot-1" id="toc-n0-shot-1" class="nav-link" data-scroll-target="#n0-shot-1"><span class="math inline">\(n&gt;0\)</span> Shot</a></li>
+  <li><a href="#chain-of-thought-cot" id="toc-chain-of-thought-cot" class="nav-link" data-scroll-target="#chain-of-thought-cot">Chain of Thought (CoT)</a></li>
+  <li><a href="#cot" id="toc-cot" class="nav-link" data-scroll-target="#cot">CoT</a></li>
+  <li><a href="#hybrid" id="toc-hybrid" class="nav-link" data-scroll-target="#hybrid">Hybrid</a></li>
+  <li><a href="#hybrid-1" id="toc-hybrid-1" class="nav-link" data-scroll-target="#hybrid-1">Hybrid</a></li>
+  </ul></li>
+  <li><a href="#use-cases" id="toc-use-cases" class="nav-link" data-scroll-target="#use-cases">Use Cases</a>
+  <ul class="collapse">
+  <li><a href="#text-generation" id="toc-text-generation" class="nav-link" data-scroll-target="#text-generation">Text generation</a></li>
+  <li><a href="#text-generation-1" id="toc-text-generation-1" class="nav-link" data-scroll-target="#text-generation-1">Text Generation</a></li>
+  <li><a href="#text-generation-2" id="toc-text-generation-2" class="nav-link" data-scroll-target="#text-generation-2">Text Generation</a></li>
+  <li><a href="#text-generation-3" id="toc-text-generation-3" class="nav-link" data-scroll-target="#text-generation-3">Text Generation</a></li>
+  <li><a href="#text-generation-4" id="toc-text-generation-4" class="nav-link" data-scroll-target="#text-generation-4">Text Generation</a></li>
+  <li><a href="#question-answering" id="toc-question-answering" class="nav-link" data-scroll-target="#question-answering">Question Answering</a></li>
+  <li><a href="#question-answering-1" id="toc-question-answering-1" class="nav-link" data-scroll-target="#question-answering-1">Question Answering</a></li>
+  <li><a href="#question-answering-2" id="toc-question-answering-2" class="nav-link" data-scroll-target="#question-answering-2">Question Answering</a></li>
+  <li><a href="#question-answering-3" id="toc-question-answering-3" class="nav-link" data-scroll-target="#question-answering-3">Question Answering</a></li>
+  <li><a href="#question-answering-4" id="toc-question-answering-4" class="nav-link" data-scroll-target="#question-answering-4">Question Answering</a></li>
+  <li><a href="#question-answering-5" id="toc-question-answering-5" class="nav-link" data-scroll-target="#question-answering-5">Question Answering</a></li>
+  <li><a href="#code-generation" id="toc-code-generation" class="nav-link" data-scroll-target="#code-generation">Code Generation</a></li>
+  <li><a href="#code-generation-1" id="toc-code-generation-1" class="nav-link" data-scroll-target="#code-generation-1">Code Generation</a></li>
+  <li><a href="#interesting-example" id="toc-interesting-example" class="nav-link" data-scroll-target="#interesting-example">Interesting Example</a></li>
+  <li><a href="#code-generation-2" id="toc-code-generation-2" class="nav-link" data-scroll-target="#code-generation-2">Code Generation</a></li>
+  <li><a href="#code-generation-3" id="toc-code-generation-3" class="nav-link" data-scroll-target="#code-generation-3">Code Generation</a></li>
+  <li><a href="#code-generation-4" id="toc-code-generation-4" class="nav-link" data-scroll-target="#code-generation-4">Code Generation</a></li>
+  <li><a href="#return-to-vision" id="toc-return-to-vision" class="nav-link" data-scroll-target="#return-to-vision">Return to vision</a></li>
+  <li><a href="#image-generation" id="toc-image-generation" class="nav-link" data-scroll-target="#image-generation">Image Generation</a></li>
+  <li><a href="#image-generation-1" id="toc-image-generation-1" class="nav-link" data-scroll-target="#image-generation-1">Image Generation</a></li>
+  <li><a href="#image-generation-2" id="toc-image-generation-2" class="nav-link" data-scroll-target="#image-generation-2">Image Generation</a></li>
+  <li><a href="#image-generation-3" id="toc-image-generation-3" class="nav-link" data-scroll-target="#image-generation-3">Image Generation</a></li>
+  </ul></li>
+  <li><a href="#strategies" id="toc-strategies" class="nav-link" data-scroll-target="#strategies">Strategies</a>
+  <ul class="collapse">
+  <li><a href="#clear-goals" id="toc-clear-goals" class="nav-link" data-scroll-target="#clear-goals">Clear Goals</a></li>
+  <li><a href="#clear-goals-1" id="toc-clear-goals-1" class="nav-link" data-scroll-target="#clear-goals-1">Clear Goals</a></li>
+  <li><a href="#clear-goals-2" id="toc-clear-goals-2" class="nav-link" data-scroll-target="#clear-goals-2">Clear Goals</a></li>
+  <li><a href="#clear-goals-3" id="toc-clear-goals-3" class="nav-link" data-scroll-target="#clear-goals-3">Clear Goals</a></li>
+  <li><a href="#provide-context" id="toc-provide-context" class="nav-link" data-scroll-target="#provide-context">Provide Context</a></li>
+  <li><a href="#provide-context-1" id="toc-provide-context-1" class="nav-link" data-scroll-target="#provide-context-1">Provide Context</a></li>
+  <li><a href="#use-n-shot-prompting" id="toc-use-n-shot-prompting" class="nav-link" data-scroll-target="#use-n-shot-prompting">Use <span class="math inline">\(n&gt;\)</span>-Shot Prompting</a></li>
+  <li><a href="#iterate" id="toc-iterate" class="nav-link" data-scroll-target="#iterate">Iterate</a></li>
+  <li><a href="#experiment" id="toc-experiment" class="nav-link" data-scroll-target="#experiment">Experiment</a></li>
+  <li><a href="#experiment-1" id="toc-experiment-1" class="nav-link" data-scroll-target="#experiment-1">Experiment</a></li>
+  <li><a href="#experiment-2" id="toc-experiment-2" class="nav-link" data-scroll-target="#experiment-2">Experiment</a></li>
+  <li><a href="#common-pitfalls" id="toc-common-pitfalls" class="nav-link" data-scroll-target="#common-pitfalls">Common Pitfalls</a></li>
+  </ul></li>
+  <li><a href="#benefits" id="toc-benefits" class="nav-link" data-scroll-target="#benefits">Benefits</a>
+  <ul class="collapse">
+  <li><a href="#accuracy-and-relevance" id="toc-accuracy-and-relevance" class="nav-link" data-scroll-target="#accuracy-and-relevance">Accuracy and Relevance</a></li>
+  <li><a href="#reduce-predictability" id="toc-reduce-predictability" class="nav-link" data-scroll-target="#reduce-predictability">Reduce Predictability</a></li>
+  <li><a href="#efficiency-and-productivity" id="toc-efficiency-and-productivity" class="nav-link" data-scroll-target="#efficiency-and-productivity">Efficiency and Productivity</a></li>
+  <li><a href="#precision" id="toc-precision" class="nav-link" data-scroll-target="#precision">Precision</a></li>
+  <li><a href="#bias-and-safety" id="toc-bias-and-safety" class="nav-link" data-scroll-target="#bias-and-safety">Bias and Safety</a></li>
+  </ul></li>
+  <li><a href="#fin" id="toc-fin" class="nav-link" data-scroll-target="#fin">Fin</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="C0_prompt.rjs.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Prompts</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i></button></div></div>
+<p class="subtitle lead">AI 101</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="today" class="level2">
+<h2 class="anchored" data-anchor-id="today">Today</h2>
+<ul>
+<li>Thus far we have:
+<ul>
+<li>Shown how to develop a minimal AI</li>
+<li>Generated text</li>
+</ul></li>
+<li>Now we will:
+<ul>
+<li>Use our understanding of the internals</li>
+<li>“Prompt” text generators to… generate text.</li>
+</ul></li>
+</ul>
+</section>
+<section id="recap" class="level1">
+<h1>Recap</h1>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+<div id="a27c4411" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2"></a></span>
+<span id="cb1-3"><a href="#cb1-3"></a>sar <span class="op">=</span> <span class="st">"to do is to be"</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>soc <span class="op">=</span> <span class="st">"to be is to do"</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>sha <span class="op">=</span> <span class="st">"to be or no to be"</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>sin <span class="op">=</span> <span class="st">"do be do be do"</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="bu">all</span> <span class="op">=</span> [sar, soc, sha, sin]</span>
+<span id="cb1-8"><a href="#cb1-8"></a></span>
+<span id="cb1-9"><a href="#cb1-9"></a>words <span class="op">=</span> [quote.split() <span class="cf">for</span> quote <span class="kw">in</span> <span class="bu">all</span>]</span>
+<span id="cb1-10"><a href="#cb1-10"></a>sets <span class="op">=</span> [<span class="bu">set</span>(quote) <span class="cf">for</span> quote <span class="kw">in</span> words]</span>
+<span id="cb1-11"><a href="#cb1-11"></a>unique <span class="op">=</span> <span class="bu">set</span>.union(<span class="op">*</span>sets)</span>
+<span id="cb1-12"><a href="#cb1-12"></a></span>
+<span id="cb1-13"><a href="#cb1-13"></a>nexts <span class="op">=</span> <span class="bu">dict</span>()</span>
+<span id="cb1-14"><a href="#cb1-14"></a><span class="cf">for</span> first <span class="kw">in</span> unique:</span>
+<span id="cb1-15"><a href="#cb1-15"></a>    <span class="bu">next</span> <span class="op">=</span> []</span>
+<span id="cb1-16"><a href="#cb1-16"></a>    <span class="cf">for</span> quote <span class="kw">in</span> words:</span>
+<span id="cb1-17"><a href="#cb1-17"></a>        <span class="cf">for</span> loc, word <span class="kw">in</span> <span class="bu">enumerate</span>(quote):</span>
+<span id="cb1-18"><a href="#cb1-18"></a>            <span class="cf">if</span> word <span class="op">==</span> first <span class="kw">and</span> loc <span class="op">+</span> <span class="dv">1</span> <span class="op">&lt;</span> <span class="bu">len</span>(quote):</span>
+<span id="cb1-19"><a href="#cb1-19"></a>                <span class="bu">next</span>.append(quote[loc <span class="op">+</span> <span class="dv">1</span>])</span>
+<span id="cb1-20"><a href="#cb1-20"></a>    nexts[first] <span class="op">=</span> <span class="bu">next</span></span>
+<span id="cb1-21"><a href="#cb1-21"></a></span>
+<span id="cb1-22"><a href="#cb1-22"></a><span class="kw">def</span> next_word(prev_word):</span>
+<span id="cb1-23"><a href="#cb1-23"></a>    die <span class="op">=</span> np.random.rand()</span>
+<span id="cb1-24"><a href="#cb1-24"></a>    possible_words <span class="op">=</span> nexts[prev_word]</span>
+<span id="cb1-25"><a href="#cb1-25"></a>    position <span class="op">=</span> die <span class="op">*</span> <span class="bu">len</span>(possible_words)</span>
+<span id="cb1-26"><a href="#cb1-26"></a>    position <span class="op">=</span> <span class="bu">int</span>(position)</span>
+<span id="cb1-27"><a href="#cb1-27"></a>    <span class="cf">return</span> possible_words[position]</span>
+<span id="cb1-28"><a href="#cb1-28"></a>    </span>
+<span id="cb1-29"><a href="#cb1-29"></a><span class="kw">def</span> make_text(first_word, num_words):</span>
+<span id="cb1-30"><a href="#cb1-30"></a>    text <span class="op">=</span> first_word</span>
+<span id="cb1-31"><a href="#cb1-31"></a>    word <span class="op">=</span> first_word</span>
+<span id="cb1-32"><a href="#cb1-32"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(num_words <span class="op">-</span> <span class="dv">1</span>):</span>
+<span id="cb1-33"><a href="#cb1-33"></a>        word <span class="op">=</span> next_word(word)</span>
+<span id="cb1-34"><a href="#cb1-34"></a>        text <span class="op">=</span> text <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> word</span>
+<span id="cb1-35"><a href="#cb1-35"></a>    <span class="bu">print</span>(text)</span>
+<span id="cb1-36"><a href="#cb1-36"></a>    </span>
+<span id="cb1-37"><a href="#cb1-37"></a><span class="cf">for</span> word <span class="kw">in</span> unique:</span>
+<span id="cb1-38"><a href="#cb1-38"></a>    make_text(word, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>or no to be do
+do is to be or
+no to do be is
+is to be is to
+be or no to be
+to be do be is</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="prompts" class="level1">
+<h1>Prompts</h1>
+<section id="citation" class="level2">
+<h2 class="anchored" data-anchor-id="citation">Citation</h2>
+<ul>
+<li>I do consider myself good at writing “prompts” - instructions to get a large language model to produce the prompt I want.</li>
+<li>However, I do so by thinking of prompts as writing code.</li>
+<li>I have not (really) taught you to write code.
+<ul>
+<li>Though I have a little bit.</li>
+</ul></li>
+<li>Instead, <a href="https://cloud.google.com/discover/what-is-prompt-engineering">Prompt engineering: overview and guide</a>
+<ul>
+<li>I took Google’s guide and put it in Gemini (then lightly edited)</li>
+</ul></li>
+</ul>
+</section>
+<section id="prompt-engineering" class="level2">
+<h2 class="anchored" data-anchor-id="prompt-engineering">Prompt “engineering”</h2>
+<blockquote class="blockquote">
+<p>The rise of large language models (LLMs) has brought forth exciting possibilities for human-computer interaction. However, harnessing the full potential of these powerful AI models requires a crucial skill: prompt engineering.</p>
+</blockquote>
+</section>
+<section id="goals" class="level2">
+<h2 class="anchored" data-anchor-id="goals">Goals</h2>
+<ul>
+<li>“Unlock” the capabilities of LLMs.
+<ul>
+<li>Understand <strong>intent</strong>.</li>
+<li><strong>Follow</strong> instructions.</li>
+<li>Generate <strong>desired</strong> outputs.</li>
+</ul></li>
+<li>Aim for:
+<ul>
+<li><em>Accurate</em>, <em>relevant</em>, <em>safe</em></li>
+</ul></li>
+</ul>
+</section>
+<section id="what-is-prompt-engineering" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-prompt-engineering">What is prompt engineering?</h2>
+<ul>
+<li><strong>Art and science</strong> of designing/optimizing prompts.
+<ul>
+<li><em>Very</em> cool to see the term “art and science” appear… not just in a “College of Arts and Sciences”</li>
+<li>I think of it as: things that can be verified experimentally and things that can’t.</li>
+<li>Prompts are both!</li>
+</ul></li>
+<li>Guides AI toward specific responses.</li>
+<li>Provides <strong>context</strong>, <strong>instructions</strong>, and <strong>examples</strong>.</li>
+<li>Acts as a <strong>structure</strong> for the AI.</li>
+</ul>
+</section>
+<section id="what-is-a-prompt" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-a-prompt">What is a prompt?</h2>
+<ul>
+<li>Input provided to “primes” a specific response.
+<ul>
+<li>Like when we provided example phrases, a starting word, and a length.</li>
+</ul></li>
+<li>Structure how is natural to you:
+<ul>
+<li>Questions, keywords, instructions.</li>
+<li>I often provide examples.</li>
+</ul></li>
+<li>Influences <strong>quality</strong> and <strong>relevance</strong> of output.</li>
+</ul>
+</section>
+<section id="key-elements" class="level2">
+<h2 class="anchored" data-anchor-id="key-elements">Key Elements</h2>
+<ul>
+<li>Mastery communicates effectively with AI models.</li>
+<li><strong>Format:</strong> How the model interprets requests.
+<ul>
+<li>Natural language, commands, structured fields.</li>
+</ul></li>
+<li><strong>Context:</strong> Improves tone, theme, and accuracy.
+<ul>
+<li>“For a work email…”</li>
+<li>“For an Instagram post…”</li>
+<li>“For the group chat…”</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="elements" class="level1">
+<h1>Elements</h1>
+<section id="the-idea" class="level2">
+<h2 class="anchored" data-anchor-id="the-idea">The idea</h2>
+<ul>
+<li>Decompose a prompt into some key elements.
+<ul>
+<li>Format</li>
+<li>Context</li>
+<li>Example</li>
+<li>Tuning</li>
+<li>Turns</li>
+</ul></li>
+</ul>
+</section>
+<section id="prompt-formats" class="level2">
+<h2 class="anchored" data-anchor-id="prompt-formats">Prompt formats</h2>
+<ul>
+<li>The (1) <strong>structure</strong> and (2) <strong>style</strong> of your prompt play a significant role in guiding the AI’s response.</li>
+<li>Different models (GPT, Claude, LLaMa, Gemini) may respond better to specific formats.</li>
+</ul>
+</section>
+<section id="examples" class="level2">
+<h2 class="anchored" data-anchor-id="examples">Examples</h2>
+<ul>
+<li>Natural language questions.
+<ul>
+<li>“Is this a leaf?”</li>
+</ul></li>
+<li>Direct commands.
+<ul>
+<li>“Write 4 sentences of 14-18 words.”</li>
+</ul></li>
+<li>Structured inputs with specific fields
+<ul>
+<li>“3 adjectives that evoke happiness and relaxation.”</li>
+</ul></li>
+</ul>
+</section>
+<section id="context-and-examples" class="level2">
+<h2 class="anchored" data-anchor-id="context-and-examples">Context and Examples</h2>
+<ul>
+<li>Provide context to improve <strong>accuracy</strong> and <strong>relevance</strong>.</li>
+<li>Define specific <strong>tone</strong> or <strong>themes</strong>.</li>
+<li>Helps the AI understand the desired <strong>intent</strong>.</li>
+<li>Examples:
+<ul>
+<li>Include a few sentences on the tasks <strong>background</strong>.</li>
+<li>Describe the <strong>mood</strong> (e.g., “upbeat,” “concerned”).</li>
+</ul></li>
+</ul>
+</section>
+<section id="fine-tuning-and-adapting" class="level2">
+<h2 class="anchored" data-anchor-id="fine-tuning-and-adapting">Fine-tuning and Adapting</h2>
+<ul>
+<li><strong>Fine-tuning</strong> enhances performance via tailored prompts.</li>
+<li>Target specific <strong>tasks</strong> or <strong>domains</strong>.</li>
+<li><strong>Adapt</strong> based on user feedback or model outputs.</li>
+<li>Improves response quality <strong>over time</strong>.</li>
+<li>Examples:
+<ul>
+<li>Train on <strong>peer-reviewed journals</strong> for accuracy.</li>
+<li>Refine prompts based on <strong>common user errors</strong>.</li>
+</ul></li>
+</ul>
+</section>
+<section id="multi-turn-conversations" class="level2">
+<h2 class="anchored" data-anchor-id="multi-turn-conversations">Multi-turn Conversations</h2>
+<ul>
+<li>Enables <strong>continuous</strong>, <strong>context-aware</strong> interactions.</li>
+<li>Enhances the overall <strong>user experience</strong>.</li>
+<li>AI remembers <strong>previous inputs</strong> within the thread.</li>
+<li>Facilitates complex, <strong>multi-step</strong> tasks.</li>
+<li>Examples:
+<ul>
+<li>Refining a search: “Now find prices for those <strong>hotels</strong>.”</li>
+<li>Debugging: “Why did the <strong>previous</strong> code throw an error?”</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="types" class="level1">
+<h1>Types</h1>
+<section id="types-of-prompts" class="level2">
+<h2 class="anchored" data-anchor-id="types-of-prompts">Types of prompts</h2>
+<ul>
+<li>There are various types of prompts used in AI, each serving a specific purpose:
+<ul>
+<li>Direct</li>
+<li><span class="math inline">\(n\)</span>-shot</li>
+<li>Chain-of-thought</li>
+</ul></li>
+</ul>
+</section>
+<section id="direct-prompts" class="level2">
+<h2 class="anchored" data-anchor-id="direct-prompts">Direct Prompts</h2>
+<ul>
+<li>Provide <strong>direct instructions</strong> or questions.</li>
+<li>Includes <strong>no additional context</strong> or examples.
+<ul>
+<li>Helpful to get “general” or “broad” responses.</li>
+</ul></li>
+<li>Relies on the model’s <strong>pre-existing knowledge</strong>.
+<ul>
+<li>Basically, what is currently on the internet.</li>
+<li>And at the <em>rate</em> things are on the internet.</li>
+<li>So: low density of peer reviewed studies.</li>
+</ul></li>
+</ul>
+</section>
+<section id="direct-prompts-1" class="level2">
+<h2 class="anchored" data-anchor-id="direct-prompts-1">Direct Prompts</h2>
+<ul>
+<li>Also called “zero-shot” prompts (zero back-and-forth)</li>
+<li>Useful for <strong>standard tasks</strong> and quick queries.</li>
+<li>Examples:
+<ul>
+<li>“<strong>Brainstorming</strong>”: “Brainstorm a theme for birthday party.”</li>
+<li><strong>Summarization</strong>: “Summarize the text provided below.”</li>
+<li><strong>Translation</strong>: “Translate ‘Hello’ into French.”</li>
+</ul></li>
+</ul>
+</section>
+<section id="n0-shot" class="level2">
+<h2 class="anchored" data-anchor-id="n0-shot"><span class="math inline">\(n&gt;0\)</span> Shot</h2>
+<ul>
+<li>Provide one or more <strong>input-output pairs</strong>.
+<ul>
+<li>With a human, we would say “conversation” or “back-and-forth”.</li>
+</ul></li>
+<li>Helps the model understand <strong>complex patterns</strong>.
+<ul>
+<li>“Make more things like this”.</li>
+</ul></li>
+<li>Improves <strong>accuracy</strong> for specific formatting.</li>
+</ul>
+</section>
+<section id="n0-shot-1" class="level2">
+<h2 class="anchored" data-anchor-id="n0-shot-1"><span class="math inline">\(n&gt;0\)</span> Shot</h2>
+<ul>
+<li>Refines the <strong>desired style</strong> before the task.</li>
+<li>Examples:
+<ul>
+<li><strong>One-shot:</strong> Give more fictional names like “<a href="https://en.wikipedia.org/wiki/The_Left_Hand_of_Darkness#Argaven">Argaven Harge</a>”</li>
+<li><strong>Few-shot:</strong> Give more coffee-shop names like “<a href="https://www.sterling.coffee/">Sterling</a>”, “<a href="https://pushxpullcoffee.com/">Push x Pull</a>”, and “<a href="https://proudmarycoffee.com/">Proud Mary</a>”.</li>
+<li><strong>Multi-shot:</strong> Below I have included an English-<a href="https://tolkiengateway.net/wiki/Sindarin">Sindarin (Common Elvish)</a> dictionary. Generate a Sindarin word for “computer”.</li>
+</ul></li>
+</ul>
+</section>
+<section id="chain-of-thought-cot" class="level2">
+<h2 class="anchored" data-anchor-id="chain-of-thought-cot">Chain of Thought (CoT)</h2>
+<ul>
+<li>Encourages <strong>complex reasoning</strong> via intermediate steps.</li>
+<li>Leads to <strong>well-structured</strong> and detailed outputs.</li>
+<li>Helps the model “think” through <strong>logic</strong> and <strong>math</strong>.
+<ul>
+<li>An aside: LLMs know what “logic” or “math” are…
+<ul>
+<li>Remember - they cannot understand “this or that”</li>
+</ul></li>
+<li>But they know what humans <em>sound</em> like when humans <em>think</em> they are doing logic or math.</li>
+</ul></li>
+</ul>
+</section>
+<section id="cot" class="level2">
+<h2 class="anchored" data-anchor-id="cot">CoT</h2>
+<ul>
+<li>Improves <strong>transparency</strong> and accuracy of the result.</li>
+<li>Examples:
+<ul>
+<li>Solve a math word problem <strong>step-by-step</strong>.</li>
+<li>Explain the <strong>logic</strong> behind a legal conclusion.</li>
+<li>Break down a <strong>business strategy</strong> into phases.</li>
+</ul></li>
+</ul>
+</section>
+<section id="hybrid" class="level2">
+<h2 class="anchored" data-anchor-id="hybrid">Hybrid</h2>
+<ul>
+<li>“Zero-shot CoT Prompts”</li>
+<li>Combines <strong>chain of thought</strong> with <strong>zero-shot</strong> methods.</li>
+<li>Triggers <strong>reasoning steps</strong> without specific examples.</li>
+<li>Some users feel this produces <strong>higher quality</strong> output for logic tasks.</li>
+</ul>
+</section>
+<section id="hybrid-1" class="level2">
+<h2 class="anchored" data-anchor-id="hybrid-1">Hybrid</h2>
+<ul>
+<li>Uses <strong>trigger phrases</strong> to initiate the thinking process.</li>
+<li>Examples:
+<ul>
+<li>Adding “Let’s <strong>think step-by-step</strong>” to a question.</li>
+<li>Prompting: “Solve this logic puzzle <strong>explaining your work</strong>.”</li>
+<li>“Break this down <strong>systematically</strong> to find the answer.”
+<ul>
+<li>Fun question: What do we think “systematically” even means?</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="use-cases" class="level1">
+<h1>Use Cases</h1>
+<section id="text-generation" class="level2">
+<h2 class="anchored" data-anchor-id="text-generation">Text generation</h2>
+<ul>
+<li>“Creative” Writing</li>
+<li>Summarization</li>
+<li>Translation</li>
+<li>Dialogue</li>
+</ul>
+</section>
+<section id="text-generation-1" class="level2">
+<h2 class="anchored" data-anchor-id="text-generation-1">Text Generation</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Scenario</th>
+<th style="text-align: left;">Instructions</th>
+<th style="text-align: left;">Example Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">“Creative” Writing</td>
+<td style="text-align: left;">Craft prompts that specify genre, tone, style, and plot points to guide the AI in generating engaging narratives.</td>
+<td style="text-align: left;">“Write a short story about a young woman who discovers a magical portal in her attic.”</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>By construction, an LLM cannot be creative.</li>
+<li>It can “appear” or “claim to be” creative.</li>
+</ul>
+</section>
+<section id="text-generation-2" class="level2">
+<h2 class="anchored" data-anchor-id="text-generation-2">Text Generation</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Scenario</th>
+<th style="text-align: left;">Instructions</th>
+<th style="text-align: left;">Example Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Summarization</td>
+<td style="text-align: left;">Provide the AI with text and instruct it to generate concise summaries that capture key information.</td>
+<td style="text-align: left;">“Summarize the main points of the following news article on climate change.”</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>This, notably, entrusts matrix multiplication with not missing the “point” of some writing.</li>
+</ul>
+</section>
+<section id="text-generation-3" class="level2">
+<h2 class="anchored" data-anchor-id="text-generation-3">Text Generation</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Scenario</th>
+<th style="text-align: left;">Instructions</th>
+<th style="text-align: left;">Example Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Translation</td>
+<td style="text-align: left;">Specify the source and target languages to enable the AI to accurately translate text while preserving meaning and context.</td>
+<td style="text-align: left;">“Translate the following text from English to Spanish: ‘The quick brown fox jumps over the lazy dog.’”</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="text-generation-4" class="level2">
+<h2 class="anchored" data-anchor-id="text-generation-4">Text Generation</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Scenario</th>
+<th style="text-align: left;">Instructions</th>
+<th style="text-align: left;">Example Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Dialogue</td>
+<td style="text-align: left;">Design prompts that simulate conversations, allowing the AI to generate responses that mimic human interaction and maintain context.</td>
+<td style="text-align: left;">“You are a friendly chatbot helping users troubleshoot their computer problems. Respond to the user’s query: ‘My computer won’t turn on.’”</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="question-answering" class="level2">
+<h2 class="anchored" data-anchor-id="question-answering">Question Answering</h2>
+<ul>
+<li>Open-Ended Questions</li>
+<li>Specific Questions</li>
+<li>Multiple Choice Questions</li>
+<li>Hypothetical Questions</li>
+<li>Opinion-Based Questions</li>
+</ul>
+</section>
+<section id="question-answering-1" class="level2">
+<h2 class="anchored" data-anchor-id="question-answering-1">Question Answering</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Scenario</th>
+<th style="text-align: left;">Instructions</th>
+<th style="text-align: left;">Example Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Open-Ended Questions</td>
+<td style="text-align: left;">Encourage comprehensive and informative answers based on its knowledge base.</td>
+<td style="text-align: left;">“Explain quantum computing and its potential impact on the future of technology.”</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>It is important to recognize that LLMs are not trained to teach or understand topics…</li>
+<li>But <em>are</em> trained to sound authoritative.</li>
+</ul>
+</section>
+<section id="question-answering-2" class="level2">
+<h2 class="anchored" data-anchor-id="question-answering-2">Question Answering</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Scenario</th>
+<th style="text-align: left;">Instructions</th>
+<th style="text-align: left;">Example Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Specific Questions</td>
+<td style="text-align: left;">Design prompts that target specific information, so AI just “looks it up”</td>
+<td style="text-align: left;">“What is the capital of France?” or “According to the provided text, what are the main causes of deforestation?”</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Just use a search engine or encyclopedia</li>
+</ul>
+</section>
+<section id="question-answering-3" class="level2">
+<h2 class="anchored" data-anchor-id="question-answering-3">Question Answering</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Scenario</th>
+<th style="text-align: left;">Instructions</th>
+<th style="text-align: left;">Example Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Multiple Choice Questions</td>
+<td style="text-align: left;">Present prompts with options, prompting the AI to analyze and select the most appropriate answer based on its understanding of the context.</td>
+<td style="text-align: left;">“Who wrote the Earthsea series? A) J.R.R. Tolkien, B) Isaac Asimov, C) Usula Le Guin D) Frank Herbert”</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="question-answering-4" class="level2">
+<h2 class="anchored" data-anchor-id="question-answering-4">Question Answering</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Scenario</th>
+<th style="text-align: left;">Instructions</th>
+<th style="text-align: left;">Example Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Hypothetical Questions</td>
+<td style="text-align: left;">Explore hypothetical situations, to speculate or discuss potentials.</td>
+<td style="text-align: left;">“What would happen if humans could travel at the speed of light?”</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Good to be specific here.
+<ul>
+<li>Does this mean a human can “run” that fast, or…</li>
+<li>That the established laws of physics are (deeply) wrong.</li>
+</ul></li>
+</ul>
+</section>
+<section id="question-answering-5" class="level2">
+<h2 class="anchored" data-anchor-id="question-answering-5">Question Answering</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Scenario</th>
+<th style="text-align: left;">Instructions</th>
+<th style="text-align: left;">Example Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Opinion-Based Questions</td>
+<td style="text-align: left;">Design prompts generate a perspective or opinion on a specific topic, perhpas with reasoning for the stance.</td>
+<td style="text-align: left;">“Do you believe that artificial intelligence will eventually surpass human intelligence? Why or why not?”</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>This can be conspiciously similar to asking a CS professor if you should study computer science.</li>
+</ul>
+</section>
+<section id="code-generation" class="level2">
+<h2 class="anchored" data-anchor-id="code-generation">Code Generation</h2>
+<ul>
+<li>The provided examples, from Google, suggest AIs, including Google’s Gemini, can generate code.</li>
+<li>This has not be demonstrated scientifically.
+<ul>
+<li>The state-of-the-art is that AI usage slows development and reduces code quality, while increasing costs.</li>
+</ul></li>
+<li>Google “sells” Gemini and tactfully avoids this consensus.</li>
+<li>You have seen me try (and often fail) to use Gemini to generate code in this class.</li>
+</ul>
+</section>
+<section id="code-generation-1" class="level2">
+<h2 class="anchored" data-anchor-id="code-generation-1">Code Generation</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Scenario</th>
+<th style="text-align: left;">Instructions</th>
+<th style="text-align: left;">Example Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Code<br>Completion</td>
+<td style="text-align: left;">Provide the AI with a partial code snippet and prompt it to suggest or complete the remaining code based on the context and programming language.</td>
+<td style="text-align: left;">“Write a Python function to calculate the factorial of a given number.”</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="interesting-example" class="level2">
+<h2 class="anchored" data-anchor-id="interesting-example">Interesting Example</h2>
+<ul>
+<li>Competing formulation: <a href="https://gprivate.com/search/index.html?q=#gsc.q=python+factorial+function">https://gprivate.com/search/index.html?q=#gsc.q=python+factorial+function</a></li>
+<li>Here is the first result (there is a built in function so no reason to write one): <a href="https://stackoverflow.com/questions/5136447/function-for-factorial-in-python">https://stackoverflow.com/questions/5136447/function-for-factorial-in-python</a></li>
+</ul>
+</section>
+<section id="code-generation-2" class="level2">
+<h2 class="anchored" data-anchor-id="code-generation-2">Code Generation</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Scenario</th>
+<th style="text-align: left;">Instructions</th>
+<th style="text-align: left;">Example Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Code Translation</td>
+<td style="text-align: left;">Specify the source and target programming languages to enable the AI to translate code while preserving functionality and syntax.</td>
+<td style="text-align: left;">“Translate the following Python code to JavaScript: def greet(name): print(‘Hello,’, name)”</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="code-generation-3" class="level2">
+<h2 class="anchored" data-anchor-id="code-generation-3">Code Generation</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Scenario</th>
+<th style="text-align: left;">Instructions</th>
+<th style="text-align: left;">Example Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Code Optimization</td>
+<td style="text-align: left;">Prompt the AI to analyze existing code and suggest improvements for efficiency, readability, or performance.</td>
+<td style="text-align: left;">“Optimize the following Python code to reduce its execution time.”</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="code-generation-4" class="level2">
+<h2 class="anchored" data-anchor-id="code-generation-4">Code Generation</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Scenario</th>
+<th style="text-align: left;">Instructions</th>
+<th style="text-align: left;">Example Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Code Debugging</td>
+<td style="text-align: left;">Provide the AI with code containing errors and prompt it to identify and suggest potential solutions for the identified issues.</td>
+<td style="text-align: left;">“Debug the following Java code and explain why it is throwing a NullPointerException.”</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="return-to-vision" class="level2">
+<h2 class="anchored" data-anchor-id="return-to-vision">Return to vision</h2>
+<ul>
+<li>Gemini in particularly is fond of its image capabilities, including writing alt-text and generating images.</li>
+<li>I do not think the following necessariyl apply as broadly to non-Gemini.</li>
+</ul>
+</section>
+<section id="image-generation" class="level2">
+<h2 class="anchored" data-anchor-id="image-generation">Image Generation</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Scenario</th>
+<th style="text-align: left;">Instructions</th>
+<th style="text-align: left;">Example Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Photorealistic Images</td>
+<td style="text-align: left;">Craft prompts that describe the desired image in detail, including objects, scenery, lighting, and style, to generate realistic and high-quality images.</td>
+<td style="text-align: left;">“A photorealistic image of a sunset over the ocean with palm trees silhouetted against the sky.”</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="image-generation-1" class="level2">
+<h2 class="anchored" data-anchor-id="image-generation-1">Image Generation</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Scenario</th>
+<th style="text-align: left;">Instructions</th>
+<th style="text-align: left;">Example Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Artistic Images</td>
+<td style="text-align: left;">Design prompts that specify art styles, techniques, and subject matter to guide the AI in creating images that mimic specific artistic movements or evoke certain emotions.</td>
+<td style="text-align: left;">“An impressionist painting of a bustling city street with people walking under umbrellas in the rain.”</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="image-generation-2" class="level2">
+<h2 class="anchored" data-anchor-id="image-generation-2">Image Generation</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Scenario</th>
+<th style="text-align: left;">Instructions</th>
+<th style="text-align: left;">Example Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Abstract Images</td>
+<td style="text-align: left;">Formulate prompts that encourage the AI to generate images that are open to interpretation, utilizing shapes, colors, and textures to evoke feelings or concepts.</td>
+<td style="text-align: left;">“An abstract image representing the concept of hope, using bright colors and flowing shapes.”</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="image-generation-3" class="level2">
+<h2 class="anchored" data-anchor-id="image-generation-3">Image Generation</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Scenario</th>
+<th style="text-align: left;">Instructions</th>
+<th style="text-align: left;">Example Prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Image Editing</td>
+<td style="text-align: left;">Provide the AI with an existing image and specify desired modifications, enabling it to edit and enhance the image according to the given instructions.</td>
+<td style="text-align: left;">“Change the background of this photo to a starry night sky and add a full moon.” or “Remove the person from this image and replace them with a cat.”</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="strategies" class="level1">
+<h1>Strategies</h1>
+<ul>
+<li>Clear Goals</li>
+<li>Context</li>
+<li>Iterate</li>
+<li>Avoid Pitfalls</li>
+</ul>
+<section id="clear-goals" class="level2">
+<h2 class="anchored" data-anchor-id="clear-goals">Clear Goals</h2>
+<ul>
+<li>Clearly define what you want the AI to achieve.</li>
+</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Tactic</th>
+<th style="text-align: left;">Prompt Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Use precise language and avoid ambiguity</td>
+<td style="text-align: left;">Instead of: “Write something about climate change,” use: “Write a persuasive essay arguing for the implementation of stricter carbon emission regulations.”</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="clear-goals-1" class="level2">
+<h2 class="anchored" data-anchor-id="clear-goals-1">Clear Goals</h2>
+<ul>
+<li>Clearly define what you want the AI to achieve.</li>
+</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Tactic</th>
+<th style="text-align: left;">Prompt Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Use action verbs to specify the desired action</td>
+<td style="text-align: left;">“Write a bulleted list that summarizes the key findings of the attached research paper”</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="clear-goals-2" class="level2">
+<h2 class="anchored" data-anchor-id="clear-goals-2">Clear Goals</h2>
+<ul>
+<li>Clearly define what you want the AI to achieve.</li>
+</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Tactic</th>
+<th style="text-align: left;">Prompt Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Define the desired length and format of the output</td>
+<td style="text-align: left;">“Compose a 500-word essay discussing the impact of climate change on coastal communities.”</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="clear-goals-3" class="level2">
+<h2 class="anchored" data-anchor-id="clear-goals-3">Clear Goals</h2>
+<ul>
+<li>Clearly define what you want the AI to achieve.</li>
+</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Tactic</th>
+<th style="text-align: left;">Prompt Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Quantify your requests whenever possible</td>
+<td style="text-align: left;">Instead of: “Write a long poem,” use: “Write a sonnet with 14 lines that explores themes of love and loss.”</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="provide-context" class="level2">
+<h2 class="anchored" data-anchor-id="provide-context">Provide Context</h2>
+<ul>
+<li>Providing relevant context and background information.</li>
+</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Tactic</th>
+<th style="text-align: left;">Prompt Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Break down complex tasks into smaller steps</td>
+<td style="text-align: left;">Instead of: “Create a marketing plan,” use: “1. Identify the target audience. 2. Develop key marketing messages. 3. Choose appropriate marketing channels.”</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="provide-context-1" class="level2">
+<h2 class="anchored" data-anchor-id="provide-context-1">Provide Context</h2>
+<ul>
+<li>Providing relevant context and background information.</li>
+</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Tactic</th>
+<th style="text-align: left;">Prompt Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Assign a persona to the AI model</td>
+<td style="text-align: left;">“Act as a technical writer and create a user manual for a new software application.”</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="use-n-shot-prompting" class="level2">
+<h2 class="anchored" data-anchor-id="use-n-shot-prompting">Use <span class="math inline">\(n&gt;\)</span>-Shot Prompting</h2>
+<ul>
+<li>Already discussed!</li>
+<li>“Name three fish that rhyme with brown”.
+<ul>
+<li>I don’t know if there’s three.</li>
+</ul></li>
+</ul>
+</section>
+<section id="iterate" class="level2">
+<h2 class="anchored" data-anchor-id="iterate">Iterate</h2>
+<ul>
+<li>Prompt engineering is an iterative process.
+<ul>
+<li><strong>Experiment</strong> with different prompt variations</li>
+<li><strong>Observe</strong> the model’s responses</li>
+<li><strong>Refine</strong> your prompts based on the results.</li>
+</ul></li>
+</ul>
+</section>
+<section id="experiment" class="level2">
+<h2 class="anchored" data-anchor-id="experiment">Experiment</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Tactic</th>
+<th style="text-align: left;">Prompt Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Try different phrasings and structures</td>
+<td style="text-align: left;">Experiment with using different synonyms, sentence structures, and formatting to see how they affect the output.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="experiment-1" class="level2">
+<h2 class="anchored" data-anchor-id="experiment-1">Experiment</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Tactic</th>
+<th style="text-align: left;">Prompt Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Adjust the level of detail and specificity</td>
+<td style="text-align: left;">Add or remove information from your prompt to see how it impacts the model’s understanding and output.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="experiment-2" class="level2">
+<h2 class="anchored" data-anchor-id="experiment-2">Experiment</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Tactic</th>
+<th style="text-align: left;">Prompt Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Test different prompt lengths</td>
+<td style="text-align: left;">Experiment with both shorter and longer prompts to find the optimal balance.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="common-pitfalls" class="level2">
+<h2 class="anchored" data-anchor-id="common-pitfalls">Common Pitfalls</h2>
+<p>Be mindful of common pitfalls in prompt engineering, such as:</p>
+<ul>
+<li>Providing insufficient or ambiguous instructions</li>
+<li>Using overly complex or technical language
+<ul>
+<li>Especially words that are context-specific for which you have not provided the context.</li>
+</ul></li>
+<li>Including biased or leading information</li>
+<li>Failing to iterate and refine prompts</li>
+</ul>
+</section>
+</section>
+<section id="benefits" class="level1">
+<h1>Benefits</h1>
+<section id="accuracy-and-relevance" class="level2">
+<h2 class="anchored" data-anchor-id="accuracy-and-relevance">Accuracy and Relevance</h2>
+<ul>
+<li>By providing clear instructions and context, you can significantly improve the accuracy and relevance of the AI’s output.</li>
+</ul>
+</section>
+<section id="reduce-predictability" class="level2">
+<h2 class="anchored" data-anchor-id="reduce-predictability">Reduce Predictability</h2>
+<ul>
+<li>Google called this “Creativity and Innovation”.</li>
+<li>A matrix is not creative, but can be surprising.</li>
+<li>They may generate <em>unexpected</em> ideas, stories, and images.</li>
+</ul>
+</section>
+<section id="efficiency-and-productivity" class="level2">
+<h2 class="anchored" data-anchor-id="efficiency-and-productivity">Efficiency and Productivity</h2>
+<ul>
+<li>Well-crafted prompts can
+<ul>
+<li>Streamline tasks
+<ul>
+<li>Saving you time, say, manually editing and email.</li>
+</ul></li>
+<li>Automate processes
+<ul>
+<li>Code is better at this, but say, capitalize every instance of a word that happens to be a proper noun, like “Satisfy” or “Python”</li>
+</ul></li>
+<li>Reduce overall time and effort.</li>
+</ul></li>
+</ul>
+</section>
+<section id="precision" class="level2">
+<h2 class="anchored" data-anchor-id="precision">Precision</h2>
+<ul>
+<li>Google called this “Control and Customization”.</li>
+<li>Tailor the AI’s responses to your specific needs and preferences.</li>
+<li>This is the thing AI is good out - if you just need some text, and you can’t find it with a search engine or in a library.
+<ul>
+<li>Give me three words that might make me feel hungry.</li>
+<li>Hard task for a dictionary.</li>
+</ul></li>
+</ul>
+</section>
+<section id="bias-and-safety" class="level2">
+<h2 class="anchored" data-anchor-id="bias-and-safety">Bias and Safety</h2>
+<ul>
+<li>Google claims it is possible to reduce bias and improve safety with prompt engineering.</li>
+<li>This has never been demonstrated scientifically with either AI or with, in fact, Google search results, so I am skeptical.</li>
+<li>I do think, however, an LLM trained on Google’s PR statements would claim that I, the user, am partially responsible for bias and safety.</li>
+</ul>
+</section>
+</section>
+<section id="fin" class="level1">
+<h1>Fin</h1>
+
+
+<!-- -->
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./B2_sonnet.html" class="pagination-link" aria-label="Compression">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Compression</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb3" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">---</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="an">title:</span><span class="co"> Prompts</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="co">---</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a></span>
+<span id="cb3-5"><a href="#cb3-5"></a></span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="fu">## Today</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a></span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="ss">- </span>Thus far we have:</span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="ss">    - </span>Shown how to develop a minimal AI</span>
+<span id="cb3-10"><a href="#cb3-10"></a><span class="ss">    - </span>Generated text</span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="ss">- </span>Now we will:</span>
+<span id="cb3-12"><a href="#cb3-12"></a><span class="ss">    - </span>Use our understanding of the internals</span>
+<span id="cb3-13"><a href="#cb3-13"></a><span class="ss">    - </span>"Prompt" text generators to... generate text.</span>
+<span id="cb3-14"><a href="#cb3-14"></a></span>
+<span id="cb3-15"><a href="#cb3-15"></a><span class="fu"># Recap</span></span>
+<span id="cb3-16"><a href="#cb3-16"></a></span>
+<span id="cb3-17"><a href="#cb3-17"></a><span class="fu">## </span></span>
+<span id="cb3-18"><a href="#cb3-18"></a></span>
+<span id="cb3-21"><a href="#cb3-21"></a><span class="in">```{python}</span></span>
+<span id="cb3-22"><a href="#cb3-22"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-23"><a href="#cb3-23"></a></span>
+<span id="cb3-24"><a href="#cb3-24"></a>sar <span class="op">=</span> <span class="st">"to do is to be"</span></span>
+<span id="cb3-25"><a href="#cb3-25"></a>soc <span class="op">=</span> <span class="st">"to be is to do"</span></span>
+<span id="cb3-26"><a href="#cb3-26"></a>sha <span class="op">=</span> <span class="st">"to be or no to be"</span></span>
+<span id="cb3-27"><a href="#cb3-27"></a>sin <span class="op">=</span> <span class="st">"do be do be do"</span></span>
+<span id="cb3-28"><a href="#cb3-28"></a><span class="bu">all</span> <span class="op">=</span> [sar, soc, sha, sin]</span>
+<span id="cb3-29"><a href="#cb3-29"></a></span>
+<span id="cb3-30"><a href="#cb3-30"></a>words <span class="op">=</span> [quote.split() <span class="cf">for</span> quote <span class="kw">in</span> <span class="bu">all</span>]</span>
+<span id="cb3-31"><a href="#cb3-31"></a>sets <span class="op">=</span> [<span class="bu">set</span>(quote) <span class="cf">for</span> quote <span class="kw">in</span> words]</span>
+<span id="cb3-32"><a href="#cb3-32"></a>unique <span class="op">=</span> <span class="bu">set</span>.union(<span class="op">*</span>sets)</span>
+<span id="cb3-33"><a href="#cb3-33"></a></span>
+<span id="cb3-34"><a href="#cb3-34"></a>nexts <span class="op">=</span> <span class="bu">dict</span>()</span>
+<span id="cb3-35"><a href="#cb3-35"></a><span class="cf">for</span> first <span class="kw">in</span> unique:</span>
+<span id="cb3-36"><a href="#cb3-36"></a>    <span class="bu">next</span> <span class="op">=</span> []</span>
+<span id="cb3-37"><a href="#cb3-37"></a>    <span class="cf">for</span> quote <span class="kw">in</span> words:</span>
+<span id="cb3-38"><a href="#cb3-38"></a>        <span class="cf">for</span> loc, word <span class="kw">in</span> <span class="bu">enumerate</span>(quote):</span>
+<span id="cb3-39"><a href="#cb3-39"></a>            <span class="cf">if</span> word <span class="op">==</span> first <span class="kw">and</span> loc <span class="op">+</span> <span class="dv">1</span> <span class="op">&lt;</span> <span class="bu">len</span>(quote):</span>
+<span id="cb3-40"><a href="#cb3-40"></a>                <span class="bu">next</span>.append(quote[loc <span class="op">+</span> <span class="dv">1</span>])</span>
+<span id="cb3-41"><a href="#cb3-41"></a>    nexts[first] <span class="op">=</span> <span class="bu">next</span></span>
+<span id="cb3-42"><a href="#cb3-42"></a></span>
+<span id="cb3-43"><a href="#cb3-43"></a><span class="kw">def</span> next_word(prev_word):</span>
+<span id="cb3-44"><a href="#cb3-44"></a>    die <span class="op">=</span> np.random.rand()</span>
+<span id="cb3-45"><a href="#cb3-45"></a>    possible_words <span class="op">=</span> nexts[prev_word]</span>
+<span id="cb3-46"><a href="#cb3-46"></a>    position <span class="op">=</span> die <span class="op">*</span> <span class="bu">len</span>(possible_words)</span>
+<span id="cb3-47"><a href="#cb3-47"></a>    position <span class="op">=</span> <span class="bu">int</span>(position)</span>
+<span id="cb3-48"><a href="#cb3-48"></a>    <span class="cf">return</span> possible_words[position]</span>
+<span id="cb3-49"><a href="#cb3-49"></a>    </span>
+<span id="cb3-50"><a href="#cb3-50"></a><span class="kw">def</span> make_text(first_word, num_words):</span>
+<span id="cb3-51"><a href="#cb3-51"></a>    text <span class="op">=</span> first_word</span>
+<span id="cb3-52"><a href="#cb3-52"></a>    word <span class="op">=</span> first_word</span>
+<span id="cb3-53"><a href="#cb3-53"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(num_words <span class="op">-</span> <span class="dv">1</span>):</span>
+<span id="cb3-54"><a href="#cb3-54"></a>        word <span class="op">=</span> next_word(word)</span>
+<span id="cb3-55"><a href="#cb3-55"></a>        text <span class="op">=</span> text <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> word</span>
+<span id="cb3-56"><a href="#cb3-56"></a>    <span class="bu">print</span>(text)</span>
+<span id="cb3-57"><a href="#cb3-57"></a>    </span>
+<span id="cb3-58"><a href="#cb3-58"></a><span class="cf">for</span> word <span class="kw">in</span> unique:</span>
+<span id="cb3-59"><a href="#cb3-59"></a>    make_text(word, <span class="dv">5</span>)</span>
+<span id="cb3-60"><a href="#cb3-60"></a><span class="in">```</span></span>
+<span id="cb3-61"><a href="#cb3-61"></a></span>
+<span id="cb3-62"><a href="#cb3-62"></a><span class="fu"># Prompts</span></span>
+<span id="cb3-63"><a href="#cb3-63"></a></span>
+<span id="cb3-64"><a href="#cb3-64"></a><span class="fu">## Citation</span></span>
+<span id="cb3-65"><a href="#cb3-65"></a></span>
+<span id="cb3-66"><a href="#cb3-66"></a><span class="ss">- </span>I do consider myself good at writing "prompts" - instructions to get a large language model to produce the prompt I want.</span>
+<span id="cb3-67"><a href="#cb3-67"></a><span class="ss">- </span>However, I do so by thinking of prompts as writing code.</span>
+<span id="cb3-68"><a href="#cb3-68"></a><span class="ss">- </span>I have not (really) taught you to write code.</span>
+<span id="cb3-69"><a href="#cb3-69"></a><span class="ss">    - </span>Though I have a little bit.</span>
+<span id="cb3-70"><a href="#cb3-70"></a><span class="ss">- </span>Instead, <span class="co">[</span><span class="ot">Prompt engineering: overview and guide</span><span class="co">](https://cloud.google.com/discover/what-is-prompt-engineering)</span></span>
+<span id="cb3-71"><a href="#cb3-71"></a><span class="ss">    - </span>I took Google's guide and put it in Gemini (then lightly edited)</span>
+<span id="cb3-72"><a href="#cb3-72"></a></span>
+<span id="cb3-73"><a href="#cb3-73"></a><span class="fu">## Prompt "engineering"</span></span>
+<span id="cb3-74"><a href="#cb3-74"></a></span>
+<span id="cb3-75"><a href="#cb3-75"></a><span class="at">&gt; The rise of large language models (LLMs) has brought forth exciting possibilities for human-computer interaction. However, harnessing the full potential of these powerful AI models requires a crucial skill: prompt engineering. </span></span>
+<span id="cb3-76"><a href="#cb3-76"></a></span>
+<span id="cb3-77"><a href="#cb3-77"></a><span class="fu">## Goals</span></span>
+<span id="cb3-78"><a href="#cb3-78"></a></span>
+<span id="cb3-79"><a href="#cb3-79"></a><span class="ss">- </span>"Unlock" the capabilities of LLMs.</span>
+<span id="cb3-80"><a href="#cb3-80"></a><span class="ss">    - </span>Understand **intent**. </span>
+<span id="cb3-81"><a href="#cb3-81"></a><span class="ss">    - </span>**Follow** instructions.</span>
+<span id="cb3-82"><a href="#cb3-82"></a><span class="ss">    - </span>Generate **desired** outputs. </span>
+<span id="cb3-83"><a href="#cb3-83"></a><span class="ss">- </span>Aim for:</span>
+<span id="cb3-84"><a href="#cb3-84"></a><span class="ss">    - </span>*Accurate*, *relevant*, *safe*</span>
+<span id="cb3-85"><a href="#cb3-85"></a>    </span>
+<span id="cb3-86"><a href="#cb3-86"></a><span class="fu">## What is prompt engineering?</span></span>
+<span id="cb3-87"><a href="#cb3-87"></a></span>
+<span id="cb3-88"><a href="#cb3-88"></a><span class="ss">- </span>**Art and science** of designing/optimizing prompts.</span>
+<span id="cb3-89"><a href="#cb3-89"></a><span class="ss">    - </span>*Very* cool to see the term "art and science" appear... not just in a "College of Arts and Sciences"</span>
+<span id="cb3-90"><a href="#cb3-90"></a><span class="ss">    - </span>I think of it as: things that can be verified experimentally and things that can't.</span>
+<span id="cb3-91"><a href="#cb3-91"></a><span class="ss">    - </span>Prompts are both!</span>
+<span id="cb3-92"><a href="#cb3-92"></a><span class="ss">- </span>Guides AI toward specific responses.</span>
+<span id="cb3-93"><a href="#cb3-93"></a><span class="ss">- </span>Provides **context**, **instructions**, and **examples**.</span>
+<span id="cb3-94"><a href="#cb3-94"></a><span class="ss">- </span>Acts as a **structure** for the AI.</span>
+<span id="cb3-95"><a href="#cb3-95"></a></span>
+<span id="cb3-96"><a href="#cb3-96"></a><span class="fu">## What is a prompt?</span></span>
+<span id="cb3-97"><a href="#cb3-97"></a></span>
+<span id="cb3-98"><a href="#cb3-98"></a><span class="ss">- </span>Input provided to "primes" a specific response.</span>
+<span id="cb3-99"><a href="#cb3-99"></a><span class="ss">    - </span>Like when we provided example phrases, a starting word, and a length.</span>
+<span id="cb3-100"><a href="#cb3-100"></a><span class="ss">- </span>Structure how is natural to you: </span>
+<span id="cb3-101"><a href="#cb3-101"></a><span class="ss">    - </span>Questions, keywords, instructions.</span>
+<span id="cb3-102"><a href="#cb3-102"></a><span class="ss">    - </span>I often provide examples.</span>
+<span id="cb3-103"><a href="#cb3-103"></a><span class="ss">- </span>Influences **quality** and **relevance** of output.</span>
+<span id="cb3-104"><a href="#cb3-104"></a></span>
+<span id="cb3-105"><a href="#cb3-105"></a><span class="fu">## Key Elements</span></span>
+<span id="cb3-106"><a href="#cb3-106"></a></span>
+<span id="cb3-107"><a href="#cb3-107"></a><span class="ss">- </span>Mastery communicates effectively with AI models.</span>
+<span id="cb3-108"><a href="#cb3-108"></a><span class="ss">- </span>**Format:** How the model interprets requests.</span>
+<span id="cb3-109"><a href="#cb3-109"></a><span class="ss">    - </span>Natural language, commands, structured fields.</span>
+<span id="cb3-110"><a href="#cb3-110"></a><span class="ss">- </span>**Context:** Improves tone, theme, and accuracy.</span>
+<span id="cb3-111"><a href="#cb3-111"></a><span class="ss">    - </span>"For a work email..."</span>
+<span id="cb3-112"><a href="#cb3-112"></a><span class="ss">    - </span>"For an Instagram post..."</span>
+<span id="cb3-113"><a href="#cb3-113"></a><span class="ss">    - </span>"For the group chat..."</span>
+<span id="cb3-114"><a href="#cb3-114"></a></span>
+<span id="cb3-115"><a href="#cb3-115"></a><span class="fu"># Elements</span></span>
+<span id="cb3-116"><a href="#cb3-116"></a></span>
+<span id="cb3-117"><a href="#cb3-117"></a><span class="fu">## The idea</span></span>
+<span id="cb3-118"><a href="#cb3-118"></a></span>
+<span id="cb3-119"><a href="#cb3-119"></a><span class="ss">- </span>Decompose a prompt into some key elements.</span>
+<span id="cb3-120"><a href="#cb3-120"></a><span class="ss">    - </span>Format</span>
+<span id="cb3-121"><a href="#cb3-121"></a><span class="ss">    - </span>Context</span>
+<span id="cb3-122"><a href="#cb3-122"></a><span class="ss">    - </span>Example</span>
+<span id="cb3-123"><a href="#cb3-123"></a><span class="ss">    - </span>Tuning</span>
+<span id="cb3-124"><a href="#cb3-124"></a><span class="ss">    - </span>Turns</span>
+<span id="cb3-125"><a href="#cb3-125"></a></span>
+<span id="cb3-126"><a href="#cb3-126"></a><span class="fu">## Prompt formats</span></span>
+<span id="cb3-127"><a href="#cb3-127"></a></span>
+<span id="cb3-128"><a href="#cb3-128"></a><span class="ss">- </span>The (1) **structure** and (2) **style** of your prompt play a significant role in guiding the AI's response. </span>
+<span id="cb3-129"><a href="#cb3-129"></a><span class="ss">- </span>Different models (GPT, Claude, LLaMa, Gemini) may respond better to specific formats.</span>
+<span id="cb3-130"><a href="#cb3-130"></a></span>
+<span id="cb3-131"><a href="#cb3-131"></a><span class="fu">## Examples</span></span>
+<span id="cb3-132"><a href="#cb3-132"></a></span>
+<span id="cb3-133"><a href="#cb3-133"></a><span class="ss">- </span>Natural language questions.</span>
+<span id="cb3-134"><a href="#cb3-134"></a><span class="ss">    - </span>"Is this a leaf?"</span>
+<span id="cb3-135"><a href="#cb3-135"></a><span class="ss">- </span>Direct commands.</span>
+<span id="cb3-136"><a href="#cb3-136"></a><span class="ss">    - </span>"Write 4 sentences of 14-18 words."</span>
+<span id="cb3-137"><a href="#cb3-137"></a><span class="ss">- </span>Structured inputs with specific fields</span>
+<span id="cb3-138"><a href="#cb3-138"></a><span class="ss">    - </span>"3 adjectives that evoke happiness and relaxation."</span>
+<span id="cb3-139"><a href="#cb3-139"></a>    </span>
+<span id="cb3-140"><a href="#cb3-140"></a><span class="fu">## Context and Examples</span></span>
+<span id="cb3-141"><a href="#cb3-141"></a></span>
+<span id="cb3-142"><a href="#cb3-142"></a><span class="ss">- </span>Provide context to improve **accuracy** and **relevance**.</span>
+<span id="cb3-143"><a href="#cb3-143"></a><span class="ss">- </span>Define specific **tone** or **themes**.</span>
+<span id="cb3-144"><a href="#cb3-144"></a><span class="ss">- </span>Helps the AI understand the desired **intent**.</span>
+<span id="cb3-145"><a href="#cb3-145"></a><span class="ss">- </span>Examples:</span>
+<span id="cb3-146"><a href="#cb3-146"></a><span class="ss">    - </span>Include a few sentences on the tasks **background**.</span>
+<span id="cb3-147"><a href="#cb3-147"></a><span class="ss">    - </span>Describe the **mood** (e.g., "upbeat," "concerned").</span>
+<span id="cb3-148"><a href="#cb3-148"></a></span>
+<span id="cb3-149"><a href="#cb3-149"></a><span class="fu">## Fine-tuning and Adapting</span></span>
+<span id="cb3-150"><a href="#cb3-150"></a></span>
+<span id="cb3-151"><a href="#cb3-151"></a><span class="ss">- </span>**Fine-tuning** enhances performance via tailored prompts.</span>
+<span id="cb3-152"><a href="#cb3-152"></a><span class="ss">- </span>Target specific **tasks** or **domains**.</span>
+<span id="cb3-153"><a href="#cb3-153"></a><span class="ss">- </span>**Adapt** based on user feedback or model outputs.</span>
+<span id="cb3-154"><a href="#cb3-154"></a><span class="ss">- </span>Improves response quality **over time**.</span>
+<span id="cb3-155"><a href="#cb3-155"></a><span class="ss">- </span>Examples:</span>
+<span id="cb3-156"><a href="#cb3-156"></a><span class="ss">    - </span>Train on **peer-reviewed journals** for accuracy.</span>
+<span id="cb3-157"><a href="#cb3-157"></a><span class="ss">    - </span>Refine prompts based on **common user errors**.</span>
+<span id="cb3-158"><a href="#cb3-158"></a></span>
+<span id="cb3-159"><a href="#cb3-159"></a><span class="fu">## Multi-turn Conversations</span></span>
+<span id="cb3-160"><a href="#cb3-160"></a></span>
+<span id="cb3-161"><a href="#cb3-161"></a><span class="ss">- </span>Enables **continuous**, **context-aware** interactions.</span>
+<span id="cb3-162"><a href="#cb3-162"></a><span class="ss">- </span>Enhances the overall **user experience**.</span>
+<span id="cb3-163"><a href="#cb3-163"></a><span class="ss">- </span>AI remembers **previous inputs** within the thread.</span>
+<span id="cb3-164"><a href="#cb3-164"></a><span class="ss">- </span>Facilitates complex, **multi-step** tasks.</span>
+<span id="cb3-165"><a href="#cb3-165"></a><span class="ss">- </span>Examples:</span>
+<span id="cb3-166"><a href="#cb3-166"></a><span class="ss">    - </span>Refining a search: "Now find prices for those **hotels**."</span>
+<span id="cb3-167"><a href="#cb3-167"></a><span class="ss">    - </span>Debugging: "Why did the **previous** code throw an error?"</span>
+<span id="cb3-168"><a href="#cb3-168"></a>    </span>
+<span id="cb3-169"><a href="#cb3-169"></a><span class="fu"># Types</span></span>
+<span id="cb3-170"><a href="#cb3-170"></a></span>
+<span id="cb3-171"><a href="#cb3-171"></a><span class="fu">## Types of prompts</span></span>
+<span id="cb3-172"><a href="#cb3-172"></a></span>
+<span id="cb3-173"><a href="#cb3-173"></a><span class="ss">- </span>There are various types of prompts used in AI, each serving a specific purpose:</span>
+<span id="cb3-174"><a href="#cb3-174"></a><span class="ss">    - </span>Direct</span>
+<span id="cb3-175"><a href="#cb3-175"></a><span class="ss">    - </span>$n$-shot</span>
+<span id="cb3-176"><a href="#cb3-176"></a><span class="ss">    - </span>Chain-of-thought</span>
+<span id="cb3-177"><a href="#cb3-177"></a></span>
+<span id="cb3-178"><a href="#cb3-178"></a><span class="fu">## Direct Prompts</span></span>
+<span id="cb3-179"><a href="#cb3-179"></a></span>
+<span id="cb3-180"><a href="#cb3-180"></a><span class="ss">- </span>Provide **direct instructions** or questions.</span>
+<span id="cb3-181"><a href="#cb3-181"></a><span class="ss">- </span>Includes **no additional context** or examples.</span>
+<span id="cb3-182"><a href="#cb3-182"></a><span class="ss">    - </span>Helpful to get "general" or "broad" responses.</span>
+<span id="cb3-183"><a href="#cb3-183"></a><span class="ss">- </span>Relies on the model's **pre-existing knowledge**.</span>
+<span id="cb3-184"><a href="#cb3-184"></a><span class="ss">    - </span>Basically, what is currently on the internet.</span>
+<span id="cb3-185"><a href="#cb3-185"></a><span class="ss">    - </span>And at the *rate* things are on the internet.</span>
+<span id="cb3-186"><a href="#cb3-186"></a><span class="ss">    - </span>So: low density of peer reviewed studies.</span>
+<span id="cb3-187"><a href="#cb3-187"></a>    </span>
+<span id="cb3-188"><a href="#cb3-188"></a><span class="fu">## Direct Prompts</span></span>
+<span id="cb3-189"><a href="#cb3-189"></a></span>
+<span id="cb3-190"><a href="#cb3-190"></a><span class="ss">- </span>Also called "zero-shot" prompts (zero back-and-forth)</span>
+<span id="cb3-191"><a href="#cb3-191"></a><span class="ss">- </span>Useful for **standard tasks** and quick queries.</span>
+<span id="cb3-192"><a href="#cb3-192"></a><span class="ss">- </span>Examples:</span>
+<span id="cb3-193"><a href="#cb3-193"></a><span class="ss">    - </span>"**Brainstorming**": "Brainstorm a theme for birthday party."</span>
+<span id="cb3-194"><a href="#cb3-194"></a><span class="ss">    - </span>**Summarization**: "Summarize the text provided below."</span>
+<span id="cb3-195"><a href="#cb3-195"></a><span class="ss">    - </span>**Translation**: "Translate 'Hello' into French."</span>
+<span id="cb3-196"><a href="#cb3-196"></a></span>
+<span id="cb3-197"><a href="#cb3-197"></a><span class="fu">## $n&gt;0$ Shot</span></span>
+<span id="cb3-198"><a href="#cb3-198"></a></span>
+<span id="cb3-199"><a href="#cb3-199"></a><span class="ss">- </span>Provide one or more **input-output pairs**.</span>
+<span id="cb3-200"><a href="#cb3-200"></a><span class="ss">    - </span>With a human, we would say "conversation" or "back-and-forth".</span>
+<span id="cb3-201"><a href="#cb3-201"></a><span class="ss">- </span>Helps the model understand **complex patterns**.</span>
+<span id="cb3-202"><a href="#cb3-202"></a><span class="ss">    - </span>"Make more things like this". </span>
+<span id="cb3-203"><a href="#cb3-203"></a><span class="ss">- </span>Improves **accuracy** for specific formatting.</span>
+<span id="cb3-204"><a href="#cb3-204"></a></span>
+<span id="cb3-205"><a href="#cb3-205"></a><span class="fu">## $n&gt;0$ Shot</span></span>
+<span id="cb3-206"><a href="#cb3-206"></a></span>
+<span id="cb3-207"><a href="#cb3-207"></a><span class="ss">- </span>Refines the **desired style** before the task.</span>
+<span id="cb3-208"><a href="#cb3-208"></a><span class="ss">- </span>Examples:</span>
+<span id="cb3-209"><a href="#cb3-209"></a><span class="ss">    - </span>**One-shot:** Give more fictional names like "<span class="co">[</span><span class="ot">Argaven Harge</span><span class="co">](https://en.wikipedia.org/wiki/The_Left_Hand_of_Darkness#Argaven)</span>"</span>
+<span id="cb3-210"><a href="#cb3-210"></a><span class="ss">    - </span>**Few-shot:** Give more coffee-shop names like "<span class="co">[</span><span class="ot">Sterling</span><span class="co">](https://www.sterling.coffee/)</span>", "<span class="co">[</span><span class="ot">Push x Pull</span><span class="co">](https://pushxpullcoffee.com/)</span>", and "<span class="co">[</span><span class="ot">Proud Mary</span><span class="co">](https://proudmarycoffee.com/)</span>".</span>
+<span id="cb3-211"><a href="#cb3-211"></a><span class="ss">    - </span>**Multi-shot:** Below I have included an English-<span class="co">[</span><span class="ot">Sindarin (Common Elvish)</span><span class="co">](https://tolkiengateway.net/wiki/Sindarin)</span> dictionary. Generate a Sindarin word for "computer".</span>
+<span id="cb3-212"><a href="#cb3-212"></a></span>
+<span id="cb3-213"><a href="#cb3-213"></a><span class="fu">## Chain of Thought (CoT)</span></span>
+<span id="cb3-214"><a href="#cb3-214"></a></span>
+<span id="cb3-215"><a href="#cb3-215"></a><span class="ss">- </span>Encourages **complex reasoning** via intermediate steps.</span>
+<span id="cb3-216"><a href="#cb3-216"></a><span class="ss">- </span>Leads to **well-structured** and detailed outputs.</span>
+<span id="cb3-217"><a href="#cb3-217"></a><span class="ss">- </span>Helps the model "think" through **logic** and **math**.</span>
+<span id="cb3-218"><a href="#cb3-218"></a><span class="ss">    - </span>An aside: LLMs know what "logic" or "math" are...</span>
+<span id="cb3-219"><a href="#cb3-219"></a><span class="ss">        - </span>Remember - they cannot understand "this or that"</span>
+<span id="cb3-220"><a href="#cb3-220"></a><span class="ss">    - </span>But they know what humans *sound* like when humans *think* they are doing logic or math.</span>
+<span id="cb3-221"><a href="#cb3-221"></a></span>
+<span id="cb3-222"><a href="#cb3-222"></a><span class="fu">## CoT</span></span>
+<span id="cb3-223"><a href="#cb3-223"></a></span>
+<span id="cb3-224"><a href="#cb3-224"></a><span class="ss">- </span>Improves **transparency** and accuracy of the result.</span>
+<span id="cb3-225"><a href="#cb3-225"></a><span class="ss">- </span>Examples:</span>
+<span id="cb3-226"><a href="#cb3-226"></a><span class="ss">    - </span>Solve a math word problem **step-by-step**.</span>
+<span id="cb3-227"><a href="#cb3-227"></a><span class="ss">    - </span>Explain the **logic** behind a legal conclusion.</span>
+<span id="cb3-228"><a href="#cb3-228"></a><span class="ss">    - </span>Break down a **business strategy** into phases.</span>
+<span id="cb3-229"><a href="#cb3-229"></a></span>
+<span id="cb3-230"><a href="#cb3-230"></a><span class="fu">## Hybrid</span></span>
+<span id="cb3-231"><a href="#cb3-231"></a></span>
+<span id="cb3-232"><a href="#cb3-232"></a><span class="ss">- </span>"Zero-shot CoT Prompts"</span>
+<span id="cb3-233"><a href="#cb3-233"></a><span class="ss">- </span>Combines **chain of thought** with **zero-shot** methods.</span>
+<span id="cb3-234"><a href="#cb3-234"></a><span class="ss">- </span>Triggers **reasoning steps** without specific examples.</span>
+<span id="cb3-235"><a href="#cb3-235"></a><span class="ss">- </span>Some users feel this produces **higher quality** output for logic tasks.</span>
+<span id="cb3-236"><a href="#cb3-236"></a></span>
+<span id="cb3-237"><a href="#cb3-237"></a><span class="fu">## Hybrid</span></span>
+<span id="cb3-238"><a href="#cb3-238"></a></span>
+<span id="cb3-239"><a href="#cb3-239"></a><span class="ss">- </span>Uses **trigger phrases** to initiate the thinking process.</span>
+<span id="cb3-240"><a href="#cb3-240"></a><span class="ss">- </span>Examples:</span>
+<span id="cb3-241"><a href="#cb3-241"></a><span class="ss">    - </span>Adding "Let's **think step-by-step**" to a question.</span>
+<span id="cb3-242"><a href="#cb3-242"></a><span class="ss">    - </span>Prompting: "Solve this logic puzzle **explaining your work**."</span>
+<span id="cb3-243"><a href="#cb3-243"></a><span class="ss">    - </span>"Break this down **systematically** to find the answer."</span>
+<span id="cb3-244"><a href="#cb3-244"></a><span class="ss">        - </span>Fun question: What do we think "systematically" even means?</span>
+<span id="cb3-245"><a href="#cb3-245"></a></span>
+<span id="cb3-246"><a href="#cb3-246"></a><span class="fu"># Use Cases</span></span>
+<span id="cb3-247"><a href="#cb3-247"></a></span>
+<span id="cb3-248"><a href="#cb3-248"></a><span class="fu">## Text generation</span></span>
+<span id="cb3-249"><a href="#cb3-249"></a></span>
+<span id="cb3-250"><a href="#cb3-250"></a><span class="ss">- </span>"Creative" Writing</span>
+<span id="cb3-251"><a href="#cb3-251"></a><span class="ss">- </span>Summarization</span>
+<span id="cb3-252"><a href="#cb3-252"></a><span class="ss">- </span>Translation</span>
+<span id="cb3-253"><a href="#cb3-253"></a><span class="ss">- </span>Dialogue</span>
+<span id="cb3-254"><a href="#cb3-254"></a></span>
+<span id="cb3-255"><a href="#cb3-255"></a><span class="fu">## Text Generation</span></span>
+<span id="cb3-256"><a href="#cb3-256"></a></span>
+<span id="cb3-257"><a href="#cb3-257"></a>| Scenario | Instructions | Example Prompt |</span>
+<span id="cb3-258"><a href="#cb3-258"></a>| :--- | :--- | :--- |</span>
+<span id="cb3-259"><a href="#cb3-259"></a>| "Creative" Writing | Craft prompts that specify genre, tone, style, and plot points to guide the AI in generating engaging narratives. | "Write a short story about a young woman who discovers a magical portal in her attic." |</span>
+<span id="cb3-260"><a href="#cb3-260"></a></span>
+<span id="cb3-261"><a href="#cb3-261"></a><span class="ss">- </span>By construction, an LLM cannot be creative.</span>
+<span id="cb3-262"><a href="#cb3-262"></a><span class="ss">- </span>It can "appear" or "claim to be" creative.</span>
+<span id="cb3-263"><a href="#cb3-263"></a></span>
+<span id="cb3-264"><a href="#cb3-264"></a><span class="fu">## Text Generation</span></span>
+<span id="cb3-265"><a href="#cb3-265"></a></span>
+<span id="cb3-266"><a href="#cb3-266"></a>| Scenario | Instructions | Example Prompt |</span>
+<span id="cb3-267"><a href="#cb3-267"></a>| :--- | :--- | :--- |</span>
+<span id="cb3-268"><a href="#cb3-268"></a>| Summarization | Provide the AI with text and instruct it to generate concise summaries that capture key information. | "Summarize the main points of the following news article on climate change." |</span>
+<span id="cb3-269"><a href="#cb3-269"></a></span>
+<span id="cb3-270"><a href="#cb3-270"></a><span class="ss">- </span>This, notably, entrusts matrix multiplication with not missing the "point" of some writing.</span>
+<span id="cb3-271"><a href="#cb3-271"></a></span>
+<span id="cb3-272"><a href="#cb3-272"></a><span class="fu">## Text Generation</span></span>
+<span id="cb3-273"><a href="#cb3-273"></a></span>
+<span id="cb3-274"><a href="#cb3-274"></a>| Scenario | Instructions | Example Prompt |</span>
+<span id="cb3-275"><a href="#cb3-275"></a>| :--- | :--- | :--- |</span>
+<span id="cb3-276"><a href="#cb3-276"></a>| Translation | Specify the source and target languages to enable the AI to accurately translate text while preserving meaning and context. | "Translate the following text from English to Spanish: 'The quick brown fox jumps over the lazy dog.'" |</span>
+<span id="cb3-277"><a href="#cb3-277"></a></span>
+<span id="cb3-278"><a href="#cb3-278"></a><span class="fu">## Text Generation</span></span>
+<span id="cb3-279"><a href="#cb3-279"></a></span>
+<span id="cb3-280"><a href="#cb3-280"></a>| Scenario | Instructions | Example Prompt |</span>
+<span id="cb3-281"><a href="#cb3-281"></a>| :--- | :--- | :--- |</span>
+<span id="cb3-282"><a href="#cb3-282"></a>| Dialogue | Design prompts that simulate conversations, allowing the AI to generate responses that mimic human interaction and maintain context. | "You are a friendly chatbot helping users troubleshoot their computer problems. Respond to the user's query: 'My computer won't turn on.'" |</span>
+<span id="cb3-283"><a href="#cb3-283"></a></span>
+<span id="cb3-284"><a href="#cb3-284"></a><span class="fu">## Question Answering</span></span>
+<span id="cb3-285"><a href="#cb3-285"></a></span>
+<span id="cb3-286"><a href="#cb3-286"></a><span class="ss">- </span>Open-Ended Questions </span>
+<span id="cb3-287"><a href="#cb3-287"></a><span class="ss">- </span>Specific Questions </span>
+<span id="cb3-288"><a href="#cb3-288"></a><span class="ss">- </span>Multiple Choice Questions </span>
+<span id="cb3-289"><a href="#cb3-289"></a><span class="ss">- </span>Hypothetical Questions</span>
+<span id="cb3-290"><a href="#cb3-290"></a><span class="ss">- </span>Opinion-Based Questions</span>
+<span id="cb3-291"><a href="#cb3-291"></a></span>
+<span id="cb3-292"><a href="#cb3-292"></a><span class="fu">## Question Answering</span></span>
+<span id="cb3-293"><a href="#cb3-293"></a></span>
+<span id="cb3-294"><a href="#cb3-294"></a>| Scenario | Instructions | Example Prompt |</span>
+<span id="cb3-295"><a href="#cb3-295"></a>| :--- | :--- | :--- |</span>
+<span id="cb3-296"><a href="#cb3-296"></a>| Open-Ended Questions | Encourage comprehensive and informative answers based on its knowledge base. | "Explain quantum computing and its potential impact on the future of technology." |</span>
+<span id="cb3-297"><a href="#cb3-297"></a></span>
+<span id="cb3-298"><a href="#cb3-298"></a><span class="ss">- </span>It is important to recognize that LLMs are not trained to teach or understand topics...</span>
+<span id="cb3-299"><a href="#cb3-299"></a><span class="ss">- </span>But *are* trained to sound authoritative.</span>
+<span id="cb3-300"><a href="#cb3-300"></a></span>
+<span id="cb3-301"><a href="#cb3-301"></a><span class="fu">## Question Answering</span></span>
+<span id="cb3-302"><a href="#cb3-302"></a></span>
+<span id="cb3-303"><a href="#cb3-303"></a>| Scenario | Instructions | Example Prompt |</span>
+<span id="cb3-304"><a href="#cb3-304"></a>| :--- | :--- | :--- |</span>
+<span id="cb3-305"><a href="#cb3-305"></a>| Specific Questions | Design prompts that target specific information, so AI just "looks it up" | "What is the capital of France?" or "According to the provided text, what are the main causes of deforestation?" |</span>
+<span id="cb3-306"><a href="#cb3-306"></a></span>
+<span id="cb3-307"><a href="#cb3-307"></a><span class="ss">- </span>Just use a search engine or encyclopedia</span>
+<span id="cb3-308"><a href="#cb3-308"></a></span>
+<span id="cb3-309"><a href="#cb3-309"></a><span class="fu">## Question Answering</span></span>
+<span id="cb3-310"><a href="#cb3-310"></a></span>
+<span id="cb3-311"><a href="#cb3-311"></a>| Scenario | Instructions | Example Prompt |</span>
+<span id="cb3-312"><a href="#cb3-312"></a>| :--- | :--- | :--- |</span>
+<span id="cb3-313"><a href="#cb3-313"></a>| Multiple Choice Questions | Present prompts with options, prompting the AI to analyze and select the most appropriate answer based on its understanding of the context. | "Who wrote the Earthsea series? A) J.R.R. Tolkien, B) Isaac Asimov, C) Usula Le Guin D) Frank Herbert" |</span>
+<span id="cb3-314"><a href="#cb3-314"></a></span>
+<span id="cb3-315"><a href="#cb3-315"></a><span class="fu">## Question Answering</span></span>
+<span id="cb3-316"><a href="#cb3-316"></a></span>
+<span id="cb3-317"><a href="#cb3-317"></a>| Scenario | Instructions | Example Prompt |</span>
+<span id="cb3-318"><a href="#cb3-318"></a>| :--- | :--- | :--- |</span>
+<span id="cb3-319"><a href="#cb3-319"></a>| Hypothetical Questions | Explore hypothetical situations, to speculate or discuss potentials. | "What would happen if humans could travel at the speed of light?" |</span>
+<span id="cb3-320"><a href="#cb3-320"></a></span>
+<span id="cb3-321"><a href="#cb3-321"></a><span class="ss">- </span>Good to be specific here.</span>
+<span id="cb3-322"><a href="#cb3-322"></a><span class="ss">    - </span>Does this mean a human can "run" that fast, or...</span>
+<span id="cb3-323"><a href="#cb3-323"></a><span class="ss">    - </span>That the established laws of physics are (deeply) wrong.</span>
+<span id="cb3-324"><a href="#cb3-324"></a></span>
+<span id="cb3-325"><a href="#cb3-325"></a><span class="fu">## Question Answering</span></span>
+<span id="cb3-326"><a href="#cb3-326"></a></span>
+<span id="cb3-327"><a href="#cb3-327"></a>| Scenario | Instructions | Example Prompt |</span>
+<span id="cb3-328"><a href="#cb3-328"></a>| :--- | :--- | :--- |</span>
+<span id="cb3-329"><a href="#cb3-329"></a>| Opinion-Based Questions | Design prompts generate a perspective or opinion on a specific topic, perhpas with reasoning for the stance. | "Do you believe that artificial intelligence will eventually surpass human intelligence? Why or why not?" |</span>
+<span id="cb3-330"><a href="#cb3-330"></a></span>
+<span id="cb3-331"><a href="#cb3-331"></a><span class="ss">- </span>This can be conspiciously similar to asking a CS professor if you should study computer science.</span>
+<span id="cb3-332"><a href="#cb3-332"></a></span>
+<span id="cb3-333"><a href="#cb3-333"></a><span class="fu">## Code Generation</span></span>
+<span id="cb3-334"><a href="#cb3-334"></a></span>
+<span id="cb3-335"><a href="#cb3-335"></a><span class="ss">- </span>The provided examples, from Google, suggest AIs, including Google's Gemini, can generate code.</span>
+<span id="cb3-336"><a href="#cb3-336"></a><span class="ss">- </span>This has not be demonstrated scientifically.</span>
+<span id="cb3-337"><a href="#cb3-337"></a><span class="ss">    - </span>The state-of-the-art is that AI usage slows development and reduces code quality, while increasing costs.</span>
+<span id="cb3-338"><a href="#cb3-338"></a><span class="ss">- </span>Google "sells" Gemini and tactfully avoids this consensus.</span>
+<span id="cb3-339"><a href="#cb3-339"></a><span class="ss">- </span>You have seen me try (and often fail) to use Gemini to generate code in this class.</span>
+<span id="cb3-340"><a href="#cb3-340"></a></span>
+<span id="cb3-341"><a href="#cb3-341"></a><span class="fu">## Code Generation</span></span>
+<span id="cb3-342"><a href="#cb3-342"></a></span>
+<span id="cb3-343"><a href="#cb3-343"></a>| Scenario | Instructions | Example Prompt |</span>
+<span id="cb3-344"><a href="#cb3-344"></a>| :--- | :--- | :--- |</span>
+<span id="cb3-345"><a href="#cb3-345"></a>| Code&lt;br&gt;Completion | Provide the AI with a partial code snippet and prompt it to suggest or complete the remaining code based on the context and programming language. | "Write a Python function to calculate the factorial of a given number." |</span>
+<span id="cb3-346"><a href="#cb3-346"></a></span>
+<span id="cb3-347"><a href="#cb3-347"></a><span class="fu">## Interesting Example</span></span>
+<span id="cb3-348"><a href="#cb3-348"></a></span>
+<span id="cb3-349"><a href="#cb3-349"></a><span class="ss">- </span>Competing formulation: <span class="co">[</span><span class="ot">https://gprivate.com/search/index.html?q=#gsc.q=python+factorial+function</span><span class="co">](https://gprivate.com/search/index.html?q=#gsc.q=python+factorial+function)</span></span>
+<span id="cb3-350"><a href="#cb3-350"></a><span class="ss">- </span>Here is the first result (there is a built in function so no reason to write one): <span class="co">[</span><span class="ot">https://stackoverflow.com/questions/5136447/function-for-factorial-in-python</span><span class="co">](https://stackoverflow.com/questions/5136447/function-for-factorial-in-python)</span></span>
+<span id="cb3-351"><a href="#cb3-351"></a></span>
+<span id="cb3-352"><a href="#cb3-352"></a><span class="fu">## Code Generation</span></span>
+<span id="cb3-353"><a href="#cb3-353"></a></span>
+<span id="cb3-354"><a href="#cb3-354"></a>| Scenario | Instructions | Example Prompt |</span>
+<span id="cb3-355"><a href="#cb3-355"></a>| :--- | :--- | :--- |</span>
+<span id="cb3-356"><a href="#cb3-356"></a>| Code Translation | Specify the source and target programming languages to enable the AI to translate code while preserving functionality and syntax. | "Translate the following Python code to JavaScript: def greet(name): print('Hello,', name)" |</span>
+<span id="cb3-357"><a href="#cb3-357"></a></span>
+<span id="cb3-358"><a href="#cb3-358"></a><span class="fu">## Code Generation</span></span>
+<span id="cb3-359"><a href="#cb3-359"></a></span>
+<span id="cb3-360"><a href="#cb3-360"></a>| Scenario | Instructions | Example Prompt |</span>
+<span id="cb3-361"><a href="#cb3-361"></a>| :--- | :--- | :--- |</span>
+<span id="cb3-362"><a href="#cb3-362"></a>| Code Optimization | Prompt the AI to analyze existing code and suggest improvements for efficiency, readability, or performance. | "Optimize the following Python code to reduce its execution time." |</span>
+<span id="cb3-363"><a href="#cb3-363"></a></span>
+<span id="cb3-364"><a href="#cb3-364"></a><span class="fu">## Code Generation</span></span>
+<span id="cb3-365"><a href="#cb3-365"></a></span>
+<span id="cb3-366"><a href="#cb3-366"></a>| Scenario | Instructions | Example Prompt |</span>
+<span id="cb3-367"><a href="#cb3-367"></a>| :--- | :--- | :--- |</span>
+<span id="cb3-368"><a href="#cb3-368"></a>| Code Debugging | Provide the AI with code containing errors and prompt it to identify and suggest potential solutions for the identified issues. | "Debug the following Java code and explain why it is throwing a NullPointerException." |</span>
+<span id="cb3-369"><a href="#cb3-369"></a></span>
+<span id="cb3-370"><a href="#cb3-370"></a><span class="fu">## Return to vision</span></span>
+<span id="cb3-371"><a href="#cb3-371"></a></span>
+<span id="cb3-372"><a href="#cb3-372"></a><span class="ss">- </span>Gemini in particularly is fond of its image capabilities, including writing alt-text and generating images.</span>
+<span id="cb3-373"><a href="#cb3-373"></a><span class="ss">- </span>I do not think the following necessariyl apply as broadly to non-Gemini.</span>
+<span id="cb3-374"><a href="#cb3-374"></a></span>
+<span id="cb3-375"><a href="#cb3-375"></a><span class="fu">## Image Generation</span></span>
+<span id="cb3-376"><a href="#cb3-376"></a></span>
+<span id="cb3-377"><a href="#cb3-377"></a>| Scenario | Instructions | Example Prompt |</span>
+<span id="cb3-378"><a href="#cb3-378"></a>| :--- | :--- | :--- |</span>
+<span id="cb3-379"><a href="#cb3-379"></a>| Photorealistic Images | Craft prompts that describe the desired image in detail, including objects, scenery, lighting, and style, to generate realistic and high-quality images. | "A photorealistic image of a sunset over the ocean with palm trees silhouetted against the sky." |</span>
+<span id="cb3-380"><a href="#cb3-380"></a></span>
+<span id="cb3-381"><a href="#cb3-381"></a><span class="fu">## Image Generation</span></span>
+<span id="cb3-382"><a href="#cb3-382"></a></span>
+<span id="cb3-383"><a href="#cb3-383"></a>| Scenario | Instructions | Example Prompt |</span>
+<span id="cb3-384"><a href="#cb3-384"></a>| :--- | :--- | :--- |</span>
+<span id="cb3-385"><a href="#cb3-385"></a>| Artistic Images | Design prompts that specify art styles, techniques, and subject matter to guide the AI in creating images that mimic specific artistic movements or evoke certain emotions. | "An impressionist painting of a bustling city street with people walking under umbrellas in the rain." |</span>
+<span id="cb3-386"><a href="#cb3-386"></a></span>
+<span id="cb3-387"><a href="#cb3-387"></a><span class="fu">## Image Generation</span></span>
+<span id="cb3-388"><a href="#cb3-388"></a></span>
+<span id="cb3-389"><a href="#cb3-389"></a>| Scenario | Instructions | Example Prompt |</span>
+<span id="cb3-390"><a href="#cb3-390"></a>| :--- | :--- | :--- |</span>
+<span id="cb3-391"><a href="#cb3-391"></a>| Abstract Images | Formulate prompts that encourage the AI to generate images that are open to interpretation, utilizing shapes, colors, and textures to evoke feelings or concepts. | "An abstract image representing the concept of hope, using bright colors and flowing shapes." |</span>
+<span id="cb3-392"><a href="#cb3-392"></a></span>
+<span id="cb3-393"><a href="#cb3-393"></a><span class="fu">## Image Generation</span></span>
+<span id="cb3-394"><a href="#cb3-394"></a></span>
+<span id="cb3-395"><a href="#cb3-395"></a>| Scenario | Instructions | Example Prompt |</span>
+<span id="cb3-396"><a href="#cb3-396"></a>| :--- | :--- | :--- |</span>
+<span id="cb3-397"><a href="#cb3-397"></a>| Image Editing | Provide the AI with an existing image and specify desired modifications, enabling it to edit and enhance the image according to the given instructions. | "Change the background of this photo to a starry night sky and add a full moon." or "Remove the person from this image and replace them with a cat." |</span>
+<span id="cb3-398"><a href="#cb3-398"></a></span>
+<span id="cb3-399"><a href="#cb3-399"></a><span class="fu"># Strategies</span></span>
+<span id="cb3-400"><a href="#cb3-400"></a></span>
+<span id="cb3-401"><a href="#cb3-401"></a><span class="ss">- </span>Clear Goals</span>
+<span id="cb3-402"><a href="#cb3-402"></a><span class="ss">- </span>Context</span>
+<span id="cb3-403"><a href="#cb3-403"></a><span class="ss">- </span>Iterate</span>
+<span id="cb3-404"><a href="#cb3-404"></a><span class="ss">- </span>Avoid Pitfalls</span>
+<span id="cb3-405"><a href="#cb3-405"></a></span>
+<span id="cb3-406"><a href="#cb3-406"></a><span class="fu">## Clear Goals</span></span>
+<span id="cb3-407"><a href="#cb3-407"></a></span>
+<span id="cb3-408"><a href="#cb3-408"></a><span class="ss">- </span>Clearly define what you want the AI to achieve.</span>
+<span id="cb3-409"><a href="#cb3-409"></a></span>
+<span id="cb3-410"><a href="#cb3-410"></a>| Tactic | Prompt Example |</span>
+<span id="cb3-411"><a href="#cb3-411"></a>| :--- | :--- |</span>
+<span id="cb3-412"><a href="#cb3-412"></a>| Use precise language and avoid ambiguity | Instead of: "Write something about climate change," use: "Write a persuasive essay arguing for the implementation of stricter carbon emission regulations." |</span>
+<span id="cb3-413"><a href="#cb3-413"></a></span>
+<span id="cb3-414"><a href="#cb3-414"></a><span class="fu">## Clear Goals</span></span>
+<span id="cb3-415"><a href="#cb3-415"></a></span>
+<span id="cb3-416"><a href="#cb3-416"></a><span class="ss">- </span>Clearly define what you want the AI to achieve.</span>
+<span id="cb3-417"><a href="#cb3-417"></a></span>
+<span id="cb3-418"><a href="#cb3-418"></a>| Tactic | Prompt Example |</span>
+<span id="cb3-419"><a href="#cb3-419"></a>| :--- | :--- |</span>
+<span id="cb3-420"><a href="#cb3-420"></a>| Use action verbs to specify the desired action | "Write a bulleted list that summarizes the key findings of the attached research paper" |</span>
+<span id="cb3-421"><a href="#cb3-421"></a></span>
+<span id="cb3-422"><a href="#cb3-422"></a><span class="fu">## Clear Goals</span></span>
+<span id="cb3-423"><a href="#cb3-423"></a></span>
+<span id="cb3-424"><a href="#cb3-424"></a><span class="ss">- </span>Clearly define what you want the AI to achieve.</span>
+<span id="cb3-425"><a href="#cb3-425"></a></span>
+<span id="cb3-426"><a href="#cb3-426"></a>| Tactic | Prompt Example |</span>
+<span id="cb3-427"><a href="#cb3-427"></a>| :--- | :--- |</span>
+<span id="cb3-428"><a href="#cb3-428"></a>| Define the desired length and format of the output | "Compose a 500-word essay discussing the impact of climate change on coastal communities." |</span>
+<span id="cb3-429"><a href="#cb3-429"></a></span>
+<span id="cb3-430"><a href="#cb3-430"></a><span class="fu">## Clear Goals</span></span>
+<span id="cb3-431"><a href="#cb3-431"></a></span>
+<span id="cb3-432"><a href="#cb3-432"></a><span class="ss">- </span>Clearly define what you want the AI to achieve.</span>
+<span id="cb3-433"><a href="#cb3-433"></a></span>
+<span id="cb3-434"><a href="#cb3-434"></a>| Tactic | Prompt Example |</span>
+<span id="cb3-435"><a href="#cb3-435"></a>| :--- | :--- |</span>
+<span id="cb3-436"><a href="#cb3-436"></a>| Quantify your requests whenever possible | Instead of: "Write a long poem," use: "Write a sonnet with 14 lines that explores themes of love and loss." |</span>
+<span id="cb3-437"><a href="#cb3-437"></a></span>
+<span id="cb3-438"><a href="#cb3-438"></a><span class="fu">## Provide Context</span></span>
+<span id="cb3-439"><a href="#cb3-439"></a></span>
+<span id="cb3-440"><a href="#cb3-440"></a><span class="ss">- </span>Providing relevant context and background information.</span>
+<span id="cb3-441"><a href="#cb3-441"></a></span>
+<span id="cb3-442"><a href="#cb3-442"></a>| Tactic | Prompt Example |</span>
+<span id="cb3-443"><a href="#cb3-443"></a>| :--- | :--- |</span>
+<span id="cb3-444"><a href="#cb3-444"></a>| Break down complex tasks into smaller steps | Instead of: "Create a marketing plan," use: "1. Identify the target audience. 2. Develop key marketing messages. 3. Choose appropriate marketing channels." |</span>
+<span id="cb3-445"><a href="#cb3-445"></a></span>
+<span id="cb3-446"><a href="#cb3-446"></a><span class="fu">## Provide Context</span></span>
+<span id="cb3-447"><a href="#cb3-447"></a></span>
+<span id="cb3-448"><a href="#cb3-448"></a><span class="ss">- </span>Providing relevant context and background information.</span>
+<span id="cb3-449"><a href="#cb3-449"></a></span>
+<span id="cb3-450"><a href="#cb3-450"></a>| Tactic | Prompt Example |</span>
+<span id="cb3-451"><a href="#cb3-451"></a>| :--- | :--- |</span>
+<span id="cb3-452"><a href="#cb3-452"></a>| Assign a persona to the AI model | "Act as a technical writer and create a user manual for a new software application." |</span>
+<span id="cb3-453"><a href="#cb3-453"></a></span>
+<span id="cb3-454"><a href="#cb3-454"></a><span class="fu">## Use $n&gt;$-Shot Prompting</span></span>
+<span id="cb3-455"><a href="#cb3-455"></a></span>
+<span id="cb3-456"><a href="#cb3-456"></a><span class="ss">- </span>Already discussed!</span>
+<span id="cb3-457"><a href="#cb3-457"></a><span class="ss">- </span>"Name three fish that rhyme with brown".</span>
+<span id="cb3-458"><a href="#cb3-458"></a><span class="ss">    - </span>I don't know if there's three.</span>
+<span id="cb3-459"><a href="#cb3-459"></a></span>
+<span id="cb3-460"><a href="#cb3-460"></a><span class="fu">## Iterate</span></span>
+<span id="cb3-461"><a href="#cb3-461"></a></span>
+<span id="cb3-462"><a href="#cb3-462"></a><span class="ss">- </span>Prompt engineering is an iterative process. </span>
+<span id="cb3-463"><a href="#cb3-463"></a><span class="ss">    - </span>**Experiment** with different prompt variations</span>
+<span id="cb3-464"><a href="#cb3-464"></a><span class="ss">    - </span>**Observe** the model's responses</span>
+<span id="cb3-465"><a href="#cb3-465"></a><span class="ss">    - </span>**Refine** your prompts based on the results.</span>
+<span id="cb3-466"><a href="#cb3-466"></a>    </span>
+<span id="cb3-467"><a href="#cb3-467"></a><span class="fu">## Experiment    </span></span>
+<span id="cb3-468"><a href="#cb3-468"></a></span>
+<span id="cb3-469"><a href="#cb3-469"></a>| Tactic | Prompt Example |</span>
+<span id="cb3-470"><a href="#cb3-470"></a>| :--- | :--- |</span>
+<span id="cb3-471"><a href="#cb3-471"></a>| Try different phrasings and structures | Experiment with using different synonyms, sentence structures, and formatting to see how they affect the output. |</span>
+<span id="cb3-472"><a href="#cb3-472"></a>    </span>
+<span id="cb3-473"><a href="#cb3-473"></a><span class="fu">## Experiment    </span></span>
+<span id="cb3-474"><a href="#cb3-474"></a></span>
+<span id="cb3-475"><a href="#cb3-475"></a>| Tactic | Prompt Example |</span>
+<span id="cb3-476"><a href="#cb3-476"></a>| :--- | :--- |</span>
+<span id="cb3-477"><a href="#cb3-477"></a>| Adjust the level of detail and specificity | Add or remove information from your prompt to see how it impacts the model's understanding and output. |</span>
+<span id="cb3-478"><a href="#cb3-478"></a>    </span>
+<span id="cb3-479"><a href="#cb3-479"></a><span class="fu">## Experiment    </span></span>
+<span id="cb3-480"><a href="#cb3-480"></a></span>
+<span id="cb3-481"><a href="#cb3-481"></a>| Tactic | Prompt Example |</span>
+<span id="cb3-482"><a href="#cb3-482"></a>| :--- | :--- |</span>
+<span id="cb3-483"><a href="#cb3-483"></a>| Test different prompt lengths | Experiment with both shorter and longer prompts to find the optimal balance. |</span>
+<span id="cb3-484"><a href="#cb3-484"></a></span>
+<span id="cb3-485"><a href="#cb3-485"></a><span class="fu">## Common Pitfalls</span></span>
+<span id="cb3-486"><a href="#cb3-486"></a></span>
+<span id="cb3-487"><a href="#cb3-487"></a>Be mindful of common pitfalls in prompt engineering, such as:</span>
+<span id="cb3-488"><a href="#cb3-488"></a></span>
+<span id="cb3-489"><a href="#cb3-489"></a><span class="ss">- </span>Providing insufficient or ambiguous instructions</span>
+<span id="cb3-490"><a href="#cb3-490"></a><span class="ss">- </span>Using overly complex or technical language</span>
+<span id="cb3-491"><a href="#cb3-491"></a><span class="ss">    - </span>Especially words that are context-specific for which you have not provided the context.</span>
+<span id="cb3-492"><a href="#cb3-492"></a><span class="ss">- </span>Including biased or leading information</span>
+<span id="cb3-493"><a href="#cb3-493"></a><span class="ss">- </span>Failing to iterate and refine prompts</span>
+<span id="cb3-494"><a href="#cb3-494"></a></span>
+<span id="cb3-495"><a href="#cb3-495"></a><span class="fu"># Benefits</span></span>
+<span id="cb3-496"><a href="#cb3-496"></a></span>
+<span id="cb3-497"><a href="#cb3-497"></a><span class="fu">## Accuracy and Relevance</span></span>
+<span id="cb3-498"><a href="#cb3-498"></a></span>
+<span id="cb3-499"><a href="#cb3-499"></a><span class="ss">- </span>By providing clear instructions and context, you can significantly improve the accuracy and relevance of the AI's output.</span>
+<span id="cb3-500"><a href="#cb3-500"></a></span>
+<span id="cb3-501"><a href="#cb3-501"></a><span class="fu">## Reduce Predictability</span></span>
+<span id="cb3-502"><a href="#cb3-502"></a></span>
+<span id="cb3-503"><a href="#cb3-503"></a><span class="ss">- </span>Google called this "Creativity and Innovation".</span>
+<span id="cb3-504"><a href="#cb3-504"></a><span class="ss">- </span>A matrix is not creative, but can be surprising.</span>
+<span id="cb3-505"><a href="#cb3-505"></a><span class="ss">- </span>They may generate *unexpected* ideas, stories, and images.</span>
+<span id="cb3-506"><a href="#cb3-506"></a></span>
+<span id="cb3-507"><a href="#cb3-507"></a><span class="fu">## Efficiency and Productivity</span></span>
+<span id="cb3-508"><a href="#cb3-508"></a></span>
+<span id="cb3-509"><a href="#cb3-509"></a><span class="ss">- </span>Well-crafted prompts can </span>
+<span id="cb3-510"><a href="#cb3-510"></a><span class="ss">    - </span>Streamline tasks</span>
+<span id="cb3-511"><a href="#cb3-511"></a><span class="ss">        - </span>Saving you time, say, manually editing and email.</span>
+<span id="cb3-512"><a href="#cb3-512"></a><span class="ss">    - </span>Automate processes</span>
+<span id="cb3-513"><a href="#cb3-513"></a><span class="ss">        - </span>Code is better at this, but say, capitalize every instance of a word that happens to be a proper noun, like "Satisfy" or "Python"</span>
+<span id="cb3-514"><a href="#cb3-514"></a><span class="ss">    - </span>Reduce overall time and effort.</span>
+<span id="cb3-515"><a href="#cb3-515"></a>    </span>
+<span id="cb3-516"><a href="#cb3-516"></a><span class="fu">## Precision</span></span>
+<span id="cb3-517"><a href="#cb3-517"></a></span>
+<span id="cb3-518"><a href="#cb3-518"></a><span class="ss">- </span>Google called this "Control and Customization".</span>
+<span id="cb3-519"><a href="#cb3-519"></a><span class="ss">- </span>Tailor the AI's responses to your specific needs and preferences.</span>
+<span id="cb3-520"><a href="#cb3-520"></a><span class="ss">- </span>This is the thing AI is good out - if you just need some text, and you can't find it with a search engine or in a library.</span>
+<span id="cb3-521"><a href="#cb3-521"></a><span class="ss">    - </span>Give me three words that might make me feel hungry.</span>
+<span id="cb3-522"><a href="#cb3-522"></a><span class="ss">    - </span>Hard task for a dictionary.</span>
+<span id="cb3-523"><a href="#cb3-523"></a></span>
+<span id="cb3-524"><a href="#cb3-524"></a><span class="fu">## Bias and Safety</span></span>
+<span id="cb3-525"><a href="#cb3-525"></a></span>
+<span id="cb3-526"><a href="#cb3-526"></a><span class="ss">- </span>Google claims it is possible to reduce bias and improve safety with prompt engineering.</span>
+<span id="cb3-527"><a href="#cb3-527"></a><span class="ss">- </span>This has never been demonstrated scientifically with either AI or with, in fact, Google search results, so I am skeptical.</span>
+<span id="cb3-528"><a href="#cb3-528"></a><span class="ss">- </span>I do think, however, an LLM trained on Google's PR statements would claim that I, the user, am partially responsible for bias and safety.</span>
+<span id="cb3-529"><a href="#cb3-529"></a></span>
+<span id="cb3-530"><a href="#cb3-530"></a><span class="fu"># Fin</span></span>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
