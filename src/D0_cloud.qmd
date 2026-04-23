@@ -1,0 +1,702 @@
+---
+title: Cloud
+---
+
+
+## Today
+
+- Thus far we have:
+	- Developed text generation from scratch.
+- Now we will:
+    - Survey, at a high level, how to do this at scale.
+    
+# Motivation
+    
+## Citation
+
+- Today's lecture is adapted from an earlier course on *Cloud Computing*.
+- The materials, which are showing age, are [here](https://cd-public.github.io/courses/old/cld24/index.html)
+- It is worth noting I proposed that course (under that name) *prior to the release of ChatGPT*
+    - That is, I have now pivoted to "AI 101" for a reason.
+- Vs. AI, I actually am a domain expert in "cloud".
+
+## My Work
+
+**Thesis Title** 
+
+- Mining Secure Behavior of Hardware Designs  
+
+**In Plain English** 
+
+- Just as there are bugs in code that makes **software**, modern **hardware** is also written in code and therefore may contain bugs. I find these bugs.  
+
+## The text
+
+> Specification mining can discover properties that can be used to verify the secure behavior of closed source CISC CPU designs, properties that can be used to verify the temporal correctness of CPU designs, and hyperproperties that can be used to verify that modules, SoCs, and CPUs have secure information flow.  
+
+## Relevant Excerpt {.smaller}
+
+> When parallelizing all trace generation and all case mining, Isadora could theoretically evaluate the Single ACW case fully in less than five minutes. Parallelizing the first phase requires a Radix-S and QuestaSim instance for each source register, and each trace is generated in approximately 100 seconds. Further, the trace generation time is dominated by write-to-disk, and performance engineering techniques could likely reduce it significantly, such as by changing trace encoding or piping directly to later phases. Parallelizing the second phase requires only a Python instance for each source register, and takes between 1 and 2 seconds per trace. Parallelizing the third phase requires a Daikon instance for each flow case, usually roughly the same number as unique sources, and takes between 10 and 30 seconds per flow case. The final phase, postprocessing, is also suitable for parallelization. Maximally parallelized, this gives a design-to-specification time of under four minutes for the single ACW and for similarly sized designs, including PicoRV32.  
+
+## In brief
+
+**Plain text** 
+
+- Rather than do 100s of things for 3 minutes to take 100s of minutes, we can use 100s of computers for 3 minutes and always be done in 3 minutes.
+
+## Parallelism
+
+- This:
+    - "Rather than do 100s of things for 3 minutes to take 100s of minutes, we can use 100s of computers for 3 minutes and always be done in 3 minutes."
+- Is the core insight of *cloud computing*
+- And the core enabling technology for the "large" in "large language models" (LLMs).
+    - The technology is from 2017 and there wasn't enough computing power until 2022.
+
+    
+## Changes since 2023
+
+```{python}
+#| echo: false
+import matplotlib.pyplot as plt
+import io
+import pandas as pd
+
+# Data source: https://trends.google.com/explore?q=cloud%2520computing%2CLLM&date=all&geo=US
+# Retrieved 23 Apr 26
+
+vals = pd.read_csv(io.StringIO('''
+Time,cloud computing,LLM
+2004-01-01,0,3
+2004-02-01,0,3
+2004-03-01,0,4
+2004-04-01,0,3
+2004-05-01,0,3
+2004-06-01,0,4
+2004-07-01,0,4
+2004-08-01,0,3
+2004-09-01,0,3
+2004-10-01,0,3
+2004-11-01,0,3
+2004-12-01,0,3
+2005-01-01,0,4
+2005-02-01,0,3
+2005-03-01,0,3
+2005-04-01,0,3
+2005-05-01,0,3
+2005-06-01,0,3
+2005-07-01,0,3
+2005-08-01,0,3
+2005-09-01,0,3
+2005-10-01,0,3
+2005-11-01,0,3
+2005-12-01,0,3
+2006-01-01,0,3
+2006-02-01,0,3
+2006-03-01,0,3
+2006-04-01,0,3
+2006-05-01,0,3
+2006-06-01,0,3
+2006-07-01,0,3
+2006-08-01,0,3
+2006-09-01,0,3
+2006-10-01,0,3
+2006-11-01,0,3
+2006-12-01,0,2
+2007-01-01,0,3
+2007-02-01,0,3
+2007-03-01,0,3
+2007-04-01,0,3
+2007-05-01,0,3
+2007-06-01,0,3
+2007-07-01,0,3
+2007-08-01,0,3
+2007-09-01,0,3
+2007-10-01,1,3
+2007-11-01,0,3
+2007-12-01,1,3
+2008-01-01,1,3
+2008-02-01,2,3
+2008-03-01,1,4
+2008-04-01,2,3
+2008-05-01,3,3
+2008-06-01,3,3
+2008-07-01,5,3
+2008-08-01,6,3
+2008-09-01,5,3
+2008-10-01,9,3
+2008-11-01,7,3
+2008-12-01,6,3
+2009-01-01,7,3
+2009-02-01,8,3
+2009-03-01,11,3
+2009-04-01,11,3
+2009-05-01,9,3
+2009-06-01,10,3
+2009-07-01,11,3
+2009-08-01,9,3
+2009-09-01,11,3
+2009-10-01,14,3
+2009-11-01,13,3
+2009-12-01,12,3
+2010-01-01,11,4
+2010-02-01,13,3
+2010-03-01,13,3
+2010-04-01,14,3
+2010-05-01,13,3
+2010-06-01,12,3
+2010-07-01,11,3
+2010-08-01,12,3
+2010-09-01,12,3
+2010-10-01,15,3
+2010-11-01,15,3
+2010-12-01,14,2
+2011-01-01,16,3
+2011-02-01,16,3
+2011-03-01,17,3
+2011-04-01,17,3
+2011-05-01,14,3
+2011-06-01,16,3
+2011-07-01,11,3
+2011-08-01,11,3
+2011-09-01,13,3
+2011-10-01,14,3
+2011-11-01,12,3
+2011-12-01,11,2
+2012-01-01,10,3
+2012-02-01,10,3
+2012-03-01,10,3
+2012-04-01,8,3
+2012-05-01,7,3
+2012-06-01,7,3
+2012-07-01,6,2
+2012-08-01,6,3
+2012-09-01,6,2
+2012-10-01,7,2
+2012-11-01,6,2
+2012-12-01,5,2
+2013-01-01,5,2
+2013-02-01,6,2
+2013-03-01,5,2
+2013-04-01,6,2
+2013-05-01,5,2
+2013-06-01,5,2
+2013-07-01,5,2
+2013-08-01,4,2
+2013-09-01,5,2
+2013-10-01,5,2
+2013-11-01,5,2
+2013-12-01,4,2
+2014-01-01,5,2
+2014-02-01,5,2
+2014-03-01,5,2
+2014-04-01,5,2
+2014-05-01,4,2
+2014-06-01,4,2
+2014-07-01,4,2
+2014-08-01,4,2
+2014-09-01,5,2
+2014-10-01,5,2
+2014-11-01,5,2
+2014-12-01,4,2
+2015-01-01,4,2
+2015-02-01,5,2
+2015-03-01,4,2
+2015-04-01,5,2
+2015-05-01,4,2
+2015-06-01,4,2
+2015-07-01,4,2
+2015-08-01,4,2
+2015-09-01,5,2
+2015-10-01,5,2
+2015-11-01,4,2
+2015-12-01,3,2
+2016-01-01,3,2
+2016-02-01,4,2
+2016-03-01,4,2
+2016-04-01,4,2
+2016-05-01,4,2
+2016-06-01,4,2
+2016-07-01,3,2
+2016-08-01,3,2
+2016-09-01,4,2
+2016-10-01,4,2
+2016-11-01,4,2
+2016-12-01,4,2
+2017-01-01,4,2
+2017-02-01,5,2
+2017-03-01,4,2
+2017-04-01,4,2
+2017-05-01,7,2
+2017-06-01,4,2
+2017-07-01,4,2
+2017-08-01,4,2
+2017-09-01,4,2
+2017-10-01,5,2
+2017-11-01,4,2
+2017-12-01,3,2
+2018-01-01,4,2
+2018-02-01,4,2
+2018-03-01,4,2
+2018-04-01,4,2
+2018-05-01,4,2
+2018-06-01,3,2
+2018-07-01,3,2
+2018-08-01,3,2
+2018-09-01,4,2
+2018-10-01,4,2
+2018-11-01,4,2
+2018-12-01,4,1
+2019-01-01,3,2
+2019-02-01,4,2
+2019-03-01,4,2
+2019-04-01,4,2
+2019-05-01,4,2
+2019-06-01,4,2
+2019-07-01,4,2
+2019-08-01,4,2
+2019-09-01,4,2
+2019-10-01,4,2
+2019-11-01,4,2
+2019-12-01,4,1
+2020-01-01,4,2
+2020-02-01,5,2
+2020-03-01,4,1
+2020-04-01,4,2
+2020-05-01,4,2
+2020-06-01,4,2
+2020-07-01,4,2
+2020-08-01,5,2
+2020-09-01,6,2
+2020-10-01,6,2
+2020-11-01,5,1
+2020-12-01,4,1
+2021-01-01,4,1
+2021-02-01,5,1
+2021-03-01,5,1
+2021-04-01,5,2
+2021-05-01,6,2
+2021-06-01,5,1
+2021-07-01,5,1
+2021-08-01,4,2
+2021-09-01,6,2
+2021-10-01,7,1
+2021-11-01,7,1
+2021-12-01,5,1
+2022-01-01,5,2
+2022-02-01,5,2
+2022-03-01,6,2
+2022-04-01,5,2
+2022-05-01,5,2
+2022-06-01,4,2
+2022-07-01,4,2
+2022-08-01,5,2
+2022-09-01,5,2
+2022-10-01,5,2
+2022-11-01,5,2
+2022-12-01,4,2
+2023-01-01,4,3
+2023-02-01,5,3
+2023-03-01,4,5
+2023-04-01,4,7
+2023-05-01,4,10
+2023-06-01,4,11
+2023-07-01,4,11
+2023-08-01,4,11
+2023-09-01,4,12
+2023-10-01,4,12
+2023-11-01,4,13
+2023-12-01,4,13
+2024-01-01,4,14
+2024-02-01,5,17
+2024-03-01,5,19
+2024-04-01,5,20
+2024-05-01,4,19
+2024-06-01,4,19
+2024-07-01,4,17
+2024-08-01,4,17
+2024-09-01,5,19
+2024-10-01,5,20
+2024-11-01,5,19
+2024-12-01,4,18
+2025-01-01,5,25
+2025-02-01,5,29
+2025-03-01,6,27
+2025-04-01,5,26
+2025-05-01,6,27
+2025-06-01,8,39
+2025-07-01,8,45
+2025-08-01,7,43
+2025-09-01,8,40
+2025-10-01,7,39
+2025-11-01,9,48
+2025-12-01,9,48
+2026-01-01,11,54
+2026-02-01,21,73
+2026-03-01,36,100
+2026-04-01,12,65
+'''), parse_dates=['Time'])
+
+## Gemini generated
+
+plt.figure(figsize=(12, 6))
+plt.plot(vals['Time'], vals['cloud computing'], label='cloud computing')
+plt.plot(vals['Time'], vals['LLM'], label='LLM', color='red')
+plt.xlabel('Time')
+plt.ylabel('Value')
+plt.title('Cloud Computing and LLM Trends Over Time')
+plt.legend()
+plt.grid(True)
+
+# Add annotation for ChatGPT release
+# Found this one from https://en.wikipedia.org/wiki/ChatGPT
+
+chatgpt_release_date = pd.to_datetime('2022-11-30')
+llm_value_at_release = vals[vals['Time'] <= chatgpt_release_date]['LLM'].iloc[-1]
+
+plt.annotate(
+    'ChatGPT released (Nov 30, 2022)', 
+    xy=(chatgpt_release_date, llm_value_at_release), 
+    xytext=(pd.to_datetime('2021-01-01'), llm_value_at_release + 10), # Adjust xytext for better visibility
+    arrowprops=dict(facecolor='black', shrink=0.05), 
+    fontsize=10, 
+    color='blue'
+)
+
+# Add annotation for Netflix streaming launch
+# Found this one from https://en.wikipedia.org/wiki/History_of_cloud_computing#2000s
+
+netflix_streaming_date = pd.to_datetime('2007-01-15') # Approximate date
+cloud_computing_value_at_netflix_launch = vals[vals['Time'] <= netflix_streaming_date]['cloud computing'].iloc[-1]
+
+plt.annotate(
+    'Netflix Streaming Launch (2007)', 
+    xy=(netflix_streaming_date, cloud_computing_value_at_netflix_launch), 
+    xytext=(pd.to_datetime('2008-01-01'), cloud_computing_value_at_netflix_launch + 15), # Adjust xytext for better visibility
+    arrowprops=dict(facecolor='green', shrink=0.05), 
+    fontsize=10, 
+    color='green'
+)
+
+plt.show()
+```
+
+## Note - Data Source
+
+- I got this interest level from [Google Trends](https://trends.google.com/explore?q=cloud%2520computing%2CLLM&date=all&geo=US)
+- I retrieved the data 23 Apr 26, it is usually in at least a little bit of flux.
+
+## Note - 2007
+
+- I made a note in 2007 as I think it was the launch of prominent cloud computing.
+- Hard to track the technology versus the term, but Netflix (remember them?) started getting headlines around then.
+- [Source - Wikipedia](https://en.wikipedia.org/wiki/History_of_cloud_computing#2000s)
+- [Source - NYT](https://www.nytimes.com/2007/01/16/technology/16netflix.html)
+
+## Note - 2022
+
+- I really don't think ChatGPT broke out until 2023, under a single digit percentage of people were using in 2022.
+- Release was late 2022, around November.
+- [Source - Wikipedia](https://en.wikipedia.org/wiki/ChatGPT)
+- [Source - ChatGPT](https://openai.com/index/chatgpt/)
+
+## Note - Between
+
+- The real buzzword technology between 2007 and 2022 was I think *bitcoin*.
+    - CS-271: Taught in fall. Requires one year of programming.
+    - Then for a while NFTs, also didn't really persist.
+- Not really intelligence relevant.
+
+## Onward!
+
+- And now, my introduction to cloud computing.
+    - Recall the "Philosophy Tube Thesis"
+
+> In her book [Atlas of AI](https://yalebooks.yale.edu/book/9780300264630/atlas-of-ai/) researcher [Kate Crawford](https://katecrawford.net/) uses a different term: large-scale computing.
+
+# The Cloud
+
+## Core insight
+
+- Instead of solving hard problems, we use more computers
+- Computers are cheap, and people that can use them well are expensive (to train and hire)
+- In my experience: your boss/manager/accountability group always wants you to spend $0.12 to use the 1000s of the fastest computers on earth for 5 seconds, rather than 6 months writing "better" code.
+    - Writing fast code is hard, and spending $0.12 is easy.
+    
+
+
+## Pre-LLM Trillion $ Co.'s {.smaller}
+
+| Company | $1 trillion | $2 trillion | $3 trillion | Nominal |
+| :--- | :--- | :--- | :--- | :--- |
+| Microsoft | 25 Apr 19 | 22 Jun 21 | 24 Jan 24 | 3,185 |
+| Apple | 2 Aug 18 | 19 Aug 20 | 3 Jan 22 | 3,081 |
+| Saudi Aramco | 11 Dec 19 | 12 Dec 19 | — | 2,463 |
+| Nvidia | 30 May 23 | 23 Feb 24 | — | 2,380 |
+| Alphabet | 16 Jan 20 | 8 Nov 21 | — | 2,150 |
+| Amazon | 4 Sep 18 | — | — | 1,970 |
+| Meta | 28 Jun 21 | — | — | 1,220 |
+| Tesla | 25 Oct 21 | — | — | 1,210 |
+| PetroChina | 5 Nov 07 | — | — | 1,200 |
+
+## Basically
+
+- Three of the six largest companies in the world are cloud companies
+- Of the others, Nvidia is a primary supplier, and Apple and Meta are primary consumers. 
+- The world economy is 2/3 cloud and 1/3 transit.
+
+## More extreme today
+
+- Check the latest.
+- [Market capitalization](https://en.wikipedia.org/wiki/List_of_public_corporations_by_market_capitalization)
+
+## Why "The Cloud"?
+
+* Computing happens somewhere else, not on your PC or mobile device
+* The Cloud Underpins "Modern" Computing
+    * **Physical**: The cloud is a global deployment of massive data centers connected by ultra-fast networking, designed for scalability and robustness.
+    * **Logical**: A collection of tools and platforms that scale amazingly well.
+    * **Conceptual**: A set of scalable ideas, concepts, and design strategies.
+
+## From whence?
+
+* My view: it emerged naturally from high quality systems programming.
+    * As computer chips got faster, they hit a "heat wall" where they couldn't speed up without melting.
+    * To get past the heatwall, Intel et al. placed multiple processing units on a single chip (e.g. Phone/Tablet/PC).
+    * To use multiply processing units, sometimes *n* pieces of code had to run at the same time.
+    * If *n* can be 8 (my phone) why not $10^6$ (my phone's app's datacenters)
+
+## "The Heat Wall"
+
+![Heat Wall Graph](https://i0.wp.com/semiengineering.com/wp-content/uploads/Picture1-2.png?resize=1024%2C576&ssl=1)
+
+## Or?
+
+* Another view: It emerged naturally from the Internet
+    * The internet runs over networks between multiple computers with different computing and data capabilities.
+        * If I can ask Google for directions, why can't I ask Google to compute a mean
+        * If Google can ask me for a password, why can't it ask me for a .csv
+        * If computing is already distributed across local and remote servers, why not write code for this paradigm.
+        
+## Visually
+
+- This is what we should image an "AI" looks like.
+    - But *also* what a website looks like.
+    - But *also* what a text message looks like.
+
+![Server Room](https://static01.nyt.com/images/2006/10/25/business/25server.xlarge1.jpg)
+
+## Core insight
+
+* My view: It DID NOT emerge from "classical" software engineering
+    * "Object oriented languages" e.g. Java won the software engineering wars of the 00s.
+        * I am a hater.
+    * I believe MapReduce, two functions, unseated Objects as the dominate paradigm over time
+    
+## MapReduce for us
+
+- We have implicitly used "MapReduce"
+    - "Map" means "do X to all things in Y"
+        - Like how a map represents all landmarks in an area.
+    - "Reduce" means "add up all things in Y"
+- Remember [this](A0_xor.qmd#activate-again)
+```{.py}
+1 <= pair @ layer
+```
+
+
+## Map
+
+- Take every row, multiply it by every column
+
+```{.py}
+mapped = pair @ layer
+```
+
+
+## Reduce
+
+- Compare the summed up result to a single value.
+
+```{.py}
+1 <= mapped
+```
+
+## How big?
+
+It is generally regarded that...
+
+* Google is one of the largest data aggregators
+* Google held approximately 15 exabytes in 2013 [[src](https://what-if.xkcd.com/63/)]
+* Google's reported power use increased 21%/anum from 2011->2019
+
+## Forbes
+
+[<img style="display:block; margin-left: auto; margin-right: auto" src="https://imageio.forbes.com/specials-images/imageserve/5f908b550436eabb0b8b03b1/Since-2011--Google-s-electricity-use-has-nearly-quintupled-/960x0.png">](https://www.forbes.com/sites/robertbryce/2020/10/21/googles-dominance-is-fueled-by-zambia-size-amounts-of-electricity/?sh=4c7bb3568c98)
+
+## Math it
+
+```{python}
+annual_growth = (12.4/2.6)**(1/8)
+print(annual_growth)
+```
+
+* Hard-drives grew 16x from 2012 to 2023 from less than 2 TB [[src](https://www.tomshardware.com/news/HAMR-platters-heat-assisted-CREATEC-areal-density,18126.html)] to 32 TB [[src](https://www.seagate.com/products/enterprise-drives/exos-x/x-mozaic/)]
+* Google current storage?
+    * Start with 15 exabytes in '13.
+    * Increase by 21% per year.
+    * Multiply by increase in storage density.
+    
+## How fast?
+    
+```{python}
+annual_growth = (12.4/2.6)**(1/8)
+annual_growth ** (2026-2013) * 16
+```
+* 200x every ~10 years within one company, but # of data companies also grows.
+    * Approximately doubles per decade, looks like.
+* I generated 134 MB of teaching materials in 3 years full time, or .0000000000134 exabytes
+
+
+## Client/Server
+
+* I like to think of the cloud as a dancer between users/clients and remote servers
+* We use devices which are physical and live “outside” the cloud, but are ~useless on their own.
+* Your phone does some things, remote email servers do some things.
+
+## Imagine:
+
+* Usually:
+    * Website lives in cloud storage, is sent as a chunk of data to phone/pc.
+    * Website runs locally in phone/pc browser
+    * Website asked something it doesn't know (current weather, directions to nearest oatmilk mocha)
+    * Website asks cloud to compute something
+    * Cloud server gets a request, sends back to phone/pc which updates what you see.
+
+## Visually
+
+<img style="filter:invert(.9)" src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Client-server-model.svg">
+
+
+## Evolution?
+
+* Prior to ~2005, we had “data centers designed for high availability”.
+* Amazon had especially large ones, to serve its web requests
+* This is all before the AWS cloud model
+* The real goal was just to support online shopping
+* Their system wasn’t very reliable, and the core problem was scaling
+
+## Throwback
+
+![Scaling Diagram](https://substackcdn.com/image/fetch/w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F24a9ef4a-517f-4a24-93c2-71c6b345914f_809x736.png)
+
+
+## Yahoo! Experiment
+
+* In the 2005 time period everyone was talking about an experiment done at Yahoo. It was an “alpha/beta” experiment about ad-click-through
+* Customers who saw web page rendering faster than 100ms clicked ads.
+* For every 100ms delay, click-through rates noticeably dropped.
+
+## Throwback
+
+![Yahoo 2005](https://www.webdesignmuseum.org/uploaded/timeline/yahoo/yahoo-2005.png)
+
+## 100 MS
+
+How long is 100 ms?
+
+<script>
+let timer;
+function myfunc() {
+    timer = window.setInterval(toggle, 100);
+    document.getElementById('forhello').innerText='';
+}
+function toggle() {
+    document.getElementById('forhello').innerText='Hello, World!';
+    window.clearInterval(timer);
+}
+</script>
+
+<button onclick="myfunc();" style="font-size:1.5em">Sample Button</button>
+<p style="outline-style:solid;" id="forhello">&nbsp;</p>
+
+## The World Changed
+
+* At Amazon, Jeff Bezos spread the word internally.
+* He wanted Amazon to win this sprint.
+* The whole company was told to focus on ensuring that every Amazon product page would render with minimal delay.
+* Unfortunately… as more and more customers turned up… Amazon’s web pages slowed down. * 
+
+This is a “crisis of the commons” situation.
+
+## By the way
+
+- This is what Bezos looked like in 2005.
+
+![Bezos](https://i.ytimg.com/vi/WhnDvvNS8zQ/hqdefault.jpg)
+
+
+## The Commons
+
+* At the center of the village is a lovely grassy commons. Everyone uses it.
+* One day a farmworker has an awesome idea. They lets their goats graze on the commons. This saves a lot of rent dollars paid as part of a tenant farmer agreement.
+* They earns extra money with award-winning goats.
+
+<img width="30%" src="https://diversionaudio.com/wp-content/uploads/2023/01/goat-serena-williams-cover-3000x3000-1.png">
+
+This is the plot of *King Richard* (2021)
+
+## Cloud Commons?
+
+* In the cloud we need to think about all the internal databases and services “shared” by lots and lots users.
+* But what works best for one instance, all by itself, might overload the shared services when the same code runs side by side with huge numbers of other instances (“when we run at scale”)
+
+Shorter: doing *n* things at once is hard.
+
+## The Thundering Herd
+
+* In fact this is a very common pattern.
+* Something becomes successful at small scale, so everyone wants to try it.
+* But now the same code patterns that worked at small scale might break. 
+- The key to scalability in a cloud is to use the cloud platform in a smart way.
+
+## The Horror!
+
+![Instagram Down](https://staticimg.amarujala.com/assets/images/2021/09/02/instagram-down_1630565530.png?w=414)
+
+## Prediction
+
+* Amazon reorganized their whole approach:
+* They began to guess (!!!) at your next action and precompute what they would probably need to answer your next query or link click.
+
+Wait... isn't that... next token prediction?
+
+## The Ouroboros    
+
+![](https://upload.wikimedia.org/wikipedia/commons/7/71/Serpiente_alquimica.jpg)
+
+## Fast-forward
+
+- Today, the cloud *optimizes itself*
+    - Exascale servers... *serve* various applications.
+        - Food order/delivery
+        - Online shopping
+        - Video streaming
+        - Messaging
+- At each stage, LLMs and LLM like tools "work ahead" to try to make things seem faster than they could possibly be.
+
+## The Result
+
+- My instagram infinity scroll "for you" page contains incredibly precisely targetted ads...
+    - Which lead to more online shopping or food order/delivery
+    - The wheel turns
+- My online shopping experience recommends things I am highly likely to need.
+    - Leading to me posting about them on instagram.
+- My YouTube feed etc. etc.
+
+## Looking Ahead
+
+- Okay but wait.
+- Where does all that thinking take place?
+- *To be continued with the course final: Perspectives*
+
+# Fin

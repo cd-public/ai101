@@ -71,7 +71,7 @@ format: html
 |0xB|03/06|[XOR](A0_xor.qmd)|[Compression](A1_compress.qmd)| <!-- compression --> <!-- Weight matrices (K, Q, V), and Multiple Heads-->
 |0xC|04/13|[Markov](B0_markov.qmd)|[`None`](https://my.willamette.edu/site/ssrd)|| <!-- Fine tuning, prompt injection, chat bots -->
 |0xD|04/20|[Prompts](C0_prompt.qmd)|[Poetry](C1_poetry.qmd)|
-|0xE|04/27|Perspectives|Peer Review|
+|0xE|04/27|[Cloud](D0_cloud.qmd)|Perspectives|
 
 *Final course reflection ("Perspectives") due whenever the final exam would finish, TBA*
 

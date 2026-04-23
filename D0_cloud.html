@@ -1,0 +1,2202 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.30">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Cloud – AI 101</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./C1_sonnet.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-a4a11d514c7d463668e07712114998e6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-70c9a4798e5f6abb0636bcdc3eed0e90.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./D0_cloud.html">Cloud</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">AI 101</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00_turing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ada &amp; Alan</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Turing’s Test</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11_colab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Colab</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20_supervise.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">(Un)supervision</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21_key.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dichotomous Key</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./30_regress.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Regression</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./31_nd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="math inline">\(n\)</span>-D</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./40_class.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Classification</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./41_treetree.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tree Tree</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./50_graph.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Graphs</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./51_sudoku.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sudoku</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6__guest.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Guest</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6_1_doc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Thinking Game</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./60_neural.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Neural Networks</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./61_weights.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Weights</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./70_perceptron.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Perceptron</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./71_multi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Multi-class</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./80_matrix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Matrix</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./90_learning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Learning</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./91_false.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Falsify</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A0_xor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The XOR Problem</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A1_compress.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Compression</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./B0_markov.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Markov</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./C0_prompt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prompts</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./C1_sonnet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Poetry</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./D0_cloud.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Cloud</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#today" id="toc-today" class="nav-link active" data-scroll-target="#today">Today</a></li>
+  <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation">Motivation</a>
+  <ul class="collapse">
+  <li><a href="#citation" id="toc-citation" class="nav-link" data-scroll-target="#citation">Citation</a></li>
+  <li><a href="#my-work" id="toc-my-work" class="nav-link" data-scroll-target="#my-work">My Work</a></li>
+  <li><a href="#the-text" id="toc-the-text" class="nav-link" data-scroll-target="#the-text">The text</a></li>
+  <li><a href="#relevant-excerpt" id="toc-relevant-excerpt" class="nav-link" data-scroll-target="#relevant-excerpt">Relevant Excerpt</a></li>
+  <li><a href="#in-brief" id="toc-in-brief" class="nav-link" data-scroll-target="#in-brief">In brief</a></li>
+  <li><a href="#parallelism" id="toc-parallelism" class="nav-link" data-scroll-target="#parallelism">Parallelism</a></li>
+  <li><a href="#changes-since-2023" id="toc-changes-since-2023" class="nav-link" data-scroll-target="#changes-since-2023">Changes since 2023</a></li>
+  <li><a href="#note---data-source" id="toc-note---data-source" class="nav-link" data-scroll-target="#note---data-source">Note - Data Source</a></li>
+  <li><a href="#note---2007" id="toc-note---2007" class="nav-link" data-scroll-target="#note---2007">Note - 2007</a></li>
+  <li><a href="#note---2022" id="toc-note---2022" class="nav-link" data-scroll-target="#note---2022">Note - 2022</a></li>
+  <li><a href="#note---between" id="toc-note---between" class="nav-link" data-scroll-target="#note---between">Note - Between</a></li>
+  <li><a href="#onward" id="toc-onward" class="nav-link" data-scroll-target="#onward">Onward!</a></li>
+  </ul></li>
+  <li><a href="#the-cloud" id="toc-the-cloud" class="nav-link" data-scroll-target="#the-cloud">The Cloud</a>
+  <ul class="collapse">
+  <li><a href="#core-insight" id="toc-core-insight" class="nav-link" data-scroll-target="#core-insight">Core insight</a></li>
+  <li><a href="#pre-llm-trillion-co.s" id="toc-pre-llm-trillion-co.s" class="nav-link" data-scroll-target="#pre-llm-trillion-co.s">Pre-LLM Trillion $ Co.’s</a></li>
+  <li><a href="#basically" id="toc-basically" class="nav-link" data-scroll-target="#basically">Basically</a></li>
+  <li><a href="#more-extreme-today" id="toc-more-extreme-today" class="nav-link" data-scroll-target="#more-extreme-today">More extreme today</a></li>
+  <li><a href="#why-the-cloud" id="toc-why-the-cloud" class="nav-link" data-scroll-target="#why-the-cloud">Why “The Cloud”?</a></li>
+  <li><a href="#from-whence" id="toc-from-whence" class="nav-link" data-scroll-target="#from-whence">From whence?</a></li>
+  <li><a href="#the-heat-wall" id="toc-the-heat-wall" class="nav-link" data-scroll-target="#the-heat-wall">“The Heat Wall”</a></li>
+  <li><a href="#or" id="toc-or" class="nav-link" data-scroll-target="#or">Or?</a></li>
+  <li><a href="#visually" id="toc-visually" class="nav-link" data-scroll-target="#visually">Visually</a></li>
+  <li><a href="#core-insight-1" id="toc-core-insight-1" class="nav-link" data-scroll-target="#core-insight-1">Core insight</a></li>
+  <li><a href="#mapreduce-for-us" id="toc-mapreduce-for-us" class="nav-link" data-scroll-target="#mapreduce-for-us">MapReduce for us</a></li>
+  <li><a href="#map" id="toc-map" class="nav-link" data-scroll-target="#map">Map</a></li>
+  <li><a href="#reduce" id="toc-reduce" class="nav-link" data-scroll-target="#reduce">Reduce</a></li>
+  <li><a href="#how-big" id="toc-how-big" class="nav-link" data-scroll-target="#how-big">How big?</a></li>
+  <li><a href="#forbes" id="toc-forbes" class="nav-link" data-scroll-target="#forbes">Forbes</a></li>
+  <li><a href="#math-it" id="toc-math-it" class="nav-link" data-scroll-target="#math-it">Math it</a></li>
+  <li><a href="#how-fast" id="toc-how-fast" class="nav-link" data-scroll-target="#how-fast">How fast?</a></li>
+  <li><a href="#clientserver" id="toc-clientserver" class="nav-link" data-scroll-target="#clientserver">Client/Server</a></li>
+  <li><a href="#imagine" id="toc-imagine" class="nav-link" data-scroll-target="#imagine">Imagine:</a></li>
+  <li><a href="#visually-1" id="toc-visually-1" class="nav-link" data-scroll-target="#visually-1">Visually</a></li>
+  <li><a href="#evolution" id="toc-evolution" class="nav-link" data-scroll-target="#evolution">Evolution?</a></li>
+  <li><a href="#throwback" id="toc-throwback" class="nav-link" data-scroll-target="#throwback">Throwback</a></li>
+  <li><a href="#yahoo-experiment" id="toc-yahoo-experiment" class="nav-link" data-scroll-target="#yahoo-experiment">Yahoo! Experiment</a></li>
+  <li><a href="#throwback-1" id="toc-throwback-1" class="nav-link" data-scroll-target="#throwback-1">Throwback</a></li>
+  <li><a href="#ms" id="toc-ms" class="nav-link" data-scroll-target="#ms">100 MS</a></li>
+  <li><a href="#the-world-changed" id="toc-the-world-changed" class="nav-link" data-scroll-target="#the-world-changed">The World Changed</a></li>
+  <li><a href="#by-the-way" id="toc-by-the-way" class="nav-link" data-scroll-target="#by-the-way">By the way</a></li>
+  <li><a href="#the-commons" id="toc-the-commons" class="nav-link" data-scroll-target="#the-commons">The Commons</a></li>
+  <li><a href="#cloud-commons" id="toc-cloud-commons" class="nav-link" data-scroll-target="#cloud-commons">Cloud Commons?</a></li>
+  <li><a href="#the-thundering-herd" id="toc-the-thundering-herd" class="nav-link" data-scroll-target="#the-thundering-herd">The Thundering Herd</a></li>
+  <li><a href="#the-horror" id="toc-the-horror" class="nav-link" data-scroll-target="#the-horror">The Horror!</a></li>
+  <li><a href="#prediction" id="toc-prediction" class="nav-link" data-scroll-target="#prediction">Prediction</a></li>
+  <li><a href="#the-ouroboros" id="toc-the-ouroboros" class="nav-link" data-scroll-target="#the-ouroboros">The Ouroboros</a></li>
+  <li><a href="#fast-forward" id="toc-fast-forward" class="nav-link" data-scroll-target="#fast-forward">Fast-forward</a></li>
+  <li><a href="#the-result" id="toc-the-result" class="nav-link" data-scroll-target="#the-result">The Result</a></li>
+  <li><a href="#looking-ahead" id="toc-looking-ahead" class="nav-link" data-scroll-target="#looking-ahead">Looking Ahead</a></li>
+  </ul></li>
+  <li><a href="#fin" id="toc-fin" class="nav-link" data-scroll-target="#fin">Fin</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="D0_cloud.rjs.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Cloud</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i></button></div></div>
+<p class="subtitle lead">AI 101</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="today" class="level2">
+<h2 class="anchored" data-anchor-id="today">Today</h2>
+<ul>
+<li>Thus far we have:
+<ul>
+<li>Developed text generation from scratch.</li>
+</ul></li>
+<li>Now we will:
+<ul>
+<li>Survey, at a high level, how to do this at scale.</li>
+</ul></li>
+</ul>
+</section>
+<section id="motivation" class="level1">
+<h1>Motivation</h1>
+<section id="citation" class="level2">
+<h2 class="anchored" data-anchor-id="citation">Citation</h2>
+<ul>
+<li>Today’s lecture is adapted from an earlier course on <em>Cloud Computing</em>.</li>
+<li>The materials, which are showing age, are <a href="https://cd-public.github.io/courses/old/cld24/index.html">here</a></li>
+<li>It is worth noting I proposed that course (under that name) <em>prior to the release of ChatGPT</em>
+<ul>
+<li>That is, I have now pivoted to “AI 101” for a reason.</li>
+</ul></li>
+<li>Vs. AI, I actually am a domain expert in “cloud”.</li>
+</ul>
+</section>
+<section id="my-work" class="level2">
+<h2 class="anchored" data-anchor-id="my-work">My Work</h2>
+<p><strong>Thesis Title</strong></p>
+<ul>
+<li>Mining Secure Behavior of Hardware Designs</li>
+</ul>
+<p><strong>In Plain English</strong></p>
+<ul>
+<li>Just as there are bugs in code that makes <strong>software</strong>, modern <strong>hardware</strong> is also written in code and therefore may contain bugs. I find these bugs.</li>
+</ul>
+</section>
+<section id="the-text" class="level2">
+<h2 class="anchored" data-anchor-id="the-text">The text</h2>
+<blockquote class="blockquote">
+<p>Specification mining can discover properties that can be used to verify the secure behavior of closed source CISC CPU designs, properties that can be used to verify the temporal correctness of CPU designs, and hyperproperties that can be used to verify that modules, SoCs, and CPUs have secure information flow.</p>
+</blockquote>
+</section>
+<section id="relevant-excerpt" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="relevant-excerpt">Relevant Excerpt</h2>
+<blockquote class="blockquote">
+<p>When parallelizing all trace generation and all case mining, Isadora could theoretically evaluate the Single ACW case fully in less than five minutes. Parallelizing the first phase requires a Radix-S and QuestaSim instance for each source register, and each trace is generated in approximately 100 seconds. Further, the trace generation time is dominated by write-to-disk, and performance engineering techniques could likely reduce it significantly, such as by changing trace encoding or piping directly to later phases. Parallelizing the second phase requires only a Python instance for each source register, and takes between 1 and 2 seconds per trace. Parallelizing the third phase requires a Daikon instance for each flow case, usually roughly the same number as unique sources, and takes between 10 and 30 seconds per flow case. The final phase, postprocessing, is also suitable for parallelization. Maximally parallelized, this gives a design-to-specification time of under four minutes for the single ACW and for similarly sized designs, including PicoRV32.</p>
+</blockquote>
+</section>
+<section id="in-brief" class="level2">
+<h2 class="anchored" data-anchor-id="in-brief">In brief</h2>
+<p><strong>Plain text</strong></p>
+<ul>
+<li>Rather than do 100s of things for 3 minutes to take 100s of minutes, we can use 100s of computers for 3 minutes and always be done in 3 minutes.</li>
+</ul>
+</section>
+<section id="parallelism" class="level2">
+<h2 class="anchored" data-anchor-id="parallelism">Parallelism</h2>
+<ul>
+<li>This:
+<ul>
+<li>“Rather than do 100s of things for 3 minutes to take 100s of minutes, we can use 100s of computers for 3 minutes and always be done in 3 minutes.”</li>
+</ul></li>
+<li>Is the core insight of <em>cloud computing</em></li>
+<li>And the core enabling technology for the “large” in “large language models” (LLMs).
+<ul>
+<li>The technology is from 2017 and there wasn’t enough computing power until 2022.</li>
+</ul></li>
+</ul>
+</section>
+<section id="changes-since-2023" class="level2">
+<h2 class="anchored" data-anchor-id="changes-since-2023">Changes since 2023</h2>
+<div id="8088929a" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="D0_cloud_files/figure-revealjs/cell-2-output-1.png" width="965" height="523" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="note---data-source" class="level2">
+<h2 class="anchored" data-anchor-id="note---data-source">Note - Data Source</h2>
+<ul>
+<li>I got this interest level from <a href="https://trends.google.com/explore?q=cloud%2520computing%2CLLM&amp;date=all&amp;geo=US">Google Trends</a></li>
+<li>I retrieved the data 23 Apr 26, it is usually in at least a little bit of flux.</li>
+</ul>
+</section>
+<section id="note---2007" class="level2">
+<h2 class="anchored" data-anchor-id="note---2007">Note - 2007</h2>
+<ul>
+<li>I made a note in 2007 as I think it was the launch of prominent cloud computing.</li>
+<li>Hard to track the technology versus the term, but Netflix (remember them?) started getting headlines around then.</li>
+<li><a href="https://en.wikipedia.org/wiki/History_of_cloud_computing#2000s">Source - Wikipedia</a></li>
+<li><a href="https://www.nytimes.com/2007/01/16/technology/16netflix.html">Source - NYT</a></li>
+</ul>
+</section>
+<section id="note---2022" class="level2">
+<h2 class="anchored" data-anchor-id="note---2022">Note - 2022</h2>
+<ul>
+<li>I really don’t think ChatGPT broke out until 2023, under a single digit percentage of people were using in 2022.</li>
+<li>Release was late 2022, around November.</li>
+<li><a href="https://en.wikipedia.org/wiki/ChatGPT">Source - Wikipedia</a></li>
+<li><a href="https://openai.com/index/chatgpt/">Source - ChatGPT</a></li>
+</ul>
+</section>
+<section id="note---between" class="level2">
+<h2 class="anchored" data-anchor-id="note---between">Note - Between</h2>
+<ul>
+<li>The real buzzword technology between 2007 and 2022 was I think <em>bitcoin</em>.
+<ul>
+<li>CS-271: Taught in fall. Requires one year of programming.</li>
+<li>Then for a while NFTs, also didn’t really persist.</li>
+</ul></li>
+<li>Not really intelligence relevant.</li>
+</ul>
+</section>
+<section id="onward" class="level2">
+<h2 class="anchored" data-anchor-id="onward">Onward!</h2>
+<ul>
+<li>And now, my introduction to cloud computing.
+<ul>
+<li>Recall the “Philosophy Tube Thesis”</li>
+</ul></li>
+</ul>
+<blockquote class="blockquote">
+<p>In her book <a href="https://yalebooks.yale.edu/book/9780300264630/atlas-of-ai/">Atlas of AI</a> researcher <a href="https://katecrawford.net/">Kate Crawford</a> uses a different term: large-scale computing.</p>
+</blockquote>
+</section>
+</section>
+<section id="the-cloud" class="level1">
+<h1>The Cloud</h1>
+<section id="core-insight" class="level2">
+<h2 class="anchored" data-anchor-id="core-insight">Core insight</h2>
+<ul>
+<li>Instead of solving hard problems, we use more computers</li>
+<li>Computers are cheap, and people that can use them well are expensive (to train and hire)</li>
+<li>In my experience: your boss/manager/accountability group always wants you to spend $0.12 to use the 1000s of the fastest computers on earth for 5 seconds, rather than 6 months writing “better” code.
+<ul>
+<li>Writing fast code is hard, and spending $0.12 is easy.</li>
+</ul></li>
+</ul>
+</section>
+<section id="pre-llm-trillion-co.s" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="pre-llm-trillion-co.s">Pre-LLM Trillion $ Co.’s</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Company</th>
+<th style="text-align: left;">$1 trillion</th>
+<th style="text-align: left;">$2 trillion</th>
+<th style="text-align: left;">$3 trillion</th>
+<th style="text-align: left;">Nominal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Microsoft</td>
+<td style="text-align: left;">25 Apr 19</td>
+<td style="text-align: left;">22 Jun 21</td>
+<td style="text-align: left;">24 Jan 24</td>
+<td style="text-align: left;">3,185</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Apple</td>
+<td style="text-align: left;">2 Aug 18</td>
+<td style="text-align: left;">19 Aug 20</td>
+<td style="text-align: left;">3 Jan 22</td>
+<td style="text-align: left;">3,081</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Saudi Aramco</td>
+<td style="text-align: left;">11 Dec 19</td>
+<td style="text-align: left;">12 Dec 19</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">2,463</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nvidia</td>
+<td style="text-align: left;">30 May 23</td>
+<td style="text-align: left;">23 Feb 24</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">2,380</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Alphabet</td>
+<td style="text-align: left;">16 Jan 20</td>
+<td style="text-align: left;">8 Nov 21</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">2,150</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Amazon</td>
+<td style="text-align: left;">4 Sep 18</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">1,970</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Meta</td>
+<td style="text-align: left;">28 Jun 21</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">1,220</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tesla</td>
+<td style="text-align: left;">25 Oct 21</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">1,210</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PetroChina</td>
+<td style="text-align: left;">5 Nov 07</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">1,200</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="basically" class="level2">
+<h2 class="anchored" data-anchor-id="basically">Basically</h2>
+<ul>
+<li>Three of the six largest companies in the world are cloud companies</li>
+<li>Of the others, Nvidia is a primary supplier, and Apple and Meta are primary consumers.</li>
+<li>The world economy is 2/3 cloud and 1/3 transit.</li>
+</ul>
+</section>
+<section id="more-extreme-today" class="level2">
+<h2 class="anchored" data-anchor-id="more-extreme-today">More extreme today</h2>
+<ul>
+<li>Check the latest.</li>
+<li><a href="https://en.wikipedia.org/wiki/List_of_public_corporations_by_market_capitalization">Market capitalization</a></li>
+</ul>
+</section>
+<section id="why-the-cloud" class="level2">
+<h2 class="anchored" data-anchor-id="why-the-cloud">Why “The Cloud”?</h2>
+<ul>
+<li>Computing happens somewhere else, not on your PC or mobile device</li>
+<li>The Cloud Underpins “Modern” Computing
+<ul>
+<li><strong>Physical</strong>: The cloud is a global deployment of massive data centers connected by ultra-fast networking, designed for scalability and robustness.</li>
+<li><strong>Logical</strong>: A collection of tools and platforms that scale amazingly well.</li>
+<li><strong>Conceptual</strong>: A set of scalable ideas, concepts, and design strategies.</li>
+</ul></li>
+</ul>
+</section>
+<section id="from-whence" class="level2">
+<h2 class="anchored" data-anchor-id="from-whence">From whence?</h2>
+<ul>
+<li>My view: it emerged naturally from high quality systems programming.
+<ul>
+<li>As computer chips got faster, they hit a “heat wall” where they couldn’t speed up without melting.</li>
+<li>To get past the heatwall, Intel et al.&nbsp;placed multiple processing units on a single chip (e.g.&nbsp;Phone/Tablet/PC).</li>
+<li>To use multiply processing units, sometimes <em>n</em> pieces of code had to run at the same time.</li>
+<li>If <em>n</em> can be 8 (my phone) why not <span class="math inline">\(10^6\)</span> (my phone’s app’s datacenters)</li>
+</ul></li>
+</ul>
+</section>
+<section id="the-heat-wall" class="level2">
+<h2 class="anchored" data-anchor-id="the-heat-wall">“The Heat Wall”</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i0.wp.com/semiengineering.com/wp-content/uploads/Picture1-2.png?resize=1024%2C576&amp;ssl=1" class="img-fluid figure-img"></p>
+<figcaption>Heat Wall Graph</figcaption>
+</figure>
+</div>
+</section>
+<section id="or" class="level2">
+<h2 class="anchored" data-anchor-id="or">Or?</h2>
+<ul>
+<li>Another view: It emerged naturally from the Internet
+<ul>
+<li>The internet runs over networks between multiple computers with different computing and data capabilities.
+<ul>
+<li>If I can ask Google for directions, why can’t I ask Google to compute a mean</li>
+<li>If Google can ask me for a password, why can’t it ask me for a .csv</li>
+<li>If computing is already distributed across local and remote servers, why not write code for this paradigm.</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="visually" class="level2">
+<h2 class="anchored" data-anchor-id="visually">Visually</h2>
+<ul>
+<li>This is what we should image an “AI” looks like.
+<ul>
+<li>But <em>also</em> what a website looks like.</li>
+<li>But <em>also</em> what a text message looks like.</li>
+</ul></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://static01.nyt.com/images/2006/10/25/business/25server.xlarge1.jpg" class="img-fluid figure-img"></p>
+<figcaption>Server Room</figcaption>
+</figure>
+</div>
+</section>
+<section id="core-insight-1" class="level2">
+<h2 class="anchored" data-anchor-id="core-insight-1">Core insight</h2>
+<ul>
+<li>My view: It DID NOT emerge from “classical” software engineering
+<ul>
+<li>“Object oriented languages” e.g.&nbsp;Java won the software engineering wars of the 00s.
+<ul>
+<li>I am a hater.</li>
+</ul></li>
+<li>I believe MapReduce, two functions, unseated Objects as the dominate paradigm over time</li>
+</ul></li>
+</ul>
+</section>
+<section id="mapreduce-for-us" class="level2">
+<h2 class="anchored" data-anchor-id="mapreduce-for-us">MapReduce for us</h2>
+<ul>
+<li>We have implicitly used “MapReduce”
+<ul>
+<li>“Map” means “do X to all things in Y”
+<ul>
+<li>Like how a map represents all landmarks in an area.</li>
+</ul></li>
+<li>“Reduce” means “add up all things in Y”</li>
+</ul></li>
+<li>Remember <a href="./A0_xor.html#activate-again">this</a></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="dv">1</span> <span class="op">&lt;=</span> pair <span class="op">@</span> layer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="map" class="level2">
+<h2 class="anchored" data-anchor-id="map">Map</h2>
+<ul>
+<li>Take every row, multiply it by every column</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>mapped <span class="op">=</span> pair <span class="op">@</span> layer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="reduce" class="level2">
+<h2 class="anchored" data-anchor-id="reduce">Reduce</h2>
+<ul>
+<li>Compare the summed up result to a single value.</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource py number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="dv">1</span> <span class="op">&lt;=</span> mapped</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="how-big" class="level2">
+<h2 class="anchored" data-anchor-id="how-big">How big?</h2>
+<p>It is generally regarded that…</p>
+<ul>
+<li>Google is one of the largest data aggregators</li>
+<li>Google held approximately 15 exabytes in 2013 [<a href="https://what-if.xkcd.com/63/">src</a>]</li>
+<li>Google’s reported power use increased 21%/anum from 2011-&gt;2019</li>
+</ul>
+</section>
+<section id="forbes" class="level2">
+<h2 class="anchored" data-anchor-id="forbes">Forbes</h2>
+<p><a href="https://www.forbes.com/sites/robertbryce/2020/10/21/googles-dominance-is-fueled-by-zambia-size-amounts-of-electricity/?sh=4c7bb3568c98"><img style="display:block; margin-left: auto; margin-right: auto" src="https://imageio.forbes.com/specials-images/imageserve/5f908b550436eabb0b8b03b1/Since-2011--Google-s-electricity-use-has-nearly-quintupled-/960x0.png"></a></p>
+</section>
+<section id="math-it" class="level2">
+<h2 class="anchored" data-anchor-id="math-it">Math it</h2>
+<div id="42b51b53" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>annual_growth <span class="op">=</span> (<span class="fl">12.4</span><span class="op">/</span><span class="fl">2.6</span>)<span class="op">**</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">8</span>)</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="bu">print</span>(annual_growth)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1.2156429678279506</code></pre>
+</div>
+</div>
+<ul>
+<li>Hard-drives grew 16x from 2012 to 2023 from less than 2 TB [<a href="https://www.tomshardware.com/news/HAMR-platters-heat-assisted-CREATEC-areal-density,18126.html">src</a>] to 32 TB [<a href="https://www.seagate.com/products/enterprise-drives/exos-x/x-mozaic/">src</a>]</li>
+<li>Google current storage?
+<ul>
+<li>Start with 15 exabytes in ’13.</li>
+<li>Increase by 21% per year.</li>
+<li>Multiply by increase in storage density.</li>
+</ul></li>
+</ul>
+</section>
+<section id="how-fast" class="level2">
+<h2 class="anchored" data-anchor-id="how-fast">How fast?</h2>
+<div id="3609d35b" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>annual_growth <span class="op">=</span> (<span class="fl">12.4</span><span class="op">/</span><span class="fl">2.6</span>)<span class="op">**</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">8</span>)</span>
+<span id="cb6-2"><a href="#cb6-2"></a>annual_growth <span class="op">**</span> (<span class="dv">2026</span><span class="op">-</span><span class="dv">2013</span>) <span class="op">*</span> <span class="dv">16</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<pre><code>202.58091602920797</code></pre>
+</div>
+</div>
+<ul>
+<li>200x every ~10 years within one company, but # of data companies also grows.
+<ul>
+<li>Approximately doubles per decade, looks like.</li>
+</ul></li>
+<li>I generated 134 MB of teaching materials in 3 years full time, or .0000000000134 exabytes</li>
+</ul>
+</section>
+<section id="clientserver" class="level2">
+<h2 class="anchored" data-anchor-id="clientserver">Client/Server</h2>
+<ul>
+<li>I like to think of the cloud as a dancer between users/clients and remote servers</li>
+<li>We use devices which are physical and live “outside” the cloud, but are ~useless on their own.</li>
+<li>Your phone does some things, remote email servers do some things.</li>
+</ul>
+</section>
+<section id="imagine" class="level2">
+<h2 class="anchored" data-anchor-id="imagine">Imagine:</h2>
+<ul>
+<li>Usually:
+<ul>
+<li>Website lives in cloud storage, is sent as a chunk of data to phone/pc.</li>
+<li>Website runs locally in phone/pc browser</li>
+<li>Website asked something it doesn’t know (current weather, directions to nearest oatmilk mocha)</li>
+<li>Website asks cloud to compute something</li>
+<li>Cloud server gets a request, sends back to phone/pc which updates what you see.</li>
+</ul></li>
+</ul>
+</section>
+<section id="visually-1" class="level2">
+<h2 class="anchored" data-anchor-id="visually-1">Visually</h2>
+<p><img style="filter:invert(.9)" src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Client-server-model.svg"></p>
+</section>
+<section id="evolution" class="level2">
+<h2 class="anchored" data-anchor-id="evolution">Evolution?</h2>
+<ul>
+<li>Prior to ~2005, we had “data centers designed for high availability”.</li>
+<li>Amazon had especially large ones, to serve its web requests</li>
+<li>This is all before the AWS cloud model</li>
+<li>The real goal was just to support online shopping</li>
+<li>Their system wasn’t very reliable, and the core problem was scaling</li>
+</ul>
+</section>
+<section id="throwback" class="level2">
+<h2 class="anchored" data-anchor-id="throwback">Throwback</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://substackcdn.com/image/fetch/w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F24a9ef4a-517f-4a24-93c2-71c6b345914f_809x736.png" class="img-fluid figure-img"></p>
+<figcaption>Scaling Diagram</figcaption>
+</figure>
+</div>
+</section>
+<section id="yahoo-experiment" class="level2">
+<h2 class="anchored" data-anchor-id="yahoo-experiment">Yahoo! Experiment</h2>
+<ul>
+<li>In the 2005 time period everyone was talking about an experiment done at Yahoo. It was an “alpha/beta” experiment about ad-click-through</li>
+<li>Customers who saw web page rendering faster than 100ms clicked ads.</li>
+<li>For every 100ms delay, click-through rates noticeably dropped.</li>
+</ul>
+</section>
+<section id="throwback-1" class="level2">
+<h2 class="anchored" data-anchor-id="throwback-1">Throwback</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.webdesignmuseum.org/uploaded/timeline/yahoo/yahoo-2005.png" class="img-fluid figure-img"></p>
+<figcaption>Yahoo 2005</figcaption>
+</figure>
+</div>
+</section>
+<section id="ms" class="level2">
+<h2 class="anchored" data-anchor-id="ms">100 MS</h2>
+<p>How long is 100 ms?</p>
+<script>
+let timer;
+function myfunc() {
+    timer = window.setInterval(toggle, 100);
+    document.getElementById('forhello').innerText='';
+}
+function toggle() {
+    document.getElementById('forhello').innerText='Hello, World!';
+    window.clearInterval(timer);
+}
+</script>
+<button onclick="myfunc();" style="font-size:1.5em">
+Sample Button
+</button>
+<p style="outline-style:solid;" id="forhello">
+&nbsp;
+</p>
+</section>
+<section id="the-world-changed" class="level2">
+<h2 class="anchored" data-anchor-id="the-world-changed">The World Changed</h2>
+<ul>
+<li>At Amazon, Jeff Bezos spread the word internally.</li>
+<li>He wanted Amazon to win this sprint.</li>
+<li>The whole company was told to focus on ensuring that every Amazon product page would render with minimal delay.</li>
+<li>Unfortunately… as more and more customers turned up… Amazon’s web pages slowed down. *</li>
+</ul>
+<p>This is a “crisis of the commons” situation.</p>
+</section>
+<section id="by-the-way" class="level2">
+<h2 class="anchored" data-anchor-id="by-the-way">By the way</h2>
+<ul>
+<li>This is what Bezos looked like in 2005.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.ytimg.com/vi/WhnDvvNS8zQ/hqdefault.jpg" class="img-fluid figure-img"></p>
+<figcaption>Bezos</figcaption>
+</figure>
+</div>
+</section>
+<section id="the-commons" class="level2">
+<h2 class="anchored" data-anchor-id="the-commons">The Commons</h2>
+<ul>
+<li>At the center of the village is a lovely grassy commons. Everyone uses it.</li>
+<li>One day a farmworker has an awesome idea. They lets their goats graze on the commons. This saves a lot of rent dollars paid as part of a tenant farmer agreement.</li>
+<li>They earns extra money with award-winning goats.</li>
+</ul>
+<p><img width="30%" src="https://diversionaudio.com/wp-content/uploads/2023/01/goat-serena-williams-cover-3000x3000-1.png"></p>
+<p>This is the plot of <em>King Richard</em> (2021)</p>
+</section>
+<section id="cloud-commons" class="level2">
+<h2 class="anchored" data-anchor-id="cloud-commons">Cloud Commons?</h2>
+<ul>
+<li>In the cloud we need to think about all the internal databases and services “shared” by lots and lots users.</li>
+<li>But what works best for one instance, all by itself, might overload the shared services when the same code runs side by side with huge numbers of other instances (“when we run at scale”)</li>
+</ul>
+<p>Shorter: doing <em>n</em> things at once is hard.</p>
+</section>
+<section id="the-thundering-herd" class="level2">
+<h2 class="anchored" data-anchor-id="the-thundering-herd">The Thundering Herd</h2>
+<ul>
+<li>In fact this is a very common pattern.</li>
+<li>Something becomes successful at small scale, so everyone wants to try it.</li>
+<li>But now the same code patterns that worked at small scale might break.</li>
+<li>The key to scalability in a cloud is to use the cloud platform in a smart way.</li>
+</ul>
+</section>
+<section id="the-horror" class="level2">
+<h2 class="anchored" data-anchor-id="the-horror">The Horror!</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://staticimg.amarujala.com/assets/images/2021/09/02/instagram-down_1630565530.png?w=414" class="img-fluid figure-img"></p>
+<figcaption>Instagram Down</figcaption>
+</figure>
+</div>
+</section>
+<section id="prediction" class="level2">
+<h2 class="anchored" data-anchor-id="prediction">Prediction</h2>
+<ul>
+<li>Amazon reorganized their whole approach:</li>
+<li>They began to guess (!!!) at your next action and precompute what they would probably need to answer your next query or link click.</li>
+</ul>
+<p>Wait… isn’t that… next token prediction?</p>
+</section>
+<section id="the-ouroboros" class="level2">
+<h2 class="anchored" data-anchor-id="the-ouroboros">The Ouroboros</h2>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/7/71/Serpiente_alquimica.jpg" class="img-fluid"></p>
+</section>
+<section id="fast-forward" class="level2">
+<h2 class="anchored" data-anchor-id="fast-forward">Fast-forward</h2>
+<ul>
+<li>Today, the cloud <em>optimizes itself</em>
+<ul>
+<li>Exascale servers… <em>serve</em> various applications.
+<ul>
+<li>Food order/delivery</li>
+<li>Online shopping</li>
+<li>Video streaming</li>
+<li>Messaging</li>
+</ul></li>
+</ul></li>
+<li>At each stage, LLMs and LLM like tools “work ahead” to try to make things seem faster than they could possibly be.</li>
+</ul>
+</section>
+<section id="the-result" class="level2">
+<h2 class="anchored" data-anchor-id="the-result">The Result</h2>
+<ul>
+<li>My instagram infinity scroll “for you” page contains incredibly precisely targetted ads…
+<ul>
+<li>Which lead to more online shopping or food order/delivery</li>
+<li>The wheel turns</li>
+</ul></li>
+<li>My online shopping experience recommends things I am highly likely to need.
+<ul>
+<li>Leading to me posting about them on instagram.</li>
+</ul></li>
+<li>My YouTube feed etc. etc.</li>
+</ul>
+</section>
+<section id="looking-ahead" class="level2">
+<h2 class="anchored" data-anchor-id="looking-ahead">Looking Ahead</h2>
+<ul>
+<li>Okay but wait.</li>
+<li>Where does all that thinking take place?</li>
+<li><em>To be continued with the course final: Perspectives</em></li>
+</ul>
+</section>
+</section>
+<section id="fin" class="level1">
+<h1>Fin</h1>
+
+
+<!-- -->
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./C1_sonnet.html" class="pagination-link" aria-label="Poetry">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Poetry</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb8" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">---</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="an">title:</span><span class="co"> Cloud</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="co">---</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a></span>
+<span id="cb8-5"><a href="#cb8-5"></a></span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="fu">## Today</span></span>
+<span id="cb8-7"><a href="#cb8-7"></a></span>
+<span id="cb8-8"><a href="#cb8-8"></a><span class="ss">- </span>Thus far we have:</span>
+<span id="cb8-9"><a href="#cb8-9"></a><span class="ss">    - </span>Developed text generation from scratch.</span>
+<span id="cb8-10"><a href="#cb8-10"></a><span class="ss">- </span>Now we will:</span>
+<span id="cb8-11"><a href="#cb8-11"></a><span class="ss">    - </span>Survey, at a high level, how to do this at scale.</span>
+<span id="cb8-12"><a href="#cb8-12"></a>    </span>
+<span id="cb8-13"><a href="#cb8-13"></a><span class="fu"># Motivation</span></span>
+<span id="cb8-14"><a href="#cb8-14"></a>    </span>
+<span id="cb8-15"><a href="#cb8-15"></a><span class="fu">## Citation</span></span>
+<span id="cb8-16"><a href="#cb8-16"></a></span>
+<span id="cb8-17"><a href="#cb8-17"></a><span class="ss">- </span>Today's lecture is adapted from an earlier course on *Cloud Computing*.</span>
+<span id="cb8-18"><a href="#cb8-18"></a><span class="ss">- </span>The materials, which are showing age, are <span class="co">[</span><span class="ot">here</span><span class="co">](https://cd-public.github.io/courses/old/cld24/index.html)</span></span>
+<span id="cb8-19"><a href="#cb8-19"></a><span class="ss">- </span>It is worth noting I proposed that course (under that name) *prior to the release of ChatGPT*</span>
+<span id="cb8-20"><a href="#cb8-20"></a><span class="ss">    - </span>That is, I have now pivoted to "AI 101" for a reason.</span>
+<span id="cb8-21"><a href="#cb8-21"></a><span class="ss">- </span>Vs. AI, I actually am a domain expert in "cloud".</span>
+<span id="cb8-22"><a href="#cb8-22"></a></span>
+<span id="cb8-23"><a href="#cb8-23"></a><span class="fu">## My Work</span></span>
+<span id="cb8-24"><a href="#cb8-24"></a></span>
+<span id="cb8-25"><a href="#cb8-25"></a>**Thesis Title** </span>
+<span id="cb8-26"><a href="#cb8-26"></a></span>
+<span id="cb8-27"><a href="#cb8-27"></a><span class="ss">- </span>Mining Secure Behavior of Hardware Designs  </span>
+<span id="cb8-28"><a href="#cb8-28"></a></span>
+<span id="cb8-29"><a href="#cb8-29"></a>**In Plain English** </span>
+<span id="cb8-30"><a href="#cb8-30"></a></span>
+<span id="cb8-31"><a href="#cb8-31"></a><span class="ss">- </span>Just as there are bugs in code that makes **software**, modern **hardware** is also written in code and therefore may contain bugs. I find these bugs.  </span>
+<span id="cb8-32"><a href="#cb8-32"></a></span>
+<span id="cb8-33"><a href="#cb8-33"></a><span class="fu">## The text</span></span>
+<span id="cb8-34"><a href="#cb8-34"></a></span>
+<span id="cb8-35"><a href="#cb8-35"></a><span class="at">&gt; Specification mining can discover properties that can be used to verify the secure behavior of closed source CISC CPU designs, properties that can be used to verify the temporal correctness of CPU designs, and hyperproperties that can be used to verify that modules, SoCs, and CPUs have secure information flow.</span>  </span>
+<span id="cb8-36"><a href="#cb8-36"></a></span>
+<span id="cb8-37"><a href="#cb8-37"></a><span class="fu">## Relevant Excerpt {.smaller}</span></span>
+<span id="cb8-38"><a href="#cb8-38"></a></span>
+<span id="cb8-39"><a href="#cb8-39"></a><span class="at">&gt; When parallelizing all trace generation and all case mining, Isadora could theoretically evaluate the Single ACW case fully in less than five minutes. Parallelizing the first phase requires a Radix-S and QuestaSim instance for each source register, and each trace is generated in approximately 100 seconds. Further, the trace generation time is dominated by write-to-disk, and performance engineering techniques could likely reduce it significantly, such as by changing trace encoding or piping directly to later phases. Parallelizing the second phase requires only a Python instance for each source register, and takes between 1 and 2 seconds per trace. Parallelizing the third phase requires a Daikon instance for each flow case, usually roughly the same number as unique sources, and takes between 10 and 30 seconds per flow case. The final phase, postprocessing, is also suitable for parallelization. Maximally parallelized, this gives a design-to-specification time of under four minutes for the single ACW and for similarly sized designs, including PicoRV32.</span>  </span>
+<span id="cb8-40"><a href="#cb8-40"></a></span>
+<span id="cb8-41"><a href="#cb8-41"></a><span class="fu">## In brief</span></span>
+<span id="cb8-42"><a href="#cb8-42"></a></span>
+<span id="cb8-43"><a href="#cb8-43"></a>**Plain text** </span>
+<span id="cb8-44"><a href="#cb8-44"></a></span>
+<span id="cb8-45"><a href="#cb8-45"></a><span class="ss">- </span>Rather than do 100s of things for 3 minutes to take 100s of minutes, we can use 100s of computers for 3 minutes and always be done in 3 minutes.</span>
+<span id="cb8-46"><a href="#cb8-46"></a></span>
+<span id="cb8-47"><a href="#cb8-47"></a><span class="fu">## Parallelism</span></span>
+<span id="cb8-48"><a href="#cb8-48"></a></span>
+<span id="cb8-49"><a href="#cb8-49"></a><span class="ss">- </span>This:</span>
+<span id="cb8-50"><a href="#cb8-50"></a><span class="ss">    - </span>"Rather than do 100s of things for 3 minutes to take 100s of minutes, we can use 100s of computers for 3 minutes and always be done in 3 minutes."</span>
+<span id="cb8-51"><a href="#cb8-51"></a><span class="ss">- </span>Is the core insight of *cloud computing*</span>
+<span id="cb8-52"><a href="#cb8-52"></a><span class="ss">- </span>And the core enabling technology for the "large" in "large language models" (LLMs).</span>
+<span id="cb8-53"><a href="#cb8-53"></a><span class="ss">    - </span>The technology is from 2017 and there wasn't enough computing power until 2022.</span>
+<span id="cb8-54"><a href="#cb8-54"></a></span>
+<span id="cb8-55"><a href="#cb8-55"></a>    </span>
+<span id="cb8-56"><a href="#cb8-56"></a><span class="fu">## Changes since 2023</span></span>
+<span id="cb8-57"><a href="#cb8-57"></a></span>
+<span id="cb8-60"><a href="#cb8-60"></a><span class="in">```{python}</span></span>
+<span id="cb8-61"><a href="#cb8-61"></a><span class="co">#| echo: false</span></span>
+<span id="cb8-62"><a href="#cb8-62"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb8-63"><a href="#cb8-63"></a><span class="im">import</span> io</span>
+<span id="cb8-64"><a href="#cb8-64"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb8-65"><a href="#cb8-65"></a></span>
+<span id="cb8-66"><a href="#cb8-66"></a><span class="co"># Data source: https://trends.google.com/explore?q=cloud%2520computing%2CLLM&amp;date=all&amp;geo=US</span></span>
+<span id="cb8-67"><a href="#cb8-67"></a><span class="co"># Retrieved 23 Apr 26</span></span>
+<span id="cb8-68"><a href="#cb8-68"></a></span>
+<span id="cb8-69"><a href="#cb8-69"></a>vals <span class="op">=</span> pd.read_csv(io.StringIO(<span class="st">'''</span></span>
+<span id="cb8-70"><a href="#cb8-70"></a><span class="st">Time,cloud computing,LLM</span></span>
+<span id="cb8-71"><a href="#cb8-71"></a><span class="st">2004-01-01,0,3</span></span>
+<span id="cb8-72"><a href="#cb8-72"></a><span class="st">2004-02-01,0,3</span></span>
+<span id="cb8-73"><a href="#cb8-73"></a><span class="st">2004-03-01,0,4</span></span>
+<span id="cb8-74"><a href="#cb8-74"></a><span class="st">2004-04-01,0,3</span></span>
+<span id="cb8-75"><a href="#cb8-75"></a><span class="st">2004-05-01,0,3</span></span>
+<span id="cb8-76"><a href="#cb8-76"></a><span class="st">2004-06-01,0,4</span></span>
+<span id="cb8-77"><a href="#cb8-77"></a><span class="st">2004-07-01,0,4</span></span>
+<span id="cb8-78"><a href="#cb8-78"></a><span class="st">2004-08-01,0,3</span></span>
+<span id="cb8-79"><a href="#cb8-79"></a><span class="st">2004-09-01,0,3</span></span>
+<span id="cb8-80"><a href="#cb8-80"></a><span class="st">2004-10-01,0,3</span></span>
+<span id="cb8-81"><a href="#cb8-81"></a><span class="st">2004-11-01,0,3</span></span>
+<span id="cb8-82"><a href="#cb8-82"></a><span class="st">2004-12-01,0,3</span></span>
+<span id="cb8-83"><a href="#cb8-83"></a><span class="st">2005-01-01,0,4</span></span>
+<span id="cb8-84"><a href="#cb8-84"></a><span class="st">2005-02-01,0,3</span></span>
+<span id="cb8-85"><a href="#cb8-85"></a><span class="st">2005-03-01,0,3</span></span>
+<span id="cb8-86"><a href="#cb8-86"></a><span class="st">2005-04-01,0,3</span></span>
+<span id="cb8-87"><a href="#cb8-87"></a><span class="st">2005-05-01,0,3</span></span>
+<span id="cb8-88"><a href="#cb8-88"></a><span class="st">2005-06-01,0,3</span></span>
+<span id="cb8-89"><a href="#cb8-89"></a><span class="st">2005-07-01,0,3</span></span>
+<span id="cb8-90"><a href="#cb8-90"></a><span class="st">2005-08-01,0,3</span></span>
+<span id="cb8-91"><a href="#cb8-91"></a><span class="st">2005-09-01,0,3</span></span>
+<span id="cb8-92"><a href="#cb8-92"></a><span class="st">2005-10-01,0,3</span></span>
+<span id="cb8-93"><a href="#cb8-93"></a><span class="st">2005-11-01,0,3</span></span>
+<span id="cb8-94"><a href="#cb8-94"></a><span class="st">2005-12-01,0,3</span></span>
+<span id="cb8-95"><a href="#cb8-95"></a><span class="st">2006-01-01,0,3</span></span>
+<span id="cb8-96"><a href="#cb8-96"></a><span class="st">2006-02-01,0,3</span></span>
+<span id="cb8-97"><a href="#cb8-97"></a><span class="st">2006-03-01,0,3</span></span>
+<span id="cb8-98"><a href="#cb8-98"></a><span class="st">2006-04-01,0,3</span></span>
+<span id="cb8-99"><a href="#cb8-99"></a><span class="st">2006-05-01,0,3</span></span>
+<span id="cb8-100"><a href="#cb8-100"></a><span class="st">2006-06-01,0,3</span></span>
+<span id="cb8-101"><a href="#cb8-101"></a><span class="st">2006-07-01,0,3</span></span>
+<span id="cb8-102"><a href="#cb8-102"></a><span class="st">2006-08-01,0,3</span></span>
+<span id="cb8-103"><a href="#cb8-103"></a><span class="st">2006-09-01,0,3</span></span>
+<span id="cb8-104"><a href="#cb8-104"></a><span class="st">2006-10-01,0,3</span></span>
+<span id="cb8-105"><a href="#cb8-105"></a><span class="st">2006-11-01,0,3</span></span>
+<span id="cb8-106"><a href="#cb8-106"></a><span class="st">2006-12-01,0,2</span></span>
+<span id="cb8-107"><a href="#cb8-107"></a><span class="st">2007-01-01,0,3</span></span>
+<span id="cb8-108"><a href="#cb8-108"></a><span class="st">2007-02-01,0,3</span></span>
+<span id="cb8-109"><a href="#cb8-109"></a><span class="st">2007-03-01,0,3</span></span>
+<span id="cb8-110"><a href="#cb8-110"></a><span class="st">2007-04-01,0,3</span></span>
+<span id="cb8-111"><a href="#cb8-111"></a><span class="st">2007-05-01,0,3</span></span>
+<span id="cb8-112"><a href="#cb8-112"></a><span class="st">2007-06-01,0,3</span></span>
+<span id="cb8-113"><a href="#cb8-113"></a><span class="st">2007-07-01,0,3</span></span>
+<span id="cb8-114"><a href="#cb8-114"></a><span class="st">2007-08-01,0,3</span></span>
+<span id="cb8-115"><a href="#cb8-115"></a><span class="st">2007-09-01,0,3</span></span>
+<span id="cb8-116"><a href="#cb8-116"></a><span class="st">2007-10-01,1,3</span></span>
+<span id="cb8-117"><a href="#cb8-117"></a><span class="st">2007-11-01,0,3</span></span>
+<span id="cb8-118"><a href="#cb8-118"></a><span class="st">2007-12-01,1,3</span></span>
+<span id="cb8-119"><a href="#cb8-119"></a><span class="st">2008-01-01,1,3</span></span>
+<span id="cb8-120"><a href="#cb8-120"></a><span class="st">2008-02-01,2,3</span></span>
+<span id="cb8-121"><a href="#cb8-121"></a><span class="st">2008-03-01,1,4</span></span>
+<span id="cb8-122"><a href="#cb8-122"></a><span class="st">2008-04-01,2,3</span></span>
+<span id="cb8-123"><a href="#cb8-123"></a><span class="st">2008-05-01,3,3</span></span>
+<span id="cb8-124"><a href="#cb8-124"></a><span class="st">2008-06-01,3,3</span></span>
+<span id="cb8-125"><a href="#cb8-125"></a><span class="st">2008-07-01,5,3</span></span>
+<span id="cb8-126"><a href="#cb8-126"></a><span class="st">2008-08-01,6,3</span></span>
+<span id="cb8-127"><a href="#cb8-127"></a><span class="st">2008-09-01,5,3</span></span>
+<span id="cb8-128"><a href="#cb8-128"></a><span class="st">2008-10-01,9,3</span></span>
+<span id="cb8-129"><a href="#cb8-129"></a><span class="st">2008-11-01,7,3</span></span>
+<span id="cb8-130"><a href="#cb8-130"></a><span class="st">2008-12-01,6,3</span></span>
+<span id="cb8-131"><a href="#cb8-131"></a><span class="st">2009-01-01,7,3</span></span>
+<span id="cb8-132"><a href="#cb8-132"></a><span class="st">2009-02-01,8,3</span></span>
+<span id="cb8-133"><a href="#cb8-133"></a><span class="st">2009-03-01,11,3</span></span>
+<span id="cb8-134"><a href="#cb8-134"></a><span class="st">2009-04-01,11,3</span></span>
+<span id="cb8-135"><a href="#cb8-135"></a><span class="st">2009-05-01,9,3</span></span>
+<span id="cb8-136"><a href="#cb8-136"></a><span class="st">2009-06-01,10,3</span></span>
+<span id="cb8-137"><a href="#cb8-137"></a><span class="st">2009-07-01,11,3</span></span>
+<span id="cb8-138"><a href="#cb8-138"></a><span class="st">2009-08-01,9,3</span></span>
+<span id="cb8-139"><a href="#cb8-139"></a><span class="st">2009-09-01,11,3</span></span>
+<span id="cb8-140"><a href="#cb8-140"></a><span class="st">2009-10-01,14,3</span></span>
+<span id="cb8-141"><a href="#cb8-141"></a><span class="st">2009-11-01,13,3</span></span>
+<span id="cb8-142"><a href="#cb8-142"></a><span class="st">2009-12-01,12,3</span></span>
+<span id="cb8-143"><a href="#cb8-143"></a><span class="st">2010-01-01,11,4</span></span>
+<span id="cb8-144"><a href="#cb8-144"></a><span class="st">2010-02-01,13,3</span></span>
+<span id="cb8-145"><a href="#cb8-145"></a><span class="st">2010-03-01,13,3</span></span>
+<span id="cb8-146"><a href="#cb8-146"></a><span class="st">2010-04-01,14,3</span></span>
+<span id="cb8-147"><a href="#cb8-147"></a><span class="st">2010-05-01,13,3</span></span>
+<span id="cb8-148"><a href="#cb8-148"></a><span class="st">2010-06-01,12,3</span></span>
+<span id="cb8-149"><a href="#cb8-149"></a><span class="st">2010-07-01,11,3</span></span>
+<span id="cb8-150"><a href="#cb8-150"></a><span class="st">2010-08-01,12,3</span></span>
+<span id="cb8-151"><a href="#cb8-151"></a><span class="st">2010-09-01,12,3</span></span>
+<span id="cb8-152"><a href="#cb8-152"></a><span class="st">2010-10-01,15,3</span></span>
+<span id="cb8-153"><a href="#cb8-153"></a><span class="st">2010-11-01,15,3</span></span>
+<span id="cb8-154"><a href="#cb8-154"></a><span class="st">2010-12-01,14,2</span></span>
+<span id="cb8-155"><a href="#cb8-155"></a><span class="st">2011-01-01,16,3</span></span>
+<span id="cb8-156"><a href="#cb8-156"></a><span class="st">2011-02-01,16,3</span></span>
+<span id="cb8-157"><a href="#cb8-157"></a><span class="st">2011-03-01,17,3</span></span>
+<span id="cb8-158"><a href="#cb8-158"></a><span class="st">2011-04-01,17,3</span></span>
+<span id="cb8-159"><a href="#cb8-159"></a><span class="st">2011-05-01,14,3</span></span>
+<span id="cb8-160"><a href="#cb8-160"></a><span class="st">2011-06-01,16,3</span></span>
+<span id="cb8-161"><a href="#cb8-161"></a><span class="st">2011-07-01,11,3</span></span>
+<span id="cb8-162"><a href="#cb8-162"></a><span class="st">2011-08-01,11,3</span></span>
+<span id="cb8-163"><a href="#cb8-163"></a><span class="st">2011-09-01,13,3</span></span>
+<span id="cb8-164"><a href="#cb8-164"></a><span class="st">2011-10-01,14,3</span></span>
+<span id="cb8-165"><a href="#cb8-165"></a><span class="st">2011-11-01,12,3</span></span>
+<span id="cb8-166"><a href="#cb8-166"></a><span class="st">2011-12-01,11,2</span></span>
+<span id="cb8-167"><a href="#cb8-167"></a><span class="st">2012-01-01,10,3</span></span>
+<span id="cb8-168"><a href="#cb8-168"></a><span class="st">2012-02-01,10,3</span></span>
+<span id="cb8-169"><a href="#cb8-169"></a><span class="st">2012-03-01,10,3</span></span>
+<span id="cb8-170"><a href="#cb8-170"></a><span class="st">2012-04-01,8,3</span></span>
+<span id="cb8-171"><a href="#cb8-171"></a><span class="st">2012-05-01,7,3</span></span>
+<span id="cb8-172"><a href="#cb8-172"></a><span class="st">2012-06-01,7,3</span></span>
+<span id="cb8-173"><a href="#cb8-173"></a><span class="st">2012-07-01,6,2</span></span>
+<span id="cb8-174"><a href="#cb8-174"></a><span class="st">2012-08-01,6,3</span></span>
+<span id="cb8-175"><a href="#cb8-175"></a><span class="st">2012-09-01,6,2</span></span>
+<span id="cb8-176"><a href="#cb8-176"></a><span class="st">2012-10-01,7,2</span></span>
+<span id="cb8-177"><a href="#cb8-177"></a><span class="st">2012-11-01,6,2</span></span>
+<span id="cb8-178"><a href="#cb8-178"></a><span class="st">2012-12-01,5,2</span></span>
+<span id="cb8-179"><a href="#cb8-179"></a><span class="st">2013-01-01,5,2</span></span>
+<span id="cb8-180"><a href="#cb8-180"></a><span class="st">2013-02-01,6,2</span></span>
+<span id="cb8-181"><a href="#cb8-181"></a><span class="st">2013-03-01,5,2</span></span>
+<span id="cb8-182"><a href="#cb8-182"></a><span class="st">2013-04-01,6,2</span></span>
+<span id="cb8-183"><a href="#cb8-183"></a><span class="st">2013-05-01,5,2</span></span>
+<span id="cb8-184"><a href="#cb8-184"></a><span class="st">2013-06-01,5,2</span></span>
+<span id="cb8-185"><a href="#cb8-185"></a><span class="st">2013-07-01,5,2</span></span>
+<span id="cb8-186"><a href="#cb8-186"></a><span class="st">2013-08-01,4,2</span></span>
+<span id="cb8-187"><a href="#cb8-187"></a><span class="st">2013-09-01,5,2</span></span>
+<span id="cb8-188"><a href="#cb8-188"></a><span class="st">2013-10-01,5,2</span></span>
+<span id="cb8-189"><a href="#cb8-189"></a><span class="st">2013-11-01,5,2</span></span>
+<span id="cb8-190"><a href="#cb8-190"></a><span class="st">2013-12-01,4,2</span></span>
+<span id="cb8-191"><a href="#cb8-191"></a><span class="st">2014-01-01,5,2</span></span>
+<span id="cb8-192"><a href="#cb8-192"></a><span class="st">2014-02-01,5,2</span></span>
+<span id="cb8-193"><a href="#cb8-193"></a><span class="st">2014-03-01,5,2</span></span>
+<span id="cb8-194"><a href="#cb8-194"></a><span class="st">2014-04-01,5,2</span></span>
+<span id="cb8-195"><a href="#cb8-195"></a><span class="st">2014-05-01,4,2</span></span>
+<span id="cb8-196"><a href="#cb8-196"></a><span class="st">2014-06-01,4,2</span></span>
+<span id="cb8-197"><a href="#cb8-197"></a><span class="st">2014-07-01,4,2</span></span>
+<span id="cb8-198"><a href="#cb8-198"></a><span class="st">2014-08-01,4,2</span></span>
+<span id="cb8-199"><a href="#cb8-199"></a><span class="st">2014-09-01,5,2</span></span>
+<span id="cb8-200"><a href="#cb8-200"></a><span class="st">2014-10-01,5,2</span></span>
+<span id="cb8-201"><a href="#cb8-201"></a><span class="st">2014-11-01,5,2</span></span>
+<span id="cb8-202"><a href="#cb8-202"></a><span class="st">2014-12-01,4,2</span></span>
+<span id="cb8-203"><a href="#cb8-203"></a><span class="st">2015-01-01,4,2</span></span>
+<span id="cb8-204"><a href="#cb8-204"></a><span class="st">2015-02-01,5,2</span></span>
+<span id="cb8-205"><a href="#cb8-205"></a><span class="st">2015-03-01,4,2</span></span>
+<span id="cb8-206"><a href="#cb8-206"></a><span class="st">2015-04-01,5,2</span></span>
+<span id="cb8-207"><a href="#cb8-207"></a><span class="st">2015-05-01,4,2</span></span>
+<span id="cb8-208"><a href="#cb8-208"></a><span class="st">2015-06-01,4,2</span></span>
+<span id="cb8-209"><a href="#cb8-209"></a><span class="st">2015-07-01,4,2</span></span>
+<span id="cb8-210"><a href="#cb8-210"></a><span class="st">2015-08-01,4,2</span></span>
+<span id="cb8-211"><a href="#cb8-211"></a><span class="st">2015-09-01,5,2</span></span>
+<span id="cb8-212"><a href="#cb8-212"></a><span class="st">2015-10-01,5,2</span></span>
+<span id="cb8-213"><a href="#cb8-213"></a><span class="st">2015-11-01,4,2</span></span>
+<span id="cb8-214"><a href="#cb8-214"></a><span class="st">2015-12-01,3,2</span></span>
+<span id="cb8-215"><a href="#cb8-215"></a><span class="st">2016-01-01,3,2</span></span>
+<span id="cb8-216"><a href="#cb8-216"></a><span class="st">2016-02-01,4,2</span></span>
+<span id="cb8-217"><a href="#cb8-217"></a><span class="st">2016-03-01,4,2</span></span>
+<span id="cb8-218"><a href="#cb8-218"></a><span class="st">2016-04-01,4,2</span></span>
+<span id="cb8-219"><a href="#cb8-219"></a><span class="st">2016-05-01,4,2</span></span>
+<span id="cb8-220"><a href="#cb8-220"></a><span class="st">2016-06-01,4,2</span></span>
+<span id="cb8-221"><a href="#cb8-221"></a><span class="st">2016-07-01,3,2</span></span>
+<span id="cb8-222"><a href="#cb8-222"></a><span class="st">2016-08-01,3,2</span></span>
+<span id="cb8-223"><a href="#cb8-223"></a><span class="st">2016-09-01,4,2</span></span>
+<span id="cb8-224"><a href="#cb8-224"></a><span class="st">2016-10-01,4,2</span></span>
+<span id="cb8-225"><a href="#cb8-225"></a><span class="st">2016-11-01,4,2</span></span>
+<span id="cb8-226"><a href="#cb8-226"></a><span class="st">2016-12-01,4,2</span></span>
+<span id="cb8-227"><a href="#cb8-227"></a><span class="st">2017-01-01,4,2</span></span>
+<span id="cb8-228"><a href="#cb8-228"></a><span class="st">2017-02-01,5,2</span></span>
+<span id="cb8-229"><a href="#cb8-229"></a><span class="st">2017-03-01,4,2</span></span>
+<span id="cb8-230"><a href="#cb8-230"></a><span class="st">2017-04-01,4,2</span></span>
+<span id="cb8-231"><a href="#cb8-231"></a><span class="st">2017-05-01,7,2</span></span>
+<span id="cb8-232"><a href="#cb8-232"></a><span class="st">2017-06-01,4,2</span></span>
+<span id="cb8-233"><a href="#cb8-233"></a><span class="st">2017-07-01,4,2</span></span>
+<span id="cb8-234"><a href="#cb8-234"></a><span class="st">2017-08-01,4,2</span></span>
+<span id="cb8-235"><a href="#cb8-235"></a><span class="st">2017-09-01,4,2</span></span>
+<span id="cb8-236"><a href="#cb8-236"></a><span class="st">2017-10-01,5,2</span></span>
+<span id="cb8-237"><a href="#cb8-237"></a><span class="st">2017-11-01,4,2</span></span>
+<span id="cb8-238"><a href="#cb8-238"></a><span class="st">2017-12-01,3,2</span></span>
+<span id="cb8-239"><a href="#cb8-239"></a><span class="st">2018-01-01,4,2</span></span>
+<span id="cb8-240"><a href="#cb8-240"></a><span class="st">2018-02-01,4,2</span></span>
+<span id="cb8-241"><a href="#cb8-241"></a><span class="st">2018-03-01,4,2</span></span>
+<span id="cb8-242"><a href="#cb8-242"></a><span class="st">2018-04-01,4,2</span></span>
+<span id="cb8-243"><a href="#cb8-243"></a><span class="st">2018-05-01,4,2</span></span>
+<span id="cb8-244"><a href="#cb8-244"></a><span class="st">2018-06-01,3,2</span></span>
+<span id="cb8-245"><a href="#cb8-245"></a><span class="st">2018-07-01,3,2</span></span>
+<span id="cb8-246"><a href="#cb8-246"></a><span class="st">2018-08-01,3,2</span></span>
+<span id="cb8-247"><a href="#cb8-247"></a><span class="st">2018-09-01,4,2</span></span>
+<span id="cb8-248"><a href="#cb8-248"></a><span class="st">2018-10-01,4,2</span></span>
+<span id="cb8-249"><a href="#cb8-249"></a><span class="st">2018-11-01,4,2</span></span>
+<span id="cb8-250"><a href="#cb8-250"></a><span class="st">2018-12-01,4,1</span></span>
+<span id="cb8-251"><a href="#cb8-251"></a><span class="st">2019-01-01,3,2</span></span>
+<span id="cb8-252"><a href="#cb8-252"></a><span class="st">2019-02-01,4,2</span></span>
+<span id="cb8-253"><a href="#cb8-253"></a><span class="st">2019-03-01,4,2</span></span>
+<span id="cb8-254"><a href="#cb8-254"></a><span class="st">2019-04-01,4,2</span></span>
+<span id="cb8-255"><a href="#cb8-255"></a><span class="st">2019-05-01,4,2</span></span>
+<span id="cb8-256"><a href="#cb8-256"></a><span class="st">2019-06-01,4,2</span></span>
+<span id="cb8-257"><a href="#cb8-257"></a><span class="st">2019-07-01,4,2</span></span>
+<span id="cb8-258"><a href="#cb8-258"></a><span class="st">2019-08-01,4,2</span></span>
+<span id="cb8-259"><a href="#cb8-259"></a><span class="st">2019-09-01,4,2</span></span>
+<span id="cb8-260"><a href="#cb8-260"></a><span class="st">2019-10-01,4,2</span></span>
+<span id="cb8-261"><a href="#cb8-261"></a><span class="st">2019-11-01,4,2</span></span>
+<span id="cb8-262"><a href="#cb8-262"></a><span class="st">2019-12-01,4,1</span></span>
+<span id="cb8-263"><a href="#cb8-263"></a><span class="st">2020-01-01,4,2</span></span>
+<span id="cb8-264"><a href="#cb8-264"></a><span class="st">2020-02-01,5,2</span></span>
+<span id="cb8-265"><a href="#cb8-265"></a><span class="st">2020-03-01,4,1</span></span>
+<span id="cb8-266"><a href="#cb8-266"></a><span class="st">2020-04-01,4,2</span></span>
+<span id="cb8-267"><a href="#cb8-267"></a><span class="st">2020-05-01,4,2</span></span>
+<span id="cb8-268"><a href="#cb8-268"></a><span class="st">2020-06-01,4,2</span></span>
+<span id="cb8-269"><a href="#cb8-269"></a><span class="st">2020-07-01,4,2</span></span>
+<span id="cb8-270"><a href="#cb8-270"></a><span class="st">2020-08-01,5,2</span></span>
+<span id="cb8-271"><a href="#cb8-271"></a><span class="st">2020-09-01,6,2</span></span>
+<span id="cb8-272"><a href="#cb8-272"></a><span class="st">2020-10-01,6,2</span></span>
+<span id="cb8-273"><a href="#cb8-273"></a><span class="st">2020-11-01,5,1</span></span>
+<span id="cb8-274"><a href="#cb8-274"></a><span class="st">2020-12-01,4,1</span></span>
+<span id="cb8-275"><a href="#cb8-275"></a><span class="st">2021-01-01,4,1</span></span>
+<span id="cb8-276"><a href="#cb8-276"></a><span class="st">2021-02-01,5,1</span></span>
+<span id="cb8-277"><a href="#cb8-277"></a><span class="st">2021-03-01,5,1</span></span>
+<span id="cb8-278"><a href="#cb8-278"></a><span class="st">2021-04-01,5,2</span></span>
+<span id="cb8-279"><a href="#cb8-279"></a><span class="st">2021-05-01,6,2</span></span>
+<span id="cb8-280"><a href="#cb8-280"></a><span class="st">2021-06-01,5,1</span></span>
+<span id="cb8-281"><a href="#cb8-281"></a><span class="st">2021-07-01,5,1</span></span>
+<span id="cb8-282"><a href="#cb8-282"></a><span class="st">2021-08-01,4,2</span></span>
+<span id="cb8-283"><a href="#cb8-283"></a><span class="st">2021-09-01,6,2</span></span>
+<span id="cb8-284"><a href="#cb8-284"></a><span class="st">2021-10-01,7,1</span></span>
+<span id="cb8-285"><a href="#cb8-285"></a><span class="st">2021-11-01,7,1</span></span>
+<span id="cb8-286"><a href="#cb8-286"></a><span class="st">2021-12-01,5,1</span></span>
+<span id="cb8-287"><a href="#cb8-287"></a><span class="st">2022-01-01,5,2</span></span>
+<span id="cb8-288"><a href="#cb8-288"></a><span class="st">2022-02-01,5,2</span></span>
+<span id="cb8-289"><a href="#cb8-289"></a><span class="st">2022-03-01,6,2</span></span>
+<span id="cb8-290"><a href="#cb8-290"></a><span class="st">2022-04-01,5,2</span></span>
+<span id="cb8-291"><a href="#cb8-291"></a><span class="st">2022-05-01,5,2</span></span>
+<span id="cb8-292"><a href="#cb8-292"></a><span class="st">2022-06-01,4,2</span></span>
+<span id="cb8-293"><a href="#cb8-293"></a><span class="st">2022-07-01,4,2</span></span>
+<span id="cb8-294"><a href="#cb8-294"></a><span class="st">2022-08-01,5,2</span></span>
+<span id="cb8-295"><a href="#cb8-295"></a><span class="st">2022-09-01,5,2</span></span>
+<span id="cb8-296"><a href="#cb8-296"></a><span class="st">2022-10-01,5,2</span></span>
+<span id="cb8-297"><a href="#cb8-297"></a><span class="st">2022-11-01,5,2</span></span>
+<span id="cb8-298"><a href="#cb8-298"></a><span class="st">2022-12-01,4,2</span></span>
+<span id="cb8-299"><a href="#cb8-299"></a><span class="st">2023-01-01,4,3</span></span>
+<span id="cb8-300"><a href="#cb8-300"></a><span class="st">2023-02-01,5,3</span></span>
+<span id="cb8-301"><a href="#cb8-301"></a><span class="st">2023-03-01,4,5</span></span>
+<span id="cb8-302"><a href="#cb8-302"></a><span class="st">2023-04-01,4,7</span></span>
+<span id="cb8-303"><a href="#cb8-303"></a><span class="st">2023-05-01,4,10</span></span>
+<span id="cb8-304"><a href="#cb8-304"></a><span class="st">2023-06-01,4,11</span></span>
+<span id="cb8-305"><a href="#cb8-305"></a><span class="st">2023-07-01,4,11</span></span>
+<span id="cb8-306"><a href="#cb8-306"></a><span class="st">2023-08-01,4,11</span></span>
+<span id="cb8-307"><a href="#cb8-307"></a><span class="st">2023-09-01,4,12</span></span>
+<span id="cb8-308"><a href="#cb8-308"></a><span class="st">2023-10-01,4,12</span></span>
+<span id="cb8-309"><a href="#cb8-309"></a><span class="st">2023-11-01,4,13</span></span>
+<span id="cb8-310"><a href="#cb8-310"></a><span class="st">2023-12-01,4,13</span></span>
+<span id="cb8-311"><a href="#cb8-311"></a><span class="st">2024-01-01,4,14</span></span>
+<span id="cb8-312"><a href="#cb8-312"></a><span class="st">2024-02-01,5,17</span></span>
+<span id="cb8-313"><a href="#cb8-313"></a><span class="st">2024-03-01,5,19</span></span>
+<span id="cb8-314"><a href="#cb8-314"></a><span class="st">2024-04-01,5,20</span></span>
+<span id="cb8-315"><a href="#cb8-315"></a><span class="st">2024-05-01,4,19</span></span>
+<span id="cb8-316"><a href="#cb8-316"></a><span class="st">2024-06-01,4,19</span></span>
+<span id="cb8-317"><a href="#cb8-317"></a><span class="st">2024-07-01,4,17</span></span>
+<span id="cb8-318"><a href="#cb8-318"></a><span class="st">2024-08-01,4,17</span></span>
+<span id="cb8-319"><a href="#cb8-319"></a><span class="st">2024-09-01,5,19</span></span>
+<span id="cb8-320"><a href="#cb8-320"></a><span class="st">2024-10-01,5,20</span></span>
+<span id="cb8-321"><a href="#cb8-321"></a><span class="st">2024-11-01,5,19</span></span>
+<span id="cb8-322"><a href="#cb8-322"></a><span class="st">2024-12-01,4,18</span></span>
+<span id="cb8-323"><a href="#cb8-323"></a><span class="st">2025-01-01,5,25</span></span>
+<span id="cb8-324"><a href="#cb8-324"></a><span class="st">2025-02-01,5,29</span></span>
+<span id="cb8-325"><a href="#cb8-325"></a><span class="st">2025-03-01,6,27</span></span>
+<span id="cb8-326"><a href="#cb8-326"></a><span class="st">2025-04-01,5,26</span></span>
+<span id="cb8-327"><a href="#cb8-327"></a><span class="st">2025-05-01,6,27</span></span>
+<span id="cb8-328"><a href="#cb8-328"></a><span class="st">2025-06-01,8,39</span></span>
+<span id="cb8-329"><a href="#cb8-329"></a><span class="st">2025-07-01,8,45</span></span>
+<span id="cb8-330"><a href="#cb8-330"></a><span class="st">2025-08-01,7,43</span></span>
+<span id="cb8-331"><a href="#cb8-331"></a><span class="st">2025-09-01,8,40</span></span>
+<span id="cb8-332"><a href="#cb8-332"></a><span class="st">2025-10-01,7,39</span></span>
+<span id="cb8-333"><a href="#cb8-333"></a><span class="st">2025-11-01,9,48</span></span>
+<span id="cb8-334"><a href="#cb8-334"></a><span class="st">2025-12-01,9,48</span></span>
+<span id="cb8-335"><a href="#cb8-335"></a><span class="st">2026-01-01,11,54</span></span>
+<span id="cb8-336"><a href="#cb8-336"></a><span class="st">2026-02-01,21,73</span></span>
+<span id="cb8-337"><a href="#cb8-337"></a><span class="st">2026-03-01,36,100</span></span>
+<span id="cb8-338"><a href="#cb8-338"></a><span class="st">2026-04-01,12,65</span></span>
+<span id="cb8-339"><a href="#cb8-339"></a><span class="st">'''</span>), parse_dates<span class="op">=</span>[<span class="st">'Time'</span>])</span>
+<span id="cb8-340"><a href="#cb8-340"></a></span>
+<span id="cb8-341"><a href="#cb8-341"></a><span class="co">## Gemini generated</span></span>
+<span id="cb8-342"><a href="#cb8-342"></a></span>
+<span id="cb8-343"><a href="#cb8-343"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
+<span id="cb8-344"><a href="#cb8-344"></a>plt.plot(vals[<span class="st">'Time'</span>], vals[<span class="st">'cloud computing'</span>], label<span class="op">=</span><span class="st">'cloud computing'</span>)</span>
+<span id="cb8-345"><a href="#cb8-345"></a>plt.plot(vals[<span class="st">'Time'</span>], vals[<span class="st">'LLM'</span>], label<span class="op">=</span><span class="st">'LLM'</span>, color<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb8-346"><a href="#cb8-346"></a>plt.xlabel(<span class="st">'Time'</span>)</span>
+<span id="cb8-347"><a href="#cb8-347"></a>plt.ylabel(<span class="st">'Value'</span>)</span>
+<span id="cb8-348"><a href="#cb8-348"></a>plt.title(<span class="st">'Cloud Computing and LLM Trends Over Time'</span>)</span>
+<span id="cb8-349"><a href="#cb8-349"></a>plt.legend()</span>
+<span id="cb8-350"><a href="#cb8-350"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb8-351"><a href="#cb8-351"></a></span>
+<span id="cb8-352"><a href="#cb8-352"></a><span class="co"># Add annotation for ChatGPT release</span></span>
+<span id="cb8-353"><a href="#cb8-353"></a><span class="co"># Found this one from https://en.wikipedia.org/wiki/ChatGPT</span></span>
+<span id="cb8-354"><a href="#cb8-354"></a></span>
+<span id="cb8-355"><a href="#cb8-355"></a>chatgpt_release_date <span class="op">=</span> pd.to_datetime(<span class="st">'2022-11-30'</span>)</span>
+<span id="cb8-356"><a href="#cb8-356"></a>llm_value_at_release <span class="op">=</span> vals[vals[<span class="st">'Time'</span>] <span class="op">&lt;=</span> chatgpt_release_date][<span class="st">'LLM'</span>].iloc[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb8-357"><a href="#cb8-357"></a></span>
+<span id="cb8-358"><a href="#cb8-358"></a>plt.annotate(</span>
+<span id="cb8-359"><a href="#cb8-359"></a>    <span class="st">'ChatGPT released (Nov 30, 2022)'</span>, </span>
+<span id="cb8-360"><a href="#cb8-360"></a>    xy<span class="op">=</span>(chatgpt_release_date, llm_value_at_release), </span>
+<span id="cb8-361"><a href="#cb8-361"></a>    xytext<span class="op">=</span>(pd.to_datetime(<span class="st">'2021-01-01'</span>), llm_value_at_release <span class="op">+</span> <span class="dv">10</span>), <span class="co"># Adjust xytext for better visibility</span></span>
+<span id="cb8-362"><a href="#cb8-362"></a>    arrowprops<span class="op">=</span><span class="bu">dict</span>(facecolor<span class="op">=</span><span class="st">'black'</span>, shrink<span class="op">=</span><span class="fl">0.05</span>), </span>
+<span id="cb8-363"><a href="#cb8-363"></a>    fontsize<span class="op">=</span><span class="dv">10</span>, </span>
+<span id="cb8-364"><a href="#cb8-364"></a>    color<span class="op">=</span><span class="st">'blue'</span></span>
+<span id="cb8-365"><a href="#cb8-365"></a>)</span>
+<span id="cb8-366"><a href="#cb8-366"></a></span>
+<span id="cb8-367"><a href="#cb8-367"></a><span class="co"># Add annotation for Netflix streaming launch</span></span>
+<span id="cb8-368"><a href="#cb8-368"></a><span class="co"># Found this one from https://en.wikipedia.org/wiki/History_of_cloud_computing#2000s</span></span>
+<span id="cb8-369"><a href="#cb8-369"></a></span>
+<span id="cb8-370"><a href="#cb8-370"></a>netflix_streaming_date <span class="op">=</span> pd.to_datetime(<span class="st">'2007-01-15'</span>) <span class="co"># Approximate date</span></span>
+<span id="cb8-371"><a href="#cb8-371"></a>cloud_computing_value_at_netflix_launch <span class="op">=</span> vals[vals[<span class="st">'Time'</span>] <span class="op">&lt;=</span> netflix_streaming_date][<span class="st">'cloud computing'</span>].iloc[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb8-372"><a href="#cb8-372"></a></span>
+<span id="cb8-373"><a href="#cb8-373"></a>plt.annotate(</span>
+<span id="cb8-374"><a href="#cb8-374"></a>    <span class="st">'Netflix Streaming Launch (2007)'</span>, </span>
+<span id="cb8-375"><a href="#cb8-375"></a>    xy<span class="op">=</span>(netflix_streaming_date, cloud_computing_value_at_netflix_launch), </span>
+<span id="cb8-376"><a href="#cb8-376"></a>    xytext<span class="op">=</span>(pd.to_datetime(<span class="st">'2008-01-01'</span>), cloud_computing_value_at_netflix_launch <span class="op">+</span> <span class="dv">15</span>), <span class="co"># Adjust xytext for better visibility</span></span>
+<span id="cb8-377"><a href="#cb8-377"></a>    arrowprops<span class="op">=</span><span class="bu">dict</span>(facecolor<span class="op">=</span><span class="st">'green'</span>, shrink<span class="op">=</span><span class="fl">0.05</span>), </span>
+<span id="cb8-378"><a href="#cb8-378"></a>    fontsize<span class="op">=</span><span class="dv">10</span>, </span>
+<span id="cb8-379"><a href="#cb8-379"></a>    color<span class="op">=</span><span class="st">'green'</span></span>
+<span id="cb8-380"><a href="#cb8-380"></a>)</span>
+<span id="cb8-381"><a href="#cb8-381"></a></span>
+<span id="cb8-382"><a href="#cb8-382"></a>plt.show()</span>
+<span id="cb8-383"><a href="#cb8-383"></a><span class="in">```</span></span>
+<span id="cb8-384"><a href="#cb8-384"></a></span>
+<span id="cb8-385"><a href="#cb8-385"></a><span class="fu">## Note - Data Source</span></span>
+<span id="cb8-386"><a href="#cb8-386"></a></span>
+<span id="cb8-387"><a href="#cb8-387"></a><span class="ss">- </span>I got this interest level from <span class="co">[</span><span class="ot">Google Trends</span><span class="co">](https://trends.google.com/explore?q=cloud%2520computing%2CLLM&amp;date=all&amp;geo=US)</span></span>
+<span id="cb8-388"><a href="#cb8-388"></a><span class="ss">- </span>I retrieved the data 23 Apr 26, it is usually in at least a little bit of flux.</span>
+<span id="cb8-389"><a href="#cb8-389"></a></span>
+<span id="cb8-390"><a href="#cb8-390"></a><span class="fu">## Note - 2007</span></span>
+<span id="cb8-391"><a href="#cb8-391"></a></span>
+<span id="cb8-392"><a href="#cb8-392"></a><span class="ss">- </span>I made a note in 2007 as I think it was the launch of prominent cloud computing.</span>
+<span id="cb8-393"><a href="#cb8-393"></a><span class="ss">- </span>Hard to track the technology versus the term, but Netflix (remember them?) started getting headlines around then.</span>
+<span id="cb8-394"><a href="#cb8-394"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Source - Wikipedia</span><span class="co">](https://en.wikipedia.org/wiki/History_of_cloud_computing#2000s)</span></span>
+<span id="cb8-395"><a href="#cb8-395"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Source - NYT</span><span class="co">](https://www.nytimes.com/2007/01/16/technology/16netflix.html)</span></span>
+<span id="cb8-396"><a href="#cb8-396"></a></span>
+<span id="cb8-397"><a href="#cb8-397"></a><span class="fu">## Note - 2022</span></span>
+<span id="cb8-398"><a href="#cb8-398"></a></span>
+<span id="cb8-399"><a href="#cb8-399"></a><span class="ss">- </span>I really don't think ChatGPT broke out until 2023, under a single digit percentage of people were using in 2022.</span>
+<span id="cb8-400"><a href="#cb8-400"></a><span class="ss">- </span>Release was late 2022, around November.</span>
+<span id="cb8-401"><a href="#cb8-401"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Source - Wikipedia</span><span class="co">](https://en.wikipedia.org/wiki/ChatGPT)</span></span>
+<span id="cb8-402"><a href="#cb8-402"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Source - ChatGPT</span><span class="co">](https://openai.com/index/chatgpt/)</span></span>
+<span id="cb8-403"><a href="#cb8-403"></a></span>
+<span id="cb8-404"><a href="#cb8-404"></a><span class="fu">## Note - Between</span></span>
+<span id="cb8-405"><a href="#cb8-405"></a></span>
+<span id="cb8-406"><a href="#cb8-406"></a><span class="ss">- </span>The real buzzword technology between 2007 and 2022 was I think *bitcoin*.</span>
+<span id="cb8-407"><a href="#cb8-407"></a><span class="ss">    - </span>CS-271: Taught in fall. Requires one year of programming.</span>
+<span id="cb8-408"><a href="#cb8-408"></a><span class="ss">    - </span>Then for a while NFTs, also didn't really persist.</span>
+<span id="cb8-409"><a href="#cb8-409"></a><span class="ss">- </span>Not really intelligence relevant.</span>
+<span id="cb8-410"><a href="#cb8-410"></a></span>
+<span id="cb8-411"><a href="#cb8-411"></a><span class="fu">## Onward!</span></span>
+<span id="cb8-412"><a href="#cb8-412"></a></span>
+<span id="cb8-413"><a href="#cb8-413"></a><span class="ss">- </span>And now, my introduction to cloud computing.</span>
+<span id="cb8-414"><a href="#cb8-414"></a><span class="ss">    - </span>Recall the "Philosophy Tube Thesis"</span>
+<span id="cb8-415"><a href="#cb8-415"></a></span>
+<span id="cb8-416"><a href="#cb8-416"></a><span class="at">&gt; In her book </span><span class="co">[</span><span class="ot">Atlas of AI</span><span class="co">](https://yalebooks.yale.edu/book/9780300264630/atlas-of-ai/)</span><span class="at"> researcher </span><span class="co">[</span><span class="ot">Kate Crawford</span><span class="co">](https://katecrawford.net/)</span><span class="at"> uses a different term: large-scale computing.</span></span>
+<span id="cb8-417"><a href="#cb8-417"></a></span>
+<span id="cb8-418"><a href="#cb8-418"></a><span class="fu"># The Cloud</span></span>
+<span id="cb8-419"><a href="#cb8-419"></a></span>
+<span id="cb8-420"><a href="#cb8-420"></a><span class="fu">## Core insight</span></span>
+<span id="cb8-421"><a href="#cb8-421"></a></span>
+<span id="cb8-422"><a href="#cb8-422"></a><span class="ss">- </span>Instead of solving hard problems, we use more computers</span>
+<span id="cb8-423"><a href="#cb8-423"></a><span class="ss">- </span>Computers are cheap, and people that can use them well are expensive (to train and hire)</span>
+<span id="cb8-424"><a href="#cb8-424"></a><span class="ss">- </span>In my experience: your boss/manager/accountability group always wants you to spend $0.12 to use the 1000s of the fastest computers on earth for 5 seconds, rather than 6 months writing "better" code.</span>
+<span id="cb8-425"><a href="#cb8-425"></a><span class="ss">    - </span>Writing fast code is hard, and spending $0.12 is easy.</span>
+<span id="cb8-426"><a href="#cb8-426"></a>    </span>
+<span id="cb8-427"><a href="#cb8-427"></a></span>
+<span id="cb8-428"><a href="#cb8-428"></a></span>
+<span id="cb8-429"><a href="#cb8-429"></a><span class="fu">## Pre-LLM Trillion $ Co.'s {.smaller}</span></span>
+<span id="cb8-430"><a href="#cb8-430"></a></span>
+<span id="cb8-431"><a href="#cb8-431"></a>| Company | $1 trillion | $2 trillion | $3 trillion | Nominal |</span>
+<span id="cb8-432"><a href="#cb8-432"></a>| :--- | :--- | :--- | :--- | :--- |</span>
+<span id="cb8-433"><a href="#cb8-433"></a>| Microsoft | 25 Apr 19 | 22 Jun 21 | 24 Jan 24 | 3,185 |</span>
+<span id="cb8-434"><a href="#cb8-434"></a>| Apple | 2 Aug 18 | 19 Aug 20 | 3 Jan 22 | 3,081 |</span>
+<span id="cb8-435"><a href="#cb8-435"></a>| Saudi Aramco | 11 Dec 19 | 12 Dec 19 | — | 2,463 |</span>
+<span id="cb8-436"><a href="#cb8-436"></a>| Nvidia | 30 May 23 | 23 Feb 24 | — | 2,380 |</span>
+<span id="cb8-437"><a href="#cb8-437"></a>| Alphabet | 16 Jan 20 | 8 Nov 21 | — | 2,150 |</span>
+<span id="cb8-438"><a href="#cb8-438"></a>| Amazon | 4 Sep 18 | — | — | 1,970 |</span>
+<span id="cb8-439"><a href="#cb8-439"></a>| Meta | 28 Jun 21 | — | — | 1,220 |</span>
+<span id="cb8-440"><a href="#cb8-440"></a>| Tesla | 25 Oct 21 | — | — | 1,210 |</span>
+<span id="cb8-441"><a href="#cb8-441"></a>| PetroChina | 5 Nov 07 | — | — | 1,200 |</span>
+<span id="cb8-442"><a href="#cb8-442"></a></span>
+<span id="cb8-443"><a href="#cb8-443"></a><span class="fu">## Basically</span></span>
+<span id="cb8-444"><a href="#cb8-444"></a></span>
+<span id="cb8-445"><a href="#cb8-445"></a><span class="ss">- </span>Three of the six largest companies in the world are cloud companies</span>
+<span id="cb8-446"><a href="#cb8-446"></a><span class="ss">- </span>Of the others, Nvidia is a primary supplier, and Apple and Meta are primary consumers. </span>
+<span id="cb8-447"><a href="#cb8-447"></a><span class="ss">- </span>The world economy is 2/3 cloud and 1/3 transit.</span>
+<span id="cb8-448"><a href="#cb8-448"></a></span>
+<span id="cb8-449"><a href="#cb8-449"></a><span class="fu">## More extreme today</span></span>
+<span id="cb8-450"><a href="#cb8-450"></a></span>
+<span id="cb8-451"><a href="#cb8-451"></a><span class="ss">- </span>Check the latest.</span>
+<span id="cb8-452"><a href="#cb8-452"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Market capitalization</span><span class="co">](https://en.wikipedia.org/wiki/List_of_public_corporations_by_market_capitalization)</span></span>
+<span id="cb8-453"><a href="#cb8-453"></a></span>
+<span id="cb8-454"><a href="#cb8-454"></a><span class="fu">## Why "The Cloud"?</span></span>
+<span id="cb8-455"><a href="#cb8-455"></a></span>
+<span id="cb8-456"><a href="#cb8-456"></a><span class="ss">* </span>Computing happens somewhere else, not on your PC or mobile device</span>
+<span id="cb8-457"><a href="#cb8-457"></a><span class="ss">* </span>The Cloud Underpins "Modern" Computing</span>
+<span id="cb8-458"><a href="#cb8-458"></a><span class="ss">    * </span>**Physical**: The cloud is a global deployment of massive data centers connected by ultra-fast networking, designed for scalability and robustness.</span>
+<span id="cb8-459"><a href="#cb8-459"></a><span class="ss">    * </span>**Logical**: A collection of tools and platforms that scale amazingly well.</span>
+<span id="cb8-460"><a href="#cb8-460"></a><span class="ss">    * </span>**Conceptual**: A set of scalable ideas, concepts, and design strategies.</span>
+<span id="cb8-461"><a href="#cb8-461"></a></span>
+<span id="cb8-462"><a href="#cb8-462"></a><span class="fu">## From whence?</span></span>
+<span id="cb8-463"><a href="#cb8-463"></a></span>
+<span id="cb8-464"><a href="#cb8-464"></a><span class="ss">* </span>My view: it emerged naturally from high quality systems programming.</span>
+<span id="cb8-465"><a href="#cb8-465"></a><span class="ss">    * </span>As computer chips got faster, they hit a "heat wall" where they couldn't speed up without melting.</span>
+<span id="cb8-466"><a href="#cb8-466"></a><span class="ss">    * </span>To get past the heatwall, Intel et al. placed multiple processing units on a single chip (e.g. Phone/Tablet/PC).</span>
+<span id="cb8-467"><a href="#cb8-467"></a><span class="ss">    * </span>To use multiply processing units, sometimes *n* pieces of code had to run at the same time.</span>
+<span id="cb8-468"><a href="#cb8-468"></a><span class="ss">    * </span>If *n* can be 8 (my phone) why not $10^6$ (my phone's app's datacenters)</span>
+<span id="cb8-469"><a href="#cb8-469"></a></span>
+<span id="cb8-470"><a href="#cb8-470"></a><span class="fu">## "The Heat Wall"</span></span>
+<span id="cb8-471"><a href="#cb8-471"></a></span>
+<span id="cb8-472"><a href="#cb8-472"></a><span class="al">![Heat Wall Graph](https://i0.wp.com/semiengineering.com/wp-content/uploads/Picture1-2.png?resize=1024%2C576&amp;ssl=1)</span></span>
+<span id="cb8-473"><a href="#cb8-473"></a></span>
+<span id="cb8-474"><a href="#cb8-474"></a><span class="fu">## Or?</span></span>
+<span id="cb8-475"><a href="#cb8-475"></a></span>
+<span id="cb8-476"><a href="#cb8-476"></a><span class="ss">* </span>Another view: It emerged naturally from the Internet</span>
+<span id="cb8-477"><a href="#cb8-477"></a><span class="ss">    * </span>The internet runs over networks between multiple computers with different computing and data capabilities.</span>
+<span id="cb8-478"><a href="#cb8-478"></a><span class="ss">        * </span>If I can ask Google for directions, why can't I ask Google to compute a mean</span>
+<span id="cb8-479"><a href="#cb8-479"></a><span class="ss">        * </span>If Google can ask me for a password, why can't it ask me for a .csv</span>
+<span id="cb8-480"><a href="#cb8-480"></a><span class="ss">        * </span>If computing is already distributed across local and remote servers, why not write code for this paradigm.</span>
+<span id="cb8-481"><a href="#cb8-481"></a>        </span>
+<span id="cb8-482"><a href="#cb8-482"></a><span class="fu">## Visually</span></span>
+<span id="cb8-483"><a href="#cb8-483"></a></span>
+<span id="cb8-484"><a href="#cb8-484"></a><span class="ss">- </span>This is what we should image an "AI" looks like.</span>
+<span id="cb8-485"><a href="#cb8-485"></a><span class="ss">    - </span>But *also* what a website looks like.</span>
+<span id="cb8-486"><a href="#cb8-486"></a><span class="ss">    - </span>But *also* what a text message looks like.</span>
+<span id="cb8-487"><a href="#cb8-487"></a></span>
+<span id="cb8-488"><a href="#cb8-488"></a><span class="al">![Server Room](https://static01.nyt.com/images/2006/10/25/business/25server.xlarge1.jpg)</span></span>
+<span id="cb8-489"><a href="#cb8-489"></a></span>
+<span id="cb8-490"><a href="#cb8-490"></a><span class="fu">## Core insight</span></span>
+<span id="cb8-491"><a href="#cb8-491"></a></span>
+<span id="cb8-492"><a href="#cb8-492"></a><span class="ss">* </span>My view: It DID NOT emerge from "classical" software engineering</span>
+<span id="cb8-493"><a href="#cb8-493"></a><span class="ss">    * </span>"Object oriented languages" e.g. Java won the software engineering wars of the 00s.</span>
+<span id="cb8-494"><a href="#cb8-494"></a><span class="ss">        * </span>I am a hater.</span>
+<span id="cb8-495"><a href="#cb8-495"></a><span class="ss">    * </span>I believe MapReduce, two functions, unseated Objects as the dominate paradigm over time</span>
+<span id="cb8-496"><a href="#cb8-496"></a>    </span>
+<span id="cb8-497"><a href="#cb8-497"></a><span class="fu">## MapReduce for us</span></span>
+<span id="cb8-498"><a href="#cb8-498"></a></span>
+<span id="cb8-499"><a href="#cb8-499"></a><span class="ss">- </span>We have implicitly used "MapReduce"</span>
+<span id="cb8-500"><a href="#cb8-500"></a><span class="ss">    - </span>"Map" means "do X to all things in Y"</span>
+<span id="cb8-501"><a href="#cb8-501"></a><span class="ss">        - </span>Like how a map represents all landmarks in an area.</span>
+<span id="cb8-502"><a href="#cb8-502"></a><span class="ss">    - </span>"Reduce" means "add up all things in Y"</span>
+<span id="cb8-503"><a href="#cb8-503"></a><span class="ss">- </span>Remember <span class="co">[</span><span class="ot">this</span><span class="co">](A0_xor.qmd#activate-again)</span></span>
+<span id="cb8-504"><a href="#cb8-504"></a><span class="in">```{.py}</span></span>
+<span id="cb8-505"><a href="#cb8-505"></a><span class="in">1 &lt;= pair @ layer</span></span>
+<span id="cb8-506"><a href="#cb8-506"></a><span class="in">```</span></span>
+<span id="cb8-507"><a href="#cb8-507"></a></span>
+<span id="cb8-508"><a href="#cb8-508"></a></span>
+<span id="cb8-509"><a href="#cb8-509"></a><span class="fu">## Map</span></span>
+<span id="cb8-510"><a href="#cb8-510"></a></span>
+<span id="cb8-511"><a href="#cb8-511"></a><span class="ss">- </span>Take every row, multiply it by every column</span>
+<span id="cb8-512"><a href="#cb8-512"></a></span>
+<span id="cb8-513"><a href="#cb8-513"></a><span class="in">```{.py}</span></span>
+<span id="cb8-514"><a href="#cb8-514"></a><span class="in">mapped = pair @ layer</span></span>
+<span id="cb8-515"><a href="#cb8-515"></a><span class="in">```</span></span>
+<span id="cb8-516"><a href="#cb8-516"></a></span>
+<span id="cb8-517"><a href="#cb8-517"></a></span>
+<span id="cb8-518"><a href="#cb8-518"></a><span class="fu">## Reduce</span></span>
+<span id="cb8-519"><a href="#cb8-519"></a></span>
+<span id="cb8-520"><a href="#cb8-520"></a><span class="ss">- </span>Compare the summed up result to a single value.</span>
+<span id="cb8-521"><a href="#cb8-521"></a></span>
+<span id="cb8-522"><a href="#cb8-522"></a><span class="in">```{.py}</span></span>
+<span id="cb8-523"><a href="#cb8-523"></a><span class="in">1 &lt;= mapped</span></span>
+<span id="cb8-524"><a href="#cb8-524"></a><span class="in">```</span></span>
+<span id="cb8-525"><a href="#cb8-525"></a></span>
+<span id="cb8-526"><a href="#cb8-526"></a><span class="fu">## How big?</span></span>
+<span id="cb8-527"><a href="#cb8-527"></a></span>
+<span id="cb8-528"><a href="#cb8-528"></a>It is generally regarded that...</span>
+<span id="cb8-529"><a href="#cb8-529"></a></span>
+<span id="cb8-530"><a href="#cb8-530"></a><span class="ss">* </span>Google is one of the largest data aggregators</span>
+<span id="cb8-531"><a href="#cb8-531"></a><span class="ss">* </span>Google held approximately 15 exabytes in 2013 [<span class="co">[</span><span class="ot">src</span><span class="co">](https://what-if.xkcd.com/63/)</span>]</span>
+<span id="cb8-532"><a href="#cb8-532"></a><span class="ss">* </span>Google's reported power use increased 21%/anum from 2011-&gt;2019</span>
+<span id="cb8-533"><a href="#cb8-533"></a></span>
+<span id="cb8-534"><a href="#cb8-534"></a><span class="fu">## Forbes</span></span>
+<span id="cb8-535"><a href="#cb8-535"></a></span>
+<span id="cb8-536"><a href="#cb8-536"></a><span class="co">[</span><span class="ot">&lt;img style="display:block; margin-left: auto; margin-right: auto" src="https://imageio.forbes.com/specials-images/imageserve/5f908b550436eabb0b8b03b1/Since-2011--Google-s-electricity-use-has-nearly-quintupled-/960x0.png"&gt;</span><span class="co">](https://www.forbes.com/sites/robertbryce/2020/10/21/googles-dominance-is-fueled-by-zambia-size-amounts-of-electricity/?sh=4c7bb3568c98)</span></span>
+<span id="cb8-537"><a href="#cb8-537"></a></span>
+<span id="cb8-538"><a href="#cb8-538"></a><span class="fu">## Math it</span></span>
+<span id="cb8-539"><a href="#cb8-539"></a></span>
+<span id="cb8-542"><a href="#cb8-542"></a><span class="in">```{python}</span></span>
+<span id="cb8-543"><a href="#cb8-543"></a>annual_growth <span class="op">=</span> (<span class="fl">12.4</span><span class="op">/</span><span class="fl">2.6</span>)<span class="op">**</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">8</span>)</span>
+<span id="cb8-544"><a href="#cb8-544"></a><span class="bu">print</span>(annual_growth)</span>
+<span id="cb8-545"><a href="#cb8-545"></a><span class="in">```</span></span>
+<span id="cb8-546"><a href="#cb8-546"></a></span>
+<span id="cb8-547"><a href="#cb8-547"></a><span class="ss">* </span>Hard-drives grew 16x from 2012 to 2023 from less than 2 TB [<span class="co">[</span><span class="ot">src</span><span class="co">](https://www.tomshardware.com/news/HAMR-platters-heat-assisted-CREATEC-areal-density,18126.html)</span>] to 32 TB [<span class="co">[</span><span class="ot">src</span><span class="co">](https://www.seagate.com/products/enterprise-drives/exos-x/x-mozaic/)</span>]</span>
+<span id="cb8-548"><a href="#cb8-548"></a><span class="ss">* </span>Google current storage?</span>
+<span id="cb8-549"><a href="#cb8-549"></a><span class="ss">    * </span>Start with 15 exabytes in '13.</span>
+<span id="cb8-550"><a href="#cb8-550"></a><span class="ss">    * </span>Increase by 21% per year.</span>
+<span id="cb8-551"><a href="#cb8-551"></a><span class="ss">    * </span>Multiply by increase in storage density.</span>
+<span id="cb8-552"><a href="#cb8-552"></a>    </span>
+<span id="cb8-553"><a href="#cb8-553"></a><span class="fu">## How fast?</span></span>
+<span id="cb8-554"><a href="#cb8-554"></a>    </span>
+<span id="cb8-557"><a href="#cb8-557"></a><span class="in">```{python}</span></span>
+<span id="cb8-558"><a href="#cb8-558"></a>annual_growth <span class="op">=</span> (<span class="fl">12.4</span><span class="op">/</span><span class="fl">2.6</span>)<span class="op">**</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">8</span>)</span>
+<span id="cb8-559"><a href="#cb8-559"></a>annual_growth <span class="op">**</span> (<span class="dv">2026</span><span class="op">-</span><span class="dv">2013</span>) <span class="op">*</span> <span class="dv">16</span></span>
+<span id="cb8-560"><a href="#cb8-560"></a><span class="in">```</span></span>
+<span id="cb8-561"><a href="#cb8-561"></a><span class="ss">* </span>200x every ~10 years within one company, but # of data companies also grows.</span>
+<span id="cb8-562"><a href="#cb8-562"></a><span class="ss">    * </span>Approximately doubles per decade, looks like.</span>
+<span id="cb8-563"><a href="#cb8-563"></a><span class="ss">* </span>I generated 134 MB of teaching materials in 3 years full time, or .0000000000134 exabytes</span>
+<span id="cb8-564"><a href="#cb8-564"></a></span>
+<span id="cb8-565"><a href="#cb8-565"></a></span>
+<span id="cb8-566"><a href="#cb8-566"></a><span class="fu">## Client/Server</span></span>
+<span id="cb8-567"><a href="#cb8-567"></a></span>
+<span id="cb8-568"><a href="#cb8-568"></a><span class="ss">* </span>I like to think of the cloud as a dancer between users/clients and remote servers</span>
+<span id="cb8-569"><a href="#cb8-569"></a><span class="ss">* </span>We use devices which are physical and live “outside” the cloud, but are ~useless on their own.</span>
+<span id="cb8-570"><a href="#cb8-570"></a><span class="ss">* </span>Your phone does some things, remote email servers do some things.</span>
+<span id="cb8-571"><a href="#cb8-571"></a></span>
+<span id="cb8-572"><a href="#cb8-572"></a><span class="fu">## Imagine:</span></span>
+<span id="cb8-573"><a href="#cb8-573"></a></span>
+<span id="cb8-574"><a href="#cb8-574"></a><span class="ss">* </span>Usually:</span>
+<span id="cb8-575"><a href="#cb8-575"></a><span class="ss">    * </span>Website lives in cloud storage, is sent as a chunk of data to phone/pc.</span>
+<span id="cb8-576"><a href="#cb8-576"></a><span class="ss">    * </span>Website runs locally in phone/pc browser</span>
+<span id="cb8-577"><a href="#cb8-577"></a><span class="ss">    * </span>Website asked something it doesn't know (current weather, directions to nearest oatmilk mocha)</span>
+<span id="cb8-578"><a href="#cb8-578"></a><span class="ss">    * </span>Website asks cloud to compute something</span>
+<span id="cb8-579"><a href="#cb8-579"></a><span class="ss">    * </span>Cloud server gets a request, sends back to phone/pc which updates what you see.</span>
+<span id="cb8-580"><a href="#cb8-580"></a></span>
+<span id="cb8-581"><a href="#cb8-581"></a><span class="fu">## Visually</span></span>
+<span id="cb8-582"><a href="#cb8-582"></a></span>
+<span id="cb8-583"><a href="#cb8-583"></a>&lt;img style="filter:invert(.9)" src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Client-server-model.svg"&gt;</span>
+<span id="cb8-584"><a href="#cb8-584"></a></span>
+<span id="cb8-585"><a href="#cb8-585"></a></span>
+<span id="cb8-586"><a href="#cb8-586"></a><span class="fu">## Evolution?</span></span>
+<span id="cb8-587"><a href="#cb8-587"></a></span>
+<span id="cb8-588"><a href="#cb8-588"></a><span class="ss">* </span>Prior to ~2005, we had “data centers designed for high availability”.</span>
+<span id="cb8-589"><a href="#cb8-589"></a><span class="ss">* </span>Amazon had especially large ones, to serve its web requests</span>
+<span id="cb8-590"><a href="#cb8-590"></a><span class="ss">* </span>This is all before the AWS cloud model</span>
+<span id="cb8-591"><a href="#cb8-591"></a><span class="ss">* </span>The real goal was just to support online shopping</span>
+<span id="cb8-592"><a href="#cb8-592"></a><span class="ss">* </span>Their system wasn’t very reliable, and the core problem was scaling</span>
+<span id="cb8-593"><a href="#cb8-593"></a></span>
+<span id="cb8-594"><a href="#cb8-594"></a><span class="fu">## Throwback</span></span>
+<span id="cb8-595"><a href="#cb8-595"></a></span>
+<span id="cb8-596"><a href="#cb8-596"></a><span class="al">![Scaling Diagram](https://substackcdn.com/image/fetch/w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F24a9ef4a-517f-4a24-93c2-71c6b345914f_809x736.png)</span></span>
+<span id="cb8-597"><a href="#cb8-597"></a></span>
+<span id="cb8-598"><a href="#cb8-598"></a></span>
+<span id="cb8-599"><a href="#cb8-599"></a><span class="fu">## Yahoo! Experiment</span></span>
+<span id="cb8-600"><a href="#cb8-600"></a></span>
+<span id="cb8-601"><a href="#cb8-601"></a><span class="ss">* </span>In the 2005 time period everyone was talking about an experiment done at Yahoo. It was an “alpha/beta” experiment about ad-click-through</span>
+<span id="cb8-602"><a href="#cb8-602"></a><span class="ss">* </span>Customers who saw web page rendering faster than 100ms clicked ads.</span>
+<span id="cb8-603"><a href="#cb8-603"></a><span class="ss">* </span>For every 100ms delay, click-through rates noticeably dropped.</span>
+<span id="cb8-604"><a href="#cb8-604"></a></span>
+<span id="cb8-605"><a href="#cb8-605"></a><span class="fu">## Throwback</span></span>
+<span id="cb8-606"><a href="#cb8-606"></a></span>
+<span id="cb8-607"><a href="#cb8-607"></a><span class="al">![Yahoo 2005](https://www.webdesignmuseum.org/uploaded/timeline/yahoo/yahoo-2005.png)</span></span>
+<span id="cb8-608"><a href="#cb8-608"></a></span>
+<span id="cb8-609"><a href="#cb8-609"></a><span class="fu">## 100 MS</span></span>
+<span id="cb8-610"><a href="#cb8-610"></a></span>
+<span id="cb8-611"><a href="#cb8-611"></a>How long is 100 ms?</span>
+<span id="cb8-612"><a href="#cb8-612"></a></span>
+<span id="cb8-613"><a href="#cb8-613"></a>&lt;script&gt;</span>
+<span id="cb8-614"><a href="#cb8-614"></a><span class="kw">let</span> timer<span class="op">;</span></span>
+<span id="cb8-615"><a href="#cb8-615"></a><span class="kw">function</span> <span class="fu">myfunc</span>() {</span>
+<span id="cb8-616"><a href="#cb8-616"></a>    timer <span class="op">=</span> <span class="bu">window</span><span class="op">.</span><span class="fu">setInterval</span>(toggle<span class="op">,</span> <span class="dv">100</span>)<span class="op">;</span></span>
+<span id="cb8-617"><a href="#cb8-617"></a>    <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">'forhello'</span>)<span class="op">.</span><span class="at">innerText</span><span class="op">=</span><span class="st">''</span><span class="op">;</span></span>
+<span id="cb8-618"><a href="#cb8-618"></a>}</span>
+<span id="cb8-619"><a href="#cb8-619"></a><span class="kw">function</span> <span class="fu">toggle</span>() {</span>
+<span id="cb8-620"><a href="#cb8-620"></a>    <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">'forhello'</span>)<span class="op">.</span><span class="at">innerText</span><span class="op">=</span><span class="st">'Hello, World!'</span><span class="op">;</span></span>
+<span id="cb8-621"><a href="#cb8-621"></a>    <span class="bu">window</span><span class="op">.</span><span class="fu">clearInterval</span>(timer)<span class="op">;</span></span>
+<span id="cb8-622"><a href="#cb8-622"></a>}</span>
+<span id="cb8-623"><a href="#cb8-623"></a>&lt;/script&gt;</span>
+<span id="cb8-624"><a href="#cb8-624"></a></span>
+<span id="cb8-625"><a href="#cb8-625"></a>&lt;button onclick="myfunc();" style="font-size:1.5em"&gt;Sample Button&lt;/button&gt;</span>
+<span id="cb8-626"><a href="#cb8-626"></a>&lt;p style="outline-style:solid;" id="forhello"&gt;<span class="dv">&amp;nbsp;</span>&lt;/p&gt;</span>
+<span id="cb8-627"><a href="#cb8-627"></a></span>
+<span id="cb8-628"><a href="#cb8-628"></a><span class="fu">## The World Changed</span></span>
+<span id="cb8-629"><a href="#cb8-629"></a></span>
+<span id="cb8-630"><a href="#cb8-630"></a><span class="ss">* </span>At Amazon, Jeff Bezos spread the word internally.</span>
+<span id="cb8-631"><a href="#cb8-631"></a><span class="ss">* </span>He wanted Amazon to win this sprint.</span>
+<span id="cb8-632"><a href="#cb8-632"></a><span class="ss">* </span>The whole company was told to focus on ensuring that every Amazon product page would render with minimal delay.</span>
+<span id="cb8-633"><a href="#cb8-633"></a><span class="ss">* </span>Unfortunately… as more and more customers turned up… Amazon’s web pages slowed down. * </span>
+<span id="cb8-634"><a href="#cb8-634"></a></span>
+<span id="cb8-635"><a href="#cb8-635"></a>This is a “crisis of the commons” situation.</span>
+<span id="cb8-636"><a href="#cb8-636"></a></span>
+<span id="cb8-637"><a href="#cb8-637"></a><span class="fu">## By the way</span></span>
+<span id="cb8-638"><a href="#cb8-638"></a></span>
+<span id="cb8-639"><a href="#cb8-639"></a><span class="ss">- </span>This is what Bezos looked like in 2005.</span>
+<span id="cb8-640"><a href="#cb8-640"></a></span>
+<span id="cb8-641"><a href="#cb8-641"></a><span class="al">![Bezos](https://i.ytimg.com/vi/WhnDvvNS8zQ/hqdefault.jpg)</span></span>
+<span id="cb8-642"><a href="#cb8-642"></a></span>
+<span id="cb8-643"><a href="#cb8-643"></a></span>
+<span id="cb8-644"><a href="#cb8-644"></a><span class="fu">## The Commons</span></span>
+<span id="cb8-645"><a href="#cb8-645"></a></span>
+<span id="cb8-646"><a href="#cb8-646"></a><span class="ss">* </span>At the center of the village is a lovely grassy commons. Everyone uses it.</span>
+<span id="cb8-647"><a href="#cb8-647"></a><span class="ss">* </span>One day a farmworker has an awesome idea. They lets their goats graze on the commons. This saves a lot of rent dollars paid as part of a tenant farmer agreement.</span>
+<span id="cb8-648"><a href="#cb8-648"></a><span class="ss">* </span>They earns extra money with award-winning goats.</span>
+<span id="cb8-649"><a href="#cb8-649"></a></span>
+<span id="cb8-650"><a href="#cb8-650"></a>&lt;img width="30%" src="https://diversionaudio.com/wp-content/uploads/2023/01/goat-serena-williams-cover-3000x3000-1.png"&gt;</span>
+<span id="cb8-651"><a href="#cb8-651"></a></span>
+<span id="cb8-652"><a href="#cb8-652"></a>This is the plot of *King Richard* (2021)</span>
+<span id="cb8-653"><a href="#cb8-653"></a></span>
+<span id="cb8-654"><a href="#cb8-654"></a><span class="fu">## Cloud Commons?</span></span>
+<span id="cb8-655"><a href="#cb8-655"></a></span>
+<span id="cb8-656"><a href="#cb8-656"></a><span class="ss">* </span>In the cloud we need to think about all the internal databases and services “shared” by lots and lots users.</span>
+<span id="cb8-657"><a href="#cb8-657"></a><span class="ss">* </span>But what works best for one instance, all by itself, might overload the shared services when the same code runs side by side with huge numbers of other instances (“when we run at scale”)</span>
+<span id="cb8-658"><a href="#cb8-658"></a></span>
+<span id="cb8-659"><a href="#cb8-659"></a>Shorter: doing *n* things at once is hard.</span>
+<span id="cb8-660"><a href="#cb8-660"></a></span>
+<span id="cb8-661"><a href="#cb8-661"></a><span class="fu">## The Thundering Herd</span></span>
+<span id="cb8-662"><a href="#cb8-662"></a></span>
+<span id="cb8-663"><a href="#cb8-663"></a><span class="ss">* </span>In fact this is a very common pattern.</span>
+<span id="cb8-664"><a href="#cb8-664"></a><span class="ss">* </span>Something becomes successful at small scale, so everyone wants to try it.</span>
+<span id="cb8-665"><a href="#cb8-665"></a><span class="ss">* </span>But now the same code patterns that worked at small scale might break. </span>
+<span id="cb8-666"><a href="#cb8-666"></a><span class="ss">- </span>The key to scalability in a cloud is to use the cloud platform in a smart way.</span>
+<span id="cb8-667"><a href="#cb8-667"></a></span>
+<span id="cb8-668"><a href="#cb8-668"></a><span class="fu">## The Horror!</span></span>
+<span id="cb8-669"><a href="#cb8-669"></a></span>
+<span id="cb8-670"><a href="#cb8-670"></a><span class="al">![Instagram Down](https://staticimg.amarujala.com/assets/images/2021/09/02/instagram-down_1630565530.png?w=414)</span></span>
+<span id="cb8-671"><a href="#cb8-671"></a></span>
+<span id="cb8-672"><a href="#cb8-672"></a><span class="fu">## Prediction</span></span>
+<span id="cb8-673"><a href="#cb8-673"></a></span>
+<span id="cb8-674"><a href="#cb8-674"></a><span class="ss">* </span>Amazon reorganized their whole approach:</span>
+<span id="cb8-675"><a href="#cb8-675"></a><span class="ss">* </span>They began to guess (!!!) at your next action and precompute what they would probably need to answer your next query or link click.</span>
+<span id="cb8-676"><a href="#cb8-676"></a></span>
+<span id="cb8-677"><a href="#cb8-677"></a>Wait... isn't that... next token prediction?</span>
+<span id="cb8-678"><a href="#cb8-678"></a></span>
+<span id="cb8-679"><a href="#cb8-679"></a><span class="fu">## The Ouroboros    </span></span>
+<span id="cb8-680"><a href="#cb8-680"></a></span>
+<span id="cb8-681"><a href="#cb8-681"></a><span class="al">![](https://upload.wikimedia.org/wikipedia/commons/7/71/Serpiente_alquimica.jpg)</span></span>
+<span id="cb8-682"><a href="#cb8-682"></a></span>
+<span id="cb8-683"><a href="#cb8-683"></a><span class="fu">## Fast-forward</span></span>
+<span id="cb8-684"><a href="#cb8-684"></a></span>
+<span id="cb8-685"><a href="#cb8-685"></a><span class="ss">- </span>Today, the cloud *optimizes itself*</span>
+<span id="cb8-686"><a href="#cb8-686"></a><span class="ss">    - </span>Exascale servers... *serve* various applications.</span>
+<span id="cb8-687"><a href="#cb8-687"></a><span class="ss">        - </span>Food order/delivery</span>
+<span id="cb8-688"><a href="#cb8-688"></a><span class="ss">        - </span>Online shopping</span>
+<span id="cb8-689"><a href="#cb8-689"></a><span class="ss">        - </span>Video streaming</span>
+<span id="cb8-690"><a href="#cb8-690"></a><span class="ss">        - </span>Messaging</span>
+<span id="cb8-691"><a href="#cb8-691"></a><span class="ss">- </span>At each stage, LLMs and LLM like tools "work ahead" to try to make things seem faster than they could possibly be.</span>
+<span id="cb8-692"><a href="#cb8-692"></a></span>
+<span id="cb8-693"><a href="#cb8-693"></a><span class="fu">## The Result</span></span>
+<span id="cb8-694"><a href="#cb8-694"></a></span>
+<span id="cb8-695"><a href="#cb8-695"></a><span class="ss">- </span>My instagram infinity scroll "for you" page contains incredibly precisely targetted ads...</span>
+<span id="cb8-696"><a href="#cb8-696"></a><span class="ss">    - </span>Which lead to more online shopping or food order/delivery</span>
+<span id="cb8-697"><a href="#cb8-697"></a><span class="ss">    - </span>The wheel turns</span>
+<span id="cb8-698"><a href="#cb8-698"></a><span class="ss">- </span>My online shopping experience recommends things I am highly likely to need.</span>
+<span id="cb8-699"><a href="#cb8-699"></a><span class="ss">    - </span>Leading to me posting about them on instagram.</span>
+<span id="cb8-700"><a href="#cb8-700"></a><span class="ss">- </span>My YouTube feed etc. etc.</span>
+<span id="cb8-701"><a href="#cb8-701"></a></span>
+<span id="cb8-702"><a href="#cb8-702"></a><span class="fu">## Looking Ahead</span></span>
+<span id="cb8-703"><a href="#cb8-703"></a></span>
+<span id="cb8-704"><a href="#cb8-704"></a><span class="ss">- </span>Okay but wait.</span>
+<span id="cb8-705"><a href="#cb8-705"></a><span class="ss">- </span>Where does all that thinking take place?</span>
+<span id="cb8-706"><a href="#cb8-706"></a><span class="ss">- </span>*To be continued with the course final: Perspectives*</span>
+<span id="cb8-707"><a href="#cb8-707"></a></span>
+<span id="cb8-708"><a href="#cb8-708"></a><span class="fu"># Fin</span></span>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
