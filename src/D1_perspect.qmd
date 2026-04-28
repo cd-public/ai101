@@ -3,6 +3,36 @@ title: Perspectives
 format: html
 ---
 
+# Background
+
+This lab assignment introduces the content of the final cumulative assessment, a term paper.
+
+It will be due [Tuesday, May 5th, at 11:00 am](https://my.willamette.edu/site/registrar/info/mywu-summative-evaluations).
+
+It is described [here](Z_final.qmd).
+
+
+# Your Task
+
+## Think, Pair, Share
+
+- Find someone with whom to interact.
+    - Pursuant to Willamette College's writing-centered learning objectives, you are expected to (1) write and/or (2) discuss the writing process with (3) other students (4) during class time.
+- Prepare to take detailed notes.
+- Read over the "Perspectives on AI and Large-Scale Computing" section, including all parts.
+- Following your review of these materials, consider AI with respect to each of Willamette University's areas of focus per its [Strategic Plan](https://my.willamette.edu/site/leadership/strategic-plan):
+    -    Big data and human-centered computing
+         -   Do you regard AI as "big data"?
+         -   Do you regard AI as AI "human-centered"?
+    -    Democratic Institutions
+         -   Do you find AI strengthens or weakens democratic institutions?
+    -    Climate Change
+         -   Do you find AI exacerbates or mitigates anthropogenic climate change?
+- Read over the requirements for the final cumulative assessment, which are now posted.
+    - You can see them [here](Z_final.qmd).
+    - They are linked below the calendar on the main page of the website.
+
+
 # Perspectives on AI and Large-scale Computing
 
 AI (artifical intelligence) or "large-scale computing" (as it is termed by [Kate Crawford](https://katecrawford.net/)) is often understood as a morally neutral technology, but this understanding obscures many of the technological insights upon which AI is built and the place of AI in a broader society. As cumulative final for this term, explore a few perspectives on AI and large-scale computing, centering on Google, the platform used in most of course instruction and a large player in the Oregon's local data center landscape.

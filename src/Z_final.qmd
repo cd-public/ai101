@@ -1,0 +1,87 @@
+---
+title: Final
+format: html
+---
+
+# Due Date
+
+[Tuesday, May 5th, at 11:00 am](https://my.willamette.edu/site/registrar/info/mywu-summative-evaluations)
+
+# Your Task
+
+The final is described in 3 ways.
+
+1. Minimum length, in words, enumerated below.
+2. Minimum topics, covered in [Perspectives](D1_perspect.qmd).
+3. Minimum citations.
+4. Minimum structure.
+
+## Length & Topics
+
+- Submit a paper of minimum of 3500 words.
+    - Failure to meet length minimums will be regarded as a failed final and a maximum course grade of a C.
+- Address each of these seven (7) questions with a minimum of 500 words in the context of the paper.
+    -    How do you define "big data and human-centered computing" related to AI? (500+)
+         -   Do you regard AI as "big data"? (500+)
+         -   Do you regard AI as AI "human-centered"? (500+)
+    -    How do you define "democratic institutions" related to AI? (500+)
+         -   Do you find AI strengthens or weakens democratic institutions? (500+)
+    -    How do you define "climate change" related to AI? (500+)
+         -   Do you find AI exacerbates or mitigates anthropogenic climate change? (500+)
+- You may write a single cohesive paper or 7 distinct smaller pieces, but combine them all in one document for submission.
+
+### Early submissions
+
+- For every 24 hours early your assignment is turned in, you may reduce each minimum word count by 50 words.
+    - By 11:00 AM on Mon., May 4th: 450 words each, 3150 total.
+    - By 11:00 AM on Sun., May 3rd: 400 words each, 2800 total.
+    - By 11:00 AM on Sat., May 2nd: 350 words each, 2450 total.
+    - The final may not be submitted prior to Sat. due to Study Days.
+    
+### Late Submissions
+
+- Late submissions will not be accepted.
+    - A missing submission on May 5th at 11:00 AM will result in a failed final and a maximum course grade of a C.
+
+## Citations
+
+- You must cite each of the following:
+    - ["AI is an Ethical Nightmare" - Philosophy Tube](https://www.youtube.com/watch?v=AaU6tI2pb3M)
+    - ["The Thinking Game" - Google DeepMind](https://www.youtube.com/watch?v=d95J8yzvjbQ)
+    - ["Google Threatens Water Supply of Drought-Stricken Town" - More Perfect Union](https://www.youtube.com/watch?v=NRTHDERxANA)
+    - ["Residents consider what Google data center expansion means in The Dalles" - KPTV FOX 12 | Local news, weather Portland, Oregon](https://www.youtube.com/watch?v=peGNow7RP5M)
+    - ["Salmon People: The Fight to Preserve a Way of Life" - Oregon Field Guide](https://player.pbs.org/viralplayer/3077392000/)
+    - ["Timnit Gebru: Is AI racist and antidemocratic?" - Talk to Al Jazeera](https://www.youtube.com/watch?v=vUJVzIdRSnQ)
+- Include an exact quote and the relevant context.
+- Include at least on exact quote with citation in when answering each of the 7 questions.
+    - You may use external sources other than these to support your perspective.
+
+## Structure
+
+- Each of the 7 questions, which you answer, must be answer with minimally the follow.
+        - A thesis statement of approximately 140-280 characters stating your view on the question.
+        - A supporting citation, either from the 6 sources provided above, some other content of the course, or a source you find yourself.
+
+# Submission Instructions
+
+- Submit a PDF to [ckdeutschbein@willamette.edu](mailto:ckdeutschbein@willamette.edu).
+    - The subject should be `[AI 101] Final Submission`
+    - You have infinite resubmits up to the deadline; I just grade the latest.
+    - If you early submit, I will *try* to get your course grade to you early.
+        - Depends on how many early submits come in.
+- I will try to reply to confirm I've received them for your piece of mind.
+
+# Scoring
+
+- Graded on [AP Scale](https://apcentral.collegeboard.org/media/pdf/ap-english-language-and-composition-frqs-1-2-3-scoring-rubrics.pdf) for argument essay.
+- I will "curve" the AP raw scores such that meeting all structure minimums (7 each of thesis and citations) corresponds to an A- on the final, for a course grade of A if labs were completed.
+- I will not grade late or "too short" submissions.
+    - If you are struggling to meet the length minimums, this is a sign you should provide more evidence for your claims, either in argument or citation.
+    
+# AI Usage
+
+- You may use AI/LLMs/ChatGPT et al. but I don't expect it to be able to:
+    - Easily pull quotes from long-form video essays.
+    - Have your own opinion on any of the seven main questions.
+- Include AI generated text in quotations, and provide citations to AI generated ideas, as you would to any other source, such a video essay or Wikipedia.
+- AI/LLMs/ChatGPT et al. do not count toward your seven total citations.
