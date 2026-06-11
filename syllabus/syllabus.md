@@ -11,15 +11,11 @@ format: typst
   |:--------------------------------------------|---------------------------------------------------------------------------:|
  | [ckdeutschbein@willamette.edu](ckdeutschbein@willamette.edu) | [cd-public.github.io/](https://cd-public.github.io/)|
  | Office Hours: TTh 1110-1310                               |                            Lecture: TTh 09401110   |
-| Office: Ford 307, Discord |                                                                                       Classroom: Salem TBD |
+| Office: Ford 307, Discord |                                                                                       Classroom: Ford Hall 102 |
 
 # Course Description 
 
-## CS-199 
-
-A semester-long study of topics in Computer Science. Topics and emphases will vary according to the instructor. This course may be repeated for credit with different topics.
-
-## Understanding AI
+## AI-101 
 
 The promise of artificial intelligence has captured the collective imaginations of millions of people. Can machines think? What does it mean to be intelligent? What's next? Guided by student inquiry, we will learn how to construct thinking - or the appearance thereof - from following basic instructions. Using simple problems from games, image recognition, and text prediction, we will develop simple models that capture the ideas of the most advanced AI models.. With this shared experience, we will be able to reflect more thoughtfully on the implications of artificial intelligence on the self, culture, and society.
 
@@ -30,7 +26,7 @@ Calvin Deutschbein is an assistant professor of computer science.
 # Required Materials 
 
 Required materials for a given class will be available on the [course
-webpage](https://cd-public.github.io/). All course materials will
+webpage](https://cd-public.github.io/ai101/). All course materials will
 be made available at no cost to the student.
 
 # Accessability 
@@ -58,14 +54,14 @@ The course will be composed of lecture, labs, and homework.
 
 ## Class Structure 
 
-Classes are scheduled for Monday and Wednesday at 10:20 PM. The lecture
+Classes are scheduled twice weekly. The lecture
 schedule is on the [course webpage](https://cd-public.github.io/ai101).
 
 ## Feedback and Grading 
 
 ### Grading Scale 
 
-This course will be ungraded.  I am opinion-gifted with respect to AI topics, and do not want a grader/gradee relationship to influence how you engage with the class.
+This course will be ungraded.  I am opinion-gifted with respect to AI topics, and do not want a grader/gradee relationship to influence how you engage with the class, but I do want you *to* engage with the class.
 
 * **Students will begin the course with a grade of an "A"**
     * Students will be expected to attend class.
@@ -81,6 +77,10 @@ This course will be ungraded.  I am opinion-gifted with respect to AI topics, an
     * Students will be expected to provide respectful individual feedback to one another.
     * Students will be able to request feedback from the instructor at any time.
     * Students will receive narrative rather than quantitative feedback.
+    
+These policies apply to all coursework up to the final term paper, which must be completed to earn a high score (B- or higher) in the course. 
+
+A completed final is submitted on time and contains all required elements at the required length. The final is described on the [course webpage "Final" page](https://cd-public.github.io/ai101/Z_final.html).
 
 # Course Policies
 
