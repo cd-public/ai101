@@ -3,14 +3,14 @@ author:
 - Calvin Deutschbein
 date: Spring 2025
 title: AI 101 
-subtitle: CS-199 Top. Understanding AI
+subtitle: Understanding AI
 format: typst 
 ---
 
 |||
   |:--------------------------------------------|---------------------------------------------------------------------------:|
  | [ckdeutschbein@willamette.edu](ckdeutschbein@willamette.edu) | [cd-public.github.io/](https://cd-public.github.io/)|
- | Office Hours: MWF 1200-1300                               |                            Lecture: MWF 10:20-11:50 |
+ | Office Hours: TTh 1110-1310                               |                            Lecture: TTh 09401110   |
 | Office: Ford 307, Discord |                                                                                       Classroom: Salem TBD |
 
 # Course Description 

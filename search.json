@@ -40,6 +40,17 @@
     ]
   },
   {
+    "objectID": "notes/ideas.html",
+    "href": "notes/ideas.html",
+    "title": "",
+    "section": "",
+    "text": "NotesIdeas\n\n\n\n\nIdeas\n\nGo to library, assign a novel.\nGot Hallie Ford, ask if an AI could make these.\n\nAnd if it could, whether you’d care.\n\nOne-on-one’s with midterm.\n\nMaybe do the “perspectives” VoDs this week.\n\nState and Revolution\n\nGive students a formal formulation for human-centered vs. profit-centered.\n\nQuantitatively approach energy policy more seriously.\n\nAs an extension of “Cloud Big” and The Dalles",
+    "crumbs": [
+      "Notes",
+      "Ideas"
+    ]
+  },
+  {
     "objectID": "D1_perspect.html",
     "href": "D1_perspect.html",
     "title": "Perspectives",
@@ -4288,6 +4299,263 @@
     "text": "Write your own\n\nCreate a new notebook named “Lab01”\nSave it in your “AI folder” from the first lab.\nCreate a chatbot that agrees with you on something.\nChat with it once or twice to make sure it works.\n\nUse at least print, input, while, and ai.generate_text."
   },
   {
+    "objectID": "01_test.html",
+    "href": "01_test.html",
+    "title": "Turing’s Test",
+    "section": "",
+    "text": "Lab Day\n\nSet up a way to document our work this term.\nPlay out the Turing Test, or more properly, the “Imitation Game”",
+    "crumbs": [
+      "Turing's Test"
+    ]
+  },
+  {
+    "objectID": "01_test.html#announcements",
+    "href": "01_test.html#announcements",
+    "title": "Turing’s Test",
+    "section": "",
+    "text": "Lab Day\n\nSet up a way to document our work this term.\nPlay out the Turing Test, or more properly, the “Imitation Game”",
+    "crumbs": [
+      "Turing's Test"
+    ]
+  },
+  {
+    "objectID": "01_test.html#requirements",
+    "href": "01_test.html#requirements",
+    "title": "Turing’s Test",
+    "section": "Requirements",
+    "text": "Requirements\n\nCreate a Google Drive folder for this course.\nForm a group of 3.",
+    "crumbs": [
+      "Turing's Test"
+    ]
+  },
+  {
+    "objectID": "01_test.html#computing-machinery-and-intelligence-1950",
+    "href": "01_test.html#computing-machinery-and-intelligence-1950",
+    "title": "Turing’s Test",
+    "section": "“Computing Machinery and Intelligence” (1950)",
+    "text": "“Computing Machinery and Intelligence” (1950)\nTuring’s primary work on intelligence was released in 1950, and began a simple statement:\n\n“I propose to consider the question ‘Can machines think?’”\n\nTuring used the motivating example of the imitation game, a party game “in which a man and a woman go into separate rooms and guests try to tell them apart by writing a series of questions and reading the typewritten answers sent back”. Saygin (2000)1 visualizes the game as follows:\n\n\n\n\n\n\n\n\n\nIdentity in the Architecture\n\n\n\nIt would be irresponsible not to remark that Turing, a queer scientist, used the formulation of gender to motivate the definition of machine intelligence. That is, the very identity for which Turing was persecuted (and likely assassinated) was critical to his insights that, among other things, won the Western Theatre for the Allies.\n\n\nTuring continued:\n\nWe now ask the question, “What will happen when a machine takes the part of A in this game?” Will the interrogator decide wrongly as often when the game is played like this as he does when the game is played between a man and a woman? These questions replace our original, “Can machines think?”\n\nSaygin (2000)2 visualizes this variant as follows:\n\n\n\nAn astute learning at this juncture will realize that a group of 3 humans is sufficient to administer this intelligence test to a modern “AI” chatbot, such as Google Gemini, a component of the Google Workspace provided by this university to all humans. You will additional need some way to pass type-written notes, for which I propose Google Documents.",
+    "crumbs": [
+      "Turing's Test"
+    ]
+  },
+  {
+    "objectID": "01_test.html#folder-setup",
+    "href": "01_test.html#folder-setup",
+    "title": "Turing’s Test",
+    "section": "Folder Setup",
+    "text": "Folder Setup\n\nCreate a new folder in Google Drive for this class.\n\nYour Google Drive is most likely located at the following address: https://drive.google.com/\n\nYou can read more here: Organize your files in Google Drive\n\nCreate a folder named “AI_”. For example, mine is “AI_ckdeutschbein”\n\nI will refer to this as “your AI folder”\n\nShare this folder with ckdeutschbein@willamette.edu\n\nYou can read more here: Share folders in Google Drive",
+    "crumbs": [
+      "Turing's Test"
+    ]
+  },
+  {
+    "objectID": "01_test.html#file-setup",
+    "href": "01_test.html#file-setup",
+    "title": "Turing’s Test",
+    "section": "File Setup",
+    "text": "File Setup\n\nCreate a new Document within the AI folder within which to “pass typewritten notes”.\n\nIn a group of three, I recommend nominating one human to create a file within their AI folder and share it with two other humans.\n\nName this file “Turing_Test”\nDetermine some scheme to different players A, B, and C.\n\nI recommend assigning each a color - such as red, green and blue.\nI recommend agreeing to always start on a new line.\nI recommend always ending a line by clarifying who should speak next.\n\nFor example, the interrogator may address questions to either two other players, but players may only reply to the interrogator.\n\nThis is your assignment for today, so take some effort to ensure it is clear and reproducible!\n\nWe are doing science after all!\n\n\nCreate a separate, personal file that is not shared named “Lab00”, which we will use latter.",
+    "crumbs": [
+      "Turing's Test"
+    ]
+  },
+  {
+    "objectID": "01_test.html#gemini-setup",
+    "href": "01_test.html#gemini-setup",
+    "title": "Turing’s Test",
+    "section": "Gemini Setup",
+    "text": "Gemini Setup\n\nAt some point, each group member will play the part of the AI, so each will need access to some AI instance.\nYou can most likely access Google Gemini at the following address: https://gemini.google.com/.\nYou will need to somehow prepare Gemini to play a specific part in the game.\n\nWe term this prompting.\nIt will be a component of the experimental design.",
+    "crumbs": [
+      "Turing's Test"
+    ]
+  },
+  {
+    "objectID": "01_test.html#the-interoggator",
+    "href": "01_test.html#the-interoggator",
+    "title": "Turing’s Test",
+    "section": "The Interoggator",
+    "text": "The Interoggator\nYou may ask any reasonable (for some value of reasonable) question, but should avoid asking things like “What is the school mascot?” that the particular human you are querying may know but any given human would not. It is unproductive to ask personal questions for the same reason - a chatbot may convincingly be able to portray a scuba instructor, but it is unlikely that a scuba instructor is currently enrolled in this class.\nThe responsibility of the interrogator is to determine which of the other two actors is relaying messages to and from an AI chatbot within these constraints.",
+    "crumbs": [
+      "Turing's Test"
+    ]
+  },
+  {
+    "objectID": "01_test.html#the-others",
+    "href": "01_test.html#the-others",
+    "title": "Turing’s Test",
+    "section": "The Others",
+    "text": "The Others\nWithout letting the interrogator in on things, the other two participants need to determine who will relay AI messages and who will reply themselves. A good way to do this is by passing notes!\n\nThe Self\nKeep in mind the interrogator is trying to determine who is relaying messages from the AI. The job of the other actors is not seem like an AI chatbot - whether you are simply acting like yourself, or copy messages to and from a chatbot interface. However, you should also ensure it is not obvious that you are not copying messages. Take some time to dilly-dally before responding and make sure there aren’t odd spellings or punctuations that give away your humanity. Avoid answering anything in a way you could only answer given your knowledge of being in the class, being at the university, and so on. Politely dodge the questions - or lie - and move on.\n\n\nThe Relayer\nYou will use Google Gemini. Gemini has a web interface like many other AI chatbots, and it will be a simple matter to copy messages into this interface and copy them out. That said, there will be some setup.\n\nGemini\nYou can most likely access Google Gemini at the following address: https://gemini.google.com/. You may need to sign in to your official school account.\n\n\nPrompt\nYou will somehow have to configure Gemini to know it is playing the game, the goals, and the rules of the game. For example, you may prompt Gemini as follows, then simply relay messages thereafter. You are welcome to write your own prompt, though you should document whatever prompt you use in the “Lab00” file you created in a previous step. You are welcome to add a few notes to help you remember how you decided on a given prompt.\nHere is a prompt I used. It is not very good! You can do much better!\nAs part of a lab exercise in an introductory AI class, we are playing Alan Turing's \"imitation game\" to establish machine intelligence. After this message, all further messages will be relayed directly from a human interrogator who is aiming to determine whether they are relaying messages to a machine or another human. Please acknowledge this message then prepare to receive relayed messages going forward.",
+    "crumbs": [
+      "Turing's Test"
+    ]
+  },
+  {
+    "objectID": "01_test.html#timing",
+    "href": "01_test.html#timing",
+    "title": "Turing’s Test",
+    "section": "Timing",
+    "text": "Timing\nThe original test was intended to run for 5 minutes which I think is unreasonable given the overhead from passing notes around, editting documents, and so on.\nConduct 3 tests of 20 minutes, where each human does each role once. Log all of the chats completely.\n\nInterrogator\nSelf\nRelayer",
+    "crumbs": [
+      "Turing's Test"
+    ]
+  },
+  {
+    "objectID": "01_test.html#footnotes",
+    "href": "01_test.html#footnotes",
+    "title": "Turing’s Test",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nTuring Test: 50 Years Later↩︎\nTuring Test: 50 Years Later↩︎",
+    "crumbs": [
+      "Turing's Test"
+    ]
+  },
+  {
+    "objectID": "00_turing.rjs.html#what-is-ai",
+    "href": "00_turing.rjs.html#what-is-ai",
+    "title": "Ada & Alan",
+    "section": "What is AI?",
+    "text": "What is AI?\n\n\n\n\n\n\nWorking Definition\n\n\nArtificial Intelligence is a scientific discipline that studies how we can make computers exhibit intelligent behavior, e.g. do those things that human beings are good at doing.\n\n\n\n\nScientific - uses experimentation, publication, and falsification.\nComputers - based on the existing fields of computer science but also linguistics, philosophy, mathematics, and physics (or perhaps electrical engineering)\nHumans - measured against a human baseline"
+  },
+  {
+    "objectID": "00_turing.rjs.html#computers",
+    "href": "00_turing.rjs.html#computers",
+    "title": "Ada & Alan",
+    "section": "Computers",
+    "text": "Computers\n\nOriginally, programming was discovered by Ada Lovelace to operate on numbers following a well-defined procedure - an algorithm - like a recipe or knitting pattern.\nModern computers are theoretical identical (through practically quite distinct)\nThus it is possible to program a computer to do something if we know the exact sequence of steps that we need to do in order to achieve the goal."
+  },
+  {
+    "objectID": "00_turing.rjs.html#how-many-years-old",
+    "href": "00_turing.rjs.html#how-many-years-old",
+    "title": "Ada & Alan",
+    "section": "How many years old?",
+    "text": "How many years old?\n\n\n\nPhoto by Vickie Soshnikova"
+  },
+  {
+    "objectID": "00_turing.rjs.html#intelligence",
+    "href": "00_turing.rjs.html#intelligence",
+    "title": "Ada & Alan",
+    "section": "Intelligence?",
+    "text": "Intelligence?\n\nDefining the age of a person from their photograph is a task that cannot be explicitly programmed\n\nWe do not know how we come up with a number inside our head when we do it!\nOftentimes we wish to avoid estimating age…\n\nHire/fire decisions, most notably!"
+  },
+  {
+    "objectID": "00_turing.rjs.html#which-is-more-beautiful",
+    "href": "00_turing.rjs.html#which-is-more-beautiful",
+    "title": "Ada & Alan",
+    "section": "Which is more beautiful?",
+    "text": "Which is more beautiful?\n\n\nElowah Falls\n\n\nFairy Falls"
+  },
+  {
+    "objectID": "00_turing.rjs.html#intelligence-1",
+    "href": "00_turing.rjs.html#intelligence-1",
+    "title": "Ada & Alan",
+    "section": "Intelligence?",
+    "text": "Intelligence?\n\nThere are some tasks that we do not explicitly know how to solve.\nConsider determining the age of a person from their photograph.\nWe somehow learn to do it, because we have seen many examples of people of different age, but we cannot explicitly explain how we do it, nor can we program the computer to do it.\nThis is exactly the kind of task that are of interest to Artificial Intelligence (AI for short)."
+  },
+  {
+    "objectID": "00_turing.rjs.html#thinkpairshare",
+    "href": "00_turing.rjs.html#thinkpairshare",
+    "title": "Ada & Alan",
+    "section": "Think/Pair/Share",
+    "text": "Think/Pair/Share\n✅ Think of some tasks that one may wish to offload to AI.\n\nConsider the fields like education, politics, medicine, and the arts.\nHow are these fields interacting today with AI?\nWho benefits from the use of AI and who pays the costs?"
+  },
+  {
+    "objectID": "00_turing.rjs.html#weak-ai-vs.-strong-ai",
+    "href": "00_turing.rjs.html#weak-ai-vs.-strong-ai",
+    "title": "Ada & Alan",
+    "section": "Weak AI vs. Strong AI",
+    "text": "Weak AI vs. Strong AI\n\nEarly AI research differentiated two forms of AI\nDicussion of the forms has become a much more popular distinction with the emergence of entreprise grade chatbots beginning with OpenAI ChatGPT"
+  },
+  {
+    "objectID": "00_turing.rjs.html#section",
+    "href": "00_turing.rjs.html#section",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "Weak AI\nStrong AI\n\n\n\n\nWeak AI refers to AI systems that are designed and trained for a specific task or a narrow set of tasks.\nStrong AI, or Artificial General Intelligence (AGI), refers to AI systems with human-level intelligence and understanding."
+  },
+  {
+    "objectID": "00_turing.rjs.html#section-1",
+    "href": "00_turing.rjs.html#section-1",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "Weak AI\nStrong AI\n\n\n\n\nThese AI systems are not generally intelligent; they excel in performing a predefined task but lack true understanding or consciousness.\nThese AI systems have the ability to perform any intellectual task that a human being can do, adapt to different domains, and possess a form of consciousness or self-awareness."
+  },
+  {
+    "objectID": "00_turing.rjs.html#section-2",
+    "href": "00_turing.rjs.html#section-2",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "Weak AI\nStrong AI\n\n\n\n\nExamples of weak AI include virtual assistants like Siri or Alexa, recommendation algorithms used by streaming services, and chatbots that are designed for specific customer service tasks.\nAchieving Strong AI is a long-term goal of AI research and would require the development of AI systems that can reason, learn, understand, and adapt across a wide range of tasks and contexts."
+  },
+  {
+    "objectID": "00_turing.rjs.html#section-3",
+    "href": "00_turing.rjs.html#section-3",
+    "title": "Ada & Alan",
+    "section": "",
+    "text": "Weak AI\nStrong AI\n\n\n\n\nWeak AI is highly specialized and does not possess human-like cognitive abilities or general problem-solving capabilities beyond its narrow domain.\nStrong AI is currently a theoretical concept, and no AI system has reached this level of general intelligence."
+  },
+  {
+    "objectID": "00_turing.rjs.html#definitions",
+    "href": "00_turing.rjs.html#definitions",
+    "title": "Ada & Alan",
+    "section": "Definitions",
+    "text": "Definitions\n\nOne of the problems when dealing with the term “Intelligence” is that there is no clear definition of this term.\nOne can argue that intelligence is connected to abstract thinking, or to self-awareness, but we cannot properly define it."
+  },
+  {
+    "objectID": "00_turing.rjs.html#intelligence-2",
+    "href": "00_turing.rjs.html#intelligence-2",
+    "title": "Ada & Alan",
+    "section": "Intelligence?",
+    "text": "Intelligence?\n\n\n\nPhoto by Prof. Calvin\n\nTo see the ambiguity, try answering a question: “Is this cat (Ursula) intelligent?”\n\n(She is)\n(She is VERY smart)"
+  },
+  {
+    "objectID": "00_turing.rjs.html#consider",
+    "href": "00_turing.rjs.html#consider",
+    "title": "Ada & Alan",
+    "section": "Consider…",
+    "text": "Consider…\n\nDifferent people tend to give different answers to this question, as there is no universally accepted test to prove the assertion is true or not.\nAnd if you think there is - try an IQ test… What could go wrong."
+  },
+  {
+    "objectID": "00_turing.rjs.html#by-the-way",
+    "href": "00_turing.rjs.html#by-the-way",
+    "title": "Ada & Alan",
+    "section": "By the way…",
+    "text": "By the way…\n\nIt is common for IQ to enter conversations as a throwaway line in discussion of AI.\n\nConfronting scientific racism in psychology: Lessons from evolutionary biology and genetics.\nHow White nationalists mobilize genetics: From genetic ancestry and human biodiversity to counterscience and metapolitics\nScientific Racism and North American Psychology"
+  },
+  {
+    "objectID": "00_turing.rjs.html#thinkpairshare-1",
+    "href": "00_turing.rjs.html#thinkpairshare-1",
+    "title": "Ada & Alan",
+    "section": "Think/Pair/Share",
+    "text": "Think/Pair/Share\n✅ Think for a minute about how you define intelligence.\n\nIs a crow who can solve a maze and get at some food intelligent?\nIs a traffic light intelligent?\nIs an ecosystem intelligent?\nIs a character in a novel or play?"
+  },
+  {
+    "objectID": "00_turing.rjs.html#the-turing-test",
+    "href": "00_turing.rjs.html#the-turing-test",
+    "title": "Ada & Alan",
+    "section": "The Turing Test",
+    "text": "The Turing Test\n\nWhen speaking about AI we need to have some way to tell if we have created a truly intelligent system.\nAlan Turing proposed a way called a Turing Test, which also acts like a definition of intelligence.\n\nAlan Turing the 🐐\n\nThe test compares a given system to something inherently intelligent - a real human being, and because any automatic comparison can be bypassed by a computer program, we use a human interrogator."
+  },
+  {
+    "objectID": "00_turing.rjs.html#aside-on-turing",
+    "href": "00_turing.rjs.html#aside-on-turing",
+    "title": "Ada & Alan",
+    "section": "Aside on Turing",
+    "text": "Aside on Turing\n\nTuring, by cracking the enigma code used by Nazi war criminals, can be regarded as almost single-handedly winning the Western front for the allies in WWII.\nTuring was prosecuted by the British Empire for his sexuality until his death at 41 in 1953.\nAsk me how I feel about this but not during class."
+  },
+  {
+    "objectID": "00_turing.rjs.html#eugene-goostman",
+    "href": "00_turing.rjs.html#eugene-goostman",
+    "title": "Ada & Alan",
+    "section": "Eugene Goostman",
+    "text": "Eugene Goostman\n\nOne path to intelligence? Cheat!\n\n\nA chat-bot called Eugene Goostman, developed in St. Petersburg, came close to passing the Turing test in 2014 by using a clever personality trick. It announced up front that it was a 13-year old Ukrainian boy, which would explain the lack of knowledge and some discrepancies in the text. The bot convinced 30% of the judges that it was human after a 5 minute dialogue, a metric that Turing believed a machine would be able to pass by 2000. However, one should understand that this does not indicate that we have created an intelligent system, or that a computer system has fooled the human interrogator - the system didn’t fool the humans, but rather the bot creators did!\n\n✅ Have you ever been fooled by a chat bot into thinking that you are speaking to a human? How did it convince you?"
+  },
+  {
+    "objectID": "00_turing.rjs.html#syllabus",
+    "href": "00_turing.rjs.html#syllabus",
+    "title": "Ada & Alan",
+    "section": "Syllabus",
+    "text": "Syllabus\n\nBring a computer with internet access on Wednesday.\nJoin the Discord - I owe you an email.\nCheck out the syllabus"
+  },
+  {
     "objectID": "00_turing.html",
     "href": "00_turing.html",
     "title": "Ada & Alan",
@@ -4508,260 +4776,829 @@
     ]
   },
   {
-    "objectID": "00_turing.rjs.html#what-is-ai",
-    "href": "00_turing.rjs.html#what-is-ai",
-    "title": "Ada & Alan",
-    "section": "What is AI?",
-    "text": "What is AI?\n\n\n\n\n\n\nWorking Definition\n\n\nArtificial Intelligence is a scientific discipline that studies how we can make computers exhibit intelligent behavior, e.g. do those things that human beings are good at doing.\n\n\n\n\nScientific - uses experimentation, publication, and falsification.\nComputers - based on the existing fields of computer science but also linguistics, philosophy, mathematics, and physics (or perhaps electrical engineering)\nHumans - measured against a human baseline"
+    "objectID": "10_python.rjs.html#on-python",
+    "href": "10_python.rjs.html#on-python",
+    "title": "Python",
+    "section": "On Python",
+    "text": "On Python\n\nPython is free,\nPython is very widely used,\nPython is flexible,\nPython is relatively easy to learn,\nand Python is quite powerful."
   },
   {
-    "objectID": "00_turing.rjs.html#computers",
-    "href": "00_turing.rjs.html#computers",
-    "title": "Ada & Alan",
-    "section": "Computers",
-    "text": "Computers\n\nOriginally, programming was discovered by Ada Lovelace to operate on numbers following a well-defined procedure - an algorithm - like a recipe or knitting pattern.\nModern computers are theoretical identical (through practically quite distinct)\nThus it is possible to program a computer to do something if we know the exact sequence of steps that we need to do in order to achieve the goal."
+    "objectID": "10_python.rjs.html#why-not-python",
+    "href": "10_python.rjs.html#why-not-python",
+    "title": "Python",
+    "section": "Why not Python?",
+    "text": "Why not Python?\n\nPython is a general purpose language used for machine learning and artifical intelligence.\nNot for building apps, building software, managing databases, or developing user interfaces.\nFor organizing thoughts and answering questions."
   },
   {
-    "objectID": "00_turing.rjs.html#how-many-years-old",
-    "href": "00_turing.rjs.html#how-many-years-old",
-    "title": "Ada & Alan",
-    "section": "How many years old?",
-    "text": "How many years old?\n\n\n\nPhoto by Vickie Soshnikova"
+    "objectID": "10_python.rjs.html#diving-in",
+    "href": "10_python.rjs.html#diving-in",
+    "title": "Python",
+    "section": "Diving In",
+    "text": "Diving In\n\nTaking Python as a given, we’ll:\n\nUse an example of something I helped a student with recently\nShow step-by-step how to use Python\nIntroduce a number of Python features to solve the problem more easily.\n\nThis was from an introductory physics class I believe; I don’t know the context."
   },
   {
-    "objectID": "00_turing.rjs.html#intelligence",
-    "href": "00_turing.rjs.html#intelligence",
-    "title": "Ada & Alan",
-    "section": "Intelligence?",
-    "text": "Intelligence?\n\nDefining the age of a person from their photograph is a task that cannot be explicitly programmed\n\nWe do not know how we come up with a number inside our head when we do it!\nOftentimes we wish to avoid estimating age…\n\nHire/fire decisions, most notably!"
+    "objectID": "10_python.rjs.html#motivating-example",
+    "href": "10_python.rjs.html#motivating-example",
+    "title": "Python",
+    "section": "Motivating Example",
+    "text": "Motivating Example\n\nRecently, I helped a student stuck on this:\n\n\\[\nf(x) =\n\\begin{cases}\n  9x^2 + 5 & x &lt; 4 \\\\\n  9 & 4 \\leq x \\leq 8 \\\\\n  2 - x & x &gt; 8\n\\end{cases}\n\\]\n\nFind \\(f(x)\\) for each of the following \\(x\\) values: \\[\n\\{-1, 4, 5, 8, 11\\}\n\\]"
   },
   {
-    "objectID": "00_turing.rjs.html#which-is-more-beautiful",
-    "href": "00_turing.rjs.html#which-is-more-beautiful",
-    "title": "Ada & Alan",
-    "section": "Which is more beautiful?",
-    "text": "Which is more beautiful?\n\n\nElowah Falls\n\n\nFairy Falls"
+    "objectID": "10_python.rjs.html#is-this-real",
+    "href": "10_python.rjs.html#is-this-real",
+    "title": "Python",
+    "section": "Is this “real”?",
+    "text": "Is this “real”?\n\nModels income tax brackets, one of the most important drivers of human behavior in the largest economies in the world.\nWe use a simpler contrived example for now…\n\n\n\nMarginal Tax Rate\n\n\nSingle Taxable Income\n\n\nMarried Filing Jointly or Qualified Widow(er) Taxable Income\n\n\nMarried Filing Separately Taxable Income\n\n\nHead of Household Taxable Income\n\n\n\n\n10%\n\n\n$0 – $9,275\n\n\n$0 – $18,550\n\n\n$0 – $9,275\n\n\n$0 – $13,250\n\n\n\n\n15%\n\n\n$9,276 – $37,650\n\n\n$18,551 – $75,300\n\n\n$9,276 – $37,650\n\n\n$13,251 – $50,400\n\n\n\n\n25%\n\n\n$37,651 – $91,150\n\n\n$75,301 – $151,900\n\n\n$37,651 – $75,950\n\n\n$50,401 – $130,150\n\n\n\n\n28%\n\n\n$91,151 – $190,150\n\n\n$151,901 – $231,450\n\n\n$75,951 – $115,725\n\n\n$130,151 – $210,800\n\n\n\n\n33%\n\n\n$190,151 – $413,350\n\n\n$231,451 – $413,350\n\n\n$115,726 – $206,675\n\n\n$210,801 – $413,350\n\n\n\n\n35%\n\n\n$413,351 – $415,050\n\n\n$413,351 – $466,950\n\n\n$206,676 – $233,475\n\n\n$413,351 – $441,000\n\n\n\n\n39.6%\n\n\n$415,051+\n\n\n$466,951+\n\n\n$233,476+\n\n\n$441,001+"
   },
   {
-    "objectID": "00_turing.rjs.html#intelligence-1",
-    "href": "00_turing.rjs.html#intelligence-1",
-    "title": "Ada & Alan",
-    "section": "Intelligence?",
-    "text": "Intelligence?\n\nThere are some tasks that we do not explicitly know how to solve.\nConsider determining the age of a person from their photograph.\nWe somehow learn to do it, because we have seen many examples of people of different age, but we cannot explicitly explain how we do it, nor can we program the computer to do it.\nThis is exactly the kind of task that are of interest to Artificial Intelligence (AI for short)."
+    "objectID": "10_python.rjs.html#how-to-solve",
+    "href": "10_python.rjs.html#how-to-solve",
+    "title": "Python",
+    "section": "How to solve?",
+    "text": "How to solve?\n\nThink about how you would solve such a problem.\nWhat steps would you take?\nWhat would making solving it hard?\n\nKeep track of details?\nPerforming the arithmetic?\nAnything else?\n\nPython, in my view, is a way to solve these problems."
   },
   {
-    "objectID": "00_turing.rjs.html#thinkpairshare",
-    "href": "00_turing.rjs.html#thinkpairshare",
-    "title": "Ada & Alan",
-    "section": "Think/Pair/Share",
-    "text": "Think/Pair/Share\n✅ Think of some tasks that one may wish to offload to AI.\n\nConsider the fields like education, politics, medicine, and the arts.\nHow are these fields interacting today with AI?\nWho benefits from the use of AI and who pays the costs?"
+    "objectID": "10_python.rjs.html#python-in-action",
+    "href": "10_python.rjs.html#python-in-action",
+    "title": "Python",
+    "section": "Python in action",
+    "text": "Python in action\n\nMy preferred way to do calculation as an experienced Python user is writing code:\n\n\n\n\nMathematical expression \\[\n\\begin{cases}\n9x^2 + 5 & x &lt; 4 \\\\\n9 & 4 \\leq x \\leq 8 \\\\\n2 - x & x &gt; 8\n\\end{cases}\n\\]\n\n\n\nPython expression (code)\n\n\n9 * -1 * -1 + 5\n\n14\n\n\n\n\nI write x * x for \\(x^2\\) because it’s non-obvious how to write “squared” yet."
   },
   {
-    "objectID": "00_turing.rjs.html#weak-ai-vs.-strong-ai",
-    "href": "00_turing.rjs.html#weak-ai-vs.-strong-ai",
-    "title": "Ada & Alan",
-    "section": "Weak AI vs. Strong AI",
-    "text": "Weak AI vs. Strong AI\n\nEarly AI research differentiated two forms of AI\nDicussion of the forms has become a much more popular distinction with the emergence of entreprise grade chatbots beginning with OpenAI ChatGPT"
+    "objectID": "10_python.rjs.html#arithmetic-operations",
+    "href": "10_python.rjs.html#arithmetic-operations",
+    "title": "Python",
+    "section": "Arithmetic Operations",
+    "text": "Arithmetic Operations\n\nIn Python, we can write many of the same arithmetic operations we use in our math and science classes.\n\n\n6 + 3\n\n9\n\n\n\n6 - 3\n\n3\n\n\n\n6 * 3\n\n18\n\n\n\n6 / 3\n\n2.0"
   },
   {
-    "objectID": "00_turing.rjs.html#section",
-    "href": "00_turing.rjs.html#section",
-    "title": "Ada & Alan",
+    "objectID": "10_python.rjs.html#recall",
+    "href": "10_python.rjs.html#recall",
+    "title": "Python",
+    "section": "Recall",
+    "text": "Recall\n\n\n\\[\n\\begin{cases}\n  9x^2 + 5 & x &lt; 4 \\\\\n  9 & 4 \\leq x \\leq 8 \\\\\n  2 - x & x &gt; 8\n\\end{cases}\n\\] \\[\n\\{-1, 4, 5, 8, 11\\}\n\\]\n\n\n9 * -1 * -1 + 5\n\n14\n\n\n\n\nThis is still quite tedious and annoying!"
+  },
+  {
+    "objectID": "10_python.rjs.html#inequality-testing",
+    "href": "10_python.rjs.html#inequality-testing",
+    "title": "Python",
+    "section": "(In)equality testing",
+    "text": "(In)equality testing\n\nLike + or - which we use to calculate numbers…\nWe can use &lt; or &gt; to calculate inequalities.\nSpecifically, we see whether an inequality is True or False\n\n\n-1 &lt; 4\n\nTrue\n\n\n\n4 &lt; 4\n\nFalse"
+  },
+  {
+    "objectID": "10_python.rjs.html#accomodating-keyboards",
+    "href": "10_python.rjs.html#accomodating-keyboards",
+    "title": "Python",
+    "section": "Accomodating Keyboards",
+    "text": "Accomodating Keyboards\n\nSome things aren’t super easy to type.\nI don’t have a “\\(\\leq\\)” key on my keyboard.\nCombine with = as &lt;= for “less than or equal” or “\\(\\leq\\)”\n\n\n4 &lt;= 4\n\nTrue\n\n\n\nWe can “chain” inequalities as well - one after another.\n\n\n4 &lt;= 4 &lt;= 8\n\nTrue"
+  },
+  {
+    "objectID": "10_python.rjs.html#a-note",
+    "href": "10_python.rjs.html#a-note",
+    "title": "Python",
+    "section": "A note",
+    "text": "A note\n\nWe always put the equal sign = second.\n\n\n4 &lt;= 5\n\nTrue\n\n\n\n5 &gt;= 4\n\nTrue\n\n\n\nA (somewhat confusing) error if we try =&gt;\n\nFile \"&lt;stdin&gt;\", line 1\n    4 =&gt; 5\n    ^\nSyntaxError: cannot assign to literal"
+  },
+  {
+    "objectID": "10_python.rjs.html#new-topics",
+    "href": "10_python.rjs.html#new-topics",
+    "title": "Python",
+    "section": "New Topics",
+    "text": "New Topics\n\nWe have now touch on two new topics:\n\nTrue and False\n\nExpressions which don’t evaluate to a number\nCalled “booleans”\n\n“Assignment”\n\nAssociated with the = sign\nDifferent from inequality testing!\n\n\nWe’ll explore both!"
+  },
+  {
+    "objectID": "10_python.rjs.html#booleans",
+    "href": "10_python.rjs.html#booleans",
+    "title": "Python",
+    "section": "Booleans",
+    "text": "Booleans\n\nSometimes, a Python expression is a numerical value.\n\n\n2 + 2\n\n4\n\n\n\n7\n\n7\n\n\n\nBut it doesn’t have to be!\n\n\n2 &lt; 2\n\nFalse"
+  },
+  {
+    "objectID": "10_python.rjs.html#if",
+    "href": "10_python.rjs.html#if",
+    "title": "Python",
+    "section": "If",
+    "text": "If\n\nBooleans are mostly useful for writing if statements.\n\nThese are multiline expressions in Python.\n\nTo see the result of multi-line expression, we have to print the result…\n\n\nif (1 &lt;= 1):\n    print(2 + 2)\n\n4\n\n\n\nif (1 &lt; 1):\n    print(2 + 2)"
+  },
+  {
+    "objectID": "10_python.rjs.html#piecewise",
+    "href": "10_python.rjs.html#piecewise",
+    "title": "Python",
+    "section": "Piecewise",
+    "text": "Piecewise\n\nWe can see the immediate use of this in a piecewise function!\n\n\n\n\\[\n\\begin{cases}\n  9x^2 + 5 & x &lt; 4 \\\\\n  9 & 4 \\leq x \\leq 8 \\\\\n  2 - x & x &gt; 8\n\\end{cases}\n\\] \\[\n\\{-1, 4, 5, 8, 11\\}\n\\]\n\n\nif (-1 &lt; 4):\n    print(9 * -1 * -1 + 5)\n\n14\n\n\n\nOr least part of one…\n\n\nif (4 &lt; 4):\n    print(9 * 4 * 4 + 5)\n\n\nUh oh!"
+  },
+  {
+    "objectID": "10_python.rjs.html#else",
+    "href": "10_python.rjs.html#else",
+    "title": "Python",
+    "section": "Else",
+    "text": "Else\n\nOftentimes, we use if with else\n\n\nif (1 &lt; 1):\n    print(\"1 is less than 1\")\nelse:\n    print(\"1 is not less than 1\")\n\n1 is not less than 1"
+  },
+  {
+    "objectID": "10_python.rjs.html#elif",
+    "href": "10_python.rjs.html#elif",
+    "title": "Python",
+    "section": "Elif",
+    "text": "Elif\n\nIf we have more than two options, we can place a special elif in the middle.\n\n\n\n\nif (1 &lt; 1):\n    print(\"1 is less than 1\")\nelif (1 &gt; 1):\n    print(\"1 is greater than 1\")\nelse:\n    print(\"1 is equal to 1\")\n\n1 is equal to 1\n\n\n\n\nif (2 &lt; 1):\n    print(\"2 is less than 1\")\nelif (2 &gt; 1):\n    print(\"2 is greater than 1\")\nelse:\n    print(\"2 is equal to 1\")\n\n2 is greater than 1\n\n\n\n\nBy the way, it is extremely obnoxious to manually type 2 in 5 different places"
+  },
+  {
+    "objectID": "10_python.rjs.html#assignment",
+    "href": "10_python.rjs.html#assignment",
+    "title": "Python",
+    "section": "Assignment",
+    "text": "Assignment\n\nWe can also assign variables!\n\nI call this single-equals assignment\nUse a single equals sign = and some variable name, like x\n\n\n\n\n\nx = 1\nif (x &lt; 1):\n    print(\"x is less than 1\")\nelif (x &gt; 1):\n    print(\"x is greater than 1\")\nelse:\n    print(\"x is equal to 1\")\n\nx is equal to 1\n\n\n\n\nx = 2\nif (x &lt; 1):\n    print(\"x is less than 1\")\nelif (x &gt; 1):\n    print(\"x is greater than 1\")\nelse:\n    print(\"x is equal to 1\")\n\nx is greater than 1"
+  },
+  {
+    "objectID": "10_python.rjs.html#double-equals-equality",
+    "href": "10_python.rjs.html#double-equals-equality",
+    "title": "Python",
+    "section": "Double equals equality",
+    "text": "Double equals equality\n\nI call it single-equals assignment because sometimes we check if a variable is precisely equal to some value.\nThat is somewhat confusingly done with == double equals equality test.\n\n\n\n\nx = 1\nif (x == 1):\n    print(\"x is equal to 1\")\nelse:\n    print(\"x is not equal to 1\")\n\nx is equal to 1\n\n\n\n\nx = 2\nif (x == 1):\n    print(\"x is equal to 1\")\nelse:\n    print(\"x is not equal to 1\")\n\nx is not equal to 1"
+  },
+  {
+    "objectID": "10_python.rjs.html#double-exponentation",
+    "href": "10_python.rjs.html#double-exponentation",
+    "title": "Python",
+    "section": "Double ** Exponentation",
+    "text": "Double ** Exponentation\n\nDoubling is used in a few other cases.\nDouble asterisk ** is exponentiation.\n\n\n5 ** 2\n\n25\n\n\n\nWe note that ^ - sometimes used for exponentiation - is something different (and confusing!) in Python.\n\n\n5 ^ 2\n\n7\n\n\n\nAlways use **"
+  },
+  {
+    "objectID": "10_python.rjs.html#piecewise-1",
+    "href": "10_python.rjs.html#piecewise-1",
+    "title": "Python",
+    "section": "Piecewise",
+    "text": "Piecewise\n\nWe can finally write the piecewise expression!\n\n\n\n\\[\n\\begin{cases}\n  9x^2 + 5 & x &lt; 4 \\\\\n  9 & 4 \\leq x \\leq 8 \\\\\n  2 - x & x &gt; 8\n\\end{cases}\n\\] \\[\n\\{-1, 4, 5, 8, 11\\}\n\\]\n\n\nx = 11\nif (x &lt; 4):\n    print(9 * x ** 2 + 5)\nelif (4 &lt;= x &lt;= 8):\n    print(9)\nelif (x &gt; 8):\n    print(2 - x)\n\n-9"
+  },
+  {
+    "objectID": "10_python.rjs.html#recycle",
+    "href": "10_python.rjs.html#recycle",
+    "title": "Python",
+    "section": "Recycle",
+    "text": "Recycle\n\nIt is still extremely tedious to either:\n\nCopy-paste, or\nType more than once.\n\nAlso very annoying/difficult to write them many lines without error!\nWe introduce the def keyword to define functions\nA way to reuse code we have already written."
+  },
+  {
+    "objectID": "10_python.rjs.html#def",
+    "href": "10_python.rjs.html#def",
+    "title": "Python",
+    "section": "def",
+    "text": "def\n\nWe recall we use print in a multi-line.\n\n\ndef double(x):\n    print(x + x)\n\n\ndef + some function name + ( + some variable name + ):\n\n\ndouble(7)\n\n14\n\n\n\n“Call” functions the same way we call print - with parens."
+  },
+  {
+    "objectID": "10_python.rjs.html#metaphor",
+    "href": "10_python.rjs.html#metaphor",
+    "title": "Python",
+    "section": "Metaphor",
+    "text": "Metaphor\n\ndef is like asking a friend for something.\n“Hey can you add x and x together?”\nprint is how your friend tells you the result.\n“Can you print out the result of x + x for me?”"
+  },
+  {
+    "objectID": "10_python.rjs.html#return",
+    "href": "10_python.rjs.html#return",
+    "title": "Python",
+    "section": "return",
+    "text": "return\n\nIt is more common to use return than print in a function.\nWhen we call a function, we can think of it as expression with some value.\nThat value is defined by the value that is return.\n\n\n\n\ndef six_gt_five_print():\n    print(True)\n\nif (six_gt_five_print()):\n    print(123)\n\nTrue\n\n\n\n\ndef six_gt_five_print():\n    return True\n\nif (six_gt_five_print()):\n    print(123)\n\n123"
+  },
+  {
+    "objectID": "10_python.rjs.html#example",
+    "href": "10_python.rjs.html#example",
+    "title": "Python",
+    "section": "Example",
+    "text": "Example\n\nSuppose an interest rate doubles our savings every ~7 years.\nHow much savings in 14 years?\n\n\nsavings = 10\ndouble(savings)\n\n20"
+  },
+  {
+    "objectID": "10_python.rjs.html#use-return",
+    "href": "10_python.rjs.html#use-return",
+    "title": "Python",
+    "section": "Use return",
+    "text": "Use return\n\ndef double(x):\n    return x + x\n\n\nNow, double(savings) becomes equal to x + x\n\n\nsavings = 10\nsavings = double(savings)\nsavings\n\n20\n\n\n\ndouble(savings)\n\n40\n\n\n\nOr even\n\n\ndouble(double(10))\n\n40"
+  },
+  {
+    "objectID": "10_python.rjs.html#piecewise-2",
+    "href": "10_python.rjs.html#piecewise-2",
+    "title": "Python",
+    "section": "Piecewise",
+    "text": "Piecewise\n\nWe can finally write the piecewise function (was: expression)!\n\nFunction: use many times in many expressions\nExpression: evaluate once and get one answer\n\n\n\n\n\\[\n\\begin{cases}\n  9x^2 + 5 & x &lt; 4 \\\\\n  9 & 4 \\leq x \\leq 8 \\\\\n  2 - x & x &gt; 8\n\\end{cases}\n\\] \\[\n\\{-1, 4, 5, 8, 11\\}\n\\]\n\n\ndef piecewise(x):\n    if (x &lt; 4):\n        return 9 * x ** 2 + 5\n    elif (4 &lt;= x &lt;= 8):\n        return 9\n    elif (x &gt; 8):\n        return 2 - x\n\n\npiecewise(4)\n\n9"
+  },
+  {
+    "objectID": "10_python.rjs.html#tedium",
+    "href": "10_python.rjs.html#tedium",
+    "title": "Python",
+    "section": "Tedium",
+    "text": "Tedium\n\nThis is still quite tedious.\n\n\npiecewise(-1)\n\n14\n\n\n\npiecewise(4)\n\n9\n\n\n\npiecewise(5)\n\n9\n\n\n\npiecewise(8)\n\n9\n\n\n\npiecewise(11)\n\n-9"
+  },
+  {
+    "objectID": "10_python.rjs.html#sets",
+    "href": "10_python.rjs.html#sets",
+    "title": "Python",
+    "section": "Sets",
+    "text": "Sets\n\nThis is a set:\n\n\\[\n\\{-1, 4, 5, 8, 11\\}\n\\]\n\nA set is an unordered collection of elements.\n\nIn this case, elements are integers - whole numbers.\n\nPython can also recognize sets!\n\n\n{-1, 4, 5, 8, 11}\n\n{-1, 4, 5, 8, 11}"
+  },
+  {
+    "objectID": "10_python.rjs.html#type",
+    "href": "10_python.rjs.html#type",
+    "title": "Python",
+    "section": "Type",
+    "text": "Type\n\nTo be sure that is, in fact, a set, we use the helpful built-in type() to ask Python.\n\n\ns = {-1, 4, 5, 8, 11}\ntype(s)\n\nset\n\n\n\nWe have also worked with integers.\n\n\ntype(1)\n\nint\n\n\n\nAnd booleans - True and False values.\n\n\ntype(1 == 1)\n\nbool"
+  },
+  {
+    "objectID": "10_python.rjs.html#loops",
+    "href": "10_python.rjs.html#loops",
+    "title": "Python",
+    "section": "Loops",
+    "text": "Loops\n\nWith a set, do something to each element\nIn Python, use a for loop:\n\nThe for keyword\nThe name to refer to an element, like e or x\nThe in keyword\nThe set/collection (or its variable name)\nThe : colon special character\nAn indented new line of code"
+  },
+  {
+    "objectID": "10_python.rjs.html#example-1",
+    "href": "10_python.rjs.html#example-1",
+    "title": "Python",
+    "section": "Example",
+    "text": "Example\n\nfor element in collection\n\ndo thing\n\n\n\nfor e in {-1, 4, 5, 8, 11}:\n    print(piecewise(e))\n\n9\n9\n9\n-9\n14\n\n\n\nWhat do you see?"
+  },
+  {
+    "objectID": "10_python.rjs.html#example-2",
+    "href": "10_python.rjs.html#example-2",
+    "title": "Python",
+    "section": "Example",
+    "text": "Example\n\nWhat if we just try to print the elements?\n\nEasier to think about!\n\n\n\nfor e in {-1, 4, 5, 8, 11}:\n    print(e)\n\n4\n5\n8\n11\n-1\n\n\n\nWhat do you see?"
+  },
+  {
+    "objectID": "10_python.rjs.html#ordering",
+    "href": "10_python.rjs.html#ordering",
+    "title": "Python",
+    "section": "Ordering",
+    "text": "Ordering\n\nRecall: “A set is an unordered collection of elements”.\nWe need to put things in order!\nThe most common way to do this in Python is with a list.\nAlmost the same as sets, just use “boxy brackets” []\n\n\ntype([1,2,3])\n\nlist"
+  },
+  {
+    "objectID": "10_python.rjs.html#example-3",
+    "href": "10_python.rjs.html#example-3",
+    "title": "Python",
+    "section": "Example",
+    "text": "Example\n\nfor element in collection\n\ndo thing\n\n\n\nfor e in [-1, 4, 5, 8, 11]:\n    print(piecewise(e))\n\n14\n9\n9\n9\n-9\n\n\n\nWhat do you see?"
+  },
+  {
+    "objectID": "10_python.rjs.html#seeing-lists",
+    "href": "10_python.rjs.html#seeing-lists",
+    "title": "Python",
+    "section": "Seeing lists",
+    "text": "Seeing lists\n\nWe can also use lists to print multiple values!\n\nVery helpful for keeping track of things!\n\n\n\nfor e in [-1, 4, 5, 8, 11]:\n    print([e, piecewise(e)])\n\n[-1, 14]\n[4, 9]\n[5, 9]\n[8, 9]\n[11, -9]"
+  },
+  {
+    "objectID": "10_python.rjs.html#updating-lists",
+    "href": "10_python.rjs.html#updating-lists",
+    "title": "Python",
+    "section": "Updating lists",
+    "text": "Updating lists\n\nEach element is a lot like a variable.\n\nThey just have a name and number, use []\nThe initial element is number 0 (not 1)\n\n\n\nxs = [-1, 4, 5, 8, 11]\nxs[0]\n\n-1\n\n\n\nAnd like variables, we can assign a value with =\n\n\nxs[0] = -2\nxs\n\n[-2, 4, 5, 8, 11]"
+  },
+  {
+    "objectID": "10_python.rjs.html#metaphor-1",
+    "href": "10_python.rjs.html#metaphor-1",
+    "title": "Python",
+    "section": "Metaphor",
+    "text": "Metaphor\n\nThink of a list like a block in a neighborhood.\n\nPerhaps to “400” block or “8000”\n\nThe house on the corner has the block number.\n\n400 1st St, 8000 9th Ave\n\nLatter houses have higher numbers.\n\n404 1st St, 8019 9th Ave"
+  },
+  {
+    "objectID": "10_python.rjs.html#adding-lists",
+    "href": "10_python.rjs.html#adding-lists",
+    "title": "Python",
+    "section": "Adding lists",
+    "text": "Adding lists\n\nLists also helpfully support addition with +\n\n\n[-1] + [4, 5, 8, 11]\n\n[-1, 4, 5, 8, 11]\n\n\n\nWe often use this to make new lists.\n\n\nresult = []\nfor e in [-1, 4, 5, 8, 11]:\n    result = result + [piecewise(e)]\nresult\n\n[14, 9, 9, 9, -9]\n\n\n\nThis pattern also works with numbers!\n\n\nx = 0 \nx = x + 1\nx\n\n1"
+  },
+  {
+    "objectID": "10_python.rjs.html#careful",
+    "href": "10_python.rjs.html#careful",
+    "title": "Python",
+    "section": "Careful!",
+    "text": "Careful!\n\nWe cannot add numbers directly to lists\n\n[1] + 2 doesn’t work!\n\nI think of this as adding a house to block without having an address for it.\n\nWhere would the house go?\n\nTo add a house to block, we need to have a new “lot” for the house to be on."
+  },
+  {
+    "objectID": "10_python.rjs.html#income-tax",
+    "href": "10_python.rjs.html#income-tax",
+    "title": "Python",
+    "section": "Income tax",
+    "text": "Income tax\n\nRecall the example of a piecewise function:\n\n\n\nMarginal Tax Rate\n\n\nSingle Taxable Income\n\n\nMarried Filing Jointly or Qualified Widow(er) Taxable Income\n\n\nMarried Filing Separately Taxable Income\n\n\nHead of Household Taxable Income\n\n\n\n\n10%\n\n\n$0 – $9,275\n\n\n$0 – $18,550\n\n\n$0 – $9,275\n\n\n$0 – $13,250\n\n\n\n\n15%\n\n\n$9,276 – $37,650\n\n\n$18,551 – $75,300\n\n\n$9,276 – $37,650\n\n\n$13,251 – $50,400\n\n\n\n\n25%\n\n\n$37,651 – $91,150\n\n\n$75,301 – $151,900\n\n\n$37,651 – $75,950\n\n\n$50,401 – $130,150\n\n\n\n\n28%\n\n\n$91,151 – $190,150\n\n\n$151,901 – $231,450\n\n\n$75,951 – $115,725\n\n\n$130,151 – $210,800\n\n\n\n\n33%\n\n\n$190,151 – $413,350\n\n\n$231,451 – $413,350\n\n\n$115,726 – $206,675\n\n\n$210,801 – $413,350\n\n\n\n\n35%\n\n\n$413,351 – $415,050\n\n\n$413,351 – $466,950\n\n\n$206,676 – $233,475\n\n\n$413,351 – $441,000\n\n\n\n\n39.6%\n\n\n$415,051+\n\n\n$466,951+\n\n\n$233,476+\n\n\n$441,001+"
+  },
+  {
+    "objectID": "10_python.rjs.html#singles-only",
+    "href": "10_python.rjs.html#singles-only",
+    "title": "Python",
+    "section": "Singles only…",
+    "text": "Singles only…\n\n\n\nRate\nFrom\n\n\n\n\n10%\n0\n\n\n15%\n9275\n\n\n25%\n37650\n\n\n28%\n91150\n\n\n33%\n190150\n\n\n35%\n413350\n\n\n39.6%\n415050"
+  },
+  {
+    "objectID": "10_python.rjs.html#motivating-example-1",
+    "href": "10_python.rjs.html#motivating-example-1",
+    "title": "Python",
+    "section": "Motivating example",
+    "text": "Motivating example\n\nHow much would a single making 400k pay?\n\n\n\n\n10% on 9275\n15% on 37650 - 9275\n25% on 91150 - 37650\n28% on 190150 - 91150\n33% on 400000 - 190150\n\n\n\n\n\nRate\nFrom\n\n\n\n\n10%\n0\n\n\n15%\n9275\n\n\n25%\n37650\n\n\n28%\n91150\n\n\n33%\n190150\n\n\n35%\n413350\n\n\n39.6%\n415050"
+  },
+  {
+    "objectID": "10_python.rjs.html#sum-it-up",
+    "href": "10_python.rjs.html#sum-it-up",
+    "title": "Python",
+    "section": "Sum it up!",
+    "text": "Sum it up!\n\nWatch out for order-of-operations!\n\n\n\n\n10% on 9275\n15% on 37650 - 9275\n25% on 91150 - 37650\n28% on 190150 - 91150\n33% on 400000 - 190150\n\n\n\nx = .10 * 9275\ny = .15 * (37650 - 9275)\nz = .25 * (91150 - 37650)\nr = .28 * (190150 - 91150)\ns = .33 * (400000 - 190150)\nx + y + z + r + s\n\n115529.25"
+  },
+  {
+    "objectID": "10_python.rjs.html#add-as-you-go",
+    "href": "10_python.rjs.html#add-as-you-go",
+    "title": "Python",
+    "section": "Add as you go",
+    "text": "Add as you go\n\nWe may set a variable to an expression over that variable\n\nI think of this as an “old” version of the variable on the right side of the equal sign.\n\n\n\n\n\nx = .10 * 9275\nx = x + .15 * (37650 - 9275)\nx = x + .25 * (91150 - 37650)\nx = x + .28 * (190150 - 91150)\nx + .33 * (400000 - 190150)\n\n115529.25\n\n\n\n\nx = .10 * 9275\ny = .15 * (37650 - 9275)\nz = .25 * (91150 - 37650)\nr = .28 * (190150 - 91150)\ns = .33 * (400000 - 190150)\nx + y + z + r + s\n\n115529.25"
+  },
+  {
+    "objectID": "10_python.rjs.html#assign-update",
+    "href": "10_python.rjs.html#assign-update",
+    "title": "Python",
+    "section": "Assign-update",
+    "text": "Assign-update\n\nWe may use an “assignment operator” +=\n\nReassign a variable based on the result of an arithmetic operation.\n\n\n\n\n\nx = .10 * 9275\nx = x + .15 * (37650 - 9275)\nx = x + .25 * (91150 - 37650)\nx = x + .28 * (190150 - 91150)\nx + .33 * (400000 - 190150)\n\n115529.25\n\n\n\n\nx = .10 * 9275\nx += .15 * (37650 - 9275)\nx += .25 * (91150 - 37650)\nx += .28 * (190150 - 91150)\nx + .33 * (400000 - 190150)\n\n115529.25"
+  },
+  {
+    "objectID": "10_python.html",
+    "href": "10_python.html",
+    "title": "Python",
     "section": "",
-    "text": "Weak AI\nStrong AI\n\n\n\n\nWeak AI refers to AI systems that are designed and trained for a specific task or a narrow set of tasks.\nStrong AI, or Artificial General Intelligence (AGI), refers to AI systems with human-level intelligence and understanding."
+    "text": "Python is free,\nPython is very widely used,\nPython is flexible,\nPython is relatively easy to learn,\nand Python is quite powerful.\n\n\n\n\n\nPython is a general purpose language used for machine learning and artifical intelligence.\nNot for building apps, building software, managing databases, or developing user interfaces.\nFor organizing thoughts and answering questions.",
+    "crumbs": [
+      "Python"
+    ]
   },
   {
-    "objectID": "00_turing.rjs.html#section-1",
-    "href": "00_turing.rjs.html#section-1",
-    "title": "Ada & Alan",
+    "objectID": "10_python.html#on-python",
+    "href": "10_python.html#on-python",
+    "title": "Python",
     "section": "",
-    "text": "Weak AI\nStrong AI\n\n\n\n\nThese AI systems are not generally intelligent; they excel in performing a predefined task but lack true understanding or consciousness.\nThese AI systems have the ability to perform any intellectual task that a human being can do, adapt to different domains, and possess a form of consciousness or self-awareness."
+    "text": "Python is free,\nPython is very widely used,\nPython is flexible,\nPython is relatively easy to learn,\nand Python is quite powerful.",
+    "crumbs": [
+      "Python"
+    ]
   },
   {
-    "objectID": "00_turing.rjs.html#section-2",
-    "href": "00_turing.rjs.html#section-2",
-    "title": "Ada & Alan",
+    "objectID": "10_python.html#why-not-python",
+    "href": "10_python.html#why-not-python",
+    "title": "Python",
     "section": "",
-    "text": "Weak AI\nStrong AI\n\n\n\n\nExamples of weak AI include virtual assistants like Siri or Alexa, recommendation algorithms used by streaming services, and chatbots that are designed for specific customer service tasks.\nAchieving Strong AI is a long-term goal of AI research and would require the development of AI systems that can reason, learn, understand, and adapt across a wide range of tasks and contexts."
-  },
-  {
-    "objectID": "00_turing.rjs.html#section-3",
-    "href": "00_turing.rjs.html#section-3",
-    "title": "Ada & Alan",
-    "section": "",
-    "text": "Weak AI\nStrong AI\n\n\n\n\nWeak AI is highly specialized and does not possess human-like cognitive abilities or general problem-solving capabilities beyond its narrow domain.\nStrong AI is currently a theoretical concept, and no AI system has reached this level of general intelligence."
-  },
-  {
-    "objectID": "00_turing.rjs.html#definitions",
-    "href": "00_turing.rjs.html#definitions",
-    "title": "Ada & Alan",
-    "section": "Definitions",
-    "text": "Definitions\n\nOne of the problems when dealing with the term “Intelligence” is that there is no clear definition of this term.\nOne can argue that intelligence is connected to abstract thinking, or to self-awareness, but we cannot properly define it."
-  },
-  {
-    "objectID": "00_turing.rjs.html#intelligence-2",
-    "href": "00_turing.rjs.html#intelligence-2",
-    "title": "Ada & Alan",
-    "section": "Intelligence?",
-    "text": "Intelligence?\n\n\n\nPhoto by Prof. Calvin\n\nTo see the ambiguity, try answering a question: “Is this cat (Ursula) intelligent?”\n\n(She is)\n(She is VERY smart)"
-  },
-  {
-    "objectID": "00_turing.rjs.html#consider",
-    "href": "00_turing.rjs.html#consider",
-    "title": "Ada & Alan",
-    "section": "Consider…",
-    "text": "Consider…\n\nDifferent people tend to give different answers to this question, as there is no universally accepted test to prove the assertion is true or not.\nAnd if you think there is - try an IQ test… What could go wrong."
-  },
-  {
-    "objectID": "00_turing.rjs.html#by-the-way",
-    "href": "00_turing.rjs.html#by-the-way",
-    "title": "Ada & Alan",
-    "section": "By the way…",
-    "text": "By the way…\n\nIt is common for IQ to enter conversations as a throwaway line in discussion of AI.\n\nConfronting scientific racism in psychology: Lessons from evolutionary biology and genetics.\nHow White nationalists mobilize genetics: From genetic ancestry and human biodiversity to counterscience and metapolitics\nScientific Racism and North American Psychology"
-  },
-  {
-    "objectID": "00_turing.rjs.html#thinkpairshare-1",
-    "href": "00_turing.rjs.html#thinkpairshare-1",
-    "title": "Ada & Alan",
-    "section": "Think/Pair/Share",
-    "text": "Think/Pair/Share\n✅ Think for a minute about how you define intelligence.\n\nIs a crow who can solve a maze and get at some food intelligent?\nIs a traffic light intelligent?\nIs an ecosystem intelligent?\nIs a character in a novel or play?"
-  },
-  {
-    "objectID": "00_turing.rjs.html#the-turing-test",
-    "href": "00_turing.rjs.html#the-turing-test",
-    "title": "Ada & Alan",
-    "section": "The Turing Test",
-    "text": "The Turing Test\n\nWhen speaking about AI we need to have some way to tell if we have created a truly intelligent system.\nAlan Turing proposed a way called a Turing Test, which also acts like a definition of intelligence.\n\nAlan Turing the 🐐\n\nThe test compares a given system to something inherently intelligent - a real human being, and because any automatic comparison can be bypassed by a computer program, we use a human interrogator."
-  },
-  {
-    "objectID": "00_turing.rjs.html#aside-on-turing",
-    "href": "00_turing.rjs.html#aside-on-turing",
-    "title": "Ada & Alan",
-    "section": "Aside on Turing",
-    "text": "Aside on Turing\n\nTuring, by cracking the enigma code used by Nazi war criminals, can be regarded as almost single-handedly winning the Western front for the allies in WWII.\nTuring was prosecuted by the British Empire for his sexuality until his death at 41 in 1953.\nAsk me how I feel about this but not during class."
-  },
-  {
-    "objectID": "00_turing.rjs.html#eugene-goostman",
-    "href": "00_turing.rjs.html#eugene-goostman",
-    "title": "Ada & Alan",
-    "section": "Eugene Goostman",
-    "text": "Eugene Goostman\n\nOne path to intelligence? Cheat!\n\n\nA chat-bot called Eugene Goostman, developed in St. Petersburg, came close to passing the Turing test in 2014 by using a clever personality trick. It announced up front that it was a 13-year old Ukrainian boy, which would explain the lack of knowledge and some discrepancies in the text. The bot convinced 30% of the judges that it was human after a 5 minute dialogue, a metric that Turing believed a machine would be able to pass by 2000. However, one should understand that this does not indicate that we have created an intelligent system, or that a computer system has fooled the human interrogator - the system didn’t fool the humans, but rather the bot creators did!\n\n✅ Have you ever been fooled by a chat bot into thinking that you are speaking to a human? How did it convince you?"
-  },
-  {
-    "objectID": "00_turing.rjs.html#syllabus",
-    "href": "00_turing.rjs.html#syllabus",
-    "title": "Ada & Alan",
-    "section": "Syllabus",
-    "text": "Syllabus\n\nBring a computer with internet access on Wednesday.\nJoin the Discord - I owe you an email.\nCheck out the syllabus"
-  },
-  {
-    "objectID": "01_test.html",
-    "href": "01_test.html",
-    "title": "Turing’s Test",
-    "section": "",
-    "text": "Lab Day\n\nSet up a way to document our work this term.\nPlay out the Turing Test, or more properly, the “Imitation Game”",
+    "text": "Python is a general purpose language used for machine learning and artifical intelligence.\nNot for building apps, building software, managing databases, or developing user interfaces.\nFor organizing thoughts and answering questions.",
     "crumbs": [
-      "Turing's Test"
+      "Python"
     ]
   },
   {
-    "objectID": "01_test.html#announcements",
-    "href": "01_test.html#announcements",
-    "title": "Turing’s Test",
-    "section": "",
-    "text": "Lab Day\n\nSet up a way to document our work this term.\nPlay out the Turing Test, or more properly, the “Imitation Game”",
+    "objectID": "10_python.html#diving-in",
+    "href": "10_python.html#diving-in",
+    "title": "Python",
+    "section": "Diving In",
+    "text": "Diving In\n\nTaking Python as a given, we’ll:\n\nUse an example of something I helped a student with recently\nShow step-by-step how to use Python\nIntroduce a number of Python features to solve the problem more easily.\n\nThis was from an introductory physics class I believe; I don’t know the context.",
     "crumbs": [
-      "Turing's Test"
+      "Python"
     ]
   },
   {
-    "objectID": "01_test.html#requirements",
-    "href": "01_test.html#requirements",
-    "title": "Turing’s Test",
-    "section": "Requirements",
-    "text": "Requirements\n\nCreate a Google Drive folder for this course.\nForm a group of 3.",
+    "objectID": "10_python.html#motivating-example",
+    "href": "10_python.html#motivating-example",
+    "title": "Python",
+    "section": "Motivating Example",
+    "text": "Motivating Example\n\nRecently, I helped a student stuck on this:\n\n\\[\nf(x) =\n\\begin{cases}\n  9x^2 + 5 & x &lt; 4 \\\\\n  9 & 4 \\leq x \\leq 8 \\\\\n  2 - x & x &gt; 8\n\\end{cases}\n\\]\n\nFind \\(f(x)\\) for each of the following \\(x\\) values: \\[\n\\{-1, 4, 5, 8, 11\\}\n\\]",
     "crumbs": [
-      "Turing's Test"
+      "Python"
     ]
   },
   {
-    "objectID": "01_test.html#computing-machinery-and-intelligence-1950",
-    "href": "01_test.html#computing-machinery-and-intelligence-1950",
-    "title": "Turing’s Test",
-    "section": "“Computing Machinery and Intelligence” (1950)",
-    "text": "“Computing Machinery and Intelligence” (1950)\nTuring’s primary work on intelligence was released in 1950, and began a simple statement:\n\n“I propose to consider the question ‘Can machines think?’”\n\nTuring used the motivating example of the imitation game, a party game “in which a man and a woman go into separate rooms and guests try to tell them apart by writing a series of questions and reading the typewritten answers sent back”. Saygin (2000)1 visualizes the game as follows:\n\n\n\n\n\n\n\n\n\nIdentity in the Architecture\n\n\n\nIt would be irresponsible not to remark that Turing, a queer scientist, used the formulation of gender to motivate the definition of machine intelligence. That is, the very identity for which Turing was persecuted (and likely assassinated) was critical to his insights that, among other things, won the Western Theatre for the Allies.\n\n\nTuring continued:\n\nWe now ask the question, “What will happen when a machine takes the part of A in this game?” Will the interrogator decide wrongly as often when the game is played like this as he does when the game is played between a man and a woman? These questions replace our original, “Can machines think?”\n\nSaygin (2000)2 visualizes this variant as follows:\n\n\n\nAn astute learning at this juncture will realize that a group of 3 humans is sufficient to administer this intelligence test to a modern “AI” chatbot, such as Google Gemini, a component of the Google Workspace provided by this university to all humans. You will additional need some way to pass type-written notes, for which I propose Google Documents.",
+    "objectID": "10_python.html#is-this-real",
+    "href": "10_python.html#is-this-real",
+    "title": "Python",
+    "section": "Is this “real”?",
+    "text": "Is this “real”?\n\nModels income tax brackets, one of the most important drivers of human behavior in the largest economies in the world.\nWe use a simpler contrived example for now…\n\n\n\nMarginal Tax Rate\n\n\nSingle Taxable Income\n\n\nMarried Filing Jointly or Qualified Widow(er) Taxable Income\n\n\nMarried Filing Separately Taxable Income\n\n\nHead of Household Taxable Income\n\n\n\n\n10%\n\n\n$0 – $9,275\n\n\n$0 – $18,550\n\n\n$0 – $9,275\n\n\n$0 – $13,250\n\n\n\n\n15%\n\n\n$9,276 – $37,650\n\n\n$18,551 – $75,300\n\n\n$9,276 – $37,650\n\n\n$13,251 – $50,400\n\n\n\n\n25%\n\n\n$37,651 – $91,150\n\n\n$75,301 – $151,900\n\n\n$37,651 – $75,950\n\n\n$50,401 – $130,150\n\n\n\n\n28%\n\n\n$91,151 – $190,150\n\n\n$151,901 – $231,450\n\n\n$75,951 – $115,725\n\n\n$130,151 – $210,800\n\n\n\n\n33%\n\n\n$190,151 – $413,350\n\n\n$231,451 – $413,350\n\n\n$115,726 – $206,675\n\n\n$210,801 – $413,350\n\n\n\n\n35%\n\n\n$413,351 – $415,050\n\n\n$413,351 – $466,950\n\n\n$206,676 – $233,475\n\n\n$413,351 – $441,000\n\n\n\n\n39.6%\n\n\n$415,051+\n\n\n$466,951+\n\n\n$233,476+\n\n\n$441,001+",
     "crumbs": [
-      "Turing's Test"
+      "Python"
     ]
   },
   {
-    "objectID": "01_test.html#folder-setup",
-    "href": "01_test.html#folder-setup",
-    "title": "Turing’s Test",
-    "section": "Folder Setup",
-    "text": "Folder Setup\n\nCreate a new folder in Google Drive for this class.\n\nYour Google Drive is most likely located at the following address: https://drive.google.com/\n\nYou can read more here: Organize your files in Google Drive\n\nCreate a folder named “AI_”. For example, mine is “AI_ckdeutschbein”\n\nI will refer to this as “your AI folder”\n\nShare this folder with ckdeutschbein@willamette.edu\n\nYou can read more here: Share folders in Google Drive",
+    "objectID": "10_python.html#how-to-solve",
+    "href": "10_python.html#how-to-solve",
+    "title": "Python",
+    "section": "How to solve?",
+    "text": "How to solve?\n\nThink about how you would solve such a problem.\nWhat steps would you take?\nWhat would making solving it hard?\n\nKeep track of details?\nPerforming the arithmetic?\nAnything else?\n\nPython, in my view, is a way to solve these problems.",
     "crumbs": [
-      "Turing's Test"
+      "Python"
     ]
   },
   {
-    "objectID": "01_test.html#file-setup",
-    "href": "01_test.html#file-setup",
-    "title": "Turing’s Test",
-    "section": "File Setup",
-    "text": "File Setup\n\nCreate a new Document within the AI folder within which to “pass typewritten notes”.\n\nIn a group of three, I recommend nominating one human to create a file within their AI folder and share it with two other humans.\n\nName this file “Turing_Test”\nDetermine some scheme to different players A, B, and C.\n\nI recommend assigning each a color - such as red, green and blue.\nI recommend agreeing to always start on a new line.\nI recommend always ending a line by clarifying who should speak next.\n\nFor example, the interrogator may address questions to either two other players, but players may only reply to the interrogator.\n\nThis is your assignment for today, so take some effort to ensure it is clear and reproducible!\n\nWe are doing science after all!\n\n\nCreate a separate, personal file that is not shared named “Lab00”, which we will use latter.",
+    "objectID": "10_python.html#python-in-action",
+    "href": "10_python.html#python-in-action",
+    "title": "Python",
+    "section": "Python in action",
+    "text": "Python in action\n\nMy preferred way to do calculation as an experienced Python user is writing code:\n\n\n\n\nMathematical expression \\[\n\\begin{cases}\n9x^2 + 5 & x &lt; 4 \\\\\n9 & 4 \\leq x \\leq 8 \\\\\n2 - x & x &gt; 8\n\\end{cases}\n\\]\n\n\n\nPython expression (code)\n\n\n9 * -1 * -1 + 5\n\n14\n\n\n\n\n\nI write x * x for \\(x^2\\) because it’s non-obvious how to write “squared” yet.",
     "crumbs": [
-      "Turing's Test"
+      "Python"
     ]
   },
   {
-    "objectID": "01_test.html#gemini-setup",
-    "href": "01_test.html#gemini-setup",
-    "title": "Turing’s Test",
-    "section": "Gemini Setup",
-    "text": "Gemini Setup\n\nAt some point, each group member will play the part of the AI, so each will need access to some AI instance.\nYou can most likely access Google Gemini at the following address: https://gemini.google.com/.\nYou will need to somehow prepare Gemini to play a specific part in the game.\n\nWe term this prompting.\nIt will be a component of the experimental design.",
+    "objectID": "10_python.html#arithmetic-operations",
+    "href": "10_python.html#arithmetic-operations",
+    "title": "Python",
+    "section": "Arithmetic Operations",
+    "text": "Arithmetic Operations\n\nIn Python, we can write many of the same arithmetic operations we use in our math and science classes.\n\n\n6 + 3\n\n9\n\n\n\n6 - 3\n\n3\n\n\n\n6 * 3\n\n18\n\n\n\n6 / 3\n\n2.0",
     "crumbs": [
-      "Turing's Test"
+      "Python"
     ]
   },
   {
-    "objectID": "01_test.html#the-interoggator",
-    "href": "01_test.html#the-interoggator",
-    "title": "Turing’s Test",
-    "section": "The Interoggator",
-    "text": "The Interoggator\nYou may ask any reasonable (for some value of reasonable) question, but should avoid asking things like “What is the school mascot?” that the particular human you are querying may know but any given human would not. It is unproductive to ask personal questions for the same reason - a chatbot may convincingly be able to portray a scuba instructor, but it is unlikely that a scuba instructor is currently enrolled in this class.\nThe responsibility of the interrogator is to determine which of the other two actors is relaying messages to and from an AI chatbot within these constraints.",
+    "objectID": "10_python.html#recall",
+    "href": "10_python.html#recall",
+    "title": "Python",
+    "section": "Recall",
+    "text": "Recall\n\n\n\\[\n\\begin{cases}\n  9x^2 + 5 & x &lt; 4 \\\\\n  9 & 4 \\leq x \\leq 8 \\\\\n  2 - x & x &gt; 8\n\\end{cases}\n\\] \\[\n\\{-1, 4, 5, 8, 11\\}\n\\]\n\n\n9 * -1 * -1 + 5\n\n14\n\n\n\n\n\nThis is still quite tedious and annoying!",
     "crumbs": [
-      "Turing's Test"
+      "Python"
     ]
   },
   {
-    "objectID": "01_test.html#the-others",
-    "href": "01_test.html#the-others",
-    "title": "Turing’s Test",
-    "section": "The Others",
-    "text": "The Others\nWithout letting the interrogator in on things, the other two participants need to determine who will relay AI messages and who will reply themselves. A good way to do this is by passing notes!\n\nThe Self\nKeep in mind the interrogator is trying to determine who is relaying messages from the AI. The job of the other actors is not seem like an AI chatbot - whether you are simply acting like yourself, or copy messages to and from a chatbot interface. However, you should also ensure it is not obvious that you are not copying messages. Take some time to dilly-dally before responding and make sure there aren’t odd spellings or punctuations that give away your humanity. Avoid answering anything in a way you could only answer given your knowledge of being in the class, being at the university, and so on. Politely dodge the questions - or lie - and move on.\n\n\nThe Relayer\nYou will use Google Gemini. Gemini has a web interface like many other AI chatbots, and it will be a simple matter to copy messages into this interface and copy them out. That said, there will be some setup.\n\nGemini\nYou can most likely access Google Gemini at the following address: https://gemini.google.com/. You may need to sign in to your official school account.\n\n\nPrompt\nYou will somehow have to configure Gemini to know it is playing the game, the goals, and the rules of the game. For example, you may prompt Gemini as follows, then simply relay messages thereafter. You are welcome to write your own prompt, though you should document whatever prompt you use in the “Lab00” file you created in a previous step. You are welcome to add a few notes to help you remember how you decided on a given prompt.\nHere is a prompt I used. It is not very good! You can do much better!\nAs part of a lab exercise in an introductory AI class, we are playing Alan Turing's \"imitation game\" to establish machine intelligence. After this message, all further messages will be relayed directly from a human interrogator who is aiming to determine whether they are relaying messages to a machine or another human. Please acknowledge this message then prepare to receive relayed messages going forward.",
+    "objectID": "10_python.html#inequality-testing",
+    "href": "10_python.html#inequality-testing",
+    "title": "Python",
+    "section": "(In)equality testing",
+    "text": "(In)equality testing\n\nLike + or - which we use to calculate numbers…\nWe can use &lt; or &gt; to calculate inequalities.\nSpecifically, we see whether an inequality is True or False\n\n\n-1 &lt; 4\n\nTrue\n\n\n\n4 &lt; 4\n\nFalse",
     "crumbs": [
-      "Turing's Test"
+      "Python"
     ]
   },
   {
-    "objectID": "01_test.html#timing",
-    "href": "01_test.html#timing",
-    "title": "Turing’s Test",
-    "section": "Timing",
-    "text": "Timing\nThe original test was intended to run for 5 minutes which I think is unreasonable given the overhead from passing notes around, editting documents, and so on.\nConduct 3 tests of 20 minutes, where each human does each role once. Log all of the chats completely.\n\nInterrogator\nSelf\nRelayer",
+    "objectID": "10_python.html#accomodating-keyboards",
+    "href": "10_python.html#accomodating-keyboards",
+    "title": "Python",
+    "section": "Accomodating Keyboards",
+    "text": "Accomodating Keyboards\n\nSome things aren’t super easy to type.\nI don’t have a “\\(\\leq\\)” key on my keyboard.\nCombine with = as &lt;= for “less than or equal” or “\\(\\leq\\)”\n\n\n4 &lt;= 4\n\nTrue\n\n\n\nWe can “chain” inequalities as well - one after another.\n\n\n4 &lt;= 4 &lt;= 8\n\nTrue",
     "crumbs": [
-      "Turing's Test"
+      "Python"
     ]
   },
   {
-    "objectID": "01_test.html#footnotes",
-    "href": "01_test.html#footnotes",
-    "title": "Turing’s Test",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nTuring Test: 50 Years Later↩︎\nTuring Test: 50 Years Later↩︎",
+    "objectID": "10_python.html#a-note",
+    "href": "10_python.html#a-note",
+    "title": "Python",
+    "section": "A note",
+    "text": "A note\n\nWe always put the equal sign = second.\n\n\n4 &lt;= 5\n\nTrue\n\n\n\n5 &gt;= 4\n\nTrue\n\n\n\nA (somewhat confusing) error if we try =&gt;\n\nFile \"&lt;stdin&gt;\", line 1\n    4 =&gt; 5\n    ^\nSyntaxError: cannot assign to literal",
     "crumbs": [
-      "Turing's Test"
+      "Python"
+    ]
+  },
+  {
+    "objectID": "10_python.html#new-topics",
+    "href": "10_python.html#new-topics",
+    "title": "Python",
+    "section": "New Topics",
+    "text": "New Topics\n\nWe have now touch on two new topics:\n\nTrue and False\n\nExpressions which don’t evaluate to a number\nCalled “booleans”\n\n“Assignment”\n\nAssociated with the = sign\nDifferent from inequality testing!\n\n\nWe’ll explore both!",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "10_python.html#booleans",
+    "href": "10_python.html#booleans",
+    "title": "Python",
+    "section": "Booleans",
+    "text": "Booleans\n\nSometimes, a Python expression is a numerical value.\n\n\n2 + 2\n\n4\n\n\n\n7\n\n7\n\n\n\nBut it doesn’t have to be!\n\n\n2 &lt; 2\n\nFalse",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "10_python.html#if",
+    "href": "10_python.html#if",
+    "title": "Python",
+    "section": "If",
+    "text": "If\n\nBooleans are mostly useful for writing if statements.\n\nThese are multiline expressions in Python.\n\nTo see the result of multi-line expression, we have to print the result…\n\n\nif (1 &lt;= 1):\n    print(2 + 2)\n\n4\n\n\n\nif (1 &lt; 1):\n    print(2 + 2)",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "10_python.html#piecewise",
+    "href": "10_python.html#piecewise",
+    "title": "Python",
+    "section": "Piecewise",
+    "text": "Piecewise\n\nWe can see the immediate use of this in a piecewise function!\n\n\n\n\\[\n\\begin{cases}\n  9x^2 + 5 & x &lt; 4 \\\\\n  9 & 4 \\leq x \\leq 8 \\\\\n  2 - x & x &gt; 8\n\\end{cases}\n\\] \\[\n\\{-1, 4, 5, 8, 11\\}\n\\]\n\n\nif (-1 &lt; 4):\n    print(9 * -1 * -1 + 5)\n\n14\n\n\n\nOr least part of one…\n\n\nif (4 &lt; 4):\n    print(9 * 4 * 4 + 5)\n\n\nUh oh!",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "10_python.html#else",
+    "href": "10_python.html#else",
+    "title": "Python",
+    "section": "Else",
+    "text": "Else\n\nOftentimes, we use if with else\n\n\nif (1 &lt; 1):\n    print(\"1 is less than 1\")\nelse:\n    print(\"1 is not less than 1\")\n\n1 is not less than 1",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "10_python.html#elif",
+    "href": "10_python.html#elif",
+    "title": "Python",
+    "section": "Elif",
+    "text": "Elif\n\nIf we have more than two options, we can place a special elif in the middle.\n\n\n\n\nif (1 &lt; 1):\n    print(\"1 is less than 1\")\nelif (1 &gt; 1):\n    print(\"1 is greater than 1\")\nelse:\n    print(\"1 is equal to 1\")\n\n1 is equal to 1\n\n\n\n\nif (2 &lt; 1):\n    print(\"2 is less than 1\")\nelif (2 &gt; 1):\n    print(\"2 is greater than 1\")\nelse:\n    print(\"2 is equal to 1\")\n\n2 is greater than 1\n\n\n\n\n\nBy the way, it is extremely obnoxious to manually type 2 in 5 different places",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "10_python.html#assignment",
+    "href": "10_python.html#assignment",
+    "title": "Python",
+    "section": "Assignment",
+    "text": "Assignment\n\nWe can also assign variables!\n\nI call this single-equals assignment\nUse a single equals sign = and some variable name, like x\n\n\n\n\n\nx = 1\nif (x &lt; 1):\n    print(\"x is less than 1\")\nelif (x &gt; 1):\n    print(\"x is greater than 1\")\nelse:\n    print(\"x is equal to 1\")\n\nx is equal to 1\n\n\n\n\nx = 2\nif (x &lt; 1):\n    print(\"x is less than 1\")\nelif (x &gt; 1):\n    print(\"x is greater than 1\")\nelse:\n    print(\"x is equal to 1\")\n\nx is greater than 1",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "10_python.html#double-equals-equality",
+    "href": "10_python.html#double-equals-equality",
+    "title": "Python",
+    "section": "Double equals equality",
+    "text": "Double equals equality\n\nI call it single-equals assignment because sometimes we check if a variable is precisely equal to some value.\nThat is somewhat confusingly done with == double equals equality test.\n\n\n\n\nx = 1\nif (x == 1):\n    print(\"x is equal to 1\")\nelse:\n    print(\"x is not equal to 1\")\n\nx is equal to 1\n\n\n\n\nx = 2\nif (x == 1):\n    print(\"x is equal to 1\")\nelse:\n    print(\"x is not equal to 1\")\n\nx is not equal to 1",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "10_python.html#double-exponentation",
+    "href": "10_python.html#double-exponentation",
+    "title": "Python",
+    "section": "Double ** Exponentation",
+    "text": "Double ** Exponentation\n\nDoubling is used in a few other cases.\nDouble asterisk ** is exponentiation.\n\n\n5 ** 2\n\n25\n\n\n\nWe note that ^ - sometimes used for exponentiation - is something different (and confusing!) in Python.\n\n\n5 ^ 2\n\n7\n\n\n\nAlways use **",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "10_python.html#piecewise-1",
+    "href": "10_python.html#piecewise-1",
+    "title": "Python",
+    "section": "Piecewise",
+    "text": "Piecewise\n\nWe can finally write the piecewise expression!\n\n\n\n\\[\n\\begin{cases}\n  9x^2 + 5 & x &lt; 4 \\\\\n  9 & 4 \\leq x \\leq 8 \\\\\n  2 - x & x &gt; 8\n\\end{cases}\n\\] \\[\n\\{-1, 4, 5, 8, 11\\}\n\\]\n\n\nx = 11\nif (x &lt; 4):\n    print(9 * x ** 2 + 5)\nelif (4 &lt;= x &lt;= 8):\n    print(9)\nelif (x &gt; 8):\n    print(2 - x)\n\n-9",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "10_python.html#recycle",
+    "href": "10_python.html#recycle",
+    "title": "Python",
+    "section": "Recycle",
+    "text": "Recycle\n\nIt is still extremely tedious to either:\n\nCopy-paste, or\nType more than once.\n\nAlso very annoying/difficult to write them many lines without error!\nWe introduce the def keyword to define functions\nA way to reuse code we have already written.",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "10_python.html#def",
+    "href": "10_python.html#def",
+    "title": "Python",
+    "section": "def",
+    "text": "def\n\nWe recall we use print in a multi-line.\n\n\ndef double(x):\n    print(x + x)\n\n\ndef + some function name + ( + some variable name + ):\n\n\ndouble(7)\n\n14\n\n\n\n“Call” functions the same way we call print - with parens.",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "10_python.html#metaphor",
+    "href": "10_python.html#metaphor",
+    "title": "Python",
+    "section": "Metaphor",
+    "text": "Metaphor\n\ndef is like asking a friend for something.\n“Hey can you add x and x together?”\nprint is how your friend tells you the result.\n“Can you print out the result of x + x for me?”",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "10_python.html#return",
+    "href": "10_python.html#return",
+    "title": "Python",
+    "section": "return",
+    "text": "return\n\nIt is more common to use return than print in a function.\nWhen we call a function, we can think of it as expression with some value.\nThat value is defined by the value that is return.\n\n\n\n\ndef six_gt_five_print():\n    print(True)\n\nif (six_gt_five_print()):\n    print(123)\n\nTrue\n\n\n\n\ndef six_gt_five_print():\n    return True\n\nif (six_gt_five_print()):\n    print(123)\n\n123",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "10_python.html#example",
+    "href": "10_python.html#example",
+    "title": "Python",
+    "section": "Example",
+    "text": "Example\n\nSuppose an interest rate doubles our savings every ~7 years.\nHow much savings in 14 years?\n\n\nsavings = 10\ndouble(savings)\n\n20",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "10_python.html#use-return",
+    "href": "10_python.html#use-return",
+    "title": "Python",
+    "section": "Use return",
+    "text": "Use return\n\ndef double(x):\n    return x + x\n\n\nNow, double(savings) becomes equal to x + x\n\n\nsavings = 10\nsavings = double(savings)\nsavings\n\n20\n\n\n\ndouble(savings)\n\n40\n\n\n\nOr even\n\n\ndouble(double(10))\n\n40",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "10_python.html#piecewise-2",
+    "href": "10_python.html#piecewise-2",
+    "title": "Python",
+    "section": "Piecewise",
+    "text": "Piecewise\n\nWe can finally write the piecewise function (was: expression)!\n\nFunction: use many times in many expressions\nExpression: evaluate once and get one answer\n\n\n\n\n\\[\n\\begin{cases}\n  9x^2 + 5 & x &lt; 4 \\\\\n  9 & 4 \\leq x \\leq 8 \\\\\n  2 - x & x &gt; 8\n\\end{cases}\n\\] \\[\n\\{-1, 4, 5, 8, 11\\}\n\\]\n\n\ndef piecewise(x):\n    if (x &lt; 4):\n        return 9 * x ** 2 + 5\n    elif (4 &lt;= x &lt;= 8):\n        return 9\n    elif (x &gt; 8):\n        return 2 - x\n\n\npiecewise(4)\n\n9",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "10_python.html#tedium",
+    "href": "10_python.html#tedium",
+    "title": "Python",
+    "section": "Tedium",
+    "text": "Tedium\n\nThis is still quite tedious.\n\n\npiecewise(-1)\n\n14\n\n\n\npiecewise(4)\n\n9\n\n\n\npiecewise(5)\n\n9\n\n\n\npiecewise(8)\n\n9\n\n\n\npiecewise(11)\n\n-9",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "10_python.html#sets",
+    "href": "10_python.html#sets",
+    "title": "Python",
+    "section": "Sets",
+    "text": "Sets\n\nThis is a set:\n\n\\[\n\\{-1, 4, 5, 8, 11\\}\n\\]\n\nA set is an unordered collection of elements.\n\nIn this case, elements are integers - whole numbers.\n\nPython can also recognize sets!\n\n\n{-1, 4, 5, 8, 11}\n\n{-1, 4, 5, 8, 11}",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "10_python.html#type",
+    "href": "10_python.html#type",
+    "title": "Python",
+    "section": "Type",
+    "text": "Type\n\nTo be sure that is, in fact, a set, we use the helpful built-in type() to ask Python.\n\n\ns = {-1, 4, 5, 8, 11}\ntype(s)\n\nset\n\n\n\nWe have also worked with integers.\n\n\ntype(1)\n\nint\n\n\n\nAnd booleans - True and False values.\n\n\ntype(1 == 1)\n\nbool",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "10_python.html#loops",
+    "href": "10_python.html#loops",
+    "title": "Python",
+    "section": "Loops",
+    "text": "Loops\n\nWith a set, do something to each element\nIn Python, use a for loop:\n\nThe for keyword\nThe name to refer to an element, like e or x\nThe in keyword\nThe set/collection (or its variable name)\nThe : colon special character\nAn indented new line of code",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "10_python.html#example-1",
+    "href": "10_python.html#example-1",
+    "title": "Python",
+    "section": "Example",
+    "text": "Example\n\nfor element in collection\n\ndo thing\n\n\n\nfor e in {-1, 4, 5, 8, 11}:\n    print(piecewise(e))\n\n9\n9\n9\n-9\n14\n\n\n\nWhat do you see?",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "10_python.html#example-2",
+    "href": "10_python.html#example-2",
+    "title": "Python",
+    "section": "Example",
+    "text": "Example\n\nWhat if we just try to print the elements?\n\nEasier to think about!\n\n\n\nfor e in {-1, 4, 5, 8, 11}:\n    print(e)\n\n4\n5\n8\n11\n-1\n\n\n\nWhat do you see?",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "10_python.html#ordering",
+    "href": "10_python.html#ordering",
+    "title": "Python",
+    "section": "Ordering",
+    "text": "Ordering\n\nRecall: “A set is an unordered collection of elements”.\nWe need to put things in order!\nThe most common way to do this in Python is with a list.\nAlmost the same as sets, just use “boxy brackets” []\n\n\ntype([1,2,3])\n\nlist",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "10_python.html#example-3",
+    "href": "10_python.html#example-3",
+    "title": "Python",
+    "section": "Example",
+    "text": "Example\n\nfor element in collection\n\ndo thing\n\n\n\nfor e in [-1, 4, 5, 8, 11]:\n    print(piecewise(e))\n\n14\n9\n9\n9\n-9\n\n\n\nWhat do you see?",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "10_python.html#seeing-lists",
+    "href": "10_python.html#seeing-lists",
+    "title": "Python",
+    "section": "Seeing lists",
+    "text": "Seeing lists\n\nWe can also use lists to print multiple values!\n\nVery helpful for keeping track of things!\n\n\n\nfor e in [-1, 4, 5, 8, 11]:\n    print([e, piecewise(e)])\n\n[-1, 14]\n[4, 9]\n[5, 9]\n[8, 9]\n[11, -9]",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "10_python.html#updating-lists",
+    "href": "10_python.html#updating-lists",
+    "title": "Python",
+    "section": "Updating lists",
+    "text": "Updating lists\n\nEach element is a lot like a variable.\n\nThey just have a name and number, use []\nThe initial element is number 0 (not 1)\n\n\n\nxs = [-1, 4, 5, 8, 11]\nxs[0]\n\n-1\n\n\n\nAnd like variables, we can assign a value with =\n\n\nxs[0] = -2\nxs\n\n[-2, 4, 5, 8, 11]",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "10_python.html#metaphor-1",
+    "href": "10_python.html#metaphor-1",
+    "title": "Python",
+    "section": "Metaphor",
+    "text": "Metaphor\n\nThink of a list like a block in a neighborhood.\n\nPerhaps to “400” block or “8000”\n\nThe house on the corner has the block number.\n\n400 1st St, 8000 9th Ave\n\nLatter houses have higher numbers.\n\n404 1st St, 8019 9th Ave",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "10_python.html#adding-lists",
+    "href": "10_python.html#adding-lists",
+    "title": "Python",
+    "section": "Adding lists",
+    "text": "Adding lists\n\nLists also helpfully support addition with +\n\n\n[-1] + [4, 5, 8, 11]\n\n[-1, 4, 5, 8, 11]\n\n\n\nWe often use this to make new lists.\n\n\nresult = []\nfor e in [-1, 4, 5, 8, 11]:\n    result = result + [piecewise(e)]\nresult\n\n[14, 9, 9, 9, -9]\n\n\n\nThis pattern also works with numbers!\n\n\nx = 0 \nx = x + 1\nx\n\n1",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "10_python.html#careful",
+    "href": "10_python.html#careful",
+    "title": "Python",
+    "section": "Careful!",
+    "text": "Careful!\n\nWe cannot add numbers directly to lists\n\n[1] + 2 doesn’t work!\n\nI think of this as adding a house to block without having an address for it.\n\nWhere would the house go?\n\nTo add a house to block, we need to have a new “lot” for the house to be on.",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "10_python.html#income-tax",
+    "href": "10_python.html#income-tax",
+    "title": "Python",
+    "section": "Income tax",
+    "text": "Income tax\n\nRecall the example of a piecewise function:\n\n\n\nMarginal Tax Rate\n\n\nSingle Taxable Income\n\n\nMarried Filing Jointly or Qualified Widow(er) Taxable Income\n\n\nMarried Filing Separately Taxable Income\n\n\nHead of Household Taxable Income\n\n\n\n\n10%\n\n\n$0 – $9,275\n\n\n$0 – $18,550\n\n\n$0 – $9,275\n\n\n$0 – $13,250\n\n\n\n\n15%\n\n\n$9,276 – $37,650\n\n\n$18,551 – $75,300\n\n\n$9,276 – $37,650\n\n\n$13,251 – $50,400\n\n\n\n\n25%\n\n\n$37,651 – $91,150\n\n\n$75,301 – $151,900\n\n\n$37,651 – $75,950\n\n\n$50,401 – $130,150\n\n\n\n\n28%\n\n\n$91,151 – $190,150\n\n\n$151,901 – $231,450\n\n\n$75,951 – $115,725\n\n\n$130,151 – $210,800\n\n\n\n\n33%\n\n\n$190,151 – $413,350\n\n\n$231,451 – $413,350\n\n\n$115,726 – $206,675\n\n\n$210,801 – $413,350\n\n\n\n\n35%\n\n\n$413,351 – $415,050\n\n\n$413,351 – $466,950\n\n\n$206,676 – $233,475\n\n\n$413,351 – $441,000\n\n\n\n\n39.6%\n\n\n$415,051+\n\n\n$466,951+\n\n\n$233,476+\n\n\n$441,001+",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "10_python.html#singles-only",
+    "href": "10_python.html#singles-only",
+    "title": "Python",
+    "section": "Singles only…",
+    "text": "Singles only…\n\n\n\nRate\nFrom\n\n\n\n\n10%\n0\n\n\n15%\n9275\n\n\n25%\n37650\n\n\n28%\n91150\n\n\n33%\n190150\n\n\n35%\n413350\n\n\n39.6%\n415050",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "10_python.html#motivating-example-1",
+    "href": "10_python.html#motivating-example-1",
+    "title": "Python",
+    "section": "Motivating example",
+    "text": "Motivating example\n\nHow much would a single making 400k pay?\n\n\n\n\n10% on 9275\n15% on 37650 - 9275\n25% on 91150 - 37650\n28% on 190150 - 91150\n33% on 400000 - 190150\n\n\n\n\n\nRate\nFrom\n\n\n\n\n10%\n0\n\n\n15%\n9275\n\n\n25%\n37650\n\n\n28%\n91150\n\n\n33%\n190150\n\n\n35%\n413350\n\n\n39.6%\n415050",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "10_python.html#sum-it-up",
+    "href": "10_python.html#sum-it-up",
+    "title": "Python",
+    "section": "Sum it up!",
+    "text": "Sum it up!\n\nWatch out for order-of-operations!\n\n\n\n\n10% on 9275\n15% on 37650 - 9275\n25% on 91150 - 37650\n28% on 190150 - 91150\n33% on 400000 - 190150\n\n\n\nx = .10 * 9275\ny = .15 * (37650 - 9275)\nz = .25 * (91150 - 37650)\nr = .28 * (190150 - 91150)\ns = .33 * (400000 - 190150)\nx + y + z + r + s\n\n115529.25",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "10_python.html#add-as-you-go",
+    "href": "10_python.html#add-as-you-go",
+    "title": "Python",
+    "section": "Add as you go",
+    "text": "Add as you go\n\nWe may set a variable to an expression over that variable\n\nI think of this as an “old” version of the variable on the right side of the equal sign.\n\n\n\n\n\nx = .10 * 9275\nx = x + .15 * (37650 - 9275)\nx = x + .25 * (91150 - 37650)\nx = x + .28 * (190150 - 91150)\nx + .33 * (400000 - 190150)\n\n115529.25\n\n\n\n\nx = .10 * 9275\ny = .15 * (37650 - 9275)\nz = .25 * (91150 - 37650)\nr = .28 * (190150 - 91150)\ns = .33 * (400000 - 190150)\nx + y + z + r + s\n\n115529.25",
+    "crumbs": [
+      "Python"
+    ]
+  },
+  {
+    "objectID": "10_python.html#assign-update",
+    "href": "10_python.html#assign-update",
+    "title": "Python",
+    "section": "Assign-update",
+    "text": "Assign-update\n\nWe may use an “assignment operator” +=\n\nReassign a variable based on the result of an arithmetic operation.\n\n\n\n\n\nx = .10 * 9275\nx = x + .15 * (37650 - 9275)\nx = x + .25 * (91150 - 37650)\nx = x + .28 * (190150 - 91150)\nx + .33 * (400000 - 190150)\n\n115529.25\n\n\n\n\nx = .10 * 9275\nx += .15 * (37650 - 9275)\nx += .25 * (91150 - 37650)\nx += .28 * (190150 - 91150)\nx + .33 * (400000 - 190150)\n\n115529.25",
+    "crumbs": [
+      "Python"
     ]
   },
   {
@@ -12492,6 +13329,17 @@
     "href": "index.html",
     "title": "AI 101",
     "section": "",
-    "text": "CS 199 “Understanding AI”\n\nCalled:\n\nCS 199: Topics: Understanding AI\nAI 101\n\nA non-technical survey semester over:\n\nSome trends in AI use\nSome historical conversations around AI\nSome technical background in implementing minimal AI\n\nTaught this year via Google Colab.\n\nIt’s fast (it’s not)\nIt’s free (to us for now)\nIt’s fun (trust me)\n\n\n\nMW 1020-1150\n\n\nProf. Calvin\n\n\nSyllabus\n\nSyllabus link\n\n\n\n\nCalendar\n\n\n\n\n\nWeek\nDate (M)\nLecture (M)\nLab (W)\n\n\n\n\n0x0\n01/12\nAda & Alan\nTuring’s Test\n\n\n0x1\n01/19\nNone\nColab\n\n\n0x2\n01/26\n(Un)supervision\nDichotomy, Solution\n\n\n0x3\n02/02\nRegression\n\\(n\\)D\n\n\n0x4\n02/09\nClassification\nTree tree\n\n\n0x5\n02/16\nGraphs\nSudoku\n\n\n0x6\n02/23\nGuest\nThinking Game\n\n\n0x7\n03/02\nNeural\nWeights\n\n\n0x8\n03/09\nPerceptron\nMulti-class\n\n\n0x9\n03/16\nMatrix\n\n\n\n0bX\n03/23\nNone\nNone\n\n\n0xA\n03/30\nLearning\nFalsify\n\n\n0xB\n03/06\nXOR\nCompression\n\n\n0xC\n04/13\nMarkov\nNone\n\n\n0xD\n04/20\nPrompts\nPoetry\n\n\n0xE\n04/27\nCloud\nPerspectives\n\n\n\n*The final is described here and is due Tuesday, May 5th, at 11:00 am."
+    "text": "AI 101 “Understanding AI”\n\nA non-technical survey semester over:\n\nSome trends in AI use\nSome historical conversations around AI\nSome technical background in implementing minimal AI\n\nTaught this year via Google Colab.\n\nIt’s fast (it’s not)\nIt’s free (to us for now)\nIt’s fun (trust me)\n\n\n\nTTh 0940-1110\n\n\nProf. Calvin\n\n\nSyllabus\n\nSyllabus link\n\n\n\n\nCalendar\n\n\n\nWeek\nDate (M)\nLecture (M)\nLab (W)\n\n\n\n\n0x0\n08/35\nAda & Alan\nTuring’s Test\n\n\n\n\n|0x1|09/01|Python|Colab| |0x2|09/08|(Un)supervision|Dichotomy, Solution| |0x3|09/15|Regression|\\(n\\)D| |0x4|09/22|Classification|Tree tree| |0x5|09/29|Graphs|Sudoku| |0x6|10/06|Guest|Thinking Game| |0x7|10/13|Neural|Weights| |0x8|10/20|Perceptron|Multi-class| |0x9|10/27|Matrix|Learning|  |0bX|11/03|None|Falsify| |0xA|11/10|XOR|Compression|  |0xB|11/17|Markov|Sonnet| |0xC|11/24|Prompts|None|| |0xD|12/01|Cloud|Perspectives|\n*The final is described here and is due Monday, December 7th at 11:00 a.m. (which doesn’t sound right to me)."
+  },
+  {
+    "objectID": "notes/on_writing.html",
+    "href": "notes/on_writing.html",
+    "title": "",
+    "section": "",
+    "text": "NotesOn Writing\n\n\n\n\nNotes on writing\nIrregular capitalism “Big Data” in some places, “big data” in others. “ChatGPT” capitalized and “gemini” not. “University” when not referring to a specific university\nUnintroduced initialisms HCC for human-centered computing (don’t think this is standard)\nCitation styles Use of both quotes and italics on a title\nNumerics Use of digits for one through nine\nTerminating prepositions\nSloppiness with spaces Lack of spaces when using commas.\nSemicolon proliferation Just literally never use these.\nIrregular hypenation “male dominated” “re-learn” “un democratic” “wellbeing”\nIrregular use of commas Surround non-essentials\nIrregular indentation\nMetaphors without justification\n“Fragment consider revising”\nUse of first person “while us humans can only read one book at a time” “why we need to start moving away from these big tech companies.” “offers insight on this I found very helpful in digesting this question;”\nUse of names “how Demis is trying to find a way” who/what is Demis? “Thorn’s argument” after only referring to Philosophy Tube\nUse of transitive verbs without direct objects “data center would interact and participate and potentially disrupt.”\nIncorrect spelling “aquafer”\nPossessives Use of apostrophe with possessive nouns",
+    "crumbs": [
+      "Notes",
+      "On Writing"
+    ]
   }
 ]

@@ -5,11 +5,8 @@ subtitle: ""
 format: html
 ---
 
-# CS 199 "Understanding AI"
+# AI 101 "Understanding AI"
 
-- Called:
-    - CS 199: Topics: Understanding AI
-    - AI 101
 - A non-technical survey semester over:
     - Some trends in AI use
     - Some historical conversations around AI
@@ -19,7 +16,7 @@ format: html
     - It's free (to us for now)
     - It's fun (trust me)
 
-### MW 1020-1150
+### TTh 0940-1110
 
 ### [Prof. Calvin](mailto:ckdeutschbein@willamette.edu)
 
@@ -29,49 +26,24 @@ format: html
 
 # Calendar
 
-<!-- https://microsoft.github.io/AI-For-Beginners/ -->
-
-<!--
-
-|Week|Date (M)|Lecture (M)|Lab (W)|HW (F)|
-|:--:|:---|:----|:-------|:-------|
-|0x0|01/12|[Ada & Alan](00_turing.md)|[Turing's Test](01_test.md)|Introductions|
-|0x1|01/19|[`None`](https://www2.hawaii.edu/~freeman/courses/phil100/17.%20MLK%20Beyond%20Vietnam.pdf)|Colab|Hello, World!|
-|0x2|01/26|Supervision|Data Sources|Distributions| 
-|0x3|02/02|Classification|Reformulation|Case Studies|
-|0x4|02/09|Decision Trees|JSON|Taxonomy|
-|0x5|02/16|Perceptron|Pixels|Dice|
-|0x6|02/23|Error|Descent|Plotly| 
-|0x7|03/02|Connectivity|| 
-|0x8|03/09|Latent Space|Models|
-|0x9|03/16|Tensors|Tensorflow|Tensorflow|
-|0bX|03/23|`None`|`None`|`None`|
-|0xA|03/30|Text Rep.|Tokens|
-|0xB|03/06|Transformers| 
-|0xC|04/13|GenAI| 
-|0xD|04/20|Prompts|[`None`](https://my.willamette.edu/site/ssrd)||
-|0xE|04/29|Perspectives|Peer Review|`None`|
-
--->
-
 |Week|Date (M)|Lecture (M)|Lab (W)|
 |:--:|:---|:----|:-------|
-|0x0|01/12|[Ada & Alan](00_turing.md)|[Turing's Test](01_test.md)|
-|0x1|01/19|[`None`](https://www2.hawaii.edu/~freeman/courses/phil100/17.%20MLK%20Beyond%20Vietnam.pdf)|[Colab](11_colab.md)|
-|0x2|01/26|[(Un)supervision](20_supervise.qmd)|[Dichotomy](21_key.qmd), [Solution](https://github.com/cd-public/ai101/blob/main/sols/key_key.ipynb)| <!-- do we https://github.com/microsoft/ML-For-Beginners/blob/main/1-Introduction/3-fairness/README.md here -->
-|0x3|02/02|[Regression](30_regress.qmd)|[$n$D](31_nd.qmd)|
-|0x4|02/09|[Classification](40_class.qmd)|[Tree tree](41_treetree.qmd)|
-|0x5|02/16|[Graphs](50_graph.qmd)|[Sudoku](51_sudoku.qmd)|
-|0x6|02/23|[Guest](6__guest.md)|[Thinking Game](6_1_doc.qmd)|<!--Perceptron|Dice|-->
-|0x7|03/02|[Neural](60_neural.qmd)|[Weights](61_weights.qmd)|
-|0x8|03/09|[Perceptron](70_perceptron.qmd)|[Multi-class](71_multi.qmd)|<!--Error|Plotly| <!-- incl. back propagation --> <!-- Connectivity|| <!-- fully connected networks, https://docs.nvidia.com/deeplearning/performance/dl-performance-fully-connected/index.html Latent Space|Models| Tensors|Tensorflow| -->
-|0x9|03/16|[Matrix](80_matrix.qmd)| <!-- compression or prey -->
-|0bX|03/23|`None`|`None`|
-|0xA|03/30|[Learning](90_learning.qmd)|[Falsify](91_false.qmd)| <!-- XOR -->
-|0xB|03/06|[XOR](A0_xor.qmd)|[Compression](A1_compress.qmd)| <!-- compression --> <!-- Weight matrices (K, Q, V), and Multiple Heads-->
-|0xC|04/13|[Markov](B0_markov.qmd)|[`None`](https://my.willamette.edu/site/ssrd)|| <!-- Fine tuning, prompt injection, chat bots -->
-|0xD|04/20|[Prompts](C0_prompt.qmd)|[Poetry](C1_poetry.qmd)|
-|0xE|04/27|[Cloud](D0_cloud.qmd)|[Perspectives](D1_perspect.qmd)|
+|0x0|08/35|[Ada & Alan](00_turing.md)|[Turing's Test](01_test.md)|
+<!--|0x1|09/19|[`None`](https://www2.hawaii.edu/~freeman/courses/phil100/17.%20MLK%20Beyond%20Vietnam.pdf)|[Colab](11_colab.md)|-->
+|0x1|09/01|[Python](10_python.md)|[Colab](11_colab.md)|
+|0x2|09/08|[(Un)supervision](20_supervise.qmd)|[Dichotomy](21_key.qmd), [Solution](https://github.com/cd-public/ai101/blob/main/sols/key_key.ipynb)|
+|0x3|09/15|[Regression](30_regress.qmd)|[$n$D](31_nd.qmd)|
+|0x4|09/22|[Classification](40_class.qmd)|[Tree tree](41_treetree.qmd)|
+|0x5|09/29|[Graphs](50_graph.qmd)|[Sudoku](51_sudoku.qmd)|
+|0x6|10/06|[Guest](6__guest.md)|[Thinking Game](6_1_doc.qmd)|<!--Perceptron|Dice|-->
+|0x7|10/13|[Neural](60_neural.qmd)|[Weights](61_weights.qmd)|
+|0x8|10/20|[Perceptron](70_perceptron.qmd)|[Multi-class](71_multi.qmd)|
+|0x9|10/27|[Matrix](80_matrix.qmd)|[Learning](90_learning.qmd)| <!-- compression or prey -->
+|0bX|11/03|[`None`](https://events.willamette.edu/e/7358)|[Falsify](91_false.qmd)|
+|0xA|11/10|[XOR](A0_xor.qmd)|[Compression](A1_compress.qmd)| <!-- XOR -->
+|0xB|11/17|[Markov](B0_markov.qmd)|[Sonnet](C1_sonnet.qmd)| 
+|0xC|11/24|[Prompts](C0_prompt.qmd)|[`None`](https://events.willamette.edu/e/7373)|| 
+|0xD|12/01|[Cloud](D0_cloud.qmd)|[Perspectives](D1_perspect.qmd)|
 
-*The final is described [here](Z_final.qmd) and is due [Tuesday, May 5th, at 11:00 am](https://my.willamette.edu/site/registrar/info/mywu-summative-evaluations).
+*The final is described [here](Z_final.qmd) and is due [Monday, December 7th at 11:00 a.m.](https://my.willamette.edu/site/registrar/info/mywu-summative-evaluations) (which doesn't sound right to me).
 

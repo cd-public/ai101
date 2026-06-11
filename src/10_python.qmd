@@ -1,0 +1,1022 @@
+---
+title: Python
+---
+
+# Why Python?
+
+## On Python
+
+* Python is free,
+* Python is very widely used,
+* Python is flexible,
+* Python is relatively easy to learn,
+* and Python is quite powerful.
+
+## Why not Python?
+
+- Python is a general purpose language used for machine learning and artifical intelligence. 
+- _Not for_ building apps, building software, managing databases, or developing user interfaces. 
+- _For_ organizing thoughts and answering questions.
+
+# Running Example
+
+## Diving In
+
+- Taking Python as a given, we'll:
+    - Use an example of something I helped a student with recently
+    - Show step-by-step how to use Python
+    - Introduce a number of Python features to solve the problem more easily.
+- This was from an introductory physics class I believe; I don't know the context.
+
+## Motivating Example
+
+- Recently, I helped a student stuck on this:
+
+$$
+f(x) =
+\begin{cases}
+  9x^2 + 5 & x < 4 \\
+  9 & 4 \leq x \leq 8 \\
+  2 - x & x > 8
+\end{cases}
+$$
+
+- Find $f(x)$ for each of the following $x$ values:
+$$
+\{-1, 4, 5, 8, 11\}
+$$
+
+## Is this "real"?
+
+- Models income tax brackets, one of the most important drivers of human behavior in the largest economies in the world.
+- We use a simpler contrived example for now...
+
+<table style="font-size:12px">
+<th>Marginal Tax Rate</th>
+<th>Single Taxable Income</th>
+<th>Married Filing Jointly or Qualified Widow(er) Taxable Income</th>
+<th>Married Filing Separately Taxable Income</th>
+<th>Head of Household Taxable Income</th>
+</tr>
+<tr>
+<th>10%</th>
+<td>$0 – $9,275</td>
+<td>$0 – $18,550</td>
+<td>$0 – $9,275</td>
+<td>$0 – $13,250</td>
+</tr>
+<tr>
+<th>15%</th>
+<td>$9,276 – $37,650</td>
+<td>$18,551 – $75,300</td>
+<td>$9,276 – $37,650</td>
+<td>$13,251 – $50,400</td>
+</tr>
+<tr>
+<th>25%</th>
+<td>$37,651 – $91,150</td>
+<td>$75,301 – $151,900</td>
+<td>$37,651 – $75,950</td>
+<td>$50,401 – $130,150</td>
+</tr>
+<tr>
+<th>28%</th>
+<td>$91,151 – $190,150</td>
+<td>$151,901 – $231,450</td>
+<td>$75,951 – $115,725</td>
+<td>$130,151 – $210,800</td>
+</tr>
+<tr>
+<th>33%</th>
+<td>$190,151 – $413,350</td>
+<td>$231,451 – $413,350</td>
+<td>$115,726 – $206,675</td>
+<td>$210,801 – $413,350</td>
+</tr>
+<tr>
+<th>35%</th>
+<td>$413,351 – $415,050</td>
+<td>$413,351 – $466,950</td>
+<td>$206,676 – $233,475</td>
+<td>$413,351 – $441,000</td>
+</tr>
+<tr>
+<th>39.6%</th>
+<td>$415,051+</td>
+<td>$466,951+</td>
+<td>$233,476+</td>
+<td>$441,001+</td>
+</table>
+
+
+## How to solve?
+
+- Think about how you would solve such a problem.
+- What steps would you take?
+- What would making solving it hard?
+    - Keep track of details?
+    - Performing the arithmetic?
+    - Anything else?
+- Python, in my view, is a way to solve these problems.
+
+## Python in action
+
+- My preferred way to do calculation as an experienced Python user is writing *code*:
+
+:::: {.columns}
+
+::: {.column width="50%"}
+- Mathematical expression
+$$
+\begin{cases}
+  9x^2 + 5 & x < 4 \\
+  9 & 4 \leq x \leq 8 \\
+  2 - x & x > 8
+\end{cases}
+$$
+:::
+
+::: {.column width="50%"}
+
+- Python expression (code)
+
+```{python}
+9 * -1 * -1 + 5
+```
+
+:::
+
+::::
+
+- I write `x * x` for $x^2$ because it's non-obvious how to write "squared" yet.
+
+## Arithmetic Operations
+
+- In Python, we can write many of the same arithmetic operations we use in our math and science classes.
+```{python}
+6 + 3
+```
+
+```{python}
+6 - 3
+```
+
+```{python}
+6 * 3
+```
+
+```{python}
+6 / 3
+```
+
+# Evaluating Expressions
+
+## Recall
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+$$
+\begin{cases}
+  9x^2 + 5 & x < 4 \\
+  9 & 4 \leq x \leq 8 \\
+  2 - x & x > 8
+\end{cases}
+$$
+$$
+\{-1, 4, 5, 8, 11\}
+$$
+
+:::
+
+::: {.column width="50%"}
+
+```{python}
+9 * -1 * -1 + 5
+```
+
+:::
+
+::::
+
+- This is still quite tedious and annoying!
+
+## (In)equality testing
+
+- Like `+` or `-` which we use to calculate numbers...
+- We can use `<` or `>` to calculate inequalities.
+- Specifically, we see whether an inequality is `True` or `False`
+
+```{python}
+-1 < 4
+```
+
+```{python}
+4 < 4
+```
+
+## Accomodating Keyboards
+
+- Some things aren't super easy to type.
+- I don't have a "$\leq$" key on my keyboard.
+- Combine with `=` as `<=` for "less than or equal" or "$\leq$"
+
+```{python}
+4 <= 4
+```
+
+- We can "chain" inequalities as well - one after another.
+```{python}
+4 <= 4 <= 8
+```
+
+## A note
+
+- We always put the equal sign `=` second.
+
+```{python}
+4 <= 5
+```
+
+```{python}
+5 >= 4
+```
+- A (somewhat confusing) error if we try `=>`
+
+```{.email code-line-numbers="false"}
+File "<stdin>", line 1
+    4 => 5
+    ^
+SyntaxError: cannot assign to literal
+```
+
+# `=` and `==`
+
+## New Topics
+
+- We have now touch on two new topics:
+    - `True` and `False`
+        - Expressions which don't *evaluate* to a number
+        - Called "booleans"
+    - "Assignment"
+        - Associated with the `=` sign
+        - Different from inequality testing!
+- We'll explore both!
+
+## Booleans
+
+- Sometimes, a Python *expression* is a numerical value.
+```{python}
+2 + 2
+```
+```{python}
+7
+```
+- But it doesn't have to be!
+```{python}
+2 < 2
+```
+
+## If
+
+- Booleans are mostly useful for writing `if` statements.
+    - These are *multiline* expressions in Python.
+- To see the result of multi-line expression, we have to print the result...
+```{python}
+if (1 <= 1):
+    print(2 + 2)
+```
+```{python}
+if (1 < 1):
+    print(2 + 2)
+```
+
+## Piecewise
+
+- We can see the immediate use of this in a piecewise function!
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+$$
+\begin{cases}
+  9x^2 + 5 & x < 4 \\
+  9 & 4 \leq x \leq 8 \\
+  2 - x & x > 8
+\end{cases}
+$$
+$$
+\{-1, 4, 5, 8, 11\}
+$$
+
+:::
+
+::: {.column width="50%"}
+
+```{python}
+if (-1 < 4):
+    print(9 * -1 * -1 + 5)
+```
+
+- Or least part of one...
+
+```{python}
+if (4 < 4):
+    print(9 * 4 * 4 + 5)
+```
+
+- Uh oh!
+
+:::
+
+::::
+
+
+## Else
+
+- Oftentimes, we use `if` with `else`
+
+```{python}
+if (1 < 1):
+    print("1 is less than 1")
+else:
+    print("1 is not less than 1")
+```
+
+## Elif
+
+- If we have more than two options, we can place a special `elif` in the middle.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{python}
+if (1 < 1):
+    print("1 is less than 1")
+elif (1 > 1):
+    print("1 is greater than 1")
+else:
+    print("1 is equal to 1")
+```
+
+:::
+
+::: {.column width="50%"}
+
+```{python}
+if (2 < 1):
+    print("2 is less than 1")
+elif (2 > 1):
+    print("2 is greater than 1")
+else:
+    print("2 is equal to 1")
+```
+
+:::
+
+::::
+
+- By the way, it is extremely obnoxious to manually type `2` in *5 different places*
+
+## Assignment
+
+- We can also assign variables!
+    - I call this *single-equals assignment*
+    - Use a single equals sign `=` and some variable name, like `x`
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{python}
+x = 1
+if (x < 1):
+    print("x is less than 1")
+elif (x > 1):
+    print("x is greater than 1")
+else:
+    print("x is equal to 1")
+```
+
+:::
+
+::: {.column width="50%"}
+
+```{python}
+x = 2
+if (x < 1):
+    print("x is less than 1")
+elif (x > 1):
+    print("x is greater than 1")
+else:
+    print("x is equal to 1")
+```
+
+:::
+
+::::
+
+## Double equals equality
+
+- I call it *single-equals assignment* because sometimes we check if a variable is precisely equal to some value.
+- That is somewhat confusingly done with `==` *double equals equality* test.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{python}
+x = 1
+if (x == 1):
+    print("x is equal to 1")
+else:
+    print("x is not equal to 1")
+```
+
+:::
+
+::: {.column width="50%"}
+
+```{python}
+x = 2
+if (x == 1):
+    print("x is equal to 1")
+else:
+    print("x is not equal to 1")
+```
+
+:::
+
+::::
+
+## Double ** Exponentation
+
+- Doubling is used in a few other cases.
+- Double asterisk `**` is exponentiation.
+```{python}
+5 ** 2
+```
+- We note that `^` - sometimes used for exponentiation - is something different (and confusing!) in Python.
+```{python}
+5 ^ 2
+```
+- Always use `**`
+
+## Piecewise
+
+- We can finally write the piecewise expression!
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+$$
+\begin{cases}
+  9x^2 + 5 & x < 4 \\
+  9 & 4 \leq x \leq 8 \\
+  2 - x & x > 8
+\end{cases}
+$$
+$$
+\{-1, 4, 5, 8, 11\}
+$$
+
+:::
+
+::: {.column width="50%"}
+
+```{python}
+x = 11
+if (x < 4):
+    print(9 * x ** 2 + 5)
+elif (4 <= x <= 8):
+    print(9)
+elif (x > 8):
+    print(2 - x)
+```
+
+:::
+
+::::
+
+# Code Reuse
+
+## Recycle
+
+- It is still extremely tedious to either:
+    - Copy-paste, or
+    - Type more than once.
+- Also very annoying/difficult to write them many lines without error!
+- We introduce the `def` keyword to define `functions`
+- A way to reuse code we have already written.
+
+## `def`
+
+- We recall we use `print` in a multi-line.
+```{python}
+def double(x):
+    print(x + x)
+```
+- `def` + *some function name* + `(` + *some variable name* + `):`
+```{python}
+double(7)
+```
+- "Call" functions the same way we call `print` - with parens.
+
+## Metaphor
+
+- `def` is like asking a friend for something.
+- "Hey can you add `x` and `x` together?"
+- `print` is how your friend tells you the result.
+- "Can you print out the result of `x + x` for me?"
+
+## `return`
+
+- It is more common to use `return` than `print` in a function.
+- When we call a function, we can think of it as expression with some value.
+- That value is defined by the value that is return.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{python}
+def six_gt_five_print():
+    print(True)
+
+if (six_gt_five_print()):
+    print(123)
+```
+
+:::
+
+::: {.column width="50%"}
+
+
+```{python}
+def six_gt_five_print():
+    return True
+
+if (six_gt_five_print()):
+    print(123)
+```
+
+:::
+
+::::
+
+## Example
+
+- Suppose an interest rate doubles our savings every ~7 years.
+- How much savings in 14 years?
+
+```{python}
+savings = 10
+double(savings)
+```
+
+## Use return
+
+```{python}
+def double(x):
+    return x + x
+```
+
+- Now, `double(savings)` becomes equal to `x + x`
+
+```{python}
+savings = 10
+savings = double(savings)
+savings
+```
+
+```{python}
+double(savings)
+```
+
+- Or even
+```{python}
+double(double(10))
+```
+
+## Piecewise
+
+- We can finally write the piecewise function (was: expression)!
+    - Function: use many times in many expressions
+    - Expression: evaluate once and get one answer
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+$$
+\begin{cases}
+  9x^2 + 5 & x < 4 \\
+  9 & 4 \leq x \leq 8 \\
+  2 - x & x > 8
+\end{cases}
+$$
+$$
+\{-1, 4, 5, 8, 11\}
+$$
+
+:::
+
+::: {.column width="50%"}
+
+```{python}
+def piecewise(x):
+    if (x < 4):
+        return 9 * x ** 2 + 5
+    elif (4 <= x <= 8):
+        return 9
+    elif (x > 8):
+        return 2 - x
+```
+
+```{python}
+piecewise(4)
+```
+:::
+
+::::
+
+# Iteration
+
+## Tedium
+
+- This is still quite tedious.
+
+```{python}
+piecewise(-1)
+```
+```{python}
+piecewise(4)
+```
+```{python}
+piecewise(5)
+```
+```{python}
+piecewise(8)
+```
+```{python}
+piecewise(11)
+```
+
+## Sets
+
+- This is a *set*:
+
+$$
+\{-1, 4, 5, 8, 11\}
+$$
+
+- A set is an *unordered* collection of *elements*.
+    - In this case, elements are integers - whole numbers.
+- Python can also recognize sets!
+
+```{python}
+{-1, 4, 5, 8, 11}
+```
+
+## Type
+
+- To be sure that is, in fact, a set, we use the helpful built-in `type()` to ask Python.
+
+```{python}
+s = {-1, 4, 5, 8, 11}
+type(s)
+```
+
+- We have also worked with **int**egers.
+
+```{python}
+type(1)
+```
+
+- And ***bool**eans* - `True` and `False` values.
+```{python}
+type(1 == 1)
+```
+
+## Loops
+
+- With a set, do something *to each element*
+- In Python, use a `for` loop:
+    - The `for` keyword
+    - The name to refer to an element, like `e` or `x`
+    - The `in` keyword
+    - The set/collection (or its variable name)
+    - The `:` colon special character
+    - An indented new line of code
+
+## Example
+
+- for element in collection
+    - do thing
+```{python}
+for e in {-1, 4, 5, 8, 11}:
+    print(piecewise(e))
+```
+- What do you see?
+
+## Example
+
+- What if we just try to print the elements?
+    - Easier to think about!
+```{python}
+for e in {-1, 4, 5, 8, 11}:
+    print(e)
+```
+- What do you see?
+
+## Ordering
+
+- Recall: "A set is an *unordered* collection of *elements*".
+- We need to put things in order!
+- The most common way to do this in Python is with a *list*.
+- Almost the same as sets, just use "boxy brackets" `[]`
+```{python}
+type([1,2,3])
+```
+
+## Example
+
+- for element in collection
+    - do thing
+```{python}
+for e in [-1, 4, 5, 8, 11]:
+    print(piecewise(e))
+```
+- What do you see?
+
+## Seeing lists
+
+- We can also use lists to print multiple values!
+    - Very helpful for keeping track of things!
+```{python}
+for e in [-1, 4, 5, 8, 11]:
+    print([e, piecewise(e)])
+```
+
+
+## Updating lists
+
+- Each element is a lot like a variable.
+    - They just have a name *and* number, use `[]`
+    - The initial element is number `0` (*not* 1)
+```{python}
+xs = [-1, 4, 5, 8, 11]
+xs[0]
+```
+- And like variables, we can assign a value with `=`
+```{python}
+xs[0] = -2
+xs
+```
+
+## Metaphor
+
+- Think of a list like a block in a neighborhood.
+  	- Perhaps to "400" block or "8000"
+- The house on the corner has the block number.
+  	- 400 1st St, 8000 9th Ave
+- Latter houses have higher numbers.
+  	- 404 1st St, 8019 9th Ave
+
+## Adding lists
+
+- Lists also helpfully support addition with `+`
+```{python}
+[-1] + [4, 5, 8, 11]
+```
+- We often use this to make new lists.
+
+```{python}
+result = []
+for e in [-1, 4, 5, 8, 11]:
+    result = result + [piecewise(e)]
+result
+```
+- This pattern also works with numbers!
+```{python}
+x = 0 
+x = x + 1
+x
+```
+
+## Careful!
+
+- We cannot add numbers directly to lists
+  	- `[1] + 2` doesn't work!
+- I think of this as adding a house to block without having an address for it.
+  	- Where would the house go?
+- To add a house to block, we need to have a new "lot" for the house to be on.
+
+# Exercise
+
+## Income tax
+
+- Recall the example of a piecewise function:
+
+<table style="font-size:12px">
+<th>Marginal Tax Rate</th>
+<th>Single Taxable Income</th>
+<th>Married Filing Jointly or Qualified Widow(er) Taxable Income</th>
+<th>Married Filing Separately Taxable Income</th>
+<th>Head of Household Taxable Income</th>
+</tr>
+<tr>
+<th>10%</th>
+<td>$0 – $9,275</td>
+<td>$0 – $18,550</td>
+<td>$0 – $9,275</td>
+<td>$0 – $13,250</td>
+</tr>
+<tr>
+<th>15%</th>
+<td>$9,276 – $37,650</td>
+<td>$18,551 – $75,300</td>
+<td>$9,276 – $37,650</td>
+<td>$13,251 – $50,400</td>
+</tr>
+<tr>
+<th>25%</th>
+<td>$37,651 – $91,150</td>
+<td>$75,301 – $151,900</td>
+<td>$37,651 – $75,950</td>
+<td>$50,401 – $130,150</td>
+</tr>
+<tr>
+<th>28%</th>
+<td>$91,151 – $190,150</td>
+<td>$151,901 – $231,450</td>
+<td>$75,951 – $115,725</td>
+<td>$130,151 – $210,800</td>
+</tr>
+<tr>
+<th>33%</th>
+<td>$190,151 – $413,350</td>
+<td>$231,451 – $413,350</td>
+<td>$115,726 – $206,675</td>
+<td>$210,801 – $413,350</td>
+</tr>
+<tr>
+<th>35%</th>
+<td>$413,351 – $415,050</td>
+<td>$413,351 – $466,950</td>
+<td>$206,676 – $233,475</td>
+<td>$413,351 – $441,000</td>
+</tr>
+<tr>
+<th>39.6%</th>
+<td>$415,051+</td>
+<td>$466,951+</td>
+<td>$233,476+</td>
+<td>$441,001+</td>
+</table>
+
+## [Singles](https://www.youtube.com/watch?v=4m1EFMoRFvY) only...
+
+| Rate   | From    |
+|--------|--------:|
+| 10%    | 0       |
+| 15%    | 9275    |
+| 25%    | 37650   |
+| 28%    | 91150   |
+| 33%    | 190150  |
+| 35%    | 413350  |
+| 39.6%  | 415050  |
+
+## Motivating example
+
+- How much would a single making 400k pay?
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- 10% on 9275
+- 15% on 37650 - 9275
+- 25% on 91150 - 37650
+- 28% on 190150 - 91150
+- 33% on 400000 - 190150
+
+:::
+
+::: {.column width="50%"}
+
+| Rate   | From    |
+|--------|--------:|
+| 10%    | 0       |
+| 15%    | 9275    |
+| 25%    | 37650   |
+| 28%    | 91150   |
+| 33%    | 190150  |
+| 35%    | 413350  |
+| 39.6%  | 415050  |
+
+:::
+
+::::
+
+## Sum it up!
+
+- Watch out for order-of-operations!
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- 10% on 9275
+- 15% on 37650 - 9275
+- 25% on 91150 - 37650
+- 28% on 190150 - 91150
+- 33% on 400000 - 190150
+
+:::
+
+::: {.column width="50%"}
+
+```{python} 
+x = .10 * 9275
+y = .15 * (37650 - 9275)
+z = .25 * (91150 - 37650)
+r = .28 * (190150 - 91150)
+s = .33 * (400000 - 190150)
+x + y + z + r + s
+```
+
+:::
+
+::::
+
+## Add as you go
+
+- We may set a variable to an expression *over that variable*
+    - I think of this as an "old" version of the variable on the right side of the equal sign.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{python} 
+x = .10 * 9275
+x = x + .15 * (37650 - 9275)
+x = x + .25 * (91150 - 37650)
+x = x + .28 * (190150 - 91150)
+x + .33 * (400000 - 190150)
+```
+
+:::
+
+::: {.column width="50%"}
+
+```{python} 
+x = .10 * 9275
+y = .15 * (37650 - 9275)
+z = .25 * (91150 - 37650)
+r = .28 * (190150 - 91150)
+s = .33 * (400000 - 190150)
+x + y + z + r + s
+```
+
+:::
+
+::::
+
+## Assign-update
+
+- We may use an "assignment operator" `+=`
+    - Reassign a variable based on the result of an arithmetic operation.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{python} 
+x = .10 * 9275
+x = x + .15 * (37650 - 9275)
+x = x + .25 * (91150 - 37650)
+x = x + .28 * (190150 - 91150)
+x + .33 * (400000 - 190150)
+```
+
+:::
+
+::: {.column width="50%"}
+
+```{python} 
+x = .10 * 9275
+x += .15 * (37650 - 9275)
+x += .25 * (91150 - 37650)
+x += .28 * (190150 - 91150)
+x + .33 * (400000 - 190150)
+```
+
+:::
+
+::::
