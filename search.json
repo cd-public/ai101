@@ -4,7 +4,7 @@
     "href": "Z_final.html",
     "title": "Final",
     "section": "",
-    "text": "Tuesday, May 5th, at 11:00 am",
+    "text": "Monday, December 7th at 11:00",
     "crumbs": [
       "Final"
     ]
@@ -37,17 +37,6 @@
     "text": "Structure\n\nEach of the 7 questions, which you answer, must be answer with minimally the follow. - A thesis statement of approximately 140-280 characters stating your view on the question. - A supporting citation, either from the 6 sources provided above, some other content of the course, or a source you find yourself.",
     "crumbs": [
       "Final"
-    ]
-  },
-  {
-    "objectID": "notes/ideas.html",
-    "href": "notes/ideas.html",
-    "title": "",
-    "section": "",
-    "text": "NotesIdeas\n\n\n\n\nIdeas\n\nGo to library, assign a novel.\nGot Hallie Ford, ask if an AI could make these.\n\nAnd if it could, whether you’d care.\n\nOne-on-one’s with midterm.\n\nMaybe do the “perspectives” VoDs this week.\n\nState and Revolution\n\nGive students a formal formulation for human-centered vs. profit-centered.\n\nQuantitatively approach energy policy more seriously.\n\nAs an extension of “Cloud Big” and The Dalles",
-    "crumbs": [
-      "Notes",
-      "Ideas"
     ]
   },
   {
@@ -13329,17 +13318,6 @@
     "href": "index.html",
     "title": "AI 101",
     "section": "",
-    "text": "AI 101 “Understanding AI”\n\nA non-technical survey semester over:\n\nSome trends in AI use\nSome historical conversations around AI\nSome technical background in implementing minimal AI\n\nTaught this year via Google Colab.\n\nIt’s fast (it’s not)\nIt’s free (to us for now)\nIt’s fun (trust me)\n\n\n\nTTh 0940-1110\n\n\nProf. Calvin\n\n\nSyllabus\n\nSyllabus link\n\n\n\n\nCalendar\n\n\n\nWeek\nDate (M)\nLecture (M)\nLab (W)\n\n\n\n\n0x0\n08/35\nAda & Alan\nTuring’s Test\n\n\n\n\n|0x1|09/01|Python|Colab| |0x2|09/08|(Un)supervision|Dichotomy, Solution| |0x3|09/15|Regression|\\(n\\)D| |0x4|09/22|Classification|Tree tree| |0x5|09/29|Graphs|Sudoku| |0x6|10/06|Guest|Thinking Game| |0x7|10/13|Neural|Weights| |0x8|10/20|Perceptron|Multi-class| |0x9|10/27|Matrix|Learning|  |0bX|11/03|None|Falsify| |0xA|11/10|XOR|Compression|  |0xB|11/17|Markov|Sonnet| |0xC|11/24|Prompts|None|| |0xD|12/01|Cloud|Perspectives|\n*The final is described here and is due Monday, December 7th at 11:00 a.m. (which doesn’t sound right to me)."
-  },
-  {
-    "objectID": "notes/on_writing.html",
-    "href": "notes/on_writing.html",
-    "title": "",
-    "section": "",
-    "text": "NotesOn Writing\n\n\n\n\nNotes on writing\nIrregular capitalism “Big Data” in some places, “big data” in others. “ChatGPT” capitalized and “gemini” not. “University” when not referring to a specific university\nUnintroduced initialisms HCC for human-centered computing (don’t think this is standard)\nCitation styles Use of both quotes and italics on a title\nNumerics Use of digits for one through nine\nTerminating prepositions\nSloppiness with spaces Lack of spaces when using commas.\nSemicolon proliferation Just literally never use these.\nIrregular hypenation “male dominated” “re-learn” “un democratic” “wellbeing”\nIrregular use of commas Surround non-essentials\nIrregular indentation\nMetaphors without justification\n“Fragment consider revising”\nUse of first person “while us humans can only read one book at a time” “why we need to start moving away from these big tech companies.” “offers insight on this I found very helpful in digesting this question;”\nUse of names “how Demis is trying to find a way” who/what is Demis? “Thorn’s argument” after only referring to Philosophy Tube\nUse of transitive verbs without direct objects “data center would interact and participate and potentially disrupt.”\nIncorrect spelling “aquafer”\nPossessives Use of apostrophe with possessive nouns",
-    "crumbs": [
-      "Notes",
-      "On Writing"
-    ]
+    "text": "AI 101 “Understanding AI”\n\nA non-technical survey semester over:\n\nSome trends in AI use\nSome historical conversations around AI\nSome technical background in implementing minimal AI\n\nTaught this year via Google Colab.\n\nIt’s fast (it’s not)\nIt’s free (to us for now)\nIt’s fun (trust me)\n\n\n\nTTh 0940-1110\n\n\nProf. Calvin\n\n\nSyllabus\n\nSyllabus link\n\n\n\n\nCalendar\n\n\n\nWeek\nDate (M)\nLecture (M)\nLab (W)\n\n\n\n\n0x0\n08/35\nAda & Alan\nTuring’s Test\n\n\n0x1\n09/01\nPython\nColab\n\n\n0x2\n09/08\n(Un)supervision\nDichotomy, Solution\n\n\n0x3\n09/15\nRegression\n\\(n\\)D\n\n\n0x4\n09/22\nClassification\nTree tree\n\n\n0x5\n09/29\nGraphs\nSudoku\n\n\n0x6\n10/06\nGuest\nThinking Game\n\n\n0x7\n10/13\nNeural\nWeights\n\n\n0x8\n10/20\nPerceptron\nMulti-class\n\n\n0x9\n10/27\nMatrix\nLearning\n\n\n0bX\n11/03\nNone\nFalsify\n\n\n0xA\n11/10\nXOR\nCompression\n\n\n0xB\n11/17\nMarkov\nSonnet\n\n\n0xC\n11/24\nPrompts\nNone\n\n\n0xD\n12/01\nCloud\nPerspectives\n\n\n\n*The final is described here and is due Monday, December 7th at 11:00 a.m.."
   }
 ]

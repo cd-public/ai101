@@ -29,7 +29,6 @@ format: html
 |Week|Date (M)|Lecture (M)|Lab (W)|
 |:--:|:---|:----|:-------|
 |0x0|08/35|[Ada & Alan](00_turing.md)|[Turing's Test](01_test.md)|
-<!--|0x1|09/19|[`None`](https://www2.hawaii.edu/~freeman/courses/phil100/17.%20MLK%20Beyond%20Vietnam.pdf)|[Colab](11_colab.md)|-->
 |0x1|09/01|[Python](10_python.md)|[Colab](11_colab.md)|
 |0x2|09/08|[(Un)supervision](20_supervise.qmd)|[Dichotomy](21_key.qmd), [Solution](https://github.com/cd-public/ai101/blob/main/sols/key_key.ipynb)|
 |0x3|09/15|[Regression](30_regress.qmd)|[$n$D](31_nd.qmd)|
@@ -45,5 +44,5 @@ format: html
 |0xC|11/24|[Prompts](C0_prompt.qmd)|[`None`](https://events.willamette.edu/e/7373)|| 
 |0xD|12/01|[Cloud](D0_cloud.qmd)|[Perspectives](D1_perspect.qmd)|
 
-*The final is described [here](Z_final.qmd) and is due [Monday, December 7th at 11:00 a.m.](https://my.willamette.edu/site/registrar/info/mywu-summative-evaluations) (which doesn't sound right to me).
+*The final is described [here](Z_final.qmd) and is due [Monday, December 7th at 11:00 a.m.](https://my.willamette.edu/site/registrar/info/mywu-summative-evaluations).
 
