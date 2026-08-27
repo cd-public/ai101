@@ -46,3 +46,7 @@ format: html
 
 *The final is described [here](Z_final.qmd) and is due [Monday, December 7th at 11:00 a.m.](https://my.willamette.edu/site/registrar/info/mywu-summative-evaluations).
 
+
+# Recordings
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=jcSmRBfQ8uUWEms6&amp;list=PLJqm_U0Hk230" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
