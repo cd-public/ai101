@@ -1,9 +1,6 @@
 ---
 title: Dichotomous Key 
 format: html
-
-execute:
-  echo: false
 ---
 
 # What is a Dichotomous Key?
@@ -66,6 +63,7 @@ execute:
 - You may have to zoom in...
 
 ```{dot}
+//| echo: false
 digraph OakKey {
     bgcolor="transparent"
     node [shape=box,  fontcolor="white", color="white"];
