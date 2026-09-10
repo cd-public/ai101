@@ -184,6 +184,7 @@ $$
 - Amtrak routes. (Linear graph)
 
 ```{dot}
+//| echo: false
 graph Hiawatha {
     rankdir=TB;
     bgcolor="transparent"  
@@ -199,6 +200,7 @@ graph Hiawatha {
 - The decision tree. (Tree graph)
     
 ```{dot}
+//| echo: false
 digraph OakKey {
     bgcolor="transparent"
     node [shape=box,  fontcolor="white", color="white"];
@@ -252,6 +254,7 @@ digraph OakKey {
 - We'll do rivers as edges.  (Tree graph)
     
 ```{dot}
+//| echo: false
 graph Gorge {
     rankdir=RL;
     bgcolor="transparent"  
@@ -271,6 +274,7 @@ graph Gorge {
 - Just the top-left's connections.
 
 ```{dot}
+//| echo: false
 graph SudokuBipartite {
     rankdir=TB;
     bgcolor="transparent"  
@@ -331,6 +335,7 @@ graph SudokuBipartite {
 - All connections
 
 ```{dot}
+//| echo: false
 graph SudokuBipartite {
     rankdir=TD;
     bgcolor="transparent"  
@@ -408,6 +413,7 @@ graph SudokuBipartite {
 - A common one is students-to-universities
 
 ```{dot}
+//| echo: false
 graph SudokuBipartite {
     rankdir=TD;
     bgcolor="transparent"  
@@ -542,6 +548,7 @@ graph SudokuBipartite {
 ##
 
 ```{dot}
+//| echo: false
 graph SudokuBipartite {
     rankdir=TD;
     bgcolor="transparent"  
@@ -569,6 +576,7 @@ graph SudokuBipartite {
 - Neurons in the brain as the lower, thinking layer in <span style="color:blue">BLUE</span>
 
 ```{dot}
+//| echo: false
 graph SudokuBipartite {
     rankdir=TD;
     bgcolor="transparent"  
@@ -616,6 +624,7 @@ graph SudokuBipartite {
 
 
 ```{dot}
+//| echo: false
 graph SudokuBipartite {
     rankdir=TD;
     bgcolor="transparent"  
@@ -672,6 +681,7 @@ graph SudokuBipartite {
     - I usually use right thumb and index finger - R1 and R2
 
 ```{dot}
+//| echo: false
 graph SudokuBipartite {
     rankdir=TD;
     bgcolor="transparent"  
@@ -719,6 +729,7 @@ graph SudokuBipartite {
     - I usually use an index finger - L2 or R2
 
 ```{dot}
+//| echo: false
 graph SudokuBipartite {
     rankdir=TD;
     bgcolor="transparent"  
@@ -767,6 +778,7 @@ graph SudokuBipartite {
 - Perhaps fingers and keys on the keyboard.
 
 ```{dot}
+//| echo: false
 graph SudokuBipartite {
     rankdir=TD;
     bgcolor="transparent"  

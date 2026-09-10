@@ -604,6 +604,7 @@ e = [
   	- Nodes are questions.
 	- Answers are edges.
 ```{dot}
+//| echo: false
 digraph OakKey {
     bgcolor="transparent"
     node [shape=box,  fontcolor="white", color="white"];
