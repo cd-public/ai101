@@ -1,6 +1,9 @@
 ---
 title: Dichotomous Key 
 format: html
+
+execute:
+  echo: false
 ---
 
 # What is a Dichotomous Key?

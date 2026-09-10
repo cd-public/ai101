@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.30">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -21,8 +21,9 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +34,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -66,15 +67,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="./">
 <link href="./11_colab.html" rel="next">
 <link href="./01_test.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-a4a11d514c7d463668e07712114998e6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-70c9a4798e5f6abb0636bcdc3eed0e90.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-b86297dc19107d1c9b1952b0f8e15fd8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -117,7 +120,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -135,7 +138,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -158,9 +161,8 @@ window.Quarto = {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">AI 101</a> 
-    </div>
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
@@ -679,8 +681,8 @@ $441,001+
 <ul>
 <li>Python expression (code)</li>
 </ul>
-<div id="74cc5aca" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="dv">9</span> <span class="op">*</span> <span class="op">-</span><span class="dv">1</span> <span class="op">*</span> <span class="op">-</span><span class="dv">1</span> <span class="op">+</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="2e52fabd" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="dv">9</span> <span class="op">*</span> <span class="op">-</span><span class="dv">1</span> <span class="op">*</span> <span class="op">-</span><span class="dv">1</span> <span class="op">+</span> <span class="dv">5</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="1">
 <pre><code>14</code></pre>
 </div>
@@ -696,26 +698,26 @@ $441,001+
 <ul>
 <li>In Python, we can write many of the same arithmetic operations we use in our math and science classes.</li>
 </ul>
-<div id="b2460906" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="dv">6</span> <span class="op">+</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ad21e223" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="dv">6</span> <span class="op">+</span> <span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>9</code></pre>
 </div>
 </div>
-<div id="f51d1173" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="dv">6</span> <span class="op">-</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b4547fff" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="dv">6</span> <span class="op">-</span> <span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>3</code></pre>
 </div>
 </div>
-<div id="7feb497f" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="dv">6</span> <span class="op">*</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e42a73cb" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="dv">6</span> <span class="op">*</span> <span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>18</code></pre>
 </div>
 </div>
-<div id="195995fa" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="dv">6</span> <span class="op">/</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="18d2c6e9" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="dv">6</span> <span class="op">/</span> <span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>2.0</code></pre>
 </div>
@@ -738,8 +740,8 @@ $441,001+
 \{-1, 4, 5, 8, 11\}
 \]</span></p>
 </div><div class="column" style="width:50%;">
-<div id="5d4f791d" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="dv">9</span> <span class="op">*</span> <span class="op">-</span><span class="dv">1</span> <span class="op">*</span> <span class="op">-</span><span class="dv">1</span> <span class="op">+</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c3501a4b" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="dv">9</span> <span class="op">*</span> <span class="op">-</span><span class="dv">1</span> <span class="op">*</span> <span class="op">-</span><span class="dv">1</span> <span class="op">+</span> <span class="dv">5</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>14</code></pre>
 </div>
@@ -757,14 +759,14 @@ $441,001+
 <li>We can use <code>&lt;</code> or <code>&gt;</code> to calculate inequalities.</li>
 <li>Specifically, we see whether an inequality is <code>True</code> or <code>False</code></li>
 </ul>
-<div id="3c68ee1f" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="op">-</span><span class="dv">1</span> <span class="op">&lt;</span> <span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="075be2ae" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="op">-</span><span class="dv">1</span> <span class="op">&lt;</span> <span class="dv">4</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>True</code></pre>
 </div>
 </div>
-<div id="7082160c" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="dv">4</span> <span class="op">&lt;</span> <span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="34e9382d" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="dv">4</span> <span class="op">&lt;</span> <span class="dv">4</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>False</code></pre>
 </div>
@@ -777,8 +779,8 @@ $441,001+
 <li>I don’t have a “<span class="math inline">\(\leq\)</span>” key on my keyboard.</li>
 <li>Combine with <code>=</code> as <code>&lt;=</code> for “less than or equal” or “<span class="math inline">\(\leq\)</span>”</li>
 </ul>
-<div id="bb35c9fa" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="dv">4</span> <span class="op">&lt;=</span> <span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="48d9c6a3" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="dv">4</span> <span class="op">&lt;=</span> <span class="dv">4</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>True</code></pre>
 </div>
@@ -786,8 +788,8 @@ $441,001+
 <ul>
 <li>We can “chain” inequalities as well - one after another.</li>
 </ul>
-<div id="10834bd8" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="dv">4</span> <span class="op">&lt;=</span> <span class="dv">4</span> <span class="op">&lt;=</span> <span class="dv">8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="81d90e25" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="dv">4</span> <span class="op">&lt;=</span> <span class="dv">4</span> <span class="op">&lt;=</span> <span class="dv">8</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <pre><code>True</code></pre>
 </div>
@@ -798,14 +800,14 @@ $441,001+
 <ul>
 <li>We always put the equal sign <code>=</code> second.</li>
 </ul>
-<div id="2e8e6978" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="dv">4</span> <span class="op">&lt;=</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="70c9e543" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="dv">4</span> <span class="op">&lt;=</span> <span class="dv">5</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>True</code></pre>
 </div>
 </div>
-<div id="5b071665" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a><span class="dv">5</span> <span class="op">&gt;=</span> <span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="1fd006b7" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a><span class="dv">5</span> <span class="op">&gt;=</span> <span class="dv">4</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
 <pre><code>True</code></pre>
 </div>
@@ -813,10 +815,10 @@ $441,001+
 <ul>
 <li>A (somewhat confusing) error if we try <code>=&gt;</code></li>
 </ul>
-<div class="sourceCode" id="cb25"><pre class="sourceCode email code-with-copy"><code class="sourceCode email"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>File "&lt;stdin&gt;", line 1</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode email code-with-copy"><code class="sourceCode email"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>File "&lt;stdin&gt;", line 1</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    4 =&gt; 5</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    ^</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="fu">SyntaxError: </span>cannot assign to literal</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="fu">SyntaxError: </span>cannot assign to literal</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
 <section id="and" class="level1">
@@ -845,14 +847,14 @@ $441,001+
 <ul>
 <li>Sometimes, a Python <em>expression</em> is a numerical value.</li>
 </ul>
-<div id="07ecf218" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a><span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="98bc6f8a" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a><span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>4</code></pre>
 </div>
 </div>
-<div id="11af4296" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a><span class="dv">7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ba0829b0" class="cell" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a><span class="dv">7</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
 <pre><code>7</code></pre>
 </div>
@@ -860,8 +862,8 @@ $441,001+
 <ul>
 <li>But it doesn’t have to be!</li>
 </ul>
-<div id="91c6c433" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a><span class="dv">2</span> <span class="op">&lt;</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c7b1af6b" class="cell" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a><span class="dv">2</span> <span class="op">&lt;</span> <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
 <pre><code>False</code></pre>
 </div>
@@ -876,16 +878,16 @@ $441,001+
 </ul></li>
 <li>To see the result of multi-line expression, we have to print the result…</li>
 </ul>
-<div id="60aac891" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a><span class="cf">if</span> (<span class="dv">1</span> <span class="op">&lt;=</span> <span class="dv">1</span>):</span>
-<span id="cb32-2"><a href="#cb32-2"></a>    <span class="bu">print</span>(<span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d690e8e7" class="cell" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a><span class="cf">if</span> (<span class="dv">1</span> <span class="op">&lt;=</span> <span class="dv">1</span>):</span>
+<span id="cb32-2"><a href="#cb32-2"></a>    <span class="bu">print</span>(<span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>4</code></pre>
 </div>
 </div>
-<div id="bc04be49" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a><span class="cf">if</span> (<span class="dv">1</span> <span class="op">&lt;</span> <span class="dv">1</span>):</span>
-<span id="cb34-2"><a href="#cb34-2"></a>    <span class="bu">print</span>(<span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e4a5d75a" class="cell" data-execution_count="17">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a><span class="cf">if</span> (<span class="dv">1</span> <span class="op">&lt;</span> <span class="dv">1</span>):</span>
+<span id="cb34-2"><a href="#cb34-2"></a>    <span class="bu">print</span>(<span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="piecewise" class="level2">
@@ -905,9 +907,9 @@ $441,001+
 \{-1, 4, 5, 8, 11\}
 \]</span></p>
 </div><div class="column" style="width:50%;">
-<div id="adccccd4" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a><span class="cf">if</span> (<span class="op">-</span><span class="dv">1</span> <span class="op">&lt;</span> <span class="dv">4</span>):</span>
-<span id="cb35-2"><a href="#cb35-2"></a>    <span class="bu">print</span>(<span class="dv">9</span> <span class="op">*</span> <span class="op">-</span><span class="dv">1</span> <span class="op">*</span> <span class="op">-</span><span class="dv">1</span> <span class="op">+</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="7c8be9d3" class="cell" data-execution_count="18">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a><span class="cf">if</span> (<span class="op">-</span><span class="dv">1</span> <span class="op">&lt;</span> <span class="dv">4</span>):</span>
+<span id="cb35-2"><a href="#cb35-2"></a>    <span class="bu">print</span>(<span class="dv">9</span> <span class="op">*</span> <span class="op">-</span><span class="dv">1</span> <span class="op">*</span> <span class="op">-</span><span class="dv">1</span> <span class="op">+</span> <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>14</code></pre>
 </div>
@@ -915,9 +917,9 @@ $441,001+
 <ul>
 <li>Or least part of one…</li>
 </ul>
-<div id="4be33848" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a><span class="cf">if</span> (<span class="dv">4</span> <span class="op">&lt;</span> <span class="dv">4</span>):</span>
-<span id="cb37-2"><a href="#cb37-2"></a>    <span class="bu">print</span>(<span class="dv">9</span> <span class="op">*</span> <span class="dv">4</span> <span class="op">*</span> <span class="dv">4</span> <span class="op">+</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="0417d163" class="cell" data-execution_count="19">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a><span class="cf">if</span> (<span class="dv">4</span> <span class="op">&lt;</span> <span class="dv">4</span>):</span>
+<span id="cb37-2"><a href="#cb37-2"></a>    <span class="bu">print</span>(<span class="dv">9</span> <span class="op">*</span> <span class="dv">4</span> <span class="op">*</span> <span class="dv">4</span> <span class="op">+</span> <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>Uh oh!</li>
@@ -930,11 +932,11 @@ $441,001+
 <ul>
 <li>Oftentimes, we use <code>if</code> with <code>else</code></li>
 </ul>
-<div id="faaa9576" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a><span class="cf">if</span> (<span class="dv">1</span> <span class="op">&lt;</span> <span class="dv">1</span>):</span>
+<div id="0450c4af" class="cell" data-execution_count="20">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a><span class="cf">if</span> (<span class="dv">1</span> <span class="op">&lt;</span> <span class="dv">1</span>):</span>
 <span id="cb38-2"><a href="#cb38-2"></a>    <span class="bu">print</span>(<span class="st">"1 is less than 1"</span>)</span>
 <span id="cb38-3"><a href="#cb38-3"></a><span class="cf">else</span>:</span>
-<span id="cb38-4"><a href="#cb38-4"></a>    <span class="bu">print</span>(<span class="st">"1 is not less than 1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb38-4"><a href="#cb38-4"></a>    <span class="bu">print</span>(<span class="st">"1 is not less than 1"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>1 is not less than 1</code></pre>
 </div>
@@ -947,25 +949,25 @@ $441,001+
 </ul>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="5b45fd1b" class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a><span class="cf">if</span> (<span class="dv">1</span> <span class="op">&lt;</span> <span class="dv">1</span>):</span>
+<div id="b2ae4c65" class="cell" data-execution_count="21">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a><span class="cf">if</span> (<span class="dv">1</span> <span class="op">&lt;</span> <span class="dv">1</span>):</span>
 <span id="cb40-2"><a href="#cb40-2"></a>    <span class="bu">print</span>(<span class="st">"1 is less than 1"</span>)</span>
 <span id="cb40-3"><a href="#cb40-3"></a><span class="cf">elif</span> (<span class="dv">1</span> <span class="op">&gt;</span> <span class="dv">1</span>):</span>
 <span id="cb40-4"><a href="#cb40-4"></a>    <span class="bu">print</span>(<span class="st">"1 is greater than 1"</span>)</span>
 <span id="cb40-5"><a href="#cb40-5"></a><span class="cf">else</span>:</span>
-<span id="cb40-6"><a href="#cb40-6"></a>    <span class="bu">print</span>(<span class="st">"1 is equal to 1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb40-6"><a href="#cb40-6"></a>    <span class="bu">print</span>(<span class="st">"1 is equal to 1"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>1 is equal to 1</code></pre>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div id="0a616395" class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a><span class="cf">if</span> (<span class="dv">2</span> <span class="op">&lt;</span> <span class="dv">1</span>):</span>
+<div id="b61565eb" class="cell" data-execution_count="22">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a><span class="cf">if</span> (<span class="dv">2</span> <span class="op">&lt;</span> <span class="dv">1</span>):</span>
 <span id="cb42-2"><a href="#cb42-2"></a>    <span class="bu">print</span>(<span class="st">"2 is less than 1"</span>)</span>
 <span id="cb42-3"><a href="#cb42-3"></a><span class="cf">elif</span> (<span class="dv">2</span> <span class="op">&gt;</span> <span class="dv">1</span>):</span>
 <span id="cb42-4"><a href="#cb42-4"></a>    <span class="bu">print</span>(<span class="st">"2 is greater than 1"</span>)</span>
 <span id="cb42-5"><a href="#cb42-5"></a><span class="cf">else</span>:</span>
-<span id="cb42-6"><a href="#cb42-6"></a>    <span class="bu">print</span>(<span class="st">"2 is equal to 1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb42-6"><a href="#cb42-6"></a>    <span class="bu">print</span>(<span class="st">"2 is equal to 1"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>2 is greater than 1</code></pre>
 </div>
@@ -987,27 +989,27 @@ $441,001+
 </ul>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="948d517d" class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a>x <span class="op">=</span> <span class="dv">1</span></span>
+<div id="2fcc2f9e" class="cell" data-execution_count="23">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a>x <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb44-2"><a href="#cb44-2"></a><span class="cf">if</span> (x <span class="op">&lt;</span> <span class="dv">1</span>):</span>
 <span id="cb44-3"><a href="#cb44-3"></a>    <span class="bu">print</span>(<span class="st">"x is less than 1"</span>)</span>
 <span id="cb44-4"><a href="#cb44-4"></a><span class="cf">elif</span> (x <span class="op">&gt;</span> <span class="dv">1</span>):</span>
 <span id="cb44-5"><a href="#cb44-5"></a>    <span class="bu">print</span>(<span class="st">"x is greater than 1"</span>)</span>
 <span id="cb44-6"><a href="#cb44-6"></a><span class="cf">else</span>:</span>
-<span id="cb44-7"><a href="#cb44-7"></a>    <span class="bu">print</span>(<span class="st">"x is equal to 1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb44-7"><a href="#cb44-7"></a>    <span class="bu">print</span>(<span class="st">"x is equal to 1"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>x is equal to 1</code></pre>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div id="fb345aeb" class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a>x <span class="op">=</span> <span class="dv">2</span></span>
+<div id="84136e61" class="cell" data-execution_count="24">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a>x <span class="op">=</span> <span class="dv">2</span></span>
 <span id="cb46-2"><a href="#cb46-2"></a><span class="cf">if</span> (x <span class="op">&lt;</span> <span class="dv">1</span>):</span>
 <span id="cb46-3"><a href="#cb46-3"></a>    <span class="bu">print</span>(<span class="st">"x is less than 1"</span>)</span>
 <span id="cb46-4"><a href="#cb46-4"></a><span class="cf">elif</span> (x <span class="op">&gt;</span> <span class="dv">1</span>):</span>
 <span id="cb46-5"><a href="#cb46-5"></a>    <span class="bu">print</span>(<span class="st">"x is greater than 1"</span>)</span>
 <span id="cb46-6"><a href="#cb46-6"></a><span class="cf">else</span>:</span>
-<span id="cb46-7"><a href="#cb46-7"></a>    <span class="bu">print</span>(<span class="st">"x is equal to 1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb46-7"><a href="#cb46-7"></a>    <span class="bu">print</span>(<span class="st">"x is equal to 1"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>x is greater than 1</code></pre>
 </div>
@@ -1023,23 +1025,23 @@ $441,001+
 </ul>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="a59da4f5" class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a>x <span class="op">=</span> <span class="dv">1</span></span>
+<div id="7ace5256" class="cell" data-execution_count="25">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a>x <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb48-2"><a href="#cb48-2"></a><span class="cf">if</span> (x <span class="op">==</span> <span class="dv">1</span>):</span>
 <span id="cb48-3"><a href="#cb48-3"></a>    <span class="bu">print</span>(<span class="st">"x is equal to 1"</span>)</span>
 <span id="cb48-4"><a href="#cb48-4"></a><span class="cf">else</span>:</span>
-<span id="cb48-5"><a href="#cb48-5"></a>    <span class="bu">print</span>(<span class="st">"x is not equal to 1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb48-5"><a href="#cb48-5"></a>    <span class="bu">print</span>(<span class="st">"x is not equal to 1"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>x is equal to 1</code></pre>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div id="a25485c3" class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a>x <span class="op">=</span> <span class="dv">2</span></span>
+<div id="fc22ff85" class="cell" data-execution_count="26">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a>x <span class="op">=</span> <span class="dv">2</span></span>
 <span id="cb50-2"><a href="#cb50-2"></a><span class="cf">if</span> (x <span class="op">==</span> <span class="dv">1</span>):</span>
 <span id="cb50-3"><a href="#cb50-3"></a>    <span class="bu">print</span>(<span class="st">"x is equal to 1"</span>)</span>
 <span id="cb50-4"><a href="#cb50-4"></a><span class="cf">else</span>:</span>
-<span id="cb50-5"><a href="#cb50-5"></a>    <span class="bu">print</span>(<span class="st">"x is not equal to 1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb50-5"><a href="#cb50-5"></a>    <span class="bu">print</span>(<span class="st">"x is not equal to 1"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>x is not equal to 1</code></pre>
 </div>
@@ -1053,8 +1055,8 @@ $441,001+
 <li>Doubling is used in a few other cases.</li>
 <li>Double asterisk <code>**</code> is exponentiation.</li>
 </ul>
-<div id="77d5dc9f" class="cell" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a><span class="dv">5</span> <span class="op">**</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="54f2d210" class="cell" data-execution_count="27">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a><span class="dv">5</span> <span class="op">**</span> <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="27">
 <pre><code>25</code></pre>
 </div>
@@ -1062,8 +1064,8 @@ $441,001+
 <ul>
 <li>We note that <code>^</code> - sometimes used for exponentiation - is something different (and confusing!) in Python.</li>
 </ul>
-<div id="e3fb8033" class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a><span class="dv">5</span> <span class="op">^</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="f311685b" class="cell" data-execution_count="28">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a><span class="dv">5</span> <span class="op">^</span> <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="28">
 <pre><code>7</code></pre>
 </div>
@@ -1089,14 +1091,14 @@ $441,001+
 \{-1, 4, 5, 8, 11\}
 \]</span></p>
 </div><div class="column" style="width:50%;">
-<div id="84d9f8b1" class="cell" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1"></a>x <span class="op">=</span> <span class="dv">11</span></span>
+<div id="3d38c62e" class="cell" data-execution_count="29">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1"></a>x <span class="op">=</span> <span class="dv">11</span></span>
 <span id="cb56-2"><a href="#cb56-2"></a><span class="cf">if</span> (x <span class="op">&lt;</span> <span class="dv">4</span>):</span>
 <span id="cb56-3"><a href="#cb56-3"></a>    <span class="bu">print</span>(<span class="dv">9</span> <span class="op">*</span> x <span class="op">**</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">5</span>)</span>
 <span id="cb56-4"><a href="#cb56-4"></a><span class="cf">elif</span> (<span class="dv">4</span> <span class="op">&lt;=</span> x <span class="op">&lt;=</span> <span class="dv">8</span>):</span>
 <span id="cb56-5"><a href="#cb56-5"></a>    <span class="bu">print</span>(<span class="dv">9</span>)</span>
 <span id="cb56-6"><a href="#cb56-6"></a><span class="cf">elif</span> (x <span class="op">&gt;</span> <span class="dv">8</span>):</span>
-<span id="cb56-7"><a href="#cb56-7"></a>    <span class="bu">print</span>(<span class="dv">2</span> <span class="op">-</span> x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb56-7"><a href="#cb56-7"></a>    <span class="bu">print</span>(<span class="dv">2</span> <span class="op">-</span> x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>-9</code></pre>
 </div>
@@ -1125,15 +1127,15 @@ $441,001+
 <ul>
 <li>We recall we use <code>print</code> in a multi-line.</li>
 </ul>
-<div id="912f3009" class="cell" data-execution_count="31">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1"></a><span class="kw">def</span> double(x):</span>
-<span id="cb58-2"><a href="#cb58-2"></a>    <span class="bu">print</span>(x <span class="op">+</span> x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d15392bb" class="cell" data-execution_count="30">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1"></a><span class="kw">def</span> double(x):</span>
+<span id="cb58-2"><a href="#cb58-2"></a>    <span class="bu">print</span>(x <span class="op">+</span> x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li><code>def</code> + <em>some function name</em> + <code>(</code> + <em>some variable name</em> + <code>):</code></li>
 </ul>
-<div id="bf7f42a0" class="cell" data-execution_count="32">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1"></a>double(<span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="33944154" class="cell" data-execution_count="31">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1"></a>double(<span class="dv">7</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>14</code></pre>
 </div>
@@ -1160,23 +1162,23 @@ $441,001+
 </ul>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="c7ec001e" class="cell" data-execution_count="33">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1"></a><span class="kw">def</span> six_gt_five_print():</span>
+<div id="d4f824e0" class="cell" data-execution_count="32">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1"></a><span class="kw">def</span> six_gt_five_print():</span>
 <span id="cb61-2"><a href="#cb61-2"></a>    <span class="bu">print</span>(<span class="va">True</span>)</span>
 <span id="cb61-3"><a href="#cb61-3"></a></span>
 <span id="cb61-4"><a href="#cb61-4"></a><span class="cf">if</span> (six_gt_five_print()):</span>
-<span id="cb61-5"><a href="#cb61-5"></a>    <span class="bu">print</span>(<span class="dv">123</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb61-5"><a href="#cb61-5"></a>    <span class="bu">print</span>(<span class="dv">123</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>True</code></pre>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div id="6bd18af0" class="cell" data-execution_count="34">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1"></a><span class="kw">def</span> six_gt_five_print():</span>
+<div id="2b283ccd" class="cell" data-execution_count="33">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1"></a><span class="kw">def</span> six_gt_five_print():</span>
 <span id="cb63-2"><a href="#cb63-2"></a>    <span class="cf">return</span> <span class="va">True</span></span>
 <span id="cb63-3"><a href="#cb63-3"></a></span>
 <span id="cb63-4"><a href="#cb63-4"></a><span class="cf">if</span> (six_gt_five_print()):</span>
-<span id="cb63-5"><a href="#cb63-5"></a>    <span class="bu">print</span>(<span class="dv">123</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb63-5"><a href="#cb63-5"></a>    <span class="bu">print</span>(<span class="dv">123</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>123</code></pre>
 </div>
@@ -1190,9 +1192,9 @@ $441,001+
 <li>Suppose an interest rate doubles our savings every ~7 years.</li>
 <li>How much savings in 14 years?</li>
 </ul>
-<div id="52c4a85a" class="cell" data-execution_count="35">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1"></a>savings <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb65-2"><a href="#cb65-2"></a>double(savings)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="f318308c" class="cell" data-execution_count="34">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1"></a>savings <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb65-2"><a href="#cb65-2"></a>double(savings)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>20</code></pre>
 </div>
@@ -1200,23 +1202,23 @@ $441,001+
 </section>
 <section id="use-return" class="level2">
 <h2 class="anchored" data-anchor-id="use-return">Use return</h2>
-<div id="afd60448" class="cell" data-execution_count="36">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1"></a><span class="kw">def</span> double(x):</span>
-<span id="cb67-2"><a href="#cb67-2"></a>    <span class="cf">return</span> x <span class="op">+</span> x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d11097ea" class="cell" data-execution_count="35">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1"></a><span class="kw">def</span> double(x):</span>
+<span id="cb67-2"><a href="#cb67-2"></a>    <span class="cf">return</span> x <span class="op">+</span> x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>Now, <code>double(savings)</code> becomes equal to <code>x + x</code></li>
 </ul>
-<div id="d0215c7d" class="cell" data-execution_count="37">
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1"></a>savings <span class="op">=</span> <span class="dv">10</span></span>
+<div id="7282588e" class="cell" data-execution_count="36">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1"></a>savings <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb68-2"><a href="#cb68-2"></a>savings <span class="op">=</span> double(savings)</span>
-<span id="cb68-3"><a href="#cb68-3"></a>savings</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb68-3"><a href="#cb68-3"></a>savings</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="36">
 <pre><code>20</code></pre>
 </div>
 </div>
-<div id="064eac29" class="cell" data-execution_count="38">
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1"></a>double(savings)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="61613e59" class="cell" data-execution_count="37">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1"></a>double(savings)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="37">
 <pre><code>40</code></pre>
 </div>
@@ -1224,8 +1226,8 @@ $441,001+
 <ul>
 <li>Or even</li>
 </ul>
-<div id="e43303ce" class="cell" data-execution_count="39">
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1"></a>double(double(<span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="6a62cd98" class="cell" data-execution_count="38">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1"></a>double(double(<span class="dv">10</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="38">
 <pre><code>40</code></pre>
 </div>
@@ -1252,17 +1254,17 @@ $441,001+
 \{-1, 4, 5, 8, 11\}
 \]</span></p>
 </div><div class="column" style="width:50%;">
-<div id="725c9063" class="cell" data-execution_count="40">
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1"></a><span class="kw">def</span> piecewise(x):</span>
+<div id="a682fffa" class="cell" data-execution_count="39">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1"></a><span class="kw">def</span> piecewise(x):</span>
 <span id="cb74-2"><a href="#cb74-2"></a>    <span class="cf">if</span> (x <span class="op">&lt;</span> <span class="dv">4</span>):</span>
 <span id="cb74-3"><a href="#cb74-3"></a>        <span class="cf">return</span> <span class="dv">9</span> <span class="op">*</span> x <span class="op">**</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">5</span></span>
 <span id="cb74-4"><a href="#cb74-4"></a>    <span class="cf">elif</span> (<span class="dv">4</span> <span class="op">&lt;=</span> x <span class="op">&lt;=</span> <span class="dv">8</span>):</span>
 <span id="cb74-5"><a href="#cb74-5"></a>        <span class="cf">return</span> <span class="dv">9</span></span>
 <span id="cb74-6"><a href="#cb74-6"></a>    <span class="cf">elif</span> (x <span class="op">&gt;</span> <span class="dv">8</span>):</span>
-<span id="cb74-7"><a href="#cb74-7"></a>        <span class="cf">return</span> <span class="dv">2</span> <span class="op">-</span> x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb74-7"><a href="#cb74-7"></a>        <span class="cf">return</span> <span class="dv">2</span> <span class="op">-</span> x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="26479d33" class="cell" data-execution_count="41">
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1"></a>piecewise(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="6d65bde5" class="cell" data-execution_count="40">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1"></a>piecewise(<span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="40">
 <pre><code>9</code></pre>
 </div>
@@ -1278,32 +1280,32 @@ $441,001+
 <ul>
 <li>This is still quite tedious.</li>
 </ul>
-<div id="e4b82eaf" class="cell" data-execution_count="42">
-<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1"></a>piecewise(<span class="op">-</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="4e918137" class="cell" data-execution_count="41">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1"></a>piecewise(<span class="op">-</span><span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="41">
 <pre><code>14</code></pre>
 </div>
 </div>
-<div id="a73d08bd" class="cell" data-execution_count="43">
-<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1"></a>piecewise(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="8fec835c" class="cell" data-execution_count="42">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1"></a>piecewise(<span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="42">
 <pre><code>9</code></pre>
 </div>
 </div>
-<div id="4127ca5b" class="cell" data-execution_count="44">
-<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1"></a>piecewise(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e3ae9d94" class="cell" data-execution_count="43">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1"></a>piecewise(<span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="43">
 <pre><code>9</code></pre>
 </div>
 </div>
-<div id="37515526" class="cell" data-execution_count="45">
-<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1"></a>piecewise(<span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="24127f5a" class="cell" data-execution_count="44">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1"></a>piecewise(<span class="dv">8</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="44">
 <pre><code>9</code></pre>
 </div>
 </div>
-<div id="1ba2720e" class="cell" data-execution_count="46">
-<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1"></a>piecewise(<span class="dv">11</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="3c66eb7e" class="cell" data-execution_count="45">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1"></a>piecewise(<span class="dv">11</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="45">
 <pre><code>-9</code></pre>
 </div>
@@ -1324,8 +1326,8 @@ $441,001+
 </ul></li>
 <li>Python can also recognize sets!</li>
 </ul>
-<div id="6b9c45cd" class="cell" data-execution_count="47">
-<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1"></a>{<span class="op">-</span><span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">11</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="bbf00c9f" class="cell" data-execution_count="46">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1"></a>{<span class="op">-</span><span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">11</span>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="46">
 <pre><code>{-1, 4, 5, 8, 11}</code></pre>
 </div>
@@ -1336,9 +1338,9 @@ $441,001+
 <ul>
 <li>To be sure that is, in fact, a set, we use the helpful built-in <code>type()</code> to ask Python.</li>
 </ul>
-<div id="9ee0ede3" class="cell" data-execution_count="48">
-<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1"></a>s <span class="op">=</span> {<span class="op">-</span><span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">11</span>}</span>
-<span id="cb89-2"><a href="#cb89-2"></a><span class="bu">type</span>(s)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e75333f4" class="cell" data-execution_count="47">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1"></a>s <span class="op">=</span> {<span class="op">-</span><span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">11</span>}</span>
+<span id="cb89-2"><a href="#cb89-2"></a><span class="bu">type</span>(s)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="47">
 <pre><code>set</code></pre>
 </div>
@@ -1346,8 +1348,8 @@ $441,001+
 <ul>
 <li>We have also worked with <strong>int</strong>egers.</li>
 </ul>
-<div id="67d3a21b" class="cell" data-execution_count="49">
-<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1"></a><span class="bu">type</span>(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="99506723" class="cell" data-execution_count="48">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1"></a><span class="bu">type</span>(<span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="48">
 <pre><code>int</code></pre>
 </div>
@@ -1355,8 +1357,8 @@ $441,001+
 <ul>
 <li>And <em><strong>bool</strong>eans</em> - <code>True</code> and <code>False</code> values.</li>
 </ul>
-<div id="1e3bde0b" class="cell" data-execution_count="50">
-<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1"></a><span class="bu">type</span>(<span class="dv">1</span> <span class="op">==</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="69203160" class="cell" data-execution_count="49">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1"></a><span class="bu">type</span>(<span class="dv">1</span> <span class="op">==</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="49">
 <pre><code>bool</code></pre>
 </div>
@@ -1385,9 +1387,9 @@ $441,001+
 <li>do thing</li>
 </ul></li>
 </ul>
-<div id="020ef8f2" class="cell" data-execution_count="51">
-<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb95-1"><a href="#cb95-1"></a><span class="cf">for</span> e <span class="kw">in</span> {<span class="op">-</span><span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">11</span>}:</span>
-<span id="cb95-2"><a href="#cb95-2"></a>    <span class="bu">print</span>(piecewise(e))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ec24da7c" class="cell" data-execution_count="50">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb95-1"><a href="#cb95-1"></a><span class="cf">for</span> e <span class="kw">in</span> {<span class="op">-</span><span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">11</span>}:</span>
+<span id="cb95-2"><a href="#cb95-2"></a>    <span class="bu">print</span>(piecewise(e))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>9
 9
@@ -1408,9 +1410,9 @@ $441,001+
 <li>Easier to think about!</li>
 </ul></li>
 </ul>
-<div id="cee1387a" class="cell" data-execution_count="52">
-<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a href="#cb97-1"></a><span class="cf">for</span> e <span class="kw">in</span> {<span class="op">-</span><span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">11</span>}:</span>
-<span id="cb97-2"><a href="#cb97-2"></a>    <span class="bu">print</span>(e)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="f9397951" class="cell" data-execution_count="51">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a href="#cb97-1"></a><span class="cf">for</span> e <span class="kw">in</span> {<span class="op">-</span><span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">11</span>}:</span>
+<span id="cb97-2"><a href="#cb97-2"></a>    <span class="bu">print</span>(e)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>4
 5
@@ -1431,8 +1433,8 @@ $441,001+
 <li>The most common way to do this in Python is with a <em>list</em>.</li>
 <li>Almost the same as sets, just use “boxy brackets” <code>[]</code></li>
 </ul>
-<div id="a6d5ca92" class="cell" data-execution_count="53">
-<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb99-1"><a href="#cb99-1"></a><span class="bu">type</span>([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="83a4f899" class="cell" data-execution_count="52">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb99"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb99-1"><a href="#cb99-1"></a><span class="bu">type</span>([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="52">
 <pre><code>list</code></pre>
 </div>
@@ -1446,9 +1448,9 @@ $441,001+
 <li>do thing</li>
 </ul></li>
 </ul>
-<div id="bde01d40" class="cell" data-execution_count="54">
-<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb101-1"><a href="#cb101-1"></a><span class="cf">for</span> e <span class="kw">in</span> [<span class="op">-</span><span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">11</span>]:</span>
-<span id="cb101-2"><a href="#cb101-2"></a>    <span class="bu">print</span>(piecewise(e))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="22d40e5b" class="cell" data-execution_count="53">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb101"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb101-1"><a href="#cb101-1"></a><span class="cf">for</span> e <span class="kw">in</span> [<span class="op">-</span><span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">11</span>]:</span>
+<span id="cb101-2"><a href="#cb101-2"></a>    <span class="bu">print</span>(piecewise(e))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>14
 9
@@ -1469,9 +1471,9 @@ $441,001+
 <li>Very helpful for keeping track of things!</li>
 </ul></li>
 </ul>
-<div id="0ab69238" class="cell" data-execution_count="55">
-<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb103-1"><a href="#cb103-1"></a><span class="cf">for</span> e <span class="kw">in</span> [<span class="op">-</span><span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">11</span>]:</span>
-<span id="cb103-2"><a href="#cb103-2"></a>    <span class="bu">print</span>([e, piecewise(e)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="f3a897bb" class="cell" data-execution_count="54">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb103-1"><a href="#cb103-1"></a><span class="cf">for</span> e <span class="kw">in</span> [<span class="op">-</span><span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">11</span>]:</span>
+<span id="cb103-2"><a href="#cb103-2"></a>    <span class="bu">print</span>([e, piecewise(e)])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[-1, 14]
 [4, 9]
@@ -1490,9 +1492,9 @@ $441,001+
 <li>The initial element is number <code>0</code> (<em>not</em> 1)</li>
 </ul></li>
 </ul>
-<div id="95ba6229" class="cell" data-execution_count="56">
-<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb105-1"><a href="#cb105-1"></a>xs <span class="op">=</span> [<span class="op">-</span><span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">11</span>]</span>
-<span id="cb105-2"><a href="#cb105-2"></a>xs[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="00d2f132" class="cell" data-execution_count="55">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb105"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb105-1"><a href="#cb105-1"></a>xs <span class="op">=</span> [<span class="op">-</span><span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">11</span>]</span>
+<span id="cb105-2"><a href="#cb105-2"></a>xs[<span class="dv">0</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="55">
 <pre><code>-1</code></pre>
 </div>
@@ -1500,9 +1502,9 @@ $441,001+
 <ul>
 <li>And like variables, we can assign a value with <code>=</code></li>
 </ul>
-<div id="25459864" class="cell" data-execution_count="57">
-<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb107-1"><a href="#cb107-1"></a>xs[<span class="dv">0</span>] <span class="op">=</span> <span class="op">-</span><span class="dv">2</span></span>
-<span id="cb107-2"><a href="#cb107-2"></a>xs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="04a3f55f" class="cell" data-execution_count="56">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb107-1"><a href="#cb107-1"></a>xs[<span class="dv">0</span>] <span class="op">=</span> <span class="op">-</span><span class="dv">2</span></span>
+<span id="cb107-2"><a href="#cb107-2"></a>xs</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="56">
 <pre><code>[-2, 4, 5, 8, 11]</code></pre>
 </div>
@@ -1530,8 +1532,8 @@ $441,001+
 <ul>
 <li>Lists also helpfully support addition with <code>+</code></li>
 </ul>
-<div id="baf0b320" class="cell" data-execution_count="58">
-<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb109-1"><a href="#cb109-1"></a>[<span class="op">-</span><span class="dv">1</span>] <span class="op">+</span> [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">11</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="84020256" class="cell" data-execution_count="57">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb109"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb109-1"><a href="#cb109-1"></a>[<span class="op">-</span><span class="dv">1</span>] <span class="op">+</span> [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">11</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="57">
 <pre><code>[-1, 4, 5, 8, 11]</code></pre>
 </div>
@@ -1539,11 +1541,11 @@ $441,001+
 <ul>
 <li>We often use this to make new lists.</li>
 </ul>
-<div id="7c19ff5c" class="cell" data-execution_count="59">
-<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb111-1"><a href="#cb111-1"></a>result <span class="op">=</span> []</span>
+<div id="92b4376a" class="cell" data-execution_count="58">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb111"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb111-1"><a href="#cb111-1"></a>result <span class="op">=</span> []</span>
 <span id="cb111-2"><a href="#cb111-2"></a><span class="cf">for</span> e <span class="kw">in</span> [<span class="op">-</span><span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">11</span>]:</span>
 <span id="cb111-3"><a href="#cb111-3"></a>    result <span class="op">=</span> result <span class="op">+</span> [piecewise(e)]</span>
-<span id="cb111-4"><a href="#cb111-4"></a>result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb111-4"><a href="#cb111-4"></a>result</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="58">
 <pre><code>[14, 9, 9, 9, -9]</code></pre>
 </div>
@@ -1551,10 +1553,10 @@ $441,001+
 <ul>
 <li>This pattern also works with numbers!</li>
 </ul>
-<div id="92fb06e1" class="cell" data-execution_count="60">
-<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb113-1"><a href="#cb113-1"></a>x <span class="op">=</span> <span class="dv">0</span> </span>
+<div id="f55b6610" class="cell" data-execution_count="59">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb113"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb113-1"><a href="#cb113-1"></a>x <span class="op">=</span> <span class="dv">0</span> </span>
 <span id="cb113-2"><a href="#cb113-2"></a>x <span class="op">=</span> x <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb113-3"><a href="#cb113-3"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb113-3"><a href="#cb113-3"></a>x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="59">
 <pre><code>1</code></pre>
 </div>
@@ -1831,13 +1833,13 @@ $441,001+
 <li>33% on 400000 - 190150</li>
 </ul>
 </div><div class="column" style="width:50%;">
-<div id="c6c02d11" class="cell" data-execution_count="61">
-<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb115-1"><a href="#cb115-1"></a>x <span class="op">=</span> <span class="fl">.10</span> <span class="op">*</span> <span class="dv">9275</span></span>
+<div id="a8295fb0" class="cell" data-execution_count="60">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb115"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb115-1"><a href="#cb115-1"></a>x <span class="op">=</span> <span class="fl">.10</span> <span class="op">*</span> <span class="dv">9275</span></span>
 <span id="cb115-2"><a href="#cb115-2"></a>y <span class="op">=</span> <span class="fl">.15</span> <span class="op">*</span> (<span class="dv">37650</span> <span class="op">-</span> <span class="dv">9275</span>)</span>
 <span id="cb115-3"><a href="#cb115-3"></a>z <span class="op">=</span> <span class="fl">.25</span> <span class="op">*</span> (<span class="dv">91150</span> <span class="op">-</span> <span class="dv">37650</span>)</span>
 <span id="cb115-4"><a href="#cb115-4"></a>r <span class="op">=</span> <span class="fl">.28</span> <span class="op">*</span> (<span class="dv">190150</span> <span class="op">-</span> <span class="dv">91150</span>)</span>
 <span id="cb115-5"><a href="#cb115-5"></a>s <span class="op">=</span> <span class="fl">.33</span> <span class="op">*</span> (<span class="dv">400000</span> <span class="op">-</span> <span class="dv">190150</span>)</span>
-<span id="cb115-6"><a href="#cb115-6"></a>x <span class="op">+</span> y <span class="op">+</span> z <span class="op">+</span> r <span class="op">+</span> s</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb115-6"><a href="#cb115-6"></a>x <span class="op">+</span> y <span class="op">+</span> z <span class="op">+</span> r <span class="op">+</span> s</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="60">
 <pre><code>115529.25</code></pre>
 </div>
@@ -1855,24 +1857,24 @@ $441,001+
 </ul>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="4c84287a" class="cell" data-execution_count="62">
-<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb117-1"><a href="#cb117-1"></a>x <span class="op">=</span> <span class="fl">.10</span> <span class="op">*</span> <span class="dv">9275</span></span>
+<div id="c47fd832" class="cell" data-execution_count="61">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb117"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb117-1"><a href="#cb117-1"></a>x <span class="op">=</span> <span class="fl">.10</span> <span class="op">*</span> <span class="dv">9275</span></span>
 <span id="cb117-2"><a href="#cb117-2"></a>x <span class="op">=</span> x <span class="op">+</span> <span class="fl">.15</span> <span class="op">*</span> (<span class="dv">37650</span> <span class="op">-</span> <span class="dv">9275</span>)</span>
 <span id="cb117-3"><a href="#cb117-3"></a>x <span class="op">=</span> x <span class="op">+</span> <span class="fl">.25</span> <span class="op">*</span> (<span class="dv">91150</span> <span class="op">-</span> <span class="dv">37650</span>)</span>
 <span id="cb117-4"><a href="#cb117-4"></a>x <span class="op">=</span> x <span class="op">+</span> <span class="fl">.28</span> <span class="op">*</span> (<span class="dv">190150</span> <span class="op">-</span> <span class="dv">91150</span>)</span>
-<span id="cb117-5"><a href="#cb117-5"></a>x <span class="op">+</span> <span class="fl">.33</span> <span class="op">*</span> (<span class="dv">400000</span> <span class="op">-</span> <span class="dv">190150</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb117-5"><a href="#cb117-5"></a>x <span class="op">+</span> <span class="fl">.33</span> <span class="op">*</span> (<span class="dv">400000</span> <span class="op">-</span> <span class="dv">190150</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="61">
 <pre><code>115529.25</code></pre>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div id="8b364488" class="cell" data-execution_count="63">
-<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb119-1"><a href="#cb119-1"></a>x <span class="op">=</span> <span class="fl">.10</span> <span class="op">*</span> <span class="dv">9275</span></span>
+<div id="5865cf4c" class="cell" data-execution_count="62">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb119"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb119-1"><a href="#cb119-1"></a>x <span class="op">=</span> <span class="fl">.10</span> <span class="op">*</span> <span class="dv">9275</span></span>
 <span id="cb119-2"><a href="#cb119-2"></a>y <span class="op">=</span> <span class="fl">.15</span> <span class="op">*</span> (<span class="dv">37650</span> <span class="op">-</span> <span class="dv">9275</span>)</span>
 <span id="cb119-3"><a href="#cb119-3"></a>z <span class="op">=</span> <span class="fl">.25</span> <span class="op">*</span> (<span class="dv">91150</span> <span class="op">-</span> <span class="dv">37650</span>)</span>
 <span id="cb119-4"><a href="#cb119-4"></a>r <span class="op">=</span> <span class="fl">.28</span> <span class="op">*</span> (<span class="dv">190150</span> <span class="op">-</span> <span class="dv">91150</span>)</span>
 <span id="cb119-5"><a href="#cb119-5"></a>s <span class="op">=</span> <span class="fl">.33</span> <span class="op">*</span> (<span class="dv">400000</span> <span class="op">-</span> <span class="dv">190150</span>)</span>
-<span id="cb119-6"><a href="#cb119-6"></a>x <span class="op">+</span> y <span class="op">+</span> z <span class="op">+</span> r <span class="op">+</span> s</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb119-6"><a href="#cb119-6"></a>x <span class="op">+</span> y <span class="op">+</span> z <span class="op">+</span> r <span class="op">+</span> s</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="62">
 <pre><code>115529.25</code></pre>
 </div>
@@ -1890,23 +1892,23 @@ $441,001+
 </ul>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="a025ad7c" class="cell" data-execution_count="64">
-<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb121-1"><a href="#cb121-1"></a>x <span class="op">=</span> <span class="fl">.10</span> <span class="op">*</span> <span class="dv">9275</span></span>
+<div id="61d0f12a" class="cell" data-execution_count="63">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb121"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb121-1"><a href="#cb121-1"></a>x <span class="op">=</span> <span class="fl">.10</span> <span class="op">*</span> <span class="dv">9275</span></span>
 <span id="cb121-2"><a href="#cb121-2"></a>x <span class="op">=</span> x <span class="op">+</span> <span class="fl">.15</span> <span class="op">*</span> (<span class="dv">37650</span> <span class="op">-</span> <span class="dv">9275</span>)</span>
 <span id="cb121-3"><a href="#cb121-3"></a>x <span class="op">=</span> x <span class="op">+</span> <span class="fl">.25</span> <span class="op">*</span> (<span class="dv">91150</span> <span class="op">-</span> <span class="dv">37650</span>)</span>
 <span id="cb121-4"><a href="#cb121-4"></a>x <span class="op">=</span> x <span class="op">+</span> <span class="fl">.28</span> <span class="op">*</span> (<span class="dv">190150</span> <span class="op">-</span> <span class="dv">91150</span>)</span>
-<span id="cb121-5"><a href="#cb121-5"></a>x <span class="op">+</span> <span class="fl">.33</span> <span class="op">*</span> (<span class="dv">400000</span> <span class="op">-</span> <span class="dv">190150</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb121-5"><a href="#cb121-5"></a>x <span class="op">+</span> <span class="fl">.33</span> <span class="op">*</span> (<span class="dv">400000</span> <span class="op">-</span> <span class="dv">190150</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="63">
 <pre><code>115529.25</code></pre>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div id="0c0a872b" class="cell" data-execution_count="65">
-<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb123-1"><a href="#cb123-1"></a>x <span class="op">=</span> <span class="fl">.10</span> <span class="op">*</span> <span class="dv">9275</span></span>
+<div id="168aad85" class="cell" data-execution_count="64">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb123"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb123-1"><a href="#cb123-1"></a>x <span class="op">=</span> <span class="fl">.10</span> <span class="op">*</span> <span class="dv">9275</span></span>
 <span id="cb123-2"><a href="#cb123-2"></a>x <span class="op">+=</span> <span class="fl">.15</span> <span class="op">*</span> (<span class="dv">37650</span> <span class="op">-</span> <span class="dv">9275</span>)</span>
 <span id="cb123-3"><a href="#cb123-3"></a>x <span class="op">+=</span> <span class="fl">.25</span> <span class="op">*</span> (<span class="dv">91150</span> <span class="op">-</span> <span class="dv">37650</span>)</span>
 <span id="cb123-4"><a href="#cb123-4"></a>x <span class="op">+=</span> <span class="fl">.28</span> <span class="op">*</span> (<span class="dv">190150</span> <span class="op">-</span> <span class="dv">91150</span>)</span>
-<span id="cb123-5"><a href="#cb123-5"></a>x <span class="op">+</span> <span class="fl">.33</span> <span class="op">*</span> (<span class="dv">400000</span> <span class="op">-</span> <span class="dv">190150</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb123-5"><a href="#cb123-5"></a>x <span class="op">+</span> <span class="fl">.33</span> <span class="op">*</span> (<span class="dv">400000</span> <span class="op">-</span> <span class="dv">190150</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="64">
 <pre><code>115529.25</code></pre>
 </div>
@@ -1922,290 +1924,294 @@ $441,001+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
       }
+      return false;
     }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
       }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
         }
       }
       return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
     });
-    clipboardModal.on('success', onCopySuccess);
-  }
-  const viewSource = window.document.getElementById('quarto-view-source') ||
-                     window.document.getElementById('quarto-code-tools-source');
-  if (viewSource) {
-    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-    viewSource.addEventListener("click", function(e) {
-      if (sourceUrl) {
-        // rstudio viewer pane
-        if (/\bcapabilities=\b/.test(window.location)) {
-          window.open(sourceUrl);
-        } else {
-          window.location.href = sourceUrl;
-        }
-      } else {
-        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-        modal.show();
-      }
-      return false;
-    });
-  }
-  function toggleCodeHandler(show) {
-    return function(e) {
-      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-      for (let i=0; i<detailsSrc.length; i++) {
-        const details = detailsSrc[i].parentElement;
-        if (show) {
-          details.open = true;
-        } else {
-          details.removeAttribute("open");
-        }
-      }
-      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-      const fromCls = show ? "hidden" : "unhidden";
-      const toCls = show ? "unhidden" : "hidden";
-      for (let i=0; i<cellCodeDivs.length; i++) {
-        const codeDiv = cellCodeDivs[i];
-        if (codeDiv.classList.contains(fromCls)) {
-          codeDiv.classList.remove(fromCls);
-          codeDiv.classList.add(toCls);
-        } 
-      }
-      return false;
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
     }
-  }
-  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-  if (hideAllCode) {
-    hideAllCode.addEventListener("click", toggleCodeHandler(false));
-  }
-  const showAllCode = window.document.getElementById("quarto-show-all-code");
-  if (showAllCode) {
-    showAllCode.addEventListener("click", toggleCodeHandler(true));
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
-    };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
           } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
         }
-        return container.innerHTML
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -2213,185 +2219,161 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./01_test.html" class="pagination-link" aria-label="Turing's Test">
@@ -2404,7 +2386,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb125" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb125-1"><a href="#cb125-1"></a><span class="co">---</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb125" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb125-1"><a href="#cb125-1"></a><span class="co">---</span></span>
 <span id="cb125-2"><a href="#cb125-2"></a><span class="an">title:</span><span class="co"> Python</span></span>
 <span id="cb125-3"><a href="#cb125-3"></a><span class="co">---</span></span>
 <span id="cb125-4"><a href="#cb125-4"></a></span>
@@ -2457,62 +2439,62 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb125-51"><a href="#cb125-51"></a><span class="ss">- </span>Models income tax brackets, one of the most important drivers of human behavior in the largest economies in the world.</span>
 <span id="cb125-52"><a href="#cb125-52"></a><span class="ss">- </span>We use a simpler contrived example for now...</span>
 <span id="cb125-53"><a href="#cb125-53"></a></span>
-<span id="cb125-54"><a href="#cb125-54"></a>&lt;table style="font-size:12px"&gt;</span>
-<span id="cb125-55"><a href="#cb125-55"></a>&lt;th&gt;Marginal Tax Rate&lt;/th&gt;</span>
-<span id="cb125-56"><a href="#cb125-56"></a>&lt;th&gt;Single Taxable Income&lt;/th&gt;</span>
-<span id="cb125-57"><a href="#cb125-57"></a>&lt;th&gt;Married Filing Jointly or Qualified Widow(er) Taxable Income&lt;/th&gt;</span>
-<span id="cb125-58"><a href="#cb125-58"></a>&lt;th&gt;Married Filing Separately Taxable Income&lt;/th&gt;</span>
-<span id="cb125-59"><a href="#cb125-59"></a>&lt;th&gt;Head of Household Taxable Income&lt;/th&gt;</span>
-<span id="cb125-60"><a href="#cb125-60"></a>&lt;/tr&gt;</span>
-<span id="cb125-61"><a href="#cb125-61"></a>&lt;tr&gt;</span>
-<span id="cb125-62"><a href="#cb125-62"></a>&lt;th&gt;10%&lt;/th&gt;</span>
-<span id="cb125-63"><a href="#cb125-63"></a>&lt;td&gt;$0 – $9,275&lt;/td&gt;</span>
-<span id="cb125-64"><a href="#cb125-64"></a>&lt;td&gt;$0 – $18,550&lt;/td&gt;</span>
-<span id="cb125-65"><a href="#cb125-65"></a>&lt;td&gt;$0 – $9,275&lt;/td&gt;</span>
-<span id="cb125-66"><a href="#cb125-66"></a>&lt;td&gt;$0 – $13,250&lt;/td&gt;</span>
-<span id="cb125-67"><a href="#cb125-67"></a>&lt;/tr&gt;</span>
-<span id="cb125-68"><a href="#cb125-68"></a>&lt;tr&gt;</span>
-<span id="cb125-69"><a href="#cb125-69"></a>&lt;th&gt;15%&lt;/th&gt;</span>
-<span id="cb125-70"><a href="#cb125-70"></a>&lt;td&gt;$9,276 – $37,650&lt;/td&gt;</span>
-<span id="cb125-71"><a href="#cb125-71"></a>&lt;td&gt;$18,551 – $75,300&lt;/td&gt;</span>
-<span id="cb125-72"><a href="#cb125-72"></a>&lt;td&gt;$9,276 – $37,650&lt;/td&gt;</span>
-<span id="cb125-73"><a href="#cb125-73"></a>&lt;td&gt;$13,251 – $50,400&lt;/td&gt;</span>
-<span id="cb125-74"><a href="#cb125-74"></a>&lt;/tr&gt;</span>
-<span id="cb125-75"><a href="#cb125-75"></a>&lt;tr&gt;</span>
-<span id="cb125-76"><a href="#cb125-76"></a>&lt;th&gt;25%&lt;/th&gt;</span>
-<span id="cb125-77"><a href="#cb125-77"></a>&lt;td&gt;$37,651 – $91,150&lt;/td&gt;</span>
-<span id="cb125-78"><a href="#cb125-78"></a>&lt;td&gt;$75,301 – $151,900&lt;/td&gt;</span>
-<span id="cb125-79"><a href="#cb125-79"></a>&lt;td&gt;$37,651 – $75,950&lt;/td&gt;</span>
-<span id="cb125-80"><a href="#cb125-80"></a>&lt;td&gt;$50,401 – $130,150&lt;/td&gt;</span>
-<span id="cb125-81"><a href="#cb125-81"></a>&lt;/tr&gt;</span>
-<span id="cb125-82"><a href="#cb125-82"></a>&lt;tr&gt;</span>
-<span id="cb125-83"><a href="#cb125-83"></a>&lt;th&gt;28%&lt;/th&gt;</span>
-<span id="cb125-84"><a href="#cb125-84"></a>&lt;td&gt;$91,151 – $190,150&lt;/td&gt;</span>
-<span id="cb125-85"><a href="#cb125-85"></a>&lt;td&gt;$151,901 – $231,450&lt;/td&gt;</span>
-<span id="cb125-86"><a href="#cb125-86"></a>&lt;td&gt;$75,951 – $115,725&lt;/td&gt;</span>
-<span id="cb125-87"><a href="#cb125-87"></a>&lt;td&gt;$130,151 – $210,800&lt;/td&gt;</span>
-<span id="cb125-88"><a href="#cb125-88"></a>&lt;/tr&gt;</span>
-<span id="cb125-89"><a href="#cb125-89"></a>&lt;tr&gt;</span>
-<span id="cb125-90"><a href="#cb125-90"></a>&lt;th&gt;33%&lt;/th&gt;</span>
-<span id="cb125-91"><a href="#cb125-91"></a>&lt;td&gt;$190,151 – $413,350&lt;/td&gt;</span>
-<span id="cb125-92"><a href="#cb125-92"></a>&lt;td&gt;$231,451 – $413,350&lt;/td&gt;</span>
-<span id="cb125-93"><a href="#cb125-93"></a>&lt;td&gt;$115,726 – $206,675&lt;/td&gt;</span>
-<span id="cb125-94"><a href="#cb125-94"></a>&lt;td&gt;$210,801 – $413,350&lt;/td&gt;</span>
-<span id="cb125-95"><a href="#cb125-95"></a>&lt;/tr&gt;</span>
-<span id="cb125-96"><a href="#cb125-96"></a>&lt;tr&gt;</span>
-<span id="cb125-97"><a href="#cb125-97"></a>&lt;th&gt;35%&lt;/th&gt;</span>
-<span id="cb125-98"><a href="#cb125-98"></a>&lt;td&gt;$413,351 – $415,050&lt;/td&gt;</span>
-<span id="cb125-99"><a href="#cb125-99"></a>&lt;td&gt;$413,351 – $466,950&lt;/td&gt;</span>
-<span id="cb125-100"><a href="#cb125-100"></a>&lt;td&gt;$206,676 – $233,475&lt;/td&gt;</span>
-<span id="cb125-101"><a href="#cb125-101"></a>&lt;td&gt;$413,351 – $441,000&lt;/td&gt;</span>
-<span id="cb125-102"><a href="#cb125-102"></a>&lt;/tr&gt;</span>
-<span id="cb125-103"><a href="#cb125-103"></a>&lt;tr&gt;</span>
-<span id="cb125-104"><a href="#cb125-104"></a>&lt;th&gt;39.6%&lt;/th&gt;</span>
-<span id="cb125-105"><a href="#cb125-105"></a>&lt;td&gt;$415,051+&lt;/td&gt;</span>
-<span id="cb125-106"><a href="#cb125-106"></a>&lt;td&gt;$466,951+&lt;/td&gt;</span>
-<span id="cb125-107"><a href="#cb125-107"></a>&lt;td&gt;$233,476+&lt;/td&gt;</span>
-<span id="cb125-108"><a href="#cb125-108"></a>&lt;td&gt;$441,001+&lt;/td&gt;</span>
-<span id="cb125-109"><a href="#cb125-109"></a>&lt;/table&gt;</span>
+<span id="cb125-54"><a href="#cb125-54"></a><span class="dt">&lt;</span><span class="kw">table</span><span class="ot"> style</span><span class="op">=</span><span class="st">"font-size:12px"</span><span class="dt">&gt;</span></span>
+<span id="cb125-55"><a href="#cb125-55"></a><span class="dt">&lt;</span><span class="kw">th</span><span class="dt">&gt;</span>Marginal Tax Rate<span class="dt">&lt;/</span><span class="kw">th</span><span class="dt">&gt;</span></span>
+<span id="cb125-56"><a href="#cb125-56"></a><span class="dt">&lt;</span><span class="kw">th</span><span class="dt">&gt;</span>Single Taxable Income<span class="dt">&lt;/</span><span class="kw">th</span><span class="dt">&gt;</span></span>
+<span id="cb125-57"><a href="#cb125-57"></a><span class="dt">&lt;</span><span class="kw">th</span><span class="dt">&gt;</span>Married Filing Jointly or Qualified Widow(er) Taxable Income<span class="dt">&lt;/</span><span class="kw">th</span><span class="dt">&gt;</span></span>
+<span id="cb125-58"><a href="#cb125-58"></a><span class="dt">&lt;</span><span class="kw">th</span><span class="dt">&gt;</span>Married Filing Separately Taxable Income<span class="dt">&lt;/</span><span class="kw">th</span><span class="dt">&gt;</span></span>
+<span id="cb125-59"><a href="#cb125-59"></a><span class="dt">&lt;</span><span class="kw">th</span><span class="dt">&gt;</span>Head of Household Taxable Income<span class="dt">&lt;/</span><span class="kw">th</span><span class="dt">&gt;</span></span>
+<span id="cb125-60"><a href="#cb125-60"></a><span class="dt">&lt;/</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb125-61"><a href="#cb125-61"></a><span class="dt">&lt;</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb125-62"><a href="#cb125-62"></a><span class="dt">&lt;</span><span class="kw">th</span><span class="dt">&gt;</span>10%<span class="dt">&lt;/</span><span class="kw">th</span><span class="dt">&gt;</span></span>
+<span id="cb125-63"><a href="#cb125-63"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$0 – $9,275<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-64"><a href="#cb125-64"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$0 – $18,550<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-65"><a href="#cb125-65"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$0 – $9,275<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-66"><a href="#cb125-66"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$0 – $13,250<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-67"><a href="#cb125-67"></a><span class="dt">&lt;/</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb125-68"><a href="#cb125-68"></a><span class="dt">&lt;</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb125-69"><a href="#cb125-69"></a><span class="dt">&lt;</span><span class="kw">th</span><span class="dt">&gt;</span>15%<span class="dt">&lt;/</span><span class="kw">th</span><span class="dt">&gt;</span></span>
+<span id="cb125-70"><a href="#cb125-70"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$9,276 – $37,650<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-71"><a href="#cb125-71"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$18,551 – $75,300<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-72"><a href="#cb125-72"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$9,276 – $37,650<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-73"><a href="#cb125-73"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$13,251 – $50,400<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-74"><a href="#cb125-74"></a><span class="dt">&lt;/</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb125-75"><a href="#cb125-75"></a><span class="dt">&lt;</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb125-76"><a href="#cb125-76"></a><span class="dt">&lt;</span><span class="kw">th</span><span class="dt">&gt;</span>25%<span class="dt">&lt;/</span><span class="kw">th</span><span class="dt">&gt;</span></span>
+<span id="cb125-77"><a href="#cb125-77"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$37,651 – $91,150<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-78"><a href="#cb125-78"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$75,301 – $151,900<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-79"><a href="#cb125-79"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$37,651 – $75,950<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-80"><a href="#cb125-80"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$50,401 – $130,150<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-81"><a href="#cb125-81"></a><span class="dt">&lt;/</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb125-82"><a href="#cb125-82"></a><span class="dt">&lt;</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb125-83"><a href="#cb125-83"></a><span class="dt">&lt;</span><span class="kw">th</span><span class="dt">&gt;</span>28%<span class="dt">&lt;/</span><span class="kw">th</span><span class="dt">&gt;</span></span>
+<span id="cb125-84"><a href="#cb125-84"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$91,151 – $190,150<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-85"><a href="#cb125-85"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$151,901 – $231,450<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-86"><a href="#cb125-86"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$75,951 – $115,725<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-87"><a href="#cb125-87"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$130,151 – $210,800<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-88"><a href="#cb125-88"></a><span class="dt">&lt;/</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb125-89"><a href="#cb125-89"></a><span class="dt">&lt;</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb125-90"><a href="#cb125-90"></a><span class="dt">&lt;</span><span class="kw">th</span><span class="dt">&gt;</span>33%<span class="dt">&lt;/</span><span class="kw">th</span><span class="dt">&gt;</span></span>
+<span id="cb125-91"><a href="#cb125-91"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$190,151 – $413,350<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-92"><a href="#cb125-92"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$231,451 – $413,350<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-93"><a href="#cb125-93"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$115,726 – $206,675<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-94"><a href="#cb125-94"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$210,801 – $413,350<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-95"><a href="#cb125-95"></a><span class="dt">&lt;/</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb125-96"><a href="#cb125-96"></a><span class="dt">&lt;</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb125-97"><a href="#cb125-97"></a><span class="dt">&lt;</span><span class="kw">th</span><span class="dt">&gt;</span>35%<span class="dt">&lt;/</span><span class="kw">th</span><span class="dt">&gt;</span></span>
+<span id="cb125-98"><a href="#cb125-98"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$413,351 – $415,050<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-99"><a href="#cb125-99"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$413,351 – $466,950<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-100"><a href="#cb125-100"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$206,676 – $233,475<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-101"><a href="#cb125-101"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$413,351 – $441,000<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-102"><a href="#cb125-102"></a><span class="dt">&lt;/</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb125-103"><a href="#cb125-103"></a><span class="dt">&lt;</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb125-104"><a href="#cb125-104"></a><span class="dt">&lt;</span><span class="kw">th</span><span class="dt">&gt;</span>39.6%<span class="dt">&lt;/</span><span class="kw">th</span><span class="dt">&gt;</span></span>
+<span id="cb125-105"><a href="#cb125-105"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$415,051+<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-106"><a href="#cb125-106"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$466,951+<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-107"><a href="#cb125-107"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$233,476+<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-108"><a href="#cb125-108"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$441,001+<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-109"><a href="#cb125-109"></a><span class="dt">&lt;/</span><span class="kw">table</span><span class="dt">&gt;</span></span>
 <span id="cb125-110"><a href="#cb125-110"></a></span>
 <span id="cb125-111"><a href="#cb125-111"></a></span>
 <span id="cb125-112"><a href="#cb125-112"></a><span class="fu">## How to solve?</span></span>
@@ -2651,10 +2633,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb125-269"><a href="#cb125-269"></a><span class="ss">- </span>A (somewhat confusing) error if we try <span class="in">`=&gt;`</span></span>
 <span id="cb125-270"><a href="#cb125-270"></a></span>
 <span id="cb125-271"><a href="#cb125-271"></a><span class="in">```{.email code-line-numbers="false"}</span></span>
-<span id="cb125-272"><a href="#cb125-272"></a><span class="in">File "&lt;stdin&gt;", line 1</span></span>
-<span id="cb125-273"><a href="#cb125-273"></a><span class="in">    4 =&gt; 5</span></span>
-<span id="cb125-274"><a href="#cb125-274"></a><span class="in">    ^</span></span>
-<span id="cb125-275"><a href="#cb125-275"></a><span class="in">SyntaxError: cannot assign to literal</span></span>
+<span id="cb125-272"><a href="#cb125-272"></a>File "&lt;stdin&gt;", line 1</span>
+<span id="cb125-273"><a href="#cb125-273"></a>    4 =&gt; 5</span>
+<span id="cb125-274"><a href="#cb125-274"></a>    ^</span>
+<span id="cb125-275"><a href="#cb125-275"></a><span class="fu">SyntaxError: </span>cannot assign to literal</span>
 <span id="cb125-276"><a href="#cb125-276"></a><span class="in">```</span></span>
 <span id="cb125-277"><a href="#cb125-277"></a></span>
 <span id="cb125-278"><a href="#cb125-278"></a><span class="fu"># `=` and `==`</span></span>
@@ -3228,74 +3210,74 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb125-940"><a href="#cb125-940"></a></span>
 <span id="cb125-941"><a href="#cb125-941"></a><span class="ss">- </span>Recall the example of a piecewise function:</span>
 <span id="cb125-942"><a href="#cb125-942"></a></span>
-<span id="cb125-943"><a href="#cb125-943"></a>&lt;table style="font-size:12px"&gt;</span>
-<span id="cb125-944"><a href="#cb125-944"></a>&lt;th&gt;Marginal Tax Rate&lt;/th&gt;</span>
-<span id="cb125-945"><a href="#cb125-945"></a>&lt;th&gt;Single Taxable Income&lt;/th&gt;</span>
-<span id="cb125-946"><a href="#cb125-946"></a>&lt;th&gt;Married Filing Jointly or Qualified Widow(er) Taxable Income&lt;/th&gt;</span>
-<span id="cb125-947"><a href="#cb125-947"></a>&lt;th&gt;Married Filing Separately Taxable Income&lt;/th&gt;</span>
-<span id="cb125-948"><a href="#cb125-948"></a>&lt;th&gt;Head of Household Taxable Income&lt;/th&gt;</span>
-<span id="cb125-949"><a href="#cb125-949"></a>&lt;/tr&gt;</span>
-<span id="cb125-950"><a href="#cb125-950"></a>&lt;tr&gt;</span>
-<span id="cb125-951"><a href="#cb125-951"></a>&lt;th&gt;10%&lt;/th&gt;</span>
-<span id="cb125-952"><a href="#cb125-952"></a>&lt;td&gt;$0 – $9,275&lt;/td&gt;</span>
-<span id="cb125-953"><a href="#cb125-953"></a>&lt;td&gt;$0 – $18,550&lt;/td&gt;</span>
-<span id="cb125-954"><a href="#cb125-954"></a>&lt;td&gt;$0 – $9,275&lt;/td&gt;</span>
-<span id="cb125-955"><a href="#cb125-955"></a>&lt;td&gt;$0 – $13,250&lt;/td&gt;</span>
-<span id="cb125-956"><a href="#cb125-956"></a>&lt;/tr&gt;</span>
-<span id="cb125-957"><a href="#cb125-957"></a>&lt;tr&gt;</span>
-<span id="cb125-958"><a href="#cb125-958"></a>&lt;th&gt;15%&lt;/th&gt;</span>
-<span id="cb125-959"><a href="#cb125-959"></a>&lt;td&gt;$9,276 – $37,650&lt;/td&gt;</span>
-<span id="cb125-960"><a href="#cb125-960"></a>&lt;td&gt;$18,551 – $75,300&lt;/td&gt;</span>
-<span id="cb125-961"><a href="#cb125-961"></a>&lt;td&gt;$9,276 – $37,650&lt;/td&gt;</span>
-<span id="cb125-962"><a href="#cb125-962"></a>&lt;td&gt;$13,251 – $50,400&lt;/td&gt;</span>
-<span id="cb125-963"><a href="#cb125-963"></a>&lt;/tr&gt;</span>
-<span id="cb125-964"><a href="#cb125-964"></a>&lt;tr&gt;</span>
-<span id="cb125-965"><a href="#cb125-965"></a>&lt;th&gt;25%&lt;/th&gt;</span>
-<span id="cb125-966"><a href="#cb125-966"></a>&lt;td&gt;$37,651 – $91,150&lt;/td&gt;</span>
-<span id="cb125-967"><a href="#cb125-967"></a>&lt;td&gt;$75,301 – $151,900&lt;/td&gt;</span>
-<span id="cb125-968"><a href="#cb125-968"></a>&lt;td&gt;$37,651 – $75,950&lt;/td&gt;</span>
-<span id="cb125-969"><a href="#cb125-969"></a>&lt;td&gt;$50,401 – $130,150&lt;/td&gt;</span>
-<span id="cb125-970"><a href="#cb125-970"></a>&lt;/tr&gt;</span>
-<span id="cb125-971"><a href="#cb125-971"></a>&lt;tr&gt;</span>
-<span id="cb125-972"><a href="#cb125-972"></a>&lt;th&gt;28%&lt;/th&gt;</span>
-<span id="cb125-973"><a href="#cb125-973"></a>&lt;td&gt;$91,151 – $190,150&lt;/td&gt;</span>
-<span id="cb125-974"><a href="#cb125-974"></a>&lt;td&gt;$151,901 – $231,450&lt;/td&gt;</span>
-<span id="cb125-975"><a href="#cb125-975"></a>&lt;td&gt;$75,951 – $115,725&lt;/td&gt;</span>
-<span id="cb125-976"><a href="#cb125-976"></a>&lt;td&gt;$130,151 – $210,800&lt;/td&gt;</span>
-<span id="cb125-977"><a href="#cb125-977"></a>&lt;/tr&gt;</span>
-<span id="cb125-978"><a href="#cb125-978"></a>&lt;tr&gt;</span>
-<span id="cb125-979"><a href="#cb125-979"></a>&lt;th&gt;33%&lt;/th&gt;</span>
-<span id="cb125-980"><a href="#cb125-980"></a>&lt;td&gt;$190,151 – $413,350&lt;/td&gt;</span>
-<span id="cb125-981"><a href="#cb125-981"></a>&lt;td&gt;$231,451 – $413,350&lt;/td&gt;</span>
-<span id="cb125-982"><a href="#cb125-982"></a>&lt;td&gt;$115,726 – $206,675&lt;/td&gt;</span>
-<span id="cb125-983"><a href="#cb125-983"></a>&lt;td&gt;$210,801 – $413,350&lt;/td&gt;</span>
-<span id="cb125-984"><a href="#cb125-984"></a>&lt;/tr&gt;</span>
-<span id="cb125-985"><a href="#cb125-985"></a>&lt;tr&gt;</span>
-<span id="cb125-986"><a href="#cb125-986"></a>&lt;th&gt;35%&lt;/th&gt;</span>
-<span id="cb125-987"><a href="#cb125-987"></a>&lt;td&gt;$413,351 – $415,050&lt;/td&gt;</span>
-<span id="cb125-988"><a href="#cb125-988"></a>&lt;td&gt;$413,351 – $466,950&lt;/td&gt;</span>
-<span id="cb125-989"><a href="#cb125-989"></a>&lt;td&gt;$206,676 – $233,475&lt;/td&gt;</span>
-<span id="cb125-990"><a href="#cb125-990"></a>&lt;td&gt;$413,351 – $441,000&lt;/td&gt;</span>
-<span id="cb125-991"><a href="#cb125-991"></a>&lt;/tr&gt;</span>
-<span id="cb125-992"><a href="#cb125-992"></a>&lt;tr&gt;</span>
-<span id="cb125-993"><a href="#cb125-993"></a>&lt;th&gt;39.6%&lt;/th&gt;</span>
-<span id="cb125-994"><a href="#cb125-994"></a>&lt;td&gt;$415,051+&lt;/td&gt;</span>
-<span id="cb125-995"><a href="#cb125-995"></a>&lt;td&gt;$466,951+&lt;/td&gt;</span>
-<span id="cb125-996"><a href="#cb125-996"></a>&lt;td&gt;$233,476+&lt;/td&gt;</span>
-<span id="cb125-997"><a href="#cb125-997"></a>&lt;td&gt;$441,001+&lt;/td&gt;</span>
-<span id="cb125-998"><a href="#cb125-998"></a>&lt;/table&gt;</span>
+<span id="cb125-943"><a href="#cb125-943"></a><span class="dt">&lt;</span><span class="kw">table</span><span class="ot"> style</span><span class="op">=</span><span class="st">"font-size:12px"</span><span class="dt">&gt;</span></span>
+<span id="cb125-944"><a href="#cb125-944"></a><span class="dt">&lt;</span><span class="kw">th</span><span class="dt">&gt;</span>Marginal Tax Rate<span class="dt">&lt;/</span><span class="kw">th</span><span class="dt">&gt;</span></span>
+<span id="cb125-945"><a href="#cb125-945"></a><span class="dt">&lt;</span><span class="kw">th</span><span class="dt">&gt;</span>Single Taxable Income<span class="dt">&lt;/</span><span class="kw">th</span><span class="dt">&gt;</span></span>
+<span id="cb125-946"><a href="#cb125-946"></a><span class="dt">&lt;</span><span class="kw">th</span><span class="dt">&gt;</span>Married Filing Jointly or Qualified Widow(er) Taxable Income<span class="dt">&lt;/</span><span class="kw">th</span><span class="dt">&gt;</span></span>
+<span id="cb125-947"><a href="#cb125-947"></a><span class="dt">&lt;</span><span class="kw">th</span><span class="dt">&gt;</span>Married Filing Separately Taxable Income<span class="dt">&lt;/</span><span class="kw">th</span><span class="dt">&gt;</span></span>
+<span id="cb125-948"><a href="#cb125-948"></a><span class="dt">&lt;</span><span class="kw">th</span><span class="dt">&gt;</span>Head of Household Taxable Income<span class="dt">&lt;/</span><span class="kw">th</span><span class="dt">&gt;</span></span>
+<span id="cb125-949"><a href="#cb125-949"></a><span class="dt">&lt;/</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb125-950"><a href="#cb125-950"></a><span class="dt">&lt;</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb125-951"><a href="#cb125-951"></a><span class="dt">&lt;</span><span class="kw">th</span><span class="dt">&gt;</span>10%<span class="dt">&lt;/</span><span class="kw">th</span><span class="dt">&gt;</span></span>
+<span id="cb125-952"><a href="#cb125-952"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$0 – $9,275<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-953"><a href="#cb125-953"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$0 – $18,550<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-954"><a href="#cb125-954"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$0 – $9,275<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-955"><a href="#cb125-955"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$0 – $13,250<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-956"><a href="#cb125-956"></a><span class="dt">&lt;/</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb125-957"><a href="#cb125-957"></a><span class="dt">&lt;</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb125-958"><a href="#cb125-958"></a><span class="dt">&lt;</span><span class="kw">th</span><span class="dt">&gt;</span>15%<span class="dt">&lt;/</span><span class="kw">th</span><span class="dt">&gt;</span></span>
+<span id="cb125-959"><a href="#cb125-959"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$9,276 – $37,650<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-960"><a href="#cb125-960"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$18,551 – $75,300<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-961"><a href="#cb125-961"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$9,276 – $37,650<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-962"><a href="#cb125-962"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$13,251 – $50,400<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-963"><a href="#cb125-963"></a><span class="dt">&lt;/</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb125-964"><a href="#cb125-964"></a><span class="dt">&lt;</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb125-965"><a href="#cb125-965"></a><span class="dt">&lt;</span><span class="kw">th</span><span class="dt">&gt;</span>25%<span class="dt">&lt;/</span><span class="kw">th</span><span class="dt">&gt;</span></span>
+<span id="cb125-966"><a href="#cb125-966"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$37,651 – $91,150<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-967"><a href="#cb125-967"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$75,301 – $151,900<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-968"><a href="#cb125-968"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$37,651 – $75,950<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-969"><a href="#cb125-969"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$50,401 – $130,150<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-970"><a href="#cb125-970"></a><span class="dt">&lt;/</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb125-971"><a href="#cb125-971"></a><span class="dt">&lt;</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb125-972"><a href="#cb125-972"></a><span class="dt">&lt;</span><span class="kw">th</span><span class="dt">&gt;</span>28%<span class="dt">&lt;/</span><span class="kw">th</span><span class="dt">&gt;</span></span>
+<span id="cb125-973"><a href="#cb125-973"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$91,151 – $190,150<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-974"><a href="#cb125-974"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$151,901 – $231,450<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-975"><a href="#cb125-975"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$75,951 – $115,725<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-976"><a href="#cb125-976"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$130,151 – $210,800<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-977"><a href="#cb125-977"></a><span class="dt">&lt;/</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb125-978"><a href="#cb125-978"></a><span class="dt">&lt;</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb125-979"><a href="#cb125-979"></a><span class="dt">&lt;</span><span class="kw">th</span><span class="dt">&gt;</span>33%<span class="dt">&lt;/</span><span class="kw">th</span><span class="dt">&gt;</span></span>
+<span id="cb125-980"><a href="#cb125-980"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$190,151 – $413,350<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-981"><a href="#cb125-981"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$231,451 – $413,350<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-982"><a href="#cb125-982"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$115,726 – $206,675<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-983"><a href="#cb125-983"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$210,801 – $413,350<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-984"><a href="#cb125-984"></a><span class="dt">&lt;/</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb125-985"><a href="#cb125-985"></a><span class="dt">&lt;</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb125-986"><a href="#cb125-986"></a><span class="dt">&lt;</span><span class="kw">th</span><span class="dt">&gt;</span>35%<span class="dt">&lt;/</span><span class="kw">th</span><span class="dt">&gt;</span></span>
+<span id="cb125-987"><a href="#cb125-987"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$413,351 – $415,050<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-988"><a href="#cb125-988"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$413,351 – $466,950<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-989"><a href="#cb125-989"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$206,676 – $233,475<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-990"><a href="#cb125-990"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$413,351 – $441,000<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-991"><a href="#cb125-991"></a><span class="dt">&lt;/</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb125-992"><a href="#cb125-992"></a><span class="dt">&lt;</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb125-993"><a href="#cb125-993"></a><span class="dt">&lt;</span><span class="kw">th</span><span class="dt">&gt;</span>39.6%<span class="dt">&lt;/</span><span class="kw">th</span><span class="dt">&gt;</span></span>
+<span id="cb125-994"><a href="#cb125-994"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$415,051+<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-995"><a href="#cb125-995"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$466,951+<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-996"><a href="#cb125-996"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$233,476+<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-997"><a href="#cb125-997"></a><span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>$441,001+<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb125-998"><a href="#cb125-998"></a><span class="dt">&lt;/</span><span class="kw">table</span><span class="dt">&gt;</span></span>
 <span id="cb125-999"><a href="#cb125-999"></a></span>
 <span id="cb125-1000"><a href="#cb125-1000"></a><span class="fu">## [Singles](https://www.youtube.com/watch?v=4m1EFMoRFvY) only...</span></span>
 <span id="cb125-1001"><a href="#cb125-1001"></a></span>
-<span id="cb125-1002"><a href="#cb125-1002"></a>| Rate   | From    |</span>
-<span id="cb125-1003"><a href="#cb125-1003"></a>|--------|--------:|</span>
-<span id="cb125-1004"><a href="#cb125-1004"></a>| 10%    | 0       |</span>
-<span id="cb125-1005"><a href="#cb125-1005"></a>| 15%    | 9275    |</span>
-<span id="cb125-1006"><a href="#cb125-1006"></a>| 25%    | 37650   |</span>
-<span id="cb125-1007"><a href="#cb125-1007"></a>| 28%    | 91150   |</span>
-<span id="cb125-1008"><a href="#cb125-1008"></a>| 33%    | 190150  |</span>
-<span id="cb125-1009"><a href="#cb125-1009"></a>| 35%    | 413350  |</span>
-<span id="cb125-1010"><a href="#cb125-1010"></a>| 39.6%  | 415050  |</span>
+<span id="cb125-1002"><a href="#cb125-1002"></a><span class="pp">|</span> Rate   <span class="pp">|</span> From    <span class="pp">|</span></span>
+<span id="cb125-1003"><a href="#cb125-1003"></a><span class="pp">|--------|--------:|</span></span>
+<span id="cb125-1004"><a href="#cb125-1004"></a><span class="pp">|</span> 10%    <span class="pp">|</span> 0       <span class="pp">|</span></span>
+<span id="cb125-1005"><a href="#cb125-1005"></a><span class="pp">|</span> 15%    <span class="pp">|</span> 9275    <span class="pp">|</span></span>
+<span id="cb125-1006"><a href="#cb125-1006"></a><span class="pp">|</span> 25%    <span class="pp">|</span> 37650   <span class="pp">|</span></span>
+<span id="cb125-1007"><a href="#cb125-1007"></a><span class="pp">|</span> 28%    <span class="pp">|</span> 91150   <span class="pp">|</span></span>
+<span id="cb125-1008"><a href="#cb125-1008"></a><span class="pp">|</span> 33%    <span class="pp">|</span> 190150  <span class="pp">|</span></span>
+<span id="cb125-1009"><a href="#cb125-1009"></a><span class="pp">|</span> 35%    <span class="pp">|</span> 413350  <span class="pp">|</span></span>
+<span id="cb125-1010"><a href="#cb125-1010"></a><span class="pp">|</span> 39.6%  <span class="pp">|</span> 415050  <span class="pp">|</span></span>
 <span id="cb125-1011"><a href="#cb125-1011"></a></span>
 <span id="cb125-1012"><a href="#cb125-1012"></a><span class="fu">## Motivating example</span></span>
 <span id="cb125-1013"><a href="#cb125-1013"></a></span>
@@ -3315,15 +3297,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb125-1027"><a href="#cb125-1027"></a></span>
 <span id="cb125-1028"><a href="#cb125-1028"></a>::: {.column width="50%"}</span>
 <span id="cb125-1029"><a href="#cb125-1029"></a></span>
-<span id="cb125-1030"><a href="#cb125-1030"></a>| Rate   | From    |</span>
-<span id="cb125-1031"><a href="#cb125-1031"></a>|--------|--------:|</span>
-<span id="cb125-1032"><a href="#cb125-1032"></a>| 10%    | 0       |</span>
-<span id="cb125-1033"><a href="#cb125-1033"></a>| 15%    | 9275    |</span>
-<span id="cb125-1034"><a href="#cb125-1034"></a>| 25%    | 37650   |</span>
-<span id="cb125-1035"><a href="#cb125-1035"></a>| 28%    | 91150   |</span>
-<span id="cb125-1036"><a href="#cb125-1036"></a>| 33%    | 190150  |</span>
-<span id="cb125-1037"><a href="#cb125-1037"></a>| 35%    | 413350  |</span>
-<span id="cb125-1038"><a href="#cb125-1038"></a>| 39.6%  | 415050  |</span>
+<span id="cb125-1030"><a href="#cb125-1030"></a><span class="pp">|</span> Rate   <span class="pp">|</span> From    <span class="pp">|</span></span>
+<span id="cb125-1031"><a href="#cb125-1031"></a><span class="pp">|--------|--------:|</span></span>
+<span id="cb125-1032"><a href="#cb125-1032"></a><span class="pp">|</span> 10%    <span class="pp">|</span> 0       <span class="pp">|</span></span>
+<span id="cb125-1033"><a href="#cb125-1033"></a><span class="pp">|</span> 15%    <span class="pp">|</span> 9275    <span class="pp">|</span></span>
+<span id="cb125-1034"><a href="#cb125-1034"></a><span class="pp">|</span> 25%    <span class="pp">|</span> 37650   <span class="pp">|</span></span>
+<span id="cb125-1035"><a href="#cb125-1035"></a><span class="pp">|</span> 28%    <span class="pp">|</span> 91150   <span class="pp">|</span></span>
+<span id="cb125-1036"><a href="#cb125-1036"></a><span class="pp">|</span> 33%    <span class="pp">|</span> 190150  <span class="pp">|</span></span>
+<span id="cb125-1037"><a href="#cb125-1037"></a><span class="pp">|</span> 35%    <span class="pp">|</span> 413350  <span class="pp">|</span></span>
+<span id="cb125-1038"><a href="#cb125-1038"></a><span class="pp">|</span> 39.6%  <span class="pp">|</span> 415050  <span class="pp">|</span></span>
 <span id="cb125-1039"><a href="#cb125-1039"></a></span>
 <span id="cb125-1040"><a href="#cb125-1040"></a>:::</span>
 <span id="cb125-1041"><a href="#cb125-1041"></a></span>
@@ -3426,7 +3408,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb125-1148"><a href="#cb125-1148"></a>:::</span>
 <span id="cb125-1149"><a href="#cb125-1149"></a></span>
 <span id="cb125-1150"><a href="#cb125-1150"></a>::::</span>
-</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

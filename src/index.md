@@ -28,12 +28,12 @@ format: html
 
 |Week|Date (T)|Lecture (T)|Lab (Th)|
 |:--:|:---|:----|:-------|
-|0x0|08/35|[Ada & Alan](00_turing.md)|[Turing's Test](01_test.md)|
+|0x0|08/25|[Ada & Alan](00_turing.md)|[Turing's Test](01_test.md)|
 |0x1|09/01|[Python](10_python.qmd)|[Colab](11_colab.md)|
-|0x2|09/08|[(Un)supervision](20_supervise.qmd)|[Dichotomy](21_key.qmd), [Solution](https://github.com/cd-public/ai101/blob/main/sols/key_key.ipynb)|
+|0x2|09/08|[(Un)supervision](20_supervise.qmd)|[Dichotomy](21_key.qmd) | <!--, [Solution](https://github.com/cd-public/ai101/blob/main/sols/key_key.ipynb)|-->
 |0x3|09/15|[Regression](30_regress.qmd)|[$n$D](31_nd.qmd)|
-|0x4|09/22|[Classification](40_class.qmd)|[Tree tree](41_treetree.qmd)|
-|0x5|09/29|[Graphs](50_graph.qmd)|[Sudoku](51_sudoku.qmd)|
+|0x4|09/22|[Classification](40_class.qmd)|[Graphs](50_graph.qmd)|<!--[Tree tree](41_treetree.qmd)|-->
+|0x5|09/29|Prof. Brown|[Sudoku](51_sudoku.qmd)|
 |0x6|10/06|[Guest](6__guest.md)|[Thinking Game](6_1_doc.qmd)|<!--Perceptron|Dice|-->
 |0x7|10/13|[Neural](60_neural.qmd)|[Weights](61_weights.qmd)|
 |0x8|10/20|[Perceptron](70_perceptron.qmd)|[Multi-class](71_multi.qmd)|
@@ -48,5 +48,9 @@ format: html
 
 
 # Recordings
+
+I have an embed below that I'm a little suspicious of... here is a URL link to the class playlist, or you can just click on the box below.
+
+> [https://www.youtube.com/playlist?list=PLJqm_U0Hk230](https://www.youtube.com/playlist?list=PLJqm_U0Hk230)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=jcSmRBfQ8uUWEms6&amp;list=PLJqm_U0Hk230" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
