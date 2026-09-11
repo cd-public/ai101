@@ -1,7 +1,6 @@
 ---
 author:
 - Calvin Deutschbein
-date: Spring 2025
 title: AI 101 
 subtitle: Understanding AI
 format: typst 
