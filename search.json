@@ -3176,31 +3176,81 @@
   {
     "objectID": "41_treetree.html",
     "href": "41_treetree.html",
-    "title": "Tree Tree",
+    "title": "Decision Tree",
     "section": "",
-    "text": "Trees and Keys\n\n\n\nWe return to the question of oaks with:\n\nMore understanding of Colab, and…\nMore understanding of classification.",
+    "text": "Trees and Keys\n\n\n\nWe return to the question of film with:\n\nMore understanding of Colab, and…\nMore understanding of classification.",
     "crumbs": [
-      "Tree Tree"
+      "Decision Tree"
     ]
   },
   {
-    "objectID": "41_treetree.html#some-oaks",
-    "href": "41_treetree.html#some-oaks",
-    "title": "Tree Tree",
-    "section": "Some oaks",
-    "text": "Some oaks\n\nAll are sourced from Wikipedia and appropriately licensed, with the links to the host page in the key.\n\n\nKey\nClick “Details” to expand\n\n\n\n\nNickname\nCommon Name\nScientific Name\n\n\n\n\nA\nBlackjack oak\nQuercus marilandica\n\n\nB\nDwarf live oak\nQuercus minima\n\n\nC\nNorthern red oak\nQuercus rubra\n\n\n\n\n\n\nURLs\n\nI have the best luck with prompting Gemini when I provide images as a URL.\nHere are the URLs for the leaf and tree of Oak A, the others are similar.\n\nhttps://cd-public.github.io/ai101/images/oaks/a_leaf.jpg\nhttps://cd-public.github.io/ai101/images/oaks/a_tree.jpg",
+    "objectID": "41_treetree.html#our-films",
+    "href": "41_treetree.html#our-films",
+    "title": "Decision Tree",
+    "section": "Our Films",
+    "text": "Our Films\n\nWe return to the films from the classification lecture.\nWe will not interact with Gemini today…\n\nRather, create a “program” of sorts that will ask us questions and determine a film.\n\nCreate a script which will ask you a series of yes/no questions about a film and then eventually tell you which film you are thinking off.\nWhile you may use multiple cells, your ultimate result should be a single code cell (like below).",
     "crumbs": [
-      "Tree Tree"
+      "Decision Tree"
+    ]
+  },
+  {
+    "objectID": "41_treetree.html#simple-example",
+    "href": "41_treetree.html#simple-example",
+    "title": "Decision Tree",
+    "section": "Simple Example",
+    "text": "Simple Example\n\nTry this out.\n\ninstructions = \"Please reply exactly yes or no, three or two letters, all lower case, and nothing else. \"\n\nif \"yes\" == input(instructions + \"Does the film feature Anakin Skywalker?\"):\n  if \"yes\" == input(instructions + \"Does the film feature clones?\"):\n    if \"yes\" == input(instructions + \"Does the film feature Darth Vader?\"):\n      print(\"III\")\n    else:\n      print(\"II\")\n  else:\n    print(\"I\")",
+    "crumbs": [
+      "Decision Tree"
+    ]
+  },
+  {
+    "objectID": "41_treetree.html#easy-mode",
+    "href": "41_treetree.html#easy-mode",
+    "title": "Decision Tree",
+    "section": "Easy Mode",
+    "text": "Easy Mode\n\nCreate a simple program to differentiate the three most recent Alien films.\n\nPrometheus dir. Ridley Scott\nAlien: Covenant dir. Ridley Scott\nAlien: Romulus dir. Fede Álvarez",
+    "crumbs": [
+      "Decision Tree"
+    ]
+  },
+  {
+    "objectID": "41_treetree.html#medium-mode",
+    "href": "41_treetree.html#medium-mode",
+    "title": "Decision Tree",
+    "section": "Medium Mode",
+    "text": "Medium Mode\n\nCreate a simple program to differentiate the original Alien vs. Predator films.\n\nThe first four Alien films, Alien, Aliens, Alien 3, and Alien: Resurrection\nThe first two Predator films, Predator, and Predator 2\nThe two crossover films, Alien vs. Predator and *AVPR: Aliens vs Predator - Requiem”",
+    "crumbs": [
+      "Decision Tree"
+    ]
+  },
+  {
+    "objectID": "41_treetree.html#hard-mode",
+    "href": "41_treetree.html#hard-mode",
+    "title": "Decision Tree",
+    "section": "Hard Mode",
+    "text": "Hard Mode\n\nCreate a simple program to differentiate all Alien and Predator films covered in lecture.",
+    "crumbs": [
+      "Decision Tree"
+    ]
+  },
+  {
+    "objectID": "41_treetree.html#choose-your-own-adventure",
+    "href": "41_treetree.html#choose-your-own-adventure",
+    "title": "Decision Tree",
+    "section": "Choose your own adventure",
+    "text": "Choose your own adventure\n\nYou may, of course, consider other conceptual frameworks:\n\nScience fiction settings such as le Guin’s Earthsea, Asimov’s Foundation and Robot crossovers, Herbert’s Dune\nCinematic universes such as Marvel\n\nAlien vs. Predator is an unusually high profile crossover, but I’m sure there are others of which I’m not aware.",
+    "crumbs": [
+      "Decision Tree"
     ]
   },
   {
     "objectID": "41_treetree.html#requirements",
     "href": "41_treetree.html#requirements",
-    "title": "Tree Tree",
+    "title": "Decision Tree",
     "section": "Requirements",
-    "text": "Requirements\n\nCreate a “Lab04” Colab notebook (NOT a Google Document) in your AI Folder.\nThe very first cell must be a code cell containing exactly the following text:\n\ntree_letter = \"a\"\n\nYou must be able to change this letter to “b” or “c” and receive a correct classification when using “Run all”\nYou may use any number of intermediate code or text blocks, but the final block must print out the name of the tree.\n\n\n\n\nLetter\nCommon Name\nScientific Name\n\n\n\n\n‘a’\nBlackjack oak\nQuercus marilandica\n\n\n‘b’\nDwarf live oak\nQuercus minima\n\n\n‘c’\nNorthern red oak\nQuercus rubra\n\n\n\nYou should use the following:\n\nUse + to combine strings\nUse ai.generate_text to ask questions, and\nUse = to store the results of queries to Gemini\nNEW: if and else to determine which questions to ask.\n\n\nPlus/Equals\n\nI found it very helpful in this lab to add many helpful tidbits to Gemini together.\n\n“Hey we are classifying trees!”\n“Hey here’s some images by URL!”\n“I’m a Python script, reply only yes/no with no capitals or punctuation!”\n\nI used = to give short nicknames to longer messages.\nI used + to combine them - usually before asking a question from the key.\nHere is an example:\n\n\u0016from google.colab import ai\nprefix = \"I'm a Colab notebook, and I cannot read! Reply only yes/no with no capitals or punctuation!\"\nquestion = \"Is four an even number\"\nanswer = ai.generate_text(prefix + question)\nprint(answer)\n\n\nIf/else Syntax\n\nLike while which we learned in the “Colab” lab, we can use if and else to ask Gemini questions depending on some condition.\n\nFor example, we can ask if leaves are “smooth” or “lobed”.\nif Gemini says “smooth”, we can then ask if the leaves are evergreen.\nelse we can ask if the lobes (or teeth) are bristle-tipped.\nFar more easily, we ask yes or no questions.\n\nHere is an example:\n\nif answer == \"yes\":\n  print(\"Four is an even number\")\nelse:\n  print(\"Four is not an even number\")\n\n\n\n\n\n\nDouble equals? What’s that!\n\n\n\nIn Colab, both = and == mean something.\n\nI call = “single equals assignment”. It assigns a nickname to something longer or more complicated. It gets its own line.\nI call == “double equals equality”. It checks to see if two things are equal, usually with an if.\n\nif 1 == 1:\n    print(\"Hi!\")\n\n\n\n\nNesting\n\nIt is possible to place one if statement inside another with indentation.\n\nTerm this “nesting”.\n\n\neven = ai.generate_text(prefix + \"Is four an even number\")\npositive = ai.generate_text(prefix + \"Is four a positive number\")\n\nif even == \"yes\":\n  if positive == \"yes\":\n    print(\"Even positive number.\")\n  else:\n    print(\"Even negative number.\")\nelse:\n  print(\"Odd number.\")",
+    "text": "Requirements\n\nCreate a “Lab04” Colab notebook (NOT a Google Document) in your AI Folder.\nThe very first cell must be a code cell containing exactly your script.\n\nYou should use the following:\n\nUse + to combine strings\nUse == to see if the response to a question is “yes” or “no”.\nNEW: if and else to determine which questions to ask.\n\n\nPlus/Equals\n\nI found it very helpful in this lab to add many helpful tidbits together.\n\n“I’m a Python script, reply only yes/no with no capitals or punctuation!”\n\nI used = to give short nicknames to longer messages.\nI used + to combine them - usually before asking a question from the key.\nHere is an example:\n\n\u0016from google.colab import ai\nprefix = \"I'm a Colab notebook, and I cannot read! Reply only yes/no with no capitals or punctuation!\"\nquestion = \"Is four an even number\"\nanswer = ai.generate_text(prefix + question)\nprint(answer)\n\n\nIf/else Syntax\n\nLike while which we learned in the “Colab” lab, we can use if and else to ask Gemini questions depending on some condition.\n\nFor example, we can ask if leaves are “smooth” or “lobed”.\nif Gemini says “smooth”, we can then ask if the leaves are evergreen.\nelse we can ask if the lobes (or teeth) are bristle-tipped.\nFar more easily, we ask yes or no questions.\n\nHere is an example:\n\nif \"yes\" == input(instructions + \"Does the film feature Anakin Skywalker?\"):\n    print(\"Prequel Trilogy\")\nelse:\n    print(\"It's complicated\")\n\n\n\n\n\n\nDouble equals? What’s that!\n\n\n\nIn Colab, both = and == mean something.\n\nI call = “single equals assignment”. It assigns a nickname to something longer or more complicated. It gets its own line.\nI call == “double equals equality”. It checks to see if two things are equal, usually with an if.\n\nif 1 == 1:\n    print(\"Hi!\")\n\n\n\n\nNesting\n\nIt is possible to place one if statement inside another with indentation.\n\nTerm this “nesting”.\n\n\neven = ai.generate_text(prefix + \"Is four an even number\")\npositive = ai.generate_text(prefix + \"Is four a positive number\")\n\nif even == \"yes\":\n  if positive == \"yes\":\n    print(\"Even positive number.\")\n  else:\n    print(\"Even negative number.\")\nelse:\n  print(\"Odd number.\")",
     "crumbs": [
-      "Tree Tree"
+      "Decision Tree"
     ]
   },
   {

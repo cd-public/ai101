@@ -1,5 +1,5 @@
 ---
-title: Tree Tree 
+title: Decision Tree 
 format: html
 ---
 
@@ -7,7 +7,7 @@ format: html
 
 ## Trees and Keys
 
-We return to the question of oaks with:
+We return to the question of film with:
 
 1. More understanding of Colab, and...
 2. More understanding of classification.
@@ -40,38 +40,12 @@ We recall:
 
 > [In machine learning and pattern recognition, a feature is an individual measurable property or characteristic of a data set.](https://en.wikipedia.org/wiki/Feature_(machine_learning))
 
-:::
-
-### Example
-
-    1. Leaves usually without teeth or lobes: 2
-    1. Leaves usually with teeth or lobes: 5
-
-        2. Leaves evergreen: 3
-        2. Leaves not evergreen: 4
-
-    3. Mature plant a large tree — Southern live oak Quercus virginiana
-    3. Mature plant a small shrub — Dwarf live oak Quercus minima
-
-        4. Leaf narrow, about 4-6 times as long as broad — Willow oak Quercus phellos
-        4. Leaf broad, about 2-3 times as long as broad — Shingle oak Quercus imbricaria
-
-    5. Lobes or teeth bristle-tipped: 6
-    5. Lobes or teeth rounded or blunt-pointed, no bristles: 7
-
-        6. Leaves mostly with 3 lobes — Blackjack oak Quercus marilandica
-        6. Leaves mostly with 7-9 lobes — Northern red oak Quercus rubra
-
-    7. Leaves with 5-9 deep lobes — White oak Quercus alba
-    7. Leaves with 21-27 shallow lobes — Swamp chestnut oak Quercus prinus
-
-### Visually
-
 - You may have to zoom in...
     - If you turn it upside down, it somewhat looks like a tree (hence the name).
 
 ```{dot}
 digraph OakKey {
+//| echo: false
     bgcolor="transparent"
     node [shape=box,  fontcolor="white", color="white"];
     edge [color="white", fontcolor="white"];
@@ -119,64 +93,71 @@ digraph OakKey {
 }
 ```
 
-## Some oaks
+## Our Films
 
-- All are sourced from Wikipedia and appropriately licensed, with the links to the host page in the key.
+- We return to the films from the [classification lecture](40_class.qmd).
+- We will not interact with Gemini today...
+    - Rather, create a "program" of sorts that will ask us questions and determine a film.
+- Create a script which will ask you a series of yes/no questions about a film and then eventually tell you which film you are thinking off.
+- While you may use multiple cells, your ultimate result should be a single code cell (like below).
 
-### Key
+## Simple Example
 
-*Click "Details" to expand*
+- Try this out.
 
-<details>
+```{.py}
+instructions = "Please reply exactly yes or no, three or two letters, all lower case, and nothing else. "
 
-|Nickname|Common Name|Scientific Name|
-|-|-|-|
-| A | [Blackjack oak](https://en.wikipedia.org/wiki/Quercus_marilandica) | Quercus marilandica |
-| B | [Dwarf live oak](https://en.wikipedia.org/wiki/Dwarf_live_oak) | Quercus minima |
-| C | [Northern red oak](https://en.wikipedia.org/wiki/Quercus_rubra) | Quercus rubra | 
-
-</details>
-
-### URLs
-
-- I have the best luck with prompting Gemini when I provide images as a URL.
-- Here are the URLs for the leaf and tree of Oak A, the others are similar.
-
-```email
-https://cd-public.github.io/ai101/images/oaks/a_leaf.jpg
-https://cd-public.github.io/ai101/images/oaks/a_tree.jpg
+if "yes" == input(instructions + "Does the film feature Anakin Skywalker?"):
+  if "yes" == input(instructions + "Does the film feature clones?"):
+    if "yes" == input(instructions + "Does the film feature Darth Vader?"):
+      print("III")
+    else:
+      print("II")
+  else:
+    print("I")
 ```
+
+## Easy Mode
+
+- Create a simple program to differentiate the three most recent *Alien* films.
+    - *Prometheus* dir. Ridley Scott
+    - *Alien: Covenant* dir. Ridley Scott
+    - *Alien: Romulus* dir. Fede Álvarez
+    
+## Medium Mode
+
+- Create a simple program to differentiate the original *Alien vs. Predator* films.
+    - The first four *Alien* films, *Alien*, *Aliens*, *Alien 3*, and *Alien: Resurrection*
+    - The first two *Predator* films, *Predator*, and *Predator 2*
+    - The two crossover films, *Alien vs. Predator* and *AVPR: Aliens vs Predator - Requiem"
+    
+## Hard Mode
+
+- Create a simple program to differentiate all *Alien* and *Predator* films covered in lecture.
+
+## Choose your own adventure
+
+- You may, of course, consider other conceptual frameworks:
+    - Science fiction settings such as le Guin's *Earthsea*, Asimov's *Foundation* and *Robot* crossovers, Herbert's *Dune*
+    - Cinematic universes such as Marvel
+- *Alien vs. Predator* is an unusually high profile crossover, but I'm sure there are others of which I'm not aware.
 
 
 ## Requirements 
 
 - [ ] Create a "Lab04" Colab notebook (NOT a Google Document) in your AI Folder.
-- [ ] The very first cell must be a *code cell* containing exactly the following text:
-```{.py}
-tree_letter = "a"
-```
-- [ ] You must be able to change this letter to "b" or "c" and receive a correct classification when using "Run all"
-- [ ] You may use any number of intermediate code or text blocks, but the final block *must* print out the name of the tree.
-
-|Letter|Common Name|Scientific Name|
-|-|-|-|
-| 'a' | [Blackjack oak](https://en.wikipedia.org/wiki/Quercus_marilandica) | Quercus marilandica |
-| 'b' | [Dwarf live oak](https://en.wikipedia.org/wiki/Dwarf_live_oak) | Quercus minima |
-| 'c' | [Northern red oak](https://en.wikipedia.org/wiki/Quercus_rubra) | Quercus rubra | 
-
+- [ ] The very first cell must be a *code cell* containing exactly your script.
 
 You should use the following:
 
 - [ ] Use `+` to combine strings
-- [ ] Use `ai.generate_text` to ask questions, and 
-- [ ] Use `=` to store the results of queries to Gemini
+- [ ] Use `==` to see if the response to a question is "yes" or "no".
 - [ ] **NEW**:  `if` and `else` to determine which questions to ask.
 
 ### Plus/Equals
 
-- I found it very helpful in this lab to add many helpful tidbits to Gemini together.
-    - "Hey we are classifying trees!"
-    - "Hey here's some images by URL!"
+- I found it very helpful in this lab to add many helpful tidbits together.
     - "I'm a Python script, reply only yes/no with no capitals or punctuation!"
 - I used `=` to give short nicknames to longer messages.
 - I used `+` to combine them - usually before asking a question from the key.
@@ -200,10 +181,10 @@ print(answer)
 - Here is an example:
 
 ```{.py}
-if answer == "yes":
-  print("Four is an even number")
+if "yes" == input(instructions + "Does the film feature Anakin Skywalker?"):
+    print("Prequel Trilogy")
 else:
-  print("Four is not an even number")
+    print("It's complicated")
 ```
 
 ::: {.callout-note appearance="simple"}
@@ -242,7 +223,4 @@ else:
      
 # Your Task
 
-- Try to get this to work such when you run a cell, it gives the name of a tree.
 - No write-up today, just try to get this working.
-- Big hint:
-    - The shape of the "Visually" graphic - of a question with branching questions below - is the same shape you should for with `if` statements and indentation.
