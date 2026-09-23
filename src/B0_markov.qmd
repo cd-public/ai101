@@ -2,6 +2,7 @@
 title: Markov
 ---
 
+<!--
 
 ## Today
 
@@ -79,12 +80,16 @@ for die in compress:
 - Like with seeing dice, we need to somehow package up words into neurons.
 - Like with predicting numbers, we need to somehow back up... also words into neurons, again?
     - LLMs go from words-to-words, vision goes from images-to-words.
+-->
 
 ## Setting the stage
 
 - ImageNet, the big vision thing, came out in 2006.
+  	- AI without words
 - The LLM was developed in 2017
+  	- AI with words
 - ChatGPT became "prominent" in 2023
+	- AI in the news
 
 ## Looking at Google
 
