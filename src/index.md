@@ -32,7 +32,7 @@ format: html
 |0x1|09/01|[Python](10_python.qmd)|[Colab](11_colab.md)|
 |0x2|09/08|[(Un)supervision](20_supervise.qmd)|[Dichotomy](21_key.qmd) | <!--, [Solution](https://github.com/cd-public/ai101/blob/main/sols/key_key.ipynb)|-->
 |0x3|09/15|[Regression](30_regress.qmd)|[$n$D](31_nd.qmd)|
-|0x4|09/22|[Classification](40_class.qmd)|[Graphs](50_graph.qmd)|<!--[Tree tree](41_treetree.qmd)|-->
+|0x4|09/22|[Classification](40_class.qmd)|[Decision tree](41_treetree.qmd)|<!--[Tree tree](41_treetree.qmd)|[Graphs](50_graph.qmd)|-->
 |0x5|09/29|Prof. Brown|[Sudoku](51_sudoku.qmd)|
 |0x6|10/06|[Guest](6__guest.md)|[Thinking Game](6_1_doc.qmd)|<!--Perceptron|Dice|-->
 |0x7|10/13|[Neural](60_neural.qmd)|[Weights](61_weights.qmd)|
