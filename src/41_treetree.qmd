@@ -36,6 +36,8 @@ We return to the question of film with:
 
 We now recognize these "yes"/"no" questions as *features*.
 
+:::
+
 We recall:
 
 > [In machine learning and pattern recognition, a feature is an individual measurable property or characteristic of a data set.](https://en.wikipedia.org/wiki/Feature_(machine_learning))
@@ -44,8 +46,8 @@ We recall:
     - If you turn it upside down, it somewhat looks like a tree (hence the name).
 
 ```{dot}
-digraph OakKey {
 //| echo: false
+digraph OakKey {
     bgcolor="transparent"
     node [shape=box,  fontcolor="white", color="white"];
     edge [color="white", fontcolor="white"];
@@ -108,14 +110,13 @@ digraph OakKey {
 ```{.py}
 instructions = "Please reply exactly yes or no, three or two letters, all lower case, and nothing else. "
 
-if "yes" == input(instructions + "Does the film feature Anakin Skywalker?"):
-  if "yes" == input(instructions + "Does the film feature clones?"):
-    if "yes" == input(instructions + "Does the film feature Darth Vader?"):
-      print("III")
-    else:
-      print("II")
+if "yes" == input(instructions + "Does the film feature clones?"):
+  if "yes" == input(instructions + "Does the film feature Darth Vader?"):
+    print("III")
   else:
-    print("I")
+    print("II")
+else:
+  print("I")
 ```
 
 ## Easy Mode
@@ -158,30 +159,28 @@ You should use the following:
 ### Plus/Equals
 
 - I found it very helpful in this lab to add many helpful tidbits together.
-    - "I'm a Python script, reply only yes/no with no capitals or punctuation!"
+    - "If you reply using capital letters, my program will break!"
 - I used `=` to give short nicknames to longer messages.
 - I used `+` to combine them - usually before asking a question from the key.
 - Here is an example:
 
 ```{.py}
-from google.colab import ai
-prefix = "I'm a Colab notebook, and I cannot read! Reply only yes/no with no capitals or punctuation!"
-question = "Is four an even number"
-answer = ai.generate_text(prefix + question)
-print(answer)
+instructions = "Please reply exactly yes or no, three or two letters, all lower case, and nothing else. "
+
+print(instructions + "Does the film feature clones?"):
 ```
 
 ### If/else Syntax
 
-- Like `while` which we learned in the "Colab" lab, we can use `if` and `else` to ask Gemini questions depending on some **condition**.
+- Like `while` which we learned in the "Colab" lab, we can use `if` and `else` to ask questions depending on some **condition**.
 	- For example, we can ask if leaves are "smooth" or "lobed".
-	- `if` Gemini says "smooth", we can then ask if the leaves are evergreen.
+	- `if` leaves "smooth", we can then ask if the leaves are evergreen.
 	- `else` we can ask if the lobes (or teeth) are bristle-tipped.
     - Far more easily, we ask yes or no questions.
 - Here is an example:
 
 ```{.py}
-if "yes" == input(instructions + "Does the film feature Anakin Skywalker?"):
+if "yes" == input("Does the film feature Anakin Skywalker?"):
     print("Prequel Trilogy")
 else:
     print("It's complicated")
@@ -197,7 +196,7 @@ In Colab, both `=` and `==` mean something.
 2. I call `==` "double equals equality". It checks to see if two things are equal, usually with an `if`.
 
 ```{.py}
-if 1 == 1:
+if 2 + 2 == 4:
     print("Hi!")
 ```
 
@@ -209,18 +208,15 @@ if 1 == 1:
     - Term this "nesting".
 
 ```{.py}
-even = ai.generate_text(prefix + "Is four an even number")
-positive = ai.generate_text(prefix + "Is four a positive number")
-
-if even == "yes":
-  if positive == "yes":
-    print("Even positive number.")
+if "yes" == input("Does the film feature clones?"):
+  if "yes" == input("Does the film feature Darth Vader?"):
+    print("III")
   else:
-    print("Even negative number.")
+    print("II")
 else:
-  print("Odd number.")
+  print("I")
 ```
-     
+
 # Your Task
 
 - No write-up today, just try to get this working.
