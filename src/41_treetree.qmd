@@ -167,7 +167,7 @@ You should use the following:
 ```{.py}
 instructions = "Please reply exactly yes or no, three or two letters, all lower case, and nothing else. "
 
-print(instructions + "Does the film feature clones?"):
+print(instructions + "Does the film feature clones?")
 ```
 
 ### If/else Syntax
