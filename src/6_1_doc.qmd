@@ -13,6 +13,8 @@ On February 2, 2025, I was invited to introduce and lead a discussion of the fil
 
 I was pleased to be proven wrong, though want to note one aspect - I did *not* find the insights of the team that solved the problem - namely DeepMind - to be breakthroughs, but I wildly underestimated the amount of computing resources that could possible be brought to bear on this, or any other, problem. This is consistent with the *large scale computing* thesis of [*AI is an Ethical Nightmare*](https://www.youtube.com/watch?v=AaU6tI2pb3M). However, it is worth interrogating with my sensibilities are meaningful or correct!
 
+DeepMind political now is probably the largest and most powerful player in the AI space that is not specifically working on large language models, though is affiliated with Google Gemini now.
+
 ## On The Film
 
 > With its focus on Nobel Prize winning scientist Demis Hassabis, THE THINKING GAME takes you on a fascinating journey into the heart of DeepMind, one of the world's leading AI labs, as it strives to unravel the mysteries of artificial general intelligence.  It captures the exhilaration of historic breakthroughs like AlphaFold, the crushing weight of disappointment during setbacks, and the unwavering pursuit of knowledge and scientific innovation. This film invites viewers to witness one of the most important scientific adventures of our time, exploring the potential of AGI to reshape our world.
