@@ -25,7 +25,7 @@ $$
 
 ## Indices
 
-- Mini-Sudoku is 4$\times$4.
+- Mini-Sudoku is $4 \times 4$.
 - General, matrices may be $m$ by $n$.
 
 $$
