@@ -406,7 +406,7 @@ graph SudokuBipartite {
 
 - Here's a canonical representation from Wikipedia
 
-<a title="WatchduckYou can name the author as &quot;T. Piesk&quot;, &quot;Tilman Piesk&quot; or &quot;Watchduck&quot;., CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Simple_bipartite_graph;_two_layers.svg"><img width="512" alt="Simple bipartite graph; two layers" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Simple_bipartite_graph%3B_two_layers.svg/512px-Simple_bipartite_graph%3B_two_layers.svg.png?20220815125031"></a>
+<a style="filter:invert(1)" title="WatchduckYou can name the author as &quot;T. Piesk&quot;, &quot;Tilman Piesk&quot; or &quot;Watchduck&quot;., CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Simple_bipartite_graph;_two_layers.svg"><img width="960" alt="Simple bipartite graph; two layers" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Simple_bipartite_graph%3B_two_layers.svg/960px-Simple_bipartite_graph%3B_two_layers.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail"></a>
 
 ## Other Bipartite Graphs
 
@@ -452,6 +452,7 @@ graph SudokuBipartite {
 - Couples on *The Breakfast Club* (1985)
 
 ```{dot}
+//| echo: false
 graph SudokuBipartite {
     rankdir=TD;
     bgcolor="transparent"  
@@ -618,10 +619,6 @@ graph SudokuBipartite {
 - Perhaps the braincell "B3" encodes good movie
     - I usually use give two thumbs up - both "R1" and "L1".
 
-:::: {.columns}
-
-::: {.column width="50%"}
-
 
 ```{dot}
 //| echo: false
@@ -663,18 +660,6 @@ graph SudokuBipartite {
 
 }
 ```
-
-:::
-
-
-::: {.column width="50%"}
-
-<img src="https://www.musicnotes.com/blog/content/images/now/wp-content/uploads/image-8.png" style="filter:invert(.9)" width="50%">
-
-:::
-
-::::
-
 ## Meaning
 
 - Perhaps the braincell "B5" encodes "pinch of salt"
@@ -816,8 +801,9 @@ graph SudokuBipartite {
 - This is how I learned to type!
     - Some neurons in my brain associate fingers with keys!
 
+
 <center>
-<a title="Onlinetyping.org, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Finger_position_on_a_keyboard.png"><img alt="Finger position on a keyboard"  style="filter:invert(.9)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Finger_position_on_a_keyboard.png/512px-Finger_position_on_a_keyboard.png?20200324110252"></a>
+<a title="Onlinetyping.org, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Finger_position_on_a_keyboard.png"><img width="960" alt="Publish changes" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/Finger_position_on_a_keyboard.png/960px-Finger_position_on_a_keyboard.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail"></a>
 </center>
 
 ## Think, Pair, Share

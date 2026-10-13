@@ -2780,7 +2780,7 @@
 <ul>
 <li>Here’s a canonical representation from Wikipedia</li>
 </ul>
-<p><a title="WatchduckYou can name the author as &quot;T. Piesk&quot;, &quot;Tilman Piesk&quot; or &quot;Watchduck&quot;., CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Simple_bipartite_graph;_two_layers.svg"><img width="512" alt="Simple bipartite graph; two layers" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Simple_bipartite_graph%3B_two_layers.svg/512px-Simple_bipartite_graph%3B_two_layers.svg.png?20220815125031"></a></p>
+<p><a style="filter:invert(1)" title="WatchduckYou can name the author as &quot;T. Piesk&quot;, &quot;Tilman Piesk&quot; or &quot;Watchduck&quot;., CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Simple_bipartite_graph;_two_layers.svg"><img width="960" alt="Simple bipartite graph; two layers" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Simple_bipartite_graph%3B_two_layers.svg/960px-Simple_bipartite_graph%3B_two_layers.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=index&amp;utm_content=thumbnail"></a></p>
 </section>
 <section id="other-bipartite-graphs" class="slide level2">
 <h2>Other Bipartite Graphs</h2>
@@ -2864,34 +2864,6 @@
 <li>Couples on <em>The Breakfast Club</em> (1985)</li>
 </ul>
 <div class="cell" data-layout-align="default">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource dot number-lines code-with-copy"><code class="sourceCode dot"><span id="cb4-1"><a></a><span class="va">graph</span> <span class="va">SudokuBipartite</span> <span class="ot">{</span></span>
-<span id="cb4-2"><a></a><span class="co">    </span><span class="at">rankdir</span><span class="ot">=</span><span class="va">TD</span><span class="ot">;</span></span>
-<span id="cb4-3"><a></a><span class="co">    </span><span class="at">bgcolor</span><span class="ot">=</span><span class="st">"transparent"</span><span class="co">  </span></span>
-<span id="cb4-4"><a></a><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">circle</span><span class="co">, </span><span class="at">fontcolor</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"#ffffff"</span><span class="co">, </span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"#ffffff"</span><span class="ot">]</span></span>
-<span id="cb4-5"><a></a><span class="co">    </span><span class="kw">edge</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"#ffffff"</span><span class="ot">]</span></span>
-<span id="cb4-6"><a></a><span class="co">    </span></span>
-<span id="cb4-7"><a></a><span class="co">    // --- PARTITION 2: DST ---</span></span>
-<span id="cb4-8"><a></a><span class="co">    </span><span class="kw">subgraph</span><span class="co"> </span><span class="va">cluster_cells</span><span class="co"> </span><span class="ot">{</span></span>
-<span id="cb4-9"><a></a><span class="co">        </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"blue"</span><span class="ot">];</span></span>
-<span id="cb4-10"><a></a><span class="co">        // Defining 16 cells (row, column)</span></span>
-<span id="cb4-11"><a></a><span class="co">        </span><span class="va">D13</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Claire (Princess)"</span><span class="ot">];</span><span class="co"> </span></span>
-<span id="cb4-12"><a></a><span class="co">        </span><span class="va">D23</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Allison (Basket Case)"</span><span class="ot">];</span></span>
-<span id="cb4-13"><a></a><span class="co">    </span><span class="ot">}</span></span>
-<span id="cb4-14"><a></a></span>
-<span id="cb4-15"><a></a><span class="co">    // --- PARTITION 1: SRC ---</span></span>
-<span id="cb4-16"><a></a><span class="co">    </span><span class="kw">subgraph</span><span class="co"> </span><span class="va">cluster_cells</span><span class="co"> </span><span class="ot">{</span></span>
-<span id="cb4-17"><a></a><span class="co">        </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"red"</span><span class="ot">];</span></span>
-<span id="cb4-18"><a></a><span class="co">        </span><span class="va">C13</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Andrew (Athlete)"</span><span class="ot">];</span><span class="co"> </span></span>
-<span id="cb4-19"><a></a><span class="co">        </span><span class="va">C23</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Brian (Brain)"</span><span class="ot">];</span><span class="co"> </span></span>
-<span id="cb4-20"><a></a><span class="co">        </span><span class="va">C33</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="st">"Bender (Criminal)"</span><span class="ot">];</span><span class="co"> </span></span>
-<span id="cb4-21"><a></a><span class="co">    </span><span class="ot">}</span></span>
-<span id="cb4-22"><a></a></span>
-<span id="cb4-23"><a></a><span class="co">    </span></span>
-<span id="cb4-24"><a></a><span class="co">    </span><span class="va">D13</span><span class="co"> -- </span><span class="va">C33</span></span>
-<span id="cb4-25"><a></a><span class="co">    </span><span class="va">D23</span><span class="co"> -- </span><span class="va">C13</span></span>
-<span id="cb4-26"><a></a><span class="co">    </span><span class="va">D13</span><span class="co"> -- </span><span class="va">C23</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="ot">=</span><span class="st">"transparent"</span><span class="ot">]</span></span>
-<span id="cb4-27"><a></a><span class="co">    </span><span class="va">D23</span><span class="co"> -- </span><span class="va">C23</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="ot">=</span><span class="st">"transparent"</span><span class="ot">]</span></span>
-<span id="cb4-28"><a></a><span class="ot">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <p></p><figure class=""><p></p>
@@ -3324,8 +3296,6 @@
 <li>I usually use give two thumbs up - both “R1” and “L1”.</li>
 </ul></li>
 </ul>
-<div class="columns">
-<div class="column" style="width:50%;">
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -3525,9 +3495,6 @@
 </div>
 </div>
 </div>
-</div><div class="column" style="width:50%;">
-<p><img src="https://www.musicnotes.com/blog/content/images/now/wp-content/uploads/image-8.png" style="filter:invert(.9)" width="50%"></p>
-</div></div>
 </section>
 <section id="meaning-1" class="slide level2">
 <h2>Meaning</h2>
@@ -4141,7 +4108,7 @@
 </ul></li>
 </ul>
 <center>
-<a title="Onlinetyping.org, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Finger_position_on_a_keyboard.png"><img alt="Finger position on a keyboard" style="filter:invert(.9)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Finger_position_on_a_keyboard.png/512px-Finger_position_on_a_keyboard.png?20200324110252"></a>
+<a title="Onlinetyping.org, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Finger_position_on_a_keyboard.png"><img width="960" alt="Publish changes" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/Finger_position_on_a_keyboard.png/960px-Finger_position_on_a_keyboard.png?utm_source=commons.wikimedia.org&amp;utm_campaign=index&amp;utm_content=thumbnail"></a>
 </center>
 </section>
 <section id="think-pair-share" class="slide level2">
