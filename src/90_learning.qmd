@@ -133,7 +133,7 @@ print(multi)
 
 ## Encoding
 
-- To do so, we recognized we could view dice with as few as nice (`9`) "sensory neurons.
+- To do so, we recognized we could view dice with as few as nine (`9`) "sensory neurons".
 
 ||||
 |-|-|-|
