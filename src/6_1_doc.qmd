@@ -33,16 +33,16 @@ Please watch the film and keep track of your thoughts while watching.
 
 ## After the Film
 
-Create a new Colab document titled Lab06 and within it answer the following questions at "social media post" length (150-300 characters). Answer each question within the document, each in its own **text** cell (that is, **NOT** a *code* cell).
+Create a new Colab document titled Lab05 and within it answer the following questions at "social media post" length (150-300 characters). Answer each question within the document, each in its own **text** cell (that is, **NOT** a *code* cell).
 
 ::: {.callout-note}
-I am specifying a precise way I expect to receive see these questions. Think about why I am doing that and why it may be helpful to following these instructions!
+I am specifying a precise way I expect to receive these questions. Think about why I am doing that and why it may be helpful to follow these instructions!
 :::
 
-1. We previously have approached Sudoku in this class. Comment briefly on the merits of games to drive advancements in AI. 
+1. We have previously engaged with the likes of Mini Crosswords and MonkeyType in "commercial breaks" during this class. Comment briefly on the merits of games to drive advancements in AI. 
 2. We previously have raised ethical concerns about large companies - including one of the ten largest companies in the world, Google - having control of AI technologies. Have you concerns increased or decreased following this documentary? Why?
 3. What problems solved by the DeepMind team were you previously aware of? Did any in particular surprise you? 
-4. At one point, a DeepMind engineer suggests using an entire data center to compute protein folding for months. Comment on the scale of this investment, and its financial, social, and environmental costs?
+4. At one point, a DeepMind engineer suggests using an entire data center to compute protein folding for months. Comment on the scale of this investment, in particular, what are its financial, social, and environmental costs?
 5. For the most advanced DeepMind technologies, do you regard them as more or less intelligent than a human?
 6. Humans were able to create technologies such as AlphaGo and AlphaFold. Could DeepMind create an "AlphaHuman" that is able to create or closely emulate humans?
 7. Is AlphaFold intelligent?
