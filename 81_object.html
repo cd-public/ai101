@@ -503,7 +503,7 @@ Note
 </section>
 <section id="anatomy-of-a-definition" class="level3">
 <h3 class="anchored" data-anchor-id="anatomy-of-a-definition">Anatomy of a definition</h3>
-<div id="27e8ef51" class="cell" data-execution_count="2">
+<div id="4019e0b5" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">class</span> OrderedPair:</span>
 <span id="cb1-2"><a href="#cb1-2"></a></span>
 <span id="cb1-3"><a href="#cb1-3"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x, y):</span>
@@ -522,15 +522,15 @@ Note
 </section>
 <section id="anatomy-of-instantiation" class="level3">
 <h3 class="anchored" data-anchor-id="anatomy-of-instantiation">Anatomy of instantiation</h3>
-<div id="7a282174" class="cell" data-execution_count="3">
+<div id="235cdd55" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>my_ordered_pair <span class="op">=</span> OrderedPair(<span class="dv">4</span>, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Calling is not so complicated as defining, we simply take the class name and postpend a collection of values (again, with parentheses <code>()</code> and separated by commas <code>,</code>). We need one value for each argument of the <code>__init__</code> method <em>other</em> than <code>self</code>, so in our case one each for <code>x</code> and <code>y</code>.</p>
 <p>If we try to take a look however:</p>
-<div id="de906def" class="cell" data-execution_count="4">
+<div id="0e626e99" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="bu">print</span>(my_ordered_pair)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>&lt;__main__.OrderedPair object at 0x000001D60B42D0A0&gt;</code></pre>
+<pre><code>&lt;__main__.OrderedPair object at 0x0000018ED6E87D40&gt;</code></pre>
 </div>
 </div>
 <p>Ew!</p>
@@ -564,7 +564,7 @@ Note
 </ul></li>
 </ul></li>
 </ul>
-<div id="2da7a95b" class="cell" data-execution_count="5">
+<div id="1dddfb5f" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">class</span> OrderedPair:</span>
 <span id="cb5-2"><a href="#cb5-2"></a></span>
 <span id="cb5-3"><a href="#cb5-3"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x, y):</span>
@@ -578,7 +578,7 @@ Note
 <span id="cb5-11"><a href="#cb5-11"></a>        <span class="cf">return</span> class_name <span class="op">+</span> <span class="st">"("</span> <span class="op">+</span> x_name <span class="op">+</span> <span class="st">", "</span> <span class="op">+</span> y_name <span class="op">+</span> <span class="st">")"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let’s see if that looks any better:</p>
-<div id="c075bdb3" class="cell" data-execution_count="6">
+<div id="e713ab0c" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>my_ordered_pair <span class="op">=</span> OrderedPair(<span class="dv">4</span>, <span class="dv">2</span>)</span>
 <span id="cb6-2"><a href="#cb6-2"></a><span class="bu">print</span>(my_ordered_pair)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -611,7 +611,7 @@ Note
 <li>We return a new object using the classname, and provide the new values.</li>
 </ul></li>
 </ul>
-<div id="4deb8223" class="cell" data-execution_count="7">
+<div id="83033db3" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">class</span> OrderedPair:</span>
 <span id="cb8-2"><a href="#cb8-2"></a></span>
 <span id="cb8-3"><a href="#cb8-3"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x, y):</span>
@@ -632,7 +632,7 @@ Note
 <ul>
 <li>We can try this out.</li>
 </ul>
-<div id="c422d5de" class="cell" data-execution_count="8">
+<div id="790439dd" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>pair_a <span class="op">=</span> OrderedPair(<span class="dv">4</span>,<span class="dv">2</span>)</span>
 <span id="cb9-2"><a href="#cb9-2"></a>pair_b <span class="op">=</span> OrderedPair(<span class="dv">3</span>,<span class="dv">4</span>)</span>
 <span id="cb9-3"><a href="#cb9-3"></a><span class="bu">print</span>(pair_a <span class="op">+</span> pair_b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -651,7 +651,7 @@ Note
 <summary>
 Spoiler Alert: Expand to see one solution!
 </summary>
-<div id="cee0dd24" class="cell" data-execution_count="9">
+<div id="c82348be" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">class</span> OrderedPair:</span>
 <span id="cb11-2"><a href="#cb11-2"></a></span>
 <span id="cb11-3"><a href="#cb11-3"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x, y):</span>
@@ -676,7 +676,7 @@ Spoiler Alert: Expand to see one solution!
 <ul>
 <li>If you do your work properly, you should be able to do the following:</li>
 </ul>
-<div id="995b74d4" class="cell" data-execution_count="10">
+<div id="d09f201d" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>pair_a <span class="op">=</span> OrderedPair(<span class="dv">4</span>,<span class="dv">2</span>)</span>
 <span id="cb12-2"><a href="#cb12-2"></a>pair_b <span class="op">=</span> OrderedPair(<span class="dv">3</span>,<span class="dv">4</span>)</span>
 <span id="cb12-3"><a href="#cb12-3"></a><span class="bu">print</span>(pair_a <span class="op">*</span> pair_b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -692,7 +692,7 @@ Spoiler Alert: Expand to see one solution!
 <ul>
 <li>Last time, we created a function, I called mine <code>classify</code>, that can take the following dice:</li>
 </ul>
-<div id="4c445a4b" class="cell" data-execution_count="11">
+<div id="7e635a19" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>one <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>]</span>
 <span id="cb14-2"><a href="#cb14-2"></a>two <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>]</span>
 <span id="cb14-3"><a href="#cb14-3"></a>thr <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>]</span>
@@ -739,27 +739,27 @@ Spoiler Alert: Expand to see one solution!
 <summary>
 Spoiler Alert: Expand to see one solution!
 </summary>
-<div id="79517a0e" class="cell" data-execution_count="12">
+<div id="3123141c" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="kw">class</span> Neuron:</span>
 <span id="cb16-2"><a href="#cb16-2"></a></span>
 <span id="cb16-3"><a href="#cb16-3"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, weights, bias):</span>
 <span id="cb16-4"><a href="#cb16-4"></a>        <span class="va">self</span>.weights <span class="op">=</span> weights</span>
 <span id="cb16-5"><a href="#cb16-5"></a>        <span class="va">self</span>.bias <span class="op">=</span> bias</span>
 <span id="cb16-6"><a href="#cb16-6"></a></span>
-<span id="cb16-7"><a href="#cb16-7"></a>    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>):</span>
+<span id="cb16-7"><a href="#cb16-7"></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
 <span id="cb16-8"><a href="#cb16-8"></a>        <span class="cf">return</span> <span class="st">"Neuron"</span> <span class="op">+</span> <span class="bu">str</span>(<span class="va">self</span>.weights)</span>
 <span id="cb16-9"><a href="#cb16-9"></a></span>
 <span id="cb16-10"><a href="#cb16-10"></a>    <span class="kw">def</span> <span class="fu">__mul__</span>(<span class="va">self</span>, other):</span>
 <span id="cb16-11"><a href="#cb16-11"></a>        count <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb16-12"><a href="#cb16-12"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(<span class="va">self</span>.weights)):</span>
 <span id="cb16-13"><a href="#cb16-13"></a>            count <span class="op">=</span> count <span class="op">+</span> <span class="va">self</span>.weights[i] <span class="op">*</span> other[i]</span>
-<span id="cb16-14"><a href="#cb16-14"></a>        <span class="cf">return</span> (count <span class="op">&gt;=</span> <span class="va">self</span>.bias) <span class="op">+</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-14"><a href="#cb16-14"></a>        <span class="cf">return</span> <span class="bu">int</span>(count <span class="op">&gt;=</span> <span class="va">self</span>.bias)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details>
 <ul>
 <li>We can take a look at a neuron, and…</li>
 </ul>
-<div id="d72efc5a" class="cell" data-execution_count="13">
+<div id="c1a2b673" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>is_three <span class="op">=</span> Neuron([<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>], <span class="dv">1</span>)</span>
 <span id="cb17-2"><a href="#cb17-2"></a><span class="bu">print</span>(is_three)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -769,7 +769,7 @@ Spoiler Alert: Expand to see one solution!
 <ul>
 <li>We can see if a neuron activates on some input…</li>
 </ul>
-<div id="280f16ba" class="cell" data-execution_count="14">
+<div id="84335be0" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="cf">for</span> die <span class="kw">in</span> [one, two, thr, fou, fiv, six]:</span>
 <span id="cb19-2"><a href="#cb19-2"></a>    <span class="bu">print</span>(is_three <span class="op">*</span> die)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1621,14 +1621,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb24-300"><a href="#cb24-300"></a>        <span class="va">self</span>.weights <span class="op">=</span> weights</span>
 <span id="cb24-301"><a href="#cb24-301"></a>        <span class="va">self</span>.bias <span class="op">=</span> bias</span>
 <span id="cb24-302"><a href="#cb24-302"></a></span>
-<span id="cb24-303"><a href="#cb24-303"></a>    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>):</span>
+<span id="cb24-303"><a href="#cb24-303"></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
 <span id="cb24-304"><a href="#cb24-304"></a>        <span class="cf">return</span> <span class="st">"Neuron"</span> <span class="op">+</span> <span class="bu">str</span>(<span class="va">self</span>.weights)</span>
 <span id="cb24-305"><a href="#cb24-305"></a></span>
 <span id="cb24-306"><a href="#cb24-306"></a>    <span class="kw">def</span> <span class="fu">__mul__</span>(<span class="va">self</span>, other):</span>
 <span id="cb24-307"><a href="#cb24-307"></a>        count <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb24-308"><a href="#cb24-308"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(<span class="va">self</span>.weights)):</span>
 <span id="cb24-309"><a href="#cb24-309"></a>            count <span class="op">=</span> count <span class="op">+</span> <span class="va">self</span>.weights[i] <span class="op">*</span> other[i]</span>
-<span id="cb24-310"><a href="#cb24-310"></a>        <span class="cf">return</span> (count <span class="op">&gt;=</span> <span class="va">self</span>.bias) <span class="op">+</span> <span class="dv">0</span></span>
+<span id="cb24-310"><a href="#cb24-310"></a>        <span class="cf">return</span> <span class="bu">int</span>(count <span class="op">&gt;=</span> <span class="va">self</span>.bias)</span>
 <span id="cb24-311"><a href="#cb24-311"></a><span class="in">```</span></span>
 <span id="cb24-312"><a href="#cb24-312"></a></span>
 <span id="cb24-313"><a href="#cb24-313"></a>&lt;/details&gt;</span>

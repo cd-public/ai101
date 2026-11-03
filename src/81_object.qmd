@@ -278,14 +278,14 @@ class Neuron:
         self.weights = weights
         self.bias = bias
 
-    def __str__(self):
+    def __repr__(self):
         return "Neuron" + str(self.weights)
 
     def __mul__(self, other):
         count = 0
         for i in range(len(self.weights)):
             count = count + self.weights[i] * other[i]
-        return (count >= self.bias) + 0
+        return int(count >= self.bias)
 ```
 
 </details>

@@ -407,7 +407,7 @@
 </section>
 <section id="setup" class="slide level2">
 <h2>Setup</h2>
-<div id="c9a46da7" class="cell" data-execution_count="2">
+<div id="00719805" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a></a>one <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>]</span>
 <span id="cb1-3"><a></a>two <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>]</span>
@@ -461,7 +461,7 @@
 <li>In this case, the variable is the “is one?” vector.</li>
 </ul></li>
 </ul>
-<div id="e94dc554" class="cell" data-execution_count="3">
+<div id="34d06c10" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>is_one_vector <span class="op">=</span> np.array([<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -470,9 +470,9 @@
 <ul>
 <li>Find out which die we have in a single line using vector arithmetic.</li>
 </ul>
-<div id="41a951f2" class="cell" data-execution_count="4">
+<div id="1f73ce9f" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="dv">0</span> <span class="op">&lt;</span> np.<span class="bu">sum</span>(dice <span class="op">*</span> is_one_vector, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3252">
+<div class="cell-output cell-output-display" data-execution_count="904">
 <pre><code>array([ True, False, False, False, False, False])</code></pre>
 </div>
 </div>
@@ -495,19 +495,19 @@
 <li>We wish to find out what “class” (what number) <code>fiv</code> belongs to.</li>
 <li>We would start with <code>fiv</code></li>
 </ul>
-<div id="a0ca0a6c" class="cell" data-execution_count="5">
+<div id="ad873d41" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a>fiv <span class="op">=</span> np.array(fiv)</span>
 <span id="cb5-2"><a></a>fiv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3253">
+<div class="cell-output cell-output-display" data-execution_count="905">
 <pre><code>array([1, 0, 1, 0, 1, 0, 1, 0, 1])</code></pre>
 </div>
 </div>
 <ul>
 <li>We would want to get back something with a <code>1</code> in the fiveth position, and zeroes elsewhere.</li>
 </ul>
-<div id="b36dbc60" class="cell" data-execution_count="6">
+<div id="5a770800" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>[<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3254">
+<div class="cell-output cell-output-display" data-execution_count="906">
 <pre><code>[0, 0, 0, 0, 1, 0]</code></pre>
 </div>
 </div>
@@ -517,7 +517,7 @@
 <ul>
 <li>This matrix is the <em>precise</em> matrix made in the lab.</li>
 </ul>
-<div id="8410eed5" class="cell" data-execution_count="7">
+<div id="1bf163fd" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a>multi <span class="op">=</span> np.array([</span>
 <span id="cb9-2"><a></a>    [<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>],</span>
 <span id="cb9-3"><a></a>    [<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>],</span>
@@ -533,9 +533,9 @@
 <ul>
 <li>Once again, we can simply by just seeing if there’s enough “weight” to make a neuron fire, or not.</li>
 </ul>
-<div id="42742def" class="cell" data-execution_count="8">
+<div id="97ed0ff9" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="dv">1</span> <span class="op">&lt;=</span> np.<span class="bu">sum</span>(fiv <span class="op">*</span> multi,<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3256">
+<div class="cell-output cell-output-display" data-execution_count="908">
 <pre><code>array([False, False, False, False,  True, False])</code></pre>
 </div>
 </div>
@@ -553,7 +553,7 @@
 <ul>
 <li>Is this intelligent:</li>
 </ul>
-<div id="ecd8a944" class="cell" data-execution_count="9">
+<div id="c88e5b3b" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a><span class="bu">print</span>(multi)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[-1.         -1.         -1.         -1.          1.         -1.
@@ -1550,7 +1550,7 @@
 <ul>
 <li>Then, we note that we can express these weights in a matrix.</li>
 </ul>
-<div id="a4c58825" class="cell" data-execution_count="10">
+<div id="e320ff64" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a>multi <span class="op">=</span> np.array([</span>
 <span id="cb14-2"><a></a>    [<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>],</span>
 <span id="cb14-3"><a></a>    [<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>],</span>
@@ -1574,6 +1574,59 @@
 <span id="cb15-6"><a></a>    [<span class="fl">.2</span>,  <span class="dv">0</span>, <span class="fl">.2</span>,  <span class="dv">0</span>, <span class="fl">.2</span>,  <span class="dv">0</span>, <span class="fl">.2</span>,  <span class="dv">0</span>, <span class="fl">.2</span>],</span>
 <span id="cb15-7"><a></a>    ...</span>
 <span id="cb15-8"><a></a>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="lastly" class="slide level2">
+<h2>Lastly</h2>
+<ul>
+<li>Then, we noted we could express a neuron as an <em>object</em>.</li>
+</ul>
+<div id="147adc74" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a><span class="kw">class</span> Neuron:</span>
+<span id="cb16-2"><a></a></span>
+<span id="cb16-3"><a></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, weights, bias):</span>
+<span id="cb16-4"><a></a>        <span class="va">self</span>.weights <span class="op">=</span> np.array(weights)</span>
+<span id="cb16-5"><a></a>        <span class="va">self</span>.bias <span class="op">=</span> bias</span>
+<span id="cb16-6"><a></a></span>
+<span id="cb16-7"><a></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
+<span id="cb16-8"><a></a>        <span class="cf">return</span> <span class="st">"Neuron"</span> <span class="op">+</span> <span class="bu">str</span>(<span class="va">self</span>.weights)</span>
+<span id="cb16-9"><a></a></span>
+<span id="cb16-10"><a></a>    <span class="kw">def</span> <span class="fu">__mul__</span>(<span class="va">self</span>, other):</span>
+<span id="cb16-11"><a></a>        <span class="cf">return</span> <span class="bu">int</span>(np.<span class="bu">sum</span>(<span class="va">self</span>.weights <span class="op">*</span> other) <span class="op">&gt;=</span> <span class="va">self</span>.bias)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="example" class="slide level2">
+<h2>Example</h2>
+<ul>
+<li>We can make, say, the neuron that recognizes ⚄</li>
+</ul>
+<div id="57a0c338" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a>is_fiv <span class="op">=</span> Neuron([ <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>], <span class="dv">1</span>)</span>
+<span id="cb17-2"><a></a><span class="bu">print</span>(is_fiv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Neuron[ 0.2 -0.2  0.2 -0.2  0.2 -0.2  0.2 -0.2  0.2]</code></pre>
+</div>
+</div>
+</section>
+<section id="try-it" class="slide level2">
+<h2>Try it</h2>
+<ul>
+<li>We can verify the neuron “recognizes” ⚄</li>
+</ul>
+<div id="e7975d74" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a>is_fiv <span class="op">*</span> fiv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="913">
+<pre><code>1</code></pre>
+</div>
+</div>
+<ul>
+<li>But nothing else…</li>
+</ul>
+<div id="8bae7912" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a>is_fiv <span class="op">*</span> thr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="914">
+<pre><code>0</code></pre>
+</div>
+</div>
 </section></section>
 <section>
 <section id="learning" class="title-slide slide level1 center">
@@ -1585,15 +1638,15 @@
 <ul>
 <li>I claim this is <em>not</em> intelligent, though it can do an intelligent task (vision).</li>
 </ul>
-<div id="d28a8d84" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a>multi <span class="op">=</span> np.array([</span>
-<span id="cb16-2"><a></a>    [<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>],</span>
-<span id="cb16-3"><a></a>    [<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>],</span>
-<span id="cb16-4"><a></a>    [<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>],</span>
-<span id="cb16-5"><a></a>    [ <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>],</span>
-<span id="cb16-6"><a></a>    [ <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>],</span>
-<span id="cb16-7"><a></a>    [ <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>, <span class="op">-</span><span class="dv">6</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>],</span>
-<span id="cb16-8"><a></a>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="07c9c38c" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a>multi <span class="op">=</span> np.array([</span>
+<span id="cb23-2"><a></a>    [<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>],</span>
+<span id="cb23-3"><a></a>    [<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>],</span>
+<span id="cb23-4"><a></a>    [<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>],</span>
+<span id="cb23-5"><a></a>    [ <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>],</span>
+<span id="cb23-6"><a></a>    [ <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>],</span>
+<span id="cb23-7"><a></a>    [ <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>, <span class="op">-</span><span class="dv">6</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>],</span>
+<span id="cb23-8"><a></a>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>Rather, <em>I</em> am intelligent, since I made it.</li>
@@ -1604,10 +1657,10 @@
 <ul>
 <li>I do, however, claim, that this is pretty close to being intelligent:</li>
 </ul>
-<div id="55a23c7c" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a><span class="dv">1</span> <span class="op">&lt;=</span> np.<span class="bu">sum</span>(fiv <span class="op">*</span> multi,<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3260">
-<pre><code>array([False, False, False, False,  True, False])</code></pre>
+<div id="530911fe" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a></a>is_fiv <span class="op">*</span> fiv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="916">
+<pre><code>1</code></pre>
 </div>
 </div>
 <ul>
@@ -1653,20 +1706,20 @@
 </ul></li>
 </ul>
 </section>
-<section id="example" class="slide level2">
+<section id="example-1" class="slide level2">
 <h2>Example</h2>
 <ul>
 <li>We started with this:</li>
 </ul>
-<div id="627e5e24" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a>multi <span class="op">=</span> np.array([</span>
-<span id="cb19-2"><a></a>    [<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>],</span>
-<span id="cb19-3"><a></a>    [<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>],</span>
-<span id="cb19-4"><a></a>    [<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>],</span>
-<span id="cb19-5"><a></a>    [ <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>],</span>
-<span id="cb19-6"><a></a>    [ <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>],</span>
-<span id="cb19-7"><a></a>    [ <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>, <span class="op">-</span><span class="dv">6</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>],</span>
-<span id="cb19-8"><a></a>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="19fdfb81" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a></a>multi <span class="op">=</span> np.array([</span>
+<span id="cb26-2"><a></a>    [<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>],</span>
+<span id="cb26-3"><a></a>    [<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>],</span>
+<span id="cb26-4"><a></a>    [<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>],</span>
+<span id="cb26-5"><a></a>    [ <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>],</span>
+<span id="cb26-6"><a></a>    [ <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>],</span>
+<span id="cb26-7"><a></a>    [ <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>, <span class="op">-</span><span class="dv">6</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>],</span>
+<span id="cb26-8"><a></a>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="size" class="slide level2">
@@ -1679,10 +1732,45 @@
 </ul></li>
 <li>We used a <span class="math inline">\(9 \times 6\)</span> matrix.</li>
 </ul>
-<div id="cb346111" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a></a>multi.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3262">
+<div id="23f06e3c" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a></a>multi.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="918">
 <pre><code>(6, 9)</code></pre>
+</div>
+</div>
+</section>
+<section id="layer" class="slide level2">
+<h2>Layer</h2>
+<ul>
+<li>We would instead view this as what is usually called a <em>layer</em> of neurons.</li>
+<li>It’s just a collection of neurons, in no particular order.</li>
+</ul>
+<div id="a24ef434" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a></a>layer <span class="op">=</span> np.array([</span>
+<span id="cb29-2"><a></a>    Neuron([<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">1</span>], <span class="dv">1</span>),</span>
+<span id="cb29-3"><a></a>    Neuron([<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>], <span class="dv">1</span>),</span>
+<span id="cb29-4"><a></a>    Neuron([<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>], <span class="dv">1</span>),</span>
+<span id="cb29-5"><a></a>    Neuron([ <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>], <span class="dv">1</span>),</span>
+<span id="cb29-6"><a></a>    Neuron([ <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>,  <span class="dv">1</span><span class="op">/</span><span class="dv">5</span>], <span class="dv">1</span>),</span>
+<span id="cb29-7"><a></a>    Neuron([ <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>, <span class="op">-</span><span class="dv">6</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">3</span><span class="op">/</span><span class="dv">6</span>,  <span class="dv">0</span><span class="op">/</span><span class="dv">6</span>], <span class="dv">1</span>),</span>
+<span id="cb29-8"><a></a>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="view-it" class="slide level2">
+<h2>View it</h2>
+<ul>
+<li>It looks a bit goofy!</li>
+</ul>
+<div id="0bedceb6" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a></a><span class="bu">print</span>(layer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[Neuron[-1. -1. -1. -1.  1. -1. -1. -1. -1.]
+ Neuron[-0.5 -0.5  0.5 -0.5 -0.5 -0.5  0.5 -0.5 -0.5]
+ Neuron[-0.33333333 -0.33333333  0.33333333 -0.33333333  0.33333333 -0.33333333
+   0.33333333 -0.33333333 -0.33333333]
+ Neuron[ 0.25 -0.25  0.25 -0.25 -0.25 -0.25  0.25 -0.25  0.25]
+ Neuron[ 0.2 -0.2  0.2 -0.2  0.2 -0.2  0.2 -0.2  0.2]
+ Neuron[ 0.   0.5  0.   0.5 -1.   0.5  0.   0.5  0. ]]</code></pre>
 </div>
 </div>
 </section>
@@ -1697,11 +1785,11 @@
 </ul></li>
 <li>We use <code>np.random.rand</code> and tell it what shape we want.</li>
 </ul>
-<div id="46decfcd" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a></a>learn <span class="op">=</span> np.random.rand(<span class="dv">6</span>,<span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b7e1a082" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a></a>learn <span class="op">=</span> np.random.rand(<span class="dv">6</span>,<span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="view-it" class="slide level2">
+<section id="view-it-1" class="slide level2">
 <h2>View it</h2>
 <ul>
 <li>It looks like this:
@@ -1709,21 +1797,64 @@
 <li>All between <code>0</code> and <code>1</code> by default.</li>
 </ul></li>
 </ul>
-<div id="34de664c" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a><span class="bu">print</span>(learn)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e22d1b65" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a></a><span class="bu">print</span>(learn)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[[0.13819755 0.858514   0.89387389 0.97953215 0.95078702 0.91339183
-  0.55505456 0.05400497 0.76328784]
- [0.61992175 0.60798114 0.47795787 0.99881325 0.21490773 0.1434384
-  0.24203858 0.96896522 0.44601858]
- [0.32932856 0.81046388 0.98930022 0.72729313 0.19500454 0.34640125
-  0.48504912 0.72482006 0.13982303]
- [0.86507991 0.15626278 0.73353581 0.0778394  0.23396891 0.53146514
-  0.62610878 0.30177633 0.65322222]
- [0.30151646 0.17771519 0.31744043 0.70558929 0.92332405 0.86750924
-  0.06348737 0.10571363 0.8207625 ]
- [0.18535997 0.81312843 0.86835174 0.80318644 0.5531322  0.4545896
-  0.96877004 0.93137333 0.08946593]]</code></pre>
+<pre><code>[[0.84782583 0.99754661 0.37144545 0.35951125 0.51952776 0.91167008
+  0.18851714 0.60068732 0.83017473]
+ [0.38500627 0.78754125 0.17222118 0.12132224 0.74023843 0.76830758
+  0.082289   0.85673835 0.52457145]
+ [0.44879353 0.07166859 0.90172392 0.01826042 0.35074145 0.58281399
+  0.41051414 0.48591482 0.7055296 ]
+ [0.14371779 0.49439823 0.98417158 0.75418984 0.89979416 0.51440135
+  0.06060489 0.86794552 0.32507273]
+ [0.03575555 0.59445296 0.59595104 0.6717415  0.79543474 0.08331623
+  0.17968061 0.95994688 0.0408776 ]
+ [0.59737745 0.46468292 0.68213292 0.2598974  0.18333893 0.2499059
+  0.12540588 0.53740209 0.0211946 ]]</code></pre>
+</div>
+</div>
+</section>
+<section id="as-neurons" class="slide level2">
+<h2>As Neurons</h2>
+<ul>
+<li>We can make this a bit simpler by considering neurons.</li>
+<li>We introduce the notion of <em>defaults</em></li>
+<li>They would look like this:</li>
+</ul>
+<div class="sourceCode" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, weights<span class="op">=</span>np.random.rand(<span class="dv">9</span>), bias<span class="op">=</span><span class="dv">1</span>):</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>By using <em>single equals assignment</em> within the <em>dunder method declaration</em>
+<ul>
+<li>Say that three times fast.</li>
+</ul></li>
+<li>We can provide arguments to the method that are defaults.</li>
+</ul>
+</section>
+<section id="like-this" class="slide level2">
+<h2>Like This</h2>
+<ul>
+<li>Rewrite neuron, and</li>
+</ul>
+<div id="1f2bfd8b" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a></a><span class="kw">class</span> Neuron:</span>
+<span id="cb36-2"><a></a></span>
+<span id="cb36-3"><a></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, weights<span class="op">=</span>np.random.rand(<span class="dv">9</span>), bias<span class="op">=</span><span class="dv">1</span>):</span>
+<span id="cb36-4"><a></a>        <span class="va">self</span>.weights <span class="op">=</span> np.array(weights)</span>
+<span id="cb36-5"><a></a>        <span class="va">self</span>.bias <span class="op">=</span> bias</span>
+<span id="cb36-6"><a></a></span>
+<span id="cb36-7"><a></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
+<span id="cb36-8"><a></a>        <span class="cf">return</span> <span class="st">"Neuron"</span> <span class="op">+</span> <span class="bu">str</span>(<span class="va">self</span>.weights)</span>
+<span id="cb36-9"><a></a></span>
+<span id="cb36-10"><a></a>    <span class="kw">def</span> <span class="fu">__mul__</span>(<span class="va">self</span>, other):</span>
+<span id="cb36-11"><a></a>        <span class="cf">return</span> <span class="bu">int</span>(np.<span class="bu">sum</span>(<span class="va">self</span>.weights <span class="op">*</span> other) <span class="op">&gt;=</span> <span class="va">self</span>.bias)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="b1624678" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a></a>rand_n <span class="op">=</span> Neuron()</span>
+<span id="cb37-2"><a></a><span class="bu">print</span>(rand_n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Neuron[0.17127433 0.39132689 0.60473972 0.38720399 0.88212299 0.51692685
+ 0.45581221 0.02576074 0.85801543]</code></pre>
 </div>
 </div>
 </section>
@@ -1734,44 +1865,43 @@
 <ul>
 <li>Mine:</li>
 </ul>
-<div id="4068f735" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a></a><span class="cf">for</span> die <span class="kw">in</span> dice:</span>
-<span id="cb25-2"><a></a>    <span class="bu">print</span>(<span class="dv">1</span> <span class="op">&lt;=</span> np.<span class="bu">sum</span>(die <span class="op">*</span> multi,<span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fdcb628e" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a></a><span class="cf">for</span> die <span class="kw">in</span> dice:</span>
+<span id="cb39-2"><a></a>    <span class="bu">print</span>(is_fiv <span class="op">*</span> die)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[ True False False False False False]
-[False  True False False False False]
-[False False  True False False False]
-[False False False  True False False]
-[False False False False  True False]
-[False False False False False  True]</code></pre>
+<pre><code>0
+0
+0
+0
+1
+0</code></pre>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
 <ul>
 <li>Random:</li>
 </ul>
-<div id="c9116c91" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a></a><span class="cf">for</span> die <span class="kw">in</span> dice:</span>
-<span id="cb27-2"><a></a>    <span class="bu">print</span>(<span class="dv">1</span> <span class="op">&lt;=</span> np.<span class="bu">sum</span>(die <span class="op">*</span> learn,<span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="aa502b0b" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a></a><span class="cf">for</span> die <span class="kw">in</span> dice:</span>
+<span id="cb41-2"><a></a>    <span class="bu">print</span>(rand_n <span class="op">*</span> die)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[False False False False False False]
-[ True False  True  True False  True]
-[ True False  True  True  True  True]
-[ True  True  True  True  True  True]
-[ True  True  True  True  True  True]
-[ True  True  True  True  True  True]</code></pre>
+<pre><code>0
+1
+1
+1
+1
+1</code></pre>
 </div>
 </div>
 </div></div>
+<ul>
+<li>Random is… not as good!</li>
+</ul>
 </section>
 <section id="what-happened" class="slide level2">
 <h2>What happened?</h2>
 <ul>
 <li>Well, we multiplied each of the <strong>nine</strong> possible places for a dot in a die by <em>something</em>.</li>
-<li>Actually, we did this <strong>six</strong> times - one for each possible <em>classification</em>
-<ul>
-<li>We classify a die as a “one” or a “three”</li>
-</ul></li>
 <li>For each of these <strong>six</strong> classes, we summed up the <strong>nine</strong> products
 <ul>
 <li>The presence of dot multiplied by importance of dot, for all dots.</li>
@@ -1800,145 +1930,7 @@
 <li>We know the answer.</li>
 <li>We can compare against the answer.</li>
 </ul></li>
-<li>This is the answer:</li>
 </ul>
-<div id="6719db1e" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a></a><span class="cf">for</span> die <span class="kw">in</span> dice:</span>
-<span id="cb29-2"><a></a>    <span class="bu">print</span>(<span class="dv">1</span> <span class="op">&lt;=</span> np.<span class="bu">sum</span>(die <span class="op">*</span> multi,<span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[ True False False False False False]
-[False  True False False False False]
-[False False  True False False False]
-[False False False  True False False]
-[False False False False  True False]
-[False False False False False  True]</code></pre>
-</div>
-</div>
-</section>
-<section id="the-key" class="slide level2">
-<h2>The key</h2>
-<ul>
-<li>I make an answer key quickly.</li>
-</ul>
-<div id="f70f6022" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a></a><span class="dv">1</span> <span class="op">&lt;=</span> dice <span class="op">@</span> multi.transpose()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3268">
-<pre><code>array([[ True, False, False, False, False, False],
-       [False,  True, False, False, False, False],
-       [False, False,  True, False, False, False],
-       [False, False, False,  True, False, False],
-       [False, False, False, False,  True, False],
-       [False, False, False, False, False,  True]])</code></pre>
-</div>
-</div>
-<ul>
-<li>We “transpose” the key to make the dimensions line up.</li>
-<li><code>@</code> is the special NumPy “operator” for matrix multiplication.
-<ul>
-<li>Multiple rows times columns, then sum them up.</li>
-</ul></li>
-</ul>
-<div id="fdd81773" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a></a>key <span class="op">=</span> <span class="dv">1</span> <span class="op">&lt;=</span> dice <span class="op">@</span> multi.transpose()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="compare-1" class="slide level2">
-<h2>Compare</h2>
-<ul>
-<li>We can compare the answer key to the current results from random guessing.</li>
-<li>We use <code>np.equal</code> to compare all of the matrix positions to see if they are equal.</li>
-</ul>
-<div id="efc6cf34" class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a></a>np.equal(key, <span class="dv">1</span> <span class="op">&lt;=</span> dice <span class="op">@</span> learn.transpose())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3270">
-<pre><code>array([[False,  True,  True,  True,  True,  True],
-       [False, False, False, False,  True, False],
-       [False,  True,  True, False, False, False],
-       [False, False, False,  True, False, False],
-       [False, False, False, False,  True, False],
-       [False, False, False, False, False,  True]])</code></pre>
-</div>
-</div>
-<ul>
-<li>We want <em>all</em> of these to be true - the learned matrix should be just as good as our own intelligence!</li>
-</ul>
-</section>
-<section id="insight" class="slide level2">
-<h2>Insight</h2>
-<ul>
-<li>We note that is often the case that there are many correct guesses for one.
-<ul>
-<li>After all, it is unlikely that the randomization produces values high enough to sum to one given a single dot.</li>
-</ul></li>
-<li>We note that is often the case that there are many incorrect guesses for six.
-<ul>
-<li>After all, it is unlikely that the randomization produces values high enough to sum to six given a single dot.</li>
-</ul></li>
-</ul>
-</section>
-<section id="problem" class="slide level2">
-<h2>Problem</h2>
-<ul>
-<li>Just for this class and to make things easier, we modify the dice so they all sum to one.
-<ul>
-<li>So, <code>six</code>, which previously had six dots multiplied by one, now has 6 dots mulitiplied by <span class="math inline">\(\frac{1}{6}\)</span> each.</li>
-</ul></li>
-<li>We started with this:</li>
-</ul>
-<div id="afd5794f" class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a></a>dice</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3271">
-<pre><code>array([[0, 0, 0, 0, 1, 0, 0, 0, 0],
-       [0, 0, 1, 0, 0, 0, 1, 0, 0],
-       [0, 0, 1, 0, 1, 0, 1, 0, 0],
-       [1, 0, 1, 0, 0, 0, 1, 0, 1],
-       [1, 0, 1, 0, 1, 0, 1, 0, 1],
-       [1, 0, 1, 1, 0, 1, 1, 0, 1]])</code></pre>
-</div>
-</div>
-</section>
-<section id="solution" class="slide level2">
-<h2>Solution</h2>
-<ul>
-<li>I just want to divide each die by how many dots it has.</li>
-<li>I frustrating have to transpose there and back to get the multiplication to work…</li>
-</ul>
-<div id="1c905c1d" class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a></a>divider <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]).reshape(<span class="dv">1</span>,<span class="dv">6</span>)</span>
-<span id="cb38-2"><a></a>fair_dice <span class="op">=</span> (dice.transpose() <span class="op">/</span> divider).transpose()</span>
-<span id="cb38-3"><a></a>fair_dice</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3272">
-<pre><code>array([[0.        , 0.        , 0.        , 0.        , 1.        ,
-        0.        , 0.        , 0.        , 0.        ],
-       [0.        , 0.        , 0.5       , 0.        , 0.        ,
-        0.        , 0.5       , 0.        , 0.        ],
-       [0.        , 0.        , 0.33333333, 0.        , 0.33333333,
-        0.        , 0.33333333, 0.        , 0.        ],
-       [0.25      , 0.        , 0.25      , 0.        , 0.        ,
-        0.        , 0.25      , 0.        , 0.25      ],
-       [0.2       , 0.        , 0.2       , 0.        , 0.2       ,
-        0.        , 0.2       , 0.        , 0.2       ],
-       [0.16666667, 0.        , 0.16666667, 0.16666667, 0.        ,
-        0.16666667, 0.16666667, 0.        , 0.16666667]])</code></pre>
-</div>
-</div>
-</section>
-<section id="check-it-now" class="slide level2">
-<h2>Check it now</h2>
-<ul>
-<li>These should make the random guessing more, well, random…</li>
-</ul>
-<div id="d4f1f7fa" class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a></a>np.equal(key, <span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3273">
-<pre><code>array([[False,  True,  True,  True,  True,  True],
-       [ True, False,  True,  True,  True,  True],
-       [ True,  True, False,  True,  True,  True],
-       [ True,  True,  True, False,  True,  True],
-       [ True,  True,  True,  True, False,  True],
-       [ True,  True,  True,  True,  True, False]])</code></pre>
-</div>
-</div>
 </section></section>
 <section>
 <section id="learning-1" class="title-slide slide level1 center">
@@ -1954,774 +1946,624 @@
 <li>If it is the same as the answer key, we will “reward” the row - increasing its weights.</li>
 <li>If it differs, we will decrease the weights.</li>
 </ul></li>
-<li>I will do this by 10%.</li>
 </ul>
 </section>
 <section id="writing-it-out" class="slide level2">
 <h2>Writing it out</h2>
 <ul>
 <li>No real way around using code for this as far as I know.</li>
-<li>First, we’ll make a copy of our original random thing to compare against.</li>
-<li>Then we’ll loop - using <code>for</code> - over all the classifications and update accordingly.</li>
 </ul>
-<div id="a84b88f0" class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a></a>backup <span class="op">=</span> learn.copy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 </section>
-<section id="steps" class="slide level2">
-<h2>Steps</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
+<section id="writing-it-out-1" class="slide level2">
+<h2>Writing it out</h2>
 <ul>
-<li>Check the answer.
+<li>No real way around using code for this as far as I know.</li>
+<li>We’ll add a new method to our object, call it <code>learn</code>
 <ul>
-<li>Print them for now, to see them.</li>
+<li>Learn is not a <em>dunder method</em>.</li>
+<li>Just like a regular function, but…</li>
+<li>Must take <code>self</code> since it’s a function <em>inside</em> of a neuron.</li>
 </ul></li>
 </ul>
-</div><div class="column" style="width:50%;">
-<div id="3926e522" class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a></a>grade <span class="op">=</span> np.equal(key, <span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose())</span>
-<span id="cb43-2"><a></a><span class="bu">print</span>(grade)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[[False  True  True  True  True  True]
- [ True False  True  True  True  True]
- [ True  True False  True  True  True]
- [ True  True  True False  True  True]
- [ True  True  True  True False  True]
- [ True  True  True  True  True False]]</code></pre>
-</div>
-</div>
-</div></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a></a>    <span class="kw">def</span> learn(<span class="va">self</span>...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="steps-1" class="slide level2">
-<h2>Steps</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
+<section id="using-learn" class="slide level2">
+<h2>Using learn</h2>
 <ul>
-<li>Check the answer.</li>
-<li>Loop over rows
+<li>When we’re done, we’ll use it using “dot notation”.
 <ul>
-<li>Print them for now, to see them.</li>
-<li>The first row shows how the “one” die is classified.</li>
-<li>The first entry in each row shows whether a die is classified as a “one”</li>
+<li>Take the <em>name of the object</em></li>
+<li>Suffix it with a “dot” <code>.</code></li>
+<li>Append the name of the <em>method</em></li>
+<li>Then provide any arguments etc.</li>
 </ul></li>
 </ul>
-</div><div class="column" style="width:50%;">
-<div id="112abd30" class="cell" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a></a>grade <span class="op">=</span> np.equal(key, <span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose())</span>
-<span id="cb45-2"><a></a><span class="cf">for</span> row <span class="kw">in</span> grade:</span>
-<span id="cb45-3"><a></a>    <span class="bu">print</span>(row)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[False  True  True  True  True  True]
-[ True False  True  True  True  True]
-[ True  True False  True  True  True]
-[ True  True  True False  True  True]
-[ True  True  True  True False  True]
-[ True  True  True  True  True False]</code></pre>
-</div>
-</div>
-</div></div>
-</section>
-<section id="steps-2" class="slide level2">
-<h2>Steps</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a></a>rand_n.learn(...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li>Check the answer.</li>
-<li>Loop over rows</li>
-<li>Loop over correctnesses.</li>
+<li>We’ll get there!</li>
 </ul>
-</div><div class="column" style="width:50%;">
-<div id="69e699b4" class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a></a>grade <span class="op">=</span> np.equal(key, <span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose())</span>
-<span id="cb47-2"><a></a><span class="cf">for</span> row <span class="kw">in</span> grade:</span>
-<span id="cb47-3"><a></a>    <span class="cf">for</span> correct <span class="kw">in</span> row:</span>
-<span id="cb47-4"><a></a>        <span class="bu">print</span>(correct)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>False
-True
-True
-True
-True
-True
-True
-False
-True
-True
-True
-True
-True
-True
-False
-True
-True
-True
-True
-True
-True
-False
-True
-True
-True
-True
-True
-True
-False
-True
-True
-True
-True
-True
-True
-False</code></pre>
-</div>
-</div>
-</div></div>
 </section>
-<section id="steps-3" class="slide level2">
-<h2>Steps</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
+<section id="using-dunder-methods" class="slide level2">
+<h2>Using dunder methods</h2>
 <ul>
-<li>Check the answer.</li>
-<li>Loop over rows</li>
-<li>Loop over correctnesses.</li>
-<li>If correct…
+<li>It is possible to use dunder methods the same way, it is just extremely ugly.</li>
+</ul>
+<div id="34e656e1" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a></a>x <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb45-2"><a></a>x.<span class="fu">__add__</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="927">
+<pre><code>4</code></pre>
+</div>
+</div>
+</section>
+<section id="writing-it-out-2" class="slide level2">
+<h2>Writing it out</h2>
 <ul>
-<li>Increase… something?</li>
+<li>No real way around using code for this as far as I know.</li>
+<li>We’ll add a new method to our object, call it <code>learn</code></li>
+<li>It will:
+<ul>
+<li>Take some perceived vector of values</li>
 </ul></li>
 </ul>
-</div><div class="column" style="width:50%;">
-<div id="e4e4ac4b" class="cell" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a></a>grade <span class="op">=</span> np.equal(key, <span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose())</span>
-<span id="cb49-2"><a></a><span class="cf">for</span> row <span class="kw">in</span> grade:</span>
-<span id="cb49-3"><a></a>    <span class="cf">for</span> correct <span class="kw">in</span> row:</span>
-<span id="cb49-4"><a></a>        <span class="cf">if</span> correct:</span>
-<span id="cb49-5"><a></a>            <span class="bu">print</span>(<span class="st">"What goes here?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>What goes here?
-What goes here?
-What goes here?
-What goes here?
-What goes here?
-What goes here?
-What goes here?
-What goes here?
-What goes here?
-What goes here?
-What goes here?
-What goes here?
-What goes here?
-What goes here?
-What goes here?
-What goes here?
-What goes here?
-What goes here?
-What goes here?
-What goes here?
-What goes here?
-What goes here?
-What goes here?
-What goes here?
-What goes here?
-What goes here?
-What goes here?
-What goes here?
-What goes here?
-What goes here?</code></pre>
-</div>
-</div>
-</div></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a></a>    <span class="kw">def</span> learn(<span class="va">self</span>, perceived...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="we-know" class="slide level2">
-<h2>We know</h2>
+<section id="writing-it-out-3" class="slide level2">
+<h2>Writing it out</h2>
 <ul>
-<li>If a guess in a certain row is correct:
+<li>No real way around using code for this as far as I know.</li>
+<li>We’ll add a new method to our object, call it <code>learn</code></li>
+<li>It will:
 <ul>
-<li>It was predicted by something.</li>
-<li>That something was the random guesses.</li>
-<li>But not <em>all</em> of the random guesses…</li>
-<li>Just values that are multiplied to get that row.</li>
+<li>Take some perceived vector of values, and</li>
+<li>Take what the right answer is</li>
 </ul></li>
-<li>So we want to increase (or decrease) the row at the same address.</li>
+</ul>
+<div class="sourceCode" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a></a>    <span class="kw">def</span> learn(<span class="va">self</span>, perceived, answer):</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="writing-it-out-4" class="slide level2">
+<h2>Writing it out</h2>
+<ul>
+<li>No real way around using code for this as far as I know.</li>
+<li>We’ll add a new method to our object, call it <code>learn</code></li>
+<li>It will:
+<ul>
+<li>Take some perceived vector of values, and</li>
+<li>Take what the right answer is, and then</li>
+<li>Update it’s weights.</li>
+</ul></li>
+</ul>
+</section>
+<section id="updating-weights" class="slide level2">
+<h2>Updating Weights</h2>
+<ul>
+<li>This isn’t too bad.</li>
+<li>We’ll
+<ul>
+<li>Compute how “excited” the neuron would be with the current weights.</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a></a>    <span class="kw">def</span> learn(<span class="va">self</span>, perceived, answer):</span>
+<span id="cb49-2"><a></a>        <span class="va">self</span> <span class="op">*</span> perceived</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="updating-weights-1" class="slide level2">
+<h2>Updating Weights</h2>
+<ul>
+<li>This isn’t too bad.</li>
+<li>We’ll
+<ul>
+<li>See if we’re already doing it right, using <em>double equals comparison</em></li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a></a>    <span class="kw">def</span> learn(<span class="va">self</span>, perceived, answer):</span>
+<span id="cb50-2"><a></a>        <span class="cf">if</span> answer <span class="op">==</span> <span class="va">self</span> <span class="op">*</span> perceived</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="updating-weights-2" class="slide level2">
+<h2>Updating Weights</h2>
+<ul>
+<li>This isn’t too bad.</li>
+<li>We’ll
+<ul>
+<li>See if we’re already doing it right, using <em>double equals comparison</em></li>
+<li>If so, we’re all done, we return.</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a></a>    <span class="kw">def</span> learn(<span class="va">self</span>, perceived, answer):</span>
+<span id="cb51-2"><a></a>        <span class="cf">if</span> answer <span class="op">==</span> <span class="va">self</span> <span class="op">*</span> perceived:</span>
+<span id="cb51-3"><a></a>            <span class="cf">return</span></span>
+<span id="cb51-4"><a></a>        </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="updating-weights-3" class="slide level2">
+<h2>Updating Weights</h2>
+<ul>
+<li>Otherwise, we misfire.</li>
+<li>Let’s
+<ul>
+<li>Compute how excited the neuron was.</li>
+<li>Compare to the bias (take a “delta”)</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a></a>    <span class="kw">def</span> learn(<span class="va">self</span>, perceived, answer):</span>
+<span id="cb52-2"><a></a>        <span class="cf">if</span> answer <span class="op">==</span> <span class="va">self</span> <span class="op">*</span> perceived:</span>
+<span id="cb52-3"><a></a>            <span class="cf">return</span></span>
+<span id="cb52-4"><a></a>        delta <span class="op">=</span> <span class="va">self</span>.bias <span class="op">-</span> np.<span class="bu">sum</span>(<span class="va">self</span>.weights <span class="op">*</span> perceived)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="updating-weights-4" class="slide level2">
+<h2>Updating Weights</h2>
+<ul>
+<li>To determine the update amount, we
+<ul>
+<li>Divide delta by how many things were perceived.</li>
+<li>Maybe add a little bit extra, like 10%. to avoid cutting it too close.</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a></a>    <span class="kw">def</span> learn(<span class="va">self</span>, perceived, answer):</span>
+<span id="cb53-2"><a></a>        <span class="cf">if</span> answer <span class="op">==</span> <span class="va">self</span> <span class="op">*</span> perceived:</span>
+<span id="cb53-3"><a></a>            <span class="cf">return</span></span>
+<span id="cb53-4"><a></a>        delta <span class="op">=</span> <span class="va">self</span>.bias <span class="op">-</span> np.<span class="bu">sum</span>(<span class="va">self</span>.weights <span class="op">*</span> perceived)</span>
+<span id="cb53-5"><a></a>        each <span class="op">=</span> <span class="fl">1.1</span> <span class="op">*</span> delta <span class="op">/</span> <span class="bu">sum</span>(perceived)</span>
+<span id="cb53-6"><a></a>            </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="updating-weights-5" class="slide level2">
+<h2>Updating Weights</h2>
+<ul>
+<li>If too much excitement…
+<ul>
+<li>Fired when weren’t supposed to</li>
+<li>Reduce the <em>relevant</em> weights by the roughly the delta amount</li>
+<li><em>Ignore</em> the other weights.</li>
 <li>How?</li>
-</ul>
-</section>
-<section id="enumerate" class="slide level2">
-<h2>Enumerate</h2>
-<ul>
-<li>We can use the special <code>enumerate</code> function to get back a row and its location with in the matrix.</li>
-</ul>
-<div id="6ed391a7" class="cell" data-execution_count="31">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a></a><span class="cf">for</span> loc, row <span class="kw">in</span> <span class="bu">enumerate</span>(grade):</span>
-<span id="cb51-2"><a></a>    <span class="bu">print</span>(<span class="st">"Location is"</span>, loc, <span class="st">"and row is"</span>, row)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Location is 0 and row is [False  True  True  True  True  True]
-Location is 1 and row is [ True False  True  True  True  True]
-Location is 2 and row is [ True  True False  True  True  True]
-Location is 3 and row is [ True  True  True False  True  True]
-Location is 4 and row is [ True  True  True  True False  True]
-Location is 5 and row is [ True  True  True  True  True False]</code></pre>
-</div>
-</div>
-</section>
-<section id="enumerate-1" class="slide level2">
-<h2>Enumerate</h2>
-<ul>
-<li>We can use the special <code>[]</code> notation to look up the part of the learning matrix that corresponds to the same row.</li>
-</ul>
-<div id="546e30c7" class="cell" data-execution_count="32">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a></a><span class="cf">for</span> loc, row <span class="kw">in</span> <span class="bu">enumerate</span>(grade):</span>
-<span id="cb53-2"><a></a>    <span class="bu">print</span>(<span class="st">"Location is"</span>, loc, <span class="st">"and row is"</span>, row, <span class="st">"and weights are"</span>, learn[loc])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Location is 0 and row is [False  True  True  True  True  True] and weights are [0.13819755 0.858514   0.89387389 0.97953215 0.95078702 0.91339183
- 0.55505456 0.05400497 0.76328784]
-Location is 1 and row is [ True False  True  True  True  True] and weights are [0.61992175 0.60798114 0.47795787 0.99881325 0.21490773 0.1434384
- 0.24203858 0.96896522 0.44601858]
-Location is 2 and row is [ True  True False  True  True  True] and weights are [0.32932856 0.81046388 0.98930022 0.72729313 0.19500454 0.34640125
- 0.48504912 0.72482006 0.13982303]
-Location is 3 and row is [ True  True  True False  True  True] and weights are [0.86507991 0.15626278 0.73353581 0.0778394  0.23396891 0.53146514
- 0.62610878 0.30177633 0.65322222]
-Location is 4 and row is [ True  True  True  True False  True] and weights are [0.30151646 0.17771519 0.31744043 0.70558929 0.92332405 0.86750924
- 0.06348737 0.10571363 0.8207625 ]
-Location is 5 and row is [ True  True  True  True  True False] and weights are [0.18535997 0.81312843 0.86835174 0.80318644 0.5531322  0.4545896
- 0.96877004 0.93137333 0.08946593]</code></pre>
-</div>
-</div>
-</section>
-<section id="steps-4" class="slide level2">
-<h2>Steps</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li>Check the answer.</li>
-<li>Loop over rows</li>
-<li>Loop over correctnesses.</li>
-<li>If correct…
-<ul>
-<li>Increase that row.</li>
 </ul></li>
 </ul>
-</div><div class="column" style="width:50%;">
-<div id="e0126e03" class="cell" data-execution_count="33">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a></a>grade <span class="op">=</span> np.equal(key, <span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose())</span>
-<span id="cb55-2"><a></a><span class="cf">for</span> loc, row <span class="kw">in</span> <span class="bu">enumerate</span>(grade):</span>
-<span id="cb55-3"><a></a>    <span class="cf">for</span> correct <span class="kw">in</span> row:</span>
-<span id="cb55-4"><a></a>        <span class="cf">if</span> correct:</span>
-<span id="cb55-5"><a></a>            learn[loc] <span class="op">*</span> <span class="fl">1.1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div></div>
 </section>
-<section id="check-it-out-1" class="slide level2">
-<h2>Check it out</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
+<section id="updating-weights-6" class="slide level2">
+<h2>Updating Weights</h2>
 <ul>
-<li>Old (“<code>backup</code>”)</li>
-</ul>
-<div id="1d1c311f" class="cell" data-execution_count="34">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a></a>np.equal(key, <span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> backup.transpose())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3282">
-<pre><code>array([[False,  True,  True,  True,  True,  True],
-       [ True, False,  True,  True,  True,  True],
-       [ True,  True, False,  True,  True,  True],
-       [ True,  True,  True, False,  True,  True],
-       [ True,  True,  True,  True, False,  True],
-       [ True,  True,  True,  True,  True, False]])</code></pre>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
+<li>We only get excitement from things we perceive!
 <ul>
-<li>New (“<code>learn</code>”)</li>
-</ul>
-<div id="625681c8" class="cell" data-execution_count="35">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a></a>np.equal(key, <span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3283">
-<pre><code>array([[False,  True,  True,  True,  True,  True],
-       [ True, False,  True,  True,  True,  True],
-       [ True,  True, False,  True,  True,  True],
-       [ True,  True,  True, False,  True,  True],
-       [ True,  True,  True,  True, False,  True],
-       [ True,  True,  True,  True,  True, False]])</code></pre>
-</div>
-</div>
-</div></div>
-</section>
-<section id="not-much-better" class="slide level2">
-<h2>Not much better</h2>
-<ul>
-<li>We should do more.</li>
-<li>But first, we begin again from our backup.</li>
-<li>We don’t want to mix different experiments together.</li>
-</ul>
-<div id="ccde4b8c" class="cell" data-execution_count="36">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a></a>learn <span class="op">=</span> backup.copy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="steps-5" class="slide level2">
-<h2>Steps</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li>Check the answer.</li>
-<li>Loop over rows</li>
-<li>Loop over correctnesses.</li>
-<li>If correct…
-<ul>
-<li>Increase that row.</li>
-</ul></li>
-<li>Otherwise…
-<ul>
-<li>Decrease that row.</li>
+<li>Multiple <code>each</code>, how much “each” weight should change, by</li>
+<li>Things that were perceived!</li>
 </ul></li>
 </ul>
-</div><div class="column" style="width:50%;">
-<div id="cf056075" class="cell" data-execution_count="37">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a></a>learn <span class="op">=</span> backup.copy()</span>
-<span id="cb61-2"><a></a>grade <span class="op">=</span> np.equal(key, <span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose())</span>
-<span id="cb61-3"><a></a><span class="cf">for</span> loc, row <span class="kw">in</span> <span class="bu">enumerate</span>(grade):</span>
-<span id="cb61-4"><a></a>    <span class="cf">for</span> correct <span class="kw">in</span> row:</span>
-<span id="cb61-5"><a></a>        <span class="cf">if</span> correct:</span>
-<span id="cb61-6"><a></a>            learn[loc] <span class="op">=</span> learn[loc] <span class="op">*</span> <span class="fl">1.1</span></span>
-<span id="cb61-7"><a></a>        <span class="cf">else</span>: </span>
-<span id="cb61-8"><a></a>            learn[loc] <span class="op">=</span> learn[loc] <span class="op">*</span> <span class="fl">.9</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a></a>    <span class="kw">def</span> learn(<span class="va">self</span>, perceived, answer):</span>
+<span id="cb54-2"><a></a>        <span class="cf">if</span> answer <span class="op">==</span> <span class="va">self</span> <span class="op">*</span> perceived:</span>
+<span id="cb54-3"><a></a>            <span class="cf">return</span></span>
+<span id="cb54-4"><a></a>        delta <span class="op">=</span> <span class="va">self</span>.bias <span class="op">-</span> np.<span class="bu">sum</span>(<span class="va">self</span>.weights <span class="op">*</span> perceived)</span>
+<span id="cb54-5"><a></a>        each <span class="op">=</span> <span class="fl">1.1</span> <span class="op">*</span> delta <span class="op">/</span> <span class="bu">sum</span>(perceived)</span>
+<span id="cb54-6"><a></a>        update <span class="op">=</span> each <span class="op">*</span> np.array(perceived)</span>
+<span id="cb54-7"><a></a>            </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="better" class="slide level2">
-<h2>Better?</h2>
-<div id="9b2b3af6" class="cell" data-execution_count="38">
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a></a>(<span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose()) <span class="op">+</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3286">
-<pre><code>array([[1, 0, 0, 0, 1, 0],
-       [1, 0, 1, 0, 0, 1],
-       [1, 0, 0, 0, 0, 1],
-       [0, 0, 0, 1, 0, 0],
-       [0, 0, 0, 0, 0, 0],
-       [1, 0, 0, 0, 0, 0]])</code></pre>
-</div>
-</div>
+<section id="it-would-look-like-this." class="slide level2">
+<h2>It would look like this.</h2>
 <ul>
-<li>Recall we want a diagonal of <code>1</code> here.</li>
-<li>(I use <code>+ 0</code> to turn into numbers so the array is smaller and easier to read)</li>
-<li>(<code>True + 0</code> is <code>1</code> and <code>False + 0</code> is <code>0</code> - don’t worry about it)</li>
-<li>Doesn’t look intelligent to me.</li>
+<li>Imagine random weights and an arbitrary bias, say, <code>3</code>.</li>
 </ul>
-</section>
-<section id="we-recognize" class="slide level2">
-<h2>We recognize</h2>
-<ul>
-<li>We don’t need to increase or decrease <em>entire rows</em></li>
-<li>Rather, we know which of the nine dots has a nonzero value…</li>
-<li>And therefore which of the nine weights is contributing to a classification.</li>
-<li>So, rather than increase a row by 10%, increase or decrease the relevant weights only.</li>
-</ul>
-</section>
-<section id="steps-6" class="slide level2">
-<h2>Steps</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li>Check the answer.</li>
-<li>Loop over rows</li>
-<li>Loop over correctnesses.</li>
-<li>If correct…
-<ul>
-<li>Increase relevant.</li>
-</ul></li>
-<li>Otherwise…
-<ul>
-<li>Decrease relevant.</li>
-</ul></li>
-</ul>
-</div><div class="column" style="width:50%;">
-<div id="e82fa4fc" class="cell" data-execution_count="39">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a></a>learn <span class="op">=</span> backup.copy()</span>
-<span id="cb64-2"><a></a>grade <span class="op">=</span> np.equal(key, <span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose())</span>
-<span id="cb64-3"><a></a><span class="cf">for</span> loc, row <span class="kw">in</span> <span class="bu">enumerate</span>(grade):</span>
-<span id="cb64-4"><a></a>    <span class="cf">for</span> correct <span class="kw">in</span> row:</span>
-<span id="cb64-5"><a></a>        <span class="cf">if</span> correct:</span>
-<span id="cb64-6"><a></a>            learn[loc] <span class="op">=</span> learn[loc] <span class="op">+</span> dice[loc]</span>
-<span id="cb64-7"><a></a>        <span class="cf">else</span>: </span>
-<span id="cb64-8"><a></a>            learn[loc] <span class="op">=</span> learn[loc] <span class="op">-</span> dice[loc]</span>
-<span id="cb64-9"><a></a>(<span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose()) <span class="op">+</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3287">
-<pre><code>array([[1, 0, 1, 0, 1, 0],
-       [0, 1, 1, 1, 1, 1],
-       [1, 1, 1, 1, 1, 1],
-       [0, 1, 1, 1, 1, 1],
-       [1, 1, 1, 1, 1, 1],
-       [0, 1, 1, 1, 1, 1]])</code></pre>
-</div>
-</div>
-<ul>
-<li>Recall we want a diagonal of <code>1</code> here.</li>
-</ul>
-</div></div>
-</section>
-<section id="one-problem" class="slide level2">
-<h2>One Problem</h2>
-<ul>
-<li>We may guess correctly too often.
-<ul>
-<li>Given two equally likely choices, 50% chance.</li>
-<li>But we only want <em>one</em> classification of <em>six</em> - ~17% chance.</li>
-</ul></li>
-<li>We can bias against guessing by… increasing the bias!</li>
-</ul>
-<div class="columns">
-<div class="column" style="width:33%;">
-<div id="d5b4fa28" class="cell" data-execution_count="40">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a></a>(<span class="dv">3</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose()) <span class="op">+</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3288">
-<pre><code>array([[1, 0, 1, 0, 1, 0],
-       [0, 1, 1, 1, 1, 1],
-       [0, 0, 1, 1, 1, 1],
-       [0, 0, 0, 1, 1, 1],
-       [0, 0, 0, 1, 1, 1],
-       [0, 0, 0, 1, 1, 1]])</code></pre>
-</div>
-</div>
-</div><div class="column" style="width:33%;">
-<div id="83925a1c" class="cell" data-execution_count="41">
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a></a>(<span class="dv">4</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose()) <span class="op">+</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3289">
-<pre><code>array([[1, 0, 1, 0, 1, 0],
-       [0, 1, 1, 1, 1, 1],
-       [0, 0, 1, 0, 1, 0],
-       [0, 0, 0, 1, 1, 1],
-       [0, 0, 0, 0, 1, 0],
-       [0, 0, 0, 0, 0, 1]])</code></pre>
-</div>
-</div>
-</div><div class="column" style="width:33%;">
-<div id="dd3d66d6" class="cell" data-execution_count="42">
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a></a>(<span class="dv">5</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose()) <span class="op">+</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3290">
-<pre><code>array([[0, 0, 0, 0, 0, 0],
-       [0, 0, 0, 0, 0, 0],
-       [0, 0, 0, 0, 0, 0],
-       [0, 0, 0, 0, 0, 0],
-       [0, 0, 0, 0, 0, 0],
-       [0, 0, 0, 0, 0, 0]])</code></pre>
-</div>
-</div>
-</div></div>
-</section>
-<section id="looking-good" class="slide level2">
-<h2>Looking good?</h2>
-<ul>
-<li>This looked awfully good to me.</li>
-</ul>
-<div id="081b3da1" class="cell" data-execution_count="43">
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a></a>(<span class="dv">4</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose()) <span class="op">+</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3291">
-<pre><code>array([[1, 0, 1, 0, 1, 0],
-       [0, 1, 1, 1, 1, 1],
-       [0, 0, 1, 0, 1, 0],
-       [0, 0, 0, 1, 1, 1],
-       [0, 0, 0, 0, 1, 0],
-       [0, 0, 0, 0, 0, 1]])</code></pre>
-</div>
-</div>
-<ul>
-<li>If this was an exam the percentage would be a…</li>
-</ul>
-<div id="bd9fd82c" class="cell" data-execution_count="44">
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a></a>compare_to_key <span class="op">=</span> np.equal(<span class="dv">4</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose(), key)</span>
-<span id="cb74-2"><a></a>np.count_nonzero(compare_to_key) <span class="op">/</span> compare_to_key.size</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3292">
-<pre><code>0.75</code></pre>
-</div>
-</div>
-</section>
-<section id="compare-2" class="slide level2">
-<h2>Compare</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li>Initially…</li>
-</ul>
-<div id="f2a8baa0" class="cell" data-execution_count="45">
-<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a></a>compare_to_random <span class="op">=</span> np.equal(<span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> backup.transpose(), key)</span>
-<span id="cb76-2"><a></a><span class="bu">print</span>(np.count_nonzero(compare_to_random) <span class="op">/</span> compare_to_random.size)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="2a9cf685" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a></a>is_two <span class="op">=</span> np.random.rand(<span class="dv">9</span>)</span>
+<span id="cb55-2"><a></a>bias <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb55-3"><a></a><span class="bu">print</span>(is_two)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>0.8333333333333334</code></pre>
+<pre><code>[0.55717766 0.39847885 0.24116268 0.65048909 0.73394148 0.97247015
+ 0.39872539 0.8811111  0.38007921]</code></pre>
 </div>
 </div>
-</div><div class="column" style="width:50%;">
 <ul>
-<li>After learning…</li>
+<li>Does it correctly recognize two?</li>
 </ul>
-<div id="717b1c57" class="cell" data-execution_count="46">
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a></a>compare_to_key <span class="op">=</span> np.equal(<span class="dv">4</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose(), key)</span>
-<span id="cb78-2"><a></a><span class="bu">print</span>(np.count_nonzero(compare_to_key) <span class="op">/</span> compare_to_key.size)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="899e10da" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a></a><span class="bu">print</span>(<span class="bu">sum</span>(is_two <span class="op">*</span> two) <span class="op">&gt;</span> bias)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>0.75</code></pre>
+<pre><code>False</code></pre>
 </div>
 </div>
-</div></div>
-<ul>
-<li>Wait… isn’t that worse?</li>
-</ul>
 </section>
-<section id="precision-and-recall" class="slide level2">
-<h2>Precision and Recall</h2>
+<section id="well-whats-the-delta." class="slide level2">
+<h2>Well, what’s the delta.</h2>
 <ul>
-<li>Precision and recall are then defined as:</li>
+<li>Compute delta</li>
 </ul>
-<p><span class="math display">\[
-\begin{align}
-  \text{Precision} &amp;= \frac{tp}{tp + fp} \\
-     \text{Recall} &amp;= \frac{tp}{tp + fn} \,
-\end{align}
-\]</span></p>
-<ul>
-<li><em>Precision</em> is the number of true positives among the predicted positives.</li>
-<li><em>Recall</em> is the number of true positives among the actual positives.</li>
-</ul>
-</section>
-<section id="true-positive-detection" class="slide level2">
-<h2>True Positive Detection</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li>Initially…</li>
-</ul>
-<div id="8af458ca" class="cell" data-execution_count="47">
-<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a></a>guesses <span class="op">=</span> <span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> backup.transpose()</span>
-<span id="cb80-2"><a></a>true_positive <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb80-3"><a></a><span class="cf">for</span> loc, row <span class="kw">in</span> <span class="bu">enumerate</span>(guesses):</span>
-<span id="cb80-4"><a></a>    <span class="cf">if</span> row[loc]:</span>
-<span id="cb80-5"><a></a>        true_positive <span class="op">=</span> true_positive <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb80-6"><a></a><span class="bu">print</span>(true_positive <span class="op">/</span> <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cc81e620" class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a></a>delta <span class="op">=</span> bias <span class="op">-</span> <span class="bu">sum</span>(is_two <span class="op">*</span> two)</span>
+<span id="cb59-2"><a></a><span class="bu">print</span>(delta)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>0.0</code></pre>
+<pre><code>2.3601119333323757</code></pre>
 </div>
 </div>
-</div><div class="column" style="width:50%;">
 <ul>
-<li>After learning…</li>
+<li>How much do we change each weight by?</li>
 </ul>
-<div id="1cb738dc" class="cell" data-execution_count="48">
-<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a></a>guesses <span class="op">=</span> <span class="dv">4</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose()</span>
-<span id="cb82-2"><a></a>true_positive <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb82-3"><a></a><span class="cf">for</span> loc, row <span class="kw">in</span> <span class="bu">enumerate</span>(guesses):</span>
-<span id="cb82-4"><a></a>    <span class="cf">if</span> row[loc]:</span>
-<span id="cb82-5"><a></a>        true_positive <span class="op">=</span> true_positive <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb82-6"><a></a><span class="bu">print</span>(true_positive <span class="op">/</span> <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c77c20c4" class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a></a>each <span class="op">=</span> <span class="fl">1.1</span> <span class="op">*</span> delta <span class="op">/</span> <span class="bu">sum</span>(two)</span>
+<span id="cb61-2"><a></a><span class="bu">print</span>(each)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>1.0</code></pre>
+<pre><code>1.2980615633328068</code></pre>
 </div>
 </div>
-</div></div>
+</section>
+<section id="what-would-we-update-by" class="slide level2">
+<h2>What would we update by?</h2>
 <ul>
-<li>Count along the diagonal.</li>
-<li>We go from zero to all true positives.</li>
+<li>Recall, only change where we perceived values!</li>
+</ul>
+<div id="fd3660bb" class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a></a>update <span class="op">=</span> each <span class="op">*</span> np.array(two)</span>
+<span id="cb63-2"><a></a><span class="bu">print</span>(update)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[0.         0.         1.29806156 0.         0.         0.
+ 1.29806156 0.         0.        ]</code></pre>
+</div>
+</div>
+<ul>
+<li>Add these two the weights…</li>
+</ul>
+<div id="a2f9dfcf" class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a></a>is_two <span class="op">=</span> is_two <span class="op">+</span> update</span>
+<span id="cb65-2"><a></a><span class="bu">print</span>(is_two)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[0.55717766 0.39847885 1.53922424 0.65048909 0.73394148 0.97247015
+ 1.69678695 0.8811111  0.38007921]</code></pre>
+</div>
+</div>
+</section>
+<section id="check-our-work" class="slide level2">
+<h2>Check our work!</h2>
+<ul>
+<li>Does it correctly recognize two?</li>
+</ul>
+<div id="d39f2bb6" class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a></a><span class="bu">print</span>(<span class="bu">sum</span>(is_two <span class="op">*</span> two) <span class="op">&gt;</span> bias)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>True</code></pre>
+</div>
+</div>
+<ul>
+<li>Only one problem!</li>
+</ul>
+<div id="8974f047" class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a></a><span class="bu">print</span>(<span class="bu">sum</span>(is_two <span class="op">*</span> thr) <span class="op">&gt;</span> bias)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>True</code></pre>
+</div>
+</div>
+<ul>
+<li>But, we can just keep updating.</li>
 </ul>
 </section>
-<section id="how" class="slide level2">
-<h2>How?</h2>
+<section id="update-for-three" class="slide level2">
+<h2>Update for three</h2>
 <ul>
-<li>Initially, randomization simply predicted <em>no classes at all for anything</em>.</li>
+<li>Compute delta</li>
 </ul>
-<div id="070ebf96" class="cell" data-execution_count="49">
-<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a></a><span class="dv">1</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> backup.transpose()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3297">
-<pre><code>array([[False, False, False, False, False, False],
-       [False, False, False, False, False, False],
-       [False, False, False, False, False, False],
-       [False, False, False, False, False, False],
-       [False, False, False, False, False, False],
-       [False, False, False, False, False, False]])</code></pre>
+<div id="1d96bd74" class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a></a>delta <span class="op">=</span> bias <span class="op">-</span> <span class="bu">sum</span>(is_two <span class="op">*</span> thr)</span>
+<span id="cb71-2"><a></a>each <span class="op">=</span> <span class="fl">1.1</span> <span class="op">*</span> delta <span class="op">/</span> <span class="bu">sum</span>(thr)</span>
+<span id="cb71-3"><a></a>update <span class="op">=</span> each <span class="op">*</span> np.array(thr)</span>
+<span id="cb71-4"><a></a>is_two <span class="op">=</span> is_two <span class="op">+</span> update</span>
+<span id="cb71-5"><a></a><span class="bu">print</span>(is_two)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[0.55717766 0.39847885 1.18357492 0.65048909 0.37829217 0.97247015
+ 1.34113764 0.8811111  0.38007921]</code></pre>
 </div>
 </div>
 <ul>
-<li>Now, at least, we capture the diagonal and aren’t too far off from here.</li>
+<li>Check again.</li>
+</ul>
+<div id="8f0c17b2" class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a></a><span class="bu">print</span>(<span class="bu">sum</span>(is_two <span class="op">*</span> thr) <span class="op">&gt;</span> bias)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>False</code></pre>
+</div>
+</div>
+</section>
+<section id="updating-weights-7" class="slide level2">
+<h2>Updating Weights</h2>
+<ul>
+<li>Let’s add that to our <em>method</em></li>
+</ul>
+<div class="sourceCode" id="cb75"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a></a>    <span class="kw">def</span> learn(<span class="va">self</span>, perceived, answer):</span>
+<span id="cb75-2"><a></a>        <span class="cf">if</span> answer <span class="op">==</span> <span class="va">self</span> <span class="op">*</span> perceived:</span>
+<span id="cb75-3"><a></a>            <span class="cf">return</span></span>
+<span id="cb75-4"><a></a>        delta <span class="op">=</span> <span class="va">self</span>.bias <span class="op">-</span> np.<span class="bu">sum</span>(<span class="va">self</span>.weights <span class="op">*</span> perceived)</span>
+<span id="cb75-5"><a></a>        each <span class="op">=</span> <span class="fl">1.1</span> <span class="op">*</span> delta <span class="op">/</span> <span class="bu">sum</span>(perceived)</span>
+<span id="cb75-6"><a></a>        update <span class="op">=</span> each <span class="op">*</span> np.array(perceived)</span>
+<span id="cb75-7"><a></a>        <span class="va">self</span>.weights <span class="op">=</span> <span class="va">self</span>.weights <span class="op">+</span> update </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="like-this-1" class="slide level2">
+<h2>Like This</h2>
+<ul>
+<li>Rewrite neuron class to include “learn”</li>
+</ul>
+<div id="bf7ed6f3" class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a></a><span class="kw">class</span> Neuron:</span>
+<span id="cb76-2"><a></a></span>
+<span id="cb76-3"><a></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, weights<span class="op">=</span>np.random.rand(<span class="dv">9</span>), bias<span class="op">=</span><span class="dv">1</span>):</span>
+<span id="cb76-4"><a></a>        <span class="va">self</span>.weights <span class="op">=</span> np.array(weights)</span>
+<span id="cb76-5"><a></a>        <span class="va">self</span>.bias <span class="op">=</span> bias</span>
+<span id="cb76-6"><a></a></span>
+<span id="cb76-7"><a></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
+<span id="cb76-8"><a></a>        <span class="cf">return</span> <span class="st">"Neuron"</span> <span class="op">+</span> <span class="bu">str</span>(<span class="va">self</span>.weights)</span>
+<span id="cb76-9"><a></a></span>
+<span id="cb76-10"><a></a>    <span class="kw">def</span> <span class="fu">__mul__</span>(<span class="va">self</span>, other):</span>
+<span id="cb76-11"><a></a>        <span class="cf">return</span> <span class="bu">int</span>(np.<span class="bu">sum</span>(<span class="va">self</span>.weights <span class="op">*</span> other) <span class="op">&gt;=</span> <span class="va">self</span>.bias)</span>
+<span id="cb76-12"><a></a>        </span>
+<span id="cb76-13"><a></a>    <span class="kw">def</span> learn(<span class="va">self</span>, perceived, answer):</span>
+<span id="cb76-14"><a></a>        <span class="cf">if</span> answer <span class="op">==</span> <span class="va">self</span> <span class="op">*</span> perceived:</span>
+<span id="cb76-15"><a></a>            <span class="cf">return</span></span>
+<span id="cb76-16"><a></a>        delta <span class="op">=</span> <span class="va">self</span>.bias <span class="op">-</span> np.<span class="bu">sum</span>(<span class="va">self</span>.weights <span class="op">*</span> perceived)</span>
+<span id="cb76-17"><a></a>        each <span class="op">=</span> <span class="fl">1.1</span> <span class="op">*</span> delta <span class="op">/</span> <span class="bu">sum</span>(perceived)</span>
+<span id="cb76-18"><a></a>        update <span class="op">=</span> each <span class="op">*</span> np.array(perceived)</span>
+<span id="cb76-19"><a></a>        <span class="va">self</span>.weights <span class="op">=</span> <span class="va">self</span>.weights <span class="op">+</span> update </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="make-a-new-neuron" class="slide level2">
+<h2>Make a new neuron</h2>
+<ul>
+<li>Not two exciting.</li>
+</ul>
+<div id="3b8a5cd4" class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a></a>learner <span class="op">=</span> Neuron()</span>
+<span id="cb77-2"><a></a><span class="bu">print</span>(learner)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Neuron[0.34059675 0.3768527  0.33380208 0.86193088 0.59068583 0.95907908
+ 0.84126294 0.84504323 0.21381956]</code></pre>
+</div>
+</div>
+<ul>
+<li>Let’s teach it to recognize ⚄ and nothing else</li>
+</ul>
+<div id="c075258e" class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a></a><span class="cf">for</span> die <span class="kw">in</span> dice:</span>
+<span id="cb79-2"><a></a>    <span class="bu">print</span>(learner <span class="op">*</span> die)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0
+1
+1
+1
+1
+1</code></pre>
+</div>
+</div>
+</section>
+<section id="just-have-it-learn" class="slide level2">
+<h2>Just have it learn…</h2>
+<ul>
+<li>Instead of just printing what it does…</li>
+<li>Have it learn in each case.</li>
+<li>We provide the goal.</li>
+</ul>
+<div id="4c678ab6" class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a></a>goal <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="train-steadily" class="slide level2">
+<h2>Train steadily…</h2>
+<ul>
+<li>We can loop over all 6 things.</li>
+</ul>
+<div id="5a505021" class="cell" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">6</span>):</span>
+<span id="cb82-2"><a></a>    learner.learn(dice[i], goal[i])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Easier to see what we’re working with if we print.</li>
+</ul>
+<div id="4dee722a" class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">6</span>):</span>
+<span id="cb83-2"><a></a>    <span class="bu">print</span>(dice[i], goal[i], learner <span class="op">*</span> dice[i])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[0 0 0 0 1 0 0 0 0] 0 0
+[0 0 1 0 0 0 1 0 0] 0 0
+[0 0 1 0 1 0 1 0 0] 0 0
+[1 0 1 0 0 0 1 0 1] 0 0
+[1 0 1 0 1 0 1 0 1] 1 0
+[1 0 1 1 0 1 1 0 1] 0 0</code></pre>
+</div>
+</div>
+</section>
+<section id="wait" class="slide level2">
+<h2>Wait!</h2>
+<ul>
+<li>Isn’t that still wrong?
+<ul>
+<li>Those last two should be equal.</li>
+</ul></li>
+</ul>
+<div id="7fc849fc" class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">6</span>):</span>
+<span id="cb85-2"><a></a>    <span class="bu">print</span>(dice[i], goal[i], learner <span class="op">*</span> dice[i])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[0 0 0 0 1 0 0 0 0] 0 0
+[0 0 1 0 0 0 1 0 0] 0 0
+[0 0 1 0 1 0 1 0 0] 0 0
+[1 0 1 0 0 0 1 0 1] 0 0
+[1 0 1 0 1 0 1 0 1] 1 0
+[1 0 1 1 0 1 1 0 1] 0 0</code></pre>
+</div>
+</div>
+<ul>
+<li>The problem:
+<ul>
+<li>We trained on six last.</li>
+<li>We changed weights to not recognize six.</li>
+</ul></li>
 </ul>
 </section>
-<section id="more-to-come" class="slide level2">
-<h2>More to Come</h2>
+<section id="is-that-so" class="slide level2">
+<h2>Is that so?</h2>
 <ul>
-<li>I think today was a lot.</li>
-<li>We will play around with this a bit in the lab then return next week.</li>
-<li>To reduce <em>false positives</em></li>
+<li>Retrain five.</li>
+</ul>
+<div id="2b709a88" class="cell" data-execution_count="45">
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a></a>learner.learn(fiv, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Check it</li>
+</ul>
+<div id="af5de0a2" class="cell" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb88-1"><a></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">6</span>):</span>
+<span id="cb88-2"><a></a>    <span class="bu">print</span>(dice[i], goal[i], learner <span class="op">*</span> dice[i])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[0 0 0 0 1 0 0 0 0] 0 0
+[0 0 1 0 0 0 1 0 0] 0 0
+[0 0 1 0 1 0 1 0 0] 0 0
+[1 0 1 0 0 0 1 0 1] 0 0
+[1 0 1 0 1 0 1 0 1] 1 1
+[1 0 1 1 0 1 1 0 1] 0 1</code></pre>
+</div>
+</div>
+</section>
+<section id="oh-no" class="slide level2">
+<h2>Oh no!</h2>
+<ul>
+<li>Well now six is wrong again!
+<ul>
+<li>Let’s see what we have…</li>
+</ul></li>
+</ul>
+<div id="1835531c" class="cell" data-execution_count="47">
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb90-1"><a></a><span class="bu">print</span>(learner)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Neuron[ 0.18758228  0.3768527  -0.1256639   0.53021633  0.59127919  0.62736452
+  0.38179695  0.84504323  0.06080508]</code></pre>
+</div>
+</div>
+<ul>
+<li>And what did I make manually.</li>
+</ul>
+<div id="100505af" class="cell" data-execution_count="48">
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb92-1"><a></a><span class="bu">print</span>(is_fiv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Neuron[ 0.2 -0.2  0.2 -0.2  0.2 -0.2  0.2 -0.2  0.2]</code></pre>
+</div>
+</div>
+</section>
+<section id="the-solution" class="slide level2">
+<h2>The solution</h2>
+<ul>
+<li>What if we just train 100 times.</li>
+</ul>
+<div id="2971e523" class="cell" data-execution_count="49">
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb94-1"><a></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100</span>):</span>
+<span id="cb94-2"><a></a>    r <span class="op">=</span> <span class="bu">int</span>(np.random.rand() <span class="op">*</span> <span class="dv">6</span>)</span>
+<span id="cb94-3"><a></a>    learner.learn(dice[r], goal[r])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Closer?</li>
+</ul>
+<div id="e8f22857" class="cell" data-execution_count="50">
+<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb95-1"><a></a><span class="bu">print</span>(learner)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Neuron[ 1.26543523e-01  3.76852701e-01 -1.86702658e-01  3.21210453e-01
+  7.39246313e-01  4.18358648e-01  3.20758197e-01  8.45043230e-01
+ -2.33670892e-04]</code></pre>
+</div>
+</div>
+<div id="8c67b8b7" class="cell" data-execution_count="51">
+<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a></a><span class="bu">print</span>(is_fiv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Neuron[ 0.2 -0.2  0.2 -0.2  0.2 -0.2  0.2 -0.2  0.2]</code></pre>
+</div>
+</div>
+</section>
+<section id="stuck-in-our-ways" class="slide level2">
+<h2>Stuck in our ways</h2>
+<ul>
+<li>Things didn’t change at all!
+<ul>
+<li>Training on five means we recognize five and six.</li>
+<li>Training on six means we don’t recognize anything.</li>
+</ul></li>
+<li>We have to reinforce correct guesses!</li>
 </ul>
 </section>
-<section id="fin" class="slide level2">
-<h2>FIN</h2>
-<div class="columns">
-<div class="column" style="width:33%;">
-<div id="314cb70b" class="cell" data-execution_count="50">
-<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a></a>(<span class="fl">3.5</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose()) <span class="op">+</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3298">
-<pre><code>array([[1, 0, 1, 0, 1, 0],
-       [0, 1, 1, 1, 1, 1],
-       [0, 0, 1, 0, 1, 0],
-       [0, 0, 0, 1, 1, 1],
-       [0, 0, 0, 1, 1, 1],
-       [0, 0, 0, 0, 0, 1]])</code></pre>
-</div>
-</div>
-</div><div class="column" style="width:33%;">
-<div id="4f36f09b" class="cell" data-execution_count="51">
-<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb88-1"><a></a>(<span class="fl">4.0</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose()) <span class="op">+</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3299">
-<pre><code>array([[1, 0, 1, 0, 1, 0],
-       [0, 1, 1, 1, 1, 1],
-       [0, 0, 1, 0, 1, 0],
-       [0, 0, 0, 1, 1, 1],
-       [0, 0, 0, 0, 1, 0],
-       [0, 0, 0, 0, 0, 1]])</code></pre>
-</div>
-</div>
-</div><div class="column" style="width:33%;">
-<div id="bcfda6f2" class="cell" data-execution_count="52">
-<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb90-1"><a></a>(<span class="fl">4.5</span> <span class="op">&lt;=</span> fair_dice <span class="op">@</span> learn.transpose()) <span class="op">+</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3300">
-<pre><code>array([[1, 0, 0, 0, 1, 0],
-       [0, 0, 1, 1, 0, 1],
-       [0, 0, 1, 0, 0, 0],
-       [0, 0, 0, 1, 0, 1],
-       [0, 0, 0, 0, 0, 0],
-       [0, 0, 0, 0, 0, 1]])</code></pre>
-</div>
-</div>
-</div></div>
+<section id="recall-1" class="slide level2">
+<h2>Recall</h2>
 <ul>
-<li>Bias is not enough!</li>
+<li>We just ignored correct classifications!</li>
 </ul>
-<!--
-
-- 
-    
-## Steps
-
-:::: {.columns}
-
-::: {.column width="50%"}
-
-- Check the answer.
-- Loop over rows
-- Loop over correctnesses.
-- If correct...
-    - Increase that row a lot.
-- Otherwise...
-    - Decrease that row a little.
-
-:::
-
-::: {.column width="50%"}
-
-::: {#d88859a6 .cell execution_count=53}
-``` {.python .cell-code}
-learn = backup.copy()
-grade = np.equal(key, 1 <= fair_dice @ learn.transpose())
-for loc, row in enumerate(grade):
-    for correct in row:
-        if correct:
-            learn[loc] = learn[loc] * 6
-        else: 
-            learn[loc] = learn[loc] * (5/6)
-```
-:::
-
-
-:::
-
-::::
-
-## Better?
-
-::: {#48f5df22 .cell execution_count=54}
-``` {.python .cell-code}
-np.equal(key, 1 <= fair_dice @ learn.transpose()) + 0
-```
-
-::: {.cell-output .cell-output-display execution_count=3302}
-```
-array([[1, 0, 0, 0, 0, 0],
-       [0, 1, 0, 0, 0, 0],
-       [0, 0, 1, 0, 0, 0],
-       [0, 0, 0, 1, 0, 0],
-       [0, 0, 0, 0, 1, 0],
-       [0, 0, 0, 0, 0, 1]])
-```
-:::
-:::
-
-
-- (I use `+ 0` to turn into numbers so the array is smaller and easier to read)
-- (`True + 0` is `1` and `False + 0` is `0` - don't worry about it)
-- What if we just... keep studying.
-
-## Steps
-
-:::: {.columns}
-
-::: {.column width="50%"}
-
-
-- Loop over rows
-- Loop over correctnesses.
-- If correct...
-    - Increase that row a lot.
-- Otherwise...
-    - Decrease that row a little.
-- Repeat 100x
-
-:::
-
-::: {.column width="50%"}
-
-::: {#7c5b6ae8 .cell execution_count=55}
-``` {.python .cell-code}
-learn = backup.copy()
-for i in range(1000):
-    grade = np.equal(key, 1 <= fair_dice @ learn.transpose())
-    for loc, row in enumerate(grade):
-        for correct in row:
-            if correct:
-                learn[loc] = learn[loc] * (6 ** (1/5))
-            else: 
-                learn[loc] = learn[loc] / 6
-print(np.equal(key, 1 <= fair_dice @ learn.transpose()) + 0 )
-print(learn)
-```
-
-::: {.cell-output .cell-output-stdout}
-```
-[[0 1 1 1 1 1]
- [1 0 1 1 1 1]
- [1 1 0 1 1 1]
- [1 1 1 0 1 1]
- [1 1 1 1 0 1]
- [1 1 1 1 1 0]]
-[[0.13819755 0.858514   0.89387389 0.97953215 0.95078702 0.91339183
-  0.55505456 0.05400497 0.76328784]
- [0.61992175 0.60798114 0.47795787 0.99881325 0.21490773 0.1434384
-  0.24203858 0.96896522 0.44601858]
- [0.32932856 0.81046388 0.98930022 0.72729313 0.19500454 0.34640125
-  0.48504912 0.72482006 0.13982303]
- [0.86507991 0.15626278 0.73353581 0.0778394  0.23396891 0.53146514
-  0.62610878 0.30177633 0.65322222]
- [0.30151646 0.17771519 0.31744043 0.70558929 0.92332405 0.86750924
-  0.06348737 0.10571363 0.8207625 ]
- [0.18535997 0.81312843 0.86835174 0.80318644 0.5531322  0.4545896
-  0.96877004 0.93137333 0.08946593]]
-```
-:::
-:::
-
-
-:::
-
-::::
-
--->
-
-
+<div class="sourceCode" id="cb99"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb99-1"><a></a>        <span class="cf">if</span> answer <span class="op">==</span> <span class="va">self</span> <span class="op">*</span> perceived:</span>
+<span id="cb99-2"><a></a>            temp <span class="op">=</span> perceived <span class="op">+</span> <span class="fl">.5</span></span>
+<span id="cb99-3"><a></a>            temp <span class="op">/=</span> <span class="bu">sum</span>(perceived)</span>
+<span id="cb99-4"><a></a>            <span class="va">self</span>.weights <span class="op">*=</span> temp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>We want to strengthen correct weights (times 1.5)</li>
+<li>And weaken incorrect (times .5)</li>
+<li>But not weight toward six (more dots), so divide.</li>
+</ul>
+</section>
+<section id="like-this-2" class="slide level2">
+<h2>Like This</h2>
+<ul>
+<li>Rewrite!</li>
+</ul>
+<div id="c2ed095f" class="cell" data-execution_count="52">
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb100-1"><a></a><span class="kw">class</span> Neuron:</span>
+<span id="cb100-2"><a></a></span>
+<span id="cb100-3"><a></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, weights<span class="op">=</span>np.random.rand(<span class="dv">9</span>), bias<span class="op">=</span><span class="dv">1</span>):</span>
+<span id="cb100-4"><a></a>        <span class="va">self</span>.weights <span class="op">=</span> np.array(weights)</span>
+<span id="cb100-5"><a></a>        <span class="va">self</span>.bias <span class="op">=</span> bias</span>
+<span id="cb100-6"><a></a></span>
+<span id="cb100-7"><a></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
+<span id="cb100-8"><a></a>        <span class="cf">return</span> <span class="st">"Neuron"</span> <span class="op">+</span> <span class="bu">str</span>(<span class="va">self</span>.weights)</span>
+<span id="cb100-9"><a></a></span>
+<span id="cb100-10"><a></a>    <span class="kw">def</span> <span class="fu">__mul__</span>(<span class="va">self</span>, other):</span>
+<span id="cb100-11"><a></a>        <span class="cf">return</span> <span class="bu">int</span>(np.<span class="bu">sum</span>(<span class="va">self</span>.weights <span class="op">*</span> other) <span class="op">&gt;=</span> <span class="va">self</span>.bias)</span>
+<span id="cb100-12"><a></a>        </span>
+<span id="cb100-13"><a></a>    <span class="kw">def</span> learn(<span class="va">self</span>, perceived, answer):</span>
+<span id="cb100-14"><a></a>        <span class="cf">if</span> answer <span class="op">==</span> <span class="va">self</span> <span class="op">*</span> perceived:</span>
+<span id="cb100-15"><a></a>            temp <span class="op">=</span> perceived <span class="op">+</span> <span class="fl">.5</span></span>
+<span id="cb100-16"><a></a>            temp <span class="op">/=</span> <span class="bu">sum</span>(perceived)</span>
+<span id="cb100-17"><a></a>            <span class="va">self</span>.weights <span class="op">*=</span> temp</span>
+<span id="cb100-18"><a></a>        <span class="cf">else</span>:</span>
+<span id="cb100-19"><a></a>            delta <span class="op">=</span> <span class="va">self</span>.bias <span class="op">-</span> np.<span class="bu">sum</span>(<span class="va">self</span>.weights <span class="op">*</span> perceived)</span>
+<span id="cb100-20"><a></a>            each <span class="op">=</span> delta <span class="op">/</span> <span class="bu">sum</span>(perceived)</span>
+<span id="cb100-21"><a></a>            update <span class="op">=</span> each <span class="op">*</span> np.array(perceived)</span>
+<span id="cb100-22"><a></a>            <span class="va">self</span>.weights <span class="op">=</span> <span class="va">self</span>.weights <span class="op">+</span> update </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="create-and-train" class="slide level2">
+<h2>Create and train…</h2>
+<ul>
+<li>We can skip a lot of steps now.</li>
+</ul>
+<div id="8fa89ef7" class="cell" data-execution_count="53">
+<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb101-1"><a></a>learner <span class="op">=</span> Neuron()</span>
+<span id="cb101-2"><a></a></span>
+<span id="cb101-3"><a></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000</span>):</span>
+<span id="cb101-4"><a></a>    r <span class="op">=</span> <span class="bu">int</span>(np.random.rand() <span class="op">*</span> <span class="dv">6</span>)</span>
+<span id="cb101-5"><a></a>    learner.learn(dice[r], goal[r])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Same printing we did earlier.</li>
+</ul>
+<div id="a0d12441" class="cell" data-execution_count="54">
+<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb102-1"><a></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">6</span>):</span>
+<span id="cb102-2"><a></a>    <span class="bu">print</span>(dice[i], goal[i], learner <span class="op">*</span> dice[i])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[0 0 0 0 1 0 0 0 0] 0 0
+[0 0 1 0 0 0 1 0 0] 0 0
+[0 0 1 0 1 0 1 0 0] 0 0
+[1 0 1 0 0 0 1 0 1] 0 0
+[1 0 1 0 1 0 1 0 1] 1 1
+[1 0 1 1 0 1 1 0 1] 0 0</code></pre>
+</div>
+</div>
+</section>
+<section id="a-note" class="slide level2">
+<h2>A note</h2>
+<ul>
+<li>I am randomizing this.
+<ul>
+<li>The above often, but does not always work.</li>
+<li>To work every time, we have to use <em>calculus</em>.</li>
+</ul></li>
+</ul>
 </section></section>
+<section id="fin" class="title-slide slide level1 center">
+<h1>Fin</h1>
+
+
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
