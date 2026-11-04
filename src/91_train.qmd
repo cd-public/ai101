@@ -1,0 +1,267 @@
+---
+title: Training
+format: html
+---
+
+## Setting the Stage
+
+In our lecture, we introduced learning using a `.learn` method of a neuron.
+
+1. We started with a neuron that randomly perceived things using random *edge weights*.
+2. We created a (relatively sophisticated) method to update *edge weights*.
+
+It took two things:
+
+1. Some perceived vector of values, corresponding to dots on a die, and...
+2. Whether the neuron should or shouldn't "activate" in response to that perception.
+
+Here is what we had at the end of class:
+
+```{python}
+class Neuron:
+
+    def __init__(self, weights=np.random.rand(9), bias=1):
+        self.weights = np.array(weights)
+        self.bias = bias
+
+    def __repr__(self):
+        return "Neuron" + str(self.weights)
+
+    def __mul__(self, other):
+        return int(np.sum(self.weights * other) >= self.bias)
+        
+    def learn(self, perceived, answer):
+        if answer == self * perceived:
+            temp = perceived + .5
+            temp /= sum(perceived)
+            self.weights *= temp
+        else:
+            delta = self.bias - np.sum(self.weights * perceived)
+            each = delta / sum(perceived)
+            update = each * np.array(perceived)
+            self.weights = self.weights + update 
+```
+
+- `.learn` checks if a the neuron classifies some perception correctly.
+    - If so, it does two things:
+        - Increases weights on dots that were present
+        - Decreases weights that weren't present 
+    - Otherwise, it does one thing.
+        - Calculates how far off from the bias it was.
+            - Regardless of whether it was too high or too low!
+        - Divides this "miss" amount among all active weights.
+            - This either increases or decreases - whichever *should* happen.
+- This is probably not the simplest way to write this but it was the first one I got working!
+
+## Training
+
+- By convention, we use the term "training" to describe the process of [supervised learning](https://en.wikipedia.org/wiki/Supervised_learning) for [classification](https://en.wikipedia.org/wiki/Classification).
+- Recall our lectures on these topics:
+    - [Supervised Learning](20_supervise.qmd)
+    - [Classification](40_class.qmd)
+- I couldn't find a page for general "training" but there is one for [large language models specifically](https://en.wikipedia.org/wiki/Training_of_large_language_models)
+
+Today, we will update our `Neuron` to include a `.train` method, which will take some *training data* and (attempt!) to find edge weights that correctly classify that data.
+
+## In class
+
+- In class, we created a `Neuron`, I called mine `learner`:
+
+```{python}
+learner = Neuron()
+```
+
+- Then I wrote the following code:
+
+```{.python filename="This won't work on it's own!}
+for _ in range(1000):
+    r = int(np.random.rand() * 6)
+    learner.learn(dice[r], goal[r])
+```
+
+- This relied on some earlier work however!
+- We had to set what the goal was.
+    - In lecture, to recognize ⚄, the 5 die.
+    
+```{python}
+goal = [0, 0, 0, 0, 1, 0]
+```
+
+- And we had also previously defined all the dice:
+
+```{python}
+import numpy as np
+one = [0,0,0,0,1,0,0,0,0]
+two = [0,0,1,0,0,0,1,0,0]
+thr = [0,0,1,0,1,0,1,0,0]
+fou = [1,0,1,0,0,0,1,0,1]
+fiv = [1,0,1,0,1,0,1,0,1]
+six = [1,0,1,1,0,1,1,0,1]
+dice = np.array([one, two, thr, fou, fiv, six])
+```
+
+- Now it works!
+
+
+```{.python filename="Now it works!}
+for _ in range(1000):
+    r = int(np.random.rand() * 6)
+    learner.learn(dice[r], goal[r])
+```
+
+- What does it do?
+    - 1000 times in a row it...
+        - Picks a random number, between $0$ and $1$.
+        - Multiples it by 6, getting a random number between $0$ and $6$.
+        - Turns that number into an integer, a whole number.
+            - So one of $0, 1, 2, 3, 4, 5$
+        - Then it takes the:
+            - Die of that number, and...
+            - The desired classification (either "is five" or "isn't five")
+            - And has the neuron "learn" to classify correctly.
+- This is tedious!
+
+## A Better Way
+
+- We now introduce the Colab/Python *dictionary*.
+- Dictionaries perform "key-value storage".
+    - Previously we have used lists, which can identify something by its index, or position in the list.
+    - This is like the address on a street.
+    - Now we use "key-value storage"
+    
+### Key-Value Storage
+
+- We imagine the notion of a print or website dictionary, which stores the following information:
+    - Words, and
+    - Definitions.
+- The more general form of this recognizes each as *keys* and *values*
+    - Words are like *keys*, a brief symbol used to represent some value or collection of values, like the multiple words that form a definition
+    - Definitions are like *values*, they are what a word means, or something that we could substitute for a word to get the same meaning.
+    
+```{.email}
+best: most good
+hot: very warm
+long: not short
+```
+
+- If we had a sentence, like "A hot meal is best enjoyed after a long journey.", we could:
+    - Substitute "hot" for "very warm"
+    - Substitute "best" for "most good"
+    - Substitute "long" for "not short"
+    - And still understand the sentence:
+        "A very warm meal is most good enjoyed after a not short journey."
+    - You can also go the other way, of course.
+    
+### In Colab/Python
+
+- Dictionaries are a big part of programming and machine learning, and we have good support for them, but have to use some specific punctuation.
+- They are:
+    - Enclosed in curly brackets: `{}`
+    - We separate *keys* from *values* with a colon `:`
+    - We seperate *key-value pairs* from one another with commas `,`
+- Like this:
+
+```{python}
+dictionary = {
+    "best": "most good",
+    "hot": "very warm",
+    "long": "not short"
+}
+```
+
+- I put that on multiple lines just to write it out, but the different lines are not important.
+- You can then use a *key* for a dictionary they way we use an *index* for a list:
+
+```{python}
+print(dictionary["best"])
+```
+
+### Training Data
+
+- Training data is also a dictionary!
+    - Keys are *perceptions*.
+    - Values are *binary classifications*.
+- It could look like this:
+
+```{python}
+training_data = {
+    one: 0,
+    two: 0,
+    thr: 0,
+    fou: 0,
+    fiv: 1,
+    six: 0
+}
+```
+
+- Or if you are training a three-recognizer:
+
+```{python}
+training_data = {
+    one: 0,
+    two: 0,
+    thr: 1,
+    fou: 0,
+    fiv: 0,
+    six: 0
+}
+```
+
+- Or anything else, like a "bigger than average" (I don't know!) recognizer:
+
+```{python}
+training_data = {
+    one: 0,
+    two: 0,
+    thr: 0,
+    fou: 1,
+    fiv: 1,
+    six: 1
+}
+```
+
+### Looping over dictionaries
+
+- It is common to want to consider both the keys and values in a dictionary.
+- You can "loop" over key-value pairs like so:
+
+```{python}
+for key in training_data:
+    print("The key is", key, "and the value is", training_data[key])
+```
+
+## Your Task
+
+- Update the `Neuron` class with a `.train` method.
+- The `.train` method should:
+    - Accept a training data dictionary.
+    - Apply `.learn` some number of times.
+        - Perhaps until the results are good?
+            - What does good mean?
+
+<details>
+<summary>Advanced Students</summary>
+
+Update your `Layer` class to train on the inverted dictionary:
+
+```{python}
+training_data = {
+    [1, 0, 0, 0, 0, 0]: one,
+    [0, 1, 0, 0, 0, 0]: two,
+    [0, 0, 1, 0, 0, 0]: thr,
+    [0, 0, 0, 1, 0, 0]: fou,
+    [0, 0, 0, 0, 1, 0]: fiv,
+    [0, 0, 0, 0, 0, 1]: six
+}
+```
+
+- Students still seeking additional challenges should implement all function bodies in a single line, likely using list comprehensions.
+
+</details>
+
+- Add a text cell with 2-3 sentences (approx. 100 words) answering:
+    - How important is it to have the correct classifications when beginning supervised learning?
+    - How are these classifications decided?
+    - How costly is it to train a neuron? What about many neurons?
+    - Consider `Neuron`, `.weights`, `.learn`, and `.train`. Which, if any, is intelligent? 
+    - How would you explain your answer to the previous question to someone who has not taken this class?
