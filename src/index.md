@@ -38,7 +38,7 @@ format: html
 |0x7|10/13|[Neural](60_neural.qmd)|[Weights](61_weights.qmd)|
 |0x8|10/20|[Perceptron](70_perceptron.qmd)|[Multi-class](71_multi.qmd)|
 |0x9|10/27|[Matrix](80_matrix.qmd)|[Object](81_object.qmd)| <!-- [Learning](90_learning.qmd)| compression or prey -->
-|0bX|11/03|[`None`](https://events.willamette.edu/e/7358)|[Train](91_train.qmd)|
+|0bX|11/03|[`None`](https://events.willamette.edu/e/7358)|[Nightmare](82_nightmare.md)|
 |0xA|11/10|[Learning](90_learning.qmd)|[Training](91_train.qmd)|
 |0xB|11/17|[XOR](A0_xor.qmd)|[Compression](A1_compress.qmd)| <!-- XOR -->
 |0xC|11/24|[Markov](B0_markov.qmd)|[`None`](https://events.willamette.edu/e/7373)|| 

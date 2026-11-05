@@ -244,12 +244,6 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./6__guest.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Guest</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./6_1_doc.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Thinking Game</span></a>
   </div>
@@ -292,14 +286,20 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./82_nightmare.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Nightmare</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./90_learning.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Learning</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./91_false.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Falsify</span></a>
+  <a href="./91_train.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Training</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -498,24 +498,24 @@ window.Quarto = {
 <td style="text-align: center;">0bX</td>
 <td style="text-align: left;">11/03</td>
 <td style="text-align: left;"><a href="https://events.willamette.edu/e/7358"><code>None</code></a></td>
-<td style="text-align: left;"><a href="./91_false.html">Falsify</a></td>
+<td style="text-align: left;"><a href="./82_nightmare.html">Nightmare</a></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">0xA</td>
 <td style="text-align: left;">11/10</td>
-<td style="text-align: left;"><a href="./A0_xor.html">XOR</a></td>
-<td style="text-align: left;"><a href="./A1_compress.html">Compression</a></td>
+<td style="text-align: left;"><a href="./90_learning.html">Learning</a></td>
+<td style="text-align: left;"><a href="./91_train.html">Training</a></td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">0xB</td>
 <td style="text-align: left;">11/17</td>
-<td style="text-align: left;"><a href="./B0_markov.html">Markov</a></td>
-<td style="text-align: left;"><a href="./C1_sonnet.html">Sonnet</a></td>
+<td style="text-align: left;"><a href="./A0_xor.html">XOR</a></td>
+<td style="text-align: left;"><a href="./A1_compress.html">Compression</a></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">0xC</td>
 <td style="text-align: left;">11/24</td>
-<td style="text-align: left;"><a href="./C0_prompt.html">Prompts</a></td>
+<td style="text-align: left;"><a href="./B0_markov.html">Markov</a></td>
 <td style="text-align: left;"><a href="https://events.willamette.edu/e/7373"><code>None</code></a></td>
 </tr>
 <tr class="odd">
@@ -1054,10 +1054,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-38"><a href="#cb1-38"></a>|0x7|10/13|<span class="co">[</span><span class="ot">Neural</span><span class="co">](60_neural.qmd)</span>|<span class="co">[</span><span class="ot">Weights</span><span class="co">](61_weights.qmd)</span>|</span>
 <span id="cb1-39"><a href="#cb1-39"></a>|0x8|10/20|<span class="co">[</span><span class="ot">Perceptron</span><span class="co">](70_perceptron.qmd)</span>|<span class="co">[</span><span class="ot">Multi-class</span><span class="co">](71_multi.qmd)</span>|</span>
 <span id="cb1-40"><a href="#cb1-40"></a>|0x9|10/27|<span class="co">[</span><span class="ot">Matrix</span><span class="co">](80_matrix.qmd)</span>|<span class="co">[</span><span class="ot">Object</span><span class="co">](81_object.qmd)</span>| <span class="co">&lt;!-- [Learning](90_learning.qmd)| compression or prey --&gt;</span></span>
-<span id="cb1-41"><a href="#cb1-41"></a>|0bX|11/03|<span class="co">[</span><span class="ot">`None`</span><span class="co">](https://events.willamette.edu/e/7358)</span>|<span class="co">[</span><span class="ot">Falsify</span><span class="co">](91_false.qmd)</span>|</span>
-<span id="cb1-42"><a href="#cb1-42"></a>|0xA|11/10|<span class="co">[</span><span class="ot">XOR</span><span class="co">](A0_xor.qmd)</span>|<span class="co">[</span><span class="ot">Compression</span><span class="co">](A1_compress.qmd)</span>| <span class="co">&lt;!-- XOR --&gt;</span></span>
-<span id="cb1-43"><a href="#cb1-43"></a>|0xB|11/17|<span class="co">[</span><span class="ot">Markov</span><span class="co">](B0_markov.qmd)</span>|<span class="co">[</span><span class="ot">Sonnet</span><span class="co">](C1_sonnet.qmd)</span>| </span>
-<span id="cb1-44"><a href="#cb1-44"></a>|0xC|11/24|<span class="co">[</span><span class="ot">Prompts</span><span class="co">](C0_prompt.qmd)</span>|<span class="co">[</span><span class="ot">`None`</span><span class="co">](https://events.willamette.edu/e/7373)</span>|| </span>
+<span id="cb1-41"><a href="#cb1-41"></a>|0bX|11/03|<span class="co">[</span><span class="ot">`None`</span><span class="co">](https://events.willamette.edu/e/7358)</span>|<span class="co">[</span><span class="ot">Nightmare</span><span class="co">](82_nightmare.md)</span>|</span>
+<span id="cb1-42"><a href="#cb1-42"></a>|0xA|11/10|<span class="co">[</span><span class="ot">Learning</span><span class="co">](90_learning.qmd)</span>|<span class="co">[</span><span class="ot">Training</span><span class="co">](91_train.qmd)</span>|</span>
+<span id="cb1-43"><a href="#cb1-43"></a>|0xB|11/17|<span class="co">[</span><span class="ot">XOR</span><span class="co">](A0_xor.qmd)</span>|<span class="co">[</span><span class="ot">Compression</span><span class="co">](A1_compress.qmd)</span>| <span class="co">&lt;!-- XOR --&gt;</span></span>
+<span id="cb1-44"><a href="#cb1-44"></a>|0xC|11/24|<span class="co">[</span><span class="ot">Markov</span><span class="co">](B0_markov.qmd)</span>|<span class="co">[</span><span class="ot">`None`</span><span class="co">](https://events.willamette.edu/e/7373)</span>|| </span>
 <span id="cb1-45"><a href="#cb1-45"></a>|0xD|12/01|<span class="co">[</span><span class="ot">Cloud</span><span class="co">](D0_cloud.qmd)</span>|<span class="co">[</span><span class="ot">Perspectives</span><span class="co">](D1_perspect.qmd)</span>|</span>
 <span id="cb1-46"><a href="#cb1-46"></a></span>
 <span id="cb1-47"><a href="#cb1-47"></a>*The final is described <span class="co">[</span><span class="ot">here</span><span class="co">](Z_final.qmd)</span> and is due <span class="co">[</span><span class="ot">Monday, December 7th at 11:00 a.m.</span><span class="co">](https://my.willamette.edu/site/registrar/info/mywu-summative-evaluations)</span>.</span>
