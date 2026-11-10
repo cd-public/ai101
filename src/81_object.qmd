@@ -1,0 +1,374 @@
+---
+title: Object
+format: html
+---
+
+## Connections
+
+In our lecture, we introduced the *matrix* as a way to express edge weights in a **multi-class** classifier.
+
+We recall:
+
+> [Classification is the activity of assigning objects to some pre-existing classes or categories. This is distinct from the task of establishing the classes themselves (for example through cluster analysis). Examples include diagnostic tests, identifying spam emails and deciding whether to give someone a driving license.](https://en.wikipedia.org/wiki/Classification)
+
+We showed that, with a little bit of help, a matrix can be treated as a *multi-class perceptron*.
+
+## Definitions
+
+- Today, we will work with *code cells* of Colab to create a multi-class perceptron than can correctly classify dice when run.
+	- You may use Gemini to create code.
+- To do so, we will introduce *classes* and *objects*...
+    - As an alternative to *functions*.
+
+::: {.callout-note}
+
+[A **function** is a special relation or method connecting each member of some collection A to a unique member of some collection B via a defined relation.](https://www.geeksforgeeks.org/maths/what-is-a-function/)
+
+:::
+
+::: {.callout-note}
+
+[A **class** is a blueprint or template used to create objects. It defines the structure that specifies the data members (attributes) and functions (methods) an object will contain.](https://www.geeksforgeeks.org/dsa/class-and-object-for-data-structure/)
+
+:::
+
+::: {.callout-note}
+
+[An object is an instance of a class. It represents a real-world entity created using the class blueprint](https://www.geeksforgeeks.org/dsa/class-and-object-for-data-structure/)
+
+:::
+
+### Aside
+
+- I personally find objects a deeply unnatural way to regard perception.
+    - Think of the act of perceiving as a verb, or action, which can be implemented as a function.
+- The competing formulation is to think of a noun, or thing.
+    - This would be the perceptron itself!
+- If this feels unnatural to you, that is okay!
+    - We introduce objects to prepare you for possible future courses, but...
+    - If you are not taking those courses, you don't need to worry about them.
+    
+### Mechanics
+
+- In code cells, we can both *define* classes and *instantiate* objects of some class..
+  	- We *define* functions with the `class` keyword. This determines would combination of information is contained within a class.
+        - For example, "integer" is a class, objects of which contain a numeric value but also the operations of plus, minus, times, etc.
+        - For example, "list" is a class, objects of which contain a collection of other objects.
+        - We note that different objects of same class may take on different values.
+	- We *instantiate* objects of some class using the name of that class. This is how we can create different objects and use them separate, such as having more than one numeric value that we can add together.
+        - For example, `7` is an object of class integer.
+        - For example, `9` is an object of class integer, but not the same object as `7`.
+        - Same class, different object.
+- Many values in Colab and/or Python are objects of some class.
+
+### Anatomy of a definition
+
+```{python}
+class OrderedPair:
+
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+```
+
+By convention, classes are named with CapitalizeNamesWithNoSpace.
+
+1. First, the `class` keyword allows us to define a class. We follow `def` with a space.
+2. Next, we provide the name of our class. This name is like a variable name in mathematics, and can be whatever we want. I use `OrderedPair` but could just as easily call the function `Pair` or `Couplet` or even something that doesn't make sense, like `ColorlessIdea`.
+3. Then, we end the first line with a colon `:`, go to a new line, and indent (usually with 4 spaces - Colab will handle this automatically).
+4. Within the class - that is, where indented - we may define any number of a special kind of function called a *method*. These functions are identical to other functions except they are required to take one special argument before all other arguments called `self` - essentially, these are functions that must receive some object of the class in which they are defined. 
+5. Some special methods are called *dunder methods* for "double underscore". These are methods that have special names and are "called" (that is, the code within them is run) at special times. The `__init__` *dunder method* is run whenever a new object of class `OrderedPair` is insantiated.
+
+We can create a new object of class `OrderedPair` containing the pair $(4, 2)$ as follows:
+
+### Anatomy of instantiation
+
+```{python}
+my_ordered_pair = OrderedPair(4, 2)
+```
+
+
+Calling is not so complicated as defining, we simply take the class name and postpend a collection of values (again, with parentheses `()` and separated by commas `,`). We need one value for each argument of the `__init__` method *other* than `self`, so in our case one each for `x` and `y`.
+
+If we try to take a look however:
+
+```{python}
+print(my_ordered_pair)
+```
+
+Ew!
+
+### Anatomy of a Dunder Method
+
+- I provided on *dunder method* already - `__init__`, but let's step through the process.
+- *Dunder methods* are also called "magic methods" because they make exactly as much sense as magic.
+    - [Read more](https://www.geeksforgeeks.org/python/dunder-magic-methods-python/)
+- After `__init__`, which we need to be able to create an `OrderedPair` at all, the most common *dunder methods* is `__str__`, which controls how an object of the class will appear if printed.
+- Let's look at an example.
+    - We we redefine `OrderedPair`, keeping all original components.
+    - We will add a new `__str__` method.
+        - Beneath `__init__`.
+        - Separated by at least one line.
+        - We add the required `self` argument, which refers to the object of the class.
+        - We note that, unlike `__init__`, the sole argument to the method is `self`, since we are not changing `x` or `y` and just want to reveal what `self` looks like.
+    - Inside `__str__` we will use code to determine how the `OrderedPair` shoudld look.
+        - By convention, it is common to include the name of the class.
+        - By convention, it is common to include any internal values, in this case `x` and `y`.
+        - By convention, we will enclose the internal values in parentheses, just as when we *instantiated* the object.
+        - Unlike `__init__` we will have to return the representation, so we include a return statement.
+        - I will use the built-in `str` functions to get the representation of `x` and `y` - this just uses the `__str__` method for whatever `x` and `y` are in this case.
+
+```{python}
+class OrderedPair:
+
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+        
+    def __str__(self):
+        class_name = "OrderedPair"
+        x_name = str(self.x)
+        y_name = str(self.y)
+        return class_name + "(" + x_name + ", " + y_name + ")"
+```
+
+Let's see if that looks any better:
+
+```{python}
+my_ordered_pair = OrderedPair(4, 2)
+print(my_ordered_pair)
+```
+
+### Exciting Dunder Methods
+
+- One of the coolest things about *dunder methods* is we can use them to program how objects respond to common operations like plus, minus, times, and more.
+- We do so using, for example, `__add__` for plus (`+`), `__mul__` for times (`*`), etc.
+- I am only planning to use those two for now!
+- Say when adding together two `OrderedPair` objects, we want to do the pairwise sum, adding the x values to each other, the values to each other, and returning a new `OrderedPair` with the sums.
+- We would:
+    - Define the `__add__` dunder method with two arguments.
+        - We are adding two things together!
+        - The first must be `self`, as always.
+        - I just all the second `other`, the "other" `OrderedPair` object.
+    - We look up the `x` and `y` values of each using "dot notation".
+        - We take the name of the object.
+        - We append a dot character, `.`
+        - We append the name of the value inside the object, in this case `x` or `y`.
+    - We add the values together.
+    - We return a new object using the classname, and provide the new values.
+
+```{python}
+class OrderedPair:
+
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+        
+    def __str__(self):
+        class_name = "OrderedPair"
+        x_name = str(self.x)
+        y_name = str(self.y)
+        return class_name + "(" + x_name + ", " + y_name + ")"
+        
+    def __add__(self, other):
+        new_x = self.x + other.x
+        new_y = self.y + other.y
+        return OrderedPair(new_x, new_y)
+```
+
+- We can try this out.
+
+```{python}
+pair_a = OrderedPair(4,2)
+pair_b = OrderedPair(3,4)
+print(pair_a + pair_b)
+```
+
+## First Exercise
+
+- In a code cell in your lab notebook for today, create `__mul__` which multiples pairwise.
+
+<details>
+<summary>Spoiler Alert: Expand to see one solution!</summary>
+
+```{python}
+class OrderedPair:
+
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+        
+    def __str__(self):
+        class_name = "OrderedPair"
+        x_name = str(self.x)
+        y_name = str(self.y)
+        return class_name + "(" + x_name + ", " + y_name + ")"
+        
+    def __add__(self, other):
+        new_x = self.x + other.x
+        new_y = self.y + other.y
+        return OrderedPair(new_x, new_y)
+        
+    def __mul__(self, other):
+        return OrderedPair(self.x * other.x, self.y * other.y)
+```
+
+</details>
+
+- If you do your work properly, you should be able to do the following:
+
+
+```{python}
+pair_a = OrderedPair(4,2)
+pair_b = OrderedPair(3,4)
+print(pair_a * pair_b)
+```
+
+## Our Goal
+
+### Last Time
+
+- Last time, we created a function, I called mine `classify`, that can take the following dice:
+
+```{python}
+one = [0,0,0,0,1,0,0,0,0]
+two = [0,0,1,0,0,0,1,0,0]
+thr = [0,0,1,0,1,0,1,0,0]
+fou = [1,0,1,0,0,0,1,0,1]
+fiv = [1,0,1,0,1,0,1,0,1]
+six = [1,0,1,1,0,1,1,0,1]
+```
+
+- It is then a simple matter to:
+
+1. Sum
+2. Add a bias, or not (I didn't)
+3. Apply a piecewise or indicator function to get a `1` or `0` - I'll just show you how to do this.
+   
+```{.python}
+def one_classifier(d):
+	is_one_vector = np.array([-1,-1,-1,-1,1,-1,-1,-1,-1])
+	return sum(np.array(d) * is_one_vector) >= 1
+```
+
+- This:
+  	- Takes some dice, `d`
+	- Has some vector, `is_one_vector`.
+	- Makes both into NumPy arrays.
+	- Multiplies them.
+	- Sums them.
+	- Compares the result to one, to see if it is greater-than-or-equal to.
+- We note that this is *identical* to the formulation of neurons covered in class.
+
+### This Time
+
+- We will do the same with objects, using a `Neuron` class.
+- Instead of having some `x` and `y`, it should have some `weights` (which will be a collection of elements) and some `bias`.
+- It should have some `__str__` dunder method.
+- It should have `__mul__` dunder method that performs binary classification.
+    - When multiplying a `Neuron` by some die, it should return `0` or `1`.
+    
+<details>
+<summary>Spoiler Alert: Expand to see one solution!</summary>
+
+```{python}
+class Neuron:
+
+    def __init__(self, weights, bias):
+        self.weights = weights
+        self.bias = bias
+
+    def __repr__(self):
+        return "Neuron" + str(self.weights)
+
+    def __mul__(self, other):
+        count = 0
+        for i in range(len(self.weights)):
+            count = count + self.weights[i] * other[i]
+        return int(count >= self.bias)
+```
+
+</details>
+
+- We can take a look at a neuron, and...
+
+```{python}
+is_three = Neuron([-1/3, -1/3,  1/3, -1/3,  1/3, -1/3,  1/3, -1/3, -1/3], 1)
+print(is_three)
+```
+
+- We can see if a neuron activates on some input...
+
+```{python}
+for die in [one, two, thr, fou, fiv, six]:
+    print(is_three * die)
+```
+
+- Just a note for your testing: **the neuron must be first**.
+    - This is for an annoying reason that is out of scope for now.
+
+## Your Task
+
+- Write the `Neuron` class.
+
+
+<details>
+<summary>Advanced Students</summary>
+
+Write the `Layer` class, which performs multi-class classification.
+
+- If you invoke the following:
+
+```{.python}
+l = Layer([
+    [-1/1, -1/1, -1/1, -1/1,  1/1, -1/1, -1/1, -1/1, -1/1],
+    [-1/2, -1/2,  1/2, -1/2, -1/2, -1/2,  1/2, -1/2, -1/2],
+    [-1/3, -1/3,  1/3, -1/3,  1/3, -1/3,  1/3, -1/3, -1/3],
+    [ 1/4, -1/4,  1/4, -1/4, -1/4, -1/4,  1/4, -1/4,  1/4],
+    [ 1/5, -1/5,  1/5, -1/5,  1/5, -1/5,  1/5, -1/5,  1/5],
+    [ 0/6,  3/6,  0/6,  3/6, -6/6,  3/6,  0/6,  3/6,  0/6],
+])
+
+print(l)
+
+for die in [one, two, thr, fou, fiv, six]:
+    print(l * die)
+```
+
+- You should get the following result:
+
+```{.python}
+Layer(
+        Neuron[-1.0, -1.0, -1.0, -1.0, 1.0, -1.0, -1.0, -1.0, -1.0]
+        Neuron[-0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5]
+        Neuron[-0.3333333333333333, -0.3333333333333333, 0.3333333333333333, -0.3333333333333333, 0.3333333333333333, -0.3333333333333333,
+ 0.3333333333333333, -0.3333333333333333, -0.3333333333333333]
+        Neuron[0.25, -0.25, 0.25, -0.25, -0.25, -0.25, 0.25, -0.25, 0.25]
+        Neuron[0.2, -0.2, 0.2, -0.2, 0.2, -0.2, 0.2, -0.2, 0.2]
+        Neuron[0.0, 0.5, 0.0, 0.5, -1.0, 0.5, 0.0, 0.5, 0.0]
+)
+[1, 0, 0, 0, 0, 0]
+[0, 1, 0, 0, 0, 0]
+[0, 0, 1, 0, 0, 0]
+[0, 0, 0, 1, 0, 0]
+[0, 0, 0, 0, 1, 0]
+[0, 0, 0, 0, 0, 1]
+```
+
+- You should also probably write a "pretty print" for Neuron better than that.
+    - Here's mine.
+    
+```{.python}
+Layer(
+        Neuron(-1.00 -1.00 -1.00 -1.00 +1.00 -1.00 -1.00 -1.00 -1.00)
+        Neuron(-0.50 -0.50 +0.50 -0.50 -0.50 -0.50 +0.50 -0.50 -0.50)
+        Neuron(-0.33 -0.33 +0.33 -0.33 +0.33 -0.33 +0.33 -0.33 -0.33)
+        Neuron(+0.25 -0.25 +0.25 -0.25 -0.25 -0.25 +0.25 -0.25 +0.25)
+        Neuron(+0.20 -0.20 +0.20 -0.20 +0.20 -0.20 +0.20 -0.20 +0.20)
+        Neuron(+0.00 +0.50 +0.00 +0.50 -1.00 +0.50 +0.00 +0.50 +0.00)
+)
+```
+
+- Students still seeking additional challenges should implement all function bodies in a single line, likely using list comprehensions.
+
+</details>

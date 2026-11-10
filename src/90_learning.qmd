@@ -133,7 +133,7 @@ print(multi)
 
 ## Encoding
 
-- To do so, we recognized we could view dice with as few as nice (`9`) "sensory neurons.
+- To do so, we recognized we could view dice with as few as nine (`9`) "sensory neurons".
 
 ||||
 |-|-|-|
@@ -321,6 +321,47 @@ multi = np.array([
 ])
 ```
 
+## Lastly
+
+- Then, we noted we could express a neuron as an *object*.
+
+```{python}
+class Neuron:
+
+    def __init__(self, weights, bias):
+        self.weights = np.array(weights)
+        self.bias = bias
+
+    def __repr__(self):
+        return "Neuron" + str(self.weights)
+
+    def __mul__(self, other):
+        return int(np.sum(self.weights * other) >= self.bias)
+```
+
+## Example
+
+- We can make, say, the neuron that recognizes ⚄
+
+```{python}
+is_fiv = Neuron([ 1/5, -1/5,  1/5, -1/5,  1/5, -1/5,  1/5, -1/5,  1/5], 1)
+print(is_fiv)
+```
+
+## Try it
+
+- We can verify the neuron "recognizes" ⚄
+
+```{python}
+is_fiv * fiv
+```
+
+- But nothing else...
+
+```{python}
+is_fiv * thr
+```
+
 # Learning
 
 ## My claim
@@ -345,7 +386,7 @@ multi = np.array([
 - I do, however, claim, that this is pretty close to being intelligent:
 
 ```{python}
-1 <= np.sum(fiv * multi,1)
+is_fiv * fiv
 ```
 
 - As a *method*, it could theoretically recognize anything.
@@ -398,6 +439,29 @@ multi = np.array([
 multi.shape
 ```
 
+## Layer
+
+- We would instead view this as what is usually called a *layer* of neurons.
+- It's just a collection of neurons, in no particular order.
+```{python}
+layer = np.array([
+    Neuron([-1/1, -1/1, -1/1, -1/1,  1/1, -1/1, -1/1, -1/1, -1/1], 1),
+    Neuron([-1/2, -1/2,  1/2, -1/2, -1/2, -1/2,  1/2, -1/2, -1/2], 1),
+    Neuron([-1/3, -1/3,  1/3, -1/3,  1/3, -1/3,  1/3, -1/3, -1/3], 1),
+    Neuron([ 1/4, -1/4,  1/4, -1/4, -1/4, -1/4,  1/4, -1/4,  1/4], 1),
+    Neuron([ 1/5, -1/5,  1/5, -1/5,  1/5, -1/5,  1/5, -1/5,  1/5], 1),
+    Neuron([ 0/6,  3/6,  0/6,  3/6, -6/6,  3/6,  0/6,  3/6,  0/6], 1),
+])
+```
+
+## View it
+
+- It looks a bit goofy!
+
+```{python}
+print(layer)
+```
+
 ## Randomize
 
 - Rather than using our own intelligence to create the matrix...
@@ -419,6 +483,43 @@ learn = np.random.rand(6,9)
 print(learn)
 ```
 
+## As Neurons
+
+- We can make this a bit simpler by considering neurons.
+- We introduce the notion of *defaults*
+- They would look like this:
+
+```{.python}
+    def __init__(self, weights=np.random.rand(9), bias=1):
+```
+
+- By using *single equals assignment* within the *dunder method declaration*
+    - Say that three times fast.
+- We can provide arguments to the method that are defaults.
+    
+## Like This
+
+- Rewrite neuron, and 
+
+```{python}
+class Neuron:
+
+    def __init__(self, weights=np.random.rand(9), bias=1):
+        self.weights = np.array(weights)
+        self.bias = bias
+
+    def __repr__(self):
+        return "Neuron" + str(self.weights)
+
+    def __mul__(self, other):
+        return int(np.sum(self.weights * other) >= self.bias)
+```
+
+```{python}
+rand_n = Neuron()
+print(rand_n)
+```
+
 ## Check it out!
 
 :::: {.columns}
@@ -429,7 +530,7 @@ print(learn)
 
 ```{python}
 for die in dice:
-    print(1 <= np.sum(die * multi,1))
+    print(is_fiv * die)
 ```
 
 :::
@@ -440,18 +541,18 @@ for die in dice:
 
 ```{python}
 for die in dice:
-    print(1 <= np.sum(die * learn,1))
+    print(rand_n * die)
 ```
 
 :::
 
 ::::
 
+- Random is... not as good!
+
 ## What happened?
 
 - Well, we multiplied each of the **nine** possible places for a dot in a die by *something*.
-- Actually, we did this **six** times - one for each possible *classification*
-    - We classify a die as a "one" or a "three"
 - For each of these **six** classes, we summed up the **nine** products 
     - The presence of dot multiplied by importance of dot, for all dots.
 
@@ -468,75 +569,6 @@ for die in dice:
 - In this case, we engage in *supervised* learning.
     - We know the answer.
     - We can compare against the answer.
-- This is the answer:
-
-```{python}
-for die in dice:
-    print(1 <= np.sum(die * multi,1))
-```
-
-## The key
-
-- I make an answer key quickly.
-
-```{python}
-1 <= dice @ multi.transpose()
-```
-
-- We "transpose" the key to make the dimensions line up.
-- `@` is the special NumPy "operator" for matrix multiplication.
-    - Multiple rows times columns, then sum them up.
-    
-```{python}
-key = 1 <= dice @ multi.transpose()
-```
-
-## Compare
-
-- We can compare the answer key to the current results from random guessing.
-- We use `np.equal` to compare all of the matrix positions to see if they are equal.
-
-```{python}
-np.equal(key, 1 <= dice @ learn.transpose())
-```
-
-- We want *all* of these to be true - the learned matrix should be just as good as our own intelligence!
-
-## Insight
-
-- We note that is often the case that there are many correct guesses for one.
-    - After all, it is unlikely that the randomization produces values high enough to sum to one given a single dot.
-- We note that is often the case that there are many incorrect guesses for six.
-    - After all, it is unlikely that the randomization produces values high enough to sum to six given a single dot.
-    
-## Problem
-
-- Just for this class and to make things easier, we modify the dice so they all sum to one.
-    - So, `six`, which previously had six dots multiplied by one, now has 6 dots mulitiplied by $\frac{1}{6}$ each.
-- We started with this:
-
-```{python}
-dice
-```
-
-## Solution
-
-- I just want to divide each die by how many dots it has.
-- I frustrating have to transpose there and back to get the multiplication to work...
-
-```{python}
-divider = np.array([1,2,3,4,5,6]).reshape(1,6)
-fair_dice = (dice.transpose() / divider).transpose()
-fair_dice
-```
-
-## Check it now
-
-- These should make the random guessing more, well, random...
-
-```{python}
-np.equal(key, 1 <= fair_dice @ learn.transpose())
-```
 
 # Learning
 
@@ -546,560 +578,476 @@ np.equal(key, 1 <= fair_dice @ learn.transpose())
 - We will go over every classification.
     - If it is the same as the answer key, we will "reward" the row - increasing its weights.
     - If it differs, we will decrease the weights.
-- I will do this by 10%.
+    
+## Writing it out
+
+- No real way around using code for this as far as I know.
+    
+## Writing it out
+
+- No real way around using code for this as far as I know.
+- We'll add a new method to our object, call it `learn`
+    - Learn is not a *dunder method*.
+    - Just like a regular function, but...
+    - Must take `self` since it's a function *inside* of a neuron.
+
+```{.python}
+    def learn(self...
+```
+
+## Using learn
+
+- When we're done, we'll use it using "dot notation".
+    - Take the *name of the object*
+    - Suffix it with a "dot" `.`
+    - Append the name of the *method*
+    - Then provide any arguments etc.
+
+```{.python}
+rand_n.learn(...
+```
+
+- We'll get there!
+
+## Using dunder methods
+
+- It is possible to use dunder methods the same way, it is just extremely ugly.
+
+```{python}
+x = 2
+x.__add__(2)
+```
+
 
 ## Writing it out
 
 - No real way around using code for this as far as I know.
-- First, we'll make a copy of our original random thing to compare against.
-- Then we'll loop - using `for` - over all the classifications and update accordingly.
+- We'll add a new method to our object, call it `learn`
+- It will:
+    - Take some perceived vector of values
 
-```{python}
-backup = learn.copy()
+```{.python}
+    def learn(self, perceived...
 ```
 
-## Steps
 
-:::: {.columns}
 
-::: {.column width="50%"}
 
-- Check the answer.
-    - Print them for now, to see them.
+## Writing it out
 
-:::
+- No real way around using code for this as far as I know.
+- We'll add a new method to our object, call it `learn`
+- It will:
+    - Take some perceived vector of values, and
+    - Take what the right answer is
 
-::: {.column width="50%"}
-
-```{python}
-grade = np.equal(key, 1 <= fair_dice @ learn.transpose())
-print(grade)
+```{.python}
+    def learn(self, perceived, answer):
 ```
 
-:::
-
-::::
-
-## Steps
-
-:::: {.columns}
-
-::: {.column width="50%"}
-
-- Check the answer.
-- Loop over rows
-    - Print them for now, to see them.
-    - The first row shows how the "one" die is classified.
-    - The first entry in each row shows whether a die is classified as a "one"
-
-:::
-
-::: {.column width="50%"}
-
-```{python}
-grade = np.equal(key, 1 <= fair_dice @ learn.transpose())
-for row in grade:
-    print(row)
-```
-
-:::
-
-::::
-
-## Steps
-
-:::: {.columns}
-
-::: {.column width="50%"}
-
-- Check the answer.
-- Loop over rows
-- Loop over correctnesses.
-
-:::
-
-::: {.column width="50%"}
-
-```{python}
-grade = np.equal(key, 1 <= fair_dice @ learn.transpose())
-for row in grade:
-    for correct in row:
-        print(correct)
-```
-
-:::
-
-::::
-
-## Steps
-
-:::: {.columns}
-
-::: {.column width="50%"}
-
-- Check the answer.
-- Loop over rows
-- Loop over correctnesses.
-- If correct...
-    - Increase... something?
-
-:::
-
-::: {.column width="50%"}
-
-```{python}
-grade = np.equal(key, 1 <= fair_dice @ learn.transpose())
-for row in grade:
-    for correct in row:
-        if correct:
-            print("What goes here?")
-```
-
-:::
-
-::::
-
-## We know
-
-- If a guess in a certain row is correct:
-    - It was predicted by something.
-    - That something was the random guesses.
-    - But not *all* of the random guesses...
-    - Just values that are multiplied to get that row.
-- So we want to increase (or decrease) the row at the same address.
-- How?
-
-## Enumerate
-
-- We can use the special `enumerate` function to get back a row and its location with in the matrix.
-
-```{python}
-for loc, row in enumerate(grade):
-    print("Location is", loc, "and row is", row)
-```
-
-## Enumerate
-
-- We can use the special `[]` notation to look up the part of the learning matrix that corresponds to the same row.
-
-```{python}
-for loc, row in enumerate(grade):
-    print("Location is", loc, "and row is", row, "and weights are", learn[loc])
-```
-
-## Steps
-
-:::: {.columns}
-
-::: {.column width="50%"}
-
-- Check the answer.
-- Loop over rows
-- Loop over correctnesses.
-- If correct...
-    - Increase that row.
-
-:::
-
-::: {.column width="50%"}
-
-```{python}
-grade = np.equal(key, 1 <= fair_dice @ learn.transpose())
-for loc, row in enumerate(grade):
-    for correct in row:
-        if correct:
-            learn[loc] * 1.1
-```
-
-:::
-
-::::
-
-## Check it out
-
-:::: {.columns}
-
-::: {.column width="50%"}
-
-- Old ("`backup`")
-
-```{python}
-np.equal(key, 1 <= fair_dice @ backup.transpose())
-```
-
-:::
-
-::: {.column width="50%"}
-
-- New ("`learn`")
-
-```{python}
-np.equal(key, 1 <= fair_dice @ learn.transpose())
-```
-
-:::
-
-::::
-
-## Not much better
-
-- We should do more.
-- But first, we begin again from our backup.
-- We don't want to mix different experiments together.
-```{python}
-learn = backup.copy()
-```
-
-## Steps
-
-:::: {.columns}
-
-::: {.column width="50%"}
-
-- Check the answer.
-- Loop over rows
-- Loop over correctnesses.
-- If correct...
-    - Increase that row.
-- Otherwise...
-    - Decrease that row.
-
-:::
-
-::: {.column width="50%"}
-
-```{python}
-learn = backup.copy()
-grade = np.equal(key, 1 <= fair_dice @ learn.transpose())
-for loc, row in enumerate(grade):
-    for correct in row:
-        if correct:
-            learn[loc] = learn[loc] * 1.1
-        else: 
-            learn[loc] = learn[loc] * .9
-```
-
-:::
-
-::::
-
-
-## Better?
-
-```{python}
-(1 <= fair_dice @ learn.transpose()) + 0
-```
-- Recall we want a diagonal of `1` here.
-- (I use `+ 0` to turn into numbers so the array is smaller and easier to read)
-- (`True + 0` is `1` and `False + 0` is `0` - don't worry about it)
-- Doesn't look intelligent to me.
-
-## We recognize
-
-- We don't need to increase or decrease *entire rows*
-- Rather, we know which of the nine dots has a nonzero value...
-- And therefore which of the nine weights is contributing to a classification.
-- So, rather than increase a row by 10%, increase or decrease the relevant weights only.
-
-## Steps
-
-:::: {.columns}
-
-::: {.column width="50%"}
-
-- Check the answer.
-- Loop over rows
-- Loop over correctnesses.
-- If correct...
-    - Increase relevant.
-- Otherwise...
-    - Decrease relevant.
-
-:::
-
-::: {.column width="50%"}
-
-```{python}
-learn = backup.copy()
-grade = np.equal(key, 1 <= fair_dice @ learn.transpose())
-for loc, row in enumerate(grade):
-    for correct in row:
-        if correct:
-            learn[loc] = learn[loc] + dice[loc]
-        else: 
-            learn[loc] = learn[loc] - dice[loc]
-(1 <= fair_dice @ learn.transpose()) + 0
-```
-
-- Recall we want a diagonal of `1` here.
-
-:::
-
-::::
-
-## One Problem
-
-- We may guess correctly too often.
-    - Given two equally likely choices, 50% chance.
-    - But we only want *one* classification of *six* - ~17% chance.
-- We can bias against guessing by... increasing the bias!
-
-:::: {.columns}
-
-::: {.column width="33%"}
-
-```{python}
-(3 <= fair_dice @ learn.transpose()) + 0
-```
-
-:::
-
-::: {.column width="33%"}
-
-```{python}
-(4 <= fair_dice @ learn.transpose()) + 0
-```
-
-:::
-
-::: {.column width="33%"}
-
-```{python}
-(5 <= fair_dice @ learn.transpose()) + 0
-```
-
-:::
-
-::::
-
-## Looking good?
-
-- This looked awfully good to me.
-
-```{python}
-(4 <= fair_dice @ learn.transpose()) + 0
-```
-
-- If this was an exam the percentage would be a...
-
-```{python}
-compare_to_key = np.equal(4 <= fair_dice @ learn.transpose(), key)
-np.count_nonzero(compare_to_key) / compare_to_key.size
-```
-
-## Compare
-
-:::: {.columns}
-
-::: {.column width="50%"}
-
-- Initially...
-
-```{python}
-compare_to_random = np.equal(1 <= fair_dice @ backup.transpose(), key)
-print(np.count_nonzero(compare_to_random) / compare_to_random.size)
-```
-:::
-
-::: {.column width="50%"}
-
-- After learning...
-
-```{python}
-compare_to_key = np.equal(4 <= fair_dice @ learn.transpose(), key)
-print(np.count_nonzero(compare_to_key) / compare_to_key.size)
-```
-
-:::
-
-::::
-
-- Wait... isn't that worse?
-
-## Precision and Recall
-
-- Precision and recall are then defined as:
-
-$$
-\begin{align}
-  \text{Precision} &= \frac{tp}{tp + fp} \\
-     \text{Recall} &= \frac{tp}{tp + fn} \,
-\end{align}
-$$
-
-- *Precision* is the number of true positives among the predicted positives.
-- *Recall* is the number of true positives among the actual positives.
-
-## True Positive Detection
-
-:::: {.columns}
-
-::: {.column width="50%"}
-
-- Initially...
-
-```{python}
-guesses = 1 <= fair_dice @ backup.transpose()
-true_positive = 0
-for loc, row in enumerate(guesses):
-    if row[loc]:
-        true_positive = true_positive + 1
-print(true_positive / 6)
-```
-:::
-
-::: {.column width="50%"}
-
-- After learning...
-
-```{python}
-guesses = 4 <= fair_dice @ learn.transpose()
-true_positive = 0
-for loc, row in enumerate(guesses):
-    if row[loc]:
-        true_positive = true_positive + 1
-print(true_positive / 6)
-```
-
-:::
-
-::::
-
-- Count along the diagonal.
-- We go from zero to all true positives.
-
-## How?
-
-- Initially, randomization simply predicted *no classes at all for anything*.
-
-```{python}
-1 <= fair_dice @ backup.transpose()
-```
-
-- Now, at least, we capture the diagonal and aren't too far off from here.
-
-
-## More to Come
-
-- I think today was a lot.
-- We will play around with this a bit in the lab then return next week.
-- To reduce *false positives*
-
-## FIN
-
-:::: {.columns}
-
-::: {.column width="33%"}
-
-```{python}
-(3.5 <= fair_dice @ learn.transpose()) + 0
-```
-
-:::
-
-::: {.column width="33%"}
-
-```{python}
-(4.0 <= fair_dice @ learn.transpose()) + 0
-```
-
-:::
-
-::: {.column width="33%"}
-
-```{python}
-(4.5 <= fair_dice @ learn.transpose()) + 0
-```
-
-:::
-
-::::
-
-- Bias is not enough!
-
-
-<!--
-
-- 
+## Writing it out
+
+- No real way around using code for this as far as I know.
+- We'll add a new method to our object, call it `learn`
+- It will:
+    - Take some perceived vector of values, and
+    - Take what the right answer is, and then
+    - Update it's weights.
+
+## Updating Weights
+
+- This isn't too bad.
+- We'll
+    - Compute how "excited" the neuron would be with the current weights.
     
-## Steps
-
-:::: {.columns}
-
-::: {.column width="50%"}
-
-- Check the answer.
-- Loop over rows
-- Loop over correctnesses.
-- If correct...
-    - Increase that row a lot.
-- Otherwise...
-    - Decrease that row a little.
-
-:::
-
-::: {.column width="50%"}
-
-```{python}
-learn = backup.copy()
-grade = np.equal(key, 1 <= fair_dice @ learn.transpose())
-for loc, row in enumerate(grade):
-    for correct in row:
-        if correct:
-            learn[loc] = learn[loc] * 6
-        else: 
-            learn[loc] = learn[loc] * (5/6)
+```{.python}
+    def learn(self, perceived, answer):
+        self * perceived
 ```
 
-:::
+## Updating Weights
 
-::::
+- This isn't too bad.
+- We'll
+    - See if we're already doing it right, using *double equals comparison*
 
-## Better?
-
-```{python}
-np.equal(key, 1 <= fair_dice @ learn.transpose()) + 0
+```{.python}
+    def learn(self, perceived, answer):
+        if answer == self * perceived
 ```
 
-- (I use `+ 0` to turn into numbers so the array is smaller and easier to read)
-- (`True + 0` is `1` and `False + 0` is `0` - don't worry about it)
-- What if we just... keep studying.
 
-## Steps
+## Updating Weights
 
-:::: {.columns}
+- This isn't too bad.
+- We'll
+    - See if we're already doing it right, using *double equals comparison*
+    - If so, we're all done, we return.
 
-::: {.column width="50%"}
-
-
-- Loop over rows
-- Loop over correctnesses.
-- If correct...
-    - Increase that row a lot.
-- Otherwise...
-    - Decrease that row a little.
-- Repeat 100x
-
-:::
-
-::: {.column width="50%"}
-
-```{python}
-learn = backup.copy()
-for i in range(1000):
-    grade = np.equal(key, 1 <= fair_dice @ learn.transpose())
-    for loc, row in enumerate(grade):
-        for correct in row:
-            if correct:
-                learn[loc] = learn[loc] * (6 ** (1/5))
-            else: 
-                learn[loc] = learn[loc] / 6
-print(np.equal(key, 1 <= fair_dice @ learn.transpose()) + 0 )
-print(learn)
+```{.python}
+    def learn(self, perceived, answer):
+        if answer == self * perceived:
+            return
+        
 ```
 
-:::
 
-::::
+## Updating Weights
 
--->
+- Otherwise, we misfire.
+- Let's
+    - Compute how excited the neuron was.
+    - Compare to the bias (take a "delta")
+
+```{.python}
+    def learn(self, perceived, answer):
+        if answer == self * perceived:
+            return
+        delta = self.bias - np.sum(self.weights * perceived)
+```
+
+## Updating Weights
+
+- To determine the update amount, we
+    - Divide delta by how many things were perceived.
+    - Maybe add a little bit extra, like 10%. to avoid cutting it too close.
+
+```{.python}
+    def learn(self, perceived, answer):
+        if answer == self * perceived:
+            return
+        delta = self.bias - np.sum(self.weights * perceived)
+        each = 1.1 * delta / sum(perceived)
+            
+```
+
+## Updating Weights
+
+- If too much excitement...
+    - Fired when weren't supposed to
+    - Reduce the *relevant* weights by the roughly the delta amount
+    - *Ignore* the other weights.
+    - How?
+
+
+## Updating Weights
+
+- We only get excitement from things we perceive!
+    - Multiple `each`, how much "each" weight should change, by
+    - Things that were perceived!
+
+```{.python}
+    def learn(self, perceived, answer):
+        if answer == self * perceived:
+            return
+        delta = self.bias - np.sum(self.weights * perceived)
+        each = 1.1 * delta / sum(perceived)
+        update = each * np.array(perceived)
+            
+```
+
+## It would look like this.
+
+- Imagine random weights and an arbitrary bias, say, `3`.
+
+```{python}
+is_two = np.random.rand(9)
+bias = 3
+print(is_two)
+```
+
+- Does it correctly recognize two?
+
+```{python}
+print(sum(is_two * two) > bias)
+```
+
+## Well, what's the delta.
+
+- Compute delta
+
+```{python}
+delta = bias - sum(is_two * two)
+print(delta)
+```
+
+- How much do we change each weight by?
+
+```{python}
+each = 1.1 * delta / sum(two)
+print(each)
+```
+
+## What would we update by?
+
+- Recall, only change where we perceived values!
+
+```{python}
+update = each * np.array(two)
+print(update)
+```
+
+- Add these two the weights...
+
+```{python}
+is_two = is_two + update
+print(is_two)
+```
+
+## Check our work!
+
+- Does it correctly recognize two?
+
+```{python}
+print(sum(is_two * two) > bias)
+```
+
+- Only one problem!
+
+
+```{python}
+print(sum(is_two * thr) > bias)
+```
+
+- But, we can just keep updating.
+
+## Update for three
+
+- Compute delta
+
+```{python}
+delta = bias - sum(is_two * thr)
+each = 1.1 * delta / sum(thr)
+update = each * np.array(thr)
+is_two = is_two + update
+print(is_two)
+```
+
+- Check again.
+
+```{python}
+print(sum(is_two * thr) > bias)
+```
+
+## Updating Weights
+
+- Let's add that to our *method*
+
+```{.python}
+    def learn(self, perceived, answer):
+        if answer == self * perceived:
+            return
+        delta = self.bias - np.sum(self.weights * perceived)
+        each = 1.1 * delta / sum(perceived)
+        update = each * np.array(perceived)
+        self.weights = self.weights + update 
+```
+
+## Like This
+
+- Rewrite neuron class to include "learn"
+
+```{python}
+class Neuron:
+
+    def __init__(self, weights=np.random.rand(9), bias=1):
+        self.weights = np.array(weights)
+        self.bias = bias
+
+    def __repr__(self):
+        return "Neuron" + str(self.weights)
+
+    def __mul__(self, other):
+        return int(np.sum(self.weights * other) >= self.bias)
+        
+    def learn(self, perceived, answer):
+        if answer == self * perceived:
+            return
+        delta = self.bias - np.sum(self.weights * perceived)
+        each = 1.1 * delta / sum(perceived)
+        update = each * np.array(perceived)
+        self.weights = self.weights + update 
+```
+
+## Make a new neuron
+
+- Not two exciting.
+
+```{python}
+learner = Neuron()
+print(learner)
+```
+
+- Let's teach it to recognize ⚄ and nothing else
+
+```{python}
+for die in dice:
+    print(learner * die)
+```
+
+## Just have it learn...
+
+- Instead of just printing what it does...
+- Have it learn in each case.
+- We provide the goal.
+
+```{python}
+goal = [0, 0, 0, 0, 1, 0]
+```
+
+## Train steadily...
+
+- We can loop over all 6 things.
+
+```{python}
+for i in range(6):
+    learner.learn(dice[i], goal[i])
+```
+
+- Easier to see what we're working with if we print.
+
+```{python}
+for i in range(6):
+    print(dice[i], goal[i], learner * dice[i])
+```
+
+## Wait!
+
+- Isn't that still wrong?
+    - Those last two should be equal.
+    
+```{python}
+for i in range(6):
+    print(dice[i], goal[i], learner * dice[i])
+```
+
+- The problem:
+    - We trained on six last.
+    - We changed weights to not recognize six.
+    
+## Is that so?
+
+- Retrain five.
+
+```{python}
+learner.learn(fiv, 1)
+```
+
+- Check it
+
+```{python}
+for i in range(6):
+    print(dice[i], goal[i], learner * dice[i])
+```
+
+## Oh no!
+
+- Well now six is wrong again!
+    - Let's see what we have...
+    
+```{python}
+print(learner)
+```
+
+- And what did I make manually.
+
+```{python}
+print(is_fiv)
+```
+
+## The solution
+
+- What if we just train 100 times.
+
+```{python}
+for _ in range(100):
+    r = int(np.random.rand() * 6)
+    learner.learn(dice[r], goal[r])
+```
+
+- Closer?
+
+```{python}
+print(learner)
+```
+```{python}
+print(is_fiv)
+```
+
+## Stuck in our ways
+
+- Things didn't change at all!
+    - Training on five means we recognize five and six.
+    - Training on six means we don't recognize anything.
+- We have to reinforce correct guesses!
+    
+## Recall
+    
+- We just ignored correct classifications!
+
+```{.python}
+        if answer == self * perceived:
+            temp = perceived + .5
+            temp /= sum(perceived)
+            self.weights *= temp
+```
+
+- We want to strengthen correct weights (times 1.5)
+- And weaken incorrect (times .5)
+- But not weight toward six (more dots), so divide.
+
+## Like This
+
+- Rewrite!
+
+```{python}
+class Neuron:
+
+    def __init__(self, weights=np.random.rand(9), bias=1):
+        self.weights = np.array(weights)
+        self.bias = bias
+
+    def __repr__(self):
+        return "Neuron" + str(self.weights)
+
+    def __mul__(self, other):
+        return int(np.sum(self.weights * other) >= self.bias)
+        
+    def learn(self, perceived, answer):
+        if answer == self * perceived:
+            temp = perceived + .5
+            temp /= sum(perceived)
+            self.weights *= temp
+        else:
+            delta = self.bias - np.sum(self.weights * perceived)
+            each = delta / sum(perceived)
+            update = each * np.array(perceived)
+            self.weights = self.weights + update 
+```
+
+## Create and train...
+
+- We can skip a lot of steps now.
+
+```{python}
+learner = Neuron()
+
+for _ in range(1000):
+    r = int(np.random.rand() * 6)
+    learner.learn(dice[r], goal[r])
+```
+
+- Same printing we did earlier.
+
+```{python} 
+for i in range(6):
+    print(dice[i], goal[i], learner * dice[i])
+```
+
+## A note
+
+- I am randomizing this.
+    - The above often, but does not always work.
+    - To work every time, we have to use *calculus*.
+
+# Fin
