@@ -18,6 +18,8 @@ It took two things:
 Here is what we had at the end of class:
 
 ```{python}
+import numpy as np
+
 class Neuron:
 
     def __init__(self, weights=np.random.rand(9), bias=1):
@@ -73,7 +75,7 @@ learner = Neuron()
 
 - Then I wrote the following code:
 
-```{.python filename="This won't work on it's own!}
+```{.python}
 for _ in range(1000):
     r = int(np.random.rand() * 6)
     learner.learn(dice[r], goal[r])
@@ -185,12 +187,12 @@ print(dictionary["best"])
 
 ```{python}
 training_data = {
-    one: 0,
-    two: 0,
-    thr: 0,
-    fou: 0,
-    fiv: 1,
-    six: 0
+    0: one,
+    0: two,
+    0: thr,
+    0: fou,
+    1: fiv,
+    0: six
 }
 ```
 
@@ -198,12 +200,12 @@ training_data = {
 
 ```{python}
 training_data = {
-    one: 0,
-    two: 0,
-    thr: 1,
-    fou: 0,
-    fiv: 0,
-    six: 0
+    0: one,
+    0: two,
+    1: thr,
+    0: fou,
+    0: fiv,
+    0: six
 }
 ```
 
@@ -211,12 +213,12 @@ training_data = {
 
 ```{python}
 training_data = {
-    one: 0,
-    two: 0,
-    thr: 0,
-    fou: 1,
-    fiv: 1,
-    six: 1
+    0: one,
+    0: two,
+    0: thr,
+    1: fou,
+    1: fiv,
+    1: six
 }
 ```
 
@@ -242,18 +244,7 @@ for key in training_data:
 <details>
 <summary>Advanced Students</summary>
 
-Update your `Layer` class to train on the inverted dictionary:
-
-```{python}
-training_data = {
-    [1, 0, 0, 0, 0, 0]: one,
-    [0, 1, 0, 0, 0, 0]: two,
-    [0, 0, 1, 0, 0, 0]: thr,
-    [0, 0, 0, 1, 0, 0]: fou,
-    [0, 0, 0, 0, 1, 0]: fiv,
-    [0, 0, 0, 0, 0, 1]: six
-}
-```
+Update your `Layer` class to train on the  dictionary:
 
 - Students still seeking additional challenges should implement all function bodies in a single line, likely using list comprehensions.
 

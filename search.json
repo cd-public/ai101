@@ -13514,5 +13514,65 @@
     "title": "AI 101",
     "section": "",
     "text": "AI 101 “Understanding AI”\n\nA non-technical survey semester over:\n\nSome trends in AI use\nSome historical conversations around AI\nSome technical background in implementing minimal AI\n\nTaught this year via Google Colab.\n\nIt’s fast (it’s not)\nIt’s free (to us for now)\nIt’s fun (trust me)\n\n\n\nTTh 0940-1110\n\n\nProf. Calvin\n\n\nSyllabus\n\nSyllabus link\n\n\n\n\nCalendar\n\n\n\nWeek\nDate (T)\nLecture (T)\nLab (Th)\n\n\n\n\n0x0\n08/25\nAda & Alan\nTuring’s Test\n\n\n0x1\n09/01\nPython\nColab\n\n\n0x2\n09/08\n(Un)supervision\nDichotomy\n\n\n0x3\n09/15\nRegression\n\\(n\\)D\n\n\n0x4\n09/22\nClassification\nDecision tree\n\n\n0x5\n09/29\nProf. Brown\nThinking Game\n\n\n0x6\n10/06\nGraphs\nSudoku\n\n\n0x7\n10/13\nNeural\nWeights\n\n\n0x8\n10/20\nPerceptron\nMulti-class\n\n\n0x9\n10/27\nMatrix\nObject\n\n\n0bX\n11/03\nNone\nNightmare\n\n\n0xA\n11/10\nLearning\nTraining\n\n\n0xB\n11/17\nXOR\nCompression\n\n\n0xC\n11/24\nMarkov\nNone\n\n\n0xD\n12/01\nCloud\nPerspectives\n\n\n\n*The final is described here and is due Monday, December 7th at 11:00 a.m..\n\n\nRecordings\nI have an embed below that I’m a little suspicious of… here is a URL link to the class playlist, or you can just click on the box below.\n\nhttps://www.youtube.com/playlist?list=PLJqm_U0Hk230"
+  },
+  {
+    "objectID": "91_train.html",
+    "href": "91_train.html",
+    "title": "Training",
+    "section": "",
+    "text": "In our lecture, we introduced learning using a .learn method of a neuron.\n\nWe started with a neuron that randomly perceived things using random edge weights.\nWe created a (relatively sophisticated) method to update edge weights.\n\nIt took two things:\n\nSome perceived vector of values, corresponding to dots on a die, and…\nWhether the neuron should or shouldn’t “activate” in response to that perception.\n\nHere is what we had at the end of class:\n\nimport numpy as np\n\nclass Neuron:\n\n    def __init__(self, weights=np.random.rand(9), bias=1):\n        self.weights = np.array(weights)\n        self.bias = bias\n\n    def __repr__(self):\n        return \"Neuron\" + str(self.weights)\n\n    def __mul__(self, other):\n        return int(np.sum(self.weights * other) &gt;= self.bias)\n        \n    def learn(self, perceived, answer):\n        if answer == self * perceived:\n            temp = perceived + .5\n            temp /= sum(perceived)\n            self.weights *= temp\n        else:\n            delta = self.bias - np.sum(self.weights * perceived)\n            each = delta / sum(perceived)\n            update = each * np.array(perceived)\n            self.weights = self.weights + update \n\n\n.learn checks if a the neuron classifies some perception correctly.\n\nIf so, it does two things:\n\nIncreases weights on dots that were present\nDecreases weights that weren’t present\n\nOtherwise, it does one thing.\n\nCalculates how far off from the bias it was.\n\nRegardless of whether it was too high or too low!\n\nDivides this “miss” amount among all active weights.\n\nThis either increases or decreases - whichever should happen.\n\n\n\nThis is probably not the simplest way to write this but it was the first one I got working!",
+    "crumbs": [
+      "Training"
+    ]
+  },
+  {
+    "objectID": "91_train.html#setting-the-stage",
+    "href": "91_train.html#setting-the-stage",
+    "title": "Training",
+    "section": "",
+    "text": "In our lecture, we introduced learning using a .learn method of a neuron.\n\nWe started with a neuron that randomly perceived things using random edge weights.\nWe created a (relatively sophisticated) method to update edge weights.\n\nIt took two things:\n\nSome perceived vector of values, corresponding to dots on a die, and…\nWhether the neuron should or shouldn’t “activate” in response to that perception.\n\nHere is what we had at the end of class:\n\nimport numpy as np\n\nclass Neuron:\n\n    def __init__(self, weights=np.random.rand(9), bias=1):\n        self.weights = np.array(weights)\n        self.bias = bias\n\n    def __repr__(self):\n        return \"Neuron\" + str(self.weights)\n\n    def __mul__(self, other):\n        return int(np.sum(self.weights * other) &gt;= self.bias)\n        \n    def learn(self, perceived, answer):\n        if answer == self * perceived:\n            temp = perceived + .5\n            temp /= sum(perceived)\n            self.weights *= temp\n        else:\n            delta = self.bias - np.sum(self.weights * perceived)\n            each = delta / sum(perceived)\n            update = each * np.array(perceived)\n            self.weights = self.weights + update \n\n\n.learn checks if a the neuron classifies some perception correctly.\n\nIf so, it does two things:\n\nIncreases weights on dots that were present\nDecreases weights that weren’t present\n\nOtherwise, it does one thing.\n\nCalculates how far off from the bias it was.\n\nRegardless of whether it was too high or too low!\n\nDivides this “miss” amount among all active weights.\n\nThis either increases or decreases - whichever should happen.\n\n\n\nThis is probably not the simplest way to write this but it was the first one I got working!",
+    "crumbs": [
+      "Training"
+    ]
+  },
+  {
+    "objectID": "91_train.html#training",
+    "href": "91_train.html#training",
+    "title": "Training",
+    "section": "Training",
+    "text": "Training\n\nBy convention, we use the term “training” to describe the process of supervised learning for classification.\nRecall our lectures on these topics:\n\nSupervised Learning\nClassification\n\nI couldn’t find a page for general “training” but there is one for large language models specifically\n\nToday, we will update our Neuron to include a .train method, which will take some training data and (attempt!) to find edge weights that correctly classify that data.",
+    "crumbs": [
+      "Training"
+    ]
+  },
+  {
+    "objectID": "91_train.html#in-class",
+    "href": "91_train.html#in-class",
+    "title": "Training",
+    "section": "In class",
+    "text": "In class\n\nIn class, we created a Neuron, I called mine learner:\n\n\nlearner = Neuron()\n\n\nThen I wrote the following code:\n\nfor _ in range(1000):\n    r = int(np.random.rand() * 6)\n    learner.learn(dice[r], goal[r])\n\nThis relied on some earlier work however!\nWe had to set what the goal was.\n\nIn lecture, to recognize ⚄, the 5 die.\n\n\n\ngoal = [0, 0, 0, 0, 1, 0]\n\n\nAnd we had also previously defined all the dice:\n\n\nimport numpy as np\none = [0,0,0,0,1,0,0,0,0]\ntwo = [0,0,1,0,0,0,1,0,0]\nthr = [0,0,1,0,1,0,1,0,0]\nfou = [1,0,1,0,0,0,1,0,1]\nfiv = [1,0,1,0,1,0,1,0,1]\nsix = [1,0,1,1,0,1,1,0,1]\ndice = np.array([one, two, thr, fou, fiv, six])\n\n\nNow it works!\n\n{.python filename=\"Now it works!} for _ in range(1000):     r = int(np.random.rand() * 6)     learner.learn(dice[r], goal[r])\n\nWhat does it do?\n\n1000 times in a row it…\n\nPicks a random number, between \\(0\\) and \\(1\\).\nMultiples it by 6, getting a random number between \\(0\\) and \\(6\\).\nTurns that number into an integer, a whole number.\n\nSo one of \\(0, 1, 2, 3, 4, 5\\)\n\nThen it takes the:\n\nDie of that number, and…\nThe desired classification (either “is five” or “isn’t five”)\nAnd has the neuron “learn” to classify correctly.\n\n\n\nThis is tedious!",
+    "crumbs": [
+      "Training"
+    ]
+  },
+  {
+    "objectID": "91_train.html#a-better-way",
+    "href": "91_train.html#a-better-way",
+    "title": "Training",
+    "section": "A Better Way",
+    "text": "A Better Way\n\nWe now introduce the Colab/Python dictionary.\nDictionaries perform “key-value storage”.\n\nPreviously we have used lists, which can identify something by its index, or position in the list.\nThis is like the address on a street.\nNow we use “key-value storage”\n\n\n\nKey-Value Storage\n\nWe imagine the notion of a print or website dictionary, which stores the following information:\n\nWords, and\nDefinitions.\n\nThe more general form of this recognizes each as keys and values\n\nWords are like keys, a brief symbol used to represent some value or collection of values, like the multiple words that form a definition\nDefinitions are like values, they are what a word means, or something that we could substitute for a word to get the same meaning.\n\n\nbest: most good\nhot: very warm\nlong: not short\n\nIf we had a sentence, like “A hot meal is best enjoyed after a long journey.”, we could:\n\nSubstitute “hot” for “very warm”\nSubstitute “best” for “most good”\nSubstitute “long” for “not short”\nAnd still understand the sentence: “A very warm meal is most good enjoyed after a not short journey.”\nYou can also go the other way, of course.\n\n\n\n\nIn Colab/Python\n\nDictionaries are a big part of programming and machine learning, and we have good support for them, but have to use some specific punctuation.\nThey are:\n\nEnclosed in curly brackets: {}\nWe separate keys from values with a colon :\nWe seperate key-value pairs from one another with commas ,\n\nLike this:\n\n\ndictionary = {\n    \"best\": \"most good\",\n    \"hot\": \"very warm\",\n    \"long\": \"not short\"\n}\n\n\nI put that on multiple lines just to write it out, but the different lines are not important.\nYou can then use a key for a dictionary they way we use an index for a list:\n\n\nprint(dictionary[\"best\"])\n\nmost good\n\n\n\n\nTraining Data\n\nTraining data is also a dictionary!\n\nKeys are perceptions.\nValues are binary classifications.\n\nIt could look like this:\n\n\ntraining_data = {\n    0: one,\n    0: two,\n    0: thr,\n    0: fou,\n    1: fiv,\n    0: six\n}\n\n\nOr if you are training a three-recognizer:\n\n\ntraining_data = {\n    0: one,\n    0: two,\n    1: thr,\n    0: fou,\n    0: fiv,\n    0: six\n}\n\n\nOr anything else, like a “bigger than average” (I don’t know!) recognizer:\n\n\ntraining_data = {\n    0: one,\n    0: two,\n    0: thr,\n    1: fou,\n    1: fiv,\n    1: six\n}\n\n\n\nLooping over dictionaries\n\nIt is common to want to consider both the keys and values in a dictionary.\nYou can “loop” over key-value pairs like so:\n\n\nfor key in training_data:\n    print(\"The key is\", key, \"and the value is\", training_data[key])\n\nThe key is 0 and the value is [0, 0, 1, 0, 1, 0, 1, 0, 0]\nThe key is 1 and the value is [1, 0, 1, 1, 0, 1, 1, 0, 1]",
+    "crumbs": [
+      "Training"
+    ]
+  },
+  {
+    "objectID": "91_train.html#your-task",
+    "href": "91_train.html#your-task",
+    "title": "Training",
+    "section": "Your Task",
+    "text": "Your Task\n\nUpdate the Neuron class with a .train method.\nThe .train method should:\n\nAccept a training data dictionary.\nApply .learn some number of times.\n\nPerhaps until the results are good?\n\nWhat does good mean?\n\n\n\n\n\n\nAdvanced Students\n\nUpdate your Layer class to train on the dictionary:\n\nStudents still seeking additional challenges should implement all function bodies in a single line, likely using list comprehensions.\n\n\n\nAdd a text cell with 2-3 sentences (approx. 100 words) answering:\n\nHow important is it to have the correct classifications when beginning supervised learning?\nHow are these classifications decided?\nHow costly is it to train a neuron? What about many neurons?\nConsider Neuron, .weights, .learn, and .train. Which, if any, is intelligent?\nHow would you explain your answer to the previous question to someone who has not taken this class?",
+    "crumbs": [
+      "Training"
+    ]
   }
 ]
